@@ -1,0 +1,111 @@
+import { useEffect, useState } from "react";
+import { motion } from "motion/react";
+import { TRIP_START } from "../data/itinerary";
+
+const ROUTE = ["Tokyo", "Hakone", "Kyoto", "Nara", "Osaka", "Hiroshima", "Tokyo"];
+
+function useCountdown(target: string) {
+  const [now, setNow] = useState(() => Date.now());
+  useEffect(() => {
+    const t = setInterval(() => setNow(Date.now()), 1000);
+    return () => clearInterval(t);
+  }, []);
+  const diff = Math.max(0, new Date(target).getTime() - now);
+  return {
+    days: Math.floor(diff / 86_400_000),
+    hours: Math.floor(diff / 3_600_000) % 24,
+    mins: Math.floor(diff / 60_000) % 60,
+    secs: Math.floor(diff / 1_000) % 60,
+  };
+}
+
+export function Hero() {
+  const { days, hours, mins, secs } = useCountdown(TRIP_START);
+  const units = [
+    { v: days, l: "days" },
+    { v: hours, l: "hrs" },
+    { v: mins, l: "min" },
+    { v: secs, l: "sec" },
+  ];
+
+  return (
+    <section id="top" className="relative min-h-screen flex flex-col items-center justify-center text-center px-4 pt-24 pb-16 overflow-hidden">
+      <div
+        aria-hidden
+        className="absolute inset-0 -z-10 opacity-[0.06] font-[Noto_Serif_JP] text-[22rem] leading-none select-none flex items-center justify-center"
+      >
+        日本
+      </div>
+
+      <motion.p
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.8 }}
+        className="text-rose-400 tracking-[0.4em] uppercase text-sm font-semibold mb-4"
+      >
+        December 14 – 29, 2026 · The Crew of Eight
+      </motion.p>
+
+      <motion.h1
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, delay: 0.1 }}
+        className="text-5xl sm:text-7xl md:text-8xl font-black tracking-tighter"
+      >
+        JAPAN,
+        <br />
+        <span className="bg-gradient-to-r from-rose-400 via-fuchsia-400 to-indigo-400 bg-clip-text text-transparent">
+          ALL OF IT.
+        </span>
+      </motion.h1>
+
+      <motion.p
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, delay: 0.25 }}
+        className="mt-6 max-w-2xl text-slate-400 text-lg"
+      >
+        16 days. 6 cities. Winter illuminations, bullet trains, onsen nights, and
+        approximately one million bowls of ramen. This is the master plan.
+      </motion.p>
+
+      <motion.div
+        initial={{ opacity: 0, scale: 0.95 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.8, delay: 0.4 }}
+        className="mt-10 flex gap-3 sm:gap-5"
+      >
+        {units.map((u) => (
+          <div key={u.l} className="glass rounded-2xl px-4 sm:px-7 py-4 min-w-[5rem] sm:min-w-[6.5rem]">
+            <div className="text-3xl sm:text-5xl font-extrabold tabular-nums">{u.v}</div>
+            <div className="text-[0.65rem] sm:text-xs uppercase tracking-widest text-slate-400 mt-1">{u.l}</div>
+          </div>
+        ))}
+      </motion.div>
+
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1, delay: 0.6 }}
+        className="mt-12 flex flex-wrap items-center justify-center gap-2 text-sm font-semibold"
+      >
+        {ROUTE.map((c, i) => (
+          <span key={i} className="flex items-center gap-2">
+            <span className="glass rounded-full px-4 py-1.5">{c}</span>
+            {i < ROUTE.length - 1 && <span className="text-rose-400">→</span>}
+          </span>
+        ))}
+      </motion.div>
+
+      <motion.a
+        href="#itinerary"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1 }}
+        className="mt-12 inline-flex items-center gap-2 rounded-full bg-rose-500 hover:bg-rose-400 transition-colors px-8 py-3.5 font-bold text-white shadow-lg shadow-rose-500/30"
+      >
+        See the plan ↓
+      </motion.a>
+    </section>
+  );
+}
