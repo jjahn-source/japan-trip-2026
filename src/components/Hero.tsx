@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { motion } from "motion/react";
-import { TRIP_START } from "../data/itinerary";
+import { TRIP_START, CREW } from "../data/itinerary";
 
 const ROUTE = ["Tokyo", "Hakone", "Kyoto", "Nara", "Osaka", "Hiroshima", "Tokyo"];
 
@@ -43,7 +43,7 @@ export function Hero() {
         transition={{ duration: 0.8 }}
         className="text-rose-400 tracking-[0.4em] uppercase text-sm font-semibold mb-4"
       >
-        December 14 – 29, 2026 · The Crew of Eight
+        Dec 14 – 29, 2026 · RDU → HND · The Crew of Eight
       </motion.p>
 
       <motion.h1
@@ -65,9 +65,26 @@ export function Hero() {
         transition={{ duration: 0.8, delay: 0.25 }}
         className="mt-6 max-w-2xl text-slate-400 text-lg"
       >
-        16 days. 6 cities. Winter illuminations, bullet trains, onsen nights, and
-        approximately one million bowls of ramen. This is the master plan.
+        14 nights on the ground. 6 cities. Winter illuminations, bullet trains, onsen
+        nights, nomihodai, and approximately one million bowls of ramen. This is the
+        master plan.
       </motion.p>
+
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.8, delay: 0.35 }}
+        className="mt-6 flex flex-wrap items-center justify-center gap-2"
+      >
+        {CREW.map((name) => (
+          <span
+            key={name}
+            className="glass rounded-full px-3.5 py-1 text-xs font-bold text-slate-200"
+          >
+            {name}
+          </span>
+        ))}
+      </motion.div>
 
       <motion.div
         initial={{ opacity: 0, scale: 0.95 }}
@@ -82,6 +99,14 @@ export function Hero() {
           </div>
         ))}
       </motion.div>
+      <motion.p
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 0.5 }}
+        className="mt-3 text-xs uppercase tracking-[0.25em] text-slate-500 font-semibold"
+      >
+        until DL 2538 departs RDU
+      </motion.p>
 
       <motion.div
         initial={{ opacity: 0 }}

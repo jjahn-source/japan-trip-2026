@@ -22,7 +22,7 @@ export function Budget() {
   );
 
   const perPerson = rows.reduce((s, r) => s + r.value, 0);
-  const max = Math.max(...rows.map((r) => r.value));
+  const max = Math.max(1, ...rows.map((r) => r.value));
 
   return (
     <section id="budget" className="section-pad py-24">

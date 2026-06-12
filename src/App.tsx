@@ -1,5 +1,6 @@
 import { Nav } from "./components/Nav";
 import { Hero } from "./components/Hero";
+import { FlightCard } from "./components/FlightCard";
 import { Itinerary } from "./components/Itinerary";
 import { Bookings } from "./components/Bookings";
 import { Budget } from "./components/Budget";
@@ -20,6 +21,7 @@ export default function App() {
         {view === "plan" && (
           <>
             <Hero />
+            <FlightCard />
             <Itinerary />
             <Bookings />
             <Budget />
