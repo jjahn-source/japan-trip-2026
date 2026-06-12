@@ -8,6 +8,9 @@ import { Packing } from "./components/Packing";
 import { Explore } from "./components/Explore";
 import { EatView } from "./components/EatView";
 import { GuideView } from "./components/GuideView";
+import { StayView } from "./components/StayView";
+import { NightView } from "./components/NightView";
+import { PlayView } from "./components/PlayView";
 import { Footer } from "./components/Footer";
 import { useHashView } from "./hooks/useHashView";
 
@@ -28,8 +31,11 @@ export default function App() {
             <Packing />
           </>
         )}
+        {view === "stay" && <StayView />}
         {view === "explore" && <Explore />}
         {view === "eat" && <EatView />}
+        {view === "night" && <NightView />}
+        {view === "play" && <PlayView />}
         {view === "guide" && <GuideView />}
       </main>
       <Footer />

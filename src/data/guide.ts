@@ -278,4 +278,96 @@ export const GUIDE: GuideSection[] = [
       },
     ],
   },
+  {
+    id: "squad",
+    title: "8-Man Operations",
+    emoji: "🪖",
+    intro: "Eight people is a platoon, not a friend group. Platoons need doctrine. This is ours.",
+    articles: [
+      {
+        title: "The squad system",
+        emoji: "🎯",
+        body: [
+          "Default formation: two squads of 4 (or 2-3 man cells at night). Full 8-man formation reserved for: meals with reservations, train boardings, observation decks, and group photos.",
+          "Every morning, set TWO things: the day's regroup point (a pinned, named, unmissable landmark — 'the Hachiko statue', never 'the station') and the regroup time. Anyone can free-roam knowing the rendezvous.",
+          "Live location sharing in the group chat: ON for all 16 days, no debates. It has ended more arguments than it has started.",
+          "Each squad carries: one power bank, one credit card that works, ¥10k cash buffer, and the day's hotel address in Japanese (screenshot from the Airbnb listing).",
+          "Train boarding rule: same car, count heads at the door, count again at transfer. The Yamanote line has eaten stragglers before — it departs every 2 minutes, so the rule for a missed train is 'next one, same car, don't move.'",
+        ],
+      },
+      {
+        title: "Money ops for a party of 8",
+        emoji: "🧾",
+        body: [
+          "Splitwise group created BEFORE the flight, named, everyone joined. Currency: JPY. Settle in dollars after landing back.",
+          "Rotate a daily 'wallet': one guy fronts shared costs that day (lockers, taxis, shared plates, karaoke room) and logs once at night. Eight separate transactions at a register with a queue is an international incident.",
+          "Izakaya bills: 'betsu-betsu' (separate) works at chains, fails at tiny places — default to one-pays-logs-all.",
+          "ATM strategy: 7-Eleven ATMs (24/7, English, take US cards) in ¥30k pulls. Notify your bank of travel or enjoy the freeze. Wise/Schwab cards skip foreign transaction fees.",
+          "The vending machine fund: everyone throws ¥1,000 of coins into a communal pouch on day one. Hot drinks for the squad, dispensed by whoever's closest. Morale infrastructure.",
+        ],
+      },
+      {
+        title: "Energy management (the real boss fight)",
+        emoji: "🔋",
+        body: [
+          "The itinerary is a buffet, not a contract. Hitting 80% of it in good spirits beats 100% of it in a death march. The day captain (rotating) holds cut authority.",
+          "Jet lag doctrine: Day 1-2, NO NAPS after landing — caffeine, sunlight, walk, sleep at 22:00 local. You'll wake at 5am anyway; that's what dawn temple visits are FOR.",
+          "Schedule one 'slow morning' per city (already built in). The guy who needs to sleep in, sleeps in — solo konbini breakfast and a regroup pin beats 8 grumpy men at a shrine.",
+          "Walking load: 18-25k steps/day. Feet get one mandatory onsen/sento soak per city. Blister kit (konbini sells them) lives in each squad bag.",
+          "The 21:00 audible window (see Play tab rituals): every night, the group votes to continue, pivot, or stand down. No shame in a 22:30 night when tomorrow has a 6:45 alarm for Fushimi Inari.",
+        ],
+      },
+      {
+        title: "Airbnb house protocol",
+        emoji: "🏠",
+        body: [
+          "Genkan law: shoes OFF at the entry step, lined up facing the door. House slippers if provided; separate toilet slippers stay IN the toilet room (wearing them out is the classic gaijin speedrun).",
+          "Garbage is sorted religiously: burnable / plastics / cans-bottles, per the host's chart. Hosts get fined for guest mistakes — and review us accordingly.",
+          "Quiet hours 22:00–07:00 in residential buildings: stairwell voices, door closing, late-night entries. The bar district is where the noise lives; the house is where it dies.",
+          "Bath culture applies at home too: the tub is for soaking, washing happens before entering, and one tub of hot water serves multiple soakers — that's the design, not a budget cut.",
+          "Day-zero house meeting: bed assignments by random draw (re-draw each city), shower order posted, AC/heater instructions decoded (kanji cheat: 暖房 = heat, 冷房 = cool, 自動 = auto).",
+        ],
+      },
+    ],
+  },
+  {
+    id: "stations",
+    title: "Station Mastery",
+    emoji: "🚉",
+    intro: "Shinjuku Station alone has 200+ exits and 3.6M daily passengers. These are the cheat codes for the labyrinth class.",
+    articles: [
+      {
+        title: "Exit science",
+        emoji: "🧭",
+        body: [
+          "Google Maps tells you the EXIT NUMBER for your destination — read it before surfacing. Surfacing from the wrong exit of a mega-station can put you a 15-minute walk from a place '2 minutes from the station.'",
+          "Yellow signs = exits and transfers; follow exit number ranges (E1–E10 style) like highway signage. When lost underground, find any exit sign and surface — GPS works above ground, not below.",
+          "Mega-station meeting points that actually work: Shinjuku EAST exit ground level, Shibuya Hachiko statue, Tokyo Station Marunouchi central gate, Kyoto Station central gate under the big screen, Namba's giant Glico man (outside).",
+          "Station melodies: every JR platform has its own departure jingle (Shibuya's is famous). The doors close when the melody ENDS — do not start sprinting when it starts; finish strong or wait 3 minutes.",
+        ],
+      },
+      {
+        title: "Rush hour, women-only cars & train etiquette",
+        emoji: "🚃",
+        body: [
+          "Rush windows: 07:30–09:00 and 17:30–19:00 weekdays. Eight tourists with daypacks in a 200%-capacity Yamanote car is a war crime against everyone including us — schedule around it (our itinerary already does).",
+          "Pink-marked cars are women-only during rush hours (clearly marked on platform and car). Check before boarding in the morning.",
+          "On board: phones silent ('manner mode'), no calls, talk at murmur volume, backpacks worn on the front in crowds, don't sit in priority seats unless empty-and-no-one-needs-them.",
+          "Escalators: stand LEFT in Tokyo, stand RIGHT in Osaka (Kyoto is contested borderland — follow locals). Walking side is for walkers; blocking it as a group of 8 is how stereotypes are born.",
+          "Eating on local trains: no. Shinkansen and limited expresses: yes, encouraged, ekiben culture exists for this exact joy.",
+        ],
+      },
+      {
+        title: "Lockers, lost & found, and station services",
+        emoji: "🛅",
+        body: [
+          "Coin lockers: small ¥400 / medium ¥500 / large ¥700–800, IC-card or coin operated. Large lockers fit a carry-on. At mega-stations, lockers near secondary exits are emptier than the main-gate banks.",
+          "Left something on a train? Japan's lost & found actually works — note the line, car, and time, go to the station office same-day. Items migrate to central lost & found offices after a day. Phones come back. Wallets come back WITH the cash.",
+          "Station staff ('eki-in') at every manned gate solve: wrong tickets, IC card errors, gate rejections, directions. Point, show your phone, look confused — they're professionals at this exact interaction.",
+          "Green Window (Midori-no-madoguchi) offices and reservation machines handle shinkansen tickets; machines have English modes and take cards. The machine queue moves 3× faster than the window queue.",
+          "Station food halls (ekinaka) are legitimately good — Tokyo Station's GRANSTA could be a destination itself. Never board a long train hungry; never buy the first bento you see (lap the hall once).",
+        ],
+      },
+    ],
+  },
 ];

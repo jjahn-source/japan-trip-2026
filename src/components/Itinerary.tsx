@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { ChevronDown, Train, Ticket } from "lucide-react";
+import { ChevronDown, Train, Ticket, Dices } from "lucide-react";
 import { DAYS, type Day } from "../data/itinerary";
 import { SectionHeading } from "./SectionHeading";
 
@@ -86,6 +86,21 @@ function DayCard({ day, index }: { day: Day; index: number }) {
                   </li>
                 ))}
               </ul>
+              {day.alts && day.alts.length > 0 && (
+                <div className="mt-5 rounded-xl bg-fuchsia-500/10 border border-fuchsia-500/20 p-4">
+                  <p className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-fuchsia-300 mb-2">
+                    <Dices size={13} /> Audibles — rain plans, split-squad quests & overtime missions
+                  </p>
+                  <ul className="space-y-1.5">
+                    {day.alts.map((a, i) => (
+                      <li key={i} className="text-sm text-slate-300 leading-relaxed flex gap-2">
+                        <span className="text-fuchsia-400 shrink-0">▸</span>
+                        <span>{a}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
             </div>
           </motion.div>
         )}

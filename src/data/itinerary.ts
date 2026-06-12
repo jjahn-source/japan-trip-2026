@@ -15,6 +15,7 @@ export type Day = {
   theme: string; // tailwind gradient classes for the card accent
   transport?: string;
   activities: Activity[];
+  alts?: string[]; // audibles: rain plans, split-squad options, overtime missions
 };
 
 export const DAYS: Day[] = [
@@ -35,6 +36,13 @@ export const DAYS: Day[] = [
       { time: "In-flight", title: "Hydrate, skip the second free wine, walk every 2 hours", note: "Compression socks aren't a joke on 14-hour flights. Download the trip app + offline maps before takeoff" },
       { time: "In-flight", title: "Fill out Visit Japan Web if you haven't", note: "Immigration + customs QR codes. Screenshot them — do NOT rely on plane WiFi" },
     ],
+    alts: [
+      "Pre-download doctrine: Shōgun, Tokyo Vice, Jiro Dreams of Sushi, Lost in Translation — the syllabus. Plus offline Google Maps for Tokyo/Kyoto/Osaka and a Japanese keyboard on your phone.",
+      "MSP layover side quest: buy a wide-mouth water bottle + electrolyte packets. Future-you at hour 11 of the A350 sends thanks.",
+      "Crew draft: run the fantasy-style draft of the trip's Standing Competitions (Play tab) over breakfast at MSP. Famichiki faction declarations are binding.",
+      "Phrase grind: 20 minutes on the plane with the Guide tab phrasebook = top 1% of tourists. 'Toriaezu nama de' alone repays the effort 50 times.",
+      "Sleep strategists: melatonin at 13:00 CT (≈ 4am JST) aligns the clock. Movie marathoners accept their Dec 16 fate.",
+    ],
   },
   {
     date: "2026-12-15",
@@ -54,6 +62,13 @@ export const DAYS: Day[] = [
       { time: "21:30", title: "Omoide Yokocho — yakitori + beers under the tracks", note: "Tiny smoky counters seat 4-6: split squads, order by pointing, compare damage after" },
       { time: "23:00", title: "Don Quijote Shinjuku (24h) — chaos shopping warm-up lap", note: "Buy nothing tonight. Just witness it. The theme song will live in your head until death" },
       { time: "00:00", title: "Konbini nightcap + hotel", note: "Strong Zero lemon sour: 9%, ¥160, tastes like nothing, hits like Dec 16's problem. One each, MAX — tomorrow is packed" },
+    ],
+    alts: [
+      "Free skyline flex: Tokyo Metropolitan Government Building's 45F observation deck (free, open till 22:00, 10-min walk) — the budget Shibuya Sky with a possible night Fuji silhouette.",
+      "Ichiran line too long? Shin-Okubo Koreatown is one stop north: Korean fried chicken + cheese dogs at midnight density.",
+      "Arcade overtime: Taito Station Kabukicho till midnight — first crane-game treaty test (¥1,000 cap, see Play tab) and the maimai initiation.",
+      "Jet-lag crash protocol: anyone hitting the wall hands their konbini order to a squadmate and sleeps without shame. Tomorrow is the real day one.",
+      "Insomnia counter-protocol: wide awake at 4am? That's not a bug — walk to the Gov't Building for sunrise or hit a 24h gyudon counter. First entries in the Ramen Power Rankings have been logged at stranger hours.",
     ],
   },
   {
@@ -77,6 +92,14 @@ export const DAYS: Day[] = [
       { time: "22:00", title: "Center Gai arcades + tachinomi standing bar", note: "Standing bars = ¥300 drinks, no seats, maximum talking. The anti-club" },
       { time: "23:30", title: "Optional: first karaoke skirmish (1h 'lightning round')", note: "Big Echo nomihodai add-on exists. This is a trap. A glorious trap" },
     ],
+    alts: [
+      "Rain plan: Miyashita Park's covered rooftop strip + Shibuya Parco (Nintendo/Pokémon/Capcom floor) + Tower Records' nine floors absorb a full wet afternoon indoors.",
+      "Sneakerheads/vintage squad: peel off down Cat Street's resale shops (Kindal, RagTag) while the others queue crepes — regroup at Hachiko.",
+      "Purikura mandate (Play tab): all 8 in one booth at Center Gai before dinner. The output is legally the trip's album cover.",
+      "Nonbei Yokocho nightcap: Shibuya's 40-bar micro-alley under the tracks — the calmer counter-programming to Center Gai's chaos.",
+      "Overtime mission: Shibuya Sky sold out? The free Shibuya Scramble view from Mag's Park rooftop or Shibuya Hikarie 11F Sky Lobby cover the photo.",
+      "Energy audible: if day one cooked the crew, swap Blue Cave for an early nomihodai seating and a 23:00 lights-out. Tomorrow has temples AND Akihabara.",
+    ],
   },
   {
     date: "2026-12-17",
@@ -97,6 +120,14 @@ export const DAYS: Day[] = [
       { time: "20:00", title: "Monjayaki dinner on Tsukishima Monja Street", note: "Cook-it-yourself gooey okonomiyaki cousin + pitchers. Tables of 4, two tables, swap halfway" },
       { time: "22:30", title: "KARAOKE — the real one. 2h room for 8, nomihodai on", note: "Big Echo/Karaoke Kan. Drinks ordered by phone arrive at the door. Bohemian Rhapsody before midnight is the rule" },
     ],
+    alts: [
+      "Goshuin start line: buy stamp books (~¥1,500) at Senso-ji's office — the trip-long collectible quest begins at temple #1 (see Guide tab).",
+      "Akiba deep-divers: Super Potato → Mandarake Complex → gachapon halls is a 3-hour vortex; the non-nerd squad does Kanda Myojin shrine (anime ema plaques) + 2k Coffee and reconvenes.",
+      "Maid café experiment: one squad, one hour, ¥2,000-ish each, zero photos of staff without paying. Anthropology, not romance. Report findings at dinner.",
+      "Rain plan: Tokyo National Museum at Ueno (samurai swords + armor, 2h) slots perfectly between Asakusa and Akihabara on the same line.",
+      "Retro bar overtime: Kamiya Bar (Asakusa, est. 1880) pours Denki Bran 'electric brandy' — Japan's oldest western bar, ¥350 a glass, pre-Skytree.",
+      "Skytree audible: lines insane? Asahi Beer Hall's 22F Sky Room next door has the same river view for the price of a beer.",
+    ],
   },
   {
     date: "2026-12-18",
@@ -115,7 +146,15 @@ export const DAYS: Day[] = [
       { time: "18:00", title: "Tokyo Station Ramen Street — 8 famous shops underground", note: "Split up, order via machine, reconvene, rank bowls. No bookings, fast turnover" },
       { time: "19:30", title: "GINZA LION — Japan's oldest beer hall (1934)", note: "Cathedral of beer. Liter mugs, mosaic walls, zero pretension. The pregame", booking: false },
       { time: "21:30", title: "Golden Gai initiation — 200 tiny bars, 6 alleys", note: "Split into 2s/3s, find a bar with space + no cover sign, make friends with strangers, rotate hourly. Stories at breakfast" },
-      { time: "23:30", title: "Logistics 10 minutes: pack a Hakone overnight bag", note: "Big suitcases get shipped to Kyoto tomorrow morning (hotel desk arranges, ~¥2,500). Tomorrow is ryokan day — the best day" },
+      { time: "23:30", title: "Logistics 10 minutes: pack a Hakone overnight bag", note: "Big suitcases get shipped to Kyoto tomorrow morning (Yamato pickup from the Airbnb or any konbini counter, ~¥2,500). Tomorrow is mountain day — the best day" },
+    ],
+    alts: [
+      "teamLab sold out / second helping: teamLab Borderless at Azabudai Hills is the sister mega-exhibit — check both ticket calendars at the Sep 18 drop.",
+      "Hama-rikyu Gardens audible: Edo-era tidal garden 10 min from Tsukiji with a tea house on an island — the digestif walk after the sushi breakfast.",
+      "Ginza freebies: Ginza Six rooftop garden (free skyline), Itoya's basement farm (yes, a stationery store grows lettuce), and the Seiko clock tower chiming on the hour.",
+      "Art Aquarium audible: goldfish-in-chandeliers museum inside Ginza Mitsukoshi — 45 weird, beautiful minutes if the depachika splits the squads.",
+      "Golden Gai scouting report: tonight's recon decides Dec 28's encore bar. Drop a pin on any bar that adopts you — future-you needs it.",
+      "Quiet-finish option: Tokyo Station's brick facade + Marunouchi lights + the KITTE rooftop (free, faces the station) make a zero-yen cinematic nightcap for whoever skips Golden Gai.",
     ],
   },
   {
@@ -140,6 +179,14 @@ export const DAYS: Day[] = [
       { time: "20:30", title: "Yukata lounge degeneracy: table tennis tournament + sake", note: "Ryokan ping-pong in robes is a 400-year-old tradition (citation needed). Bracket of 8. Loser buys vending machine round" },
       { time: "22:30", title: "ONSEN ROUND TWO — night soak under the stars", note: "Quiet hours though. Whisper-bathing only" },
     ],
+    alts: [
+      "AIRBNB-ERA REWRITE: villa instead of ryokan → 16:00 Hakone Yuryo day-onsen (¥1,800, free Yumoto shuttle; kashikiri private rooms for the tattooed), then supermarket nabe-hotpot night at the house. Same soak, better party, $170/guy cheaper.",
+      "Fog/wind plan (the ropeway closes in high wind): Hakone Open-Air Museum — Picasso pavilion, giant sculptures in mountain air, and a free onsen FOOT bath. Honestly top-3 in Hakone even in sun.",
+      "Old Tōkaidō side quest: Amazake-chaya tea house (est. 1690) serves the same fermented-rice amazake to travelers it served samurai. 20 min by bus from Moto-Hakone.",
+      "Evangelion pilgrimage: Hakone is anime-canon Tokyo-3 — the Yumoto station shop stocks the merch; Owakudani is literally a series location.",
+      "Lake Ashi overtime: the 17:00-ish last pirate ship at dusk runs emptier and colder — bring the konbini hot cans and earn the deck photo nobody else has.",
+      "Villa night games: the Play tab's faction wars hit different on tatami — bring the deck of cards, the day's gachapon pulls, and the sake from the Yumoto shop.",
+    ],
   },
   {
     date: "2026-12-20",
@@ -162,6 +209,14 @@ export const DAYS: Day[] = [
       { time: "21:00", title: "Kiyamachi Street — Kyoto's bar artery", note: "Parallel to Pontocho: student bars, sake stands, izakaya till late. Kyoto parties quieter than Tokyo, but it parties" },
       { time: "23:00", title: "Kamo River bank, konbini cans, December stars", note: "The riverbank-sitting tradition is sacred in Kyoto. Coats on, sours in hand, recap the trip so far" },
     ],
+    alts: [
+      "Nintendo Kyoto audible: the official store sits in Takashimaya Kawaramachi, 5 min from the Airbnb zone — scout it today, buy Dec 24 after the museum.",
+      "Rain plan: Kyoto International Manga Museum (50,000 manga, huge English shelf, ¥1,200) — a converted school where you just… sit and read. Dangerous time vortex.",
+      "Kamogawa delta stones: the turtle-shaped stepping stones at the river fork are a Kyoto rite — one slip recorded per group statistically.",
+      "Yasaka Pagoda night shot: THE Kyoto photo (pagoda over lantern-lit slope) is a 12-min walk from Yasaka Shrine and empties out after 19:00.",
+      "Samurai option: the Samurai & Ninja Museum near Nishiki does sword-handling demos in English — peak tourist, zero shame, surprisingly fun for 8.",
+      "Tatami-room reset: tonight is the trip's natural laundry night — the Airbnb washer runs while the river session happens. Logistics IS culture.",
+    ],
   },
   {
     date: "2026-12-21",
@@ -183,6 +238,14 @@ export const DAYS: Day[] = [
       { time: "21:00", title: "Gion night walk — lantern-lit and empty", note: "The crowds vanish; the atmosphere triples. Shirakawa canal at night is the best 200m in Kyoto" },
       { time: "22:00", title: "Sake bar deep cut: Yoramu or a Kiyamachi tachinomi", note: "Ask for 'osusume' (recommendation) and trust the pour. Junmai daiginjo will ruin grocery sake forever" },
     ],
+    alts: [
+      "Fushimi Inari overtime: past Yotsutsuji viewpoint the crowds drop to zero — summiting the full loop (+45 min) earns bragging rights and a deserted upper mountain.",
+      "Tōfuku-ji audible: one stop from Inari — Zen gardens + the Tsutenkyo bridge, December-empty after the autumn-leaf armies leave.",
+      "Knife quest: Aritsugu at Nishiki Market (est. 1560, older than most countries) hand-engraves your name in the blade while you wait. The heirloom souvenir.",
+      "Kimono-rental dare: Higashiyama in rented kimono + December air = commitment. Whoever does it gets automatic Trip Bingo credit and the group's eternal respect.",
+      "L'Escamoteur run: the steampunk cocktail bar (Night tab) opens at 20:00 — send two scouts at 19:40 to beat the queue between dinner and Gion walk.",
+      "Rain plan: swap Kodai-ji for Sanjusangendo — 1,001 golden Kannon statues in a 120m hall. Indoor, jaw-dropping, criminally underrated.",
+    ],
   },
   {
     date: "2026-12-22",
@@ -202,6 +265,14 @@ export const DAYS: Day[] = [
       { time: "18:00", title: "Kyoto Station: giant stair light show + Ramen Koji floor", note: "10F ramen street — 7 regional styles. The station itself is a sci-fi canyon" },
       { time: "20:00", title: "FUNAOKA ONSEN — Kyoto's legendary 1923 sento", note: "¥500 public bath: carved wood panels, electric bath (yes, mildly electrified — a rite of passage), outdoor tub. Tattoo-friendly!" },
       { time: "21:30", title: "Izakaya crawl downtown — Kiyamachi round two", note: "Tonight's theme: order one thing you can't identify per bar" },
+    ],
+    alts: [
+      "SNOW PROTOCOL: if Kyoto wakes up white, cancel the order of operations — Kinkaku-ji at opening (gold + snow = the rarest photo in Japan), then Fushimi Inari round two. This overrides everything.",
+      "Ryōan-ji audible: Japan's most famous rock garden is 20 min from Kinkaku-ji — 15 stones, and from any seat you can only ever see 14. Sit with that.",
+      "Kimono Forest: the pillar-lit fabric installation at Randen Arashiyama station glows after dusk — free, 10 minutes, on the way out anyway.",
+      "Saga-Toriimoto: the preserved street ABOVE the bamboo grove that 95% of visitors never reach — thatched roofs, zero crowds, 20 extra minutes.",
+      "%Arabica strategy: the famous riverside roastery's line peaks 10:00–15:00. Hit it at 08:40 between bamboo and Tenryu-ji or accept the wait as a meditation.",
+      "Funaoka electric bath: tonight's sento (¥500) has the mildly-electrified rite-of-passage tub. Trip Bingo hard-mode square. 30 seconds. Be brave.",
     ],
   },
   {
@@ -225,6 +296,14 @@ export const DAYS: Day[] = [
       { time: "19:30", title: "Standing sushi + wagyu skewers downtown", note: "Cheap, fast, lets the night breathe" },
       { time: "21:00", title: "FINAL KYOTO NIGHT: karaoke or Pontocho lap of honor", note: "Jankara karaoke (Kansai chain) is cheaper than Tokyo's. Nomihodai + 8 people + 'Linda Linda' = closure" },
     ],
+    alts: [
+      "Wakakusa-yama climb: the grass hill behind Nara Park (40 min up) overlooks the whole basin — deer at altitude, Nara at your feet, December air like glass.",
+      "Isuien Garden audible: the borrowed-scenery garden framing Todai-ji's gate — the quiet 30 minutes that balances the deer chaos.",
+      "Deer engagement rules of war: bow first, show empty hands when done (they understand), zipper every pocket, and never run — they interpret it as a game they will win.",
+      "Mochi timing: Nakatanidou's pounding shows run irregularly — if hammers are flying when you pass, STOP, film vertical, then eat one warm. Order of operations matters.",
+      "Rain plan: Nara National Museum's Buddhist sculpture halls are world-class and 5 minutes from the park's main gauntlet.",
+      "Back-in-Kyoto culture flex: Gion Corner's 19:00 show crams tea ceremony, koto, bunraku and a maiko dance into one hour — touristy and genuinely worth it for a first trip.",
+    ],
   },
   {
     date: "2026-12-24",
@@ -247,6 +326,14 @@ export const DAYS: Day[] = [
       { time: "22:30", title: "URA-NAMBA — the backstreet bar warren", note: "Standing bars, ¥99 gyoza joints, sake stands. This is where Osaka actually drinks. Christmas Eve among the locals" },
       { time: "00:00", title: "Konbini Christmas cake at midnight, hotel rooftop if we have one", note: "Strawberry shortcake + Merry Christmas in 8-part disharmony" },
     ],
+    alts: [
+      "Nintendo Museum lottery L: if all 8 of us lost the drawing, Uji still carries the morning — Byodo-in temple (the ¥10-coin building), Tsuen tea house (est. 1160), and matcha soba by the river.",
+      "Rikuro's jiggly cheesecake: the wobbling-fresh-from-the-oven rounds near Namba station, ¥965 a whole cake. Buy two for the house. They do not survive the night.",
+      "Pokémon Center Osaka DX audible: above Shinsaibashi — Kansai-exclusive merch the Tokyo stores don't carry, plus the official Pokémon Café (reservations brutal, lottery-adjacent).",
+      "Namba Yasaka Shrine: the giant lion-head stage that eats bad luck — 10 min from the Airbnb, photogenic beyond reason, somehow still uncrowded.",
+      "HEP FIVE audible: the red ferris wheel THROUGH the roof of an Umeda mall — if Don Quijote's wheel is down (it often is), this is the Christmas Eve sky ride.",
+      "Misono Building recon: the 2F bar-warren (Night tab) is 5 min from Hozenji — tonight's one-drink scout decides whether Dec 27 ends there. (It will.)",
+    ],
   },
   {
     date: "2026-12-25",
@@ -266,6 +353,14 @@ export const DAYS: Day[] = [
       { time: "18:30", title: "'Light Up the Night' Christmas spectacular", note: "Music, pyro, snow effects. Christmas Day showing = maximum effort. Stake out spots 30 min early" },
       { time: "21:00", title: "Train back to Namba, late-night Kinryu Ramen (24h, the dragon sign)", note: "Standing ramen at a neon dragon counter at 10pm on Christmas. Merry Christmas indeed" },
       { time: "22:30", title: "One quiet Ura-Namba nightcap for the road", note: "Tomorrow's shinkansen is at 7:30. The bar will understand" },
+    ],
+    alts: [
+      "Express Pass sold out: plan B is military — early-entry tickets, sprint to Nintendo World timed-entry kiosk in the app at gate-cross, single-rider lines for Mario Kart (cuts 60%+), Forbidden Journey at dinner hour.",
+      "Non-USJ faction: Osaka Aquarium Kaiyukan (whale sharks, one of Earth's great aquariums) + Tempozan ferris wheel + Santa Maria bay cruise = a full alternative Christmas, 20 min from the park.",
+      "Kinopio's Café fallback: no reservation? The Yoshi snack stand + popcorn buckets + Power-Up Band key challenges still deliver the Nintendo serotonin.",
+      "CityWalk overtime: the Takoyaki Museum (five legendary stands, one floor) solves the 'park food was mid' problem on the way to the station.",
+      "Christmas show seating: 'Light Up the Night' viewing spots fill 45 min early — split: half hold ground, half run the merch/churro sortie. Squad doctrine (Guide tab) exists for this.",
+      "Round1 Dotonbori overtime: Spo-Cha all-you-can-play (batting cages, hoops, arcade) till the small hours — Christmas night ends airborne off a trampoline or not at all.",
     ],
   },
   {
@@ -288,6 +383,14 @@ export const DAYS: Day[] = [
       { time: "17:45", title: "Ferry + train back, shinkansen home", note: "Sleepy bullet train, Osaka by ~20:30" },
       { time: "21:00", title: "Low-key Namba night: kushikatsu + beer, early-ish bed", note: "Daruma's late hours save us. NO double-dipping the sauce — they will announce it to the room" },
     ],
+    alts: [
+      "Tide-chart homework (tonight, 5 min): Itsukushima's torii floats at high tide and walks at low — check tomorrow's chart and sequence the island visit to catch BOTH states.",
+      "Mt. Misen audible: Miyajima's ropeway + summit hike (90 min round) overlooks the entire Seto Inland Sea — for the squad that can sacrifice the long oyster lunch.",
+      "Okonomiyaki schism: Okonomimura's 20 counters vs Nagata-ya by the Dome (the locals' pick). Split, eat, debate Hiroshima-style supremacy on the ferry.",
+      "Shukkei-en garden: 'shrunken-scenery' Edo garden 10 min from the station — the decompression walk if the museum hits heavy (it will, and that's the point).",
+      "Oyster maximalists: kakigoya-style grill-your-own oyster huts operate near the Miyajima pier in season — December is THE season. ¥2,000 of shells, zero regrets.",
+      "Energy honesty: this is the trip's longest day. Anyone redlining skips Miyajima, museums solo at their own pace, and meets us at Hiroshima station — the museum deserves unhurried hours.",
+    ],
   },
   {
     date: "2026-12-27",
@@ -307,6 +410,14 @@ export const DAYS: Day[] = [
       { time: "19:00", title: "Hikari Renaissance at Nakanoshima — riverside projection shows", note: "Runs through Dec 31. The light tunnel + Wall Tapestry on city hall" },
       { time: "20:00", title: "KANI DORAKU CRAB FEAST — under the giant moving crab", note: "Full crab kaiseki course for 8: sashimi, sukiyaki, grilled, tempura. December crab in its capital. The Kansai farewell", booking: true },
       { time: "22:30", title: "Final Dotonbori lap + Ura-Namba last call", note: "Goodbye to the Glico man. Pack tonight — bags ship to Tokyo or ride with us at 10:00" },
+    ],
+    alts: [
+      "Spa World audible: Shinsekai's gloriously kitsch mega-bath (Roman floor! Asian floor! water slides!) — the recovery move if 13 days of walking have collected their tax.",
+      "Abeno Harukas swap: Japan's tallest skyscraper (300m) vs Umeda Sky — Harukas wins on height, Umeda wins on the open-air escalator drama. Sunset only has room for one.",
+      "Osaka Museum of Housing & Living: walk a life-size Edo-era Osaka street in a rented yukata — the sleeper hit museum 15 min north, perfect rain plan.",
+      "Nakazakicho detour: the bombed-war-survivor lanes turned vintage-café village — Osaka's most un-Osaka neighborhood, for the squad that needs an espresso-paced hour.",
+      "551 Horai protocol: buy the butaman 4-pack at Namba station BEFORE the crab dinner, not after — they sell out nightly and the house breakfast depends on it.",
+      "Misono Building: tonight's the night (the Dec 24 scouts confirmed it). 40 micro-bars, 2F, last call flexible. The Kansai farewell after the crab farewell.",
     ],
   },
   {
@@ -328,6 +439,14 @@ export const DAYS: Day[] = [
       { time: "22:00", title: "Golden Gai — the encore", note: "Return to the bar that adopted us on the 18th. They'll remember. That's the magic" },
       { time: "00:00", title: "Last konbini run: egg sando for tomorrow, one farewell Strong Zero", note: "Pack FIRST. Drink second. Tomorrow's bags must close" },
     ],
+    alts: [
+      "Ghibli W: museum winners add Kichijoji — Harmonica Yokocho's micro-bars + Inokashira Park's swan boats next door turn the ticket into a full neighborhood day.",
+      "Ghibli L: the consolation bracket is strong — Nakano Broadway (30 Mandarake floors, 5 min from Shinjuku) or the Pokémon Center MEGA at Ikebukuro with the 3,000-machine gachapon hall upstairs.",
+      "Awards Ceremony agenda (Play tab): ballots due at sukiyaki. MVP, Strong Zero Memorial Trophy, Iron Stomach — campaigning over the raw-egg dip is encouraged.",
+      "Shinjuku Batting Center: in Kabukicho, ¥500 of swings against 110km/h pitching at midnight — the finale-night flex absolutely nobody plans and everybody remembers.",
+      "Tax-free paperwork check: receipts stapled into passports, purchases in carry-on or accessible — customs CAN ask to see items on exit. Tonight's 10-minute audit saves a Dec 29 panic.",
+      "The encore rule: return to the Dec 18 Golden Gai bar that adopted us. Walking in and being remembered in a city of 14 million is the whole point of everything.",
+    ],
   },
   {
     date: "2026-12-29",
@@ -346,6 +465,14 @@ export const DAYS: Day[] = [
       { time: "14:00", title: "HND check-in + security + tax-free customs check", note: "Keep tax-free receipts with passports. Last airport ramen or katsu sando airside" },
       { time: "17:15", title: "DL 120 wheels up — 16 days, 6 cities, ∞ stories", note: "Window seat at sunset over Tokyo Bay. Start the group photo album thread immediately" },
       { time: "23:53", title: "Land RDU the same calendar day (date-line magic)", note: "20h38m of travel, 14 hours gained back. See everyone at the next planning dinner — Kaishun's picking the 2027 destination" },
+    ],
+    alts: [
+      "HND is an attraction: Terminal 3's Edo-Koji street (pre-security) and the rooftop observation decks (planes + Tokyo Bay + Fuji on clear days) reward arriving with the 4-hour buffer.",
+      "Final boss gachapon: Haneda's departure halls have capsule-machine walls engineered to drain exactly the coins you have left. Let them.",
+      "Duty-free math: Japanese whisky (Hibiki/Yamazaki airport allocations when they exist) beats US prices badly — but it counts toward checked-vs-carry-on liquid law depending on connections. MSP re-check means buy AFTER security, carry sealed.",
+      "Suica zero-out: tap the leftover balance into a final konbini sweep — plane snacks, last egg sando, omiyage KitKat top-up.",
+      "The blind taste-off FINAL: Famichiki vs Karaage-kun, judged at gate, blindfolded, scores recorded in the group chat for history. The Chicken War ends where it began.",
+      "Group photo, same pose, photo #16: the streak completes at the gate. 2027 planning thread opens at cruising altitude.",
     ],
   },
 ];

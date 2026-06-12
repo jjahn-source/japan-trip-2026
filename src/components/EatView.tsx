@@ -1,7 +1,7 @@
 import { motion } from "motion/react";
 import { Food } from "./Food";
 import { SectionHeading } from "./SectionHeading";
-import { DISH_ENCYCLOPEDIA, CHAINS, KONBINI_HALL_OF_FAME } from "../data/eat";
+import { DISH_ENCYCLOPEDIA, CHAINS, KONBINI_HALL_OF_FAME, REGIONAL_EATS } from "../data/eat";
 
 export function EatView() {
   return (
@@ -35,6 +35,41 @@ export function EatView() {
               <p className="mt-2.5 text-xs text-amber-200/90 bg-amber-500/10 border border-amber-500/20 rounded-lg px-2.5 py-2">
                 🎯 {d.order}
               </p>
+            </motion.div>
+          ))}
+        </div>
+      </section>
+
+      <section className="section-pad pb-24">
+        <SectionHeading
+          kicker="City by City"
+          title="The Regional Must-Eat Ledger"
+          sub="What each stop on the route does better than anywhere else on Earth — with the exact stall, street, or counter."
+        />
+        <div className="space-y-8">
+          {REGIONAL_EATS.map((r, ri) => (
+            <motion.div
+              key={r.city}
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-30px" }}
+              transition={{ duration: 0.35, delay: (ri % 2) * 0.05 }}
+              className="glass rounded-2xl p-5 sm:p-6"
+            >
+              <h3 className="font-extrabold text-xl mb-3">
+                {r.emoji} {r.city}
+              </h3>
+              <div className="grid gap-3 md:grid-cols-2">
+                {r.items.map((it) => (
+                  <div key={it.name} className="rounded-xl bg-white/[0.03] border border-white/5 p-3.5">
+                    <div className="flex items-baseline justify-between gap-2">
+                      <h4 className="font-bold text-sm">{it.name}</h4>
+                      <span className="shrink-0 text-[0.65rem] font-bold uppercase tracking-wide text-rose-300">{it.where}</span>
+                    </div>
+                    <p className="mt-1.5 text-xs text-slate-400 leading-relaxed">{it.note}</p>
+                  </div>
+                ))}
+              </div>
             </motion.div>
           ))}
         </div>

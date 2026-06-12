@@ -100,4 +100,56 @@ export const FAQS: FAQ[] = [
     q: "Day trip we should add if a day frees up?",
     a: "From Tokyo: Kamakura (Buddha + ocean) or Nikko (gilded mountain shrines, possible snow). From Osaka: Himeji Castle (the one real original castle, 45 min) or Kobe (beef pilgrimage, 20 min). All are in the Explore tab with details.",
   },
+  {
+    q: "Are any of our medications illegal in Japan? (Read this one.)",
+    a: "YES, potentially. Adderall and other amphetamine-based ADHD meds are STRICTLY ILLEGAL in Japan — no import permit exists; do not bring them (Vyvanse is allowed only with an advance 'Yakkan Shomei' permit). Pseudoephedrine decongestants (regular Sudafed) over 10% are banned too. Most other prescriptions are fine up to a 1-month supply. Anyone on ADHD meds needs to talk to their doctor about a Japan-legal plan months ahead. This is the single most important line in this FAQ.",
+  },
+  {
+    q: "Can someone with a tattoo do ANY onsen?",
+    a: "Plenty. Tattoo-friendly on our route: Funaoka Onsen Kyoto (explicitly welcoming), private kashikiri rooms at Hakone day-spas (~¥5,000/h, splits 4 ways), and the Airbnb villa options with private baths. Cover stickers handle small pieces at strict places. The Stay tab's Hakone picks were chosen with this in mind.",
+  },
+  {
+    q: "What happens if we miss a reserved shinkansen?",
+    a: "Nothing terrible: reserved-seat tickets remain valid same-day in the unreserved cars (cars 1–3 usually) of later trains on the same route. Stressful with 8 people but never trip-ending. SmartEX app lets you change reservations free up to departure — change it from the platform the moment you know you're late.",
+  },
+  {
+    q: "How does Suica run out / top up, and what about refunds?",
+    a: "Phone Suica tops up from Apple Pay/Google Pay in seconds, anywhere. Physical Welcome Suica can be topped up at any station machine (cash). Leftover balance: spend it down at a konbini on departure day — airport snack sweep solves the 'stranded ¥1,837' problem better than refund counters.",
+  },
+  {
+    q: "Where do we do laundry, specifically?",
+    a: "All five Airbnb picks have washers (it's a whole-house perk — one more reason over hotels). Detergent is usually provided or auto-dosing; if not, konbini sell single-use packets. Dryers are weak — start loads at night, hang the technical fabrics.",
+  },
+  {
+    q: "Is 8 guys in one Airbnb going to annoy the neighbors?",
+    a: "Only if we're loud. Japanese residential walls and patience are both thinner than ours. House rules: inside voices after 22:00, no genkan shoes past the entry step, garbage sorted exactly as the host's chart says (this is taken seriously), and the party happens OUT (that's what Ura-Namba is for). Hosts review guests — keep it clean for the 2027 trip's account standing.",
+  },
+  {
+    q: "Do I need cash for temples and shrines?",
+    a: "Yes — ¥100 coins specifically. Omikuji fortunes (¥100–300), ema plaques (¥500–1,000), saisen offering toss (¥5 coin is considered lucky — 'go-en' puns on 'good fate'), and goshuin temple stamps (¥300–500, bring a goshuincho book if collecting — the coolest free-ish souvenir of the trip).",
+  },
+  {
+    q: "What's the deal with garbage cans? There are none.",
+    a: "Correct — Japan removed most public bins decades ago, yet the streets are spotless. The rule: your trash goes home in your bag (carry a konbini bag in your daypack), or into bins AT konbini/vending machines where you bought the thing. Sorting: burnable / plastic / bottles-cans. You'll be weirdly into it by Day 3.",
+  },
+  {
+    q: "Can we see sumo, baseball or any sports in December?",
+    a: "Sumo's grand tournaments don't run mid-December (Kyushu ends in Nov), but morning practice (asageiko) viewing at Tokyo stables can be booked through tour services — genuinely awesome if the crew wants a 7am flex on Dec 17/18. Baseball is off-season. December's spectator sport is the Emperor's-Cup soccer rounds and the illuminations arms race.",
+  },
+  {
+    q: "Should we rent pocket WiFi instead of eSIMs?",
+    a: "No — 8 people tethered to one battery-powered puck that lives in someone's pocket is a leash. eSIMs (~$10–15 each for 10–20GB) mean every squad can split freely, which our whole itinerary depends on. Physical-SIM phones can grab a SIM at the airport instead.",
+  },
+  {
+    q: "What if it snows?",
+    a: "Win condition. Tokyo/Osaka snow is rare (and melts fast); Kyoto gets a dusting some Decembers — if it happens, IMMEDIATELY reroute to Kinkaku-ji (gold + snow = the rarest photo in Japan) and Fushimi Inari. Hakone is the most likely snow zone: the ropeway view gets better, but check it's running. Trains barely notice snow; only buses suffer.",
+  },
+  {
+    q: "How do tolls... I mean, how do we split 8 guys across taxis?",
+    a: "Tokyo/Osaka taxis legally seat 4 passengers. Two cabs, split by squad, same destination pinned in both phones (show the driver the pin — pronunciation optional). GO app is Japan's Uber. ~¥1,500–2,500 for typical cross-neighborhood night hops, so ¥400-600/guy — cheaper than American Ubers, only worth it after last train.",
+  },
+  {
+    q: "Is the Visit Japan Web thing actually required?",
+    a: "It replaces the paper immigration/customs forms — technically you can still do paper, but the QR path is the fast lane, and at HND with a 14:35 arrival behind two other widebodies, fast lane matters. Do it the week before, screenshot the QRs (airport WiFi is flaky at the exact moment 400 people need it).",
+  },
 ];
