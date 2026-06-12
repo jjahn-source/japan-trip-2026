@@ -2,7 +2,8 @@ import { useEffect, useState } from "react";
 import { motion } from "motion/react";
 import { TRIP_START, CREW } from "../data/itinerary";
 
-const ROUTE = ["Tokyo", "Hakone", "Kyoto", "Nara", "Osaka", "Hiroshima", "Tokyo"];
+const ROUTE = ["Tokyo ×6", "Kyoto ×3", "Osaka ×5"];
+const SPOKES = "+ day raids: Hakone · Nara · Uji · Hiroshima · Miyajima · Himeji · Kobe";
 
 function useCountdown(target: string) {
   const [now, setNow] = useState(() => Date.now());
@@ -120,6 +121,7 @@ export function Hero() {
             {i < ROUTE.length - 1 && <span className="text-rose-400">→</span>}
           </span>
         ))}
+        <span className="w-full text-center text-xs text-slate-400 font-semibold mt-1">{SPOKES}</span>
       </motion.div>
 
       <motion.a

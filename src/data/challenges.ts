@@ -78,7 +78,7 @@ export const TRIP_BINGO: BingoSquare[] = [
 export type Award = { name: string; emoji: string; criteria: string };
 
 export const AWARDS_CEREMONY: Award[] = [
-  { name: "MVP of the Trip", emoji: "🏆", criteria: "Most clutch human across 16 days — navigation saves, reservation snipes, morale carries. Voted at the farewell sukiyaki, Dec 28." },
+  { name: "MVP of the Trip", emoji: "🏆", criteria: "Most clutch human across 16 days — navigation saves, reservation snipes, morale carries. Voted at the farewell yakiniku in Osaka, Dec 28." },
   { name: "The Strong Zero Memorial Trophy", emoji: "🥫", criteria: "Most spectacular self-inflicted morning. Recipient must hold the trophy (an empty Strong Zero can) in the airport group photo." },
   { name: "Best Boy (Deer Division)", emoji: "🦌", criteria: "Calmest performance under deer-mugging conditions, Nara, Dec 23. Daniel is the presumed favorite; upsets welcome." },
   { name: "The Human Google Maps", emoji: "🗺️", criteria: "Fewest wrong station exits. Statistically impossible to win in Shinjuku; that's what makes it prestigious." },

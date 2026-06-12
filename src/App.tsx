@@ -11,6 +11,7 @@ import { GuideView } from "./components/GuideView";
 import { StayView } from "./components/StayView";
 import { NightView } from "./components/NightView";
 import { PlayView } from "./components/PlayView";
+import { RouteView } from "./components/RouteView";
 import { Footer } from "./components/Footer";
 import { useHashView } from "./hooks/useHashView";
 
@@ -31,6 +32,7 @@ export default function App() {
             <Packing />
           </>
         )}
+        {view === "route" && <RouteView />}
         {view === "stay" && <StayView />}
         {view === "explore" && <Explore />}
         {view === "eat" && <EatView />}

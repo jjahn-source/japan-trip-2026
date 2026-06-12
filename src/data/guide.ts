@@ -190,13 +190,11 @@ export const GUIDE: GuideSection[] = [
     intro: "Mid-to-late December is sneaky-elite: dry sunny days, peak Fuji visibility, illuminations everywhere, and you leave right before the New Year shutdown.",
     articles: [
       {
-        title: "Weather: what 16 days actually feels like",
-        emoji: "🌡️",
+        title: "Dressing for it (the forecast itself lives on each itinerary day)",
+        emoji: "🧥",
         body: [
-          "Tokyo/Kyoto/Osaka December: highs 10–13°C (50–55°F), lows 2–5°C (36–41°F), and it's the DRIEST month — rain is rare, skies are blue, air is crystal.",
-          "Hakone sits higher: expect 0–8°C and possible snow dustings. Hiroshima/Miyajima: similar to Osaka, breezier on the water.",
-          "Sunrise ~6:50, sunset ~16:30. Short days reshape the schedule: outdoor sights 8:00–16:00, observation decks at golden hour, illuminations + food after dark. Nothing about evenings is wasted.",
-          "Indoors is HOT — trains, stores, restaurants run 24°C+. The winning outfit is a heattech base + shirt + packable puffer you can stuff in a bag, not one giant parka.",
+          "Every day card in the Plan tab carries its own climate line — no separate weather chapter needed. The pattern: dry, blue, 50s by day, near-freezing at dawn temple hours, sunset ~16:30.",
+          "Indoors is HOT — trains, stores, restaurants run 24°C+. The winning outfit is a heattech base + shirt + packable puffer you can stuff in a daypack, not one giant parka.",
         ],
       },
       {
@@ -366,6 +364,98 @@ export const GUIDE: GuideSection[] = [
           "Station staff ('eki-in') at every manned gate solve: wrong tickets, IC card errors, gate rejections, directions. Point, show your phone, look confused — they're professionals at this exact interaction.",
           "Green Window (Midori-no-madoguchi) offices and reservation machines handle shinkansen tickets; machines have English modes and take cards. The machine queue moves 3× faster than the window queue.",
           "Station food halls (ekinaka) are legitimately good — Tokyo Station's GRANSTA could be a destination itself. Never board a long train hungry; never buy the first bento you see (lap the hall once).",
+        ],
+      },
+    ],
+  },
+  {
+    id: "runbooks",
+    title: "Runbooks — Exact Tutorials",
+    emoji: "📋",
+    intro: "No 'don't do X' advice here. Just the optimal procedure for every system we touch, step by step, so anyone can execute solo.",
+    articles: [
+      {
+        title: "RUNBOOK: Suica on your phone (do this before the flight)",
+        emoji: "💳",
+        body: [
+          "iPhone: Wallet app → '+' → Transit Card → scroll to Suica → add $35 → done. It charges your Apple Pay card. Express Mode is on by default — the phone taps gates even with a nearly dead battery.",
+          "Android (US Pixels/Samsungs): Google Wallet → '+' → Transit → Suica. If your phone lacks Japan FeliCa support, plan B is a physical Welcome Suica from the machines at Haneda arrivals (28-day card, no deposit).",
+          "Top up anytime in the Wallet app in ~5 seconds. Load ¥5,000 at a time. It pays for: every train, bus, konbini, vending machine, coin locker, and half the restaurants.",
+          "Last day: tap the balance down to ~zero on airport snacks — faster than any refund counter.",
+        ],
+      },
+      {
+        title: "RUNBOOK: SmartEX — our four shinkansen bookings",
+        emoji: "🚅",
+        body: [
+          "Setup (once, this summer): download SmartEX (EX App) → register with a credit card → add each guy's Suica/IC number so tickets bind to phones and the gates just open. One account CAN book 6 seats per transaction; we run two accounts to cover 8.",
+          "BOOKING 1 — Sat Nov 21, 10:00 JST: Nozomi, Tokyo → Kyoto, Dec 21 ~09:00 departure. Pick car 7-ish, rows together, seats D/E (right side) for Fuji. ~¥14,170/person.",
+          "BOOKING 2 — Thu Nov 26, 10:00 JST: Nozomi, Shin-Osaka ⇄ Hiroshima, Dec 26 out 07:30 / back ~19:30. ~¥10,620 each way.",
+          "BOOKING 3 — Sat Nov 28, 10:00 JST: Nozomi, Shin-Osaka → Himeji, Dec 28 ~09:00 (29 min, ~¥3,280). Book the Kobe→Osaka local legs day-of with Suica — no reservation needed.",
+          "BOOKING 4 — Sun Nov 29, 10:00 JST: THE EXIT — Nozomi, Shin-Osaka → Shinagawa, Dec 29 09:30. ~¥14,920. This one is sacred; set two alarms.",
+          "Changes are free and unlimited up to departure inside the app — running late means re-booking from the platform, not panicking.",
+        ],
+      },
+      {
+        title: "RUNBOOK: Hakone day (Dec 19) — tickets and the loop",
+        emoji: "🗻",
+        body: [
+          "Thu Nov 19, 10:00 JST: book Romancecar seats Shinjuku→Hakone-Yumoto 08:00 out / ~18:55 back at e-Romancecar (English site). Front observation rows sell first. ~¥1,200 seat fee each way.",
+          "Morning of: buy Hakone Freepass (¥6,100) at the Shinjuku Odakyu counter or machines — covers the Odakyu round trip base fare PLUS unlimited Tozan railway, cablecar, ropeway, pirate ship, and buses.",
+          "Run the loop CLOCKWISE (rail up, boat across, bus back) — it front-loads Fuji views in morning clarity and ends near the onsen.",
+          "Wind check at breakfast: hakonenavi.jp shows live ropeway status. Closed = pivot to the Open-Air Museum leg (the Freepass covers the bus).",
+          "16:15 Hakone Yuryo: free shuttle from Yumoto station every ~15 min. Tattooed crew books a kashikiri private room by phone/web a few weeks out (~¥5,000/h).",
+        ],
+      },
+      {
+        title: "RUNBOOK: Visit Japan Web (one evening, the week before)",
+        emoji: "🛂",
+        body: [
+          "Go to the official Visit Japan Web site → create account → register 'Trip to Japan' with flight DL 121 and the Tokyo Airbnb address (copy-paste from the Airbnb booking).",
+          "Fill Immigration (disembarkation) + Customs declaration for yourself. Each guy does his own — 10 minutes.",
+          "It issues TWO QR codes: immigration and customs. SCREENSHOT BOTH to your camera roll. Airport WiFi dies at the exact moment 400 people need it.",
+          "At HND: QR lane at immigration → grab bags → QR gate at customs. The paper-form line is for people who didn't read this.",
+        ],
+      },
+      {
+        title: "RUNBOOK: luggage shipping (we do this twice)",
+        emoji: "📦",
+        body: [
+          "SHIP 1 — Dec 20 night/Dec 21 morning, Tokyo → Osaka house: pack big suitcases, keep a 3-day daypack (Kyoto is daypack-only). Yamato pickup arranged via the Airbnb host or ANY konbini counter ('takkyubin onegai shimasu', show the Osaka address in Japanese from the listing). ~¥2,500/bag, arrives Dec 22 — the Osaka host holds them.",
+          "Address format matters: use the EXACT Japanese address block from the Airbnb app, plus the host's phone number. Konbini staff will fill the form with you.",
+          "SHIP 2 (optional) — Dec 27, Osaka → Haneda T3: souvenir-heavy bags can fly ahead to the airport Yamato counter (hold for pickup, ~¥2,500–3,000) so Dec 29's shinkansen sprint is hands-free. Needs 2 days — ship by the 27th.",
+          "Carry-on-only between cities is the difference between gliding through stations and being eight men fighting escalators.",
+        ],
+      },
+      {
+        title: "RUNBOOK: tax-free shopping, executed once, perfectly",
+        emoji: "🛍️",
+        body: [
+          "Rule: ¥5,000+ spent at one tax-free store in one day = 10% off at the dedicated counter. Passport (physical, not photo) required.",
+          "Strategy: ONE consolidated boss run — Don Quijote Dotonbori, Dec 28 evening, with the trip-long group list (pin a shared note on Day 1; add everything you 'almost bought').",
+          "At the counter: passport + purchases; consumables get sealed in a bag you cannot open in Japan; the receipt gets attached to your passport. Leave it there.",
+          "Exit day: keep tax-free items accessible (not shipped, not buried) — Haneda customs scans passports and CAN ask to see them. Takes 30 seconds when you're ready; ruins a morning when you're not.",
+        ],
+      },
+      {
+        title: "RUNBOOK: USJ Christmas Day (the most crowd-sensitive day)",
+        emoji: "🎢",
+        body: [
+          "October: buy 1-Day Studio Pass + Express Pass 7 (the variant including Nintendo World timed entry + Forbidden Journey) for all 8 on the official site — peak-date Express sells out weeks ahead. ~¥10k + ¥20–30k respectively. Yes really. It buys back 6+ hours of queues.",
+          "Night before: download the USJ app, link tickets, charge phones to 100%.",
+          "07:30: AT the gates (park 'officially' opens 08:30–09:00 on peak days but historically opens early). Bags ready for inspection, tickets on screens.",
+          "Gate-cross: app → Nintendo area timed entry → grab the earliest slot (insurance even with Express). Then walk straight to Mario Kart.",
+          "Power-Up Bands (¥4,500) at the first cart inside the area — they make Nintendo World a literal video game and sync to the app scoreboard. 8-man key-challenge race, winner picks lunch.",
+        ],
+      },
+      {
+        title: "RUNBOOK: the Dec 29 exit (zero-stress edition)",
+        emoji: "🛫",
+        body: [
+          "Dec 28, 17:15 JST (= T-24h): EVERYONE checks in on the Delta app the minute the window opens — Basic Economy assigns seats then. Calendar reminder set now.",
+          "Dec 29, 08:45: leave the house. 09:30 Nozomi from Shin-Osaka (booked Nov 29). Worst-case buffer: trains run every ~10 min until noon and the app rebooks free.",
+          "11:58 Shinagawa → follow Keikyu Airport Line signs (same station, 5-min transfer, ¥330 Suica tap) → HND T3 by ~12:45.",
+          "Check-in + bag drop + security + immigration ≈ 60–90 min in holiday week. Airside by ~14:30 leaves 2.5 happy hours for Edo-Koji, the rooftop deck, and the gachapon walls. DL 120 boards ~16:30.",
         ],
       },
     ],

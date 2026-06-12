@@ -11,9 +11,9 @@ export const TIPS: Tip[] = [
     body: "Default to 'split squads, sync points': pick a meeting spot + time, let pairs roam. Share live locations in a group chat. On trains, board the same car number. One person buys group tickets to avoid 8 separate transactions.",
   },
   {
-    title: "Skip the JR Pass",
+    title: "How we buy every train (the whole tutorial)",
     emoji: "🚄",
-    body: "Our route (Tokyo→Hakone→Kyoto→Osaka→Hiroshima→Tokyo) costs ~¥38–43k point-to-point vs ¥50k for a 7-day pass that doesn't even cover Nozomi trains or our Hakone leg. Buy shinkansen seats on the SmartEX app and reserve 8 together.",
+    body: "One system: SmartEX app for all shinkansen (Tokyo→Kyoto Dec 21, Hiroshima r/t Dec 26, Himeji Dec 28, Shin-Osaka→Shinagawa Dec 29) — book each 8-seat block the day its 1-month window opens, tickets bind to your Suica/IC for tap-through boarding. Odakyu's e-Romancecar site for Hakone Dec 19 (opens Nov 19). Kintetsu app or station machine for Nara. Everything else: Suica tap. Full runbook in the Guide tab.",
   },
   {
     title: "Suica is life",

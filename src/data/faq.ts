@@ -9,8 +9,8 @@ export const FAQS: FAQ[] = [
     a: "US passport holders get 90 days visa-free. Passport must be valid for the stay (6 months validity recommended). Fill out Visit Japan Web before flying for fast-track QR immigration + customs.",
   },
   {
-    q: "Should we buy the JR Pass?",
-    a: "No. Our route (Tokyo→Hakone→Kyoto→Osaka→Hiroshima r/t→Tokyo) costs ~¥38–43k buying point-to-point, vs ¥50k for the 7-day pass — which doesn't cover the fast Nozomi trains or the Odakyu line to Hakone anyway. Book individual shinkansen seats on SmartEX.",
+    q: "How exactly do we buy our train tickets?",
+    a: "Four purchases, all on phones: (1) SmartEX app — Nozomi Tokyo→Kyoto Dec 21, Shin-Osaka⇄Hiroshima Dec 26, Shin-Osaka→Himeji Dec 28, Shin-Osaka→Shinagawa Dec 29; each opens exactly 1 month out, book the 8-seat block at 10:00 JST on opening day and bind tickets to Suica for gate tap-through. (2) Odakyu e-Romancecar — Hakone seats, opens Nov 19. (3) Hakone Freepass (¥6,100) at Shinjuku Odakyu counter on the morning. (4) Kintetsu Nara reserved seats, morning-of via app. Everything else is a Suica tap. Step-by-step screenshots-level detail in the Guide tab Runbooks.",
   },
   {
     q: "How much cash should I carry?",

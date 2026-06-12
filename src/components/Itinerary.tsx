@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { ChevronDown, Train, Ticket, Dices } from "lucide-react";
+import { ChevronDown, Train, Ticket, Dices, ExternalLink, CloudSun } from "lucide-react";
 import { DAYS, type Day } from "../data/itinerary";
 import { SectionHeading } from "./SectionHeading";
 
@@ -59,6 +59,10 @@ function DayCard({ day, index }: { day: Day; index: number }) {
             transition={{ duration: 0.3 }}
           >
             <div className="px-4 sm:px-5 pb-5 pt-1">
+              <p className="mb-3 flex items-center gap-2 text-xs font-semibold text-cyan-200/90">
+                <CloudSun size={14} className="shrink-0" />
+                {day.wx}
+              </p>
               {day.transport && (
                 <div className="mb-4 flex items-start gap-2.5 rounded-xl bg-indigo-500/10 border border-indigo-500/20 p-3 text-sm text-indigo-200">
                   <Train size={16} className="mt-0.5 shrink-0" />
@@ -99,6 +103,22 @@ function DayCard({ day, index }: { day: Day; index: number }) {
                       </li>
                     ))}
                   </ul>
+                </div>
+              )}
+              {day.links && day.links.length > 0 && (
+                <div className="mt-4 flex flex-wrap gap-2">
+                  {day.links.map((l) => (
+                    <a
+                      key={l.url}
+                      href={l.url}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="inline-flex items-center gap-1.5 rounded-lg bg-indigo-500/15 border border-indigo-500/30 px-2.5 py-1.5 text-xs font-semibold text-indigo-300 hover:text-indigo-100 hover:bg-indigo-500/25 transition-colors"
+                    >
+                      <ExternalLink size={11} />
+                      {l.label}
+                    </a>
+                  ))}
                 </div>
               )}
             </div>

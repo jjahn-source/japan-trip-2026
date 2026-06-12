@@ -3,7 +3,14 @@ import { motion } from "motion/react";
 import { Search, MapPin, Clock, Wallet, TrainFront, Snowflake, Star } from "lucide-react";
 import { ATTRACTIONS, type City, type Category } from "../data/attractions";
 import { NEIGHBORHOODS } from "../data/neighborhoods";
+import { DAY_TRIPS } from "../data/daytrips";
 import { SectionHeading } from "./SectionHeading";
+
+const TRIP_TIER: Record<number, { label: string; cls: string }> = {
+  1: { label: "LOCKED IN THE PLAN", cls: "bg-emerald-500/20 text-emerald-300 border-emerald-500/40" },
+  2: { label: "STRONG AUDIBLE", cls: "bg-amber-500/20 text-amber-300 border-amber-500/40" },
+  3: { label: "IF A DAY FREES UP", cls: "bg-sky-500/20 text-sky-300 border-sky-500/40" },
+};
 
 const CITIES: ("All" | City)[] = ["All", "Tokyo", "Kyoto", "Osaka", "Nara", "Hakone", "Hiroshima", "Day Trips"];
 const CATEGORIES: ("All" | Category)[] = [
@@ -185,6 +192,79 @@ export function Explore() {
               </p>
             </motion.div>
           ))}
+        </div>
+      </div>
+
+      {/* Day trips */}
+      <div className="mt-24">
+        <SectionHeading
+          kicker="Radiating from the Bases"
+          title="Day Trip War Room"
+          sub="Ten full dossiers — exact trains, costs, hour-by-hour plays, and official booking links. Tier 1 trips are already in the itinerary; the rest are loaded audibles."
+        />
+        <div className="space-y-5">
+          {DAY_TRIPS.map((t, i) => {
+            const tier = TRIP_TIER[t.tier];
+            return (
+              <motion.article
+                key={t.id}
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-30px" }}
+                transition={{ duration: 0.35, delay: (i % 2) * 0.04 }}
+                className="glass rounded-2xl p-5 sm:p-6"
+              >
+                <div className="flex flex-wrap items-start justify-between gap-3">
+                  <div>
+                    <p className="text-xs font-semibold text-slate-500 uppercase tracking-wider">
+                      from {t.base} base · {t.hours} · {t.cost}
+                    </p>
+                    <h3 className="font-extrabold text-xl mt-0.5">
+                      {t.name}{" "}
+                      <span className="text-slate-500 text-sm font-[Noto_Serif_JP] font-normal">{t.jp}</span>
+                    </h3>
+                  </div>
+                  <span className={`shrink-0 text-[0.62rem] font-bold border rounded-full px-2.5 py-1 ${tier.cls}`}>
+                    {tier.label}
+                  </span>
+                </div>
+                <p className="mt-2 text-sm text-slate-300 leading-relaxed max-w-3xl">{t.pitch}</p>
+                <p className="mt-3 text-xs text-indigo-200/90 bg-indigo-500/10 border border-indigo-500/20 rounded-lg px-3 py-2">
+                  🚄 {t.travel}
+                </p>
+                <details className="mt-3 group">
+                  <summary className="cursor-pointer text-sm font-bold text-rose-300 hover:text-rose-200">
+                    ▸ The run of show ({t.play.length} steps)
+                  </summary>
+                  <ol className="mt-2 space-y-1.5">
+                    {t.play.map((p, pi) => (
+                      <li key={pi} className="text-sm text-slate-300 leading-relaxed pl-3 border-l-2 border-rose-500/30">
+                        {p}
+                      </li>
+                    ))}
+                  </ol>
+                </details>
+                <p className="mt-3 text-xs text-amber-200/90 bg-amber-500/10 border border-amber-500/20 rounded-lg px-3 py-2">
+                  🎯 {t.protip}
+                </p>
+                {t.links.length > 0 && (
+                  <div className="mt-3 flex flex-wrap gap-2">
+                    {t.links.map((l) => (
+                      <a
+                        key={l.url}
+                        href={l.url}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="inline-flex items-center gap-1 text-xs font-semibold text-indigo-300 hover:text-indigo-200 underline underline-offset-2"
+                      >
+                        {l.label} ↗
+                      </a>
+                    ))}
+                  </div>
+                )}
+              </motion.article>
+            );
+          })}
         </div>
       </div>
     </div>
