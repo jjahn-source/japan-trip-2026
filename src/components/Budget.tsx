@@ -1,10 +1,70 @@
 import { useMemo } from "react";
 import { motion } from "motion/react";
-import { RotateCcw } from "lucide-react";
+import { RotateCcw, AlertTriangle } from "lucide-react";
 import { BUDGET_ITEMS } from "../data/budget";
 import { GROUP_SIZE } from "../data/itinerary";
 import { SectionHeading } from "./SectionHeading";
 import { useLocalStorage } from "../hooks/useLocalStorage";
+
+const REALITY_CHECKS = [
+  {
+    emoji: "🏪",
+    title: "The Don Quijote Problem",
+    body: "You budgeted $300 for shopping. There are 4 Don Quijote visits in the itinerary. The alarm goes off Dec 16 when someone drops $80 on anime merch, 14 gachapon capsules, and $1 Kit-Kat assortments 'for omiyage.' It happens again Dec 24 ('Christmas, it doesn't count'). And Dec 27. And the boss-run Dec 28 with the tax-free threshold.",
+  },
+  {
+    emoji: "🎰",
+    title: "The Gachapon / Crane Tax",
+    body: "Unbudgeted. Untracked. Per-person average on crew trips: $40–80. You cannot walk past a 300-machine gachapon wall and not pull. You can't. We've tried. The pooled crane-game budget is $6/man per arcade night and there are at least 5 arcade nights. That's $240 the budget doesn't see.",
+  },
+  {
+    emoji: "🍜",
+    title: "The Ramen Budget Lie",
+    body: "$40/day covers food exactly once in December Tokyo — in a world where no one upgrades lunch, splits nothing, skips the depachika sampling floor, and leaves the tsukemen shop before second noodles. This is not that world. Add 20% and call it aggressive optimism.",
+  },
+  {
+    emoji: "🎤",
+    title: "The Karaoke Room Tax",
+    body: "There are 4+ karaoke nights in the itinerary. Each run: ~$10–15/person/hour + nomihodai at $9–16. A 3-hour session with drinks = ~$40. ×4 sessions ×8 people = $1,280 the budget doesn't contain. 'We'll just do one hour' has never once been true.",
+  },
+  {
+    emoji: "⛩️",
+    title: "The 'Free' Temple Trap",
+    body: "Temple admission: free–$5. Goshuin stamp (you will buy one at each temple, it's the law): $3–6. Coin lockers for the bags: $3. Hot corn soup vending machine after the dawn hike: $1. Paper fortune omikuji: $1.25. Matcha soft-serve on the way out: $4. The 'free' temple consistently costs $15–25. There are 12 temple/shrine days.",
+  },
+  {
+    emoji: "🛍️",
+    title: "The Tax-Free Threshold Trap",
+    body: "Purchases over ~$31 (¥5,000) at one store = tax-free with your passport. This is designed to make $28 purchases feel irresponsible. You will hit $31 and then immediately find 3 more things that make it $110. The Japanese retail system understood human psychology 40 years before behavioral economics existed.",
+  },
+];
+
+const SPEND_PROFILES = [
+  {
+    label: "The Minimalist",
+    color: "text-emerald-300",
+    bg: "bg-emerald-500/10 border-emerald-500/30",
+    daily: "$85",
+    total: "$1,360",
+    vibe: "Konbini-core. Coin lockers over checked bags. One 'nice' dinner per city. Passes on the crane games (they're watching though). Brings home: two Kit-Kat boxes and a goshuin book.",
+  },
+  {
+    label: "The Baseline (Budget Lock)",
+    color: "text-rose-300",
+    bg: "bg-rose-500/10 border-rose-500/30",
+    daily: "$130",
+    total: "$2,076",
+    vibe: "The sliders above. Hits every itinerary item, splits the splurges, calls it responsible. Brings home: one Don Quijote bag, three impulse Pokémon figures, and a moderate sense of self-delusion.",
+  },
+  {
+    label: "The Degenerate",
+    color: "text-fuchsia-300",
+    bg: "bg-fuchsia-500/10 border-fuchsia-500/30",
+    daily: "$200+",
+    total: "$3,200+",
+    vibe: "Full omakase in Ginza ('only $180, it's fine'). Himeji + Kobe beef the same day without flinching. Three crane rounds per arcade. Checks a suitcase home purely for purchases. Buys the aged Yamazaki at HND duty-free. Zero regrets. Filed under 'investment in memories.' Kaishun-tier.",
+  },
+];
 
 const fmt = (n: number) =>
   n.toLocaleString("en-US", { style: "currency", currency: "USD", maximumFractionDigits: 0 });
@@ -87,10 +147,43 @@ export function Budget() {
           </p>
           <p className="mt-2 text-3xl font-extrabold tabular-nums">{fmt(perPerson * GROUP_SIZE)}</p>
           <p className="mt-5 text-xs text-slate-500 leading-relaxed">
-            ~{fmt(perPerson / 16)}/person/day all-in. Pro tip: open a shared
-            Splitwise group on day one and settle in yen.
+            ~{fmt(perPerson / 16)}/person/day all-in. Open Splitwise on Dec 14,
+            settle in yen at the end of each day, or prepare for forensic accounting at RDU.
           </p>
         </motion.div>
+      </div>
+
+      {/* Spending profiles */}
+      <div className="mt-10">
+        <p className="text-xs font-bold text-slate-500 uppercase tracking-wider mb-3">📊 Know your archetype</p>
+        <div className="grid gap-3 sm:grid-cols-3">
+          {SPEND_PROFILES.map((p) => (
+            <div key={p.label} className={`rounded-2xl border p-4 ${p.bg}`}>
+              <div className="flex items-baseline justify-between mb-2">
+                <p className={`font-black text-sm ${p.color}`}>{p.label}</p>
+                <p className={`text-xl font-black tabular-nums ${p.color}`}>{p.total}</p>
+              </div>
+              <p className="text-[0.63rem] text-slate-500 uppercase tracking-wider mb-1.5">{p.daily}/day</p>
+              <p className="text-xs text-slate-400 leading-relaxed">{p.vibe}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Reality checks */}
+      <div className="mt-6">
+        <div className="flex items-center gap-2 mb-3">
+          <AlertTriangle size={14} className="text-amber-400" />
+          <p className="text-xs font-bold text-amber-400 uppercase tracking-wider">Degenerate reality checks — things the budget doesn't account for</p>
+        </div>
+        <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+          {REALITY_CHECKS.map((r) => (
+            <div key={r.title} className="glass rounded-2xl p-4 border-amber-500/10">
+              <p className="font-bold text-sm text-slate-100 mb-1.5">{r.emoji} {r.title}</p>
+              <p className="text-xs text-slate-400 leading-relaxed">{r.body}</p>
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   );

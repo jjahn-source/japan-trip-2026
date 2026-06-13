@@ -74,6 +74,30 @@ export const FACTION_WARS: Faction[] = [
     sides: "Every man vs his own Japanese",
     rules: "Log every successful all-Japanese interaction — ordering, asking directions, paying a compliment to a shop grandma. Style points for keigo attempts, deductions for defaulting to pointing-and-'this one'. The man who orders the whole table's yakiniku in Japanese on Dec 28 wins outright.",
   },
+  {
+    title: "Onigiri Orthodoxy",
+    emoji: "🍙",
+    sides: "Tuna mayo vs salmon vs ume vs konbu",
+    rules: "Declare allegiance on Day 1, must eat your faction's onigiri exclusively for all 16 konbini runs. Traitors who switch pay for the next round. Hybrid buyers are stateless.",
+  },
+  {
+    title: "The Nap-Grind Schism",
+    emoji: "😴",
+    sides: "Nappers vs Grinders",
+    rules: "Nappers (anyone who voluntarily sleeps in any location not the Airbnb bed — train, park, shrine bench) vs Grinders (walk every second of daylight). Each nap logged in the group chat with location and duration. Grinders mock. Nappers are rested. Grinders spiral by Day 10.",
+  },
+  {
+    title: "Western Food Death Pact",
+    emoji: "🍔",
+    sides: "The crew vs the temptation of familiarity",
+    rules: "The man who first voluntarily eats Western fast food in Japan (burger chain, pizza, etc.) buys a round AND accepts the title of Cultural Surrender for 24 hours. Airports don't count (prison rules). Hotel breakfasts don't count (war crimes rules). Konbini counts double.",
+  },
+  {
+    title: "The Decibel War",
+    emoji: "📢",
+    sides: "Every karaoke room vs the scoring panel",
+    rules: "Every karaoke session, two judges (rotating) score the room's overall volume/energy level 1-10. Not talent — chaos. Karaoke Kan (Tokyo), JanKaRa (Kyoto), Joysound (Osaka) each count. Running total across all sessions. The night Bohemian Rhapsody comes on sets the standard.",
+  },
 ];
 
 export type BingoSquare = { text: string; hard?: boolean };
@@ -126,6 +150,26 @@ export const TRIP_BINGO: BingoSquare[] = [
   { text: "Take the whole crew to a standing sushi or kaiten belt" },
   { text: "See your breath inside a temple at dawn opening", hard: true },
   { text: "Down a crab leg in Osaka crab season" },
+  { text: "Konbini for all 3 meals and absolutely no regrets" },
+  { text: "Someone's phone dies at the exact worst moment" },
+  { text: "Read a menu, understood zero, pointed, it was perfect" },
+  { text: "Group fractures into 2+ sub-cells for 3+ hours" },
+  { text: "Someone attempts to bargain in Japan (it does not work)" },
+  { text: "Accidentally bow to an automatic door" },
+  { text: "Last train of the night, need to sprint", hard: true },
+  { text: "Someone wears the same outfit two days straight (on purpose or by accident)" },
+  { text: "Group photo: at least one person blinking" },
+  { text: "Convince yourself you can speak Japanese after 3 drinks" },
+  { text: "Accidentally walk into a restaurant requiring Japanese (survive it)" },
+  { text: "Hot konbini item eaten on the sidewalk in freezing weather, called 'authentic'" },
+  { text: "Get personally recommended somewhere by a Japanese local who wasn't working at a tourist desk", hard: true },
+  { text: "Witness a crewmate fail at chopsticks publicly, say nothing" },
+  { text: "Order the set menu because you didn't understand anything else — it's incredible", hard: true },
+  { text: "Lose someone in a crowd, find them at a konbini" },
+  { text: "Pay for something with only coins because bills seemed wrong" },
+  { text: "Correctly identify a train before it pulls in by sound", hard: true },
+  { text: "Make a sound at the first sip of fresh dashi broth" },
+  { text: "Everyone's in the onsen at the same time, no one speaks", hard: true },
 ];
 
 export type Award = { name: string; emoji: string; criteria: string };
@@ -146,6 +190,11 @@ export const AWARDS_CEREMONY: Award[] = [
   { name: "The Konbini Sommelier", emoji: "🍙", criteria: "Most refined konbini palate per the running scores — the one whose meal picks the crew actually copies. Bonus for discovering the season's best winter hot-snack before anyone else." },
   { name: "The Negotiator", emoji: "🗣️", criteria: "Most successful all-Japanese interactions, per the Lost in Translation Cup log. Reservation snipes, grandma compliments, and ordering for the table all count. Keigo attempts judged generously." },
   { name: "The Curse-Bearer", emoji: "🎵", criteria: "The man most visibly broken by the Don Quijote jingle — humming it unprompted, waking up to it, hearing it in the shinkansen rumble. There is no escaping the Donpen song. Carry it with dignity." },
+  { name: "The Nap King", emoji: "💤", criteria: "Most documented voluntary public naps (train, park, shrine corridor, store floor). Must have witness and time logged in group chat. Disqualified if the nap caused a missed activity — that's a different award category." },
+  { name: "The CFO of Don Quijote", emoji: "🏪", criteria: "Highest total spend across all Don Quijote visits, receipts as proof. Does not matter what was bought. Volume is the metric. Self-awareness about the volume earns a bonus point." },
+  { name: "Best Purikura", emoji: "📸", criteria: "The single best purikura strip, voted by the full crew at the farewell dinner. Judged on creative use of the editing software, overall horror, and how the machine managed everyone's eyelashes. Booth location noted for 2027." },
+  { name: "The Reluctant Convert", emoji: "🔄", criteria: "The man who hated something at the start of the trip and was publicly, demonstrably wrong by the end. Temple fatigue → secret shrine nerd. Onsen skeptic → last one out. Ramen dismisser → launched a rankings spreadsheet. Largest arc wins." },
+  { name: "Splitwise MVP", emoji: "💴", criteria: "Fewest arithmetic errors, fastest updater, cleanest receipt trail. The unsung hero. Gets one free pass on any future group expense audit." },
 ];
 
 export type Ritual = { title: string; emoji: string; body: string };

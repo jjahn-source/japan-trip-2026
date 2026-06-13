@@ -20,6 +20,17 @@ function useCountdown(target: string) {
   };
 }
 
+const CREW_MANIFEST = [
+  { name: "JJ",      role: "The Architect",         threat: "Built this app. Will still miss a train." },
+  { name: "Ethan",   role: "The Wild Card",          threat: "The trip ends differently because of him." },
+  { name: "Steven",  role: "Photo Director",         threat: "Has opinions about the Fuji composition." },
+  { name: "Alex",    role: "The Logistics Anchor",   threat: "Splitwise every night. We don't deserve him." },
+  { name: "Charlie", role: "The Iron Stomach",       threat: "Eats the mystery skewer first. Every time." },
+  { name: "Kaishun", role: "The Restaurant Oracle",  threat: "Picks 2027 destination. Power unchecked." },
+  { name: "Daniel",  role: "The Deer Magnet",        threat: "Nara has been notified. They're ready." },
+  { name: "Junha",   role: "The Culture Vulture",    threat: "Shrine knowledge AND karaoke setlist. Terrifying." },
+];
+
 export function Hero() {
   const { days, hours, mins, secs } = useCountdown(TRIP_START);
   const units = [
@@ -84,6 +95,21 @@ export function Hero() {
           >
             {name}
           </span>
+        ))}
+      </motion.div>
+
+      <motion.div
+        initial={{ opacity: 0, y: 16 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.7, delay: 0.5 }}
+        className="mt-6 w-full max-w-3xl grid grid-cols-2 sm:grid-cols-4 gap-2 text-left"
+      >
+        {CREW_MANIFEST.map((m) => (
+          <div key={m.name} className="glass rounded-xl px-3 py-2.5">
+            <p className="text-xs font-black text-slate-100">{m.name}</p>
+            <p className="text-[0.65rem] font-bold text-rose-400 mt-0.5">{m.role}</p>
+            <p className="text-[0.6rem] text-slate-500 mt-0.5 leading-relaxed">{m.threat}</p>
+          </div>
         ))}
       </motion.div>
 
