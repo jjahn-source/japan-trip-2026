@@ -325,7 +325,7 @@ export function Itinerary() {
       <SectionHeading
         kicker="The Master Plan"
         title="16 Days, Day by Day"
-        sub="Tokyo neon → Kamakura coast → Kyoto temples → Nara deer → Osaka chaos → Hiroshima reflection → one last Tokyo lap. Every day carries its December forecast (with a live link), exports to your calendar, and routes straight into Google Maps. Flip on Trip Mode to tick off the adventure as it happens."
+        sub="Tokyo neon → Kamakura coast → Kyoto temples → Nara deer → Osaka chaos → Hiroshima reflection → one last Tokyo lap. Every day carries its December forecast (live link), the limited-time events actually ON during our visit, a degenerate Daily Dares checklist, calendar export, and one-tap Google Maps routing. Flip on Trip Mode and tick off the adventure as it happens."
       />
 
       {/* Toolbar */}

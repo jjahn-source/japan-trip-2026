@@ -65,6 +65,24 @@ export const DAYS: Day[] = [
       { label: "Delta app (boarding + bag tracking)", url: "https://www.delta.com" },
     ],
     wiki: ["Airbus A350", "Haneda Airport"],
+    events: [
+      {
+        name: "Landing into peak dry-season illumination week",
+        window: "land Dec 15 — lights up mid-Nov–Feb",
+        cost: "Free",
+        station: "Tokyo",
+        note: "Nothing's date-locked on the 14th itself — it's a tube in the sky. But the payoff: we touch down Dec 15 smack in Japan's driest, sunniest month, with every major winter illumination already lit. The misery of the middle seat buys a clear-sky neon city.",
+        kind: "seasonal",
+      },
+    ],
+    dares: [
+      "Finish Visit Japan Web before the second drink cart — screenshot all 8 QRs",
+      "Convert your watch to JST at the gate and never look back",
+      "20 minutes on the phrasebook mid-flight — earn top-1%-tourist status",
+      "Compression socks ON, no complaints — film the squad sock check",
+      "Win one round of the Standing Competitions draft during the MSP layover",
+      "Walk a full lap of the cabin every 2 hours — drag one sleeping man with you",
+    ],
   },
   {
     date: "2026-12-15",
@@ -97,6 +115,32 @@ export const DAYS: Day[] = [
       { label: "Ichiran Shinjuku info", url: "https://ichiran.com/en/" },
     ],
     wiki: ["Shinjuku", "Kabukichō", "Omoide Yokochō"],
+    events: [
+      {
+        name: "Shinjuku Southern Terrace + Tokyo winter illuminations",
+        window: "mid-Nov–Feb (annual)",
+        cost: "Free",
+        station: "Shinjuku",
+        note: "The Southern Terrace's tree-lined light corridor runs from mid-November deep into February, so our very first jet-lagged night already has lights on. It's a short walk from the station — a free, zero-effort first taste of December Tokyo before we even fight Ichiran's line.",
+        kind: "illumination",
+      },
+      {
+        name: "Peak dry / clear-sky season begins",
+        window: "all December",
+        cost: "Free",
+        station: "everywhere",
+        note: "December is statistically Japan's driest and sunniest month — rain odds tonight are ~15%. The whole trip is front-loaded with blue skies and crisp Fuji sightlines. Pack a coat, not an umbrella.",
+        kind: "seasonal",
+      },
+    ],
+    dares: [
+      "Eat a konbini egg sando within 30 min of dropping bags — the Tamago Pact",
+      "Kanpai with a chu-hai on the walk to Ichiran before the first ramen",
+      "Order kaedama at Ichiran — log the trip's first Ramen Power Rankings entry",
+      "Photograph the Godzilla head without getting roped by a Kabukicho tout",
+      "Squeeze 4+ men onto one Omoide Yokocho counter and point-order everything",
+      "Survive Donki recon buying literally nothing — wallet stays shut",
+    ],
   },
   {
     date: "2026-12-16",
@@ -152,6 +196,14 @@ export const DAYS: Day[] = [
         kind: "illumination",
       },
     ],
+    dares: [
+      "Cross the Scramble all 8 abreast in one light — nobody breaks formation",
+      "Pet Hachiko and apologize to him out loud for the wait",
+      "Declare your Famichiki-vs-Karaage-kun faction at breakfast — it's binding",
+      "All 8 into one purikura booth — the output is the album cover",
+      "Open dinner with a clean 'Toriaezu nama de!' before anyone else orders",
+      "Get the glass-corner Shibuya Sky photo at the 16:30 Fuji silhouette",
+    ],
   },
   {
     date: "2026-12-17",
@@ -205,6 +257,14 @@ export const DAYS: Day[] = [
         kind: "market",
       },
     ],
+    dares: [
+      "Tie a bad omikuji to the rack at Senso-ji and walk away reborn",
+      "Drink hoppy with a local 50+ years your senior on Hoppy Street",
+      "Eat melon pan straight out of the Kagetsudo oven, no waiting to cool",
+      "Win something from a Super Potato or GiGO crane — under the ¥1,000 cap",
+      "Belt Bohemian Rhapsody at karaoke before midnight — full commitment",
+      "Detonate the room with 'Linda Linda' at least once",
+    ],
   },
   {
     date: "2026-12-18",
@@ -255,6 +315,14 @@ export const DAYS: Day[] = [
         kind: "illumination",
       },
     ],
+    dares: [
+      "Eat uni at Tsukiji before 9am like a functioning adult",
+      "Roll your pants and wade the teamLab water room without soaking a phone",
+      "Gawk at a ¥3,000 single strawberry in the depachika, then buy the cheap one",
+      "Toast a liter mug at Ginza Lion without spilling — 1934 demands respect",
+      "Befriend a Golden Gai bartender well enough to be remembered on Dec 20",
+      "Rank your Ramen Street bowl out loud — defend it against the table",
+    ],
   },
   {
     date: "2026-12-19",
@@ -292,6 +360,33 @@ export const DAYS: Day[] = [
       { label: "Enoshima Sea Candle / Cocking Garden", url: "https://enoshima-seacandle.com/en/" },
     ],
     wiki: ["Kamakura", "Kōtoku-in", "Hase-dera", "Enoshima"],
+    events: [
+      {
+        name: "Enoshima Sea Candle Winter Illumination 'Shōnan no Hōseki'",
+        window: "late Nov–late Feb (annual)",
+        cost: "~$3 (¥500) garden/tower area",
+        station: "Enoshima",
+        note: "Named one of Japan's 'three great illuminations,' the Sea Candle and Samuel Cocking Garden light up from late November through late February — so our sunset Enoshima stop lands right inside it. We climb for the Fuji-over-the-sea dusk and stay for the lights as the island goes electric. Cheap and absurdly worth it.",
+        kind: "seasonal",
+        url: "https://enoshima-seacandle.com/en/",
+      },
+      {
+        name: "Clearest Fuji-over-the-sea sightlines of the year",
+        window: "December (peak clarity)",
+        cost: "Free",
+        station: "Enoshima",
+        note: "December gives the cleanest Mt. Fuji-across-Sagami-Bay sightlines of the whole year — cold dry air, no summer haze. The 16:32 sunset from Enoshima's west deck is the best free view of the day, and the season is doing the heavy lifting.",
+        kind: "seasonal",
+      },
+    ],
+    dares: [
+      "Climb INSIDE the Great Buddha at Kotoku-in — pay the extra ¥50",
+      "Eat shirasu (raw whitebait) at least once and keep a straight face",
+      "Get the Enoden tram shot at the Kamakura-Kokomae Slam Dunk crossing",
+      "Spot Mt. Fuji across the bay at sunset and shut up for 60 seconds",
+      "Wash your cash at Zeniarai-Benten if the split squad does the hike",
+      "Hot vending-machine drink in hand for the Enoshima dusk — no exceptions",
+    ],
   },
   {
     date: "2026-12-20",
@@ -327,6 +422,33 @@ export const DAYS: Day[] = [
       { label: "Yamato luggage shipping (hands-free travel)", url: "https://www.global-yamato.com/en/hands-free-travel/" },
     ],
     wiki: ["Ghibli Museum", "Shimokitazawa", "Nakano Broadway"],
+    events: [
+      {
+        name: "⚠ Ghibli Museum — late-December winter maintenance heads-up",
+        window: "open Dec 20 (Sun); closes for maintenance late Dec",
+        cost: "Date-specific lottery ticket",
+        station: "Mitaka",
+        note: "Heads-up, not a panic: the museum shuts for maintenance and New Year in late December (in 2025 it closed early on Dec 26, then went dark). Our Dec 20 is a Sunday and comfortably before that — Sundays are normal open days. But tickets are a date-specific lottery, so book the exact date and don't assume walk-up. The consolation bracket (Inokashira + Satou menchi-katsu) is genuinely elite.",
+        kind: "closure",
+        url: "https://www.ghibli-museum.jp/en/",
+      },
+      {
+        name: "Roppongi / Shimokitazawa minor light-ups",
+        window: "through ~Dec 25 (annual)",
+        cost: "Free",
+        station: "Roppongi / Shimokitazawa",
+        note: "Optional split-squad nightcap on our last Tokyo evening — a few low-key neighborhood illuminations still glowing this week if anyone wants lights without the Shibuya crowds. Purely a 'if we have the legs' audible before the farewell dinner.",
+        kind: "illumination",
+      },
+    ],
+    dares: [
+      "Refresh the Ghibli lottery from your own device — winners owe the losers a beer",
+      "Find your birth-year Shonen Jump in Nakano Broadway's Mandarake stacks",
+      "Eat one curry in Shimokitazawa chosen purely by the length of its line",
+      "Soak at Thermae-Yu and exit the final Tokyo night visibly more relaxed",
+      "Sukiyaki farewell: one kanpai per man, eight total, raw-egg dip mandatory",
+      "Close your suitcase BEFORE the Golden Gai encore — bags ship at dawn",
+    ],
   },
   {
     date: "2026-12-21",
@@ -372,6 +494,14 @@ export const DAYS: Day[] = [
         kind: "market",
         url: "https://toji.or.jp/en/",
       },
+    ],
+    dares: [
+      "Ekiben Iron Chef: everyone buys a DIFFERENT box, no overlap allowed",
+      "Phones down for the Fuji window at minute 40 — just look, no filming",
+      "Eat tako-tamago (octopus-with-quail-egg) at Nishiki, standing at the stall",
+      "Spot a geiko heading to an appointment — admire from a respectful distance",
+      "Get the Yasaka Pagoda night shot down the lantern-lit slope",
+      "Sit on the Kamo River bank with a konbini sour and call the trip halftime",
     ],
   },
   {
@@ -426,6 +556,14 @@ export const DAYS: Day[] = [
         kind: "closure",
       },
     ],
+    dares: [
+      "Hit Fushimi Inari by 6:45 and reach Yotsutsuji before the 8:30 crowds",
+      "Drink from exactly ONE Otowa stream at Kiyomizu — no greedy double-dipping",
+      "Do a 10am sake tasting at Gekkeikan and call it 'cultural education'",
+      "Survive the Funaoka electric bath 30 full seconds — no screaming",
+      "Eat the free Yatsuhashi samples at every shop down Sannenzaka, shamelessly",
+      "Order one thing on Kiyamachi you cannot identify and finish it",
+    ],
   },
   {
     date: "2026-12-23",
@@ -465,6 +603,32 @@ export const DAYS: Day[] = [
       { label: "Iwatayama Monkey Park", url: "https://monkeypark.jp/" },
     ],
     wiki: ["Arashiyama", "Kinkaku-ji", "Nara Park", "Tōdai-ji"],
+    events: [
+      {
+        name: "Dec 23 is NOT a public holiday anymore",
+        window: "Dec 23, 2026 (normal weekday)",
+        cost: "—",
+        station: "Kyoto / Nara",
+        note: "Worth knowing for crowd math: Dec 23 used to be the Emperor's Birthday national holiday, but it moved to Feb 23 when the throne changed. So our Arashiyama–Kinkaku-ji–Nara loop runs on normal weekday hours and normal-ish crowds, not a holiday surge. Sites keep regular schedules.",
+        kind: "seasonal",
+      },
+      {
+        name: "Winter = hungry, bold Nara deer",
+        window: "December",
+        cost: "Shika senbei ~$1 (¥200)/stack",
+        station: "Nara",
+        note: "Cold-weather forage is thin, so the Nara deer in December are extra fluffy AND extra forward. They'll bow politely, then absolutely shake you down for crackers. Zip every pocket, hold the senbei high, and protect the slowest man in the squad.",
+        kind: "seasonal",
+      },
+    ],
+    dares: [
+      "Walk the Arashiyama bamboo grove before 7:30 — empty path or it didn't count",
+      "Feed an Iwatayama monkey from inside the hut — humans in the cage",
+      "Bow to a Nara deer, get bowed back, FILM it",
+      "Squeeze through Todai-ji's nostril-sized pillar hole — send the bendy ones",
+      "Catch Nakatanidou's flying-hammer mochi pounding on video, warm mochi in hand",
+      "Close the final Kyoto night with 'Linda Linda' at Jankara karaoke",
+    ],
   },
   {
     date: "2026-12-24",
@@ -529,6 +693,14 @@ export const DAYS: Day[] = [
         url: "https://www.kfc.co.jp/xmas/",
       },
     ],
+    dares: [
+      "Eat a stone-milled matcha parfait at Tsuen, the world's oldest tea house",
+      "Hold eye contact with the Glico running man for the photo — match the pose",
+      "Eat a takoyaki ball at full lava temperature — tradition demands a casualty",
+      "Do the sacred KFC-bucket-plus-shortcake Japanese Christmas, unironically",
+      "Splash water on Hozenji's moss Buddha for luck while still coordinated",
+      "Sing 'Merry Christmas' on the Airbnb floor in glorious 8-part disharmony",
+    ],
   },
   {
     date: "2026-12-25",
@@ -573,6 +745,14 @@ export const DAYS: Day[] = [
         url: "https://www.usj.co.jp/web/en/us",
       },
     ],
+    dares: [
+      "Be AT the gates 45 min before open — rope-drop or be trampled on Christmas",
+      "Clear a Power-Up Band key challenge in Super Nintendo World",
+      "Eat the toadstool mushroom soup at Kinopio's Café and admit it slaps",
+      "Down a butterbeer in snow-dusted Hogsmeade — foam mustache photo required",
+      "Ride Hollywood Dream at the exact sunset drop, hands up",
+      "End Christmas airborne off the Round1 trampoline or not at all",
+    ],
   },
   {
     date: "2026-12-26",
@@ -608,6 +788,32 @@ export const DAYS: Day[] = [
       { label: "SmartEX (Hiroshima round-trip block)", url: "https://smart-ex.jp/en/" },
     ],
     wiki: ["Hiroshima Peace Memorial", "Itsukushima Shrine", "Okonomiyaki"],
+    events: [
+      {
+        name: "Miyajima OYSTER SEASON at absolute peak",
+        window: "December (peak month)",
+        cost: "~$3 (¥500) for two grilled",
+        station: "Miyajima",
+        note: "December is the dead-center peak of Hiroshima/Miyajima oyster season, and the kakigoya (grill huts) line Omotesando shucking and grilling them in-shell in front of you. Our 15:30 stop lands in oyster Mecca at oyster prime time — two fat grilled ones for about ¥500. There is no wrong number to eat.",
+        kind: "seasonal",
+      },
+      {
+        name: "Hiroshima Dreamination — Peace Boulevard lights",
+        window: "mid-Nov–early Jan (annual)",
+        cost: "Free",
+        station: "Hiroshima",
+        note: "Hiroshima's big winter light festival strings illuminated arches and fairy-tale tableaux down Peace Boulevard from mid-November into early January — so it's lit on our day. Slot it if we linger in the city before the shinkansen home, or trade it for one more oyster. Both are correct answers.",
+        kind: "illumination",
+      },
+    ],
+    dares: [
+      "Give the Peace Museum the full 2.5 hours, phones away, no rushing",
+      "Layer Hiroshima okonomiyaki over yakisoba and never call it 'the Osaka way'",
+      "Eat a grilled oyster straight off the Omotesando shell, in oyster Mecca",
+      "Read the tide chart right — see the floating torii AND walk to its feet",
+      "Shut up for the 17:05 torii silhouette at golden hour over the strait",
+      "No double-dipping the kushikatsu sauce at Daruma — they announce violators",
+    ],
   },
   {
     date: "2026-12-27",
@@ -644,6 +850,15 @@ export const DAYS: Day[] = [
       { label: "Osaka Castle official", url: "https://www.osakacastle.net/english/" },
     ],
     wiki: ["Osaka Castle", "Umeda Sky Building", "Shinsekai"],
+    dares: [
+      "Shoot king-crab legs at Kuromon for breakfast — degenerate hours are now",
+      "Summit the Osaka Castle keep on its LAST open day before the New Year shutdown",
+      "Rub Billiken's feet at Tsutenkaku for luck",
+      "Eat kushikatsu in Janjan Yokocho — and DO NOT double-dip the sauce",
+      "Walk the full 4km of Midosuji lights end-to-end without taking the train once",
+      "Crack a whole crab leg at Kani Doraku under the giant moving crab sign",
+      "Find the bar-that's-also-a-barbershop in the Misono Building",
+    ],
     events: [
       {
         name: "⚠ Osaka Castle keep — TODAY is the last open day",
@@ -699,6 +914,14 @@ export const DAYS: Day[] = [
       { label: "Tax-free shopping rules (JNTO)", url: "https://tax-freeshop.jnto.go.jp/eng/index.php" },
     ],
     wiki: ["Himeji Castle", "Kobe beef", "Kitano-chō"],
+    dares: [
+      "Climb all six floors of Himeji Castle in socks — the killer stairs ARE the defense",
+      "Eat certified A5 Kobe beef at the counter where it's seared in front of you",
+      "Out-campaign the crew for an Awards Ceremony trophy over the farewell grill",
+      "Land a tax-free haul over $31 (¥5,000) on the final Don Quijote boss run",
+      "Order the whole table's yakiniku in Japanese (auto-win, Lost in Translation Cup)",
+      "Close your bags BEFORE the Ura-Namba nightcap — non-negotiable",
+    ],
     events: [
       {
         name: "⚠ Himeji Castle — reconfirm open on Dec 28",
@@ -751,6 +974,24 @@ export const DAYS: Day[] = [
       { label: "Delta — check in T-24h (Dec 28, 17:15 JST!)", url: "https://www.delta.com" },
     ],
     wiki: ["Haneda Airport", "Tokaido Shinkansen"],
+    events: [
+      {
+        name: "New Year (oshōgatsu) shutdown begins — logistics heads-up",
+        window: "shops/museums close ~Dec 28–Jan 3",
+        cost: "—",
+        station: "everywhere",
+        note: "Pure logistics, no panic: most museums, smaller shops and some restaurants begin closing Dec 28 through Jan 3 for oshōgatsu, so don't plan a last-minute sightseeing detour today. The good news — airports, shinkansen and the Keikyu all run normal schedules, and HND's duty-free is fully open. The exit machine works on holidays.",
+        kind: "seasonal",
+      },
+    ],
+    dares: [
+      "Run the blindfolded Famichiki-vs-Karaage-kun final and accept the verdict forever",
+      "Phones up for Fuji's farewell on the LEFT side ~80 min into the Nozomi",
+      "Zero out your Suica balance into gate-snacks — leave Japan owing nothing",
+      "Drain your last yen on one final boss gachapon at the HND gate",
+      "Group photo #16, same pose, at the gate before boarding — complete the streak",
+      "Open the 2027 destination thread at cruising altitude — Kaishun picks",
+    ],
   },
 ];
 
