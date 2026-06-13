@@ -59,9 +59,19 @@ function DayCard({ day, index }: { day: Day; index: number }) {
             transition={{ duration: 0.3 }}
           >
             <div className="px-4 sm:px-5 pb-5 pt-1">
-              <p className="mb-3 flex items-center gap-2 text-xs font-semibold text-cyan-200/90">
+              <p className="mb-3 flex items-center gap-2 flex-wrap text-xs font-semibold text-cyan-200/90">
                 <CloudSun size={14} className="shrink-0" />
-                {day.wx}
+                <span>{day.wx}</span>
+                <a
+                  href={`https://www.google.com/search?q=${encodeURIComponent(
+                    day.city.replace(/\s*\(.*\)/, "").replace(/\s*→.*/, "") + " 14 day weather forecast December",
+                  )}`}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center gap-0.5 text-cyan-300/80 hover:text-cyan-200 underline decoration-dotted whitespace-nowrap"
+                >
+                  live forecast ↗
+                </a>
               </p>
               {day.transport && (
                 <div className="mb-4 flex items-start gap-2.5 rounded-xl bg-indigo-500/10 border border-indigo-500/20 p-3 text-sm text-indigo-200">
@@ -135,7 +145,7 @@ export function Itinerary() {
       <SectionHeading
         kicker="The Master Plan"
         title="16 Days, Day by Day"
-        sub="Tokyo lights → Hakone onsen → Kyoto temples → Nara deer → Osaka chaos → Hiroshima reflection → one last Tokyo lap. Tap any day to expand."
+        sub="Tokyo neon → Kamakura coast → Kyoto temples → Nara deer → Osaka chaos → Hiroshima reflection → one last Tokyo lap. Each day carries its own December forecast (with a live-forecast link) baked right in — tap any day to expand."
       />
       <div className="space-y-3">
         {DAYS.map((d, i) => (

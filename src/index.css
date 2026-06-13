@@ -29,6 +29,21 @@ body {
   @apply px-4 sm:px-8 max-w-6xl mx-auto;
 }
 
+/* animated route flow-line on the Route map (shows direction of travel) */
+.route-flow {
+  stroke-dasharray: 1 12;
+  stroke-linecap: round;
+  animation: routeflow 1s linear infinite;
+}
+@keyframes routeflow {
+  to {
+    stroke-dashoffset: -13;
+  }
+}
+.leaflet-container {
+  background: #0b1120;
+}
+
 /* slim scrollbar */
 ::-webkit-scrollbar {
   width: 10px;

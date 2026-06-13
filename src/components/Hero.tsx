@@ -3,7 +3,7 @@ import { motion } from "motion/react";
 import { TRIP_START, CREW } from "../data/itinerary";
 
 const ROUTE = ["Tokyo ×6", "Kyoto ×3", "Osaka ×5"];
-const SPOKES = "+ day raids: Hakone · Nara · Uji · Hiroshima · Miyajima · Himeji · Kobe";
+const SPOKES = "+ day raids: Kamakura · Enoshima · Nara · Uji · Hiroshima · Miyajima · Himeji · Kobe";
 
 function useCountdown(target: string) {
   const [now, setNow] = useState(() => Date.now());

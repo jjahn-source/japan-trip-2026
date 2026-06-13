@@ -44,6 +44,51 @@ function WikiPhoto({ title }: { title: string }) {
   );
 }
 
+// ── Geometry: prove the route doesn't zig-zag ───────────────────────────────
+function haversineKm(a: [number, number], b: [number, number]) {
+  const R = 6371;
+  const dLat = ((b[0] - a[0]) * Math.PI) / 180;
+  const dLng = ((b[1] - a[1]) * Math.PI) / 180;
+  const la1 = (a[0] * Math.PI) / 180;
+  const la2 = (b[0] * Math.PI) / 180;
+  const h =
+    Math.sin(dLat / 2) ** 2 + Math.cos(la1) * Math.cos(la2) * Math.sin(dLng / 2) ** 2;
+  return 2 * R * Math.asin(Math.sqrt(h));
+}
+
+type RouteDNA = {
+  stops: number;
+  totalKm: number;
+  longestKm: number;
+  spanKm: number;
+  backtracks: number; // legs that move against the day's net direction
+  hasTransit: boolean; // a single big intercity hop is expected, not a zig-zag
+};
+
+function analyze(pts: [number, number][]): RouteDNA | null {
+  if (pts.length < 2) return null;
+  const legs = pts.slice(1).map((p, i) => haversineKm(pts[i], p));
+  const totalKm = legs.reduce((s, x) => s + x, 0);
+  const longestKm = Math.max(...legs);
+  const spanKm = haversineKm(pts[0], pts[pts.length - 1]);
+
+  // Net travel axis (first → last). Count legs that move meaningfully "backward"
+  // along that axis — those are the true zig-zags. Pure forward sweep ⇒ 0.
+  const ax = pts[pts.length - 1][1] - pts[0][1];
+  const ay = pts[pts.length - 1][0] - pts[0][0];
+  const axisLen = Math.hypot(ax, ay) || 1;
+  const ux = ax / axisLen;
+  const uy = ay / axisLen;
+  let backtracks = 0;
+  for (let i = 1; i < pts.length; i++) {
+    const vx = pts[i][1] - pts[i - 1][1];
+    const vy = pts[i][0] - pts[i - 1][0];
+    const proj = (vx * ux + vy * uy) / 0.0089; // ≈ projected km
+    if (proj < -0.4) backtracks++; // >400 m against the grain
+  }
+  return { stops: pts.length, totalKm, longestKm, spanKm, backtracks, hasTransit: longestKm > 25 };
+}
+
 // ── Leaflet helpers ─────────────────────────────────────────────────────────
 const TILE_URL = "https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png";
 const TILE_ATTR =
@@ -61,6 +106,15 @@ function numberIcon(n: number, color: string) {
 const DAY_COLOR = "#f43f5e";
 const BASE_COLOR = "#8b5cf6";
 
+// Day-trip spokes radiating from each base (no hotel changes, zero backtracking).
+const SPOKES: { name: string; from: number; to: [number, number] }[] = [
+  { name: "Kamakura + Enoshima (Dec 19)", from: 0, to: [35.3192, 139.5503] },
+  { name: "Nara (Dec 23)", from: 1, to: [34.685, 135.8399] },
+  { name: "Uji (Dec 24)", from: 1, to: [34.8918, 135.8005] },
+  { name: "Hiroshima + Miyajima (Dec 26)", from: 2, to: [34.3955, 132.4536] },
+  { name: "Himeji + Kobe (Dec 28)", from: 2, to: [34.8394, 134.6939] },
+];
+
 export function RouteView() {
   const [dayIdx, setDayIdx] = useState<number>(-1); // -1 = whole-trip overview
   const mapEl = useRef<HTMLDivElement>(null);
@@ -72,6 +126,8 @@ export function RouteView() {
     () => (day ? day.activities.filter((a) => a.coord) : []),
     [day],
   );
+  const pts = useMemo(() => stops.map((s) => s.coord!) as [number, number][], [stops]);
+  const dna = useMemo(() => analyze(pts), [pts]);
 
   // init once
   useEffect(() => {
@@ -95,49 +151,43 @@ export function RouteView() {
     layer.clearLayers();
 
     if (!day) {
-      // OVERVIEW: bases + every day's first/key stop spokes — one westward line, zero zig-zags
+      // OVERVIEW: bases on one westward line + day-trip spokes
       const baseLine: [number, number][] = BASES.map((b) => b.coord);
-      L.polyline(baseLine, { color: BASE_COLOR, weight: 4, opacity: 0.9 }).addTo(layer);
+      L.polyline(baseLine, { color: BASE_COLOR, weight: 5, opacity: 0.95, className: "route-flow" }).addTo(layer);
+      L.polyline(baseLine, { color: BASE_COLOR, weight: 2, opacity: 0.35 }).addTo(layer);
       BASES.forEach((b, i) => {
         L.marker(b.coord, { icon: numberIcon(i + 1, BASE_COLOR) })
           .bindPopup(`<b>${b.name}</b><br/>${b.dates}`)
           .addTo(layer);
       });
-      // day-trip spokes
-      const spokes: { name: string; from: [number, number]; to: [number, number] }[] = [
-        { name: "Hakone (Dec 19)", from: BASES[0].coord, to: [35.2326, 139.1056] },
-        { name: "Nara (Dec 23)", from: BASES[1].coord, to: [34.685, 135.8399] },
-        { name: "Uji (Dec 24)", from: BASES[1].coord, to: [34.8918, 135.8005] },
-        { name: "Hiroshima + Miyajima (Dec 26)", from: BASES[2].coord, to: [34.3955, 132.4536] },
-        { name: "Himeji + Kobe (Dec 28)", from: BASES[2].coord, to: [34.8394, 134.6939] },
-      ];
-      spokes.forEach((s) => {
-        L.polyline([s.from, s.to], { color: DAY_COLOR, weight: 2, dashArray: "6 8", opacity: 0.8 }).addTo(layer);
+      SPOKES.forEach((s) => {
+        const from = BASES[s.from].coord;
+        L.polyline([from, s.to], { color: DAY_COLOR, weight: 2, dashArray: "6 8", opacity: 0.8 }).addTo(layer);
         L.circleMarker(s.to, { radius: 6, color: DAY_COLOR, fillColor: DAY_COLOR, fillOpacity: 0.9 })
-          .bindPopup(`<b>${s.name}</b><br/>day trip`)
+          .bindPopup(`<b>${s.name}</b><br/>day trip — out & back, no hotel change`)
           .addTo(layer);
       });
-      map.fitBounds(L.latLngBounds([...baseLine, ...spokes.map((s) => s.to)]).pad(0.15));
+      map.fitBounds(L.latLngBounds([...baseLine, ...SPOKES.map((s) => s.to)]).pad(0.15));
       return;
     }
 
-    if (stops.length === 0) return;
-    const pts = stops.map((s) => s.coord!) as [number, number][];
-    L.polyline(pts, { color: DAY_COLOR, weight: 3, opacity: 0.9 }).addTo(layer);
+    if (pts.length === 0) return;
+    L.polyline(pts, { color: DAY_COLOR, weight: 5, opacity: 0.95, className: "route-flow" }).addTo(layer);
+    L.polyline(pts, { color: DAY_COLOR, weight: 2, opacity: 0.3 }).addTo(layer);
     stops.forEach((s, i) => {
       L.marker(s.coord!, { icon: numberIcon(i + 1, DAY_COLOR) })
         .bindPopup(`<b>${s.time}</b> — ${s.title}`)
         .addTo(layer);
     });
     map.fitBounds(L.latLngBounds(pts).pad(0.2));
-  }, [day, stops]);
+  }, [day, stops, pts]);
 
   return (
     <div className="section-pad py-24 pt-32">
       <SectionHeading
         kicker="The Geometry Proof"
         title="Route Control"
-        sub="Every day plotted in stop order. The overview shows the whole campaign: one clean westward line — Tokyo → Kyoto → Osaka — with day-trip spokes. Zero zig-zags, zero wasted train hours."
+        sub="Every day plotted in stop order, with a live flow-line showing the direction of travel. The overview is the whole campaign: one clean westward line — Tokyo → Kyoto → Osaka — with day-trip spokes that go out and back. The Route DNA panel measures every day for zig-zags."
       />
 
       {/* Day selector */}
@@ -167,6 +217,31 @@ export function RouteView() {
       <div className="glass rounded-2xl overflow-hidden">
         <div ref={mapEl} style={{ height: "62vh", minHeight: 420 }} />
       </div>
+
+      {/* Route DNA — the zig-zag analyzer */}
+      {dna && (
+        <div className="mt-4 glass rounded-2xl p-4 sm:p-5">
+          <div className="flex flex-wrap items-center gap-x-6 gap-y-3">
+            <p className="text-xs font-bold text-violet-300 uppercase tracking-wider">🧬 Route DNA</p>
+            <Stat label="Stops" value={`${dna.stops}`} />
+            <Stat label="Path plotted" value={`≈ ${dna.totalKm.toFixed(1)} km`} />
+            <Stat label="Longest hop" value={`≈ ${dna.longestKm.toFixed(1)} km`} />
+            <Stat label="Span" value={`≈ ${dna.spanKm.toFixed(1)} km`} />
+            <div
+              className={`ml-auto rounded-full px-3 py-1 text-xs font-bold border ${
+                dna.backtracks === 0
+                  ? "bg-emerald-500/15 text-emerald-300 border-emerald-500/40"
+                  : "bg-amber-500/15 text-amber-300 border-amber-500/40"
+              }`}
+            >
+              {dna.backtracks === 0
+                ? "✓ No zig-zags — clean one-way flow"
+                : `${dna.backtracks} against-the-grain ${dna.backtracks === 1 ? "leg" : "legs"}`}
+              {dna.hasTransit && " · incl. 1 transit leg"}
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* Selected-day detail */}
       {day ? (
@@ -214,14 +289,25 @@ export function RouteView() {
           <div className="sm:col-span-3 glass rounded-2xl p-5">
             <p className="text-sm text-slate-300 leading-relaxed">
               <span className="font-bold text-rose-300">Why this shape wins:</span> the trip moves
-              strictly west then flies home from the east coast's airport via one shinkansen sprint.
-              Day trips (dashed) radiate from bases instead of forcing hotel changes — Hakone from
-              Tokyo, Nara/Uji from Kyoto, Hiroshima and Himeji/Kobe from Osaka. Luggage moves
-              exactly twice (Yamato ships it both times); we ride every train with daypacks.
+              strictly west, then flies home from the east-coast airport via one shinkansen sprint.
+              Day trips (dashed) radiate out-and-back from each base instead of forcing hotel
+              changes — Kamakura + Enoshima from Tokyo, Nara/Uji from Kyoto, Hiroshima and
+              Himeji/Kobe from Osaka. Luggage moves exactly twice (Yamato ships it both times); we
+              ride every train with daypacks. No rail pass — every leg is point-to-point on Suica or
+              a SmartEX shinkansen seat, which is cheaper than a nationwide pass for this route.
             </p>
           </div>
         </div>
       )}
+    </div>
+  );
+}
+
+function Stat({ label, value }: { label: string; value: string }) {
+  return (
+    <div>
+      <p className="text-[0.65rem] font-semibold text-slate-500 uppercase tracking-wider">{label}</p>
+      <p className="text-sm font-bold text-slate-100 tabular-nums">{value}</p>
     </div>
   );
 }

@@ -3,7 +3,7 @@ export type DayTrip = {
   name: string;
   jp: string;
   base: "Tokyo" | "Kansai"; // which home base it runs from
-  travel: string; // exact route + time + cost, e.g. "Odakyu Romancecar Shinjuku→Hakone-Yumoto, 85 min, ¥2,470 (~$16) each way — book seats at..."
+  travel: string; // exact route + time + cost, e.g. "JR Shonan-Shinjuku line Shinjuku→Kamakura, ~60 min, ¥960 ($6) each way — tap Suica/PASMO, no rail pass..."
   cost: string; // realistic all-in per person USD for the day
   hours: string; // door-to-door, e.g. "07:30–19:30"
   tier: 1 | 2 | 3; // 1 = locked into the itinerary, 2 = strong audible, 3 = if a day frees up
@@ -11,74 +11,43 @@ export type DayTrip = {
   play: string[]; // 6-10 step hour-by-hour run of show, each step "HH:MM — thing (detail)"
   protip: string;
   links: { label: string; url: string }[]; // 1-3 REAL official links (transport pass page, attraction official site)
-  wiki: string; // exact English Wikipedia article title for the hero photo, e.g. "Hakone" or "Itsukushima Shrine"
+  wiki: string; // exact English Wikipedia article title for the hero photo, e.g. "Kōtoku-in" or "Itsukushima Shrine"
 };
 
 export const DAY_TRIPS: DayTrip[] = [
   // ───────────────────────── FROM TOKYO BASE ─────────────────────────
-  {
-    id: "hakone-loop",
-    name: "Hakone Fuji Loop",
-    jp: "箱根",
-    base: "Tokyo",
-    travel:
-      "Odakyu Romancecar Shinjuku→Hakone-Yumoto, 85 min, ¥2,470 (~$16) each way — but buy the Hakone Freepass from Shinjuku (¥6,100, 2-day) which covers the Odakyu round trip PLUS every mountain leg (Tozan railway, cablecar, ropeway, pirate ship, buses); add the ¥1,200 Romancecar seat surcharge each way for the comfy reserved train.",
-    cost: "~$90/person (¥6,100 pass + ¥2,400 Romancecar seats + ¥1,800 onsen + black eggs + lunch)",
-    hours: "07:00–20:30",
-    tier: 1,
-    pitch:
-      "THE Dec 19 plan: one ticket chains five forms of transport into a clockwise loop around a volcano, with Mt. Fuji photobombing the whole day. Switchback railway → cablecar → ropeway over a steaming crater → pirate galleon across a caldera lake → lakeside torii — then a forest onsen before the train home. December has the year's highest Fuji-visibility odds; this is the day the group chat was made for.",
-    play: [
-      "07:00 — Romancecar departs Shinjuku (book on the Odakyu e-Romancecar site the day seats open — the front-window saloon seats on the GSE are the trophy)",
-      "08:30 — Hakone-Yumoto: konbini coffee + snacks, commit to the clockwise loop",
-      "08:50 — Hakone Tozan railway to Gora (40 min of forested switchbacks — the train reverses direction three times, that's the feature not a bug)",
-      "09:45 — Cablecar Gora→Sounzan (10 min), walk straight onto the ropeway",
-      "10:10 — Owakudani: sulfur steam vents, Fuji dead ahead, and kuro-tamago black eggs (¥500 for 4 — each adds 7 years of life, we don't make the rules)",
-      "11:15 — Ropeway down to Togendai, then the Lake Ashi pirate galleon to Moto-Hakone (~35 min, Fuji off the stern)",
-      "12:30 — Lunch in Moto-Hakone (lakeside soba or katsu — nothing fancy required)",
-      "13:45 — Hakone Shrine: cedar-lined stone staircase, then the floating Peace Torii photo line at the water (it moves fast)",
-      "15:00 — Hakone Tozan bus (line H) back down to Hakone-Yumoto, ~40 min, covered by the pass",
-      "16:00 — Hakone Yuryo day-use onsen (free shuttle from Yumoto station): rotenburo steam in December mountain air, then the ~18:50 Romancecar home",
-    ],
-    protip:
-      "Check the Owakudani live webcam at 6:30am before committing — if Fuji is socked in, flip the day. The ropeway closes early in winter (~16:15) and occasionally shuts for volcanic gas, in which case replacement buses run the same leg. Tattooed crew: Hakone Yuryo rents private kashikiri bath rooms (~¥5,000/h, splits to pocket change).",
-    links: [
-      { label: "Hakone Freepass — Odakyu", url: "https://www.odakyu.jp/english/passes/hakone/" },
-      { label: "Hakone Navi (official area guide)", url: "https://www.hakonenavi.jp/international/en/" },
-      { label: "Hakone Yuryo onsen", url: "https://www.hakoneyuryo.jp/" },
-    ],
-    wiki: "Hakone",
-  },
   {
     id: "kamakura-enoshima",
     name: "Kamakura + Enoshima",
     jp: "鎌倉・江の島",
     base: "Tokyo",
     travel:
-      "JR Shonan-Shinjuku line Shinjuku→Kamakura direct, ~60 min, ¥960 (~$6.40); inside the area the Enoden tram hops temple-to-temple (¥800 day pass 'Noriorikun'); return from Enoshima on the Odakyu line to Shinjuku (~70 min, ¥660).",
-    cost: "~$45/person (trains ~¥2,400 + temples ¥800 + shirasu lunch + Enoshima)",
+      "Point-to-point on Suica/PASMO, NO rail pass: JR Yokosuka / Shonan-Shinjuku line Shinjuku or Tokyo→Kamakura direct, ~60 min, ¥960 ($6); inside the area the 1902 Enoden tram hops temple-to-temple (tap your IC card, or the 'Noriorikun' day pass ¥700/$4.40 pays off after ~3 rides); return from Katase-Enoshima on the Odakyu line to Shinjuku ~70 min ¥660 ($4.10), or Enoden back to Kamakura + JR. Forward nothing — this is a day bag, IC-card, no-reservation kind of trip.",
+    cost: "~$50/person (trains ~$15 + Great Buddha + Hase-dera + Enoshima island pass + shirasu lunch + street food)",
     hours: "08:00–19:30",
-    tier: 2,
+    tier: 1,
     pitch:
-      "The samurai capital by the sea, one hour south: a 13-meter open-air bronze Buddha you can stand inside, a hillside temple staring at the Pacific, and a rattling 1902 tram running between beach houses. Cap it on Enoshima island, where a crisp December evening gives you the best Fuji-over-the-ocean sunset anywhere near Tokyo. This is the strongest audible in the Tokyo deck.",
+      "THE Dec 19 plan: the samurai capital by the sea, one hour south. A 13-meter open-air bronze Buddha you can stand INSIDE, a hillside temple staring down the Pacific, and a rattling 110-year-old green tram threading between surf shops and backyards. Cap it on Enoshima island, where a crisp, dry December evening hands you the single best Fuji-over-the-ocean sunset anywhere near Tokyo — volcano silhouette across Sagami Bay, then the Sea Candle lighthouse lit up for winter. Replaces the old Hakone day entirely, costs half as much, and never once asks you to look at a rail pass.",
     play: [
-      "08:00 — Shonan-Shinjuku line from Shinjuku (grab egg sandos for the ride)",
-      "09:05 — Kamakura station: walk Komachi-dori as the snack shops open (sweet-potato soft serve at 9am is legal here)",
-      "09:45 — Tsurugaoka Hachimangu, the shogunate's great shrine at the top of the avenue",
-      "10:45 — Enoden tram to Hase (3 stops — the tiny green tram threading backyards is half the trip)",
-      "11:00 — The Great Buddha at Kotoku-in (¥300, +¥50 to go INSIDE the 1252 casting)",
-      "12:00 — Hase-dera (¥400): golden Kannon, thousands of tiny jizo statues, ocean-view terrace",
-      "13:00 — Shirasu-don lunch (whitebait over rice — the Shonan coast specialty) near Hase",
-      "14:15 — Enoden the rest of the way down the coast to Enoshima — December-clear days put Fuji over the water out the right-hand windows",
-      "15:00 — Cross the causeway: Enoshima Shrine, the Sea Candle lighthouse garden (~¥1,100 island combo)",
-      "16:30 — Sunset Fuji silhouette from the island's west side, Sea Candle winter illumination after dark, then Odakyu home from Katase-Enoshima",
+      "08:00 — JR Yokosuka/Shonan-Shinjuku line from Shinjuku or Tokyo (grab egg sandos + a hot coffee for the ride; tap in with Suica, no reservation, no pass)",
+      "09:05 — Kamakura station: walk Komachi-dori as the snack shops roll up their shutters (sweet-potato soft serve and warm ningyo-yaki at 9am is fully legal here)",
+      "09:40 — Tsurugaoka Hachimangu: the Minamoto shogunate's great shrine crowning the avenue, wide stone approach (dankazura) and a giant ginkgo, near-empty at this hour",
+      "10:30 — Enoden tram from Kamakura to Hase (4 stops — the tiny green tram squeezing between living-room windows is half the reason you came)",
+      "10:50 — The Great Buddha at Kotoku-in (¥300/$1.90, +¥50 to climb INSIDE the 1252 bronze casting and see the hollow shell) — open-air since a 1498 tsunami took the hall",
+      "11:50 — Hase-dera (¥400/$2.50): the 9m gilded eleven-headed Kannon, thousands of tiny red-bibbed jizo, and a hillside terrace looking straight down Yuigahama beach to the bay",
+      "12:50 — Shirasu-don lunch near Hase (raw or boiled whitebait over rice — the Shonan coast's signature; ~¥1,300/$8)",
+      "14:00 — Enoden the rest of the way down the coast to Enoshima — December-clear days throw Fuji up over the water out the right-hand windows, between the houses, for about 40 seconds at Kamakurakohan",
+      "14:40 — Cross the causeway bridge to Enoshima: climb past Enoshima Shrine, ride the outdoor escalators ('Escar') up, hit the Iwaya sea caves at the back of the island (¥500/$3.10, candle-lit lava tubes the waves carved)",
+      "16:00 — Be at the Sea Candle observation tower (¥800/$5, or the ¥1,100/$6.90 island combo covers caves + garden + tower + escalators) for the December alpenglow",
+      "16:35 — Fuji silhouette goes black against an orange Sagami Bay at sunset; the Samuel Cocking Garden + Sea Candle winter illumination switches on after dark, then Odakyu home from Katase-Enoshima",
     ],
     protip:
-      "Sunset is ~16:35 in mid-December — build the day backwards from being on Enoshima by 16:00. Hawks (tonbi) divebomb street food along this whole coast; eat with your back to a wall. Weekday > weekend by a mile.",
+      "Sunset is ~16:35 in mid-December and the light show is FAST — build the whole day backwards from standing on Enoshima's west side by 16:10. Mornings near the coast hover just above freezing and the wind off the bay bites, so this is a real-coat day even though it's at sea level. Black kites (tonbi) divebomb street food along this entire coast — eat with your back to a wall, hold the senbei low. Weekday beats weekend by a mile; the Enoden gets sardine-packed on December weekends chasing the same Fuji sunset you are.",
     links: [
-      { label: "Kotoku-in (Great Buddha) official", url: "https://www.kotoku-in.jp/" },
-      { label: "Hase-dera official", url: "https://www.hasedera.jp/" },
-      { label: "Enoden railway", url: "https://www.enoden.co.jp/en/" },
+      { label: "Kotoku-in (Great Buddha) official", url: "https://www.kotoku-in.jp/en/" },
+      { label: "Hase-dera official", url: "https://www.hasedera.jp/en/" },
+      { label: "Enoden railway (English)", url: "https://www.enoden.co.jp/en/" },
+      { label: "Enoshima Sea Candle / Cocking Garden", url: "https://enoshima-seacandle.com/" },
     ],
     wiki: "Kōtoku-in",
   },
@@ -88,27 +57,29 @@ export const DAY_TRIPS: DayTrip[] = [
     jp: "日光",
     base: "Tokyo",
     travel:
-      "Tobu limited express (Revaty Kegon) Asakusa→Tobu-Nikko, ~1h50, ~¥3,050 (~$20) each way with reserved seat; or the Tobu Nikko World Heritage Area Pass (~¥2,120, covers the round trip on local trains + area buses — add the limited express seat fee each way to skip the slow ride).",
-    cost: "~$70/person (trains ~¥6,100 + Toshogu ¥1,600 + yuba lunch + buses)",
+      "Point-to-point, NO rail pass: Tobu limited express (Revaty Kegon / Spacia X) Asakusa→Tobu-Nikko, ~1h50, ~¥3,050 ($19) each way with reserved seat — buy seats on the Tobu Top Tours / Tobu Railway site in advance; or pay-as-you-go on local Tobu trains + area buses with your IC card and just add the limited express seat fee each way to skip the slow ride. (Tobu, not JR — your Suica/PASMO taps the buses too.)",
+    cost: "~$70/person (trains ~$38 + Toshogu ¥1,600/$10 + yuba lunch + buses)",
     hours: "07:00–19:00",
     tier: 3,
     pitch:
-      "Tokugawa Ieyasu's mausoleum is the most extravagant thing ever built in Japan — a mountain forest of giant cedars wrapped around shrines dripping in gold leaf and carving. In late December there's a real chance the whole complex is dusted in snow, which turns the gold up to eleven and the crowds down to nothing. The longest haul in the Tokyo deck, and it earns it.",
+      "Tokugawa Ieyasu's mausoleum is the most extravagant thing ever built in Japan — a mountain forest of 350-year-old cedars wrapped around shrines dripping in gold leaf and over 5,000 carvings. In late December there's a real chance the whole complex is dusted in snow, which turns the gold up to eleven and the crowds down to nothing, and the cold thins the day-tripper herd to almost zero. The longest haul in the Tokyo deck, and it earns every minute. UNESCO World Heritage, and it shows.",
     play: [
-      "07:00 — Revaty limited express from Asakusa (reserve seats in advance; sleep or stare at the Kanto plain)",
-      "09:00 — Tobu-Nikko station: bus up the hill to the Shinkyo sacred bridge",
-      "09:30 — Toshogu (¥1,600): the Yomeimon 'sunset gate' (so detailed people stare till dusk), the original see-no-evil monkeys, the sleeping cat, then 207 stone steps to Ieyasu's surprisingly quiet tomb",
-      "11:30 — Futarasan Shrine and Taiyuin (the grandson's deliberately humbler mausoleum — many people's secret favorite)",
-      "12:45 — Yuba lunch (tofu skin in every form — Nikko's monk-food specialty, weirdly great)",
-      "14:00 — Kanmangafuchi Abyss: a gorge-side row of ~70 jizo statues in red caps, dead quiet in winter",
-      "15:30 — Shinkyo bridge photo, sweet shops, and castella cake for the train",
+      "07:00 — Revaty/Spacia X limited express from Asakusa (reserve seats in advance; sleep, or stare out at a frozen Kanto plain — buy a hot coffee at the kiosk)",
+      "09:00 — Tobu-Nikko station: bus up the hill (tap your IC card) past the Shinkyo sacred bridge",
+      "09:30 — Toshogu (¥1,600/$10): the Yomeimon 'sunset gate' (so detailed people once stared at it till dusk — hence the name), the original see-no-evil-hear-no-evil-speak-no-evil monkeys, the famous sleeping cat (nemuri-neko), then 207 stone steps up to Ieyasu's surprisingly quiet bronze tomb",
+      "11:30 — Futarasan Shrine and Taiyuin: the grandson Iemitsu's deliberately humbler mausoleum tucked in the cedars — many people's secret favorite, and far quieter than Toshogu",
+      "12:45 — Yuba lunch (yuba = tofu skin, in every conceivable form — Nikko's mountain-temple monk specialty, weirdly excellent, and hot food is the move at near-freezing altitude)",
+      "14:00 — Kanmangafuchi Abyss: a lava-gorge riverside lined with ~70 jizo statues in red knit caps (the 'Bake-jizo' — count them twice and you'll get a different number, allegedly), dead silent and dusted with snow in winter",
+      "15:00 — Rinno-ji temple's Sanbutsudo hall and the gold Buddhas, if legs allow",
+      "15:45 — Shinkyo bridge photo (vermillion arch over an icy river), sweet shops, and warm yuba manju or castella cake for the train",
       "16:30 — Limited express home; Asakusa by ~18:30",
     ],
     protip:
-      "It runs 5–8°C colder than Tokyo — this is the day for every layer you packed. Skip the Lake Chuzenji extension in December (the Irohazaka switchback road can ice over and it eats 2+ hours); the World Heritage cluster is the show. Buy limited express seats both ways in advance — winter trains are short.",
+      "It runs a brutal 5–8°C colder than Tokyo and the shaded shrine paths hold ice all day — this is the trip for every single layer you packed, plus grip soles. Skip the Lake Chuzenji / Kegon Falls extension in December (the Irohazaka switchback road ices over, buses get cut, and it eats 2+ hours); the World Heritage cluster in town IS the show. Buy limited express seats both ways in advance — winter trains run short and the good ones sell out. The Tobu Nikko Pass covers the round trip + local buses on your card, no JR involved.",
     links: [
       { label: "Nikko Toshogu official", url: "https://www.toshogu.jp/" },
-      { label: "Tobu Railway passes", url: "https://www.tobu.co.jp/en/" },
+      { label: "Nikko Toshogu (English)", url: "https://www.toshogu.jp/english/" },
+      { label: "Tobu Railway passes (English)", url: "https://www.tobu.co.jp/en/" },
     ],
     wiki: "Nikkō Tōshō-gū",
   },
@@ -118,27 +89,28 @@ export const DAY_TRIPS: DayTrip[] = [
     jp: "河口湖",
     base: "Tokyo",
     travel:
-      "Highway bus from Busta Shinjuku (the terminal above Shinjuku station, gate 4F)→Kawaguchiko Station, ~1h45, ~¥2,200 (~$15) each way — reserve seats online up to a month out; first departures ~6:45 sell the best Fuji light.",
-    cost: "~$60/person (bus ¥4,400 + local trains/ropeway ~¥2,800 + hoto lunch)",
+      "Highway bus from Busta Shinjuku (the terminal above Shinjuku station, gate 4F)→Kawaguchiko Station, ~1h45, ~¥2,200 ($14) each way — reserve seats online up to a month out (no rail pass exists for this anyway); first departures ~6:45 sell the best Fuji light. The slower alternative is JR/Fujikyu trains paid by IC card, but the bus is faster and cheaper.",
+    cost: "~$60/person (bus ~$28 + local trains/ropeway ~$18 + hoto lunch)",
     hours: "06:45–19:00",
     tier: 3,
     pitch:
-      "The Fuji Five Lakes put you at the mountain's feet: Chureito Pagoda's five-story-pagoda-plus-Fuji postcard, the lake panorama from the ropeway, and the volcano filling your entire windshield. December is statistically the best month of the year to actually SEE Fuji — cold, dry, ruthless clarity. This is the all-in photo day, and it only runs on a clear forecast.",
+      "The Fuji Five Lakes put you at the mountain's feet: Chureito Pagoda's five-story-pagoda-plus-Fuji postcard, the lake panorama from the ropeway, and the volcano filling your entire windshield from 15km out. December is statistically the best month of the year to actually SEE Fuji — cold, dry, ruthless clarity, and the snowcap is finally on. This is the all-in photo day, and it only runs on a clear forecast — check the webcam the night before or don't go.",
     play: [
-      "06:45 — Highway bus from Busta Shinjuku (left side seats for the Fuji reveal on the expressway)",
-      "08:45 — Kawaguchiko Station: Fuji status check, lockers for anything heavy",
-      "09:15 — Fujikyu line two stops to Shimoyoshida → climb the 398 steps to Chureito Pagoda (THE postcard: red pagoda, town below, Fuji behind)",
-      "11:15 — Back to Kawaguchiko; hoto lunch (flat udon in pumpkin miso stew served in an iron pot — Yamanashi's winter weapon)",
-      "12:45 — Mt. Fuji Panoramic Ropeway up Mt. Tenjo (~¥1,800 round trip) for the lake-and-Fuji panorama",
-      "14:15 — Bus or rental cycle to Oishi Park on the north shore — the calendar-photo angle across the water",
-      "15:45 — Lakeside coffee and Fujiyama Cookie back near the station",
-      "16:30 — Watch the December alpenglow turn Fuji pink (~16:30), then the bus home",
+      "06:45 — Highway bus from Busta Shinjuku (left/passenger side seats for the Fuji reveal as the expressway crests; sunrise Fuji over the wing of the bus is the warmup)",
+      "08:45 — Kawaguchiko Station: Fuji status check, lockers for anything heavy, hot vending-machine coffee",
+      "09:15 — Fujikyu line two stops to Shimoyoshida → climb the 398 steps to Chureito Pagoda (THE postcard: vermillion five-story pagoda, town below, snow-capped Fuji filling the sky behind — and in December, no autumn-leaf tour-bus mob)",
+      "11:15 — Back to Kawaguchiko; hoto lunch (flat hand-cut udon in a pumpkin-miso stew served boiling in an iron pot — Yamanashi's winter weapon, ~¥1,200/$8)",
+      "12:45 — Mt. Fuji Panoramic Ropeway (the 'Kachi Kachi Yama' ropeway) up Mt. Tenjo (~¥1,800/$11 round trip) for the lake-and-Fuji panorama and the tanuki-and-rabbit folktale photo spots",
+      "14:15 — Bus or rental cycle to Oishi Park on the north shore — THE calendar-photo angle, Fuji mirrored across Lake Kawaguchi with winter flowers in the foreground",
+      "15:45 — Lakeside coffee and a Fujiyama Cookie back near the station to thaw out",
+      "16:30 — Watch the December alpenglow ('beni-Fuji') turn the snowcap pink (~16:30), then the bus home — Shinjuku by ~18:30",
     ],
     protip:
-      "Book a CANCELLABLE bus and decide the night before off the forecast and live webcams — Fuji hidden = day wasted, Fuji out = best photos of the trip. It's a high-altitude basin: noticeably colder than Tokyo, and the pagoda steps are icy in the morning shade. Buses back to Shinjuku sell out Sunday evenings; reserve the return too.",
+      "Book a CANCELLABLE bus and decide the night before off the forecast and live webcams — Fuji hidden = day wasted, Fuji out = the best photos of the entire trip. It's a high-altitude basin (~830m): noticeably colder than Tokyo, dawn well below freezing, and the pagoda steps are sheet ice in the morning shade — grip soles or you're going down them on your back. Buses back to Shinjuku sell out Sunday and holiday evenings; reserve the return seat too. If two clear days line up, this and Kamakura+Enoshima are your two Fuji angles — ocean vs lake.",
     links: [
-      { label: "Highway Bus reservations (Keio)", url: "https://www.highwaybus.com/" },
-      { label: "Mt. Fuji Panoramic Ropeway", url: "https://www.mtfujiropeway.jp/" },
+      { label: "Highway Bus reservations (Keio)", url: "https://www.highwaybus.com/gp/index" },
+      { label: "Mt. Fuji Panoramic Ropeway", url: "https://www.mtfujiropeway.jp/en/" },
+      { label: "Fujikyu Railway (English)", url: "https://www.fujikyu-railway.jp/en/" },
     ],
     wiki: "Lake Kawaguchi",
   },
@@ -148,29 +120,61 @@ export const DAY_TRIPS: DayTrip[] = [
     jp: "横浜",
     base: "Tokyo",
     travel:
-      "Tokyu Shin-Yokohama line Shibuya→Shin-Yokohama direct, ~25 min, ~¥470 (~$3) to start at the Ramen Museum; then local trains/Minatomirai line between districts (¥200–300 a hop); Tokyu Toyoko line back to Shibuya from Motomachi-Chukagai, ~40 min, ¥550.",
-    cost: "~$45/person (trains ~¥1,500 + museums ~¥1,500 + ramen grazing + Christmas market beers)",
+      "Point-to-point on Suica/PASMO, no pass: Tokyu Shin-Yokohama line Shibuya→Shin-Yokohama direct, ~25 min, ~¥470 ($2.90) to start at the Ramen Museum; then local trains / Minatomirai line between districts (¥200–300/$1.30–1.90 a hop, just tap); Tokyu Toyoko line back to Shibuya from Motomachi-Chukagai, ~40 min, ¥550 ($3.40).",
+    cost: "~$45/person (trains ~$9 + museums ~$9 + ramen grazing + Christmas market beers)",
     hours: "10:30–21:00",
     tier: 3,
     pitch:
       "Japan's second city is 30 minutes away and built for a low-effort, high-calorie day: a retro-streetscape museum where you crawl nine regional ramen styles in mini-bowls, the country's biggest Chinatown, and a harbor skyline that does December better than almost anywhere — Christmas market, skating rink, full illumination. The best bad-weather or tired-legs card in the deck.",
     play: [
       "10:30 — Tokyu direct from Shibuya to Shin-Yokohama",
-      "11:00 — Shin-Yokohama Ramen Museum (~¥450 entry): a 1958 Tokyo streetscape underground with nine legendary regional shops — order mini-bowls and hit three minimum",
-      "13:00 — Train to Motomachi-Chukagai: Yokohama Chinatown, 600+ shops — steamed buns and peking duck wraps as dessert-after-ramen",
-      "14:30 — Yamashita Park stroll along the water past the Hikawa Maru liner",
-      "15:00 — Cup Noodles Museum (¥500): design and seal your own custom Cup Noodle (~¥500) — the dumbest great souvenir in Japan",
-      "16:30 — Red Brick Warehouse: German-style Christmas Market in December (mulled wine, sausages, skating rink) as the lights come on",
-      "18:00 — Minato Mirai illumination walk + Landmark Tower Sky Garden observatory (¥1,000, 273m) for the harbor-and-Fuji dusk view",
+      "11:00 — Shin-Yokohama Ramen Museum (~¥450/$2.80 entry): a 1958 Tokyo streetscape underground with nine legendary regional shops — order mini-bowls (~¥600/$3.80 each) and hit three minimum",
+      "13:00 — Train to Motomachi-Chukagai: Yokohama Chinatown, 600+ shops — steamed buns and peking-duck wraps as dessert-after-ramen",
+      "14:30 — Yamashita Park stroll along the water past the Hikawa Maru liner (wind off the bay is cold — keep moving)",
+      "15:00 — Cup Noodles Museum (¥500/$3.10): design and seal your own custom Cup Noodle (~¥500/$3.10 extra) — the dumbest great souvenir in Japan",
+      "16:30 — Red Brick Warehouse: German-style Christmas Market in December (mulled wine, sausages, an outdoor skating rink) just as the lights come on at dusk",
+      "18:00 — Minato Mirai illumination walk + Landmark Tower Sky Garden observatory (¥1,000/$6.30, 273m) for the harbor-and-Fuji dusk view — clear December evenings put Fuji on the western horizon",
       "19:30 — Dinner-and-a-beer in Noge, the old-school izakaya quarter, then Toyoko line home",
     ],
     protip:
       "The Ramen Museum shops post their wait times at the door — split into pairs and divide-and-conquer different bowls, then compare notes. The Christmas market at the Red Brick Warehouse charges a small entry on December weekends and queues after 17:00; weekday evening is the cheat code.",
     links: [
       { label: "Shin-Yokohama Ramen Museum", url: "https://www.raumen.co.jp/english/" },
-      { label: "Cup Noodles Museum Yokohama", url: "https://www.cupnoodles-museum.jp/" },
+      { label: "Cup Noodles Museum Yokohama", url: "https://www.cupnoodles-museum.jp/en/yokohama/" },
+      { label: "Yokohama Red Brick Warehouse", url: "https://www.yokohama-akarenga.jp/en/" },
     ],
     wiki: "Minato Mirai 21",
+  },
+
+  {
+    id: "kawagoe",
+    name: "Kawagoe — Little Edo",
+    jp: "川越",
+    base: "Tokyo",
+    travel:
+      "Closest day trip in the deck, all on IC card: Tobu Tojo line express Ikebukuro→Kawagoe, ~30 min, ~¥480 ($3) each way; or the Seibu Shinjuku line to Hon-Kawagoe. The Kurazukuri warehouse street is a 10–15 min walk or a short ¥190/$1.20 Tobu bus hop from the station — tap your Suica on the bus.",
+    cost: "~$30/person (trains ~$6 + Toki-no-Kane area is free + sweet-potato everything + craft beer + lunch)",
+    hours: "09:30–18:00",
+    tier: 3,
+    pitch:
+      "Half an hour north of Ikebukuro sits a town that kept its Edo merchant streetscape: black clay-walled kurazukuri warehouses, a 400-year-old wooden bell tower (Toki-no-Kane) that still chimes, and an entire alley of penny-candy shops. It's the low-effort, low-cost, high-charm card — no mountains, no bullet train, no reservations, just a half-day wander with a beer and a sweet-potato soft serve. Sweet potato is the local obsession; lean into it.",
+    play: [
+      "09:30 — Tobu Tojo express from Ikebukuro (grab a coffee, it's a short hop)",
+      "10:15 — Walk into the Kurazukuri (warehouse) district: the surviving Edo merchant street, clay-walled storehouses now full of shops",
+      "10:45 — Toki-no-Kane: the wooden bell tower over the rooftops, ~400 years old, chimes at noon — time the photo to the 12:00 ring",
+      "11:15 — Kashiya Yokocho ('Penny Candy Alley'): a lane of old-school sweet shops — fat sweet-potato chips, candy, and the longest sweet-potato soft serve you'll ever hold",
+      "12:30 — Lunch: unagi (Kawagoe's traditional specialty, ~¥2,500/$16) or sweet-potato-themed everything; Coedo craft beer (the local brewery, sweet-potato 'Beniaka' lager included) at a tap room",
+      "14:00 — Kawagoe Hikawa Shrine: the tunnel of ~1,500 pink and red wind chimes and the heart-shaped 'aitai' draw — quiet and pretty in winter light",
+      "15:00 — Kita-in temple: the only surviving rooms of Edo Castle (relocated here after a fire) and the 540 stone Gohyaku-Rakan statues, every face different",
+      "16:00 — Last warehouse-street wander as the December dusk and shop lanterns come on (~16:30 sunset), then the train back to Ikebukuro by ~17:30",
+    ],
+    protip:
+      "It's a flat, walkable half-day with zero altitude and no Fuji gamble — the perfect bad-forecast or recovery-day card, and the cheapest day in the whole deck. Mondays many of the old shops close, so aim Tue–Sun. Pair it with an Ikebukuro evening (Sunshine City, Pokémon Center MEGA) on the way back since you're returning to that exact station.",
+    links: [
+      { label: "Tobu Railway — Kawagoe guide", url: "https://www.tobu.co.jp/en/sightseeing/articles/27.html" },
+      { label: "Koedo Kawagoe (official tourism)", url: "https://www.koedo.or.jp/foreign/english/" },
+    ],
+    wiki: "Kawagoe",
   },
 
   // ───────────────────────── FROM KANSAI BASE ─────────────────────────
@@ -180,8 +184,8 @@ export const DAY_TRIPS: DayTrip[] = [
     jp: "奈良",
     base: "Kansai",
     travel:
-      "Kintetsu limited express Kyoto→Kintetsu-Nara, 35 min, ¥1,280 (~$8.50) each way (¥760 fare + ¥520 reserved seat) — drops you a 5-min walk from the park; the ordinary express on the same line is ¥760 and only 10 min slower. Skip JR Nara; it's a 20-min walk further out.",
-    cost: "~$35/person (trains ¥2,560 + Todai-ji ¥800 + deer crackers, mochi, sake tasting)",
+      "Point-to-point on Suica/ICOCA, no pass: Kintetsu limited express Kyoto→Kintetsu-Nara, 35 min, ¥1,280 ($8) each way (¥760 fare + ¥520 reserved seat) — drops you a 5-min walk from the park; the ordinary express on the same line is ¥760 ($4.80) and only 10 min slower. Skip JR Nara; it's a 20-min walk further out.",
+    cost: "~$35/person (trains ~$16 + Todai-ji ¥800/$5 + deer crackers, mochi, sake tasting)",
     hours: "12:30–19:30",
     tier: 1,
     pitch:
@@ -189,18 +193,20 @@ export const DAY_TRIPS: DayTrip[] = [
     play: [
       "12:30 — Kintetsu limited express from Kyoto (buy reserved seats at the machine — all 8 together, big windows)",
       "13:10 — Kintetsu-Nara station: straight up the Higashimuki arcade",
-      "13:20 — Nakatanidou: catch the high-speed mochi pounding if the hammers are flying, eat one warm yomogi mochi regardless (¥200 — best ¥200 in Kansai)",
-      "13:45 — Into Nara Park: buy shika senbei (¥200), get politely mobbed, hold a cracker high and collect a bow",
-      "14:30 — Todai-ji Daibutsuden (¥800): the 15m Great Buddha — and the pillar with a hole the size of his nostril (crawl through = enlightenment, limber members only)",
-      "15:30 — Walk the stone-lantern path through the forest to Kasuga Taisha (grounds free; deer included)",
-      "16:30 — Naramachi old quarter: machiya lanes + Harushika brewery sake tasting (5 pours, ¥500)",
+      "13:20 — Nakatanidou: catch the high-speed mochi pounding if the hammers are flying (the two-man pounding show is a viral institution — they go absurdly fast), eat one warm yomogi mochi regardless (¥200/$1.30 — best ¥200 in Kansai)",
+      "13:45 — Into Nara Park: buy shika senbei (¥200/$1.30 a stack), get politely mobbed, hold a cracker high and collect a bow before you hand it over",
+      "14:30 — Todai-ji Daibutsuden (¥800/$5): the 15m, 500-ton bronze Great Buddha from 752 AD inside one of the largest wooden buildings on Earth — and the pillar with a hole the exact size of his nostril (crawl through = enlightenment, limber members only)",
+      "15:30 — Walk the stone-lantern path through the forest to Kasuga Taisha (grounds free; ~3,000 bronze and stone lanterns, deer included)",
+      "16:15 — Catch the December sunset (~16:45 in Nara) over the park from Nigatsu-do's terrace — the whole Nara basin lights up below the hall, near-empty in winter",
+      "16:45 — Naramachi old quarter: machiya lanes + Harushika brewery sake tasting (5 pours, ¥500/$3.10, keep the cup)",
       "17:45 — Snacks/dinner near Higashimuki, then the limited express back — Kyoto by ~19:30",
     ],
     protip:
-      "The deer bow first and headbutt second — hide every piece of paper (maps, tickets, rail passes smell like food, apparently). Hold senbei behind your back between feedings or you become the buffet. Todai-ji last entry is 16:30 in winter: do the Buddha before the shrine, not after.",
+      "The deer bow first and headbutt second — hide every piece of paper (maps and paper tickets smell like food to them, apparently, and they WILL eat your ticket). Hold senbei behind your back between feedings or you become the buffet. Winter deer are fluffier, calmer, and the crowds thin right out. Todai-ji's last entry is 16:30 in winter, so do the Buddha before the shrine, not after.",
     links: [
       { label: "Kintetsu Railway (English)", url: "https://www.kintetsu.co.jp/foreign/english/" },
       { label: "Todai-ji official", url: "https://www.todaiji.or.jp/" },
+      { label: "Nara Park / Visit Nara", url: "https://www.visitnara.jp/" },
     ],
     wiki: "Nara Park",
   },
@@ -210,28 +216,29 @@ export const DAY_TRIPS: DayTrip[] = [
     jp: "宇治・ニンテンドーミュージアム",
     base: "Kansai",
     travel:
-      "JR Nara line rapid Kyoto→Uji, 17 min, ¥240 (~$1.60). The Nintendo Museum sits beside Kintetsu Ogura station, a ~20-min walk (or short cab) west of the Byodo-in area — then ride Kintetsu south from Ogura via Yamato-Saidaiji straight into Osaka-Namba (~60 min, ~¥900), luggage already forwarded.",
-    cost: "~$45/person (museum ¥3,300 + Byodo-in ¥700 + trains ~¥1,200 + matcha + Hatena Burger)",
+      "All on IC card, no pass: JR Nara line rapid Kyoto→Uji, 17 min, ¥240 ($1.50). The Nintendo Museum sits beside Kintetsu Ogura station, a ~20-min walk (or short ¥800/$5 cab) west of the Byodo-in area — then ride Kintetsu south from Ogura via Yamato-Saidaiji straight into Osaka-Namba (~60 min, ~¥900/$5.60), luggage already forwarded by Yamato takkyubin.",
+    cost: "~$45/person (museum ¥3,300/$21 + Byodo-in ¥700/$4.40 + trains ~$7 + matcha + Hatena Burger)",
     hours: "08:45–16:30",
     tier: 1,
     pitch:
       "Locked for Dec 24 morning, engineered as the Kyoto→Osaka moving day: Japan's matcha capital plus the temple on the ¥10 coin in the morning, then the Nintendo Museum — every console the company ever made, back to the 1889 hanafuda cards, with giant-controller games you burn digital coins on. It's lottery-entry only, so the whole squad applies three months out and we pool the wins.",
     play: [
       "08:45 — Send luggage Kyoto→Osaka by Yamato takkyubin (or coin-locker it at Kyoto station), then JR rapid to Uji",
-      "09:15 — Byodo-in (¥700): the Phoenix Hall floating on its pond — the building on the ¥10 coin, in clean December morning light",
-      "10:15 — Matcha on the temple approach: Nakamura Tokichi for the parfait, or Tsuen by the bridge — pouring tea since 1160, the oldest tea house on Earth",
-      "11:00 — Cross the Uji river for a quick Ujigami Shrine hit (free; oldest original shrine building in Japan) if the timing's loose",
+      "09:15 — Byodo-in (¥700/$4.40): the Phoenix Hall floating on its pond — the exact building on the back of the ¥10 coin, in clean, crisp December morning light",
+      "10:15 — Matcha on the temple approach: Nakamura Tokichi for the matcha-jelly parfait, or Tsuen by the bridge — pouring tea since 1160, often called the oldest tea house on Earth",
+      "11:00 — Cross the Uji river for a quick Ujigami Shrine hit (free; the oldest original shrine building in Japan, UNESCO-listed) if the timing's loose",
       "11:30 — Walk or cab ~20 min west to the Nintendo Museum by Kintetsu Ogura",
-      "12:00 — Museum entry slot (¥3,300; LOTTERY at museum-tickets.nintendo.com ~3 months ahead — all 8 apply for the same date/slot separately): upstairs is the full hardware timeline, no photos of half of it, pure nostalgia damage",
-      "13:00 — Burn your 10 coins downstairs: two-person giant NES controllers, Ultra Machine batting, zapper duels — winner of giant Mario claims bragging rights through Osaka",
-      "14:30 — Late lunch at the museum's Hatena Burger (build-your-own; reserve when you book entry)",
+      "12:00 — Museum entry slot (¥3,300/$21; LOTTERY at museum-tickets.nintendo.com ~3 months ahead — all 8 apply for the same date/slot separately): upstairs is the full hardware timeline back to the 1889 hanafuda cards, no photos in half of it, pure nostalgia damage",
+      "13:00 — Burn your 10 digital coins downstairs: two-person giant NES controllers, Ultra Machine batting, zapper duels, hanafuda lessons — winner of Giant Mario claims bragging rights all the way through Osaka",
+      "14:30 — Late lunch at the museum's Hatena Burger (build-your-own; ~¥1,500/$9, reserve when you book entry)",
       "15:15 — Kintetsu from Ogura→change Yamato-Saidaiji→Osaka-Namba: walk into the Namba apartment by ~16:30, Christmas Eve in Dotonbori ahead",
     ],
     protip:
       "The lottery is the whole ballgame: applications open ~3 months before the visit month — set a calendar alarm for late September 2026, everyone applies, duplicate wins get released. If the lottery shuts us out entirely, the Uji half still works as a 3-hour matcha-and-temple stop and we're in Osaka by 13:00.",
     links: [
-      { label: "Nintendo Museum tickets", url: "https://museum-tickets.nintendo.com/" },
-      { label: "Byodo-in official", url: "https://www.byodoin.or.jp/" },
+      { label: "Nintendo Museum tickets (lottery)", url: "https://museum-tickets.nintendo.com/en/" },
+      { label: "Byodo-in official", url: "https://www.byodoin.or.jp/en/" },
+      { label: "Nakamura Tokichi (matcha)", url: "https://global.tokichi.jp/" },
     ],
     wiki: "Byōdō-in",
   },
@@ -241,8 +248,8 @@ export const DAY_TRIPS: DayTrip[] = [
     jp: "広島・宮島",
     base: "Kansai",
     travel:
-      "Nozomi shinkansen Shin-Osaka→Hiroshima, ~85 min, ~¥10,620 (~$71) reserved each way — book all 8 seats together on the smartEX app/site well ahead (Dec 26 sits in peak New Year travel season, so reserved cars fill). In town: trams ¥220 flat; JR Sanyo line Hiroshima→Miyajimaguchi 25 min + 10-min ferry (~¥300 incl. the ¥100 island tax).",
-    cost: "~$185/person (shinkansen ¥21,240 + museum/shrine/ferry ~¥1,100 + okonomiyaki + oysters)",
+      "Nozomi shinkansen Shin-Osaka→Hiroshima, ~85 min, ~¥10,620 ($66) reserved each way — book all 8 seats together on the SmartEX app/site well ahead (no JR Pass; Dec 26 sits in peak New Year travel season, so reserved cars fill). In town: trams ¥220/$1.40 flat, tap your ICOCA; JR Sanyo line Hiroshima→Miyajimaguchi 25 min + 10-min JR ferry (~¥300/$1.90 incl. the ¥100 island visitor tax).",
+    cost: "~$175/person (shinkansen ~$132 + museum/shrine/ferry ~$7 + okonomiyaki + oysters)",
     hours: "07:00–21:15",
     tier: 1,
     pitch:
@@ -250,12 +257,12 @@ export const DAY_TRIPS: DayTrip[] = [
     play: [
       "07:00 — Midosuji line to Shin-Osaka; Nozomi rolling by ~07:40 (konbini breakfast on the platform)",
       "09:10 — Tram or 15-min walk to the Peace Memorial Park: approach the A-Bomb Dome first, from across the river, in quiet morning light",
-      "09:45 — Peace Memorial Museum (¥200): give it two unhurried hours — artifacts, testimony, no flinching; this is why we came",
-      "12:00 — Cenotaph, eternal flame, and the Children's Peace Monument draped in a million paper cranes",
-      "12:45 — Okonomimura: three floors of griddle counters — Hiroshima-style okonomiyaki with the yakisoba layer (~¥1,200), sit wherever there's seats",
-      "14:00 — JR Sanyo line to Miyajimaguchi (25 min), straight onto the ferry (10 min — stand on the right, starboard side, for the torii approach)",
-      "14:45 — Itsukushima Shrine (¥500): the shrine on stilts and THE torii — timed to the tide if the gods cooperate (floating at high tide, walk-up-and-touch-it at low)",
-      "15:45 — Omotesando arcade: grilled oysters at the street stalls (December = peak season, ¥500–800) + momiji manju fried fresh",
+      "09:45 — Peace Memorial Museum (¥200/$1.30): give it two unhurried hours — artifacts, testimony, no flinching; this is why we came",
+      "12:00 — Cenotaph, eternal flame, and the Children's Peace Monument draped in a million folded paper cranes",
+      "12:45 — Okonomimura: three floors of griddle counters — Hiroshima-style okonomiyaki layered with yakisoba noodles (~¥1,200/$8), grab any open seat at a teppan",
+      "14:00 — JR Sanyo line to Miyajimaguchi (25 min), straight onto the JR ferry (10 min — stand on the right, starboard side, for the torii approach)",
+      "14:45 — Itsukushima Shrine (¥500/$3.10): the shrine on stilts and THE vermillion torii — timed to the tide if the gods cooperate (floating at high tide, walk-up-and-touch-it at low)",
+      "15:45 — Omotesando arcade: grilled oysters at the street stalls (December = peak season, fat and cheap at ¥500–800/$3–5 a pop) + momiji-manju fried fresh and hot",
       "17:00 — Dusk torii against the lit water, then the 17:30–18:00 ferry back",
       "19:15 — Nozomi home; Namba by ~21:15, legs done, perspective recalibrated",
     ],
@@ -274,8 +281,8 @@ export const DAY_TRIPS: DayTrip[] = [
     jp: "姫路・神戸",
     base: "Kansai",
     travel:
-      "Nozomi/Sakura shinkansen Shin-Osaka→Himeji, ~30 min, ~¥3,280 (~$22) unreserved each way; return in stages — JR Special Rapid Himeji→Sannomiya (Kobe) 40 min ¥990, then Sannomiya→Osaka 21 min ¥420. Three cities, one JR line home.",
-    cost: "~$130/person (trains ~¥7,800 + castle combo ¥1,050 + Kobe beef teppanyaki lunch ~¥8,000)",
+      "No pass needed: Nozomi/Sakura shinkansen Shin-Osaka→Himeji, ~30 min, ~¥3,280 ($21) unreserved each way (SmartEX or just buy at the machine); return in stages on your ICOCA — JR Special Rapid Himeji→Sannomiya (Kobe) 40 min ¥990/$6.20, then Sannomiya→Osaka 21 min ¥420/$2.60. Three cities, one JR line home.",
+    cost: "~$130/person (trains ~$49 + castle combo ¥1,050/$6.60 + Kobe beef teppanyaki lunch ~¥8,000/$50)",
     hours: "08:15–19:00",
     tier: 2,
     pitch:
@@ -283,10 +290,10 @@ export const DAY_TRIPS: DayTrip[] = [
     play: [
       "08:15 — Midosuji to Shin-Osaka; ~08:45 shinkansen west (unreserved cars are fine for a 30-min hop)",
       "09:20 — Himeji station: the castle fills the avenue dead ahead — 15-min walk straight at it",
-      "09:45 — Himeji Castle (¥1,000): six storeys of original 1609 keep, shoes-off ladder-stairs, arrow slits and stone-drop chutes — at opening you'll have it nearly to yourselves",
-      "11:30 — Koko-en gardens next door (combo ticket ¥1,050 covers both): nine Edo-style walled gardens against the castle backdrop",
-      "12:20 — JR Special Rapid east to Sannomiya (40 min — same view the shinkansen charges triple for)",
-      "13:15 — Kobe beef teppanyaki LUNCH in Sannomiya: lunch sets run ¥6,000–10,000 vs ¥20,000+ at dinner — book ahead for 8 or split across two counters and trade bites",
+      "09:45 — Himeji Castle (¥1,000/$6.30): six storeys of original 1609 keep, shoes-off ladder-stairs, arrow slits and stone-drop chutes — at opening you'll have it nearly to yourselves",
+      "11:30 — Koko-en gardens next door (combo ticket ¥1,050/$6.60 covers both): nine Edo-style walled gardens against the white castle backdrop",
+      "12:20 — JR Special Rapid east to Sannomiya (40 min — same Inland Sea view the shinkansen charges triple for)",
+      "13:15 — Kobe beef teppanyaki LUNCH in Sannomiya: lunch sets run ¥6,000–10,000/$38–63 vs ¥20,000+/$125+ at dinner — book ahead for 8, or split across two counters and trade bites",
       "15:00 — Kitano-Ijinkan: Meiji-era foreign merchants' mansions on the hillside, Starbucks-in-a-heritage-house included",
       "16:15 — Nankinmachi Chinatown snack lap, then Kobe Harborland as the port tower and Ferris wheel light up (~17:00 December dusk)",
       "18:15 — JR back to Osaka — showered and in Ura-Namba by 20:00 for the farewell crawl",
@@ -305,8 +312,8 @@ export const DAY_TRIPS: DayTrip[] = [
     jp: "箕面大滝",
     base: "Kansai",
     travel:
-      "Hankyu Takarazuka line Osaka-Umeda→Ishibashi handai-mae (change cross-platform to the Minoo line)→Minoh, ~30 min total, ¥280 (~$1.90) each way. The trail starts directly behind the station's shopping street.",
-    cost: "~$15/person (trains ¥560 + momiji tempura ¥400 + coffee; lunch back in Umeda)",
+      "Hankyu Takarazuka line Osaka-Umeda→Ishibashi handai-mae (change cross-platform to the Minoo line)→Minoh, ~30 min total, ¥280 ($1.80) each way, tap your ICOCA. The trail starts directly behind the station's shopping street.",
+    cost: "~$15/person (trains ~$3.60 + momiji tempura ¥400/$2.50 + coffee; lunch back in Umeda)",
     hours: "09:00–14:00",
     tier: 3,
     pitch:
@@ -317,7 +324,7 @@ export const DAY_TRIPS: DayTrip[] = [
       "10:00 — Momiji tempura stalls along the lower trail — buy a bag of fried maple leaves for the walk (sweet, crunchy, weirdly addictive)",
       "10:30 — Ryuanji (Mino Temple) halfway up: vermillion bridge over the gorge, founded 7th century",
       "11:15 — Minoo Falls: 33m of water in a maple amphitheater — winter flow against bare red-brown hillsides, photo, snack, exhale",
-      "12:00 — Amble back down; the tiny Minoh insect museum (¥280) for the brave, beer-of-record at Minoh Beer's local taps if open",
+      "12:00 — Amble back down; the tiny Minoh insect museum (¥280/$1.80) for the brave, beer-of-record at Minoh Beer's local taps if open",
       "13:00 — Hankyu back — standing in Umeda by ~13:45 with the whole Osaka afternoon ahead",
     ],
     protip:
@@ -327,5 +334,35 @@ export const DAY_TRIPS: DayTrip[] = [
       { label: "Hankyu Railway (English)", url: "https://www.hankyu.co.jp/global/" },
     ],
     wiki: "Meiji no Mori Minō Quasi-National Park",
+  },
+  {
+    id: "koyasan",
+    name: "Koyasan — Mountain of the Dead",
+    jp: "高野山",
+    base: "Kansai",
+    travel:
+      "All on ICOCA, no rail pass: Nankai Koya line limited express Osaka-Namba→Gokurakubashi, ~80 min, ¥1,650 ($10) each way (¥870 fare + ¥780 ltd-express seat), then the 5-min funicular cable car up the mountainside (¥500/$3.10) and a bus into town (tap your card). The Nankai 'Koyasan World Heritage Ticket' bundles the round trip + buses if you'd rather one purchase — your call, but plain IC works fine.",
+    cost: "~$55/person (trains+cable+bus ~$32 + Kongobuji ¥1,000/$6.30 + shojin-ryori lunch + Okunoin free)",
+    hours: "07:30–19:30",
+    tier: 3,
+    pitch:
+      "1,200 years of Shingon Buddhism on a misty mountaintop temple-town at 800m. The headliner is Okunoin: a 2km path through Japan's largest cemetery — 200,000+ moss-furred graves and towering cedars leading to the mausoleum of Kobo Daishi, who is officially 'meditating,' not dead, and gets two meals a day delivered to this morning. December buries the whole place in silence, often snow, and almost no one else. Heaviest atmosphere of any day in the deck.",
+    play: [
+      "07:30 — Nankai limited express from Namba (reserve the seat; mountains close in fast through the windows)",
+      "09:00 — Gokurakubashi → cable car up the cliff (steep enough to feel it) → bus into town",
+      "09:40 — Danjo Garan: the sacred temple complex and the vermillion Konpon Daito great pagoda, the spiritual heart of the mountain",
+      "10:45 — Kongobuji (¥1,000/$6.30): head temple of Shingon, gilded sliding-door paintings and Japan's largest rock garden (Banryutei)",
+      "12:00 — Shojin-ryori lunch: Buddhist vegetarian temple cuisine (sesame tofu, mountain vegetables, ~¥2,000/$13) — the real Koyasan meal, hot food at altitude",
+      "13:30 — Okunoin: enter at Ichi-no-hashi and walk the full 2km cemetery path through giant cedars and 200,000 graves to the Torodo lantern hall — no photos past the last bridge (Gobyobashi), out of respect",
+      "15:30 — Daimon, the great mountain gate, and warm amazake at a tea house to thaw",
+      "16:30 — Cable car + Nankai limited express back; Namba by ~18:30, recalibrated",
+    ],
+    protip:
+      "It is the single coldest place on the Kansai roster — a snowy mountaintop, dawn well below freezing, paths slick with ice and packed snow; bring genuine winter layers and grip soles, this is not an Osaka-street outfit. The Okunoin path is worth doing in fading December light (lantern-lit, deeply atmospheric) but be off the mountain before the last comfortable cable car. If a temple stay (shukubo) ever tempted you, this is the place — but as a day trip it still lands hard.",
+    links: [
+      { label: "Koyasan Shingon Buddhism (official)", url: "https://www.koyasan.or.jp/en/" },
+      { label: "Nankai Railway — Koyasan", url: "https://www.howto-osaka.com/en/ticket/details/koyasan_worldheritage/" },
+    ],
+    wiki: "Mount Kōya",
   },
 ];

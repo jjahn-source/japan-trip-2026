@@ -4,7 +4,7 @@ import { MapPin, Wallet, Star } from "lucide-react";
 import { NIGHT_SPOTS, NIGHT_RULES, DRINK_MENU } from "../data/nightlife";
 import { SectionHeading } from "./SectionHeading";
 
-const CITIES = ["All", "Tokyo", "Kyoto", "Osaka", "Hakone"] as const;
+const CITIES = ["All", "Tokyo", "Kyoto", "Osaka"] as const;
 const KINDS = [
   "All",
   "Bar Alley",

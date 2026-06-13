@@ -12,7 +12,7 @@ const TRIP_TIER: Record<number, { label: string; cls: string }> = {
   3: { label: "IF A DAY FREES UP", cls: "bg-sky-500/20 text-sky-300 border-sky-500/40" },
 };
 
-const CITIES: ("All" | City)[] = ["All", "Tokyo", "Kyoto", "Osaka", "Nara", "Hakone", "Hiroshima", "Day Trips"];
+const CITIES: ("All" | City)[] = ["All", "Tokyo", "Kyoto", "Osaka", "Nara", "Hiroshima", "Day Trips"];
 const CATEGORIES: ("All" | Category)[] = [
   "All",
   "Temple & Shrine",
