@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from "motion/react";
 import {
   ChevronDown, Train, Ticket, Dices, ExternalLink, CloudSun,
   CalendarPlus, Map, MapPin, ListChecks, ChevronsDownUp, ChevronsUpDown, CheckCircle2, Circle,
-  Sparkles, AlertTriangle,
+  Sparkles, AlertTriangle, Target,
 } from "lucide-react";
 import { DAYS, type Day } from "../data/itinerary";
 import { SectionHeading } from "./SectionHeading";
@@ -25,6 +25,7 @@ const TRIP = {
   links: DAYS.reduce((s, d) => s + (d.links?.length ?? 0), 0),
   audibles: DAYS.reduce((s, d) => s + (d.alts?.length ?? 0), 0),
   events: DAYS.reduce((s, d) => s + (d.events?.length ?? 0), 0),
+  dares: DAYS.reduce((s, d) => s + (d.dares?.length ?? 0), 0),
 };
 
 function TopButton({ onClick, children }: { onClick: () => void; children: React.ReactNode }) {
@@ -240,6 +241,34 @@ function DayCard({
                 })}
               </ul>
 
+              {/* Daily Dares — degenerate mission checklist, always checkable */}
+              {day.dares && day.dares.length > 0 && (
+                <div className="mt-5 rounded-xl bg-rose-500/10 border border-rose-500/25 p-4">
+                  <p className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-rose-300 mb-2.5">
+                    <Target size={13} /> Daily Dares — tap to claim ({day.dares.filter((_, i) => done[`${day.date}-dare-${i}`]).length}/{day.dares.length})
+                  </p>
+                  <ul className="space-y-1">
+                    {day.dares.map((dare, i) => {
+                      const key = `${day.date}-dare-${i}`;
+                      const claimed = !!done[key];
+                      return (
+                        <li key={i}>
+                          <button
+                            onClick={() => setDone({ ...done, [key]: !claimed })}
+                            className="w-full flex items-start gap-2.5 text-left rounded-lg px-2 py-1.5 hover:bg-white/[0.05] transition-colors"
+                          >
+                            {claimed
+                              ? <CheckCircle2 size={16} className="text-rose-400 shrink-0 mt-0.5" />
+                              : <Circle size={16} className="text-slate-600 group-hover:text-slate-400 shrink-0 mt-0.5" />}
+                            <span className={`text-sm leading-snug ${claimed ? "line-through text-slate-500" : "text-slate-200"}`}>{dare}</span>
+                          </button>
+                        </li>
+                      );
+                    })}
+                  </ul>
+                </div>
+              )}
+
               {day.alts && day.alts.length > 0 && (
                 <div className="mt-5 rounded-xl bg-fuchsia-500/10 border border-fuchsia-500/20 p-4">
                   <p className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-fuchsia-300 mb-2">
@@ -308,6 +337,7 @@ export function Itinerary() {
           <span><span className="text-rose-300 font-bold tabular-nums">{TRIP.mapped}</span> mapped stops</span>
           <span><span className="text-fuchsia-300 font-bold tabular-nums">{TRIP.audibles}</span> audibles</span>
           <span><span className="text-amber-300 font-bold tabular-nums">{TRIP.events}</span> live events</span>
+          <span><span className="text-rose-300 font-bold tabular-nums">{TRIP.dares}</span> daily dares</span>
           <span><span className="text-indigo-300 font-bold tabular-nums">{TRIP.links}</span> official links</span>
           {trackMode && totalDone > 0 && (
             <span className="text-emerald-300"><span className="font-bold tabular-nums">{totalDone}</span> done</span>

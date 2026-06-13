@@ -21,6 +21,7 @@ export type Day = {
   links?: { label: string; url: string }[]; // official links for everything bookable/required that day
   wiki?: string[]; // Wikipedia article titles → live photo strip on the Route tab
   events?: TimedEvent[]; // limited-time, date-specific things ON during our visit (researched Jun 2026)
+  dares?: string[]; // degenerate daily mission checklist — checkable in Trip Mode
 };
 
 // A limited-time event/market/illumination verified to overlap this exact day.
