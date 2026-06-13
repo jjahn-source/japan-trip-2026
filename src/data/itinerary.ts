@@ -20,6 +20,18 @@ export type Day = {
   alts?: string[]; // audibles: rain plans, split-squad quests, overtime missions
   links?: { label: string; url: string }[]; // official links for everything bookable/required that day
   wiki?: string[]; // Wikipedia article titles → live photo strip on the Route tab
+  events?: TimedEvent[]; // limited-time, date-specific things ON during our visit (researched Jun 2026)
+};
+
+// A limited-time event/market/illumination verified to overlap this exact day.
+export type TimedEvent = {
+  name: string;
+  window: string; // human-readable run dates, e.g. "Dec 17–19, 2026"
+  cost: string;
+  station: string;
+  note: string;
+  kind: "festival" | "illumination" | "market" | "seasonal" | "closure"; // closure = a warning
+  url?: string;
 };
 
 export const DAYS: Day[] = [
@@ -120,6 +132,25 @@ export const DAYS: Day[] = [
       { label: "TableCheck — book the group nomihodai", url: "https://www.tablecheck.com/en/japan" },
     ],
     wiki: ["Shibuya Crossing", "Meiji Shrine", "Takeshita Street"],
+    events: [
+      {
+        name: "Shibuya Blue Cave (Ao no Dōkutsu)",
+        window: "Dec 4–25 (annual pattern; ~17:00–22:00)",
+        cost: "Free",
+        station: "Shibuya / Yoyogi-Koen",
+        note: "Already on tonight's plan at 18:00 — 600k+ blue LEDs down the 250m NHK-front street toward Yoyogi. Verified to run through Dec 25, so our Dec 16 hits it dead-center. Hot canned drink mandatory.",
+        kind: "illumination",
+        url: "https://www.yoyogipark.info/",
+      },
+      {
+        name: "Roppongi Keyakizaka + Tokyo Midtown Winter Lights",
+        window: "early Nov–Dec 25 (annual pattern)",
+        cost: "Free",
+        station: "Roppongi",
+        note: "Audible for a split squad: Keyakizaka's 'SNOW & BLUE' 930k LEDs with Tokyo Tower framed at the end of the slope, plus Midtown's Starlight Garden. 10 min from Shibuya — both end Dec 25, so this week is the only window.",
+        kind: "illumination",
+      },
+    ],
   },
   {
     date: "2026-12-17",
@@ -154,6 +185,25 @@ export const DAYS: Day[] = [
       { label: "Senso-ji official", url: "https://www.senso-ji.jp/english/" },
     ],
     wiki: ["Sensō-ji", "Akihabara", "Tokyo Skytree"],
+    events: [
+      {
+        name: "Hagoita-ichi (Battledore Fair) AT Sensō-ji",
+        window: "Dec 17–19 (annual; 9:00–20:00)",
+        cost: "Free to browse; hagoita $25–300+",
+        station: "Asakusa",
+        note: "JACKPOT TIMING: the year-end battledore market lands ON our Sensō-ji morning. ~50 stalls around the main hall sell ornate hagoita (good-luck paddles) — Edo-era tradition since the 1700s. Watch a vendor do the celebratory hand-clap 'tejime' when a big one sells. Pure December Tokyo; we'd have walked right past it not knowing.",
+        kind: "festival",
+        url: "https://www.gotokyo.org/en/spot/ev152/index.html",
+      },
+      {
+        name: "Ameyoko year-end market crescendo",
+        window: "ramps up ~Dec 20–31 (peaks for New Year)",
+        cost: "Free to walk; bargains everywhere",
+        station: "Ueno / Okachimachi",
+        note: "We hit Ameyoko at 16:30 anyway. Late December is when it goes feral — vendors bellowing year-end seafood (crab, ikura, kazunoko) and mochi for the New Year at slashed prices. We're a few days early for the absolute peak but the energy's already building.",
+        kind: "market",
+      },
+    ],
   },
   {
     date: "2026-12-18",
@@ -186,6 +236,24 @@ export const DAYS: Day[] = [
       { label: "teamLab Borderless (backup)", url: "https://www.teamlab.art/e/tokyo/" },
     ],
     wiki: ["Tsukiji", "Ginza", "Golden Gai"],
+    events: [
+      {
+        name: "Marunouchi Illumination (Naka-dori)",
+        window: "mid-Nov–Jan 4 (annual; no lights Jan 1)",
+        cost: "Free",
+        station: "Tokyo / Yurakucho",
+        note: "Already tonight's 16:30 walk — ~280 street trees in champagne gold over 1.2km from Yurakucho to Otemachi, ending at Tokyo Station's brick face. Confirmed to run deep into January, so our Dec 18 is comfortably inside the window. The longest-running of Tokyo's big illuminations.",
+        kind: "illumination",
+      },
+      {
+        name: "Caretta Shiodome 'Canyon d'Azur' light show",
+        window: "mid-Nov–mid-Feb (annual)",
+        cost: "Free",
+        station: "Shiodome",
+        note: "Audible nightcap option, 5 min from Ginza: a synchronized music-and-light show on a sunken plaza — runs the longest of any Tokyo illumination, so it's a safe bet even this late. Good for whoever skips Golden Gai.",
+        kind: "illumination",
+      },
+    ],
   },
   {
     date: "2026-12-19",
@@ -293,6 +361,17 @@ export const DAYS: Day[] = [
       { label: "Seat-map tip: D/E = Fuji side westbound", url: "https://global.jr-central.co.jp/en/" },
     ],
     wiki: ["Tokaido Shinkansen", "Nishiki Market", "Gion"],
+    events: [
+      {
+        name: "Shimai-Kōbō — To-ji Temple's giant year-end market",
+        window: "Dec 21 ONLY (8:00–16:00, rain or shine)",
+        cost: "Free entry; pay for what you buy",
+        station: "Tōji / Kyoto Stn (15-min walk)",
+        note: "PERFECT LANDING: the 21st-of-the-month Kōbō flea market has its single biggest edition of the YEAR on Dec 21 — ~1,000 stalls of antiques, kimono, New-Year goods, pottery and street food under the five-story pagoda. It's literally a 15-min walk from where the shinkansen drops us. Hit it before checking in — it shuts at 16:00 and we land 11:13.",
+        kind: "market",
+        url: "https://toji.or.jp/en/",
+      },
+    ],
   },
   {
     date: "2026-12-22",
@@ -328,6 +407,24 @@ export const DAYS: Day[] = [
       { label: "Gekkeikan Sake Museum", url: "https://www.gekkeikan.co.jp/english/products/museum/" },
     ],
     wiki: ["Fushimi Inari-taisha", "Kiyomizu-dera", "Pontochō"],
+    events: [
+      {
+        name: "TŌJI — Winter Solstice yuzu baths (柚子湯)",
+        window: "Dec 22, 2026 (the solstice itself)",
+        cost: "Bathhouse entry (~$3 / ¥500)",
+        station: "various sento citywide",
+        note: "COSMIC TIMING: Dec 22 IS the 2026 winter solstice, and our 20:30 stop is Funaoka Onsen — a 1923 sento. On Tōji, bathhouses across Japan float whole yuzu citrus in the tubs (a 200-year-old Edo ritual said to ward off colds for the year). On the year's longest night we soak in a hot yuzu bath at a century-old sento. You could not script this. Eat kabocha squash for the full superstition combo.",
+        kind: "seasonal",
+      },
+      {
+        name: "Kyoto autumn temple light-ups — already OVER",
+        window: "ended ~Dec 7–14 (heads-up, not a plan)",
+        cost: "—",
+        station: "Higashiyama",
+        note: "Reality check so nobody chases a ghost: the famous Kiyomizu / Kōdai-ji / Eikandō night illuminations are autumn-foliage events that wrap up by mid-December. By our dates they're done — our Kiyomizu and Kōdai-ji visits are daytime/dusk, which is the move anyway (and far less crowded).",
+        kind: "closure",
+      },
+    ],
   },
   {
     date: "2026-12-23",
@@ -403,6 +500,34 @@ export const DAYS: Day[] = [
       { label: "KFC Japan Christmas pre-order (early Nov)", url: "https://www.kfc.co.jp/xmas/" },
     ],
     wiki: ["Byōdō-in", "Dōtonbori", "Hōzen-ji"],
+    events: [
+      {
+        name: "OSAKA Hikari-Renaissance @ Nakanoshima",
+        window: "Dec 14–25 (annual; CATCH IT TONIGHT)",
+        cost: "Free",
+        station: "Yodoyabashi / Naginobashi",
+        note: "TIME-SENSITIVE: the Nakanoshima riverside projection-mapping festival (the 'Shining Art Wall' on the Central Public Hall, light tunnels, 6 shows/night ~18:00–20:30) ENDS Dec 25 — so Christmas Eve is one of our last shots. 12 min north of Dotonbori on the Midosuji line. Slot it between dinner and Ura-Namba.",
+        kind: "illumination",
+        url: "https://www.hikari-kyoen.com/en/",
+      },
+      {
+        name: "Midosuji Illumination (4km of lit boulevard)",
+        window: "through Dec 31",
+        cost: "Free",
+        station: "Umeda → Namba (the whole street)",
+        note: "Runs the entire length of Midosuji between Umeda and Namba — one of the longest illuminated avenues on Earth. We walk through it for free on the way anywhere this week, and unlike the Nakanoshima show it survives past Christmas.",
+        kind: "illumination",
+      },
+      {
+        name: "KFC Christmas Eve bucket — pre-order is sacred",
+        window: "Dec 24 (the Japanese Christmas ritual)",
+        cost: "~$25–40/bucket",
+        station: "near Namba",
+        note: "Already on the 18:00 plan, flagged here because it genuinely SELLS OUT on pre-order (book by mid-Nov). Fried chicken + konbini strawberry shortcake = authentic Japanese Christmas. Stupid. Mandatory. Iconic.",
+        kind: "seasonal",
+        url: "https://www.kfc.co.jp/xmas/",
+      },
+    ],
   },
   {
     date: "2026-12-25",
@@ -436,6 +561,17 @@ export const DAYS: Day[] = [
       { label: "USJ crowd calendar (unofficial but accurate)", url: "https://usjreal.asumirai.info/" },
     ],
     wiki: ["Universal Studios Japan", "Super Nintendo World"],
+    events: [
+      {
+        name: "Universal Christmas — 'Light Up the Night' show",
+        window: "mid-Nov–Jan 4 (market stalls to Dec 30)",
+        cost: "In park (Studio Pass)",
+        station: "Universal City",
+        note: "Confirmed running on Christmas Day: the new nighttime Christmas celebration in the Gramercy Park area (Hello Kitty / Snoopy / Sesame St), plus the first-ever Universal Christmas Food Festival with market stalls and mulled wine. Christmas Day at USJ during its Christmas event is the most on-the-nose thing we'll do all trip.",
+        kind: "festival",
+        url: "https://www.usj.co.jp/web/en/us",
+      },
+    ],
   },
   {
     date: "2026-12-26",
@@ -489,7 +625,7 @@ export const DAYS: Day[] = [
       { time: "14:00", title: "SPLIT SQUADS: Den Den Town (nerds) vs Amerikamura (hypebeasts)", note: "Den Den: retro games + Super Potato Osaka, often cheaper than Akiba — BUY NOW. Amemura: vintage, streetwear, Triangle Park. 10 min apart, reconvene 16:00", coord: [34.6589, 135.5061] },
       { time: "16:30", title: "UMEDA SKY BUILDING — sunset from the Floating Garden", note: "Glass escalator across the void, 360° open-air roof at golden hour (16:55 sunset)", coord: [34.7053, 135.49] },
       { time: "18:00", title: "MIDOSUJI ILLUMINATION — 4km of lit boulevard, walked south", note: "One of the longest illuminated streets on Earth, Umeda → Namba, hot vending cans in hand. We literally walk home through it", coord: [34.69, 135.501] },
-      { time: "19:00", title: "Hikari Renaissance at Nakanoshima — riverside projections", note: "Runs through Dec 31: the light tunnel + Wall Tapestry on city hall, mid-walk", coord: [34.6932, 135.5021] },
+      { time: "19:00", title: "Midosuji Illumination — walk the lit avenue (the Nakanoshima show has ended)", note: "Heads-up: the Nakanoshima Hikari-Renaissance projection festival wraps Dec 25, so tonight it's the Midosuji boulevard lights (live through Dec 31) we stroll through instead. If a squad wants riverside, Nakanoshima's permanent bridge/quay lighting is still pretty for a quiet detour", coord: [34.6932, 135.5021] },
       { time: "20:00", title: "KANI DORAKU CRAB FEAST — under the giant moving crab", note: "Full crab kaiseki for 8: sashimi, sukiyaki, grilled, tempura. December crab in its capital city. Booked weeks ago", booking: true, coord: [34.6688, 135.501] },
       { time: "22:30", title: "MISONO BUILDING — 40 micro-bars in a dying cabaret palace", note: "The Dec 24 scouts confirmed it. Punk bars, anime bars, a bar that is also a barbershop. Split, regroup at the neon entrance hourly", coord: [34.6645, 135.5051] },
     ],
@@ -507,6 +643,26 @@ export const DAYS: Day[] = [
       { label: "Osaka Castle official", url: "https://www.osakacastle.net/english/" },
     ],
     wiki: ["Osaka Castle", "Umeda Sky Building", "Shinsekai"],
+    events: [
+      {
+        name: "⚠ Osaka Castle keep — TODAY is the last open day",
+        window: "Main keep CLOSED Dec 28–Jan 1",
+        cost: "$13 (¥600) keep entry",
+        station: "Osakajokoen / Tanimachi 4-chome",
+        note: "Timing matters: the castle museum/keep shuts for New Year from Dec 28. Our 10:30 visit catches it on its final open day — do NOT push the castle to a later day or it's a locked door. The park grounds stay open and free regardless, but the tower interior closes.",
+        kind: "closure",
+        url: "https://www.osakacastle.net/english/",
+      },
+      {
+        name: "Midosuji Illumination + Festival of the Lights",
+        window: "through Dec 31",
+        cost: "Free",
+        station: "Umeda → Namba",
+        note: "The 4km boulevard light-up is the night's spine — we literally walk home south through it. Still fully lit this late, unlike the Christmas-only events.",
+        kind: "illumination",
+        url: "https://www.hikari-kyoen.com/en/",
+      },
+    ],
   },
   {
     date: "2026-12-28",
@@ -542,6 +698,26 @@ export const DAYS: Day[] = [
       { label: "Tax-free shopping rules (JNTO)", url: "https://tax-freeshop.jnto.go.jp/eng/index.php" },
     ],
     wiki: ["Himeji Castle", "Kobe beef", "Kitano-chō"],
+    events: [
+      {
+        name: "⚠ Himeji Castle — reconfirm open on Dec 28",
+        window: "Normal NY closure is Dec 29–30",
+        cost: "$8 (¥1,000) / $10 combo w/ Kōko-en",
+        station: "Himeji",
+        note: "Dec 28 is normally OPEN (the castle's standard year-end closure is just Dec 29–30) — but in 2025 they extended a closure to Dec 27–28 for electrical work. So the date is 95% safe, but it's the one booking-adjacent risk in the back half: check Visit Himeji's site ~2 weeks out. Backup if it's shut: full Osaka victory-lap part two (it's already an audible).",
+        kind: "closure",
+        url: "https://visit-himeji.com/en/",
+      },
+      {
+        name: "Kobe Luminarie — NOT during our trip (moved to Jan/Feb)",
+        window: "now late Jan–early Feb (Jan 30–Feb 8 in 2026)",
+        cost: "—",
+        station: "Motomachi / Sannomiya",
+        note: "Myth-buster so nobody plans around it: the famous Kobe Luminarie permanently moved off December to late January (anchored near the Jan 17 earthquake memorial). It will NOT be on during our Dec 28 Kobe afternoon. Kobe's harbor/Mosaic illumination and Port Tower lights ARE on year-round, so the bay still glows at dusk.",
+        kind: "closure",
+        url: "https://kobe-luminarie.jp/",
+      },
+    ],
   },
   {
     date: "2026-12-29",

@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from "motion/react";
 import {
   ChevronDown, Train, Ticket, Dices, ExternalLink, CloudSun,
   CalendarPlus, Map, MapPin, ListChecks, ChevronsDownUp, ChevronsUpDown, CheckCircle2, Circle,
+  Sparkles, AlertTriangle,
 } from "lucide-react";
 import { DAYS, type Day } from "../data/itinerary";
 import { SectionHeading } from "./SectionHeading";
@@ -23,6 +24,7 @@ const TRIP = {
   mapped: DAYS.reduce((s, d) => s + d.activities.filter((a) => a.coord).length, 0),
   links: DAYS.reduce((s, d) => s + (d.links?.length ?? 0), 0),
   audibles: DAYS.reduce((s, d) => s + (d.alts?.length ?? 0), 0),
+  events: DAYS.reduce((s, d) => s + (d.events?.length ?? 0), 0),
 };
 
 function TopButton({ onClick, children }: { onClick: () => void; children: React.ReactNode }) {
@@ -85,6 +87,7 @@ function DayCard({
             {span && <><span>·</span><span>{span.first}–{span.last} ({span.label})</span></>}
             {mappedCount > 0 && <><span>·</span><span className="text-rose-400/80">{mappedCount} mapped</span></>}
             {bookCount > 0 && <><span>·</span><span className="text-amber-400/90">{bookCount} to book</span></>}
+            {day.events && day.events.length > 0 && <><span>·</span><span className="text-violet-300">✨ {day.events.length} live</span></>}
             {trackMode && doneCount > 0 && <><span>·</span><span className="text-emerald-400">{doneCount}/{day.activities.length} done</span></>}
           </div>
         </div>
@@ -139,6 +142,48 @@ function DayCard({
                     <motion.div className="h-full rounded-full bg-gradient-to-r from-emerald-500 to-teal-400" animate={{ width: `${pct}%` }} transition={{ type: "spring", stiffness: 80, damping: 20 }} />
                   </div>
                   <span className="text-xs font-bold tabular-nums text-emerald-300">{doneCount}/{day.activities.length}</span>
+                </div>
+              )}
+
+              {/* limited-time events verified ON during our visit */}
+              {day.events && day.events.length > 0 && (
+                <div className="mb-4 space-y-2">
+                  <p className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-amber-300">
+                    <Sparkles size={13} /> Happening during our visit — limited-time & date-specific
+                  </p>
+                  {day.events.map((ev) => {
+                    const isWarn = ev.kind === "closure";
+                    const style = isWarn
+                      ? "bg-red-500/10 border-red-500/30"
+                      : ev.kind === "illumination"
+                        ? "bg-violet-500/10 border-violet-500/25"
+                        : ev.kind === "market"
+                          ? "bg-emerald-500/10 border-emerald-500/25"
+                          : ev.kind === "seasonal"
+                            ? "bg-cyan-500/10 border-cyan-500/25"
+                            : "bg-amber-500/10 border-amber-500/25";
+                    return (
+                      <div key={ev.name} className={`rounded-xl border p-3 ${style}`}>
+                        <div className="flex items-start gap-2 flex-wrap">
+                          {isWarn
+                            ? <AlertTriangle size={14} className="text-red-400 mt-0.5 shrink-0" />
+                            : <Sparkles size={14} className="text-amber-400 mt-0.5 shrink-0" />}
+                          <span className="font-bold text-sm leading-snug text-slate-100">{ev.name}</span>
+                          <span className="text-[0.65rem] font-bold uppercase tracking-wide bg-white/10 text-slate-300 rounded-full px-2 py-0.5">{ev.window}</span>
+                        </div>
+                        <p className="mt-1.5 text-xs text-slate-300 leading-relaxed">{ev.note}</p>
+                        <p className="mt-1.5 flex flex-wrap items-center gap-x-3 gap-y-0.5 text-[0.68rem] text-slate-500 font-semibold">
+                          <span>💴 {ev.cost}</span>
+                          <span>🚉 {ev.station}</span>
+                          {ev.url && (
+                            <a href={ev.url} target="_blank" rel="noreferrer" className="text-sky-400/80 hover:text-sky-300 underline decoration-dotted">
+                              official ↗
+                            </a>
+                          )}
+                        </p>
+                      </div>
+                    );
+                  })}
                 </div>
               )}
 
@@ -262,6 +307,7 @@ export function Itinerary() {
           <span><span className="text-amber-300 font-bold tabular-nums">{TRIP.bookings}</span> to pre-book</span>
           <span><span className="text-rose-300 font-bold tabular-nums">{TRIP.mapped}</span> mapped stops</span>
           <span><span className="text-fuchsia-300 font-bold tabular-nums">{TRIP.audibles}</span> audibles</span>
+          <span><span className="text-amber-300 font-bold tabular-nums">{TRIP.events}</span> live events</span>
           <span><span className="text-indigo-300 font-bold tabular-nums">{TRIP.links}</span> official links</span>
           {trackMode && totalDone > 0 && (
             <span className="text-emerald-300"><span className="font-bold tabular-nums">{totalDone}</span> done</span>
