@@ -112,7 +112,7 @@ export const DAYS: Day[] = [
     alts: [
       "Rain plan: Miyashita Park covered rooftop + Parco + Tower Records (9 floors) absorb a full wet afternoon without surfacing.",
       "Sneaker/vintage squad: Cat Street resale shops (RagTag, Kindal) while the rest queue crepes — regroup at Hachiko.",
-      "Shibuya Sky sold out? Mag's Park rooftop ($1–2 (¥0–300)) or Shibuya Hikarie 11F Sky Lobby (free) cover the crossing shot.",
+      "Shibuya Sky sold out? Mag's Park rooftop (free–$2 (¥0–300)) or Shibuya Hikarie 11F Sky Lobby (free) cover the crossing shot.",
       "Energy audible: if day one cooked the crew, swap Blue Cave for an early nomihodai and 23:00 lights-out — tomorrow has temples AND Akihabara.",
     ],
     links: [

@@ -5,4 +5,15 @@ import tailwindcss from "@tailwindcss/vite";
 export default defineConfig({
   base: "/japan-trip-2026/",
   plugins: [react(), tailwindcss()],
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          react: ["react", "react-dom"],
+          motion: ["motion"],
+          icons: ["lucide-react"],
+        },
+      },
+    },
+  },
 });

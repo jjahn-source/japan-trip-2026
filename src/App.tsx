@@ -5,15 +5,19 @@ import { Itinerary } from "./components/Itinerary";
 import { Bookings } from "./components/Bookings";
 import { Budget } from "./components/Budget";
 import { Packing } from "./components/Packing";
-import { Explore } from "./components/Explore";
-import { EatView } from "./components/EatView";
-import { GuideView } from "./components/GuideView";
-import { StayView } from "./components/StayView";
-import { NightView } from "./components/NightView";
-import { PlayView } from "./components/PlayView";
-import { RouteView } from "./components/RouteView";
 import { Footer } from "./components/Footer";
 import { useHashView } from "./hooks/useHashView";
+import { lazy, Suspense } from "react";
+
+// Each secondary tab pulls in a big data file (and Leaflet, for the map).
+// Lazy-load them so the initial bundle is just the landing "Plan" view.
+const RouteView = lazy(() => import("./components/RouteView").then((m) => ({ default: m.RouteView })));
+const StayView = lazy(() => import("./components/StayView").then((m) => ({ default: m.StayView })));
+const Explore = lazy(() => import("./components/Explore").then((m) => ({ default: m.Explore })));
+const EatView = lazy(() => import("./components/EatView").then((m) => ({ default: m.EatView })));
+const NightView = lazy(() => import("./components/NightView").then((m) => ({ default: m.NightView })));
+const PlayView = lazy(() => import("./components/PlayView").then((m) => ({ default: m.PlayView })));
+const GuideView = lazy(() => import("./components/GuideView").then((m) => ({ default: m.GuideView })));
 
 export default function App() {
   const [view, setView] = useHashView();
@@ -32,13 +36,21 @@ export default function App() {
             <Packing />
           </>
         )}
-        {view === "route" && <RouteView />}
-        {view === "stay" && <StayView />}
-        {view === "explore" && <Explore />}
-        {view === "eat" && <EatView />}
-        {view === "night" && <NightView />}
-        {view === "play" && <PlayView />}
-        {view === "guide" && <GuideView />}
+        {view !== "plan" && (
+          <Suspense
+            fallback={
+              <div className="section-pad py-24 pt-32 text-center text-slate-400">Loading…</div>
+            }
+          >
+            {view === "route" && <RouteView />}
+            {view === "stay" && <StayView />}
+            {view === "explore" && <Explore />}
+            {view === "eat" && <EatView />}
+            {view === "night" && <NightView />}
+            {view === "play" && <PlayView />}
+            {view === "guide" && <GuideView />}
+          </Suspense>
+        )}
       </main>
       <Footer />
     </>
