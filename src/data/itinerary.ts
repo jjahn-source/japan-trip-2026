@@ -4,6 +4,7 @@ export type Activity = {
   note?: string;
   booking?: boolean; // needs advance booking
   coord?: [number, number]; // [lat, lng] — plotted on the Route map in stop order
+  place?: string; // clean, unambiguous Google-Maps search string → pins the real venue, not raw coords
 };
 
 export type Day = {
