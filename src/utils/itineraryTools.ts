@@ -26,15 +26,37 @@ export function daySpan(day: Day): { first: string; last: string; label: string 
 }
 
 // ── Google Maps deep-links ───────────────────────────────────────────────────
+/** Pin a known establishment by name — Google shows the real venue card, not a bare coordinate. */
+export function mapsSearchUrl(query: string): string {
+  return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(query)}`;
+}
+
 export function mapsPinUrl([lat, lng]: [number, number]): string {
   return `https://www.google.com/maps/search/?api=1&query=${lat},${lng}`;
 }
 
+/**
+ * Best Maps link for an activity: prefer the named venue (accurate pin on the
+ * actual establishment); fall back to raw coordinates only when no name exists.
+ */
+export function activityMapUrl(a: Activity): string | null {
+  if (a.place) return mapsSearchUrl(a.place);
+  if (a.coord) return mapsPinUrl(a.coord);
+  return null;
+}
+
+/** A single waypoint token for the directions path — name if known, else "lat,lng". */
+function waypointToken(a: Activity): string {
+  if (a.place) return encodeURIComponent(a.place);
+  const [la, ln] = a.coord!;
+  return `${la},${ln}`;
+}
+
 /** Directions through every mapped stop of the day, in order. null if <2 stops. */
 export function mapsRouteUrl(day: Day): string | null {
-  const coords = day.activities.filter((a) => a.coord).map((a) => a.coord!) as [number, number][];
-  if (coords.length < 2) return null;
-  const path = coords.map(([la, ln]) => `${la},${ln}`).join("/");
+  const stops = day.activities.filter((a) => a.coord || a.place);
+  if (stops.length < 2) return null;
+  const path = stops.map(waypointToken).join("/");
   return `https://www.google.com/maps/dir/${path}`;
 }
 

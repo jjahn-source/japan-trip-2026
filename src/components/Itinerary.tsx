@@ -9,7 +9,7 @@ import { DAYS, type Day } from "../data/itinerary";
 import { SectionHeading } from "./SectionHeading";
 import { useLocalStorage } from "../hooks/useLocalStorage";
 import {
-  daySpan, mapsPinUrl, mapsRouteUrl, buildDayICS, buildTripICS, downloadICS,
+  daySpan, activityMapUrl, mapsRouteUrl, buildDayICS, buildTripICS, downloadICS,
 } from "../utils/itineraryTools";
 
 function fmtDate(iso: string) {
@@ -224,11 +224,12 @@ function DayCard({
                               <Ticket size={10} /> book ahead
                             </span>
                           )}
-                          {a.coord && (
+                          {activityMapUrl(a) && (
                             <a
-                              href={mapsPinUrl(a.coord)} target="_blank" rel="noreferrer"
+                              href={activityMapUrl(a)!} target="_blank" rel="noreferrer"
                               onClick={(e) => e.stopPropagation()}
                               className="inline-flex items-center gap-0.5 text-[0.65rem] font-semibold text-sky-400/80 hover:text-sky-300"
+                              title={a.place ?? "Open in Google Maps"}
                             >
                               <MapPin size={10} /> map
                             </a>
