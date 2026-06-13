@@ -1,0 +1,121 @@
+import type { Day, Activity } from "../data/itinerary";
+
+// ── Time helpers ─────────────────────────────────────────────────────────────
+const TIME_RE = /^(\d{2}):(\d{2})$/;
+
+export function isTimed(a: Activity): boolean {
+  return TIME_RE.test(a.time);
+}
+
+export function parseMinutes(time: string): number | null {
+  const m = TIME_RE.exec(time);
+  if (!m) return null;
+  return Number(m[1]) * 60 + Number(m[2]);
+}
+
+/** First→last timed span of a day, e.g. "08:30 – 23:30 · 15h 0m". null if <2 timed. */
+export function daySpan(day: Day): { first: string; last: string; label: string } | null {
+  const timed = day.activities.filter(isTimed);
+  if (timed.length < 2) return null;
+  const first = timed[0].time;
+  const last = timed[timed.length - 1].time;
+  const mins = (parseMinutes(last)! - parseMinutes(first)! + 1440) % 1440;
+  const h = Math.floor(mins / 60);
+  const m = mins % 60;
+  return { first, last, label: `${h}h ${m}m` };
+}
+
+// ── Google Maps deep-links ───────────────────────────────────────────────────
+export function mapsPinUrl([lat, lng]: [number, number]): string {
+  return `https://www.google.com/maps/search/?api=1&query=${lat},${lng}`;
+}
+
+/** Directions through every mapped stop of the day, in order. null if <2 stops. */
+export function mapsRouteUrl(day: Day): string | null {
+  const coords = day.activities.filter((a) => a.coord).map((a) => a.coord!) as [number, number][];
+  if (coords.length < 2) return null;
+  const path = coords.map(([la, ln]) => `${la},${ln}`).join("/");
+  return `https://www.google.com/maps/dir/${path}`;
+}
+
+// ── ICS (iCalendar) export ───────────────────────────────────────────────────
+function pad(n: number): string {
+  return String(n).padStart(2, "0");
+}
+
+/** Floating local datetime stamp YYYYMMDDTHHMMSS (no TZ → calendar uses device local). */
+function icsStamp(dateISO: string, minutes: number): string {
+  const [y, mo, d] = dateISO.split("-").map(Number);
+  // Roll over past-midnight activities (e.g. 00:00 entries belong to the next calendar day).
+  const dayOffset = Math.floor(minutes / 1440);
+  const mins = ((minutes % 1440) + 1440) % 1440;
+  const base = new Date(Date.UTC(y, mo - 1, d + dayOffset));
+  return (
+    `${base.getUTCFullYear()}${pad(base.getUTCMonth() + 1)}${pad(base.getUTCDate())}` +
+    `T${pad(Math.floor(mins / 60))}${pad(mins % 60)}00`
+  );
+}
+
+function escapeICS(s: string): string {
+  return s.replace(/\\/g, "\\\\").replace(/;/g, "\\;").replace(/,/g, "\\,").replace(/\n/g, "\\n");
+}
+
+function dayEvents(day: Day): string[] {
+  const timed = day.activities.filter(isTimed);
+  const lines: string[] = [];
+  timed.forEach((a, i) => {
+    const start = parseMinutes(a.time)!;
+    // End = next timed activity, else +90 min. Guard against negative (past-midnight).
+    let end = i + 1 < timed.length ? parseMinutes(timed[i + 1].time)! : start + 90;
+    if (end <= start) end += 1440;
+    const uid = `${day.date}-${i}@japan-trip-2026`;
+    const desc = [a.note, a.booking ? "⚠ NEEDS ADVANCE BOOKING" : ""].filter(Boolean).join("\\n\\n");
+    lines.push(
+      "BEGIN:VEVENT",
+      `UID:${uid}`,
+      `DTSTAMP:${icsStamp(day.date, 0)}`,
+      `DTSTART:${icsStamp(day.date, start)}`,
+      `DTEND:${icsStamp(day.date, end)}`,
+      `SUMMARY:${escapeICS(`${day.emoji} ${a.title}`)}`,
+      `LOCATION:${escapeICS(day.city)}`,
+      ...(desc ? [`DESCRIPTION:${escapeICS(desc)}`] : []),
+      ...(a.coord ? [`GEO:${a.coord[0]};${a.coord[1]}`] : []),
+      "END:VEVENT",
+    );
+  });
+  return lines;
+}
+
+function wrapCalendar(events: string[]): string {
+  return [
+    "BEGIN:VCALENDAR",
+    "VERSION:2.0",
+    "PRODID:-//japan-trip-2026//EN",
+    "CALSCALE:GREGORIAN",
+    "X-WR-CALNAME:Japan 2026",
+    "X-WR-TIMEZONE:Asia/Tokyo",
+    ...events,
+    "END:VCALENDAR",
+  ].join("\r\n");
+}
+
+export function buildDayICS(day: Day): string {
+  return wrapCalendar(dayEvents(day));
+}
+
+export function buildTripICS(days: Day[]): string {
+  return wrapCalendar(days.flatMap(dayEvents));
+}
+
+/** Trigger a client-side .ics download. */
+export function downloadICS(filename: string, ics: string): void {
+  const blob = new Blob([ics], { type: "text/calendar;charset=utf-8" });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = filename;
+  document.body.appendChild(a);
+  a.click();
+  a.remove();
+  setTimeout(() => URL.revokeObjectURL(url), 1000);
+}
