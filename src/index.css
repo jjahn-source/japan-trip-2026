@@ -29,15 +29,15 @@ body {
   @apply px-4 sm:px-8 max-w-6xl mx-auto;
 }
 
-/* animated route flow-line on the Route map (shows direction of travel) */
+/* animated flow-line on the Route map — dashes march along the path direction */
 .route-flow {
-  stroke-dasharray: 1 12;
+  stroke-dasharray: 10 18;
   stroke-linecap: round;
-  animation: routeflow 1s linear infinite;
+  animation: routeflow 0.6s linear infinite;
 }
 @keyframes routeflow {
   to {
-    stroke-dashoffset: -13;
+    stroke-dashoffset: -28;
   }
 }
 .leaflet-container {
