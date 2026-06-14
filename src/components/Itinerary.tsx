@@ -1,12 +1,13 @@
 import { useEffect, useMemo, useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import {
-  ChevronDown, Train, Ticket, Dices, ExternalLink, CloudSun,
+  ChevronDown, Train, Ticket, Dices, ExternalLink,
   CalendarPlus, Map, MapPin, ListChecks, ChevronsDownUp, ChevronsUpDown, CheckCircle2, Circle,
   Sparkles, AlertTriangle, Target,
 } from "lucide-react";
 import { DAYS, type Day } from "../data/itinerary";
 import { SectionHeading } from "./SectionHeading";
+import { WeatherBadge } from "./WeatherBadge";
 import { useLocalStorage } from "../hooks/useLocalStorage";
 import {
   daySpan, activityMapUrl, mapsRouteUrl, buildDayICS, buildTripICS, downloadICS,
@@ -105,20 +106,8 @@ function DayCard({
             transition={{ duration: 0.3 }}
           >
             <div className="px-4 sm:px-5 pb-5 pt-1">
-              {/* weather + tools */}
-              <p className="mb-3 flex items-center gap-2 flex-wrap text-xs font-semibold text-cyan-200/90">
-                <CloudSun size={14} className="shrink-0" />
-                <span>{day.wx}</span>
-                <a
-                  href={`https://www.google.com/search?q=${encodeURIComponent(
-                    day.city.replace(/\s*\(.*\)/, "").replace(/\s*→.*/, "") + " 14 day weather forecast December",
-                  )}`}
-                  target="_blank" rel="noreferrer"
-                  className="inline-flex items-center gap-0.5 text-cyan-300/80 hover:text-cyan-200 underline decoration-dotted whitespace-nowrap"
-                >
-                  live forecast ↗
-                </a>
-              </p>
+              {/* weather (live Open-Meteo when in range, else curated text) + tools */}
+              <WeatherBadge city={day.city} dateISO={day.date} wx={day.wx} />
 
               <div className="mb-4 flex flex-wrap gap-2">
                 <button
