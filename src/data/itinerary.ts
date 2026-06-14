@@ -85,6 +85,13 @@ export const DAYS: Day[] = [
       "Win one round of the Standing Competitions draft during the MSP layover",
       "Walk a full lap of the cabin every 2 hours — drag one sleeping man with you",
     ],
+    intel: [
+      "Add Suica to Apple/Google Wallet BEFORE landing — once airside WiFi dies you can't, and the machines eat 30 min for 8.",
+      "Screenshot all 8 Visit Japan Web QR codes; the immigration kiosk wants the QR, not the login — no signal at the gate.",
+      "MSP transfer is same-terminal-ish but allow for the gate train; buy 1L water past security, cabin air is bone-dry.",
+      "Set watches to JST at MSP, not on the A350 — committing early is what actually fixes the jet lag.",
+      "Aisle seats for the two lightest sleepers — they'll be up every 2h and shouldn't climb over anyone.",
+    ],
   },
   {
     date: "2026-12-15",
@@ -142,6 +149,14 @@ export const DAYS: Day[] = [
       "Photograph the Godzilla head without getting roped by a Kabukicho tout",
       "Squeeze 4+ men onto one Omoide Yokocho counter and point-order everything",
       "Survive Donki recon buying literally nothing — wallet stays shut",
+    ],
+    intel: [
+      "Limousine Bus to Shinjuku: buy at the arrivals-floor counter, last buses run ~22:00 — a 14:35 land is fine but don't dawdle in immigration.",
+      "Coin lockers at Shinjuku Station are mostly full by afternoon; if bags won't fit, the bus drops near most West-side hotels anyway.",
+      "Konbini chu-hai: cashier may tap a '20+?' screen — just tap yes; ID rarely asked but carry passport copy.",
+      "Ichiran ticket machine is cash AND IC; if the Kabukicho branch line is long, the basement branch by the station is usually emptier.",
+      "Sunset ~16:30 — you land into near-dark, so the neon hits immediately; it's the best first impression Tokyo offers.",
+      "Gov't Building deck closes 22:00 and last entry ~21:30; the south tower is the one usually open in winter.",
     ],
   },
   {
@@ -206,6 +221,14 @@ export const DAYS: Day[] = [
       "Open dinner with a clean 'Toriaezu nama de!' before anyone else orders",
       "Get the glass-corner Shibuya Sky photo at the 16:30 Fuji silhouette",
     ],
+    intel: [
+      "Shibuya Sky open 10:00–22:30, last admission 21:20; sunset slots open ~4 weeks out at midnight JST and vanish in under 2 minutes — set 8 alarms.",
+      "The open-air rooftop is brutally cold in December — gloves + hat, and bags go in free lockers before you go up.",
+      "Get there ~30 min before your slot to clear the elevator queue and claim the SW glass corner for the Fuji-silhouette shot.",
+      "Meiji Shrine goshuin desk closes ~16:00 and there's a line — get the books stamped on the morning pass, not later.",
+      "Nomihodai last-order is strictly enforced (~21:15 here); order a final round at the 90-min mark or lose it.",
+      "Buy nothing at Parco today — note SKUs and prices, the same exclusives restock in Osaka where luggage isn't the enemy.",
+    ],
   },
   {
     date: "2026-12-17",
@@ -267,6 +290,14 @@ export const DAYS: Day[] = [
       "Belt Bohemian Rhapsody at karaoke before midnight — full commitment",
       "Detonate the room with 'Linda Linda' at least once",
     ],
+    intel: [
+      "Skytree Thu hours 10:00–22:00, last entry 21:00; buy the timed online ticket for the Tembo Deck (350m) — it routes you past the walk-up queue.",
+      "Senso-ji's outer grounds are 24/7, but the main hall opens 06:00 (winter) — 08:30 still beats the tour buses to the Kaminarimon shot.",
+      "Hagoita-ichi fills the courtyard Dec 17–19; haggling is fine and the vendor 'tejime' hand-clap on a big sale is worth lingering for.",
+      "Hoppy Street stalls are cash-only and tiny — split into 2–3 counters; 'hoppy set' = the mixer, 'naka' = the shochu refill.",
+      "Kappabashi knife shops mostly close ~17:00 and shut Sundays — buy and arrange shipping today, not on a later swing-by.",
+      "For the Skytree photo, the Tembo Deck's east side faces the river/Asakusa lights; line up there as the sky goes dark ~16:45.",
+    ],
   },
   {
     date: "2026-12-18",
@@ -324,6 +355,14 @@ export const DAYS: Day[] = [
       "Toast a liter mug at Ginza Lion without spilling — 1934 demands respect",
       "Befriend a Golden Gai bartender well enough to be remembered on Dec 20",
       "Rank your Ramen Street bowl out loud — defend it against the table",
+    ],
+    intel: [
+      "teamLab Planets open 08:30–22:00, LAST ENTRY 21:00; buy timed tickets ahead — they sell out — and budget 2–3 hours inside.",
+      "It's fully BAREFOOT and some rooms are knee-deep water — wear shorts or rollable pants; free lockers are INSIDE past the gate, not at the door.",
+      "Bring a daypack you can carry through, not roll — there's no luggage storage and the floors are wet.",
+      "Tsukiji Outer Market stalls peak 06:00–10:00 and many close by 14:00; hit it on the 08:00 pass, not as an afternoon idea.",
+      "Ginza tax-free needs passports in hand at the dedicated counter; consolidate purchases in one store to clear the ¥5,000 threshold easily.",
+      "Golden Gai bars are cash-only with a seat charge (~¥500–1000); pick a no-cover sign, keep cells to 2–3 so you actually fit.",
     ],
   },
   {
@@ -389,6 +428,14 @@ export const DAYS: Day[] = [
       "Wash your cash at Zeniarai-Benten if the split squad does the hike",
       "Hot vending-machine drink in hand for the Enoshima dusk — no exceptions",
     ],
+    intel: [
+      "Enoden trains are short and pack out on weekends — board at the Kamakura terminus to actually get seats for 8, and stand on the sea (south) side.",
+      "Kotoku-in's inside-the-Buddha access closes earlier than the grounds (~16:30) and is a tight single-file climb — go before lunch.",
+      "Hase-dera last entry ~16:30 in winter; its bay-view terrace is the better Fuji-at-dusk backup if the Enoshima timing slips.",
+      "Sea Candle observation deck last entry ~19:30 in the illumination season — you can do Fuji dusk then stay for the lights on one ticket.",
+      "It's a Saturday — Kamakura is busiest 11:00–15:00, so the dawn-ish 09:00 shrine start genuinely beats the crowd.",
+      "Coast wind makes 39°F feel like freezing once the sun drops at 16:32 — pack a windproof layer, not just a sweater.",
+    ],
   },
   {
     date: "2026-12-20",
@@ -451,6 +498,14 @@ export const DAYS: Day[] = [
       "Sukiyaki farewell: one kanpai per man, eight total, raw-egg dip mandatory",
       "Close your suitcase BEFORE the Golden Gai encore — bags ship at dawn",
     ],
+    intel: [
+      "Yamato takkyubin: ~$16–19 (¥2,400–3,000) per big bag, send in the MORNING and a Dec 20 drop lands at the Osaka house ~Dec 22 — confirm the host accepts deliveries.",
+      "Drop bags at the konbini counter or hotel desk before you leave; fill the form in advance and keep a daypack with 2 days of clothes for Kyoto.",
+      "Ghibli Museum is a date-specific lottery — bring the QR/voucher AND the passport the booker used; no walk-ups, no swaps.",
+      "Mandarake floors in Nakano Broadway each keep their own hours and some open ~12:00 — don't arrive at 11:00 expecting all 30 open.",
+      "Thermae-Yu is tattoo-restricted on the main baths; inked crew use the private/house option — confirm before everyone undresses.",
+      "Photograph the Yamato tracking number for every bag before handoff — 8 near-identical suitcases need labels you can verify in Osaka.",
+    ],
   },
   {
     date: "2026-12-21",
@@ -504,6 +559,14 @@ export const DAYS: Day[] = [
       "Spot a geiko heading to an appointment — admire from a respectful distance",
       "Get the Yasaka Pagoda night shot down the lantern-lit slope",
       "Sit on the Kamo River bank with a konbini sour and call the trip halftime",
+    ],
+    intel: [
+      "Nozomi luggage: nothing over ~250cm needs the reserved oversized-baggage rack now, but daypacks ride overhead — book the 8 seats as one block on SmartEX the day the calendar opens.",
+      "Fuji is on the RIGHT (seats D/E) westbound and appears ~40 min in near Shin-Fuji — phones ready by Shin-Yokohama.",
+      "To-ji's Shimai-Kobo market (Dec 21 only) runs 8:00–16:00 and is a 15-min walk from Kyoto Station — hit it with bags in a coin locker before house check-in.",
+      "Nishiki Market stalls close ~17:00 and many are cash-only; eat standing AT the stall — walking-and-eating is frowned on.",
+      "Yasaka Pagoda (Hokan-ji) lane empties after ~19:00; the daytime crowd clears for the clean lantern-slope night shot.",
+      "Kyoto buses are exact-fare flat-rate and jam up — for 8 people short hops are often faster on foot or by splitting two taxis.",
     ],
   },
   {
@@ -565,6 +628,14 @@ export const DAYS: Day[] = [
       "Survive the Funaoka electric bath 30 full seconds — no screaming",
       "Eat the free Yatsuhashi samples at every shop down Sannenzaka, shamelessly",
       "Order one thing on Kiyamachi you cannot identify and finish it",
+    ],
+    intel: [
+      "Fushimi Inari is open 24/7 and free — be at the base by ~07:30 or the lower torii tunnels fill; above Yotsutsuji (~30–45 min climb) most tourists turn back, so it empties out.",
+      "First JR Nara-line train from Kyoto Station hits Inari in 5 min; the platform vending machines have the hot corn soup for the cold climb.",
+      "Inari sunrise is ~06:45 in late December, so a 06:45 arrival catches first light through the gates with almost no one there.",
+      "Kiyomizu-dera last entry is ~17:30 (closes 18:00 winter); the Otowa waterfall queue is shortest right at opening or near close.",
+      "Gekkeikan museum's ¥600 entry includes tasting tickets and a bottle — bring cash and don't skip the spring-water sample.",
+      "Funaoka Onsen is tattoo-friendly and cash-only (~¥490); the electric-bath tub is the small one in the corner — ease in, don't cannonball.",
     ],
   },
   {
@@ -630,6 +701,14 @@ export const DAYS: Day[] = [
       "Squeeze through Todai-ji's nostril-sized pillar hole — send the bendy ones",
       "Catch Nakatanidou's flying-hammer mochi pounding on video, warm mochi in hand",
       "Close the final Kyoto night with 'Linda Linda' at Jankara karaoke",
+    ],
+    intel: [
+      "Bamboo Grove is free and open 24/7, but dawn (by ~07:30) is the ONLY crowd-free window — it's packed solid 09:00–16:00.",
+      "Kinkaku-ji opens 09:00 (last entry ~16:40, closes 17:00) — be there at opening; the pavilion's golden side faces the pond from the first viewpoint.",
+      "Tenryu-ji garden opens 08:30 and its ticket also gets you the north (bamboo-side) gate — exit there to flow straight into the grove.",
+      "Kintetsu Kyoto→Nara Limited Express needs a reserved-seat surcharge; the regular express is cheaper and fine if you don't book ahead.",
+      "Nakatanidou's mochi-pounding shows are unscheduled — they perform when a batch is ready, roughly hourly, so loiter rather than chase a time.",
+      "Nara's deer-cracker vendors and Todai-ji close ~16:30–17:00 and it's dark by 17:00 — do deer and the Great Buddha before the sake stop.",
     ],
   },
   {
@@ -703,6 +782,14 @@ export const DAYS: Day[] = [
       "Splash water on Hozenji's moss Buddha for luck while still coordinated",
       "Sing 'Merry Christmas' on the Airbnb floor in glorious 8-part disharmony",
     ],
+    intel: [
+      "Nintendo Museum entry is a fixed timed slot — arrive 15 min early; the on-site café/shop also need their own separate timed reservation.",
+      "Uji is one stop short of Osaka-bound trains — lock daypacks in Kyoto Station coin lockers before the museum so you're not hauling them around Uji.",
+      "Kyoto→Osaka Special Rapid: ride to Namba via the Hanwa/loop or just take it to Osaka Stn then Midosuji south — no shinkansen needed for this hop.",
+      "Confirm the Yamato suitcases actually arrived at the Namba house at check-in before going out — chase any missing bag while the desk is staffed.",
+      "KFC Xmas bucket pickup is a scheduled window with a long line on the 24th — send 2 people to grab it while the rest start takoyaki.",
+      "Dotonbori is wall-to-wall on Christmas Eve — set a fixed regroup point (Glico sign) since phones die fast in the cold and crowd.",
+    ],
   },
   {
     date: "2026-12-25",
@@ -754,6 +841,14 @@ export const DAYS: Day[] = [
       "Down a butterbeer in snow-dusted Hogsmeade — foam mustache photo required",
       "Ride Hollywood Dream at the exact sunset drop, hands up",
       "End Christmas airborne off the Round1 trampoline or not at all",
+    ],
+    intel: [
+      "Super Nintendo World needs a separate timed-entry (Area Ticket) on top of Express — grab it in the app the SECOND you tap into the park.",
+      "On a mobbed day buy Express the moment you decide to go; it sells out weeks ahead and is the only way 8 people clear the headliners.",
+      "JR Loop to Nishikujo then the Yumesaki line to Universal City is the reliable route — the front-of-train cars dump you closest to the gate.",
+      "Power-Up Bands link to the app for key-challenge tracking — pair all 8 before entering SNW so nobody's fumbling at the first block.",
+      "Stake out 'Light Up the Night' ~30 min early; the central lagoon-side spots go first and it's standing-room only on the 25th.",
+      "Lockers near the gate fill by mid-morning — travel light, the park has limited storage for a group this size.",
     ],
   },
   {
@@ -816,6 +911,14 @@ export const DAYS: Day[] = [
       "Shut up for the 17:05 torii silhouette at golden hour over the strait",
       "No double-dipping the kushikatsu sauce at Daruma — they announce violators",
     ],
+    intel: [
+      "Check the Miyajima tide chart the night before: high tide floats the torii, low tide lets you walk to its base — aim to catch both states.",
+      "Miyajima ferry runs ~$13 (¥2,000) round-trip math including the ¥100 visitor tax now levied on arrival — have IC/cash ready at the gate.",
+      "Grilled oysters on Omotesando are ~$3 (¥500) for two, shucked in front of you — peak season, eat them standing rather than sitting down for a meal.",
+      "Sit on the RIGHT side Shin-Osaka→Hiroshima for fleeting castle/sea glimpses; reserve the 8-seat block as one on SmartEX well ahead.",
+      "Peace Museum gets busy late morning — the 09:15 arrival beats the crowd; allow a quiet decompression before the loud Okonomimura lunch.",
+      "Last practical return Nozomi is ~19:30 — set a hard ferry-back time (~17:45) so a missed boat doesn't blow the whole rail chain home.",
+    ],
   },
   {
     date: "2026-12-27",
@@ -860,6 +963,14 @@ export const DAYS: Day[] = [
       "Walk the full 4km of Midosuji lights end-to-end without taking the train once",
       "Crack a whole crab leg at Kani Doraku under the giant moving crab sign",
       "Find the bar-that's-also-a-barbershop in the Misono Building",
+    ],
+    intel: [
+      "Osaka Castle keep's last entry is ~16:30 (closes 17:00) and it shuts Dec 28–Jan 1 — do the tower interior today on the 10:30 slot, no rescheduling.",
+      "Den Den Town is the buy-now window for retro games and figures — often cheaper than Akihabara and you've got luggage room again; don't defer to Tokyo.",
+      "Umeda Sky Building's open-air Floating Garden is freezing and windy at the 16:55 sunset — last entry ~22:00 but gloves/hat for golden hour.",
+      "Kuromon stalls are cash-friendly and best 09:00–11:00; many sell single skewers/shooters so 8 people can graze without one big bill.",
+      "551 Horai butaman sell out nightly — grab a 4-pack from a Namba-station branch on the way back, not at 22:00.",
+      "Walking the full Midosuji light strip Umeda→Namba takes ~45 min — pace it as the route home, not a side trip.",
     ],
     events: [
       {
@@ -923,6 +1034,14 @@ export const DAYS: Day[] = [
       "Land a tax-free haul over $31 (¥5,000) on the final Don Quijote boss run",
       "Order the whole table's yakiniku in Japanese (auto-win, Lost in Translation Cup)",
       "Close your bags BEFORE the Ura-Namba nightcap — non-negotiable",
+    ],
+    intel: [
+      "Himeji Castle: 09:00–17:00, LAST ENTRY 16:00 — the 09:45 start is right; the ¥1,050 combo ticket adds Koko-en next door cheaply.",
+      "Skip the Nozomi if not time-pressed: the JR Special Rapid Osaka→Himeji is ~$10 (¥1,520) and ~60 min vs ¥3,280/29 min on the bullet.",
+      "You climb the keep in socks on steep ladder-stairs — wear easy-off shoes and grippy socks; bags go in lockers at the entrance.",
+      "Kobe beef lunch sets run roughly half the dinner price — book the counter ahead for 8 or split across two, since teppan counters seat few.",
+      "Tax refund is now PAY-then-refund: you pay the 10% in-store today, so keep every receipt stapled to its passport for tomorrow's HND desk.",
+      "Kobe is the route home, not a detour — Sannomiya→Osaka is ~20 min, so don't rush Harborland's dusk lights.",
     ],
     events: [
       {
@@ -993,6 +1112,14 @@ export const DAYS: Day[] = [
       "Drain your last yen on one final boss gachapon at the HND gate",
       "Group photo #16, same pose, at the gate before boarding — complete the streak",
       "Open the 2027 destination thread at cruising altitude — Kaishun picks",
+    ],
+    intel: [
+      "Hit the HND tax-refund desk BEFORE security with passports + every receipt — the 2026 pay-then-refund system makes this step mandatory to get the 10% back.",
+      "Allow extra buffer: tax-refund counters back up badly in peak holiday week, so the 12:45 airport arrival is the floor, not a target.",
+      "Fuji is on the LEFT (seats A) eastbound and appears ~80 min in — opposite side from the westbound trip, so swap who gets the window.",
+      "Shinagawa→Haneda on the Keikyu is ~20 min and ~$2 (¥330); board toward the front for the fastest T3 exit to check-in.",
+      "Spend leftover Suica balance at airside konbini/gachapon — you can't easily cash IC out, so zero it into snacks before the gate.",
+      "Buy Japanese whisky AFTER security and carry it sealed; the MSP re-check means do NOT let it get buried in a checked transfer bag.",
     ],
   },
 ];
