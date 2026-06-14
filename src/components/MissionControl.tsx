@@ -104,7 +104,7 @@ function CategoryCard({
   );
 }
 
-export function MissionControl({ setView }: { setView: (v: View) => void }) {
+export function MissionControl() {
   const [bookingsDone] = useLocalStorage<Record<string, boolean>>("bookings-done", {});
   const [packingChecked] = useLocalStorage<Record<string, boolean>>("packing-checked", {});
   const [bingo] = useLocalStorage<Record<number, boolean>>("trip-bingo", {});
@@ -123,13 +123,16 @@ export function MissionControl({ setView }: { setView: (v: View) => void }) {
   }, [itinDone]);
 
   // Navigate to the right tab AND land on the relevant section (not the top).
+  // Set the hash directly (the hashchange listener updates the view WITHOUT a
+  // scroll-to-top), then poll on a wall-clock deadline so even a cold-cache lazy
+  // chunk (e.g. the Play view) has time to mount before we scroll to the anchor.
   const go = (view: View, anchor: string) => {
-    setView(view);
-    let tries = 0;
+    window.location.hash = `/${view}`;
+    const start = Date.now();
     const tick = () => {
       const el = document.getElementById(anchor);
-      if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
-      else if (tries++ < 60) requestAnimationFrame(tick); // wait for lazy views to mount
+      if (el) { el.scrollIntoView({ behavior: "smooth", block: "start" }); return; }
+      if (Date.now() - start < 8000) requestAnimationFrame(tick);
     };
     requestAnimationFrame(tick);
   };

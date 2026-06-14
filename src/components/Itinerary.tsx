@@ -56,7 +56,7 @@ function DayCard({
   const routeUrl = mapsRouteUrl(day);
 
   const doneCount = day.activities.filter((_, i) => done[`${day.date}-${i}`]).length;
-  const pct = Math.round((doneCount / day.activities.length) * 100);
+  const pct = day.activities.length ? Math.round((doneCount / day.activities.length) * 100) : 0;
 
   return (
     <motion.div
@@ -199,6 +199,7 @@ function DayCard({
                 {day.activities.map((a, i) => {
                   const key = `${day.date}-${i}`;
                   const isDone = !!done[key];
+                  const mapUrl = activityMapUrl(a);
                   return (
                     <li key={i} className="flex gap-3">
                       {trackMode ? (
@@ -224,9 +225,9 @@ function DayCard({
                               <Ticket size={10} /> book ahead
                             </span>
                           )}
-                          {activityMapUrl(a) && (
+                          {mapUrl && (
                             <a
-                              href={activityMapUrl(a)!} target="_blank" rel="noreferrer"
+                              href={mapUrl} target="_blank" rel="noreferrer"
                               onClick={(e) => e.stopPropagation()}
                               className="inline-flex items-center gap-0.5 text-[0.65rem] font-semibold text-sky-400/80 hover:text-sky-300"
                               title={a.place ?? "Open in Google Maps"}

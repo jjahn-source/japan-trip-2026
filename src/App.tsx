@@ -43,7 +43,7 @@ export default function App() {
               <div className="section-pad py-24 pt-32 text-center text-slate-400">Loading…</div>
             }
           >
-            {view === "mission" && <MissionControl setView={setView} />}
+            {view === "mission" && <MissionControl />}
             {view === "route" && <RouteView />}
             {view === "stay" && <StayView />}
             {view === "explore" && <Explore />}

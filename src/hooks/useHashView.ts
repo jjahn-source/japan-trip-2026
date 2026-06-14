@@ -18,7 +18,9 @@ export function useHashView() {
   }, []);
 
   const setView = (v: View) => {
-    const changed = v !== view;
+    // Compare against the LIVE hash (not the closed-over `view`) so this is
+    // correct even if called from a prop/stale render.
+    const changed = parseHash() !== v;
     window.location.hash = `/${v}`;
     // Only jump to the top when actually switching tabs — never yank the user
     // up while they're working within the current view.
