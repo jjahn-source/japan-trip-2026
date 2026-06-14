@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import {
   ChevronDown, Train, Ticket, Dices, ExternalLink, CloudSun,
@@ -321,6 +321,16 @@ export function Itinerary() {
       document.getElementById(`day-${i}`)?.scrollIntoView({ behavior: "smooth", block: "start" }),
     );
   };
+
+  // Global search (or any deep-link) can ask to open a specific day.
+  useEffect(() => {
+    const onOpenDay = (e: Event) => {
+      const i = (e as CustomEvent<number>).detail;
+      if (typeof i === "number") setOpenMap((m) => ({ ...m, [i]: true }));
+    };
+    window.addEventListener("trip:open-day", onOpenDay);
+    return () => window.removeEventListener("trip:open-day", onOpenDay);
+  }, []);
 
   return (
     <section id="itinerary" className="section-pad py-24">

@@ -4,6 +4,7 @@ import { PLAY_SPOTS, CRANE_SCHOOL } from "../data/otaku";
 import { FACTION_WARS, TRIP_BINGO, AWARDS_CEREMONY, DAILY_RITUALS } from "../data/challenges";
 import { SectionHeading } from "./SectionHeading";
 import { useLocalStorage } from "../hooks/useLocalStorage";
+import { slugify } from "../utils/nav";
 
 export function PlayView() {
   const [bingo, setBingo] = useLocalStorage<Record<number, boolean>>("trip-bingo", {});
@@ -96,11 +97,12 @@ export function PlayView() {
           {PLAY_SPOTS.map((s, i) => (
             <motion.article
               key={s.name}
+              id={`play-${slugify(s.name)}`}
               initial={{ opacity: 0, y: 14 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-30px" }}
               transition={{ duration: 0.3, delay: (i % 2) * 0.04 }}
-              className="glass rounded-2xl p-5 flex flex-col"
+              className="glass rounded-2xl p-5 flex flex-col scroll-mt-28"
             >
               <p className="text-xs font-semibold text-slate-500 uppercase tracking-wider">
                 {s.city} · {s.area} · {s.kind}

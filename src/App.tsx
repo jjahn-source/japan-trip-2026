@@ -1,12 +1,14 @@
 import { Nav } from "./components/Nav";
 import { Hero } from "./components/Hero";
+import { TodayBanner } from "./components/TodayBanner";
 import { FlightCard } from "./components/FlightCard";
 import { Itinerary } from "./components/Itinerary";
 import { Bookings } from "./components/Bookings";
 import { Budget } from "./components/Budget";
 import { Packing } from "./components/Packing";
 import { Footer } from "./components/Footer";
-import { useHashView } from "./hooks/useHashView";
+import { useHashView, type View } from "./hooks/useHashView";
+import { scrollToAnchor } from "./utils/nav";
 import { lazy, Suspense, useEffect, useState } from "react";
 
 // Each secondary tab pulls in a big data file (and Leaflet, for the map).
@@ -37,18 +39,31 @@ export default function App() {
     return () => window.removeEventListener("keydown", onKey);
   }, []);
 
+  // Search result → switch tab, then deep-scroll to the exact card. Itinerary
+  // days also get expanded via a custom event the Itinerary listens for.
+  const navigateTo = (v: View, anchor?: string) => {
+    setView(v);
+    if (!anchor) return;
+    const dayMatch = /^day-(\d+)$/.exec(anchor);
+    if (dayMatch) {
+      window.dispatchEvent(new CustomEvent("trip:open-day", { detail: Number(dayMatch[1]) }));
+    }
+    scrollToAnchor(anchor);
+  };
+
   return (
     <>
       <Nav view={view} setView={setView} onOpenSearch={() => setSearchOpen(true)} />
       {searchOpen && (
         <Suspense fallback={null}>
-          <SearchOverlay onClose={() => setSearchOpen(false)} onNavigate={setView} />
+          <SearchOverlay onClose={() => setSearchOpen(false)} onNavigate={navigateTo} />
         </Suspense>
       )}
       <main>
         {view === "plan" && (
           <>
             <Hero />
+            <TodayBanner />
             <FlightCard />
             <Itinerary />
             <Bookings />

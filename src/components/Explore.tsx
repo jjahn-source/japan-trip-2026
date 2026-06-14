@@ -5,6 +5,7 @@ import { ATTRACTIONS, type City, type Category } from "../data/attractions";
 import { NEIGHBORHOODS } from "../data/neighborhoods";
 import { DAY_TRIPS } from "../data/daytrips";
 import { SectionHeading } from "./SectionHeading";
+import { slugify } from "../utils/nav";
 
 const TRIP_TIER: Record<number, { label: string; cls: string }> = {
   1: { label: "LOCKED IN THE PLAN", cls: "bg-emerald-500/20 text-emerald-300 border-emerald-500/40" },
@@ -118,10 +119,11 @@ export function Explore() {
           return (
             <motion.article
               key={a.id}
+              id={`sight-${a.id}`}
               initial={{ opacity: 0, y: 14 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.3, delay: Math.min(i * 0.02, 0.3) }}
-              className="glass rounded-2xl p-5 flex flex-col"
+              className="glass rounded-2xl p-5 flex flex-col scroll-mt-28"
             >
               <div className="flex items-start justify-between gap-3">
                 <div>
@@ -169,11 +171,12 @@ export function Explore() {
           {NEIGHBORHOODS.map((n, i) => (
             <motion.div
               key={n.name}
+              id={`hood-${slugify(n.name)}`}
               initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-30px" }}
               transition={{ duration: 0.35, delay: (i % 3) * 0.05 }}
-              className="glass rounded-2xl p-5"
+              className="glass rounded-2xl p-5 scroll-mt-28"
             >
               <p className="text-xs font-semibold text-rose-400 uppercase tracking-wider">{n.city}</p>
               <h3 className="font-bold text-lg mt-0.5">
@@ -208,11 +211,12 @@ export function Explore() {
             return (
               <motion.article
                 key={t.id}
+                id={`trip-${t.id}`}
                 initial={{ opacity: 0, y: 16 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-30px" }}
                 transition={{ duration: 0.35, delay: (i % 2) * 0.04 }}
-                className="glass rounded-2xl p-5 sm:p-6"
+                className="glass rounded-2xl p-5 sm:p-6 scroll-mt-28"
               >
                 <div className="flex flex-wrap items-start justify-between gap-3">
                   <div>

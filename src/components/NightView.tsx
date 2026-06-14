@@ -3,6 +3,7 @@ import { motion } from "motion/react";
 import { MapPin, Wallet, Star } from "lucide-react";
 import { NIGHT_SPOTS, NIGHT_RULES, DRINK_MENU } from "../data/nightlife";
 import { SectionHeading } from "./SectionHeading";
+import { slugify } from "../utils/nav";
 
 const CITIES = ["All", "Tokyo", "Kyoto", "Osaka"] as const;
 const KINDS = [
@@ -100,10 +101,11 @@ export function NightView() {
           return (
             <motion.article
               key={s.name}
+              id={`night-${slugify(s.name)}`}
               initial={{ opacity: 0, y: 14 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.3, delay: Math.min(i * 0.02, 0.3) }}
-              className="glass rounded-2xl p-5 flex flex-col"
+              className="glass rounded-2xl p-5 flex flex-col scroll-mt-28"
             >
               <div className="flex items-start justify-between gap-3">
                 <div>

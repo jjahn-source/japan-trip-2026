@@ -2,6 +2,7 @@ import { motion } from "motion/react";
 import { Food } from "./Food";
 import { SectionHeading } from "./SectionHeading";
 import { DISH_ENCYCLOPEDIA, CHAINS, KONBINI_HALL_OF_FAME, REGIONAL_EATS } from "../data/eat";
+import { slugify } from "../utils/nav";
 
 export function EatView() {
   return (
@@ -18,11 +19,12 @@ export function EatView() {
           {DISH_ENCYCLOPEDIA.map((d, i) => (
             <motion.div
               key={d.name}
+              id={`dish-${slugify(d.name)}`}
               initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-30px" }}
               transition={{ duration: 0.3, delay: (i % 2) * 0.05 }}
-              className="glass rounded-2xl p-5"
+              className="glass rounded-2xl p-5 scroll-mt-28"
             >
               <div className="flex items-baseline justify-between gap-3">
                 <h3 className="font-bold text-lg">

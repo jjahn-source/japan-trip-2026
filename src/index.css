@@ -44,6 +44,16 @@ body {
   background: #0b1120;
 }
 
+/* search/deep-link landing flash so you can see what you jumped to */
+.anchor-flash {
+  animation: anchorflash 1.6s ease-out;
+}
+@keyframes anchorflash {
+  0% { box-shadow: 0 0 0 2px rgba(244, 63, 94, 0); }
+  15% { box-shadow: 0 0 0 2px rgba(244, 63, 94, 0.9); }
+  100% { box-shadow: 0 0 0 2px rgba(244, 63, 94, 0); }
+}
+
 /* slim scrollbar */
 ::-webkit-scrollbar {
   width: 10px;

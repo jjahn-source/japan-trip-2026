@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { Search, X, CornerDownLeft } from "lucide-react";
 import type { View } from "../hooks/useHashView";
+import { slugify } from "../utils/nav";
 import { ATTRACTIONS } from "../data/attractions";
 import { DAY_TRIPS } from "../data/daytrips";
 import { NEIGHBORHOODS } from "../data/neighborhoods";
@@ -12,20 +13,22 @@ import { GUIDE } from "../data/guide";
 import { FAQS } from "../data/faq";
 import { DAYS } from "../data/itinerary";
 
-type Hit = { title: string; sub: string; kind: string; tab: View; text: string };
+type Hit = { title: string; sub: string; kind: string; tab: View; text: string; anchor: string };
 
 // Build the flat index once per module load (this whole file is lazy-loaded).
+// `anchor` matches an id rendered in the target view → search jumps to the exact
+// card (graceful: if the id isn't found, you just land at the top of the tab).
 const INDEX: Hit[] = [
-  ...ATTRACTIONS.map((a) => ({ title: a.name, sub: `${a.city} · ${a.category}`, kind: "Sight", tab: "explore" as View, text: `${a.name} ${a.jp} ${a.desc} ${a.city} ${a.category}`.toLowerCase() })),
-  ...DAY_TRIPS.map((t) => ({ title: t.name, sub: `Day trip · from ${t.base}`, kind: "Day Trip", tab: "explore" as View, text: `${t.name} ${t.jp} ${t.pitch}`.toLowerCase() })),
-  ...NEIGHBORHOODS.map((n) => ({ title: n.name, sub: `${n.city} · neighborhood`, kind: "Area", tab: "explore" as View, text: `${n.name} ${n.jp} ${n.vibe} ${n.knownFor.join(" ")}`.toLowerCase() })),
-  ...NIGHT_SPOTS.map((s) => ({ title: s.name, sub: `${s.city} · ${s.kind}`, kind: "Night", tab: "night" as View, text: `${s.name} ${s.jp ?? ""} ${s.area} ${s.why}`.toLowerCase() })),
-  ...DISH_ENCYCLOPEDIA.map((d) => ({ title: d.name, sub: "Dish", kind: "Eat", tab: "eat" as View, text: `${d.name} ${d.jp} ${d.what}`.toLowerCase() })),
-  ...FOOD.flatMap((c) => c.items.map((i) => ({ title: i.dish, sub: `${c.city} · food`, kind: "Eat", tab: "eat" as View, text: `${i.dish} ${i.jp} ${i.where} ${i.why}`.toLowerCase() }))),
-  ...PLAY_SPOTS.map((p) => ({ title: p.name, sub: `${p.city} · ${p.kind}`, kind: "Play", tab: "play" as View, text: `${p.name} ${p.area} ${p.why}`.toLowerCase() })),
-  ...GUIDE.flatMap((sec) => sec.articles.map((ar) => ({ title: ar.title, sub: `Guide · ${sec.title}`, kind: "Guide", tab: "guide" as View, text: `${ar.title} ${ar.body.join(" ")}`.toLowerCase() }))),
-  ...FAQS.map((f) => ({ title: f.q, sub: "FAQ", kind: "FAQ", tab: "guide" as View, text: `${f.q} ${f.a}`.toLowerCase() })),
-  ...DAYS.map((d) => ({ title: d.title, sub: `Dec ${d.date.slice(8)} · ${d.city}`, kind: "Day", tab: "plan" as View, text: `${d.title} ${d.city} ${d.activities.map((a) => a.title).join(" ")}`.toLowerCase() })),
+  ...ATTRACTIONS.map((a) => ({ title: a.name, sub: `${a.city} · ${a.category}`, kind: "Sight", tab: "explore" as View, anchor: `sight-${a.id}`, text: `${a.name} ${a.jp} ${a.desc} ${a.city} ${a.category}`.toLowerCase() })),
+  ...DAY_TRIPS.map((t) => ({ title: t.name, sub: `Day trip · from ${t.base}`, kind: "Day Trip", tab: "explore" as View, anchor: `trip-${t.id}`, text: `${t.name} ${t.jp} ${t.pitch}`.toLowerCase() })),
+  ...NEIGHBORHOODS.map((n) => ({ title: n.name, sub: `${n.city} · neighborhood`, kind: "Area", tab: "explore" as View, anchor: `hood-${slugify(n.name)}`, text: `${n.name} ${n.jp} ${n.vibe} ${n.knownFor.join(" ")}`.toLowerCase() })),
+  ...NIGHT_SPOTS.map((s) => ({ title: s.name, sub: `${s.city} · ${s.kind}`, kind: "Night", tab: "night" as View, anchor: `night-${slugify(s.name)}`, text: `${s.name} ${s.jp ?? ""} ${s.area} ${s.why}`.toLowerCase() })),
+  ...DISH_ENCYCLOPEDIA.map((d) => ({ title: d.name, sub: "Dish", kind: "Eat", tab: "eat" as View, anchor: `dish-${slugify(d.name)}`, text: `${d.name} ${d.jp} ${d.what}`.toLowerCase() })),
+  ...FOOD.flatMap((c) => c.items.map((i) => ({ title: i.dish, sub: `${c.city} · food`, kind: "Eat", tab: "eat" as View, anchor: "", text: `${i.dish} ${i.jp} ${i.where} ${i.why}`.toLowerCase() }))),
+  ...PLAY_SPOTS.map((p) => ({ title: p.name, sub: `${p.city} · ${p.kind}`, kind: "Play", tab: "play" as View, anchor: `play-${slugify(p.name)}`, text: `${p.name} ${p.area} ${p.why}`.toLowerCase() })),
+  ...GUIDE.flatMap((sec) => sec.articles.map((ar) => ({ title: ar.title, sub: `Guide · ${sec.title}`, kind: "Guide", tab: "guide" as View, anchor: sec.id, text: `${ar.title} ${ar.body.join(" ")}`.toLowerCase() }))),
+  ...FAQS.map((f) => ({ title: f.q, sub: "FAQ", kind: "FAQ", tab: "guide" as View, anchor: "", text: `${f.q} ${f.a}`.toLowerCase() })),
+  ...DAYS.map((d, i) => ({ title: d.title, sub: `Dec ${d.date.slice(8)} · ${d.city}`, kind: "Day", tab: "plan" as View, anchor: `day-${i}`, text: `${d.title} ${d.city} ${d.activities.map((a) => a.title).join(" ")}`.toLowerCase() })),
 ];
 
 const KIND_STYLE: Record<string, string> = {
@@ -40,7 +43,7 @@ const KIND_STYLE: Record<string, string> = {
   Day: "bg-cyan-500/20 text-cyan-300",
 };
 
-export function SearchOverlay({ onClose, onNavigate }: { onClose: () => void; onNavigate: (v: View) => void }) {
+export function SearchOverlay({ onClose, onNavigate }: { onClose: () => void; onNavigate: (v: View, anchor?: string) => void }) {
   const [q, setQ] = useState("");
   const [active, setActive] = useState(0);
   const inputRef = useRef<HTMLInputElement>(null);
@@ -67,7 +70,7 @@ export function SearchOverlay({ onClose, onNavigate }: { onClose: () => void; on
 
   useEffect(() => { setActive(0); }, [q]);
 
-  const go = (h: Hit) => { onNavigate(h.tab); onClose(); };
+  const go = (h: Hit) => { onNavigate(h.tab, h.anchor); onClose(); };
 
   const onKeyDown = (e: React.KeyboardEvent) => {
     if (e.key === "Escape") { onClose(); return; }

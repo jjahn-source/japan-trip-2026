@@ -1,12 +1,13 @@
 import { useEffect, useMemo, useState } from "react";
 import { motion } from "motion/react";
-import { Rocket, ArrowRight, Trophy } from "lucide-react";
+import { Rocket, ArrowRight, Trophy, Download, WifiOff, Share } from "lucide-react";
 import { DAYS, TRIP_START } from "../data/itinerary";
 import { BOOKINGS } from "../data/bookings";
 import { PACKING } from "../data/packing";
 import { TRIP_BINGO } from "../data/challenges";
 import { SectionHeading } from "./SectionHeading";
 import { useLocalStorage } from "../hooks/useLocalStorage";
+import { usePWA } from "../hooks/usePWA";
 import type { View } from "../hooks/useHashView";
 
 // Totals computed once from the data
@@ -110,6 +111,7 @@ export function MissionControl() {
   const [bingo] = useLocalStorage<Record<number, boolean>>("trip-bingo", {});
   const [itinDone] = useLocalStorage<Record<string, boolean>>("itinerary-done", {});
   const { days, hours, mins, secs } = useCountdown(TRIP_START);
+  const { canInstall, promptInstall, installed, isIOS } = usePWA();
 
   // itinerary-done holds BOTH activity keys (date-N) and dare keys (date-dare-N)
   const { actDone, dareDone } = useMemo(() => {
@@ -195,6 +197,37 @@ export function MissionControl() {
             </div>
           )}
         </div>
+      </div>
+
+      {/* Install / offline */}
+      <div className="glass rounded-2xl p-5 mb-8 flex flex-col sm:flex-row sm:items-center gap-4">
+        <div className="flex-1">
+          <p className="font-bold text-sm flex items-center gap-2">
+            {installed ? <WifiOff size={15} className="text-emerald-400" /> : <Download size={15} className="text-rose-300" />}
+            {installed ? "Installed — works offline" : "Install the app — works offline on the ground"}
+          </p>
+          <p className="text-xs text-slate-400 leading-relaxed mt-1">
+            {installed
+              ? "The full itinerary, dares, money guide, phrases and emergency info are cached on this device — open it on a no-signal train and it just works."
+              : isIOS
+                ? "On iPhone: tap the Share button, then 'Add to Home Screen' — it installs like an app and runs offline."
+                : "Add it to your home screen so the itinerary, phrases, money guide and emergency numbers load instantly, even with no signal."}
+          </p>
+        </div>
+        {canInstall && !installed && (
+          <button
+            type="button"
+            onClick={promptInstall}
+            className="shrink-0 inline-flex items-center gap-2 rounded-full bg-rose-500 hover:bg-rose-400 transition-colors px-5 py-2.5 font-bold text-white text-sm shadow-lg shadow-rose-500/30"
+          >
+            <Download size={15} /> Install app
+          </button>
+        )}
+        {isIOS && !installed && (
+          <span className="shrink-0 inline-flex items-center gap-1.5 text-xs font-semibold text-slate-400 border border-white/10 rounded-full px-3 py-2">
+            <Share size={13} /> Share → Add to Home Screen
+          </span>
+        )}
       </div>
 
       {/* Category grid */}
