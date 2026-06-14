@@ -165,7 +165,7 @@ export function StayView() {
           onClick={() => setPicks(defaults)}
           className="mt-3 text-xs font-semibold text-slate-400 hover:text-white transition-colors"
         >
-          ↺ Reset to Budget Lock combo (~$357/guy)
+          ↺ Reset to Budget Lock combo (~$495/guy)
         </button>
       </div>
 
@@ -205,6 +205,14 @@ export function StayView() {
                   </span>
                 </h3>
                 <p className="text-sm text-slate-400 mt-1 max-w-3xl">{leg.brief}</p>
+                <a
+                  href={leg.searchUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="mt-2 inline-flex items-center gap-1.5 rounded-full bg-rose-500/15 border border-rose-500/30 px-3 py-1.5 text-xs font-semibold text-rose-300 hover:bg-rose-500/25 transition-colors"
+                >
+                  🔄 Check live {leg.city} prices on Airbnb ↗
+                </a>
               </div>
               <div className="grid gap-4 md:grid-cols-2">
                 {leg.options.map((opt) => (
