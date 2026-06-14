@@ -6,6 +6,7 @@ import { PHRASES } from "../data/phrases";
 import { FAQS } from "../data/faq";
 import { TIPS } from "../data/tips";
 import { DOCTRINES, DOCTRINE_PREAMBLE, type Severity } from "../data/doctrines";
+import { EMERGENCY_LINES, ESSENTIALS, EMERGENCY_PHRASES } from "../data/essentials";
 import { SectionHeading } from "./SectionHeading";
 
 const SEVERITY_STYLE: Record<Severity, string> = {
@@ -81,6 +82,64 @@ export function GuideView() {
         title="Survival Guide"
         sub="Transport, money, etiquette, December tactics, and emergencies — everything you'd otherwise google at 11pm in a hotel bed."
       />
+
+      {/* Emergency & Essentials — one tap away */}
+      <div id="emergency" className="mb-16">
+        <div className="flex items-center gap-2 mb-3">
+          <span className="text-lg">🆘</span>
+          <h3 className="text-xl sm:text-2xl font-extrabold">Emergency & Essentials</h3>
+        </div>
+        <p className="text-sm text-slate-400 leading-relaxed max-w-3xl mb-4">
+          The numbers you hope to never tap — but want one tap away. On a phone these dial directly.
+          When in doubt, the JNTO hotline (English, 24/7) is the call.
+        </p>
+
+        {/* Tap-to-call lines */}
+        <div className="grid gap-2.5 sm:grid-cols-2 mb-4">
+          {EMERGENCY_LINES.map((l) => (
+            <a
+              key={l.label}
+              href={`tel:${l.tel}`}
+              className="glass rounded-2xl p-4 flex items-start gap-3 border-red-500/20 hover:bg-red-500/5 transition-colors"
+            >
+              <span className="text-2xl shrink-0">{l.emoji}</span>
+              <div className="min-w-0">
+                <div className="flex items-baseline gap-2 flex-wrap">
+                  <span className="font-bold text-sm text-slate-100">{l.label}</span>
+                  <span className="font-black text-rose-300 tabular-nums">{l.number}</span>
+                </div>
+                <p className="text-xs text-slate-400 leading-relaxed mt-0.5">{l.note}</p>
+              </div>
+            </a>
+          ))}
+        </div>
+
+        {/* Essentials cards */}
+        <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4 mb-4">
+          {ESSENTIALS.map((c) => (
+            <div key={c.title} className="glass rounded-2xl p-4">
+              <p className="font-bold text-sm text-slate-100 mb-1.5">{c.emoji} {c.title}</p>
+              <p className="text-xs text-slate-400 leading-relaxed">{c.body}</p>
+            </div>
+          ))}
+        </div>
+
+        {/* Emergency phrases — copy-ready */}
+        <div className="glass rounded-2xl p-4">
+          <p className="text-xs font-bold text-rose-300 uppercase tracking-wider mb-2.5">Emergency phrases</p>
+          <ul className="grid gap-x-6 gap-y-1.5 sm:grid-cols-2">
+            {EMERGENCY_PHRASES.map((p) => (
+              <li key={p.en} className="flex items-baseline justify-between gap-3 text-sm">
+                <span className="text-slate-300">{p.en}</span>
+                <span className="text-right shrink-0">
+                  <span className="text-rose-300 font-[Noto_Serif_JP]">{p.jp}</span>
+                  <span className="block text-[0.65rem] text-slate-500 italic">{p.romaji}</span>
+                </span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
 
       {/* Crew Doctrines — the standing orders */}
       <div className="mb-16">
