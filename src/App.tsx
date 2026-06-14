@@ -7,7 +7,7 @@ import { Budget } from "./components/Budget";
 import { Packing } from "./components/Packing";
 import { Footer } from "./components/Footer";
 import { useHashView } from "./hooks/useHashView";
-import { lazy, Suspense } from "react";
+import { lazy, Suspense, useEffect, useState } from "react";
 
 // Each secondary tab pulls in a big data file (and Leaflet, for the map).
 // Lazy-load them so the initial bundle is just the landing "Plan" view.
@@ -19,13 +19,32 @@ const EatView = lazy(() => import("./components/EatView").then((m) => ({ default
 const NightView = lazy(() => import("./components/NightView").then((m) => ({ default: m.NightView })));
 const PlayView = lazy(() => import("./components/PlayView").then((m) => ({ default: m.PlayView })));
 const GuideView = lazy(() => import("./components/GuideView").then((m) => ({ default: m.GuideView })));
+const SearchOverlay = lazy(() => import("./components/SearchOverlay").then((m) => ({ default: m.SearchOverlay })));
 
 export default function App() {
   const [view, setView] = useHashView();
+  const [searchOpen, setSearchOpen] = useState(false);
+
+  // Cmd/Ctrl+K toggles global search anywhere in the app.
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k") {
+        e.preventDefault();
+        setSearchOpen((o) => !o);
+      }
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, []);
 
   return (
     <>
-      <Nav view={view} setView={setView} />
+      <Nav view={view} setView={setView} onOpenSearch={() => setSearchOpen(true)} />
+      {searchOpen && (
+        <Suspense fallback={null}>
+          <SearchOverlay onClose={() => setSearchOpen(false)} onNavigate={setView} />
+        </Suspense>
+      )}
       <main>
         {view === "plan" && (
           <>
