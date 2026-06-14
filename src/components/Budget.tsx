@@ -1,10 +1,17 @@
 import { useMemo } from "react";
 import { motion } from "motion/react";
-import { RotateCcw, AlertTriangle } from "lucide-react";
+import { RotateCcw, AlertTriangle, PiggyBank } from "lucide-react";
 import { BUDGET_ITEMS } from "../data/budget";
+import { MONEY_MOVES, PASS_MATH, MONEY_PREAMBLE } from "../data/money";
 import { GROUP_SIZE } from "../data/itinerary";
 import { SectionHeading } from "./SectionHeading";
 import { useLocalStorage } from "../hooks/useLocalStorage";
+
+const PASS_VERDICT: Record<string, string> = {
+  SKIP: "bg-red-500/20 text-red-300 border-red-500/40",
+  BUY: "bg-emerald-500/20 text-emerald-300 border-emerald-500/40",
+  MAYBE: "bg-amber-500/20 text-amber-300 border-amber-500/40",
+};
 
 const REALITY_CHECKS = [
   {
@@ -181,6 +188,58 @@ export function Budget() {
             <div key={r.title} className="glass rounded-2xl p-4 border-amber-500/10">
               <p className="font-bold text-sm text-slate-100 mb-1.5">{r.emoji} {r.title}</p>
               <p className="text-xs text-slate-400 leading-relaxed">{r.body}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Money Doctrine — how not to waste money (researched) */}
+      <div id="money" className="mt-16">
+        <div className="flex items-center gap-2 mb-2">
+          <PiggyBank size={16} className="text-emerald-400" />
+          <p className="text-sm font-bold text-emerald-300 uppercase tracking-wider">Money Doctrine — don't waste a yen</p>
+        </div>
+        <p className="text-sm text-slate-400 leading-relaxed max-w-3xl mb-4">{MONEY_PREAMBLE}</p>
+
+        {/* Pass math table */}
+        <div className="glass rounded-2xl p-5 mb-5 overflow-x-auto">
+          <p className="text-xs font-bold text-slate-300 uppercase tracking-wider mb-3">🎫 Passes & tickets — the verdict for our route</p>
+          <table className="w-full text-xs text-left min-w-[560px]">
+            <thead>
+              <tr className="border-b border-white/10 text-slate-500 font-semibold">
+                <th className="pb-2 pr-4">Pass / ticket</th>
+                <th className="pb-2 pr-4">Price</th>
+                <th className="pb-2 pr-4">Verdict</th>
+                <th className="pb-2">Why</th>
+              </tr>
+            </thead>
+            <tbody className="divide-y divide-white/[0.05]">
+              {PASS_MATH.map((p) => (
+                <tr key={p.name}>
+                  <td className="py-2.5 pr-4 font-bold text-slate-100">{p.name}</td>
+                  <td className="py-2.5 pr-4 text-slate-300 tabular-nums whitespace-nowrap">{p.price}</td>
+                  <td className="py-2.5 pr-4">
+                    <span className={`text-[0.6rem] font-bold border rounded-full px-2 py-0.5 ${PASS_VERDICT[p.verdict]}`}>{p.verdict}</span>
+                  </td>
+                  <td className="py-2.5 text-slate-400 leading-relaxed">{p.math}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+
+        {/* Money moves grid */}
+        <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+          {MONEY_MOVES.map((m) => (
+            <div key={m.title} className="glass rounded-2xl p-4 border-emerald-500/10 flex flex-col">
+              <div className="flex items-start justify-between gap-2">
+                <p className="font-bold text-sm text-slate-100">{m.emoji} {m.title}</p>
+              </div>
+              <span className="mt-1.5 self-start text-[0.6rem] font-bold uppercase tracking-wide bg-emerald-500/15 text-emerald-300 border border-emerald-500/30 rounded-full px-2 py-0.5">
+                Saves: {m.saving}
+              </span>
+              <p className="mt-2 text-xs text-slate-400 leading-relaxed flex-1">{m.detail}</p>
+              <span className="mt-2.5 self-start text-[0.58rem] font-semibold text-slate-600 uppercase tracking-wider">{m.tag}</span>
             </div>
           ))}
         </div>
