@@ -8,7 +8,17 @@ import {
 import { DAYS, type Day } from "../data/itinerary";
 import { SectionHeading } from "./SectionHeading";
 import { WeatherBadge } from "./WeatherBadge";
+import { Collapse } from "./ui/Collapse";
 import { useLocalStorage } from "../hooks/useLocalStorage";
+
+function SecTitle({ icon, label, count, colorClass }: { icon: React.ReactNode; label: string; count: number; colorClass: string }) {
+  return (
+    <span className={`flex items-center gap-2 text-xs font-bold uppercase tracking-wider ${colorClass}`}>
+      {icon} {label}
+      <span className="text-[0.62rem] font-bold bg-white/10 text-slate-200 rounded-full px-1.5 py-0.5 tabular-nums">{count}</span>
+    </span>
+  );
+}
 import {
   daySpan, activityMapUrl, mapsRouteUrl, buildDayICS, buildTripICS, downloadICS,
 } from "../utils/itineraryTools";
@@ -136,48 +146,6 @@ function DayCard({
                 </div>
               )}
 
-              {/* limited-time events verified ON during our visit */}
-              {day.events && day.events.length > 0 && (
-                <div className="mb-4 space-y-2">
-                  <p className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-amber-300">
-                    <Sparkles size={13} /> Happening during our visit — limited-time & date-specific
-                  </p>
-                  {day.events.map((ev) => {
-                    const isWarn = ev.kind === "closure";
-                    const style = isWarn
-                      ? "bg-red-500/10 border-red-500/30"
-                      : ev.kind === "illumination"
-                        ? "bg-violet-500/10 border-violet-500/25"
-                        : ev.kind === "market"
-                          ? "bg-emerald-500/10 border-emerald-500/25"
-                          : ev.kind === "seasonal"
-                            ? "bg-cyan-500/10 border-cyan-500/25"
-                            : "bg-amber-500/10 border-amber-500/25";
-                    return (
-                      <div key={ev.name} className={`rounded-xl border p-3 ${style}`}>
-                        <div className="flex items-start gap-2 flex-wrap">
-                          {isWarn
-                            ? <AlertTriangle size={14} className="text-red-400 mt-0.5 shrink-0" />
-                            : <Sparkles size={14} className="text-amber-400 mt-0.5 shrink-0" />}
-                          <span className="font-bold text-sm leading-snug text-slate-100">{ev.name}</span>
-                          <span className="text-[0.65rem] font-bold uppercase tracking-wide bg-white/10 text-slate-300 rounded-full px-2 py-0.5">{ev.window}</span>
-                        </div>
-                        <p className="mt-1.5 text-xs text-slate-300 leading-relaxed">{ev.note}</p>
-                        <p className="mt-1.5 flex flex-wrap items-center gap-x-3 gap-y-0.5 text-[0.68rem] text-slate-500 font-semibold">
-                          <span>💴 {ev.cost}</span>
-                          <span>🚉 {ev.station}</span>
-                          {ev.url && (
-                            <a href={ev.url} target="_blank" rel="noreferrer" className="text-sky-400/80 hover:text-sky-300 underline decoration-dotted">
-                              official ↗
-                            </a>
-                          )}
-                        </p>
-                      </div>
-                    );
-                  })}
-                </div>
-              )}
-
               {day.transport && (
                 <div className="mb-4 flex items-start gap-2.5 rounded-xl bg-indigo-500/10 border border-indigo-500/20 p-3 text-sm text-indigo-200">
                   <Train size={16} className="mt-0.5 shrink-0" />
@@ -233,77 +201,129 @@ function DayCard({
                 })}
               </ul>
 
-              {/* Local Intel — researched specifics */}
-              {day.intel && day.intel.length > 0 && (
-                <div className="mt-5 rounded-xl bg-cyan-500/10 border border-cyan-500/25 p-4">
-                  <p className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-cyan-300 mb-2">
-                    🧠 Local Intel — the stuff that saves the day
-                  </p>
-                  <ul className="space-y-1.5">
-                    {day.intel.map((tip, i) => (
-                      <li key={i} className="text-sm text-slate-300 leading-relaxed flex gap-2">
-                        <span className="text-cyan-400 shrink-0">▸</span><span>{tip}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              )}
+              {/* Secondary detail — tucked behind taps so the day stays calm */}
+              <div className="mt-5 space-y-2.5">
+                {day.events && day.events.length > 0 && (
+                  <Collapse
+                    className="rounded-xl bg-amber-500/[0.07] border border-amber-500/20 px-4 py-3"
+                    defaultOpen={day.events.some((e) => e.kind === "closure")}
+                    title={<SecTitle icon={<Sparkles size={13} />} label="Happening during our visit" count={day.events.length} colorClass="text-amber-300" />}
+                  >
+                    <div className="mt-3 space-y-2">
+                      {day.events.map((ev) => {
+                        const isWarn = ev.kind === "closure";
+                        const style = isWarn
+                          ? "bg-red-500/10 border-red-500/30"
+                          : ev.kind === "illumination"
+                            ? "bg-violet-500/10 border-violet-500/25"
+                            : ev.kind === "market"
+                              ? "bg-emerald-500/10 border-emerald-500/25"
+                              : ev.kind === "seasonal"
+                                ? "bg-cyan-500/10 border-cyan-500/25"
+                                : "bg-amber-500/10 border-amber-500/25";
+                        return (
+                          <div key={ev.name} className={`rounded-xl border p-3 ${style}`}>
+                            <div className="flex items-start gap-2 flex-wrap">
+                              {isWarn
+                                ? <AlertTriangle size={14} className="text-red-400 mt-0.5 shrink-0" />
+                                : <Sparkles size={14} className="text-amber-400 mt-0.5 shrink-0" />}
+                              <span className="font-bold text-sm leading-snug text-slate-100">{ev.name}</span>
+                              <span className="text-[0.65rem] font-bold uppercase tracking-wide bg-white/10 text-slate-300 rounded-full px-2 py-0.5">{ev.window}</span>
+                            </div>
+                            <p className="mt-1.5 text-xs text-slate-300 leading-relaxed">{ev.note}</p>
+                            <p className="mt-1.5 flex flex-wrap items-center gap-x-3 gap-y-0.5 text-[0.68rem] text-slate-500 font-semibold">
+                              <span>💴 {ev.cost}</span>
+                              <span>🚉 {ev.station}</span>
+                              {ev.url && (
+                                <a href={ev.url} target="_blank" rel="noreferrer" className="text-sky-400/80 hover:text-sky-300 underline decoration-dotted">
+                                  official ↗
+                                </a>
+                              )}
+                            </p>
+                          </div>
+                        );
+                      })}
+                    </div>
+                  </Collapse>
+                )}
 
-              {/* Daily Dares — degenerate mission checklist, always checkable */}
-              {day.dares && day.dares.length > 0 && (
-                <div className="mt-5 rounded-xl bg-rose-500/10 border border-rose-500/25 p-4">
-                  <p className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-rose-300 mb-2.5">
-                    <Target size={13} /> Daily Dares — tap to claim ({day.dares.filter((_, i) => done[`${day.date}-dare-${i}`]).length}/{day.dares.length})
-                  </p>
-                  <ul className="space-y-1">
-                    {day.dares.map((dare, i) => {
-                      const key = `${day.date}-dare-${i}`;
-                      const claimed = !!done[key];
-                      return (
-                        <li key={i}>
-                          <button
-                            onClick={() => setDone({ ...done, [key]: !claimed })}
-                            className="w-full flex items-start gap-2.5 text-left rounded-lg px-2 py-1.5 hover:bg-white/[0.05] transition-colors"
-                          >
-                            {claimed
-                              ? <CheckCircle2 size={16} className="text-rose-400 shrink-0 mt-0.5" />
-                              : <Circle size={16} className="text-slate-600 group-hover:text-slate-400 shrink-0 mt-0.5" />}
-                            <span className={`text-sm leading-snug ${claimed ? "line-through text-slate-500" : "text-slate-200"}`}>{dare}</span>
-                          </button>
+                {day.intel && day.intel.length > 0 && (
+                  <Collapse
+                    className="rounded-xl bg-cyan-500/[0.07] border border-cyan-500/20 px-4 py-3"
+                    title={<SecTitle icon={<span>🧠</span>} label="Local Intel" count={day.intel.length} colorClass="text-cyan-300" />}
+                  >
+                    <ul className="mt-3 space-y-1.5">
+                      {day.intel.map((tip, i) => (
+                        <li key={i} className="text-sm text-slate-300 leading-relaxed flex gap-2">
+                          <span className="text-cyan-400 shrink-0">▸</span><span>{tip}</span>
                         </li>
-                      );
-                    })}
-                  </ul>
-                </div>
-              )}
+                      ))}
+                    </ul>
+                  </Collapse>
+                )}
 
-              {day.alts && day.alts.length > 0 && (
-                <div className="mt-5 rounded-xl bg-fuchsia-500/10 border border-fuchsia-500/20 p-4">
-                  <p className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-fuchsia-300 mb-2">
-                    <Dices size={13} /> Audibles — rain plans, split-squad quests & overtime missions
-                  </p>
-                  <ul className="space-y-1.5">
-                    {day.alts.map((a, i) => (
-                      <li key={i} className="text-sm text-slate-300 leading-relaxed flex gap-2">
-                        <span className="text-fuchsia-400 shrink-0">▸</span><span>{a}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              )}
+                {day.dares && day.dares.length > 0 && (
+                  <Collapse
+                    className="rounded-xl bg-rose-500/[0.07] border border-rose-500/20 px-4 py-3"
+                    title={<SecTitle icon={<Target size={13} />} label="Daily Dares" count={day.dares.length} colorClass="text-rose-300" />}
+                    summary={`${day.dares.filter((_, i) => done[`${day.date}-dare-${i}`]).length} claimed`}
+                  >
+                    <ul className="mt-3 space-y-1">
+                      {day.dares.map((dare, i) => {
+                        const key = `${day.date}-dare-${i}`;
+                        const claimed = !!done[key];
+                        return (
+                          <li key={i}>
+                            <button
+                              type="button"
+                              onClick={() => setDone({ ...done, [key]: !claimed })}
+                              className="w-full flex items-start gap-2.5 text-left rounded-lg px-2 py-1.5 hover:bg-white/[0.05] transition-colors"
+                            >
+                              {claimed
+                                ? <CheckCircle2 size={16} className="text-rose-400 shrink-0 mt-0.5" />
+                                : <Circle size={16} className="text-slate-600 shrink-0 mt-0.5" />}
+                              <span className={`text-sm leading-snug ${claimed ? "line-through text-slate-500" : "text-slate-200"}`}>{dare}</span>
+                            </button>
+                          </li>
+                        );
+                      })}
+                    </ul>
+                  </Collapse>
+                )}
 
-              {day.links && day.links.length > 0 && (
-                <div className="mt-4 flex flex-wrap gap-2">
-                  {day.links.map((l) => (
-                    <a
-                      key={l.url} href={l.url} target="_blank" rel="noreferrer"
-                      className="inline-flex items-center gap-1.5 rounded-lg bg-indigo-500/15 border border-indigo-500/30 px-2.5 py-1.5 text-xs font-semibold text-indigo-300 hover:text-indigo-100 hover:bg-indigo-500/25 transition-colors"
-                    >
-                      <ExternalLink size={11} />{l.label}
-                    </a>
-                  ))}
-                </div>
-              )}
+                {day.alts && day.alts.length > 0 && (
+                  <Collapse
+                    className="rounded-xl bg-fuchsia-500/[0.07] border border-fuchsia-500/20 px-4 py-3"
+                    title={<SecTitle icon={<Dices size={13} />} label="Audibles & rain plans" count={day.alts.length} colorClass="text-fuchsia-300" />}
+                  >
+                    <ul className="mt-3 space-y-1.5">
+                      {day.alts.map((a, i) => (
+                        <li key={i} className="text-sm text-slate-300 leading-relaxed flex gap-2">
+                          <span className="text-fuchsia-400 shrink-0">▸</span><span>{a}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </Collapse>
+                )}
+
+                {day.links && day.links.length > 0 && (
+                  <Collapse
+                    className="rounded-xl bg-indigo-500/[0.07] border border-indigo-500/20 px-4 py-3"
+                    title={<SecTitle icon={<ExternalLink size={13} />} label="Official links" count={day.links.length} colorClass="text-indigo-300" />}
+                  >
+                    <div className="mt-3 flex flex-wrap gap-2">
+                      {day.links.map((l) => (
+                        <a
+                          key={l.url} href={l.url} target="_blank" rel="noreferrer"
+                          className="inline-flex items-center gap-1.5 rounded-lg bg-indigo-500/15 border border-indigo-500/30 px-2.5 py-1.5 text-xs font-semibold text-indigo-300 hover:text-indigo-100 hover:bg-indigo-500/25 transition-colors"
+                        >
+                          <ExternalLink size={11} />{l.label}
+                        </a>
+                      ))}
+                    </div>
+                  </Collapse>
+                )}
+              </div>
             </div>
           </motion.div>
         )}
