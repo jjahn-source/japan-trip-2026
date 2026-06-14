@@ -469,12 +469,12 @@ export function RouteView() {
             </div>
           </div>
 
-          {/* Day-by-day breakdown table */}
-          <div className="glass rounded-2xl p-5 overflow-x-auto">
+          {/* Day-by-day breakdown — table on md+, tappable cards on mobile */}
+          <div className="glass rounded-2xl p-5">
             <p className="text-xs font-bold text-rose-300 uppercase tracking-wider mb-4">
-              📅 All 16 Days — click any row to drill in
+              📅 All 16 Days — tap any day to drill in
             </p>
-            <table className="w-full text-xs text-left min-w-[600px]">
+            <table className="hidden md:table w-full text-xs text-left">
               <thead>
                 <tr className="border-b border-white/10 text-slate-500 font-semibold">
                   <th className="pb-2 pr-4">Date</th>
@@ -531,6 +531,34 @@ export function RouteView() {
                 </tr>
               </tfoot>
             </table>
+
+            {/* Mobile cards */}
+            <div className="md:hidden space-y-2">
+              {DAY_STATS.map((ds) => {
+                const isBusiest = ds.dayIdx === BUSIEST.dayIdx;
+                const cc = cityColor(ds.day.city);
+                return (
+                  <button
+                    type="button"
+                    key={ds.day.date}
+                    onClick={() => setDayIdx(ds.dayIdx)}
+                    className="w-full text-left rounded-xl bg-white/[0.03] border border-white/5 hover:bg-white/[0.06] transition-colors p-3"
+                  >
+                    <div className="flex items-center justify-between gap-2">
+                      <span className={`font-bold text-sm ${cc}`}>{ds.day.emoji} {ds.day.city}{isBusiest && <span className="ml-1 text-amber-400">★</span>}</span>
+                      <span className="text-[0.65rem] font-mono text-slate-500">{ds.day.dow} {ds.day.date.slice(5)}</span>
+                    </div>
+                    <div className="mt-1.5 flex flex-wrap gap-x-3 gap-y-0.5 text-[0.68rem] font-semibold text-slate-400 tabular-nums">
+                      <span className="text-rose-300/90">{ds.coordStops.length} stops</span>
+                      <span>{ds.totalActivities} acts</span>
+                      <span>{ds.altsCount} audibles</span>
+                      <span>{ds.linksCount} links</span>
+                      {ds.bookingsCount > 0 && <span className="text-amber-400">{ds.bookingsCount} to book</span>}
+                    </div>
+                  </button>
+                );
+              })}
+            </div>
           </div>
         </div>
       )}

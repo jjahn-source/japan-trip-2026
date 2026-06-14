@@ -201,10 +201,10 @@ export function Budget() {
         </div>
         <p className="text-sm text-slate-400 leading-relaxed max-w-3xl mb-4">{MONEY_PREAMBLE}</p>
 
-        {/* Pass math table */}
-        <div className="glass rounded-2xl p-5 mb-5 overflow-x-auto">
+        {/* Pass math — real table on md+, stacked cards on mobile (no horizontal scroll) */}
+        <div className="glass rounded-2xl p-5 mb-5">
           <p className="text-xs font-bold text-slate-300 uppercase tracking-wider mb-3">🎫 Passes & tickets — the verdict for our route</p>
-          <table className="w-full text-xs text-left min-w-[560px]">
+          <table className="hidden md:table w-full text-xs text-left">
             <thead>
               <tr className="border-b border-white/10 text-slate-500 font-semibold">
                 <th className="pb-2 pr-4">Pass / ticket</th>
@@ -226,6 +226,18 @@ export function Budget() {
               ))}
             </tbody>
           </table>
+          <div className="md:hidden space-y-2.5">
+            {PASS_MATH.map((p) => (
+              <div key={p.name} className="rounded-xl bg-white/[0.03] border border-white/5 p-3">
+                <div className="flex items-center justify-between gap-2">
+                  <span className="font-bold text-sm text-slate-100">{p.name}</span>
+                  <span className={`shrink-0 text-[0.58rem] font-bold border rounded-full px-2 py-0.5 ${PASS_VERDICT[p.verdict]}`}>{p.verdict}</span>
+                </div>
+                <p className="text-xs text-slate-300 tabular-nums mt-0.5">{p.price}</p>
+                <p className="text-xs text-slate-400 leading-relaxed mt-1.5">{p.math}</p>
+              </div>
+            ))}
+          </div>
         </div>
 
         {/* Money moves grid */}
