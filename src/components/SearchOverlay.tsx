@@ -81,7 +81,7 @@ export function SearchOverlay({ onClose, onNavigate }: { onClose: () => void; on
 
   return (
     <div
-      className="fixed inset-0 z-[100] bg-black/70 backdrop-blur-sm flex items-start justify-center p-4 pt-[12vh]"
+      className="fixed inset-0 z-[100] bg-black/70 backdrop-blur-sm flex items-start justify-center p-3 sm:p-4 pt-[8vh] sm:pt-[12vh]"
       onClick={onClose}
     >
       <div
@@ -95,8 +95,8 @@ export function SearchOverlay({ onClose, onNavigate }: { onClose: () => void; on
             ref={inputRef}
             value={q}
             onChange={(e) => setQ(e.target.value)}
-            placeholder="Search everything — ramen, Fuji, tax-free, onsen, Day 5…"
-            className="flex-1 bg-transparent outline-none text-sm placeholder:text-slate-600"
+            placeholder="Search ramen, Fuji, tax-free, onsen, Day 5…"
+            className="flex-1 bg-transparent outline-none text-base sm:text-sm placeholder:text-slate-600 min-w-0"
           />
           <button type="button" onClick={onClose} className="text-slate-500 hover:text-white shrink-0" aria-label="Close search">
             <X size={18} />

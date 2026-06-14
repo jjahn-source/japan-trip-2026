@@ -7,6 +7,8 @@
 
 html {
   scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
 }
 
 body {
@@ -15,6 +17,40 @@ body {
     radial-gradient(ellipse 80% 50% at 50% -20%, rgba(244, 63, 94, 0.15), transparent),
     radial-gradient(ellipse 60% 40% at 80% 110%, rgba(99, 102, 241, 0.1), transparent);
   background-attachment: fixed;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* keyboard users get a clear focus ring; mouse/touch users don't */
+:focus-visible {
+  outline: 2px solid rgba(244, 63, 94, 0.7);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* iOS zooms in when you focus an input smaller than 16px — stop that on phones */
+@media (max-width: 640px) {
+  input,
+  textarea,
+  select {
+    font-size: 16px;
+  }
+}
+
+/* respect reduced-motion: kill the marching route-line and heavy transitions */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+  .route-flow {
+    animation: none;
+  }
 }
 
 ::selection {
@@ -52,6 +88,15 @@ body {
   0% { box-shadow: 0 0 0 2px rgba(244, 63, 94, 0); }
   15% { box-shadow: 0 0 0 2px rgba(244, 63, 94, 0.9); }
   100% { box-shadow: 0 0 0 2px rgba(244, 63, 94, 0); }
+}
+
+/* hide scrollbar on horizontal chip/tab rows (still scrollable by touch/drag) */
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
 }
 
 /* slim scrollbar */

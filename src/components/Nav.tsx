@@ -15,9 +15,10 @@ const TABS: { view: View; label: string; emoji: string }[] = [
 
 export function Nav({ view, setView, onOpenSearch }: { view: View; setView: (v: View) => void; onOpenSearch: () => void }) {
   return (
-    <header className="fixed top-0 inset-x-0 z-50 px-3">
-      <nav className="glass mx-auto mt-3 max-w-6xl rounded-2xl px-4 sm:px-5 py-3 flex items-center justify-between gap-3">
+    <header className="fixed top-0 inset-x-0 z-50 px-3 pt-[env(safe-area-inset-top)]">
+      <nav className="glass mx-auto mt-3 max-w-6xl rounded-2xl px-3 sm:px-5 py-2.5 sm:py-3 flex items-center justify-between gap-2 sm:gap-3">
         <button
+          type="button"
           onClick={() => setView("plan")}
           className="flex items-center gap-2 font-extrabold tracking-tight shrink-0"
         >
@@ -27,12 +28,13 @@ export function Nav({ view, setView, onOpenSearch }: { view: View; setView: (v: 
           </span>
         </button>
 
-        <div className="flex items-center gap-1 overflow-x-auto">
+        <div className="flex items-center gap-1 overflow-x-auto no-scrollbar -mx-1 px-1">
           {TABS.map((t) => (
             <button
+              type="button"
               key={t.view}
               onClick={() => setView(t.view)}
-              className={`px-3 sm:px-4 py-1.5 rounded-xl text-sm font-semibold whitespace-nowrap transition-colors ${
+              className={`px-2.5 sm:px-4 py-2 sm:py-1.5 rounded-xl text-sm font-semibold whitespace-nowrap transition-colors ${
                 view === t.view
                   ? "bg-rose-500 text-white shadow-lg shadow-rose-500/25"
                   : "text-slate-300 hover:text-white hover:bg-white/10"

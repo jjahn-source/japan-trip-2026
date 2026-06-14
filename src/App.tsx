@@ -1,6 +1,7 @@
 import { Nav } from "./components/Nav";
 import { Hero } from "./components/Hero";
 import { TodayBanner } from "./components/TodayBanner";
+import { BackToTop } from "./components/BackToTop";
 import { FlightCard } from "./components/FlightCard";
 import { Itinerary } from "./components/Itinerary";
 import { Bookings } from "./components/Bookings";
@@ -89,6 +90,7 @@ export default function App() {
         )}
       </main>
       <Footer />
+      <BackToTop />
     </>
   );
 }
