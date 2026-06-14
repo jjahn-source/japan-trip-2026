@@ -98,6 +98,36 @@ export const FACTION_WARS: Faction[] = [
     sides: "Every karaoke room vs the scoring panel",
     rules: "Every karaoke session, two judges (rotating) score the room's overall volume/energy level 1-10. Not talent — chaos. Karaoke Kan (Tokyo), JanKaRa (Kyoto), Joysound (Osaka) each count. Running total across all sessions. The night Bohemian Rhapsody comes on sets the standard.",
   },
+  {
+    title: "The Step Count Civil War",
+    emoji: "🚶",
+    sides: "Every man's phone vs every other man's phone",
+    rules: "We're walking 20,000+ steps a day on hard pavement for 16 straight days — somebody is going to weaponize it. Daily screenshot of step count in the chat by lights-out. Highest single day AND best 16-day total are separate crowns. Nappers who hit the count anyway are insufferable and we let them be. Faking it by shaking your phone in the onsen locker is a war crime.",
+  },
+  {
+    title: "Matcha Maxxing",
+    emoji: "🍵",
+    sides: "Every man vs the green tier list",
+    rules: "Uji is the matcha holy land (chains onto the Nara day) and Kyoto is wall-to-wall green. Everything matcha gets logged and ranked: soft-serve, KitKat, latte, warabi mochi, the ¥3,000 ceremonial bowl someone orders to feel cultured. Most distinct matcha items wins; the man who claims to 'not really like matcha' on Day 1 and finishes top 3 gets nominated for the Reluctant Convert award automatically.",
+  },
+  {
+    title: "Torii Gate Death March",
+    emoji: "⛩️",
+    sides: "Every man vs the Fushimi Inari mountain",
+    rules: "The full Fushimi Inari loop is ~10,000 vermilion gates and ~2 hours up the mountain — most tourists quit at the first photo spot. Points for reaching the Yotsutsuji intersection viewpoint; double points for summiting to the very top shrine. We go at dawn (Kyoto week) to beat the crowds and the December heat is a non-issue. Anyone who turns back at the 'instagram gates' and claims they 'did Fushimi Inari' is disqualified and mocked.",
+  },
+  {
+    title: "The Pocket-Coin Reckoning",
+    emoji: "🪙",
+    sides: "Every man vs the ¥1 / ¥5 / ¥10 avalanche",
+    rules: "Japan is still half-cash and the register hands back coins like confetti — by Day 4 everyone's pockets weigh 3 pounds. The contest: whoever ends the trip with the FEWEST yen in coins wins (weighed at the Osaka house Dec 28). Strategy is to dump coins into vending machines, shrine offering boxes, and konbini exact-change. The man who tries to pay a ¥1,200 tab entirely in ¥1 coins is honored separately and despised universally.",
+  },
+  {
+    title: "The 7am Treaty Standings",
+    emoji: "⏰",
+    sides: "Every man vs his own previous-night decisions",
+    rules: "The Lights-out Treaty says walking shoes on by 9:00 (10:00 after karaoke). This is the scoreboard. Points for making the morning konbini parliament upright and coherent after a Golden Gai or Ura-Namba night. Negative points for the man holding up the squad, sleeping through alarms, or negotiating for 'just 20 more minutes' three days running. Strong Zero Survivor results feed in. The cleanest record across 16 mornings is quietly the most respected title on the trip.",
+  },
 ];
 
 export type BingoSquare = { text: string; hard?: boolean };
@@ -170,6 +200,27 @@ export const TRIP_BINGO: BingoSquare[] = [
   { text: "Correctly identify a train before it pulls in by sound", hard: true },
   { text: "Make a sound at the first sip of fresh dashi broth" },
   { text: "Everyone's in the onsen at the same time, no one speaks", hard: true },
+  { text: "Reach the Yotsutsuji viewpoint on the Fushimi Inari climb" },
+  { text: "Summit Fushimi Inari to the very top shrine", hard: true },
+  { text: "Eat a fugu (blowfish) dish in Osaka", hard: true },
+  { text: "Find your faction's onigiri sold out and feel real grief" },
+  { text: "Pet a deer that already ate the cracker and wants a refund" },
+  { text: "Order the entire table's drinks with 'toriaezu nama'" },
+  { text: "Spot a Don Quijote penguin (Donpen) statue and salute it" },
+  { text: "Eat takoyaki so hot it removes the roof of your mouth in Dotonbori" },
+  { text: "Catch the Glico running man sign lit up at night in Osaka" },
+  { text: "Successfully sort the Airbnb garbage with zero host corrections", hard: true },
+  { text: "Dump your entire coin hoard into one vending machine purchase" },
+  { text: "Get a perfect-fit reserved 8-seat block on a single Nozomi car" },
+  { text: "Tap through a shinkansen gate with Suica-bound ticket, no paper", hard: true },
+  { text: "Eat Christmas KFC in Japan on Dec 25 unironically" },
+  { text: "Witness someone fall asleep standing up on a train and stay upright" },
+  { text: "Finish a kani (crab) course without a single shell-injury", hard: true },
+  { text: "Drink a hot canned corn soup and decide it's actually good" },
+  { text: "Hit a matcha soft-serve in Uji within sight of Byodo-in" },
+  { text: "Make the GO taxi app summon a cab in under 90 seconds after last train" },
+  { text: "Get a goshuin at three different temples in one day", hard: true },
+  { text: "Buy a mystery konbini hot snack purely off the steamer-case glow" },
 ];
 
 export type Award = { name: string; emoji: string; criteria: string };
@@ -195,6 +246,11 @@ export const AWARDS_CEREMONY: Award[] = [
   { name: "Best Purikura", emoji: "📸", criteria: "The single best purikura strip, voted by the full crew at the farewell dinner. Judged on creative use of the editing software, overall horror, and how the machine managed everyone's eyelashes. Booth location noted for 2027." },
   { name: "The Reluctant Convert", emoji: "🔄", criteria: "The man who hated something at the start of the trip and was publicly, demonstrably wrong by the end. Temple fatigue → secret shrine nerd. Onsen skeptic → last one out. Ramen dismisser → launched a rankings spreadsheet. Largest arc wins." },
   { name: "Splitwise MVP", emoji: "💴", criteria: "Fewest arithmetic errors, fastest updater, cleanest receipt trail. The unsung hero. Gets one free pass on any future group expense audit." },
+  { name: "The Step Count Tyrant", emoji: "🚶", criteria: "Highest 16-day cumulative step count, per nightly screenshots in the chat. Bonus for the single biggest day (the Fushimi Inari summit + Kyoto temple grid should produce a monster). Disqualified for any phone-shaking shenanigans in the onsen locker." },
+  { name: "The Last Train Hero", emoji: "🚉", criteria: "Most clutch transit save under pressure — the man who reads the platform board correctly at 23:55, herds the drunk half of the crew onto the right car, and gets everyone home without a GO-taxi surcharge. Sprints for the shūden count double." },
+  { name: "The Coin Slayer", emoji: "🪙", criteria: "Fewest yen left in coins at the Dec 28 weigh-in, per the Pocket-Coin Reckoning. Awarded to the man who mastered the vending-machine-and-offering-box coin dump. The guy who tried to pay a tab entirely in ¥1 coins is barred from winning on principle." },
+  { name: "The Matcha Connoisseur", emoji: "🍵", criteria: "Most distinct matcha items logged across Uji and Kyoto per Matcha Maxxing — soft-serve, KitKat, latte, warabi mochi, the ceremonial bowl. Refined palate beats raw volume; the Day-1 matcha skeptic who medals here also gets a Reluctant Convert nod." },
+  { name: "The Torii Summiteer", emoji: "⛩️", criteria: "Honors the man (or men) who actually summited Fushimi Inari to the top shrine at dawn instead of quitting at the photo gates. Style points for doing it before the morning konbini parliament and still making the 9:00 treaty." },
 ];
 
 export type Ritual = { title: string; emoji: string; body: string };
@@ -211,4 +267,7 @@ export const DAILY_RITUALS: Ritual[] = [
   { title: "Sunset-spot scouting", emoji: "🌇", body: "Because sunset is ~16:30, the day's golden-hour location gets named at morning konbini parliament — tower, beach, temple terrace, harbor. On Fuji days (Enoshima, Kawaguchiko) the whole afternoon bends toward being in position by 16:10. Miss it and you wait 24 hours for the next one." },
   { title: "The one-unknown-food log", emoji: "🍢", body: "Tie-in to the bingo and the Iron Stomach award: the day's mystery food (market skewer, konbini hot-snack, vending-machine drink, festival oddity) gets photographed and rated in the chat. December specials — oden, nikuman, hot canned coffee, oyster everything — count toward the seasonal seafood tallies too." },
   { title: "Luggage-forward foresight", emoji: "📦", body: "On moving days (Tokyo→Kyoto Dec 21, Kyoto→Osaka Dec 24), bags go ahead by Yamato takkyubin from the morning konbini parliament onward, so day trips like Uji+Nintendo or Kamakura run as light day-bag affairs. Big otaku buys wait for Osaka week to dodge a week of hauling." },
+  { title: "The nightly coin purge", emoji: "🪙", body: "Tie-in to the Pocket-Coin Reckoning: last konbini run of the night, everyone pays in coins and dumps the shrapnel. Japan hands back a fistful of ¥1/¥5/¥10 with every cash purchase, and by Day 4 your pockets weigh more than your daypack. Vending machines, shrine offering boxes, and exact-change konbini runs are the release valves. The man whose pockets jingle audibly on the train has lost the day." },
+  { title: "Step-count screenshot at lights-out", emoji: "📲", body: "Feeds the Step Count Civil War. Before bed, everyone screenshots the day's step count into the chat — no edits, no shaking the phone in the onsen locker. 20,000+ is a normal day here; the Fushimi Inari summit and the Kyoto temple grid are the monster days. The Nappers will somehow still post a respectable number and we will all pretend to be happy for them." },
+  { title: "The last-train board check", emoji: "🚉", body: "By 22:30 on any night out (Golden Gai, Ura-Namba, Dotonbori), the designated sober-ish navigator screenshots the shūden times from the house to wherever we are — last trains in Tokyo/Osaka run roughly 00:00–00:30 and then it's a GO-app taxi split 4-to-a-cab. Knowing the real cutoff is the difference between a clean exit and a ¥6,000 cab penance. Board it on the same car number so the crew doesn't scatter." },
 ];

@@ -29,6 +29,8 @@ export const FOOD: CityFood[] = [
       { dish: "Tempura counter", jp: "天ぷら", where: "Tenya (chain, $5 bowls), Tsunahachi (Shinjuku, since 1923), Tempura Kondo (splurge)", why: "Feather-light, fried piece by piece in front of you at the counters", groupTip: "Tenya tendon ~$5 (¥800) is the best value lunch in Japan" },
       { dish: "Strawberry shortcake & KFC Christmas", jp: "クリスマスケーキ", where: "Depachika (Isetan/Mitsukoshi basements), any KFC, konbini", why: "Japan's Dec 24–25 ritual: reserve fried chicken weeks ahead, demolish a strawberry-cream shortcake. We lean all the way in", groupTip: "KFC Christmas barrel ~$25–40 (¥4–6.5k); pre-order online or queue an hour. Shortcake slices ~$5 (¥800)" },
       { dish: "Depachika raid", jp: "デパ地下", where: "Isetan Shinjuku, Mitsukoshi Ginza basements", why: "Greatest food halls on Earth: $19 (¥3,000) jewel-strawberries to gawk at, ichigo daifuku + croquettes to actually buy", groupTip: "Bento markdowns after 19:00 — circle back for half-price wagyu boxes" },
+      { dish: "Chanko nabe in Ryogoku", jp: "ちゃんこ鍋", where: "Tomoegata, Kawasaki (Ryogoku sumo town)", why: "The sumo wrestler's hotpot in the shadow of the arena — chicken broth, tsukune, pork, a mountain of veg in one cauldron built for a stable. December nabe with a backstory", groupTip: "One giant pot, eight spoons — reserve the tatami room. ~$25–38/head (¥4–6k). Finish with the rice or udon shime" },
+      { dish: "Sumibi yakitori omakase", jp: "焼き鳥おまかせ", where: "Counter shops in Ebisu / Nakameguro (vs Torikizoku for the cheap version)", why: "The serious-counter bird: bonjiri, seseri, hatsu and the oyster cut grilled over binchotan, course by course, salt-forward. A different sport from the chain sticks", groupTip: "'Osusume de' at the counter; shio over tare. ~$31–50/head (¥5–8k) — the one splurge yakitori night" },
     ],
   },
   {
@@ -44,6 +46,8 @@ export const FOOD: CityFood[] = [
       { dish: "Nishin soba", jp: "にしんそば", where: "Matsuba, Shijo bridge (invented it in 1882)", why: "Hot soba topped with sweet-simmered herring — Kyoto's December soul-food in a bowl", groupTip: "~$9 (¥1,400) a bowl, quick turnover" },
       { dish: "Tofu/yuba & temple cuisine", jp: "湯葉・精進", where: "Arashiyama yuba shops, shojin-ryori near temples", why: "Buddhist vegetarian multi-course — refined, warming, and the surprise crowd-pleaser", groupTip: "Shojin set ~$31–44 (¥5–7k); reserve for the group" },
       { dish: "Tonkatsu & gyukatsu", jp: "とんかつ・牛カツ", where: "Katsukura (Kyoto Station/Sanjo), Gyukatsu Motomura (Kyoto branch)", why: "Grind your own sesame; Motomura's stone-grill rare beef converts skeptics", groupTip: "Katsukura set ~$12–16 (¥1.9–2.5k); free cabbage refills" },
+      { dish: "Uji matcha parfait", jp: "抹茶パフェ", where: "Nakamura Tokichi (Uji, near Nintendo Museum), Tsujiri", why: "The boss-fight dessert: matcha ice cream, warabimochi, shiratama and red bean towered in a glass, stone-milled from the country's best tea", groupTip: "~$9–14 (¥1.4–2.2k); put a name in and walk — the queue is real. The parfait, not the latte" },
+      { dish: "Saba-zushi & warabimochi", jp: "鯖寿司・わらび餅", where: "Izuju (Gion, since 1912) for saba-zushi; old Gion/Naramachi tea houses for warabimochi", why: "Kyoto's fatty pressed-mackerel sushi (the original travel food) and silken bracken-starch warabimochi in kinako and kuromitsu — the refined counterpoint to fried sticks", groupTip: "Saba-zushi box ~$13–19 (¥2–3k) to share standing; warabimochi tea-set ~$5–9 (¥800–1.4k). Eat same-day" },
     ],
   },
   {
@@ -59,6 +63,8 @@ export const FOOD: CityFood[] = [
       { dish: "Kitsune udon & dashi", jp: "きつねうどん", where: "Usami-tei Matsubaya (Namba, since 1893)", why: "Osaka invented kitsune udon — soft noodles, sweet fried tofu, killer kombu dashi. Hangover medicine", groupTip: "~$5–7 (¥800–1,100); fast and warming on a cold morning" },
       { dish: "Doteyaki & winter izakaya", jp: "どて焼き", where: "Shinsekai & Tenma standing bars", why: "Beef tendon slow-simmered in miso, the Osaka day-drinking snack, plus oden in the December cold", groupTip: "~$3–5 (¥500–800) a plate; pairs with $2 (¥350) highballs" },
       { dish: "551 Horai butaman", jp: "豚まん", where: "Namba, stations everywhere", why: "Steamed pork buns Osakans carry like contraband; the line moves fast", groupTip: "4-pack ~$5.50 (¥880); buy a box for the house" },
+      { dish: "Fugu course (tessa & tecchiri)", jp: "ふぐ", where: "Zubora-ya / Shinsekai & Dotonbori licensed specialists", why: "Winter pufferfish in crab city's other obsession: paper-thin tessa sashimi, tecchiri hotpot, crispy karaage, and the flaming hirezake fin-sake. The one nervous-laughter dinner", groupTip: "Licensed-chef course only, ~$50–125/head (¥8–20k). The zosui rice-porridge shime is the secret best part" },
+      { dish: "Taiwan mazesoba & abura soba", jp: "台湾まぜそば", where: "Namba / Shinsaibashi noodle shops", why: "Brothless ramen you mix yourself — thick noodles, tare, egg yolk, spicy minced pork and garlic. Cheaper and punchier than a full bowl, perfect at 2am", groupTip: "Stir 20+ times before the first bite; ask for 'oitameshi' (the leftover rice) to mop the tare. ~$6–9 (¥900–1.5k)" },
     ],
   },
   {

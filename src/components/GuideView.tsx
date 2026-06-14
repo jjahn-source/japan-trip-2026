@@ -5,7 +5,14 @@ import { GUIDE } from "../data/guide";
 import { PHRASES } from "../data/phrases";
 import { FAQS } from "../data/faq";
 import { TIPS } from "../data/tips";
+import { DOCTRINES, DOCTRINE_PREAMBLE, type Severity } from "../data/doctrines";
 import { SectionHeading } from "./SectionHeading";
+
+const SEVERITY_STYLE: Record<Severity, string> = {
+  LAW: "bg-rose-500/20 text-rose-300 border-rose-500/40",
+  STRONG: "bg-amber-500/20 text-amber-300 border-amber-500/40",
+  FLEX: "bg-sky-500/20 text-sky-300 border-sky-500/40",
+};
 
 function Accordion({ title, emoji, children, defaultOpen = false }: {
   title: string;
@@ -74,6 +81,41 @@ export function GuideView() {
         title="Survival Guide"
         sub="Transport, money, etiquette, December tactics, and emergencies — everything you'd otherwise google at 11pm in a hotel bed."
       />
+
+      {/* Crew Doctrines — the standing orders */}
+      <div className="mb-16">
+        <div className="glass rounded-2xl p-5 sm:p-6 mb-5 border-rose-500/20">
+          <h3 className="text-xl sm:text-2xl font-extrabold">📜 The Crew Doctrines</h3>
+          <p className="mt-1.5 text-sm text-slate-400 leading-relaxed max-w-3xl">{DOCTRINE_PREAMBLE}</p>
+          <div className="mt-3 flex flex-wrap gap-2 text-[0.65rem] font-bold">
+            <span className={`rounded-full border px-2 py-0.5 ${SEVERITY_STYLE.LAW}`}>LAW · non-negotiable</span>
+            <span className={`rounded-full border px-2 py-0.5 ${SEVERITY_STYLE.STRONG}`}>STRONG · owe a round</span>
+            <span className={`rounded-full border px-2 py-0.5 ${SEVERITY_STYLE.FLEX}`}>FLEX · vibes</span>
+          </div>
+        </div>
+        <div className="grid gap-3 sm:grid-cols-2">
+          {DOCTRINES.map((d, i) => (
+            <motion.div
+              key={d.code}
+              initial={{ opacity: 0, y: 14 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-30px" }}
+              transition={{ duration: 0.3, delay: (i % 2) * 0.04 }}
+              className="glass rounded-2xl p-4 flex flex-col"
+            >
+              <div className="flex items-center gap-2.5">
+                <span className="text-xl shrink-0">{d.emoji}</span>
+                <span className="text-[0.6rem] font-mono font-bold text-slate-600 tabular-nums">{d.code}</span>
+                <h4 className="font-bold text-sm leading-tight flex-1">{d.title}</h4>
+                <span className={`shrink-0 text-[0.55rem] font-bold border rounded-full px-1.5 py-0.5 ${SEVERITY_STYLE[d.severity]}`}>
+                  {d.severity}
+                </span>
+              </div>
+              <p className="mt-2 text-xs text-slate-400 leading-relaxed">{d.law}</p>
+            </motion.div>
+          ))}
+        </div>
+      </div>
 
       <div className="space-y-12">
         {GUIDE.map((section) => (

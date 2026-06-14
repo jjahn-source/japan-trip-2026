@@ -36,7 +36,7 @@ export function PlayView() {
       </div>
 
       {/* Trip bingo */}
-      <div className="mb-16">
+      <div className="mb-16" id="bingo">
         <SectionHeading
           kicker="The Card"
           title="Trip Bingo"

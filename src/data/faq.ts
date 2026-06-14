@@ -188,4 +188,56 @@ export const FAQS: FAQ[] = [
     q: "What's the move for Nara — train and tickets?",
     a: "From Osaka: Kintetsu Nara Line, Osaka-Namba → Kintetsu-Nara, ~40 min, ~$4 (¥680) Suica tap, no reservation. From Kyoto: JR Nara Line, ~45 min, ~$5 (¥720). Chain Uji (Byodo-in + matcha) on the JR line between Kyoto and Nara if you want a double. Buy deer crackers (~$1.20 / ¥200) from licensed vendors; the deer bow, then mug you. Coin lockers at both Nara stations.",
   },
+  {
+    q: "What time is last train, and what's the plan if we miss it?",
+    a: "Last trains in Tokyo and Osaka run roughly midnight–00:30, then nothing until ~05:00. Screenshot the shūden (last train) time from Google Maps by ~22:30 on any night out. Miss it and you've got three moves: GO-app taxi (legally 4 per cab, ~$16–25 / ¥2,500–4,000 cross-city, so ~$5/guy), an overnight karaoke box 'free time' rate (~$13–20 / ¥2,000–3,000 till first train, often drinks-inclusive), or a 24h konbini/manga cafe to wait it out. Group rule: nobody all-nighters solo, everyone pings the chat.",
+  },
+  {
+    q: "How cold is it actually going to be in December?",
+    a: "City daytime is roughly 8–12°C (mid-40s to low-50s °F), nights and dawn temple openings dip to 2–5°C, and mountain day trips (Nikko, Koyasan) run 5–8°C colder. It's crisp, dry, and usually sunny — not brutal, but the dawn starts bite. Layer it: Uniqlo Heattech base (~$13 / ¥2,000), a packable down, gloves, and a hat. Indoor heating is aggressive, so wear things you can peel off on the train.",
+  },
+  {
+    q: "What are our actual odds of seeing Mt. Fuji?",
+    a: "Excellent — winter is THE Fuji season. Cold, dry December air gives the clearest skies of the year, and Fuji is visible far more often than in hazy summer. On a clear day you can catch it from the Enoshima/Kamakura coast, from the Tokaido shinkansen window (right side, Tokyo→Kyoto, ~40 min in — sit on the south/D-E side), and from Tokyo towers. No guarantees on any single day, but over 16 winter days the crew will almost certainly bag multiple clear sightings. That's why there's a whole award for it.",
+  },
+  {
+    q: "Do we actually need cash, or can we go all-card?",
+    a: "You need some cash — Japan is roughly half-cash still for small stuff. Cards + Suica cover konbini, chains, department stores, most restaurants, and trains. Cash-only zones: shrines/temples (offering boxes, omikuji, goshuin — bring ¥100 coins), tiny izakaya and ramen counters, street stalls, some coin lockers, and the older mom-and-pop spots. Carry ~$125–190 (¥20,000–30,000) each and refill at 7-Eleven ATMs (24/7, take US cards). Always choose JPY, never 'pay in USD,' at card readers.",
+  },
+  {
+    q: "How do we even book a restaurant for 8 — most places won't take us online?",
+    a: "Three reliable paths: (1) TableCheck and some places on Tabelog take English online reservations for groups — book 4–6 weeks out. (2) Have the Airbnb host or a hotel concierge phone-book the tricky spots (worth a small thank-you, not a tip). (3) Split into two tables of 4, which roughly doubles what'll take you and works for same-week bookings. Izakaya chains (Torikizoku), food halls, and depachika basements absorb 8 with zero drama. Lunch walk-ins are far easier than dinner everywhere.",
+  },
+  {
+    q: "What's the cleanest way to split the bill at a restaurant?",
+    a: "Don't make the table do per-item math with a queue behind you. Default: one person pays the whole check on a no-FX-fee card, logs it in Splitwise that night, settle in yen at the end. Many izakaya WILL do 'betsu-betsu' (separate) or split a group total evenly if you ask, but it's slower and not universal. For a big group dinner, agree up front whether it's even-split or itemized — even-split is faster and friendships survive it.",
+  },
+  {
+    q: "Real talk on tattoos in onsen — what works and what doesn't?",
+    a: "It varies by venue and it's about the no-tattoo house rule, not you personally. What works: tattoo-friendly baths (Funaoka Onsen in Kyoto is explicitly welcoming; check tattoo-friendly.jp), private kashikiri rooms (~$13–31 / ¥2,000–5,000/hr, splits across the crew), the Airbnb in-house tubs, and skin-tone cover stickers for small pieces. What doesn't: a large piece at a strict traditional sento — they'll politely turn you away. Our soaks were picked with this in mind so nobody's locked out.",
+  },
+  {
+    q: "Is anything we want to do closed over New Year?",
+    a: "We LEAVE Dec 29, two days before the Dec 31–Jan 3 shutdown, so we mostly dodge it — but the tail end of our trip brushes the run-up. Through Dec 29 trains, museums, department stores, and most restaurants run normal hours. Watch for: some small/family restaurants and shops starting their New Year break Dec 28–29, and shrines gearing up (not closing) for hatsumode crowds. Nothing on our actual itinerary closes early; just double-check any specific small izakaya for Dec 28.",
+  },
+  {
+    q: "Where do we do karaoke and how does the all-night thing work?",
+    a: "Big chains: Karaoke Kan and Big Echo (Tokyo), JOYSOUND and JanKaRa (Kyoto/Osaka). Pricing is per-person per-30-min, cheaper before ~18:00, plus nomihōdai (all-you-can-drink) add-ons. Just ask for '8 people, 2 hours, nomihōdai.' Late night, the 'free time' rate (~$13–20 / ¥2,000–3,000) gets you a room until first train — which doubles as our missed-last-train fallback. Bring your own snacks isn't allowed, but the drink tap makes up for it.",
+  },
+  {
+    q: "Is the Nintendo Museum / teamLab / USJ thing actually booked, and when?",
+    a: "These are the hard-ticket, must-book-ahead items (unlike temples, which are walk-up): Nintendo Museum (Uji — lottery/timed tickets, released ~3 months out, set an alarm), teamLab (timed entry, books out — grab the slot weeks ahead), USJ + Express Pass for the Christmas-Eve crowds, Shibuya Sky, Ghibli if anyone wants it, and the four SmartEX shinkansen blocks. Everything else — shrines, markets, Dotonbori, Nara deer — is just show up. The booking calendar lives in the Guide tab.",
+  },
+  {
+    q: "Can a group of 8 get reserved seats together on the shinkansen?",
+    a: "Yes, if you book the moment the window opens. Reservations open exactly 1 month out at 10:00 JST; one person books the 8-seat block on SmartEX (or two adjacent blocks of 4) on opening morning and binds each ticket to that guy's Suica. Three-seat + two-seat rows means 8 splits cleanly across a row pairing. Leave it a week and you'll be scattered or stuck in non-reserved cars. Set calendar alarms for all four legs (Tokyo→Kyoto Dec 21, Hiroshima r/t Dec 25, Himeji Dec 28, Shin-Osaka→Shinagawa Dec 29).",
+  },
+  {
+    q: "Why no garbage cans, and what do we do with our trash?",
+    a: "Japan removed most public bins decades ago (partly post-1995 security, partly culture) and yet the streets are spotless because everyone carries their trash home. Keep a konbini bag in your daypack for the day's wrappers, or bin it at the konbini/vending machine where you bought it. Sorting matters: burnable / plastic / cans-bottles / PET. At the Airbnb, follow the host's garbage chart exactly — it's taken seriously and it's part of protecting our review standing.",
+  },
+  {
+    q: "Will smoking be an issue for the non-smokers in the group?",
+    a: "Outdoors, mostly no — street smoking is banned in most central wards (you smoke in designated booths). Indoors is the catch: plenty of older izakaya and kissaten still allow smoking at the table, so a casual dinner can come with a haze. If anyone's sensitive, check 'kinen?' (non-smoking?) before sitting, or filter for non-smoking spots. Heated tobacco (IQOS) is everywhere and less restricted than cigarettes.",
+  },
 ];

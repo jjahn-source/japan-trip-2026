@@ -14,10 +14,19 @@ function WikiPhoto({ title }: { title: string }) {
   useEffect(() => {
     if (photoCache.has(title)) return;
     let alive = true;
-    fetch(`https://en.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(title)}`)
+    // CORS-sanctioned endpoint (origin=*) — the REST summary API now 403s anon
+    // browser requests. action=query+pageimages follows redirects and returns
+    // a ready-to-use thumbnail URL.
+    const api =
+      "https://en.wikipedia.org/w/api.php?action=query&format=json&origin=*" +
+      "&prop=pageimages&piprop=thumbnail&pithumbsize=640&redirects=1&titles=" +
+      encodeURIComponent(title);
+    fetch(api)
       .then((r) => (r.ok ? r.json() : null))
       .then((j) => {
-        const url = j?.thumbnail?.source?.replace(/\/\d+px-/, "/640px-") ?? null;
+        const pages = j?.query?.pages ?? {};
+        const first = Object.values(pages)[0] as { thumbnail?: { source?: string } } | undefined;
+        const url = first?.thumbnail?.source ?? null;
         photoCache.set(title, url);
         if (alive) { setSrc(url); setTried(true); }
       })
@@ -28,7 +37,15 @@ function WikiPhoto({ title }: { title: string }) {
   if (tried && !src) return null;
   return (
     <figure className="relative shrink-0 w-48 h-32 rounded-xl overflow-hidden bg-white/5">
-      {src && <img src={src} alt={title} loading="lazy" className="w-full h-full object-cover" />}
+      {src && (
+        <img
+          src={src}
+          alt={title}
+          loading="lazy"
+          className="w-full h-full object-cover"
+          onError={() => { photoCache.set(title, null); setSrc(null); setTried(true); }}
+        />
+      )}
       <figcaption className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/80 to-transparent px-2 py-1.5 text-[0.6rem] font-semibold text-white truncate">
         {title}
       </figcaption>

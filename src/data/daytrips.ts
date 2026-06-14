@@ -365,4 +365,128 @@ export const DAY_TRIPS: DayTrip[] = [
     ],
     wiki: "Mount Kōya",
   },
+  {
+    id: "kurama-kibune",
+    name: "Kurama → Kibune — Mountain Onsen Hike",
+    jp: "鞍馬・貴船",
+    base: "Kansai",
+    travel:
+      "All on ICOCA, no pass: Keihan main line to Demachiyanagi, then the two-car Eizan 'Eiden' mountain railway Demachiyanagi→Kurama, ~30 min, ¥470 ($2.90) — sit on the right for the cedar gorge. Hop off one stop earlier at Kibune-guchi on the way back; total day's rail is well under ¥2,000 ($13). Winter Eizan service thins out, so screenshot the timetable.",
+    cost: "~$45/person (trains ~$13 + Kurama-dera ¥500/$3.10 + Kurama Onsen rotenburo ¥1,300/$8 + kaiseki or noodles)",
+    hours: "08:30–17:30",
+    tier: 3,
+    pitch:
+      "Thirty minutes north of the city, Kyoto turns into a snow-dusted cedar mountain. Climb from Kurama-dera temple over the pass — through the gnarled exposed tree roots where the tengu mountain goblins supposedly trained the boy who became Japan's greatest warrior — and down into Kibune, a shrine village of lantern-lit ryokan stacked along a rushing stream. Then strip down at Kurama Onsen's open-air rotenburo and soak chin-deep facing a forested slope while snow falls on your head. The most nature, and the best bath, of any Kansai day.",
+    play: [
+      "08:30 — Keihan to Demachiyanagi, change to the little Eizan railway (front seats, gorge windows)",
+      "09:15 — Kurama station: the giant red tengu face out front, then the cedar-lined approach up the village street",
+      "09:45 — Kurama-dera (¥500/$3.10): ride the short cable car or climb to the main hall and its mountain-energy 'power spot' triangle in the pavement, valley views opening below",
+      "10:45 — The mountain trail over the pass toward Kibune — past the tree-root slope (kinone-michi) where Minamoto no Yoshitsune trained with the tengu, ~45–60 min, real shoes required",
+      "12:00 — Drop into Kibune: the vermillion-lantern stone steps of Kifune Shrine (water-god shrine; float a paper fortune in the sacred spring to reveal the writing)",
+      "12:45 — Lunch in Kibune — winter is botan-nabe (wild-boar hot pot) or kaiseki in a lantern-lit ryokan dining room over the iced-over stream (~¥3,000–5,000/$19–31), the warm reward for the hike",
+      "14:30 — Eizan back one stop's worth to Kurama Onsen: the open-air rotenburo facing the forested slope (¥1,300/$8) — soaking in snow-flecked outdoor water is the entire point of coming in December",
+      "16:00 — Thaw, dress, and ride the Eiden back down; Demachiyanagi and central Kyoto by ~17:15",
+    ],
+    protip:
+      "This is a genuine cold mountain, 5–8°C below central Kyoto with ice and packed snow on the pass trail — grip soles and real layers, not your Gion sightseeing outfit. If the trail is closed or anyone's not up for the climb, skip it and ride the Eizan two stops between Kurama and Kibune-guchi, then walk the valley road — you still get both villages and the bath. Check the Eizan winter timetable and the last comfortable downhill train; service is sparse and the village empties early in winter.",
+    links: [
+      { label: "Eizan Railway (English)", url: "https://eizandensha.co.jp/en/" },
+      { label: "Kuramadera Temple", url: "https://www.kuramadera.or.jp/" },
+      { label: "Kurama Onsen", url: "https://www.kurama-onsen.co.jp/" },
+    ],
+    wiki: "Kurama-dera",
+  },
+  {
+    id: "kinosaki-onsen",
+    name: "Kinosaki Onsen — Seven-Bath Crawl",
+    jp: "城崎温泉",
+    base: "Kansai",
+    travel:
+      "Direct on a reserved limited express, no pass: JR Limited Express 'Kinosaki' Kyoto→Kinosaki-Onsen, ~2h30, ~¥4,840 ($30) reserved each way (the train splits/runs straight up the San'in line — buy seats at the machine or on the JR West site); or the 'Kounotori' from Shin-Osaka, ~2h40, ~¥6,140 ($38). The town is tiny and entirely walkable from the station — no buses, no transfers.",
+    cost: "~$80/person (train ~$60 + all-seven-bath day pass ¥1,500/$9.40 + crab/tajima-beef lunch)",
+    hours: "08:30–20:30",
+    tier: 3,
+    pitch:
+      "A willow-lined canal town on the Sea of Japan coast where the whole point is to walk the streets in a yukata and wooden geta, clogs clacking, drifting between seven public hot-spring bathhouses with a single pass. December is the headline season: this is the snow-crab capital of Japan, the steam rises thick off the canal in the cold, and a fresh snowfall on the lantern-lit streets is the postcard. The most pure-relaxation day in the entire deck, and a long, scenic train nap to get there.",
+    play: [
+      "08:30 — JR Limited Express Kinosaki from Kyoto (reserve seats together; coffee and a long, scenic nap up through the mountains and out to the coast)",
+      "11:00 — Kinosaki-Onsen station: a free public foot bath and a hot-spring drinking fountain greet you on the platform; grab the ¥1,500/$9.40 'Yumepa' all-bath day pass",
+      "11:20 — Check a bag at the station and change into the rental yukata + geta — wearing it town-wide is the tradition, and it's free or cheap from most shops",
+      "11:45 — Bath #1, Satonoyu by the station (the biggest — top-floor open-air baths and a 'penguin' cold sauna) to start the crawl warm",
+      "13:00 — Crab lunch: December is matsuba (snow) crab season and Kinosaki is the source — a whole grilled/boiled crab set, or Tajima beef if crab prices scare the group (~¥3,000–6,000/$19–38)",
+      "14:30 — Stroll the willow-lined canal, clacking in geta over the little stone bridges — bath-hop through Ichinoyu (cave bath), Goshonoyu (waterfall bath), and Mandaranoyu as you go",
+      "16:30 — December dusk and the canal lanterns light up; the Kinosaki Ropeway up Mt. Daishi for a snow-coast panorama if anyone has bath-energy left (~¥900/$5.60)",
+      "17:30 — A final soak, onsen-pudding and crab croquettes from the canal stalls, then the limited express back — Kyoto by ~20:30",
+    ],
+    protip:
+      "Buy the round-trip limited express seats in advance — December weekend trains to crab country fill up, and reserved is worth it for 2.5 hours each way. Tattoos are generally fine at the public bathhouses here (unusually relaxed), but confirm at the door. It's a long day for a town this small, so it's a tier-3 audible: ideal as the trip's designated do-nothing recovery day, not a sightseeing sprint. The crab is the splurge — set a per-person budget before you sit down.",
+    links: [
+      { label: "Visit Kinosaki (official, English)", url: "https://visitkinosaki.com/" },
+      { label: "JR West timetable & fares", url: "https://www.westjr.co.jp/global/en/" },
+    ],
+    wiki: "Kinosaki Onsen",
+  },
+  {
+    id: "kanazawa",
+    name: "Kanazawa — Little Kyoto of the North",
+    jp: "金沢",
+    base: "Kansai",
+    travel:
+      "Reserved, no pass, one easy transfer: JR Limited Express 'Thunderbird' Kyoto→Tsuruga ~45 min, cross-platform change to the Hokuriku Shinkansen 'Tsurugi/Hakutaka' Tsuruga→Kanazawa ~1h — ~2h door to door total, ~¥7,500 ($47) reserved each way. Book the through-ticket on the JR West site; the Tsuruga transfer is signposted and takes minutes. In town, the ¥200/$1.30 flat-fare Kanazawa Loop Bus (tap ICOCA) rings every sight.",
+    cost: "~$130/person (trains ~$94 + Kenrokuen ¥320/$2 + castle + 21st Century Museum ¥450/$2.80 + seafood-bowl lunch)",
+    hours: "07:30–20:30",
+    tier: 3,
+    pitch:
+      "The castle town the war never touched, two hours north on the bullet train: Kenrokuen, ranked one of Japan's three greatest gardens, plus an immaculate samurai district, a geisha quarter of preserved teahouses, gold-leaf everything (the city makes 99% of Japan's), and an Edo-era market piled with Sea-of-Japan winter crab and shrimp. December dresses Kenrokuen in 'yukitsuri' — the conical rope umbrellas that protect the pines from snow — which is the single most beautiful thing in any Japanese garden in winter. A long but spectacular full-day audible from the Kyoto base.",
+    play: [
+      "07:30 — Kyoto: Thunderbird to Tsuruga, cross-platform to the Hokuriku Shinkansen for Kanazawa (reserve the through-ticket; breakfast bento on board)",
+      "09:30 — Kanazawa station: gawk at the colossal wooden Tsuzumi-mon 'drum gate,' then the ¥200 Loop Bus toward the center",
+      "10:00 — Kenrokuen Garden (¥320/$2): the December 'yukitsuri' snow-rope cones strung over every pine, the Kotojitoro lantern, frosted ponds — Japan's garden art at its absolute winter peak",
+      "11:15 — Kanazawa Castle next door: the white-lead-tile roofs and the rebuilt Hishi Yagura turret, gardens and gate free to roam",
+      "12:00 — Omicho Market: the Edo-era covered market — a kaisendon piled with snow crab, sweet shrimp, and sea urchin (~¥2,500/$16), December being peak Sea-of-Japan season",
+      "13:30 — Higashi Chaya District: the preserved geisha-teahouse quarter — gold-leaf ice cream (yes, edible gold), the Kaikaro teahouse, lacquer and craft shops in dark wooden machiya",
+      "14:45 — Nagamachi samurai district: earthen-walled lanes and the Nomura-ke samurai residence with its tiny perfect garden, a short Loop Bus hop south",
+      "15:45 — 21st Century Museum of Contemporary Art (¥450/$2.80 for exhibits; Leandro Erlich's walk-on 'Swimming Pool' is the icon) — a glassy, modern palate-cleanser",
+      "17:00 — Last gold-leaf souvenir run near the station, then the shinkansen + Thunderbird back; Kyoto by ~20:30",
+    ],
+    protip:
+      "Book the through reserved ticket in advance — the Tsuruga transfer is painless but the trains run reserved-heavy and December fills them. It's the longest single-day rail haul on the Kansai roster (~4h round trip), so it lives as a tier-3 'if a full day frees up' play, not a casual one. Kanazawa is famously the rainiest/snowiest city — 'forget your umbrella' is a local saying — so pack waterproofs and grip soles; Kenrokuen under actual snow is the jackpot but the paths get slick.",
+    links: [
+      { label: "Visit Kanazawa (official)", url: "https://visitkanazawa.jp/en/" },
+      { label: "Kenrokuen Garden (official)", url: "https://www.pref.ishikawa.jp/siro-niwa/kenrokuen/e/" },
+      { label: "JR West — Hokuriku & Thunderbird", url: "https://www.westjr.co.jp/global/en/" },
+    ],
+    wiki: "Kanazawa",
+  },
+  {
+    id: "amanohashidate-ine",
+    name: "Amanohashidate + Ine no Funaya",
+    jp: "天橋立・伊根の舟屋",
+    base: "Kansai",
+    travel:
+      "Reserved, no pass: the JR/Kyoto Tango Railway Limited Express 'Hashidate' Kyoto→Amanohashidate, ~2h, ~¥4,400 ($28) reserved each way (runs onto the private Tango line — buy the through reserved seat). From Amanohashidate, the Tankai bus up to Ine is ~1h, ¥400/$2.50 (tap or cash); the village bay-tour boat loops from there. Long day, but one scenic train each way.",
+    cost: "~$80/person (train ~$56 + chairlift ¥850/$5.30 + Ine bay boat ¥1,000/$6.30 + Ine bus + seafood lunch)",
+    hours: "07:30–20:00",
+    tier: 3,
+    pitch:
+      "Two of the Sea of Japan's quietest postcards in one big day. Amanohashidate is one of Japan's three official 'great views' — a 3.6km pine sandbar that, viewed upside-down between your legs from the hilltop, becomes a 'bridge to heaven.' Then a coastal bus to Ine, where 230 wooden 'boat houses' stand directly over the bay, boat garage below and home above, best seen from a little tour boat with gulls dive-bombing for crackers. Remote, cold, crowd-free, and unlike anywhere else on the trip.",
+    play: [
+      "07:30 — Kyoto: Limited Express Hashidate north onto the Tango Railway (reserve seats; long scenic mountain-and-coast nap)",
+      "09:35 — Amanohashidate station: walk out onto the pine sandbar itself, or rent bikes to cross its 3.6km",
+      "10:30 — Kasamatsu Park via chairlift/cablecar (¥850/$5.30 round trip) for the famous 'matanozoki' — bend over, look between your legs, watch the sandbar float into the sky; undignified and mandatory",
+      "11:30 — Tankai bus up the coast to Ine (~1h) — Sea-of-Japan views the whole way",
+      "12:45 — Ine bay sightseeing boat (~¥1,000/$6.30): loop the bay to see the full row of 230 funaya boat houses from the water, gulls and black kites chasing the shrimp crackers",
+      "13:45 — Seafood lunch in Ine — whatever the morning boats landed, plus a wander past the funaya at water level",
+      "15:00 — Bus back to Amanohashidate; a last sandbar stroll or a hot drink as the winter light goes flat and gold",
+      "16:30 — Limited Express Hashidate back to Kyoto by ~20:00",
+    ],
+    protip:
+      "This is a real expedition — far north, genuinely cold and windy on the winter coast, and the Ine buses and bay boats run a thin December schedule, so screenshot the timetables and build the day around the boat departure, not the other way round. Reserve the limited express both ways; the Tango line runs short trains. Pure tier-3: only worth it if a full clear day frees up and the group wants remote-and-quiet over another temple sprint.",
+    links: [
+      { label: "Amanohashidate tourism (official)", url: "https://www.amanohashidate.jp/en/" },
+      { label: "Ine Tourism (funaya)", url: "https://www.ine-kankou.jp/en/" },
+      { label: "Kyoto Tango Railway (English)", url: "https://trains.willer.co.jp/en/" },
+    ],
+    wiki: "Amanohashidate",
+  },
 ];

@@ -155,4 +155,59 @@ export const TIPS: Tip[] = [
     emoji: "🚓",
     body: "Left a phone on the train or dropped a wallet? File at the nearest kōban (police box) or the station office same-day with the line/car/time. Japan's return rate is legendary — wallets come back with the cash. Don't spiral; report it and keep moving.",
   },
+  {
+    title: "Last train is a hard deadline, not a vibe",
+    emoji: "🚉",
+    body: "Tokyo and Osaka last trains run roughly 00:00–00:30, then nothing until ~05:00. Screenshot the shūden time from the GO/Maps app by 22:30 on any night out. Miss it and your options are a GO-app taxi (4 to a cab, ~$16–25 / ¥2,500–4,000 cross-city, so ~$5/guy) or pulling an all-nighter in a karaoke box / 24h konbini until first train. The box is cheaper and warmer than you'd think.",
+  },
+  {
+    title: "Heat-tech is the real MVP layer",
+    emoji: "🧥",
+    body: "December is 2–10°C in the cities, colder at dawn temples and mountain day trips (Nikko, Koyasan). Uniqlo Heattech base layers (~$13 / ¥2,000) under everything, plus a packable down and gloves, beats hauling a giant coat. There's a Uniqlo/GU in every shopping district — buy a fresh Heattech top mid-trip instead of doing laundry. Indoor heating is aggressive, so wear layers you can peel.",
+  },
+  {
+    title: "Tax-free has rules now (don't get burned)",
+    emoji: "🧾",
+    body: "Spend ¥5,000+ in one store, show your PHYSICAL passport (not a photo), and skip the 10% tax. The goods get sealed/bagged and must leave Japan unopened — don't crack the snack bag the cashier sealed before the airport, or customs can charge you the tax back. Consumables and general goods have separate thresholds but both clear ¥5,000. Keep the receipt stapled in your passport.",
+  },
+  {
+    title: "Onsen choreography, memorized",
+    emoji: "♨️",
+    body: "Naked, no exceptions (swimsuits are for pools). Wash and rinse THOROUGHLY at the seated showers first — soap in the shared bath is a cardinal sin. Small towel rides on your head or the edge, never in the water. Long hair tied up. Don't dunk your head. Rinse off the sweat before re-entering. Drink the cold milk after. Tattooed crew: cover stickers, a tattoo-friendly bath, or a private kashikiri room.",
+  },
+  {
+    title: "Coins multiply — have a dump strategy",
+    emoji: "🪙",
+    body: "Cash is still ~half of small purchases and every register hands back a fistful of ¥1/¥5/¥10. Within days your pockets weigh a kilo. Release valves: vending machines (Suica is easier but coins clear the hoard), shrine offering boxes (a ¥5 'go-en' coin is lucky), and paying konbini in exact-ish change. A ¥500 coin is real money (~$3) — don't lose those in the shrapnel.",
+  },
+  {
+    title: "Don't tap the wrong card through the gate",
+    emoji: "🎫",
+    body: "Shinkansen booked on SmartEX binds the ticket to ONE specific Suica — tap that exact card/phone at both the regular gate AND the orange shinkansen transfer gate, or it won't open. Don't accidentally tap a different guy's phone. If a gate flap closes on you, don't force it — step to the staffed booth at the end, show your phone, they wave you through. Never jump a gate.",
+  },
+  {
+    title: "Yamato counts work both ways and to the airport",
+    emoji: "📦",
+    body: "Takkyubin (~$16 / ¥2,500 a bag, Airbnb-to-Airbnb overnight) isn't just for moving between cities — ship your souvenir-stuffed bags from the Osaka house to the Haneda Yamato counter TWO days before the Dec 29 flight, then travel to the airport with a daypack. Konbini counters and the hosts can both arrange it; you fill a slip, they scan it, done. kuronekoyamato.co.jp/en",
+  },
+  {
+    title: "Slurp loud, but mind the chopstick taboos",
+    emoji: "🥢",
+    body: "Slurping ramen/soba is genuinely encouraged — it cools the noodles and signals enjoyment. The hard NOs: never stick chopsticks upright in rice (funeral imagery), never pass food chopstick-to-chopstick (also funeral), don't spear food, and don't wave them around or point. Rest them on the hashioki or across the bowl. Rubbing disposable chopsticks together implies they're cheap — skip it.",
+  },
+  {
+    title: "The 24-hour fallback exists for a reason",
+    emoji: "🌙",
+    body: "Missed last train and don't want a taxi? Japan's nightlife infrastructure is built for this: karaoke boxes do overnight 'free time' rates (~$13–20 / ¥2,000–3,000 till first train, drinks included at some), manga cafes / net cafes have reclining seats and showers, and a 24h konbini will keep a man alive with hot oden and coffee. Group rule: nobody all-nighters alone, and everyone pings the chat.",
+  },
+  {
+    title: "Public smoking is backwards from home",
+    emoji: "🚬",
+    body: "Smoking on the street is largely banned (fines in Tokyo/Osaka wards) — you smoke in designated booths or indoor smoking rooms. Many older izakaya and kissaten still allow indoor smoking, so a 'quick dinner' can come with a haze; check before sitting if anyone's sensitive. Vapes/heated tobacco (IQOS) are everywhere and treated more leniently than cigarettes.",
+  },
+  {
+    title: "Decline the point card, every time",
+    emoji: "🏪",
+    body: "Konbini and chain cashiers will ask if you have a point card (Ponta, T-Point, etc.) — you don't, and you can't get one without a Japanese phone/address, so just say 'nai desu' (don't have one) or shake your head. They'll also ask 'fukuro?' (bag?) — bags cost ~¥3–5 now, so carry a foldable one and say 'fukuro wa iranai.' These two questions are 90% of every konbini interaction.",
+  },
 ];

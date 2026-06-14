@@ -18,8 +18,11 @@ export function useHashView() {
   }, []);
 
   const setView = (v: View) => {
+    const changed = v !== view;
     window.location.hash = `/${v}`;
-    window.scrollTo({ top: 0 });
+    // Only jump to the top when actually switching tabs — never yank the user
+    // up while they're working within the current view.
+    if (changed) window.scrollTo({ top: 0 });
   };
 
   return [view, setView] as const;

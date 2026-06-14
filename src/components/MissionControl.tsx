@@ -67,9 +67,9 @@ function Ring({ pct }: { pct: number }) {
 }
 
 function CategoryCard({
-  emoji, label, done, total, blurb, view, setView,
+  emoji, label, done, total, blurb, onGo,
 }: {
-  emoji: string; label: string; done: number; total: number; blurb: string; view: View; setView: (v: View) => void;
+  emoji: string; label: string; done: number; total: number; blurb: string; onGo: () => void;
 }) {
   const pct = total ? Math.round((done / total) * 100) : 0;
   const complete = done >= total && total > 0;
@@ -95,7 +95,7 @@ function CategoryCard({
       </div>
       <p className="mt-2 text-xs text-slate-500 leading-relaxed flex-1">{blurb}</p>
       <button
-        onClick={() => setView(view)}
+        onClick={onGo}
         className="mt-3 inline-flex items-center gap-1 text-xs font-bold text-rose-300 hover:text-rose-200 self-start"
       >
         {complete ? "Review" : "Go work on it"} <ArrowRight size={12} />
@@ -122,12 +122,24 @@ export function MissionControl({ setView }: { setView: (v: View) => void }) {
     return { actDone, dareDone };
   }, [itinDone]);
 
+  // Navigate to the right tab AND land on the relevant section (not the top).
+  const go = (view: View, anchor: string) => {
+    setView(view);
+    let tries = 0;
+    const tick = () => {
+      const el = document.getElementById(anchor);
+      if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+      else if (tries++ < 60) requestAnimationFrame(tick); // wait for lazy views to mount
+    };
+    requestAnimationFrame(tick);
+  };
+
   const cats = [
-    { emoji: "✅", label: "Pre-Trip Bookings", done: countTrue(bookingsDone as Record<string, boolean>), total: BOOKINGS.length, blurb: "The mission-critical reservations: flights, Airbnbs, teamLab, Ghibli, USJ, shinkansen, restaurants.", view: "plan" as View },
-    { emoji: "🎒", label: "Packing", done: countTrue(packingChecked), total: TOTAL_PACKING, blurb: "December layers, tech, documents, and the Degenerate Prerequisites (dignity, antacids, shame floor).", view: "plan" as View },
-    { emoji: "📋", label: "Itinerary Check-Off", done: actDone, total: TOTAL_ACTIVITIES, blurb: "Every scheduled moment across 16 days. Flip on Trip Mode in the Plan tab and tick as you go.", view: "plan" as View },
-    { emoji: "🎯", label: "Daily Dares", done: dareDone, total: TOTAL_DARES, blurb: "The degenerate per-day mission checklist. Claim them live — glory is non-refundable.", view: "plan" as View },
-    { emoji: "🎲", label: "Trip Bingo", done: countTrue(bingo as Record<string, boolean>), total: TRIP_BINGO.length, blurb: "Fuji with no clouds, the electric bath, ordering for the table — the full card.", view: "play" as View },
+    { emoji: "✅", label: "Pre-Trip Bookings", done: countTrue(bookingsDone as Record<string, boolean>), total: BOOKINGS.length, blurb: "The mission-critical reservations: flights, Airbnbs, teamLab, Ghibli, USJ, shinkansen, restaurants.", view: "plan" as View, anchor: "bookings" },
+    { emoji: "🎒", label: "Packing", done: countTrue(packingChecked), total: TOTAL_PACKING, blurb: "December layers, tech, documents, and the Degenerate Prerequisites (dignity, antacids, shame floor).", view: "plan" as View, anchor: "packing" },
+    { emoji: "📋", label: "Itinerary Check-Off", done: actDone, total: TOTAL_ACTIVITIES, blurb: "Every scheduled moment across 16 days. Flip on Trip Mode in the Plan tab and tick as you go.", view: "plan" as View, anchor: "itinerary" },
+    { emoji: "🎯", label: "Daily Dares", done: dareDone, total: TOTAL_DARES, blurb: "The degenerate per-day mission checklist. Claim them live — glory is non-refundable.", view: "plan" as View, anchor: "itinerary" },
+    { emoji: "🎲", label: "Trip Bingo", done: countTrue(bingo as Record<string, boolean>), total: TRIP_BINGO.length, blurb: "Fuji with no clouds, the electric bath, ordering for the table — the full card.", view: "play" as View, anchor: "bingo" },
   ];
 
   const totalDone = cats.reduce((s, c) => s + c.done, 0);
@@ -185,7 +197,11 @@ export function MissionControl({ setView }: { setView: (v: View) => void }) {
       {/* Category grid */}
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {cats.map((c) => (
-          <CategoryCard key={c.label} {...c} setView={setView} />
+          <CategoryCard
+            key={c.label}
+            emoji={c.emoji} label={c.label} done={c.done} total={c.total} blurb={c.blurb}
+            onGo={() => go(c.view, c.anchor)}
+          />
         ))}
       </div>
 
