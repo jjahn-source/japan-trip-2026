@@ -100,9 +100,9 @@ export const BOOKINGS: Booking[] = [
   {
     id: "shibuyasky",
     what: "Shibuya Sky sunset slot × 8 (Dec 16)",
-    when: "Dec 2 — 2 weeks before",
-    deadline: "2026-12-02",
-    detail: "$21 (¥3,400) post-15:00 entry. The 15:40–16:00 slots (sunset 16:30) go first. Buy all 8 in one transaction the minute sales open.",
+    when: "~4 weeks before (≈Nov 18), midnight JST",
+    deadline: "2026-11-18",
+    detail: "$21 (¥3,400) post-15:00 entry. Tickets open ~4 weeks ahead at midnight JST and the sunset slots (15:40–16:00, sunset ~16:30) vanish in UNDER TWO MINUTES — set an alarm and buy all 8 in one transaction the second they drop. Last admission is 21:20 if the squad only wants the night view.",
     priority: "medium",
     url: "https://www.shibuya-scramble-square.com/sky/",
   },

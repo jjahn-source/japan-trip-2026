@@ -23,6 +23,7 @@ export type Day = {
   wiki?: string[]; // Wikipedia article titles → live photo strip on the Route tab
   events?: TimedEvent[]; // limited-time, date-specific things ON during our visit (researched Jun 2026)
   dares?: string[]; // degenerate daily mission checklist — checkable in Trip Mode
+  intel?: string[]; // researched, specific, non-redundant pro-intel: exact timings, crowd hacks, last-entry, photo spots
 };
 
 // A limited-time event/market/illumination verified to overlap this exact day.
@@ -161,7 +162,7 @@ export const DAYS: Day[] = [
       { time: "12:15", title: "Cat Street vintage crawl toward Shibuya", note: "Lunch en route: Harajuku Gyoza Lou — cheap, fast, seats groups", coord: [35.6664, 139.7045], place: "Harajuku Gyoza Lou, Cat Street" },
       { time: "14:00", title: "Shibuya Scramble Crossing + Hachiko", note: "Cross 3 times minimum. Film from Mag's Park rooftop or the Starbucks window", coord: [35.6595, 139.7005], place: "Shibuya Scramble Crossing" },
       { time: "15:00", title: "Parco 6F: Pokémon Center + Nintendo Tokyo + Capcom Store", note: "SCOUT ONLY — buying happens in Osaka Dec 27–28 where luggage math allows. TCG collectors: exclusives sell out by 11am, plan accordingly", coord: [35.6620, 139.6982], place: "Nintendo TOKYO, Shibuya Parco" },
-      { time: "16:00", title: "Shibuya Sky sunset slot", note: "Booked 2 weeks out (Dec 2). Fuji silhouette at 16:30, city ignition by 17:00. Glass corner photo or it didn't happen", booking: true, coord: [35.6585, 139.7019], place: "Shibuya Sky, Shibuya Scramble Square" },
+      { time: "16:00", title: "Shibuya Sky sunset slot", note: "Booked ~4 weeks out (slots vanish in <2 min at the midnight-JST drop). Fuji silhouette at 16:30, city ignition by 17:00. Glass corner photo or it didn't happen", booking: true, coord: [35.6585, 139.7019], place: "Shibuya Sky, Shibuya Scramble Square" },
       { time: "18:00", title: "Shibuya Blue Cave illumination — 700k blue LEDs toward Yoyogi", note: "Free, stunning, cold. Konbini hot drinks in hand (あたたかい red label)", coord: [35.6675, 139.6968], place: "Yoyogi Park Keyaki Namiki, Shibuya" },
       { time: "19:30", title: "NOMIHODAI izakaya dinner — 2 hours, ~$25 (¥4,000)", note: "Booked for 8. 'Toriaezu nama de' opens proceedings. Last call sneaks up at 21:15", booking: true, coord: [35.6610, 139.6990], place: "Center Gai izakaya, Shibuya" },
       { time: "22:00", title: "Center Gai arcades + Nonbei Yokocho micro-bars", note: "Standing bars = $2 (¥300) drinks, maximum talking. Drunkard's Alley's 40 closet bars are 30 seconds from the Scramble and 60 years away", coord: [35.6604, 139.7025], place: "Nonbei Yokocho, Shibuya" },
@@ -174,7 +175,7 @@ export const DAYS: Day[] = [
       "Energy audible: if day one cooked the crew, swap Blue Cave for an early nomihodai and 23:00 lights-out — tomorrow has temples AND Akihabara.",
     ],
     links: [
-      { label: "Shibuya Sky tickets (buy Dec 2, 15:40–16:00 slot)", url: "https://www.shibuya-scramble-square.com/sky/" },
+      { label: "Shibuya Sky tickets (open ~4 wks out, 15:40–16:00 slot)", url: "https://www.shibuya-scramble-square.com/sky/" },
       { label: "TableCheck — book the group nomihodai", url: "https://www.tablecheck.com/en/japan" },
     ],
     wiki: ["Shibuya Crossing", "Meiji Shrine", "Takeshita Street"],

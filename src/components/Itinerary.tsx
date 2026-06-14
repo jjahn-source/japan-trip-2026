@@ -26,6 +26,7 @@ const TRIP = {
   audibles: DAYS.reduce((s, d) => s + (d.alts?.length ?? 0), 0),
   events: DAYS.reduce((s, d) => s + (d.events?.length ?? 0), 0),
   dares: DAYS.reduce((s, d) => s + (d.dares?.length ?? 0), 0),
+  intel: DAYS.reduce((s, d) => s + (d.intel?.length ?? 0), 0),
 };
 
 function TopButton({ onClick, children }: { onClick: () => void; children: React.ReactNode }) {
@@ -243,6 +244,22 @@ function DayCard({
                 })}
               </ul>
 
+              {/* Local Intel — researched specifics */}
+              {day.intel && day.intel.length > 0 && (
+                <div className="mt-5 rounded-xl bg-cyan-500/10 border border-cyan-500/25 p-4">
+                  <p className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-cyan-300 mb-2">
+                    🧠 Local Intel — the stuff that saves the day
+                  </p>
+                  <ul className="space-y-1.5">
+                    {day.intel.map((tip, i) => (
+                      <li key={i} className="text-sm text-slate-300 leading-relaxed flex gap-2">
+                        <span className="text-cyan-400 shrink-0">▸</span><span>{tip}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+
               {/* Daily Dares — degenerate mission checklist, always checkable */}
               {day.dares && day.dares.length > 0 && (
                 <div className="mt-5 rounded-xl bg-rose-500/10 border border-rose-500/25 p-4">
@@ -350,6 +367,7 @@ export function Itinerary() {
           <span><span className="text-fuchsia-300 font-bold tabular-nums">{TRIP.audibles}</span> audibles</span>
           <span><span className="text-amber-300 font-bold tabular-nums">{TRIP.events}</span> live events</span>
           <span><span className="text-rose-300 font-bold tabular-nums">{TRIP.dares}</span> daily dares</span>
+          <span><span className="text-cyan-300 font-bold tabular-nums">{TRIP.intel}</span> intel tips</span>
           <span><span className="text-indigo-300 font-bold tabular-nums">{TRIP.links}</span> official links</span>
           {trackMode && totalDone > 0 && (
             <span className="text-emerald-300"><span className="font-bold tabular-nums">{totalDone}</span> done</span>
