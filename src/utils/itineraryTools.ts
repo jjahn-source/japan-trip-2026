@@ -1,4 +1,5 @@
 import type { Day, Activity } from "../data/itinerary";
+import type { Booking } from "../data/bookings";
 
 // ── Time helpers ─────────────────────────────────────────────────────────────
 const TIME_RE = /^(\d{2}):(\d{2})$/;
@@ -127,6 +128,41 @@ export function buildDayICS(day: Day): string {
 
 export function buildTripICS(days: Day[]): string {
   return wrapCalendar(days.flatMap(dayEvents));
+}
+
+/** All-day date stamp YYYYMMDD for VALUE=DATE events. */
+function icsDate(dateISO: string): string {
+  return dateISO.replace(/-/g, "");
+}
+
+/**
+ * Booking-deadline reminders: one all-day VEVENT on each deadline with a DISPLAY
+ * VALARM firing `remindDaysBefore` days ahead, so the whole crew gets nudged in
+ * their own calendar to book teamLab / Ghibli / USJ / shinkansen on time.
+ */
+export function buildBookingsICS(bookings: Booking[]): string {
+  const events = bookings.flatMap((b) => {
+    const start = icsDate(b.deadline);
+    const lead = b.remindDaysBefore ?? 3;
+    const owner = b.owner ? ` [${b.owner}]` : "";
+    const desc = [b.detail, b.url ? `Book: ${b.url}` : ""].filter(Boolean).join("\\n\\n");
+    return [
+      "BEGIN:VEVENT",
+      `UID:booking-${b.id}@japan-trip-2026`,
+      `DTSTAMP:${icsStamp(b.deadline, 0)}`,
+      `DTSTART;VALUE=DATE:${start}`,
+      `SUMMARY:${escapeICS(`🎌 BOOK: ${b.what}${owner}`)}`,
+      ...(desc ? [`DESCRIPTION:${escapeICS(desc)}`] : []),
+      ...(b.url ? [`URL:${b.url}`] : []),
+      "BEGIN:VALARM",
+      `TRIGGER:-P${lead}D`,
+      "ACTION:DISPLAY",
+      `DESCRIPTION:${escapeICS(`Book soon: ${b.what}`)}`,
+      "END:VALARM",
+      "END:VEVENT",
+    ];
+  });
+  return wrapCalendar(events);
 }
 
 /** Trigger a client-side .ics download. */
