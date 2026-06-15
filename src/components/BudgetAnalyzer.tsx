@@ -1,4 +1,4 @@
-import { TrendingUp, TrendingDown, AlertCircle, DollarSign } from "lucide-react";
+import { AlertCircle } from "lucide-react";
 import { DAYS } from "../data/itinerary";
 import { useLocalStorage } from "../hooks/useLocalStorage";
 import { useMemo } from "react";
@@ -25,7 +25,7 @@ const DAILY_BUDGET = 300; // USD per person per day
 const TOTAL_BUDGET = 16 * DAILY_BUDGET * 8; // 16 days, 8 people
 
 export function BudgetAnalyzer() {
-  const [spending, setSpending] = useLocalStorage<Spending[]>("trip-spending", []);
+  const [spending] = useLocalStorage<Spending[]>("trip-spending", []);
 
   const stats = useMemo(() => {
     const byCategory = CATEGORIES.map((cat) => ({
@@ -63,11 +63,6 @@ export function BudgetAnalyzer() {
   }, [spending]);
 
   const sortedByAmount = [...stats.byCategory].sort((a, b) => b.total - a.total);
-
-  const getDayLabel = (date: string) => {
-    const dayIndex = DAYS.findIndex((d) => d.date === date);
-    return dayIndex >= 0 ? `Day ${dayIndex + 1}` : "Unknown";
-  };
 
   return (
     <section className="section-pad py-24">
