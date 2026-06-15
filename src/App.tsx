@@ -18,6 +18,7 @@ import { RestaurantBookingTracker } from "./components/RestaurantBookingTracker"
 import { DayRecapCapture } from "./components/DayRecapCapture";
 import { BudgetAnalyzer } from "./components/BudgetAnalyzer";
 import { GroupActivityVoting } from "./components/GroupActivityVoting";
+import { PreTripChecklist } from "./components/PreTripChecklist";
 import { Footer } from "./components/Footer";
 import { useHashView, type View } from "./hooks/useHashView";
 import { scrollToAnchor } from "./utils/nav";
@@ -75,6 +76,7 @@ export default function App() {
         {view === "plan" && (
           <>
             <Hero />
+            <PreTripChecklist />
             <TodayBanner />
             <DailyHuddle />
             <DayRecapCapture />
