@@ -1,4 +1,4 @@
-import { Calendar, TrendingUp, Award } from "lucide-react";
+import { Award } from "lucide-react";
 import { useLocalStorage } from "../hooks/useLocalStorage";
 import { useMemo } from "react";
 import { SectionHeading } from "./SectionHeading";
