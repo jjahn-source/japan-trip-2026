@@ -16,7 +16,6 @@ import { lazy, Suspense, useEffect, useState } from "react";
 
 // Each secondary tab pulls in a big data file (and Leaflet, for the map).
 // Lazy-load them so the initial bundle is just the landing "Plan" view.
-const RouteView = lazy(() => import("./components/RouteView").then((m) => ({ default: m.RouteView })));
 const Explore = lazy(() => import("./components/Explore").then((m) => ({ default: m.Explore })));
 const EatView = lazy(() => import("./components/EatView").then((m) => ({ default: m.EatView })));
 const NightView = lazy(() => import("./components/NightView").then((m) => ({ default: m.NightView })));
@@ -80,7 +79,6 @@ export default function App() {
               <div className="section-pad py-24 pt-32 text-center text-slate-400">Loading…</div>
             }
           >
-            {view === "route" && <RouteView />}
             {view === "explore" && (
               <>
                 <Explore />

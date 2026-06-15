@@ -3,7 +3,6 @@ import type { View } from "../hooks/useHashView";
 
 const TABS: { view: View; label: string; emoji: string }[] = [
   { view: "plan", label: "Plan", emoji: "🗓️" },
-  { view: "route", label: "Route", emoji: "🗾" },
   { view: "explore", label: "Explore", emoji: "⛩️" },
   { view: "eat", label: "Eat", emoji: "🍜" },
   { view: "guide", label: "Guide", emoji: "🧭" },
