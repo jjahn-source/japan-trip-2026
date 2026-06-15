@@ -23,14 +23,14 @@ const INDEX: Hit[] = [
   ...ATTRACTIONS.map((a) => ({ title: a.name, sub: `${a.city} · ${a.category}`, kind: "Sight", tab: "explore" as View, anchor: `sight-${a.id}`, text: `${a.name} ${a.jp} ${a.desc} ${a.city} ${a.category}`.toLowerCase() })),
   ...DAY_TRIPS.map((t) => ({ title: t.name, sub: `Day trip · from ${t.base}`, kind: "Day Trip", tab: "explore" as View, anchor: `trip-${t.id}`, text: `${t.name} ${t.jp} ${t.pitch}`.toLowerCase() })),
   ...NEIGHBORHOODS.map((n) => ({ title: n.name, sub: `${n.city} · neighborhood`, kind: "Area", tab: "explore" as View, anchor: `hood-${slugify(n.name)}`, text: `${n.name} ${n.jp} ${n.vibe} ${n.knownFor.join(" ")}`.toLowerCase() })),
-  ...NIGHT_SPOTS.map((s) => ({ title: s.name, sub: `${s.city} · ${s.kind}`, kind: "Night", tab: "night" as View, anchor: `night-${slugify(s.name)}`, text: `${s.name} ${s.jp ?? ""} ${s.area} ${s.why}`.toLowerCase() })),
+  ...NIGHT_SPOTS.map((s) => ({ title: s.name, sub: `${s.city} · ${s.kind}`, kind: "Night", tab: "explore" as View, anchor: `night-${slugify(s.name)}`, text: `${s.name} ${s.jp ?? ""} ${s.area} ${s.why}`.toLowerCase() })),
   ...DISH_ENCYCLOPEDIA.map((d) => ({ title: d.name, sub: "Dish", kind: "Eat", tab: "eat" as View, anchor: `dish-${slugify(d.name)}`, text: `${d.name} ${d.jp} ${d.what}`.toLowerCase() })),
   ...FOOD.flatMap((c) => c.items.map((i) => ({ title: i.dish, sub: `${c.city} · food`, kind: "Eat", tab: "eat" as View, anchor: "", text: `${i.dish} ${i.jp} ${i.where} ${i.why}`.toLowerCase() }))),
-  ...PLAY_SPOTS.map((p) => ({ title: p.name, sub: `${p.city} · ${p.kind}`, kind: "Play", tab: "play" as View, anchor: `play-${slugify(p.name)}`, text: `${p.name} ${p.area} ${p.why}`.toLowerCase() })),
+  ...PLAY_SPOTS.map((p) => ({ title: p.name, sub: `${p.city} · ${p.kind}`, kind: "Play", tab: "explore" as View, anchor: `play-${slugify(p.name)}`, text: `${p.name} ${p.area} ${p.why}`.toLowerCase() })),
   ...GUIDE.flatMap((sec) => sec.articles.map((ar) => ({ title: ar.title, sub: `Guide · ${sec.title}`, kind: "Guide", tab: "guide" as View, anchor: sec.id, text: `${ar.title} ${ar.body.join(" ")}`.toLowerCase() }))),
   ...FAQS.map((f) => ({ title: f.q, sub: "FAQ", kind: "FAQ", tab: "guide" as View, anchor: "", text: `${f.q} ${f.a}`.toLowerCase() })),
   ...DAYS.map((d, i) => ({ title: d.title, sub: `Dec ${d.date.slice(8)} · ${d.city}`, kind: "Day", tab: "plan" as View, anchor: `day-${i}`, text: `${d.title} ${d.city} ${d.activities.map((a) => a.title).join(" ")}`.toLowerCase() })),
-  ...SHOP.flatMap((cat) => cat.items.map((item) => ({ title: item.name, sub: `Shop · ${cat.title} · ${item.city}`, kind: "Shop", tab: "shop" as View, anchor: `shop-${cat.id}`, text: `${item.name} ${item.where} ${item.what} ${item.tip ?? ""}`.toLowerCase() }))),
+  ...SHOP.flatMap((cat) => cat.items.map((item) => ({ title: item.name, sub: `Shop · ${cat.title} · ${item.city}`, kind: "Shop", tab: "explore" as View, anchor: `shop-${cat.id}`, text: `${item.name} ${item.where} ${item.what} ${item.tip ?? ""}`.toLowerCase() }))),
 ];
 
 const KIND_STYLE: Record<string, string> = {

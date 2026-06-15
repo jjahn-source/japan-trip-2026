@@ -1,26 +1,14 @@
 import { Nav } from "./components/Nav";
 import { Hero } from "./components/Hero";
 import { TodayBanner } from "./components/TodayBanner";
-import { DailyHuddle } from "./components/DailyHuddle";
 import { BackToTop } from "./components/BackToTop";
 import { FlightCard } from "./components/FlightCard";
 import { Itinerary } from "./components/Itinerary";
 import { Bookings } from "./components/Bookings";
 import { Budget } from "./components/Budget";
-import { Packing } from "./components/Packing";
-import { ReservationTracker } from "./components/ReservationTracker";
 import { PackingChecklist } from "./components/PackingChecklist";
-import { EmergencyInfo } from "./components/EmergencyInfo";
-import { ContingencyPlanner } from "./components/ContingencyPlanner";
-import { CrewCoordinator } from "./components/CrewCoordinator";
-import { PhraseTranslator } from "./components/PhraseTranslator";
-import { RestaurantBookingTracker } from "./components/RestaurantBookingTracker";
-import { DayRecapCapture } from "./components/DayRecapCapture";
 import { BudgetAnalyzer } from "./components/BudgetAnalyzer";
-import { GroupActivityVoting } from "./components/GroupActivityVoting";
 import { PreTripChecklist } from "./components/PreTripChecklist";
-import { TripSummary } from "./components/TripSummary";
-import { ActivityRandomizer } from "./components/ActivityRandomizer";
 import { CurrencyCalc } from "./components/CurrencyCalc";
 import { Footer } from "./components/Footer";
 import { useHashView, type View } from "./hooks/useHashView";
@@ -29,7 +17,6 @@ import { lazy, Suspense, useEffect, useState } from "react";
 
 // Each secondary tab pulls in a big data file (and Leaflet, for the map).
 // Lazy-load them so the initial bundle is just the landing "Plan" view.
-const MissionControl = lazy(() => import("./components/MissionControl").then((m) => ({ default: m.MissionControl })));
 const RouteView = lazy(() => import("./components/RouteView").then((m) => ({ default: m.RouteView })));
 const StayView = lazy(() => import("./components/StayView").then((m) => ({ default: m.StayView })));
 const Explore = lazy(() => import("./components/Explore").then((m) => ({ default: m.Explore })));
@@ -82,25 +69,13 @@ export default function App() {
             <Hero />
             <PreTripChecklist />
             <TodayBanner />
-            <DailyHuddle />
-            <CurrencyCalc />
-            <ActivityRandomizer />
-            <DayRecapCapture />
-            <TripSummary />
-            <BudgetAnalyzer />
-            <GroupActivityVoting />
-            <ContingencyPlanner />
-            <CrewCoordinator />
-            <ReservationTracker />
-            <RestaurantBookingTracker />
-            <PackingChecklist />
-            <EmergencyInfo />
-            <PhraseTranslator />
             <FlightCard />
             <Itinerary />
             <Bookings />
+            <BudgetAnalyzer />
             <Budget />
-            <Packing />
+            <CurrencyCalc />
+            <PackingChecklist />
           </>
         )}
         {view !== "plan" && (
@@ -109,15 +84,18 @@ export default function App() {
               <div className="section-pad py-24 pt-32 text-center text-slate-400">Loading…</div>
             }
           >
-            {view === "mission" && <MissionControl />}
             {view === "route" && <RouteView />}
-            {view === "stay" && <StayView />}
-            {view === "explore" && <Explore />}
+            {view === "explore" && (
+              <>
+                <Explore />
+                <StayView />
+                <NightView />
+                <PlayView />
+                <ShopView />
+              </>
+            )}
             {view === "eat" && <EatView />}
-            {view === "night" && <NightView />}
-            {view === "play" && <PlayView />}
             {view === "guide" && <GuideView />}
-            {view === "shop" && <ShopView />}
           </Suspense>
         )}
       </main>

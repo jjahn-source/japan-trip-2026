@@ -3,15 +3,10 @@ import type { View } from "../hooks/useHashView";
 
 const TABS: { view: View; label: string; emoji: string }[] = [
   { view: "plan", label: "Plan", emoji: "🗓️" },
-  { view: "mission", label: "Mission", emoji: "🚀" },
   { view: "route", label: "Route", emoji: "🗾" },
-  { view: "stay", label: "Stay", emoji: "🏠" },
   { view: "explore", label: "Explore", emoji: "⛩️" },
   { view: "eat", label: "Eat", emoji: "🍜" },
-  { view: "night", label: "Night", emoji: "🌙" },
-  { view: "play", label: "Play", emoji: "🕹️" },
   { view: "guide", label: "Guide", emoji: "🧭" },
-  { view: "shop", label: "Shop", emoji: "🛍️" },
 ];
 
 export function Nav({ view, setView, onOpenSearch }: { view: View; setView: (v: View) => void; onOpenSearch: () => void }) {
