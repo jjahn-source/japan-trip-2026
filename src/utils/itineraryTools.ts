@@ -144,14 +144,13 @@ export function buildBookingsICS(bookings: Booking[]): string {
   const events = bookings.flatMap((b) => {
     const start = icsDate(b.deadline);
     const lead = b.remindDaysBefore ?? 3;
-    const owner = b.owner ? ` [${b.owner}]` : "";
     const desc = [b.detail, b.url ? `Book: ${b.url}` : ""].filter(Boolean).join("\\n\\n");
     return [
       "BEGIN:VEVENT",
       `UID:booking-${b.id}@japan-trip-2026`,
       `DTSTAMP:${icsStamp(b.deadline, 0)}`,
       `DTSTART;VALUE=DATE:${start}`,
-      `SUMMARY:${escapeICS(`🎌 BOOK: ${b.what}${owner}`)}`,
+      `SUMMARY:${escapeICS(`🎌 BOOK: ${b.what}`)}`,
       ...(desc ? [`DESCRIPTION:${escapeICS(desc)}`] : []),
       ...(b.url ? [`URL:${b.url}`] : []),
       "BEGIN:VALARM",

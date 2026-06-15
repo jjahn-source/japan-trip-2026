@@ -6,15 +6,12 @@ export type Booking = {
   detail: string;
   priority: "critical" | "high" | "medium";
   url?: string;
-  owner?: string; // a CREW name — the single accountable booker
-  backups?: string[]; // crew who also race (e.g. everyone refreshing for Ghibli)
   remindDaysBefore?: number; // calendar VALARM lead time, default 3
 };
 
 export const BOOKINGS: Booking[] = [
   {
     id: "flights",
-    owner: "JJ",
     remindDaysBefore: 5,
     what: "Flights — 2/8 booked (HLL6GI), 6 to go",
     when: "NOW — remaining 6 book the same flights",
@@ -24,28 +21,24 @@ export const BOOKINGS: Booking[] = [
   },
   {
     id: "airbnbs",
-    owner: "Alex",
     remindDaysBefore: 5,
-    what: "Airbnbs: 3 whole houses, 14 nights, 2+ baths each (see Stay tab)",
+    what: "Airbnbs: 3 whole houses, 14 nights, 2+ baths each",
     when: "NOW — December whole-house inventory for 8 is finite",
     deadline: "2026-07-15",
-    detail: "Stay tab has researched options per leg with USD totals. Budget Lock combo = ~$342/guy for ALL 14 nights (under the $360 cap, all 77–320-review listings): Tokyo/Shinjuku Dec 15–21, Kyoto Dec 21–24, Osaka/Namba Dec 24–29. Book the free-cancellation picks today; upgrade legs later if prices dip.",
+    detail: "Budget Lock combo = ~$342/guy for ALL 14 nights (under the $360 cap, all 77–320-review listings): Tokyo/Shinjuku Dec 15–21, Kyoto Dec 21–24, Osaka/Namba Dec 24–29. Book the free-cancellation picks today; upgrade legs later if prices dip.",
     priority: "critical",
-    url: "#/stay",
   },
   {
     id: "airport-bus",
-    owner: "Alex",
     what: "Airport Limousine Bus — HND → Shinjuku (Dec 15, party of 8 + bags)",
     when: "Reservable ~1 month out; lock it once all flights are final",
     deadline: "2026-11-20",
-    detail: "Eight people with luggage = take the bus, not the train scrum. Reserve 8 seats on the HND → Shinjuku Airport Limousine (~60 min, ~$9 (¥1,400)/person) for a ~16:30 run after the 14:35 landing. Drops near the Shinjuku Airbnb; bags ride underneath. No JR Pass, no transfers, no stairs. (The Dec 19 Kamakura + Enoshima day trip needs ZERO advance booking — it's all Suica taps.)",
+    detail: "Eight people with luggage = take the bus, not the train scrum. Reserve 8 seats on the HND → Shinjuku Airport Limousine (~60 min, ~$9 (¥1,400)/person) for a ~16:30 run after the 14:35 landing. Drops near the Shinjuku Airbnb; bags ride underneath. No JR Pass, no transfers, no stairs.",
     priority: "medium",
     url: "https://webservice.limousinebus.co.jp/web/en/",
   },
   {
     id: "teamlab",
-    owner: "Steven",
     remindDaysBefore: 1,
     what: "teamLab Planets × 8 (Dec 18)",
     when: "Sept 18 — exactly 3 months before",
@@ -56,8 +49,6 @@ export const BOOKINGS: Booking[] = [
   },
   {
     id: "nintendo",
-    owner: "Junha",
-    backups: ["JJ", "Ethan", "Steven", "Alex", "Charlie", "Kaishun", "Daniel"],
     remindDaysBefore: 2,
     what: "Nintendo Museum lottery (Dec 24)",
     when: "Enter drawing ~Sept 24 (3 months out)",
@@ -68,7 +59,6 @@ export const BOOKINGS: Booking[] = [
   },
   {
     id: "usj",
-    owner: "Charlie",
     remindDaysBefore: 2,
     what: "USJ tickets + Express Pass (Dec 25)",
     when: "~2–3 months out (Sept–Oct)",
@@ -79,8 +69,6 @@ export const BOOKINGS: Booking[] = [
   },
   {
     id: "ghibli",
-    owner: "Junha",
-    backups: ["JJ", "Ethan", "Steven", "Alex", "Charlie", "Kaishun", "Daniel"],
     remindDaysBefore: 1,
     what: "Ghibli Museum (Dec 20 morning, Kichijoji day)",
     when: "Nov 10, 10:00 JST sharp",
@@ -91,8 +79,6 @@ export const BOOKINGS: Booking[] = [
   },
   {
     id: "smartex",
-    owner: "JJ",
-    backups: ["Kaishun"],
     remindDaysBefore: 1,
     what: "SmartEX shinkansen blocks ×4 (the rail backbone)",
     when: "Each opens exactly 1 month out at 10:00 JST",
@@ -103,7 +89,6 @@ export const BOOKINGS: Booking[] = [
   },
   {
     id: "restaurants",
-    owner: "Kaishun",
     what: "Group dinner reservations (party of 8!)",
     when: "Rolling — 4–6 weeks out",
     deadline: "2026-11-05",
@@ -112,7 +97,6 @@ export const BOOKINGS: Booking[] = [
   },
   {
     id: "kfc",
-    owner: "Daniel",
     what: "KFC Christmas Eve bucket (Dec 24) — yes, seriously",
     when: "Pre-orders open early Nov — book by mid-Nov",
     deadline: "2026-11-15",
@@ -122,7 +106,6 @@ export const BOOKINGS: Booking[] = [
   },
   {
     id: "shibuyasky",
-    owner: "Steven",
     remindDaysBefore: 1,
     what: "Shibuya Sky sunset slot × 8 (Dec 16)",
     when: "~4 weeks before (≈Nov 18), midnight JST",
@@ -133,7 +116,6 @@ export const BOOKINGS: Booking[] = [
   },
   {
     id: "skytree",
-    owner: "Steven",
     what: "Tokyo Skytree night slot (Dec 17)",
     when: "~1–2 weeks before",
     deadline: "2026-12-03",
@@ -143,7 +125,6 @@ export const BOOKINGS: Booking[] = [
   },
   {
     id: "esim",
-    owner: "Ethan",
     what: "eSIMs for all 8 + Suica in wallets",
     when: "1–2 weeks before",
     deadline: "2026-12-05",
@@ -152,7 +133,6 @@ export const BOOKINGS: Booking[] = [
   },
   {
     id: "visitjapan",
-    owner: "Alex",
     what: "Visit Japan Web + travel insurance × 8",
     when: "Week before flight",
     deadline: "2026-12-07",
@@ -162,8 +142,6 @@ export const BOOKINGS: Booking[] = [
   },
   {
     id: "seats24h",
-    owner: "JJ",
-    backups: ["Ethan", "Steven", "Alex", "Charlie", "Kaishun", "Daniel", "Junha"],
     remindDaysBefore: 1,
     what: "T-24h check-in war: Dec 13, 6:00 AM EST",
     when: "Dec 13 — calendar reminder NOW",
