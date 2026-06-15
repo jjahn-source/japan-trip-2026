@@ -11,6 +11,8 @@ import { Packing } from "./components/Packing";
 import { ReservationTracker } from "./components/ReservationTracker";
 import { PackingChecklist } from "./components/PackingChecklist";
 import { EmergencyInfo } from "./components/EmergencyInfo";
+import { ContingencyPlanner } from "./components/ContingencyPlanner";
+import { CrewCoordinator } from "./components/CrewCoordinator";
 import { Footer } from "./components/Footer";
 import { useHashView, type View } from "./hooks/useHashView";
 import { scrollToAnchor } from "./utils/nav";
@@ -70,6 +72,8 @@ export default function App() {
             <Hero />
             <TodayBanner />
             <DailyHuddle />
+            <ContingencyPlanner />
+            <CrewCoordinator />
             <ReservationTracker />
             <PackingChecklist />
             <EmergencyInfo />
