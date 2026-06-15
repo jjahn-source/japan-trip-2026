@@ -13,6 +13,7 @@ import { PackingChecklist } from "./components/PackingChecklist";
 import { EmergencyInfo } from "./components/EmergencyInfo";
 import { ContingencyPlanner } from "./components/ContingencyPlanner";
 import { CrewCoordinator } from "./components/CrewCoordinator";
+import { PhraseTranslator } from "./components/PhraseTranslator";
 import { Footer } from "./components/Footer";
 import { useHashView, type View } from "./hooks/useHashView";
 import { scrollToAnchor } from "./utils/nav";
@@ -77,6 +78,7 @@ export default function App() {
             <ReservationTracker />
             <PackingChecklist />
             <EmergencyInfo />
+            <PhraseTranslator />
             <FlightCard />
             <Itinerary />
             <Bookings />
