@@ -8,7 +8,6 @@ import { NEIGHBORHOODS } from "../data/neighborhoods";
 import { NIGHT_SPOTS } from "../data/nightlife";
 import { DISH_ENCYCLOPEDIA } from "../data/eat";
 import { FOOD } from "../data/food";
-import { PLAY_SPOTS } from "../data/otaku";
 import { GUIDE } from "../data/guide";
 import { FAQS } from "../data/faq";
 import { DAYS } from "../data/itinerary";
@@ -26,7 +25,6 @@ const INDEX: Hit[] = [
   ...NIGHT_SPOTS.map((s) => ({ title: s.name, sub: `${s.city} · ${s.kind}`, kind: "Night", tab: "explore" as View, anchor: `night-${slugify(s.name)}`, text: `${s.name} ${s.jp ?? ""} ${s.area} ${s.why}`.toLowerCase() })),
   ...DISH_ENCYCLOPEDIA.map((d) => ({ title: d.name, sub: "Dish", kind: "Eat", tab: "eat" as View, anchor: `dish-${slugify(d.name)}`, text: `${d.name} ${d.jp} ${d.what}`.toLowerCase() })),
   ...FOOD.flatMap((c) => c.items.map((i) => ({ title: i.dish, sub: `${c.city} · food`, kind: "Eat", tab: "eat" as View, anchor: "", text: `${i.dish} ${i.jp} ${i.where} ${i.why}`.toLowerCase() }))),
-  ...PLAY_SPOTS.map((p) => ({ title: p.name, sub: `${p.city} · ${p.kind}`, kind: "Play", tab: "explore" as View, anchor: `play-${slugify(p.name)}`, text: `${p.name} ${p.area} ${p.why}`.toLowerCase() })),
   ...GUIDE.flatMap((sec) => sec.articles.map((ar) => ({ title: ar.title, sub: `Guide · ${sec.title}`, kind: "Guide", tab: "guide" as View, anchor: sec.id, text: `${ar.title} ${ar.body.join(" ")}`.toLowerCase() }))),
   ...FAQS.map((f) => ({ title: f.q, sub: "FAQ", kind: "FAQ", tab: "guide" as View, anchor: "", text: `${f.q} ${f.a}`.toLowerCase() })),
   ...DAYS.map((d, i) => ({ title: d.title, sub: `Dec ${d.date.slice(8)} · ${d.city}`, kind: "Day", tab: "plan" as View, anchor: `day-${i}`, text: `${d.title} ${d.city} ${d.activities.map((a) => a.title).join(" ")}`.toLowerCase() })),
@@ -39,7 +37,6 @@ const KIND_STYLE: Record<string, string> = {
   Area: "bg-emerald-500/20 text-emerald-300",
   Night: "bg-fuchsia-500/20 text-fuchsia-300",
   Eat: "bg-amber-500/20 text-amber-300",
-  Play: "bg-sky-500/20 text-sky-300",
   Guide: "bg-violet-500/20 text-violet-300",
   FAQ: "bg-slate-500/20 text-slate-300",
   Day: "bg-cyan-500/20 text-cyan-300",

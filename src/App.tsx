@@ -7,7 +7,6 @@ import { Itinerary } from "./components/Itinerary";
 import { Bookings } from "./components/Bookings";
 import { Budget } from "./components/Budget";
 import { PackingChecklist } from "./components/PackingChecklist";
-import { BudgetAnalyzer } from "./components/BudgetAnalyzer";
 import { PreTripChecklist } from "./components/PreTripChecklist";
 import { CurrencyCalc } from "./components/CurrencyCalc";
 import { Footer } from "./components/Footer";
@@ -18,11 +17,9 @@ import { lazy, Suspense, useEffect, useState } from "react";
 // Each secondary tab pulls in a big data file (and Leaflet, for the map).
 // Lazy-load them so the initial bundle is just the landing "Plan" view.
 const RouteView = lazy(() => import("./components/RouteView").then((m) => ({ default: m.RouteView })));
-const StayView = lazy(() => import("./components/StayView").then((m) => ({ default: m.StayView })));
 const Explore = lazy(() => import("./components/Explore").then((m) => ({ default: m.Explore })));
 const EatView = lazy(() => import("./components/EatView").then((m) => ({ default: m.EatView })));
 const NightView = lazy(() => import("./components/NightView").then((m) => ({ default: m.NightView })));
-const PlayView = lazy(() => import("./components/PlayView").then((m) => ({ default: m.PlayView })));
 const GuideView = lazy(() => import("./components/GuideView").then((m) => ({ default: m.GuideView })));
 const ShopView = lazy(() => import("./components/ShopView").then((m) => ({ default: m.ShopView })));
 const SearchOverlay = lazy(() => import("./components/SearchOverlay").then((m) => ({ default: m.SearchOverlay })));
@@ -72,7 +69,6 @@ export default function App() {
             <FlightCard />
             <Itinerary />
             <Bookings />
-            <BudgetAnalyzer />
             <Budget />
             <CurrencyCalc />
             <PackingChecklist />
@@ -88,9 +84,7 @@ export default function App() {
             {view === "explore" && (
               <>
                 <Explore />
-                <StayView />
                 <NightView />
-                <PlayView />
                 <ShopView />
               </>
             )}
