@@ -17,6 +17,7 @@ import { PhraseTranslator } from "./components/PhraseTranslator";
 import { RestaurantBookingTracker } from "./components/RestaurantBookingTracker";
 import { DayRecapCapture } from "./components/DayRecapCapture";
 import { BudgetAnalyzer } from "./components/BudgetAnalyzer";
+import { GroupActivityVoting } from "./components/GroupActivityVoting";
 import { Footer } from "./components/Footer";
 import { useHashView, type View } from "./hooks/useHashView";
 import { scrollToAnchor } from "./utils/nav";
@@ -78,6 +79,7 @@ export default function App() {
             <DailyHuddle />
             <DayRecapCapture />
             <BudgetAnalyzer />
+            <GroupActivityVoting />
             <ContingencyPlanner />
             <CrewCoordinator />
             <ReservationTracker />
