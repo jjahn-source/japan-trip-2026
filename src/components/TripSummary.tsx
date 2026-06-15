@@ -34,9 +34,9 @@ export function TripSummary() {
     const photoMoments = sortedRecaps.filter((r) => r.photo_moment).length;
     const surprises = sortedRecaps.filter((r) => r.something_unexpected).length;
     const energizedDays = sortedRecaps.filter((r) => r.crew_mood === "energized").length;
-    const bestDay = sortedRecaps.reduce((best, current) =>
-      current.rating > best.rating ? current : best
-    );
+    const bestDay = sortedRecaps.length > 0
+      ? sortedRecaps.reduce((best, current) => current.rating > best.rating ? current : best)
+      : null;
 
     return {
       totalDays,
@@ -46,7 +46,7 @@ export function TripSummary() {
       photoMoments,
       surprises,
       energizedDays,
-      bestDay: bestDay.rating > 0 ? bestDay : null,
+      bestDay: bestDay && bestDay.rating > 0 ? bestDay : null,
       sortedRecaps,
     };
   }, [recaps, spending]);

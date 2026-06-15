@@ -10,6 +10,9 @@ import { SectionHeading } from "./SectionHeading";
 import { WeatherBadge } from "./WeatherBadge";
 import { Collapse } from "./ui/Collapse";
 import { useLocalStorage } from "../hooks/useLocalStorage";
+import {
+  daySpan, activityMapUrl, mapsRouteUrl, buildDayICS, buildTripICS, downloadICS,
+} from "../utils/itineraryTools";
 
 function SecTitle({ icon, label, count, colorClass }: { icon: React.ReactNode; label: string; count: number; colorClass: string }) {
   return (
@@ -19,9 +22,6 @@ function SecTitle({ icon, label, count, colorClass }: { icon: React.ReactNode; l
     </span>
   );
 }
-import {
-  daySpan, activityMapUrl, mapsRouteUrl, buildDayICS, buildTripICS, downloadICS,
-} from "../utils/itineraryTools";
 
 function fmtDate(iso: string) {
   return new Date(iso + "T00:00:00").toLocaleDateString("en-US", { month: "short", day: "numeric" });
