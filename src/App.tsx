@@ -8,6 +8,9 @@ import { Itinerary } from "./components/Itinerary";
 import { Bookings } from "./components/Bookings";
 import { Budget } from "./components/Budget";
 import { Packing } from "./components/Packing";
+import { ReservationTracker } from "./components/ReservationTracker";
+import { PackingChecklist } from "./components/PackingChecklist";
+import { EmergencyInfo } from "./components/EmergencyInfo";
 import { Footer } from "./components/Footer";
 import { useHashView, type View } from "./hooks/useHashView";
 import { scrollToAnchor } from "./utils/nav";
@@ -67,6 +70,9 @@ export default function App() {
             <Hero />
             <TodayBanner />
             <DailyHuddle />
+            <ReservationTracker />
+            <PackingChecklist />
+            <EmergencyInfo />
             <FlightCard />
             <Itinerary />
             <Bookings />
