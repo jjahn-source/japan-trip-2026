@@ -1,7 +1,6 @@
 import { Nav } from "./components/Nav";
 import { TodayBanner } from "./components/TodayBanner";
 import { BackToTop } from "./components/BackToTop";
-import { FlightCard } from "./components/FlightCard";
 import { Itinerary } from "./components/Itinerary";
 import { Bookings } from "./components/Bookings";
 import { CurrencyCalc } from "./components/CurrencyCalc";
@@ -54,7 +53,6 @@ export default function App() {
         {view === "plan" && (
           <>
             <TodayBanner />
-            <FlightCard />
             <Itinerary />
             <Bookings />
             <CurrencyCalc />

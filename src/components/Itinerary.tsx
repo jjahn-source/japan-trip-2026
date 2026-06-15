@@ -1,9 +1,9 @@
 import { useEffect, useMemo, useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import {
-  ChevronDown, Train, Ticket, Dices, ExternalLink,
+  ChevronDown, Train, Ticket,
   CalendarPlus, Map, MapPin, ListChecks, ChevronsDownUp, ChevronsUpDown, CheckCircle2, Circle,
-  Sparkles, AlertTriangle, Target,
+  Sparkles, AlertTriangle, Dices,
 } from "lucide-react";
 import { DAYS, type Day } from "../data/itinerary";
 import { SectionHeading } from "./SectionHeading";
@@ -26,19 +26,6 @@ function SecTitle({ icon, label, count, colorClass }: { icon: React.ReactNode; l
 function fmtDate(iso: string) {
   return new Date(iso + "T00:00:00").toLocaleDateString("en-US", { month: "short", day: "numeric" });
 }
-
-// Aggregate trip stats (module-load, cheap)
-const TRIP = {
-  days: DAYS.length,
-  activities: DAYS.reduce((s, d) => s + d.activities.length, 0),
-  bookings: DAYS.reduce((s, d) => s + d.activities.filter((a) => a.booking).length, 0),
-  mapped: DAYS.reduce((s, d) => s + d.activities.filter((a) => a.coord).length, 0),
-  links: DAYS.reduce((s, d) => s + (d.links?.length ?? 0), 0),
-  audibles: DAYS.reduce((s, d) => s + (d.alts?.length ?? 0), 0),
-  events: DAYS.reduce((s, d) => s + (d.events?.length ?? 0), 0),
-  dares: DAYS.reduce((s, d) => s + (d.dares?.length ?? 0), 0),
-  intel: DAYS.reduce((s, d) => s + (d.intel?.length ?? 0), 0),
-};
 
 function TopButton({ onClick, children }: { onClick: () => void; children: React.ReactNode }) {
   return (
@@ -94,7 +81,6 @@ function DayCard({
             <span>{day.city} <span className="font-[Noto_Serif_JP]">{day.cityJp}</span></span>
           </div>
           <h3 className="font-bold text-lg sm:text-xl truncate">{day.emoji} {day.title}</h3>
-          {/* at-a-glance stat strip */}
           <div className="mt-1 flex flex-wrap items-center gap-x-3 gap-y-0.5 text-[0.68rem] font-semibold text-slate-500">
             <span>{day.activities.length} stops</span>
             {span && <><span>·</span><span>{span.first}–{span.last} ({span.label})</span></>}
@@ -116,7 +102,6 @@ function DayCard({
             transition={{ duration: 0.3 }}
           >
             <div className="px-4 sm:px-5 pb-5 pt-1">
-              {/* weather (live Open-Meteo when in range, else curated text) + tools */}
               <WeatherBadge city={day.city} dateISO={day.date} wx={day.wx} />
 
               <div className="mb-4 flex flex-wrap gap-2">
@@ -136,7 +121,6 @@ function DayCard({
                 )}
               </div>
 
-              {/* trip-mode progress */}
               {trackMode && (
                 <div className="mb-4 flex items-center gap-3">
                   <div className="flex-1 h-2 rounded-full bg-white/10 overflow-hidden">
@@ -201,7 +185,6 @@ function DayCard({
                 })}
               </ul>
 
-              {/* Secondary detail — tucked behind taps so the day stays calm */}
               <div className="mt-5 space-y-2.5">
                 {day.events && day.events.length > 0 && (
                   <Collapse
@@ -262,35 +245,6 @@ function DayCard({
                   </Collapse>
                 )}
 
-                {day.dares && day.dares.length > 0 && (
-                  <Collapse
-                    className="rounded-xl bg-rose-500/[0.07] border border-rose-500/20 px-4 py-3"
-                    title={<SecTitle icon={<Target size={13} />} label="Daily Dares" count={day.dares.length} colorClass="text-rose-300" />}
-                    summary={`${day.dares.filter((_, i) => done[`${day.date}-dare-${i}`]).length} claimed`}
-                  >
-                    <ul className="mt-3 space-y-1">
-                      {day.dares.map((dare, i) => {
-                        const key = `${day.date}-dare-${i}`;
-                        const claimed = !!done[key];
-                        return (
-                          <li key={i}>
-                            <button
-                              type="button"
-                              onClick={() => setDone({ ...done, [key]: !claimed })}
-                              className="w-full flex items-start gap-2.5 text-left rounded-lg px-2 py-1.5 hover:bg-white/[0.05] transition-colors"
-                            >
-                              {claimed
-                                ? <CheckCircle2 size={16} className="text-rose-400 shrink-0 mt-0.5" />
-                                : <Circle size={16} className="text-slate-600 shrink-0 mt-0.5" />}
-                              <span className={`text-sm leading-snug ${claimed ? "line-through text-slate-500" : "text-slate-200"}`}>{dare}</span>
-                            </button>
-                          </li>
-                        );
-                      })}
-                    </ul>
-                  </Collapse>
-                )}
-
                 {day.alts && day.alts.length > 0 && (
                   <Collapse
                     className="rounded-xl bg-fuchsia-500/[0.07] border border-fuchsia-500/20 px-4 py-3"
@@ -303,24 +257,6 @@ function DayCard({
                         </li>
                       ))}
                     </ul>
-                  </Collapse>
-                )}
-
-                {day.links && day.links.length > 0 && (
-                  <Collapse
-                    className="rounded-xl bg-indigo-500/[0.07] border border-indigo-500/20 px-4 py-3"
-                    title={<SecTitle icon={<ExternalLink size={13} />} label="Official links" count={day.links.length} colorClass="text-indigo-300" />}
-                  >
-                    <div className="mt-3 flex flex-wrap gap-2">
-                      {day.links.map((l) => (
-                        <a
-                          key={l.url} href={l.url} target="_blank" rel="noreferrer"
-                          className="inline-flex items-center gap-1.5 rounded-lg bg-indigo-500/15 border border-indigo-500/30 px-2.5 py-1.5 text-xs font-semibold text-indigo-300 hover:text-indigo-100 hover:bg-indigo-500/25 transition-colors"
-                        >
-                          <ExternalLink size={11} />{l.label}
-                        </a>
-                      ))}
-                    </div>
                   </Collapse>
                 )}
               </div>
@@ -348,7 +284,6 @@ export function Itinerary() {
     );
   };
 
-  // Global search (or any deep-link) can ask to open a specific day.
   useEffect(() => {
     const onOpenDay = (e: Event) => {
       const i = (e as CustomEvent<number>).detail;
@@ -363,25 +298,10 @@ export function Itinerary() {
       <SectionHeading
         kicker="The Master Plan"
         title="16 Days, Day by Day"
-        sub="Tokyo neon → Kamakura coast → Kyoto temples → Nara deer → Osaka chaos → Hiroshima reflection → one last Tokyo lap. Every day carries its December forecast (live link), the limited-time events actually ON during our visit, a degenerate Daily Dares checklist, calendar export, and one-tap Google Maps routing. Flip on Trip Mode and tick off the adventure as it happens."
+        sub="Every day: activities, live December events, local intel, and backup plans. Flip Trip Mode to tick off the adventure as it happens."
       />
 
-      {/* Toolbar */}
       <div className="glass rounded-2xl p-4 mb-6 space-y-3">
-        <div className="flex flex-wrap items-center gap-x-5 gap-y-1.5 text-xs font-semibold text-slate-400">
-          <span><span className="text-slate-100 font-bold tabular-nums">{TRIP.days}</span> days</span>
-          <span><span className="text-slate-100 font-bold tabular-nums">{TRIP.activities}</span> activities</span>
-          <span><span className="text-amber-300 font-bold tabular-nums">{TRIP.bookings}</span> to pre-book</span>
-          <span><span className="text-rose-300 font-bold tabular-nums">{TRIP.mapped}</span> mapped stops</span>
-          <span><span className="text-fuchsia-300 font-bold tabular-nums">{TRIP.audibles}</span> audibles</span>
-          <span><span className="text-amber-300 font-bold tabular-nums">{TRIP.events}</span> live events</span>
-          <span><span className="text-rose-300 font-bold tabular-nums">{TRIP.dares}</span> daily dares</span>
-          <span><span className="text-cyan-300 font-bold tabular-nums">{TRIP.intel}</span> intel tips</span>
-          <span><span className="text-indigo-300 font-bold tabular-nums">{TRIP.links}</span> official links</span>
-          {trackMode && totalDone > 0 && (
-            <span className="text-emerald-300"><span className="font-bold tabular-nums">{totalDone}</span> done</span>
-          )}
-        </div>
         <div className="flex flex-wrap gap-2">
           <TopButton onClick={expandAll}><ChevronsUpDown size={13} /> Expand all</TopButton>
           <TopButton onClick={collapseAll}><ChevronsDownUp size={13} /> Collapse all</TopButton>
@@ -397,9 +317,9 @@ export function Itinerary() {
             }`}
           >
             <ListChecks size={13} /> Trip Mode {trackMode ? "ON" : "OFF"}
+            {trackMode && totalDone > 0 && <span className="ml-1 tabular-nums">· {totalDone} done</span>}
           </button>
         </div>
-        {/* jump-to-day chips */}
         <div className="flex flex-wrap gap-1.5 pt-1 border-t border-white/5">
           {DAYS.map((d, i) => (
             <button
