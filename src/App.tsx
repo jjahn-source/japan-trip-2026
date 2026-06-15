@@ -3,6 +3,7 @@ import { TodayBanner } from "./components/TodayBanner";
 import { BackToTop } from "./components/BackToTop";
 import { Itinerary } from "./components/Itinerary";
 import { Bookings } from "./components/Bookings";
+import { StayView } from "./components/StayView";
 import { CurrencyCalc } from "./components/CurrencyCalc";
 import { Footer } from "./components/Footer";
 import { useHashView, type View } from "./hooks/useHashView";
@@ -55,6 +56,7 @@ export default function App() {
             <TodayBanner />
             <Itinerary />
             <Bookings />
+            <StayView />
             <CurrencyCalc />
           </>
         )}
