@@ -19,6 +19,7 @@ import { DayRecapCapture } from "./components/DayRecapCapture";
 import { BudgetAnalyzer } from "./components/BudgetAnalyzer";
 import { GroupActivityVoting } from "./components/GroupActivityVoting";
 import { PreTripChecklist } from "./components/PreTripChecklist";
+import { TripSummary } from "./components/TripSummary";
 import { Footer } from "./components/Footer";
 import { useHashView, type View } from "./hooks/useHashView";
 import { scrollToAnchor } from "./utils/nav";
@@ -80,6 +81,7 @@ export default function App() {
             <TodayBanner />
             <DailyHuddle />
             <DayRecapCapture />
+            <TripSummary />
             <BudgetAnalyzer />
             <GroupActivityVoting />
             <ContingencyPlanner />
