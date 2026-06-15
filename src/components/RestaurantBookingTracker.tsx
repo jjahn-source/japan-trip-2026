@@ -1,4 +1,4 @@
-import { Phone, MapPin, Clock, AlertCircle, CheckCircle } from "lucide-react";
+import { Phone, AlertCircle, CheckCircle } from "lucide-react";
 import { RESTAURANTS } from "../data/restaurants";
 import { DAYS } from "../data/itinerary";
 import { useLocalStorage } from "../hooks/useLocalStorage";
@@ -18,8 +18,8 @@ export function RestaurantBookingTracker() {
   };
 
   const getDayLabel = (date: string) => {
-    const day = DAYS.find((d) => d.date === date);
-    return day ? `Day ${day.day}` : "Unknown";
+    const dayIndex = DAYS.findIndex((d) => d.date === date);
+    return dayIndex >= 0 ? `Day ${dayIndex + 1}` : "Unknown";
   };
 
   const groupedByDate = RESTAURANTS.reduce(
