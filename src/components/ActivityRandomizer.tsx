@@ -1,4 +1,4 @@
-import { Dices, RefreshCw, MapPin, Clock, DollarSign } from "lucide-react";
+import { Dices, RefreshCw, Clock, DollarSign } from "lucide-react";
 import { useState } from "react";
 import { SectionHeading } from "./SectionHeading";
 import { DAYS } from "../data/itinerary";
