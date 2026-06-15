@@ -15,6 +15,7 @@ import { ContingencyPlanner } from "./components/ContingencyPlanner";
 import { CrewCoordinator } from "./components/CrewCoordinator";
 import { PhraseTranslator } from "./components/PhraseTranslator";
 import { RestaurantBookingTracker } from "./components/RestaurantBookingTracker";
+import { DayRecapCapture } from "./components/DayRecapCapture";
 import { Footer } from "./components/Footer";
 import { useHashView, type View } from "./hooks/useHashView";
 import { scrollToAnchor } from "./utils/nav";
@@ -74,6 +75,7 @@ export default function App() {
             <Hero />
             <TodayBanner />
             <DailyHuddle />
+            <DayRecapCapture />
             <ContingencyPlanner />
             <CrewCoordinator />
             <ReservationTracker />
