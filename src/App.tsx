@@ -20,6 +20,7 @@ import { BudgetAnalyzer } from "./components/BudgetAnalyzer";
 import { GroupActivityVoting } from "./components/GroupActivityVoting";
 import { PreTripChecklist } from "./components/PreTripChecklist";
 import { TripSummary } from "./components/TripSummary";
+import { ActivityRandomizer } from "./components/ActivityRandomizer";
 import { Footer } from "./components/Footer";
 import { useHashView, type View } from "./hooks/useHashView";
 import { scrollToAnchor } from "./utils/nav";
@@ -80,6 +81,7 @@ export default function App() {
             <PreTripChecklist />
             <TodayBanner />
             <DailyHuddle />
+            <ActivityRandomizer />
             <DayRecapCapture />
             <TripSummary />
             <BudgetAnalyzer />
