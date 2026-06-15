@@ -11,6 +11,7 @@ const TABS: { view: View; label: string; emoji: string }[] = [
   { view: "night", label: "Night", emoji: "🌙" },
   { view: "play", label: "Play", emoji: "🕹️" },
   { view: "guide", label: "Guide", emoji: "🧭" },
+  { view: "shop", label: "Shop", emoji: "🛍️" },
 ];
 
 export function Nav({ view, setView, onOpenSearch }: { view: View; setView: (v: View) => void; onOpenSearch: () => void }) {
@@ -28,19 +29,19 @@ export function Nav({ view, setView, onOpenSearch }: { view: View; setView: (v: 
           </span>
         </button>
 
-        <div className="flex items-center gap-1 overflow-x-auto no-scrollbar -mx-1 px-1">
+        <div className="flex items-center gap-0.5 overflow-x-auto no-scrollbar -mx-1 px-1">
           {TABS.map((t) => (
             <button
               type="button"
               key={t.view}
               onClick={() => setView(t.view)}
-              className={`px-2.5 sm:px-4 py-2 sm:py-1.5 rounded-xl text-sm font-semibold whitespace-nowrap transition-colors ${
+              className={`px-2 sm:px-2.5 py-1.5 rounded-xl text-xs sm:text-sm font-semibold whitespace-nowrap transition-colors ${
                 view === t.view
                   ? "bg-rose-500 text-white shadow-lg shadow-rose-500/25"
                   : "text-slate-300 hover:text-white hover:bg-white/10"
               }`}
             >
-              <span className="mr-1">{t.emoji}</span>
+              <span className="sm:hidden mr-1">{t.emoji}</span>
               {t.label}
             </button>
           ))}
@@ -58,7 +59,7 @@ export function Nav({ view, setView, onOpenSearch }: { view: View; setView: (v: 
             <span className="hidden md:inline text-slate-400">Search</span>
             <kbd className="hidden lg:inline text-[0.6rem] font-sans text-slate-500 border border-white/15 rounded px-1">⌘K</kbd>
           </button>
-          <span className="hidden lg:inline-flex shrink-0 px-3 py-1.5 rounded-lg text-xs font-bold bg-rose-500/20 text-rose-300 border border-rose-500/30">
+          <span className="hidden xl:inline-flex shrink-0 px-3 py-1.5 rounded-lg text-xs font-bold bg-rose-500/20 text-rose-300 border border-rose-500/30">
             DEC 14–29 · 8人
           </span>
         </div>

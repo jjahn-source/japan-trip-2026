@@ -12,6 +12,7 @@ import { PLAY_SPOTS } from "../data/otaku";
 import { GUIDE } from "../data/guide";
 import { FAQS } from "../data/faq";
 import { DAYS } from "../data/itinerary";
+import { SHOP } from "../data/shopping";
 
 type Hit = { title: string; sub: string; kind: string; tab: View; text: string; anchor: string };
 
@@ -29,6 +30,7 @@ const INDEX: Hit[] = [
   ...GUIDE.flatMap((sec) => sec.articles.map((ar) => ({ title: ar.title, sub: `Guide · ${sec.title}`, kind: "Guide", tab: "guide" as View, anchor: sec.id, text: `${ar.title} ${ar.body.join(" ")}`.toLowerCase() }))),
   ...FAQS.map((f) => ({ title: f.q, sub: "FAQ", kind: "FAQ", tab: "guide" as View, anchor: "", text: `${f.q} ${f.a}`.toLowerCase() })),
   ...DAYS.map((d, i) => ({ title: d.title, sub: `Dec ${d.date.slice(8)} · ${d.city}`, kind: "Day", tab: "plan" as View, anchor: `day-${i}`, text: `${d.title} ${d.city} ${d.activities.map((a) => a.title).join(" ")}`.toLowerCase() })),
+  ...SHOP.flatMap((cat) => cat.items.map((item) => ({ title: item.name, sub: `Shop · ${cat.title} · ${item.city}`, kind: "Shop", tab: "shop" as View, anchor: `shop-${cat.id}`, text: `${item.name} ${item.where} ${item.what} ${item.tip ?? ""}`.toLowerCase() }))),
 ];
 
 const KIND_STYLE: Record<string, string> = {
@@ -41,6 +43,7 @@ const KIND_STYLE: Record<string, string> = {
   Guide: "bg-violet-500/20 text-violet-300",
   FAQ: "bg-slate-500/20 text-slate-300",
   Day: "bg-cyan-500/20 text-cyan-300",
+  Shop: "bg-amber-500/20 text-amber-300",
 };
 
 export function SearchOverlay({ onClose, onNavigate }: { onClose: () => void; onNavigate: (v: View, anchor?: string) => void }) {

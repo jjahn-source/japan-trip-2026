@@ -1,4 +1,4 @@
-import { Dices, RefreshCw, Clock, DollarSign } from "lucide-react";
+import { Dices, RefreshCw, Clock, DollarSign, MapPin } from "lucide-react";
 import { useState } from "react";
 import { SectionHeading } from "./SectionHeading";
 import { DAYS } from "../data/itinerary";
@@ -170,140 +170,118 @@ const RANDOM_ACTIVITIES: RandomActivity[] = [
 export function ActivityRandomizer() {
   const today = new Date().toISOString().split("T")[0];
   const currentDay = DAYS.find((d) => d.date === today);
-  const currentCity = currentDay?.city || "Unknown";
+  // Some itinerary days have compound city labels like "Kamakura + Enoshima (day trip)".
+  // Resolve to the base city if it appears as a prefix so activities still match.
+  const BASE_CITIES = ["Tokyo", "Kyoto", "Osaka", "Hiroshima"] as const;
+  type BaseCity = (typeof BASE_CITIES)[number];
+  const rawCity = currentDay?.city ?? null;
+  const resolvedCity: BaseCity | null = rawCity
+    ? (BASE_CITIES.find((c) => rawCity.startsWith(c)) ?? null)
+    : null;
 
+  const ALL_TYPES = ["All", ...Array.from(new Set(RANDOM_ACTIVITIES.map((a) => a.type))).sort()];
   const [selectedActivity, setSelectedActivity] = useState<RandomActivity | null>(null);
   const [usedActivities, setUsedActivities] = useState<Set<string>>(new Set());
+  const [typeFilter, setTypeFilter] = useState<string>("All");
 
-  const getRandomActivity = () => {
-    const eligible = RANDOM_ACTIVITIES.filter(
-      (a) =>
-        (a.cities.includes(currentCity) || a.cities.includes("All")) &&
-        !usedActivities.has(a.title)
-    );
-
-    if (eligible.length === 0) {
-      // Reset if all activities used
-      setUsedActivities(new Set());
-      const activity = RANDOM_ACTIVITIES[Math.floor(Math.random() * RANDOM_ACTIVITIES.length)];
-      setSelectedActivity(activity);
-      setUsedActivities(new Set([activity.title]));
-    } else {
-      const activity = eligible[Math.floor(Math.random() * eligible.length)];
-      setSelectedActivity(activity);
-      setUsedActivities(new Set([...usedActivities, activity.title]));
-    }
+  const getPool = () => {
+    let pool = resolvedCity
+      ? RANDOM_ACTIVITIES.filter((a) => a.cities.includes(resolvedCity))
+      : RANDOM_ACTIVITIES;
+    if (typeFilter !== "All") pool = pool.filter((a) => a.type === typeFilter);
+    return pool.length > 0 ? pool : RANDOM_ACTIVITIES;
   };
 
-  const allActivities = RANDOM_ACTIVITIES.filter(
-    (a) => a.cities.includes(currentCity) || a.cities.includes("All")
-  );
+  const getRandomActivity = () => {
+    const pool = getPool();
+    const eligible = pool.filter((a) => !usedActivities.has(a.title));
+    const source = eligible.length > 0 ? eligible : pool;
+    if (eligible.length === 0) setUsedActivities(new Set());
+    const activity = source[Math.floor(Math.random() * source.length)];
+    setSelectedActivity(activity);
+    setUsedActivities((prev) => new Set([...prev, activity.title]));
+  };
+
+  const pool = getPool();
 
   return (
     <section className="section-pad py-24">
       <SectionHeading
         kicker="Spontaneity"
         title="Activity Randomizer"
-        sub={`Today: ${currentCity} — Let serendipity decide`}
+        sub={resolvedCity ? `Today in ${resolvedCity} · ${pool.length} options` : `All cities · ${pool.length} options`}
       />
 
+      {/* Type filter pills */}
+      <div className="flex flex-wrap gap-2 mb-6">
+        {ALL_TYPES.map((type) => (
+          <button
+            key={type}
+            type="button"
+            onClick={() => { setTypeFilter(type); setSelectedActivity(null); }}
+            className={`px-3 py-1 rounded-full text-xs font-semibold transition-colors ${
+              typeFilter === type
+                ? "bg-rose-500 text-white"
+                : "bg-white/5 text-slate-400 hover:text-white hover:bg-white/10 border border-white/10"
+            }`}
+          >
+            {type}
+          </button>
+        ))}
+      </div>
+
+      {/* Selected activity card */}
       {selectedActivity ? (
-        <div className="glass rounded-2xl border border-rose-500/30 bg-rose-500/5 p-8 mb-8">
-          <div className="text-center mb-6">
-            <div className="text-6xl mb-4">{selectedActivity.emoji}</div>
-            <h2 className="text-3xl font-bold text-slate-100 mb-2">{selectedActivity.title}</h2>
-            <p className="text-lg text-slate-300">{selectedActivity.description}</p>
-          </div>
-
-          <div className="grid md:grid-cols-4 gap-4 mb-6">
-            <div className="bg-white/5 border border-white/10 rounded-lg p-4">
-              <div className="flex items-center gap-2 mb-2">
-                <Clock size={16} className="text-cyan-400" />
-                <p className="text-xs text-slate-400">When</p>
+        <div className="glass rounded-2xl border border-rose-500/30 bg-rose-500/5 p-6 mb-4">
+          <div className="flex items-start gap-5">
+            <div className="text-5xl shrink-0">{selectedActivity.emoji}</div>
+            <div className="flex-1 min-w-0">
+              <div className="flex items-center gap-2 mb-1 flex-wrap">
+                <h2 className="text-xl font-bold text-slate-100">{selectedActivity.title}</h2>
+                <span className="text-xs font-semibold text-rose-300 bg-rose-500/15 border border-rose-500/20 px-2 py-0.5 rounded-full">{selectedActivity.type}</span>
               </div>
-              <p className="font-bold text-slate-200">{selectedActivity.timeSlot}</p>
-            </div>
+              <p className="text-sm text-slate-300 mb-4">{selectedActivity.description}</p>
 
-            <div className="bg-white/5 border border-white/10 rounded-lg p-4">
-              <div className="flex items-center gap-2 mb-2">
-                <Dices size={16} className="text-amber-400" />
-                <p className="text-xs text-slate-400">Type</p>
+              <div className="flex flex-wrap gap-3">
+                <div className="flex items-center gap-1.5 text-xs text-slate-300">
+                  <Clock size={13} className="text-cyan-400" />
+                  <span>{selectedActivity.timeSlot}</span>
+                </div>
+                <div className="flex items-center gap-1.5 text-xs text-slate-300">
+                  <RefreshCw size={13} className="text-emerald-400" />
+                  <span>{selectedActivity.duration}</span>
+                </div>
+                <div className="flex items-center gap-1.5 text-xs text-slate-300">
+                  <DollarSign size={13} className="text-amber-400" />
+                  <span>{selectedActivity.costPerPerson || "Varies"}</span>
+                </div>
+                <div className="flex items-center gap-1.5 text-xs text-slate-300">
+                  <MapPin size={13} className="text-slate-400" />
+                  <span>{selectedActivity.cities.join(", ")}</span>
+                </div>
               </div>
-              <p className="font-bold text-slate-200">{selectedActivity.type}</p>
-            </div>
-
-            <div className="bg-white/5 border border-white/10 rounded-lg p-4">
-              <div className="flex items-center gap-2 mb-2">
-                <Clock size={16} className="text-emerald-400" />
-                <p className="text-xs text-slate-400">Duration</p>
-              </div>
-              <p className="font-bold text-slate-200">{selectedActivity.duration}</p>
-            </div>
-
-            <div className="bg-white/5 border border-white/10 rounded-lg p-4">
-              <div className="flex items-center gap-2 mb-2">
-                <DollarSign size={16} className="text-rose-400" />
-                <p className="text-xs text-slate-400">Cost</p>
-              </div>
-              <p className="font-bold text-slate-200">
-                {selectedActivity.costPerPerson || "Varies"}
-              </p>
             </div>
           </div>
 
           <button
             onClick={getRandomActivity}
-            className="w-full px-6 py-3 bg-rose-500/20 border border-rose-500/30 rounded-lg text-rose-300 hover:bg-rose-500/30 transition-colors font-bold flex items-center justify-center gap-2"
+            className="mt-5 w-full px-4 py-2.5 bg-white/5 border border-white/10 rounded-lg text-slate-300 hover:bg-white/10 transition-colors font-semibold text-sm flex items-center justify-center gap-2"
           >
-            <RefreshCw size={18} /> Get another suggestion
+            <RefreshCw size={15} /> Roll again
           </button>
         </div>
       ) : (
         <button
           onClick={getRandomActivity}
-          className="w-full px-6 py-6 bg-cyan-500/20 border border-cyan-500/30 rounded-lg text-cyan-300 hover:bg-cyan-500/30 transition-colors font-bold text-lg flex items-center justify-center gap-3 mb-8"
+          className="w-full px-6 py-8 bg-gradient-to-br from-rose-500/20 to-cyan-500/10 border border-rose-500/30 rounded-2xl text-white hover:from-rose-500/30 hover:to-cyan-500/20 transition-all font-bold text-xl flex items-center justify-center gap-3 mb-4"
         >
-          <Dices size={24} /> Surprise me! What should we do today?
+          <Dices size={28} /> Surprise me
         </button>
       )}
 
-      {/* All available activities */}
-      <div className="mb-8">
-        <h2 className="font-bold text-slate-100 mb-4">
-          All activities in {currentCity} ({allActivities.length})
-        </h2>
-        <div className="grid md:grid-cols-2 gap-3">
-          {allActivities.map((activity, i) => (
-            <div
-              key={i}
-              onClick={() => setSelectedActivity(activity)}
-              className="glass rounded-lg border border-white/10 p-4 cursor-pointer hover:bg-white/5 transition-colors"
-            >
-              <div className="flex items-start gap-3">
-                <span className="text-3xl">{activity.emoji}</span>
-                <div>
-                  <h3 className="font-bold text-slate-100">{activity.title}</h3>
-                  <p className="text-xs text-slate-400">{activity.type}</p>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-
-      {/* Philosophy */}
-      <div className="glass rounded-2xl border border-purple-500/20 bg-purple-500/5 p-6">
-        <h3 className="font-bold text-purple-300 mb-3">The serendipity principle:</h3>
-        <p className="text-sm text-slate-300 mb-3">
-          You planned 16 days meticulously. But the best moments often come from "what if we just...?"
-        </p>
-        <ul className="space-y-1 text-sm text-slate-300">
-          <li>• <strong>Random doesn't mean reckless</strong> — all suggestions are safe, budget-aware, real</li>
-          <li>• <strong>Not mandatory</strong> — these are ideas for high-energy moments or rainy-day pivots</li>
-          <li>• <strong>Crew vote</strong> — tap an activity to pick it, or hit "surprise me" for pure chaos</li>
-          <li>• <strong>Memory-making</strong> — some of your best stories will come from these unplanned moments</li>
-        </ul>
-      </div>
+      <p className="text-center text-xs text-slate-500">
+        {pool.length} {typeFilter !== "All" ? typeFilter.toLowerCase() : ""} activit{pool.length === 1 ? "y" : "ies"} available{resolvedCity ? ` in ${resolvedCity}` : ""}
+      </p>
     </section>
   );
 }

@@ -33,7 +33,12 @@ export function useLocalStorage<T>(key: string, initial: T) {
     const sync = (e: Event) => {
       if (e instanceof StorageEvent && e.key && e.key !== key) return;
       if (e instanceof CustomEvent && e.detail && e.detail !== key) return;
-      setValue(read());
+      // Use functional update: return current reference unchanged if data hasn't changed.
+      // This prevents the write effect's own dispatch from triggering an infinite re-render loop.
+      setValue((cur) => {
+        const next = read();
+        return JSON.stringify(cur) === JSON.stringify(next) ? cur : next;
+      });
     };
     window.addEventListener("storage", sync);
     window.addEventListener("local-storage", sync);

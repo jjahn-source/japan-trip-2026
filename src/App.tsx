@@ -21,6 +21,7 @@ import { GroupActivityVoting } from "./components/GroupActivityVoting";
 import { PreTripChecklist } from "./components/PreTripChecklist";
 import { TripSummary } from "./components/TripSummary";
 import { ActivityRandomizer } from "./components/ActivityRandomizer";
+import { CurrencyCalc } from "./components/CurrencyCalc";
 import { Footer } from "./components/Footer";
 import { useHashView, type View } from "./hooks/useHashView";
 import { scrollToAnchor } from "./utils/nav";
@@ -36,6 +37,7 @@ const EatView = lazy(() => import("./components/EatView").then((m) => ({ default
 const NightView = lazy(() => import("./components/NightView").then((m) => ({ default: m.NightView })));
 const PlayView = lazy(() => import("./components/PlayView").then((m) => ({ default: m.PlayView })));
 const GuideView = lazy(() => import("./components/GuideView").then((m) => ({ default: m.GuideView })));
+const ShopView = lazy(() => import("./components/ShopView").then((m) => ({ default: m.ShopView })));
 const SearchOverlay = lazy(() => import("./components/SearchOverlay").then((m) => ({ default: m.SearchOverlay })));
 
 export default function App() {
@@ -81,6 +83,7 @@ export default function App() {
             <PreTripChecklist />
             <TodayBanner />
             <DailyHuddle />
+            <CurrencyCalc />
             <ActivityRandomizer />
             <DayRecapCapture />
             <TripSummary />
@@ -114,6 +117,7 @@ export default function App() {
             {view === "night" && <NightView />}
             {view === "play" && <PlayView />}
             {view === "guide" && <GuideView />}
+            {view === "shop" && <ShopView />}
           </Suspense>
         )}
       </main>

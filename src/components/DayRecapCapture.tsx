@@ -99,7 +99,8 @@ export function DayRecapCapture() {
               <select
                 value={form.date}
                 onChange={(e) => setForm({ ...form, date: e.target.value })}
-                className="w-full px-3 py-2 bg-white/5 border border-white/10 rounded text-sm text-slate-200 focus:border-cyan-400/50 focus:outline-none"
+                className="w-full px-3 py-2 bg-slate-800 border border-white/10 rounded text-sm text-slate-200 focus:border-cyan-400/50 focus:outline-none"
+                style={{ colorScheme: "dark" }}
               >
                 {DAYS.map((day) => (
                   <option key={day.date} value={day.date}>
