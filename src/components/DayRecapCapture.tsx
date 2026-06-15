@@ -1,4 +1,4 @@
-import { Star, Save, X } from "lucide-react";
+import { Save, X } from "lucide-react";
 import { DAYS } from "../data/itinerary";
 import { useLocalStorage } from "../hooks/useLocalStorage";
 import { useState } from "react";
@@ -24,8 +24,6 @@ export function DayRecapCapture() {
     crew_mood: "mixed",
     rating: 4,
   });
-
-  const currentRecap = editingDate ? recaps[editingDate] : null;
 
   const handleSave = () => {
     if (!form.date || !form.highlight || !form.best_meal) {
@@ -84,7 +82,7 @@ export function DayRecapCapture() {
         <div className="glass rounded-2xl border border-cyan-500/30 p-6 mb-8">
           <div className="flex items-center justify-between mb-4">
             <h2 className="text-lg font-bold text-slate-100">
-              Recap for {getDayLabel(form.date)} ({form.date})
+              Recap for {getDayLabel(form.date || today)} ({form.date})
             </h2>
             <button
               onClick={() => setEditingDate(null)}
