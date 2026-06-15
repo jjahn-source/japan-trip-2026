@@ -1,4 +1,4 @@
-import { AlertCircle, Phone, Heart, FileText, AlertTriangle } from "lucide-react";
+import { Phone, Heart, FileText, AlertTriangle } from "lucide-react";
 import { EMERGENCY_CONTACTS } from "../data/emergency";
 import { SectionHeading } from "./SectionHeading";
 

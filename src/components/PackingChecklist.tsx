@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { CheckCircle2, Circle } from "lucide-react";
 import { useLocalStorage } from "../hooks/useLocalStorage";
 import { SectionHeading } from "./SectionHeading";

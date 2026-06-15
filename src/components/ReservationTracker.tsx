@@ -1,5 +1,4 @@
-import { useState } from "react";
-import { CheckCircle2, Circle, Calendar, Phone, ExternalLink, AlertCircle } from "lucide-react";
+import { CheckCircle2, Circle, Phone, ExternalLink, AlertCircle } from "lucide-react";
 import { RESERVATIONS } from "../data/reservations";
 import { useLocalStorage } from "../hooks/useLocalStorage";
 import { SectionHeading } from "./SectionHeading";
