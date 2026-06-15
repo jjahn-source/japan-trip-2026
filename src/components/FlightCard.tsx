@@ -1,6 +1,6 @@
 import { motion } from "motion/react";
-import { Plane, AlertTriangle, ShieldCheck } from "lucide-react";
-import { FLIGHTS, CONFIRMATION, AIRLINE, FARE_WARNINGS, SURVIVAL_NOTES } from "../data/flight";
+import { Plane } from "lucide-react";
+import { FLIGHTS, CONFIRMATION, AIRLINE } from "../data/flight";
 import { SectionHeading } from "./SectionHeading";
 
 export function FlightCard() {
@@ -54,32 +54,6 @@ export function FlightCard() {
             </div>
           </motion.div>
         ))}
-      </div>
-      <div className="mt-4 glass rounded-2xl p-5">
-        <p className="font-bold text-amber-300 flex items-center gap-2 text-sm mb-2">
-          <AlertTriangle size={15} /> Basic Economy fine print
-        </p>
-        <ul className="grid sm:grid-cols-2 gap-x-6 gap-y-1.5">
-          {FARE_WARNINGS.map((w) => (
-            <li key={w} className="text-xs text-slate-400 flex gap-1.5">
-              <span className="text-amber-400 shrink-0">·</span> {w}
-            </li>
-          ))}
-        </ul>
-      </div>
-
-      <div className="mt-4 glass rounded-2xl p-5">
-        <p className="font-bold text-emerald-300 flex items-center gap-2 text-sm mb-3">
-          <ShieldCheck size={15} /> Pre-flight survival checklist
-        </p>
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-2.5">
-          {SURVIVAL_NOTES.map((n) => (
-            <div key={n.note} className="flex items-start gap-2.5 text-xs text-slate-400 leading-relaxed bg-emerald-500/5 border border-emerald-500/15 rounded-xl px-3 py-2.5">
-              <span className="text-base shrink-0 leading-none">{n.icon}</span>
-              <span>{n.note}</span>
-            </div>
-          ))}
-        </div>
       </div>
     </section>
   );
