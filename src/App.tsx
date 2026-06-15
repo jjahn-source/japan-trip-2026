@@ -1,6 +1,7 @@
 import { Nav } from "./components/Nav";
 import { Hero } from "./components/Hero";
 import { TodayBanner } from "./components/TodayBanner";
+import { DailyHuddle } from "./components/DailyHuddle";
 import { BackToTop } from "./components/BackToTop";
 import { FlightCard } from "./components/FlightCard";
 import { Itinerary } from "./components/Itinerary";
@@ -65,6 +66,7 @@ export default function App() {
           <>
             <Hero />
             <TodayBanner />
+            <DailyHuddle />
             <FlightCard />
             <Itinerary />
             <Bookings />
