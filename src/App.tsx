@@ -1,21 +1,15 @@
 import { Nav } from "./components/Nav";
-import { Hero } from "./components/Hero";
 import { TodayBanner } from "./components/TodayBanner";
 import { BackToTop } from "./components/BackToTop";
 import { FlightCard } from "./components/FlightCard";
 import { Itinerary } from "./components/Itinerary";
 import { Bookings } from "./components/Bookings";
-import { Budget } from "./components/Budget";
-import { PackingChecklist } from "./components/PackingChecklist";
-import { PreTripChecklist } from "./components/PreTripChecklist";
 import { CurrencyCalc } from "./components/CurrencyCalc";
 import { Footer } from "./components/Footer";
 import { useHashView, type View } from "./hooks/useHashView";
 import { scrollToAnchor } from "./utils/nav";
 import { lazy, Suspense, useEffect, useState } from "react";
 
-// Each secondary tab pulls in a big data file (and Leaflet, for the map).
-// Lazy-load them so the initial bundle is just the landing "Plan" view.
 const Explore = lazy(() => import("./components/Explore").then((m) => ({ default: m.Explore })));
 const EatView = lazy(() => import("./components/EatView").then((m) => ({ default: m.EatView })));
 const NightView = lazy(() => import("./components/NightView").then((m) => ({ default: m.NightView })));
@@ -27,7 +21,6 @@ export default function App() {
   const [view, setView] = useHashView();
   const [searchOpen, setSearchOpen] = useState(false);
 
-  // Cmd/Ctrl+K toggles global search anywhere in the app.
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
       if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k") {
@@ -39,8 +32,6 @@ export default function App() {
     return () => window.removeEventListener("keydown", onKey);
   }, []);
 
-  // Search result → switch tab, then deep-scroll to the exact card. Itinerary
-  // days also get expanded via a custom event the Itinerary listens for.
   const navigateTo = (v: View, anchor?: string) => {
     setView(v);
     if (!anchor) return;
@@ -62,15 +53,11 @@ export default function App() {
       <main>
         {view === "plan" && (
           <>
-            <Hero />
-            <PreTripChecklist />
             <TodayBanner />
             <FlightCard />
             <Itinerary />
             <Bookings />
-            <Budget />
             <CurrencyCalc />
-            <PackingChecklist />
           </>
         )}
         {view !== "plan" && (
