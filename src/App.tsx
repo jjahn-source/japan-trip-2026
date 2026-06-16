@@ -8,6 +8,8 @@ import { CurrencyCalc } from "./components/CurrencyCalc";
 import { Footer } from "./components/Footer";
 import { PreTripPhases } from "./components/PreTripPhases";
 import { CrewBoard } from "./components/CrewBoard";
+import { CrewChat } from "./components/CrewChat";
+import { BudgetSplit } from "./components/BudgetSplit";
 import { IdentityModal } from "./components/IdentityModal";
 import { useHashView, type View } from "./hooks/useHashView";
 import { useIdentity } from "./hooks/useIdentity";
@@ -83,6 +85,8 @@ export default function App() {
             <PreTripPhases />
             <CrewBoard myName={name} />
             <Itinerary />
+            <BudgetSplit />
+            <CrewChat />
             <Bookings />
             <StayView />
             <CurrencyCalc />

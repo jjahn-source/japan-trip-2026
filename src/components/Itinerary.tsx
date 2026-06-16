@@ -1,18 +1,48 @@
 import { useEffect, useMemo, useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import {
-  ChevronDown, Train, Ticket,
-  CalendarPlus, Map, MapPin, ListChecks, ChevronsDownUp, ChevronsUpDown, CheckCircle2, Circle,
-  Sparkles, AlertTriangle, Dices,
+  ChevronDown, ChevronUp, Train, Ticket,
+  CalendarPlus, Map, MapPin, ListChecks, ChevronsDownUp, ChevronsUpDown,
+  CheckCircle2, Circle, Sparkles, AlertTriangle, Dices,
+  Eye, EyeOff, Pencil, Send, MessageCircle,
 } from "lucide-react";
 import { DAYS, type Day } from "../data/itinerary";
 import { SectionHeading } from "./SectionHeading";
 import { WeatherBadge } from "./WeatherBadge";
 import { Collapse } from "./ui/Collapse";
 import { useLocalStorage } from "../hooks/useLocalStorage";
+import { useDayComments, type DayComment } from "../hooks/useDayComments";
+import { useItineraryOverrides, type DayOverride } from "../hooks/useItineraryOverrides";
+import { getIdentityName } from "../hooks/useIdentity";
+import { FIREBASE_ENABLED } from "../lib/firebase";
 import {
   daySpan, activityMapUrl, mapsRouteUrl, buildDayICS, buildTripICS, downloadICS,
 } from "../utils/itineraryTools";
+
+type Activity = Day["activities"][number];
+
+function resolveActivity(key: string): { activity: Activity; srcDate: string } | null {
+  const i = key.lastIndexOf(":");
+  if (i < 0) return null;
+  const date = key.slice(0, i);
+  const idx = Number(key.slice(i + 1));
+  const src = DAYS.find((d) => d.date === date);
+  if (!src || !src.activities[idx]) return null;
+  return { activity: src.activities[idx], srcDate: date };
+}
+
+function fmtDate(iso: string) {
+  return new Date(iso + "T00:00:00").toLocaleDateString("en-US", { month: "short", day: "numeric" });
+}
+
+function fmtCommentAt(iso: string) {
+  const d = new Date(iso);
+  return (
+    d.toLocaleDateString("en-US", { month: "short", day: "numeric" }) +
+    " · " +
+    d.toLocaleTimeString("en-US", { hour: "numeric", minute: "2-digit" })
+  );
+}
 
 function SecTitle({ icon, label, count, colorClass }: { icon: React.ReactNode; label: string; count: number; colorClass: string }) {
   return (
@@ -21,10 +51,6 @@ function SecTitle({ icon, label, count, colorClass }: { icon: React.ReactNode; l
       <span className="text-[0.62rem] font-bold bg-white/10 text-slate-200 rounded-full px-1.5 py-0.5 tabular-nums">{count}</span>
     </span>
   );
-}
-
-function fmtDate(iso: string) {
-  return new Date(iso + "T00:00:00").toLocaleDateString("en-US", { month: "short", day: "numeric" });
 }
 
 function TopButton({ onClick, children }: { onClick: () => void; children: React.ReactNode }) {
@@ -40,6 +66,8 @@ function TopButton({ onClick, children }: { onClick: () => void; children: React
 
 function DayCard({
   day, index, open, onToggle, trackMode, done, setDone,
+  override, comments, myName, allDays,
+  onSkip, onSetOrder, onMove, onAddComment,
 }: {
   day: Day;
   index: number;
@@ -48,14 +76,56 @@ function DayCard({
   trackMode: boolean;
   done: Record<string, boolean>;
   setDone: (next: Record<string, boolean>) => void;
+  override?: DayOverride;
+  comments: DayComment[];
+  myName: string | null;
+  allDays: Day[];
+  onSkip: (key: string, val: boolean) => void;
+  onSetOrder: (order: string[]) => void;
+  onMove: (key: string, toDate: string) => void;
+  onAddComment: (text: string) => void;
 }) {
+  const [editMode, setEditMode] = useState(false);
+  const [commentDraft, setCommentDraft] = useState("");
+
   const span = daySpan(day);
   const mappedCount = day.activities.filter((a) => a.coord).length;
   const bookCount = day.activities.filter((a) => a.booking).length;
   const routeUrl = mapsRouteUrl(day);
 
-  const doneCount = day.activities.filter((_, i) => done[`${day.date}-${i}`]).length;
-  const pct = day.activities.length ? Math.round((doneCount / day.activities.length) * 100) : 0;
+  // Activity keys and ordering
+  const defaultKeys = day.activities.map((_, i) => `${day.date}:${i}`);
+  const effectiveKeys: string[] = override?.order?.length ? override.order : defaultKeys;
+  const skippedSet = new Set<string>(override?.skipped ?? []);
+
+  // In view mode hide skipped; in edit mode show all so they can be restored
+  const displayKeys = editMode ? effectiveKeys : effectiveKeys.filter((k) => !skippedSet.has(k));
+
+  const doneKey = (key: string) => key.replace(":", "-");
+  const doneCount = displayKeys.filter((k) => !skippedSet.has(k) && done[doneKey(k)]).length;
+  const visibleCount = displayKeys.filter((k) => !skippedSet.has(k)).length;
+  const pct = visibleCount ? Math.round((doneCount / visibleCount) * 100) : 0;
+
+  // Reorder helpers
+  const moveUp = (idx: number) => {
+    if (idx === 0) return;
+    const next = [...effectiveKeys];
+    [next[idx - 1], next[idx]] = [next[idx], next[idx - 1]];
+    onSetOrder(next);
+  };
+  const moveDown = (idx: number) => {
+    if (idx === effectiveKeys.length - 1) return;
+    const next = [...effectiveKeys];
+    [next[idx], next[idx + 1]] = [next[idx + 1], next[idx]];
+    onSetOrder(next);
+  };
+
+  const submitComment = () => {
+    const text = commentDraft.trim();
+    if (!text) return;
+    setCommentDraft("");
+    onAddComment(text);
+  };
 
   return (
     <motion.div
@@ -87,7 +157,8 @@ function DayCard({
             {mappedCount > 0 && <><span>·</span><span className="text-rose-400/80">{mappedCount} mapped</span></>}
             {bookCount > 0 && <><span>·</span><span className="text-amber-400/90">{bookCount} to book</span></>}
             {day.events && day.events.length > 0 && <><span>·</span><span className="text-violet-300">✨ {day.events.length} live</span></>}
-            {trackMode && doneCount > 0 && <><span>·</span><span className="text-emerald-400">{doneCount}/{day.activities.length} done</span></>}
+            {trackMode && doneCount > 0 && <><span>·</span><span className="text-emerald-400">{doneCount}/{visibleCount} done</span></>}
+            {comments.length > 0 && <><span>·</span><span className="text-indigo-400/80"><MessageCircle size={10} className="inline mr-0.5" />{comments.length}</span></>}
           </div>
         </div>
         <ChevronDown size={20} className={`shrink-0 text-slate-400 transition-transform ${open ? "rotate-180" : ""}`} />
@@ -119,14 +190,30 @@ function DayCard({
                     <Map size={12} /> Route this day in Maps
                   </a>
                 )}
+                {FIREBASE_ENABLED && (
+                  <button
+                    onClick={() => setEditMode((e) => !e)}
+                    className={`inline-flex items-center gap-1.5 rounded-lg px-2.5 py-1.5 text-xs font-semibold border transition-colors ${
+                      editMode
+                        ? "bg-indigo-500/20 border-indigo-500/40 text-indigo-300"
+                        : "bg-white/5 border-white/10 text-slate-400 hover:bg-white/10 hover:text-slate-200"
+                    }`}
+                  >
+                    <Pencil size={12} /> {editMode ? "Done editing" : "Edit plan"}
+                  </button>
+                )}
               </div>
 
               {trackMode && (
                 <div className="mb-4 flex items-center gap-3">
                   <div className="flex-1 h-2 rounded-full bg-white/10 overflow-hidden">
-                    <motion.div className="h-full rounded-full bg-gradient-to-r from-emerald-500 to-teal-400" animate={{ width: `${pct}%` }} transition={{ type: "spring", stiffness: 80, damping: 20 }} />
+                    <motion.div
+                      className="h-full rounded-full bg-gradient-to-r from-emerald-500 to-teal-400"
+                      animate={{ width: `${pct}%` }}
+                      transition={{ type: "spring", stiffness: 80, damping: 20 }}
+                    />
                   </div>
-                  <span className="text-xs font-bold tabular-nums text-emerald-300">{doneCount}/{day.activities.length}</span>
+                  <span className="text-xs font-bold tabular-nums text-emerald-300">{doneCount}/{visibleCount}</span>
                 </div>
               )}
 
@@ -138,15 +225,23 @@ function DayCard({
               )}
 
               <ul className="space-y-3">
-                {day.activities.map((a, i) => {
-                  const key = `${day.date}-${i}`;
-                  const isDone = !!done[key];
+                {displayKeys.map((key, displayIdx) => {
+                  const resolved = resolveActivity(key);
+                  if (!resolved) return null;
+                  const { activity: a, srcDate } = resolved;
+                  const isSkipped = skippedSet.has(key);
+                  const isImported = srcDate !== day.date;
+                  const dk = doneKey(key);
+                  const isDone = !!done[dk];
                   const mapUrl = activityMapUrl(a);
+                  const posInOrder = effectiveKeys.indexOf(key);
+
                   return (
-                    <li key={i} className="flex gap-3">
-                      {trackMode ? (
+                    <li key={key} className={`flex gap-3 ${isSkipped ? "opacity-40" : ""}`}>
+                      {/* Track / time column */}
+                      {trackMode && !isSkipped ? (
                         <button
-                          onClick={() => setDone({ ...done, [key]: !isDone })}
+                          onClick={() => setDone({ ...done, [dk]: !isDone })}
                           className="shrink-0 w-16 flex items-center justify-end gap-1 pt-0.5"
                           aria-label="toggle done"
                         >
@@ -158,16 +253,23 @@ function DayCard({
                       ) : (
                         <span className="shrink-0 w-16 text-right text-xs font-bold text-rose-300/90 pt-0.5 tabular-nums">{a.time}</span>
                       )}
-                      <div className="relative pl-4 border-l border-white/10 pb-0.5 min-w-0">
+
+                      {/* Activity content */}
+                      <div className="relative pl-4 border-l border-white/10 pb-0.5 min-w-0 flex-1">
                         <span className="absolute -left-[5px] top-1.5 w-2.5 h-2.5 rounded-full bg-gradient-to-br from-rose-400 to-fuchsia-500" />
-                        <p className={`font-semibold leading-snug flex items-center gap-2 flex-wrap ${isDone ? "text-slate-500 line-through" : ""}`}>
+                        <p className={`font-semibold leading-snug flex items-center gap-2 flex-wrap ${isDone ? "text-slate-500 line-through" : isSkipped ? "line-through text-slate-500" : ""}`}>
                           {a.title}
-                          {a.booking && (
+                          {isImported && (
+                            <span className="text-[0.6rem] font-bold bg-violet-500/20 text-violet-300 border border-violet-500/30 rounded-full px-1.5 py-0.5">
+                              from {fmtDate(srcDate)}
+                            </span>
+                          )}
+                          {a.booking && !isSkipped && (
                             <span className="inline-flex items-center gap-1 text-[0.65rem] font-bold uppercase tracking-wide bg-amber-500/20 text-amber-300 border border-amber-500/30 rounded-full px-2 py-0.5">
                               <Ticket size={10} /> book ahead
                             </span>
                           )}
-                          {mapUrl && (
+                          {mapUrl && !isSkipped && (
                             <a
                               href={mapUrl} target="_blank" rel="noreferrer"
                               onClick={(e) => e.stopPropagation()}
@@ -178,8 +280,63 @@ function DayCard({
                             </a>
                           )}
                         </p>
-                        {a.note && <p className={`text-sm mt-0.5 ${isDone ? "text-slate-600" : "text-slate-400"}`}>{a.note}</p>}
+                        {a.note && <p className={`text-sm mt-0.5 ${isDone || isSkipped ? "text-slate-600" : "text-slate-400"}`}>{a.note}</p>}
                       </div>
+
+                      {/* Edit controls */}
+                      {editMode && (
+                        <div className="shrink-0 flex flex-col gap-1 items-end pt-0.5" onClick={(e) => e.stopPropagation()}>
+                          <div className="flex gap-1">
+                            <button
+                              type="button"
+                              disabled={posInOrder === 0}
+                              onClick={() => moveUp(displayIdx)}
+                              className="w-6 h-6 rounded flex items-center justify-center bg-white/5 border border-white/10 text-slate-400 hover:bg-white/10 disabled:opacity-20 disabled:cursor-not-allowed"
+                              title="Move up"
+                            >
+                              <ChevronUp size={11} />
+                            </button>
+                            <button
+                              type="button"
+                              disabled={posInOrder === effectiveKeys.length - 1}
+                              onClick={() => moveDown(displayIdx)}
+                              className="w-6 h-6 rounded flex items-center justify-center bg-white/5 border border-white/10 text-slate-400 hover:bg-white/10 disabled:opacity-20 disabled:cursor-not-allowed"
+                              title="Move down"
+                            >
+                              <ChevronDown size={11} />
+                            </button>
+                            <button
+                              type="button"
+                              onClick={() => onSkip(key, !isSkipped)}
+                              className={`w-6 h-6 rounded flex items-center justify-center border transition-colors ${
+                                isSkipped
+                                  ? "bg-emerald-500/15 border-emerald-500/30 text-emerald-400 hover:bg-emerald-500/25"
+                                  : "bg-white/5 border-white/10 text-slate-400 hover:bg-rose-500/10 hover:border-rose-500/20 hover:text-rose-400"
+                              }`}
+                              title={isSkipped ? "Restore" : "Skip"}
+                            >
+                              {isSkipped ? <Eye size={11} /> : <EyeOff size={11} />}
+                            </button>
+                          </div>
+                          <select
+                            value=""
+                            onChange={(e) => { if (e.target.value) onMove(key, e.target.value); }}
+                            className="text-[0.6rem] bg-white/5 border border-white/10 rounded px-1 py-0.5 text-slate-400 cursor-pointer max-w-[110px]"
+                          >
+                            <option value="">Move to day →</option>
+                            {allDays
+                              .filter((d) => d.date !== day.date)
+                              .map((d) => {
+                                const n = allDays.indexOf(d) + 1;
+                                return (
+                                  <option key={d.date} value={d.date}>
+                                    Day {n} · {d.city} {d.date.slice(5)}
+                                  </option>
+                                );
+                              })}
+                          </select>
+                        </div>
+                      )}
                     </li>
                   );
                 })}
@@ -259,6 +416,55 @@ function DayCard({
                     </ul>
                   </Collapse>
                 )}
+
+                {/* Day comments */}
+                {FIREBASE_ENABLED && (
+                  <div className="rounded-xl bg-indigo-500/[0.07] border border-indigo-500/20 px-4 py-3">
+                    <p className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-indigo-300 mb-3">
+                      <MessageCircle size={13} />
+                      Day notes
+                      {comments.length > 0 && (
+                        <span className="text-[0.62rem] font-bold bg-white/10 text-slate-200 rounded-full px-1.5 py-0.5 tabular-nums">{comments.length}</span>
+                      )}
+                    </p>
+                    {comments.length > 0 && (
+                      <div className="mb-3 space-y-2">
+                        {comments.map((c) => (
+                          <div key={c.id} className="flex gap-2.5 items-start">
+                            <div className="w-5 h-5 rounded-full shrink-0 bg-white/10 flex items-center justify-center text-[0.5rem] font-bold text-slate-400">
+                              {c.author.slice(0, 2).toUpperCase()}
+                            </div>
+                            <div className="min-w-0">
+                              <span className="text-xs font-bold text-slate-400">{c.author}</span>
+                              <span className="text-[0.6rem] text-slate-600 ml-2">{fmtCommentAt(c.at)}</span>
+                              <p className="text-sm text-slate-300 mt-0.5 leading-snug">{c.text}</p>
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    )}
+                    <div className="flex gap-2">
+                      <input
+                        type="text"
+                        value={commentDraft}
+                        onChange={(e) => setCommentDraft(e.target.value)}
+                        onKeyDown={(e) => { if (e.key === "Enter" && !e.shiftKey) { e.preventDefault(); submitComment(); } }}
+                        placeholder={myName ? "Add a note for this day…" : "Pick a name to comment"}
+                        disabled={!myName}
+                        className="flex-1 bg-white/5 border border-white/10 rounded-lg px-3 py-1.5 text-sm text-slate-100 placeholder-slate-600 focus:outline-none focus:border-indigo-500/40 disabled:opacity-40 min-w-0"
+                      />
+                      <button
+                        type="button"
+                        onClick={submitComment}
+                        disabled={!commentDraft.trim() || !myName}
+                        aria-label="Post note"
+                        className="shrink-0 w-8 h-8 rounded-lg bg-indigo-500/20 border border-indigo-500/30 text-indigo-300 hover:bg-indigo-500/30 transition-colors flex items-center justify-center disabled:opacity-30 disabled:cursor-not-allowed"
+                      >
+                        <Send size={13} />
+                      </button>
+                    </div>
+                  </div>
+                )}
               </div>
             </div>
           </motion.div>
@@ -273,6 +479,10 @@ export function Itinerary() {
   const [trackMode, setTrackMode] = useLocalStorage("itinerary-track-mode", false);
   const [done, setDone] = useLocalStorage<Record<string, boolean>>("itinerary-done", {});
 
+  const { forDate, add: addComment } = useDayComments();
+  const { overrides, skip, setOrder, moveActivity } = useItineraryOverrides();
+  const myName = getIdentityName();
+
   const totalDone = useMemo(() => Object.values(done).filter(Boolean).length, [done]);
 
   const expandAll = () => setOpenMap(Object.fromEntries(DAYS.map((_, i) => [i, true])));
@@ -282,6 +492,15 @@ export function Itinerary() {
     requestAnimationFrame(() =>
       document.getElementById(`day-${i}`)?.scrollIntoView({ behavior: "smooth", block: "start" }),
     );
+  };
+
+  const handleMove = (key: string, fromDate: string, toDate: string) => {
+    const toDay = DAYS.find((d) => d.date === toDate);
+    if (!toDay) return;
+    const toDefaultOrder = toDay.activities.map((_, i) => `${toDate}:${i}`);
+    const toCurrentOrder = overrides[toDate]?.order?.length ? overrides[toDate].order : toDefaultOrder;
+    const newToOrder = [...toCurrentOrder.filter((k) => k !== key), key];
+    moveActivity(key, fromDate, toDate, newToOrder);
   };
 
   useEffect(() => {
@@ -345,6 +564,14 @@ export function Itinerary() {
             trackMode={trackMode}
             done={done}
             setDone={setDone}
+            override={overrides[d.date]}
+            comments={forDate(d.date)}
+            myName={myName}
+            allDays={DAYS}
+            onSkip={(key, val) => skip(d.date, key, val)}
+            onSetOrder={(order) => setOrder(d.date, order)}
+            onMove={(key, toDate) => handleMove(key, d.date, toDate)}
+            onAddComment={(text) => { if (myName) addComment(d.date, myName, text); }}
           />
         ))}
       </div>
