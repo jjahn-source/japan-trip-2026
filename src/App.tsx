@@ -25,8 +25,18 @@ const GuideView = lazy(() => import("./components/GuideView").then((m) => ({ def
 const ShopView = lazy(() => import("./components/ShopView").then((m) => ({ default: m.ShopView })));
 const SearchOverlay = lazy(() => import("./components/SearchOverlay").then((m) => ({ default: m.SearchOverlay })));
 
+type ExploreTab = "sights" | "night" | "play" | "shop";
+
+const EXPLORE_TABS: { id: ExploreTab; label: string; emoji: string }[] = [
+  { id: "sights", label: "Sights", emoji: "⛩️" },
+  { id: "night",  label: "Night",  emoji: "🌙" },
+  { id: "play",   label: "Play",   emoji: "🕹️" },
+  { id: "shop",   label: "Shop",   emoji: "🛍️" },
+];
+
 export default function App() {
   const [view, setView] = useHashView();
+  const [exploreTab, setExploreTab] = useState<ExploreTab>("sights");
   const [searchOpen, setSearchOpen] = useState(false);
   const [resetIdentity, setResetIdentity] = useState(false);
   const { name, chooseName } = useIdentity();
@@ -61,6 +71,11 @@ export default function App() {
     setResetIdentity(false);
   };
 
+  const switchExploreTab = (tab: ExploreTab) => {
+    setExploreTab(tab);
+    window.scrollTo({ top: 0 });
+  };
+
   return (
     <>
       <IdentityModal
@@ -93,20 +108,37 @@ export default function App() {
             <CurrencyCalc />
           </>
         )}
-        {view !== "plan" && (
-          <Suspense
-            fallback={
-              <div className="section-pad py-24 pt-32 text-center text-slate-400">Loading…</div>
-            }
-          >
-            {view === "explore" && (
-              <>
-                <Explore />
-                <NightView />
-                <PlayView />
-                <ShopView />
-              </>
-            )}
+        {view === "explore" && (
+          <>
+            <div className="sticky top-[68px] z-40 bg-[#09090f]/90 backdrop-blur-xl border-b border-white/8">
+              <div className="section-pad flex gap-1 py-2">
+                {EXPLORE_TABS.map((t) => (
+                  <button
+                    key={t.id}
+                    type="button"
+                    onClick={() => switchExploreTab(t.id)}
+                    className={`flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold transition-colors whitespace-nowrap ${
+                      exploreTab === t.id
+                        ? "bg-rose-500 text-white shadow-sm shadow-rose-500/30"
+                        : "text-slate-400 hover:text-white hover:bg-white/10"
+                    }`}
+                  >
+                    <span>{t.emoji}</span>
+                    {t.label}
+                  </button>
+                ))}
+              </div>
+            </div>
+            <Suspense fallback={<div className="section-pad py-24 pt-32 text-center text-slate-400">Loading…</div>}>
+              {exploreTab === "sights" && <Explore />}
+              {exploreTab === "night" && <NightView />}
+              {exploreTab === "play" && <PlayView />}
+              {exploreTab === "shop" && <ShopView />}
+            </Suspense>
+          </>
+        )}
+        {view !== "plan" && view !== "explore" && (
+          <Suspense fallback={<div className="section-pad py-24 pt-32 text-center text-slate-400">Loading…</div>}>
             {view === "eat" && <EatView />}
             {view === "guide" && <GuideView />}
           </Suspense>
