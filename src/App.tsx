@@ -20,6 +20,7 @@ import { lazy, Suspense, useEffect, useState } from "react";
 const Explore = lazy(() => import("./components/Explore").then((m) => ({ default: m.Explore })));
 const EatView = lazy(() => import("./components/EatView").then((m) => ({ default: m.EatView })));
 const NightView = lazy(() => import("./components/NightView").then((m) => ({ default: m.NightView })));
+const PlayView = lazy(() => import("./components/PlayView").then((m) => ({ default: m.PlayView })));
 const GuideView = lazy(() => import("./components/GuideView").then((m) => ({ default: m.GuideView })));
 const ShopView = lazy(() => import("./components/ShopView").then((m) => ({ default: m.ShopView })));
 const SearchOverlay = lazy(() => import("./components/SearchOverlay").then((m) => ({ default: m.SearchOverlay })));
@@ -102,6 +103,7 @@ export default function App() {
               <>
                 <Explore />
                 <NightView />
+                <PlayView />
                 <ShopView />
               </>
             )}

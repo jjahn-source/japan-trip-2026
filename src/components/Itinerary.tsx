@@ -13,6 +13,7 @@ import { Collapse } from "./ui/Collapse";
 import { useLocalStorage } from "../hooks/useLocalStorage";
 import { useDayComments, type DayComment } from "../hooks/useDayComments";
 import { useItineraryOverrides, type DayOverride } from "../hooks/useItineraryOverrides";
+import { useActivityVotes } from "../hooks/useActivityVotes";
 import { getIdentityName } from "../hooks/useIdentity";
 import { FIREBASE_ENABLED } from "../lib/firebase";
 import {
@@ -67,7 +68,7 @@ function TopButton({ onClick, children }: { onClick: () => void; children: React
 function DayCard({
   day, index, open, onToggle, trackMode, done, setDone,
   override, comments, myName,
-  onSkip, onAddComment,
+  onSkip, onAddComment, getVoters, onVoteToggle,
 }: {
   day: Day;
   index: number;
@@ -81,6 +82,8 @@ function DayCard({
   myName: string | null;
   onSkip: (key: string, val: boolean) => void;
   onAddComment: (text: string) => void;
+  getVoters: (key: string) => string[];
+  onVoteToggle: (key: string) => void;
 }) {
   const [editMode, setEditMode] = useState(false);
   const [commentDraft, setCommentDraft] = useState("");
@@ -218,8 +221,11 @@ function DayCard({
                   const isDone = !!done[dk];
                   const mapUrl = activityMapUrl(a);
 
+                  const voters = getVoters(key);
+                  const myVoted = myName ? voters.includes(myName) : false;
+
                   return (
-                    <li key={key} className={`flex gap-3 ${isSkipped ? "opacity-40" : ""}`}>
+                    <li key={key} className={`flex gap-3 items-start ${isSkipped ? "opacity-40" : ""}`}>
                       {/* Track / time column */}
                       {trackMode && !isSkipped ? (
                         <button
@@ -264,6 +270,25 @@ function DayCard({
                         </p>
                         {a.note && <p className={`text-sm mt-0.5 ${isDone || isSkipped ? "text-slate-600" : "text-slate-400"}`}>{a.note}</p>}
                       </div>
+
+                      {/* Activity vote */}
+                      {FIREBASE_ENABLED && !isSkipped && (
+                        <button
+                          type="button"
+                          onClick={(e) => { e.stopPropagation(); onVoteToggle(key); }}
+                          disabled={!myName}
+                          title={voters.length ? voters.join(", ") : myName ? "Tap to join" : "Pick a name to vote"}
+                          className={`shrink-0 flex items-center gap-1 rounded-full px-1.5 py-0.5 text-[0.6rem] font-bold border transition-colors disabled:cursor-not-allowed mt-0.5 ${
+                            myVoted
+                              ? "bg-rose-500/20 border-rose-500/30 text-rose-300 hover:bg-rose-500/30"
+                              : voters.length > 0
+                                ? "bg-white/8 border-white/12 text-slate-400 hover:bg-white/12"
+                                : "border-transparent text-slate-700 hover:border-white/10 hover:text-slate-500"
+                          }`}
+                        >
+                          👍{voters.length > 0 && <span>{voters.length}</span>}
+                        </button>
+                      )}
 
                       {/* Skip toggle in edit mode */}
                       {editMode && (
@@ -424,6 +449,7 @@ export function Itinerary() {
 
   const { forDate, add: addComment } = useDayComments();
   const { overrides, skip } = useItineraryOverrides();
+  const { getVoters, toggle: toggleVote } = useActivityVotes();
   const myName = getIdentityName();
 
   const totalDone = useMemo(() => Object.values(done).filter(Boolean).length, [done]);
@@ -503,6 +529,8 @@ export function Itinerary() {
             myName={myName}
             onSkip={(key, val) => skip(d.date, key, val)}
             onAddComment={(text) => { if (myName) addComment(d.date, myName, text); }}
+            getVoters={getVoters}
+            onVoteToggle={(key) => { if (myName) toggleVote(key, myName); }}
           />
         ))}
       </div>

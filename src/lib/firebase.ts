@@ -24,7 +24,7 @@ export async function initTripDoc(): Promise<void> {
   try {
     const snap = await getDoc(_tripDoc);
     if (!snap.exists()) {
-      await setDoc(_tripDoc, { bookings: {}, crew: {}, stayVotes: {}, overrides: {}, splits: {} });
+      await setDoc(_tripDoc, { bookings: {}, crew: {}, stayVotes: {}, overrides: {}, splits: {}, activityVotes: {} });
     }
   } catch {
     // offline or rules not configured — silently degrade
