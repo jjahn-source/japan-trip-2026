@@ -6,7 +6,12 @@ import { Bookings } from "./components/Bookings";
 import { StayView } from "./components/StayView";
 import { CurrencyCalc } from "./components/CurrencyCalc";
 import { Footer } from "./components/Footer";
+import { PreTripPhases } from "./components/PreTripPhases";
+import { CrewBoard } from "./components/CrewBoard";
+import { IdentityModal } from "./components/IdentityModal";
 import { useHashView, type View } from "./hooks/useHashView";
+import { useIdentity } from "./hooks/useIdentity";
+import { initTripDoc, FIREBASE_ENABLED } from "./lib/firebase";
 import { scrollToAnchor } from "./utils/nav";
 import { lazy, Suspense, useEffect, useState } from "react";
 
@@ -20,6 +25,12 @@ const SearchOverlay = lazy(() => import("./components/SearchOverlay").then((m) =
 export default function App() {
   const [view, setView] = useHashView();
   const [searchOpen, setSearchOpen] = useState(false);
+  const [resetIdentity, setResetIdentity] = useState(false);
+  const { name, chooseName } = useIdentity();
+
+  useEffect(() => {
+    if (FIREBASE_ENABLED) initTripDoc();
+  }, []);
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
@@ -42,9 +53,24 @@ export default function App() {
     scrollToAnchor(anchor);
   };
 
+  const handleChooseName = (n: Parameters<typeof chooseName>[0]) => {
+    chooseName(n);
+    setResetIdentity(false);
+  };
+
   return (
     <>
-      <Nav view={view} setView={setView} onOpenSearch={() => setSearchOpen(true)} />
+      <IdentityModal
+        open={FIREBASE_ENABLED && (name === null || resetIdentity)}
+        onChoose={handleChooseName}
+      />
+      <Nav
+        view={view}
+        setView={setView}
+        onOpenSearch={() => setSearchOpen(true)}
+        identityName={name}
+        onChangeIdentity={() => setResetIdentity(true)}
+      />
       {searchOpen && (
         <Suspense fallback={null}>
           <SearchOverlay onClose={() => setSearchOpen(false)} onNavigate={navigateTo} />
@@ -54,6 +80,8 @@ export default function App() {
         {view === "plan" && (
           <>
             <TodayBanner />
+            <PreTripPhases />
+            <CrewBoard myName={name} />
             <Itinerary />
             <Bookings />
             <StayView />

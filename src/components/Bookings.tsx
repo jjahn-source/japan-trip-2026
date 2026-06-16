@@ -3,7 +3,8 @@ import { motion } from "motion/react";
 import { ExternalLink, CheckCircle2, Circle, AlarmClock, CalendarPlus } from "lucide-react";
 import { BOOKINGS } from "../data/bookings";
 import { SectionHeading } from "./SectionHeading";
-import { useLocalStorage } from "../hooks/useLocalStorage";
+import { useBookingsSync } from "../hooks/useBookingsSync";
+import { FIREBASE_ENABLED } from "../lib/firebase";
 import { buildBookingsICS, downloadICS } from "../utils/itineraryTools";
 
 const PRIORITY_STYLES: Record<string, string> = {
@@ -24,20 +25,27 @@ function bucket(d: number, done: boolean): { border: string; label: string } {
   return { border: "border-l-white/15", label: "" };
 }
 
-export function Bookings() {
-  const [done, setDone] = useLocalStorage<Record<string, boolean>>("bookings-done", {});
+function fmtAt(iso: string | null): string {
+  if (!iso) return "";
+  const d = new Date(iso);
+  return d.toLocaleDateString("en-US", { month: "short", day: "numeric" });
+}
 
-  const completed = BOOKINGS.filter((b) => done[b.id]).length;
-  const dueSoon = BOOKINGS.filter((b) => !done[b.id] && daysUntil(b.deadline) <= 14).length;
+export function Bookings() {
+  const { isDone, whoBy, whenAt, toggle } = useBookingsSync();
+
+  const completed = BOOKINGS.filter((b) => isDone(b.id)).length;
+  const dueSoon = BOOKINGS.filter((b) => !isDone(b.id) && daysUntil(b.deadline) <= 14).length;
 
   const ordered = useMemo(
     () =>
       [...BOOKINGS].sort((a, b) => {
-        const ad = !!done[a.id], bd = !!done[b.id];
+        const ad = isDone(a.id), bd = isDone(b.id);
         if (ad !== bd) return ad ? 1 : -1;
         return daysUntil(a.deadline) - daysUntil(b.deadline);
       }),
-    [done],
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [isDone],
   );
 
   return (
@@ -45,7 +53,7 @@ export function Bookings() {
       <SectionHeading
         kicker="Mission Critical"
         title="Booking War Room"
-        sub={`Japan in December rewards the prepared. ${completed}/${BOOKINGS.length} locked in · ${dueSoon} due within 14 days — soonest deadline first, checkmarks save automatically.`}
+        sub={`Japan in December rewards the prepared. ${completed}/${BOOKINGS.length} locked in · ${dueSoon} due within 14 days — soonest deadline first${FIREBASE_ENABLED ? ", synced live" : ", saves locally"}.`}
       />
 
       <div className="glass rounded-2xl p-3 mb-6 flex items-center gap-2">
@@ -60,9 +68,11 @@ export function Bookings() {
 
       <div className="grid gap-4 md:grid-cols-2">
         {ordered.map((b, i) => {
-          const isDone = !!done[b.id];
+          const done = isDone(b.id);
+          const by = whoBy(b.id);
+          const at = whenAt(b.id);
           const d = daysUntil(b.deadline);
-          const bk = bucket(d, isDone);
+          const bk = bucket(d, done);
           return (
             <motion.div
               key={b.id}
@@ -70,27 +80,33 @@ export function Bookings() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-40px" }}
               transition={{ duration: 0.35, delay: (i % 2) * 0.06 }}
-              className={`glass rounded-2xl p-5 border-l-4 ${bk.border} transition-opacity ${isDone ? "opacity-50" : ""}`}
+              className={`glass rounded-2xl p-5 border-l-4 ${bk.border} transition-opacity ${done ? "opacity-50" : ""}`}
             >
               <div className="flex items-start justify-between gap-3">
                 <button
                   type="button"
-                  onClick={() => setDone({ ...done, [b.id]: !isDone })}
+                  onClick={() => toggle(b.id)}
                   className="flex items-start gap-3 text-left group"
                 >
-                  {isDone ? (
+                  {done ? (
                     <CheckCircle2 size={22} className="text-emerald-400 shrink-0 mt-0.5" />
                   ) : (
                     <Circle size={22} className="text-slate-500 group-hover:text-slate-300 shrink-0 mt-0.5" />
                   )}
-                  <span className={`font-bold leading-snug ${isDone ? "line-through" : ""}`}>{b.what}</span>
+                  <span className={`font-bold leading-snug ${done ? "line-through" : ""}`}>{b.what}</span>
                 </button>
                 <span className={`shrink-0 text-[0.65rem] font-bold uppercase tracking-wide border rounded-full px-2.5 py-1 ${PRIORITY_STYLES[b.priority]}`}>
                   {b.priority}
                 </span>
               </div>
 
-              {!isDone && bk.label && (
+              {done && by && (
+                <p className="mt-2 text-xs text-emerald-400/80">
+                  ✓ {by}{at ? ` · ${fmtAt(at)}` : ""}
+                </p>
+              )}
+
+              {!done && bk.label && (
                 <div className="mt-3">
                   <span className="text-[0.62rem] font-bold text-slate-400">{bk.label}</span>
                 </div>
@@ -99,8 +115,8 @@ export function Bookings() {
               <div className="mt-2 flex items-center gap-2 text-sm font-semibold text-rose-300">
                 <AlarmClock size={15} />
                 <span>{b.when}</span>
-                {!isDone && d >= 0 && <span className="text-slate-500 font-normal">· {d} days left</span>}
-                {!isDone && d < 0 && <span className="text-red-400 font-normal">· {Math.abs(d)} days overdue</span>}
+                {!done && d >= 0 && <span className="text-slate-500 font-normal">· {d} days left</span>}
+                {!done && d < 0 && <span className="text-red-400 font-normal">· {Math.abs(d)} days overdue</span>}
               </div>
               <p className="mt-2 text-sm text-slate-400 leading-relaxed">{b.detail}</p>
               {b.url && (

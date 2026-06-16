@@ -8,7 +8,24 @@ const TABS: { view: View; label: string; emoji: string }[] = [
   { view: "guide", label: "Guide", emoji: "🧭" },
 ];
 
-export function Nav({ view, setView, onOpenSearch }: { view: View; setView: (v: View) => void; onOpenSearch: () => void }) {
+const INITIALS: Record<string, string> = {
+  JJ: "JJ", Ethan: "ET", Steven: "SV", Alex: "AL",
+  Charlie: "CH", Kaishun: "KS", Daniel: "DA", Junha: "JH",
+};
+
+export function Nav({
+  view,
+  setView,
+  onOpenSearch,
+  identityName,
+  onChangeIdentity,
+}: {
+  view: View;
+  setView: (v: View) => void;
+  onOpenSearch: () => void;
+  identityName?: string | null;
+  onChangeIdentity?: () => void;
+}) {
   return (
     <header className="fixed top-0 inset-x-0 z-50 px-3 pt-[env(safe-area-inset-top)]">
       <nav className="glass mx-auto mt-3 max-w-6xl rounded-2xl px-3 sm:px-5 py-2.5 sm:py-3 flex items-center justify-between gap-2 sm:gap-3">
@@ -19,7 +36,7 @@ export function Nav({ view, setView, onOpenSearch }: { view: View; setView: (v: 
         >
           <span className="text-xl">⛩️</span>
           <span className="hidden sm:inline">
-            Japan <span className="text-rose-400">’26</span>
+            Japan <span className="text-rose-400">'26</span>
           </span>
         </button>
 
@@ -53,9 +70,21 @@ export function Nav({ view, setView, onOpenSearch }: { view: View; setView: (v: 
             <span className="hidden md:inline text-slate-400">Search</span>
             <kbd className="hidden lg:inline text-[0.6rem] font-sans text-slate-500 border border-white/15 rounded px-1">⌘K</kbd>
           </button>
-          <span className="hidden xl:inline-flex shrink-0 px-3 py-1.5 rounded-lg text-xs font-bold bg-rose-500/20 text-rose-300 border border-rose-500/30">
-            DEC 14–29 · 8人
-          </span>
+
+          {identityName ? (
+            <button
+              type="button"
+              onClick={onChangeIdentity}
+              title="Change identity"
+              className="w-7 h-7 rounded-full bg-rose-500/30 border border-rose-500/40 flex items-center justify-center text-[0.6rem] font-bold text-rose-200 hover:bg-rose-500/50 transition-colors"
+            >
+              {INITIALS[identityName] ?? identityName.slice(0, 2).toUpperCase()}
+            </button>
+          ) : (
+            <span className="hidden xl:inline-flex shrink-0 px-3 py-1.5 rounded-lg text-xs font-bold bg-rose-500/20 text-rose-300 border border-rose-500/30">
+              DEC 14–29 · 8人
+            </span>
+          )}
         </div>
       </nav>
     </header>

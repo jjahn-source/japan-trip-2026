@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@types/leaflet": "^1.9.21",
+    "firebase": "^12.14.0",
     "leaflet": "^1.9.4",
     "lucide-react": "^0.515.0",
     "motion": "^12.18.1",

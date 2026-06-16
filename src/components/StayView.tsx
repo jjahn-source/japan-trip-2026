@@ -1,12 +1,34 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { ExternalLink, ChevronDown, ChevronUp } from "lucide-react";
+import { ExternalLink, ChevronDown, ChevronUp, ThumbsUp } from "lucide-react";
 import { STAY_LEGS, COMBO_NOTES, GROUP, BUDGET_CAP_PP, FX_NOTE } from "../data/stays";
 import { SectionHeading } from "./SectionHeading";
+import { useStayVotes } from "../hooks/useStayVotes";
+import { getIdentityName } from "../hooks/useIdentity";
+import { FIREBASE_ENABLED } from "../lib/firebase";
 import type { StayOption } from "../data/stays";
 
-function OptionCard({ opt, isDefault }: { opt: StayOption; isDefault: boolean }) {
+const CREW_INITIALS: Record<string, string> = {
+  JJ: "JJ", Ethan: "ET", Steven: "SV", Alex: "AL",
+  Charlie: "CH", Kaishun: "KS", Daniel: "DA", Junha: "JH",
+};
+
+function OptionCard({
+  opt,
+  isDefault,
+  votes,
+  myName,
+  onVote,
+}: {
+  opt: StayOption;
+  isDefault: boolean;
+  votes: string[];
+  myName: string | null;
+  onVote: () => void;
+}) {
   const ppCost = Math.round(opt.totalUSD / GROUP);
+  const voted = myName ? votes.includes(myName) : false;
+
   return (
     <div
       className={`glass rounded-xl p-4 border ${
@@ -48,20 +70,60 @@ function OptionCard({ opt, isDefault }: { opt: StayOption; isDefault: boolean })
 
       <p className="text-xs text-slate-500 italic mb-3">{opt.note}</p>
 
-      <a
-        href={opt.url}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="inline-flex items-center gap-1.5 text-xs font-semibold text-indigo-300 hover:text-indigo-200 transition-colors"
-      >
-        View on Airbnb <ExternalLink size={12} />
-      </a>
+      <div className="flex items-center justify-between gap-3">
+        <a
+          href={opt.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-1.5 text-xs font-semibold text-indigo-300 hover:text-indigo-200 transition-colors"
+        >
+          View on Airbnb <ExternalLink size={12} />
+        </a>
+
+        {FIREBASE_ENABLED && (
+          <div className="flex items-center gap-2">
+            {votes.length > 0 && (
+              <div className="flex items-center gap-0.5">
+                {votes.slice(0, 4).map((v) => (
+                  <span
+                    key={v}
+                    className="w-5 h-5 rounded-full bg-white/10 flex items-center justify-center text-[0.5rem] font-bold text-slate-300"
+                    title={v}
+                  >
+                    {CREW_INITIALS[v] ?? v.slice(0, 2)}
+                  </span>
+                ))}
+                {votes.length > 4 && (
+                  <span className="text-[0.6rem] text-slate-500 ml-0.5">+{votes.length - 4}</span>
+                )}
+              </div>
+            )}
+            {myName && (
+              <button
+                type="button"
+                onClick={onVote}
+                className={`inline-flex items-center gap-1 text-[0.65rem] font-semibold rounded-full px-2 py-1 border transition-colors ${
+                  voted
+                    ? "bg-rose-500/20 border-rose-500/40 text-rose-300"
+                    : "bg-white/5 border-white/10 text-slate-400 hover:bg-rose-500/10 hover:border-rose-500/20 hover:text-rose-400"
+                }`}
+                aria-label={voted ? "Remove vote" : "Vote for this place"}
+              >
+                <ThumbsUp size={10} />
+                {voted ? "Voted" : "Vote"}
+              </button>
+            )}
+          </div>
+        )}
+      </div>
     </div>
   );
 }
 
 export function StayView() {
   const [expanded, setExpanded] = useState<Record<string, boolean>>({});
+  const { getVotes, toggle } = useStayVotes();
+  const myName = getIdentityName();
 
   return (
     <section id="stays" className="section-pad py-24">
@@ -107,7 +169,13 @@ export function StayView() {
               </div>
               <p className="text-sm text-slate-400 mb-5 max-w-2xl">{leg.brief}</p>
 
-              <OptionCard opt={defaultOpt} isDefault />
+              <OptionCard
+                opt={defaultOpt}
+                isDefault
+                votes={getVotes(leg.id, defaultOpt.id)}
+                myName={myName}
+                onVote={() => myName && toggle(leg.id, defaultOpt.id, myName)}
+              />
 
               <button
                 type="button"
@@ -129,7 +197,14 @@ export function StayView() {
                   >
                     <div className="grid gap-3 mt-3 sm:grid-cols-2">
                       {otherOpts.map((opt) => (
-                        <OptionCard key={opt.id} opt={opt} isDefault={false} />
+                        <OptionCard
+                          key={opt.id}
+                          opt={opt}
+                          isDefault={false}
+                          votes={getVotes(leg.id, opt.id)}
+                          myName={myName}
+                          onVote={() => myName && toggle(leg.id, opt.id, myName)}
+                        />
                       ))}
                     </div>
                   </motion.div>
