@@ -1,7 +1,13 @@
 import { useEffect, useMemo, useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import {
-  ChevronDown, Train, Ticket,
+  DndContext, DragOverlay, PointerSensor, closestCenter, useDroppable, useSensor, useSensors,
+  type DragEndEvent,
+} from "@dnd-kit/core";
+import { SortableContext, useSortable, verticalListSortingStrategy } from "@dnd-kit/sortable";
+import { CSS } from "@dnd-kit/utilities";
+import {
+  ChevronDown, ChevronUp, ChevronLeft, ChevronRight, Train, Ticket, GripVertical,
   CalendarPlus, Map, MapPin, ListChecks, ChevronsDownUp, ChevronsUpDown,
   CheckCircle2, Circle, Sparkles, AlertTriangle, Dices,
   Eye, EyeOff, Pencil, Send, MessageCircle,
@@ -65,10 +71,186 @@ function TopButton({ onClick, children }: { onClick: () => void; children: React
   );
 }
 
+function ActivityRow({
+  activityKey, activity, srcDate, isSkipped, isImported, trackMode, isDone, onToggleDone,
+  voters, myVoted, myName, onVoteToggle, editMode, onSkipToggle,
+  canMoveUp, canMoveDown, onMoveUp, onMoveDown,
+  canMovePrevDay, canMoveNextDay, onMovePrevDay, onMoveNextDay,
+}: {
+  activityKey: string;
+  activity: Activity;
+  srcDate: string;
+  isSkipped: boolean;
+  isImported: boolean;
+  trackMode: boolean;
+  isDone: boolean;
+  onToggleDone: () => void;
+  voters: string[];
+  myVoted: boolean;
+  myName: string | null;
+  onVoteToggle: () => void;
+  editMode: boolean;
+  onSkipToggle: () => void;
+  canMoveUp: boolean;
+  canMoveDown: boolean;
+  onMoveUp: () => void;
+  onMoveDown: () => void;
+  canMovePrevDay: boolean;
+  canMoveNextDay: boolean;
+  onMovePrevDay: () => void;
+  onMoveNextDay: () => void;
+}) {
+  const { attributes, listeners, setNodeRef, transform, transition, isDragging } = useSortable({ id: activityKey });
+  const mapUrl = activityMapUrl(activity);
+
+  return (
+    <li
+      ref={setNodeRef}
+      style={{ transform: CSS.Transform.toString(transform), transition, opacity: isDragging ? 0.3 : 1 }}
+      className={`flex gap-3 items-start ${isSkipped ? "opacity-40" : ""}`}
+    >
+      {/* Track / time column */}
+      {trackMode && !isSkipped ? (
+        <button
+          onClick={onToggleDone}
+          className="shrink-0 w-16 flex items-center justify-end gap-1 pt-0.5"
+          aria-label="toggle done"
+        >
+          {isDone
+            ? <CheckCircle2 size={15} className="text-emerald-400" />
+            : <Circle size={15} className="text-slate-600 hover:text-slate-400" />}
+          <span className={`text-xs font-bold tabular-nums ${isDone ? "text-emerald-400/70 line-through" : "text-rose-300/90"}`}>{activity.time}</span>
+        </button>
+      ) : (
+        <span className="shrink-0 w-16 text-right text-xs font-bold text-rose-300/90 pt-0.5 tabular-nums">{activity.time}</span>
+      )}
+
+      {/* Activity content */}
+      <div className="relative pl-4 border-l border-white/10 pb-0.5 min-w-0 flex-1">
+        <span className="absolute -left-[5px] top-1.5 w-2.5 h-2.5 rounded-full bg-gradient-to-br from-rose-400 to-fuchsia-500" />
+        <p className={`font-semibold leading-snug flex items-center gap-2 flex-wrap ${isDone ? "text-slate-500 line-through" : isSkipped ? "line-through text-slate-500" : ""}`}>
+          {activity.title}
+          {isImported && (
+            <span className="text-[0.6rem] font-bold bg-violet-500/20 text-violet-300 border border-violet-500/30 rounded-full px-1.5 py-0.5">
+              from {fmtDate(srcDate)}
+            </span>
+          )}
+          {activity.booking && !isSkipped && (
+            <span className="inline-flex items-center gap-1 text-[0.65rem] font-bold uppercase tracking-wide bg-amber-500/20 text-amber-300 border border-amber-500/30 rounded-full px-2 py-0.5">
+              <Ticket size={10} /> book ahead
+            </span>
+          )}
+          {mapUrl && !isSkipped && (
+            <a
+              href={mapUrl} target="_blank" rel="noreferrer"
+              onClick={(e) => e.stopPropagation()}
+              className="inline-flex items-center gap-0.5 text-[0.65rem] font-semibold text-sky-400/80 hover:text-sky-300"
+              title={activity.place ?? "Open in Google Maps"}
+            >
+              <MapPin size={10} /> map
+            </a>
+          )}
+        </p>
+        {activity.note && <p className={`text-sm mt-0.5 ${isDone || isSkipped ? "text-slate-600" : "text-slate-400"}`}>{activity.note}</p>}
+      </div>
+
+      {/* Activity vote */}
+      {FIREBASE_ENABLED && !isSkipped && (
+        <button
+          type="button"
+          onClick={(e) => { e.stopPropagation(); onVoteToggle(); }}
+          disabled={!myName}
+          title={voters.length ? voters.join(", ") : myName ? "Tap to join" : "Pick a name to vote"}
+          className={`shrink-0 flex items-center gap-1 rounded-full px-1.5 py-0.5 text-[0.6rem] font-bold border transition-colors disabled:cursor-not-allowed mt-0.5 ${
+            myVoted
+              ? "bg-rose-500/20 border-rose-500/30 text-rose-300 hover:bg-rose-500/30"
+              : voters.length > 0
+                ? "bg-white/8 border-white/12 text-slate-400 hover:bg-white/12"
+                : "border-transparent text-slate-700 hover:border-white/10 hover:text-slate-500"
+          }`}
+        >
+          👍{voters.length > 0 && <span>{voters.length}</span>}
+        </button>
+      )}
+
+      {/* Reorder / move controls in edit mode */}
+      {editMode && (
+        <div className="shrink-0 flex items-center gap-0.5 mt-0.5">
+          <div className="flex flex-col">
+            <button
+              type="button"
+              onClick={(e) => { e.stopPropagation(); onMoveUp(); }}
+              disabled={!canMoveUp}
+              title="Move up"
+              className="w-5 h-3.5 flex items-center justify-center rounded-t bg-white/5 border border-white/10 border-b-0 text-slate-500 hover:bg-white/10 hover:text-slate-200 disabled:opacity-20"
+            >
+              <ChevronUp size={10} />
+            </button>
+            <button
+              type="button"
+              onClick={(e) => { e.stopPropagation(); onMoveDown(); }}
+              disabled={!canMoveDown}
+              title="Move down"
+              className="w-5 h-3.5 flex items-center justify-center rounded-b bg-white/5 border border-white/10 text-slate-500 hover:bg-white/10 hover:text-slate-200 disabled:opacity-20"
+            >
+              <ChevronDown size={10} />
+            </button>
+          </div>
+          {canMovePrevDay && (
+            <button
+              type="button"
+              onClick={(e) => { e.stopPropagation(); onMovePrevDay(); }}
+              title="Move to previous day"
+              className="w-5 h-7 flex items-center justify-center rounded bg-white/5 border border-white/10 text-slate-500 hover:bg-indigo-500/15 hover:border-indigo-500/30 hover:text-indigo-300"
+            >
+              <ChevronLeft size={12} />
+            </button>
+          )}
+          {canMoveNextDay && (
+            <button
+              type="button"
+              onClick={(e) => { e.stopPropagation(); onMoveNextDay(); }}
+              title="Move to next day"
+              className="w-5 h-7 flex items-center justify-center rounded bg-white/5 border border-white/10 text-slate-500 hover:bg-indigo-500/15 hover:border-indigo-500/30 hover:text-indigo-300"
+            >
+              <ChevronRight size={12} />
+            </button>
+          )}
+          <button
+            type="button"
+            {...attributes}
+            {...listeners}
+            title="Drag to reorder or move to another day"
+            className="w-5 h-7 flex items-center justify-center rounded bg-white/5 border border-white/10 text-slate-500 hover:bg-white/10 hover:text-slate-200 cursor-grab active:cursor-grabbing touch-none"
+          >
+            <GripVertical size={12} />
+          </button>
+        </div>
+      )}
+
+      {/* Skip toggle in edit mode */}
+      {editMode && (
+        <button
+          type="button"
+          onClick={(e) => { e.stopPropagation(); onSkipToggle(); }}
+          className={`shrink-0 w-7 h-7 rounded-lg flex items-center justify-center border transition-colors ${
+            isSkipped
+              ? "bg-emerald-500/15 border-emerald-500/30 text-emerald-400 hover:bg-emerald-500/25"
+              : "bg-white/5 border-white/10 text-slate-500 hover:bg-rose-500/10 hover:border-rose-500/20 hover:text-rose-400"
+          }`}
+          title={isSkipped ? "Restore activity" : "Skip this activity"}
+        >
+          {isSkipped ? <Eye size={12} /> : <EyeOff size={12} />}
+        </button>
+      )}
+    </li>
+  );
+}
+
 function DayCard({
   day, index, open, onToggle, trackMode, done, setDone,
-  override, comments, myName,
-  onSkip, onAddComment, getVoters, onVoteToggle,
+  override, comments, myName, prevDate, nextDate,
+  onSkip, onAddComment, getVoters, onVoteToggle, onMove,
 }: {
   day: Day;
   index: number;
@@ -80,13 +262,17 @@ function DayCard({
   override?: DayOverride;
   comments: DayComment[];
   myName: string | null;
+  prevDate?: string;
+  nextDate?: string;
   onSkip: (key: string, val: boolean) => void;
   onAddComment: (text: string) => void;
   getVoters: (key: string) => string[];
   onVoteToggle: (key: string) => void;
+  onMove: (key: string, fromDate: string, toDate: string, beforeKey: string | null) => void;
 }) {
   const [editMode, setEditMode] = useState(false);
   const [commentDraft, setCommentDraft] = useState("");
+  const { setNodeRef: setListRef } = useDroppable({ id: `daydrop:${day.date}` });
 
   const span = daySpan(day);
   const mappedCount = day.activities.filter((a) => a.coord).length;
@@ -210,105 +396,49 @@ function DayCard({
                 </div>
               )}
 
-              <ul className="space-y-3">
-                {displayKeys.map((key) => {
-                  const resolved = resolveActivity(key);
-                  if (!resolved) return null;
-                  const { activity: a, srcDate } = resolved;
-                  const isSkipped = skippedSet.has(key);
-                  const isImported = srcDate !== day.date;
-                  const dk = doneKey(key);
-                  const isDone = !!done[dk];
-                  const mapUrl = activityMapUrl(a);
+              <SortableContext items={displayKeys} strategy={verticalListSortingStrategy}>
+                <ul ref={setListRef} className="space-y-3 min-h-2">
+                  {displayKeys.map((key, idx) => {
+                    const resolved = resolveActivity(key);
+                    if (!resolved) return null;
+                    const { activity: a, srcDate } = resolved;
+                    const isSkipped = skippedSet.has(key);
+                    const isImported = srcDate !== day.date;
+                    const dk = doneKey(key);
+                    const isDone = !!done[dk];
+                    const voters = getVoters(key);
+                    const myVoted = myName ? voters.includes(myName) : false;
 
-                  const voters = getVoters(key);
-                  const myVoted = myName ? voters.includes(myName) : false;
-
-                  return (
-                    <li key={key} className={`flex gap-3 items-start ${isSkipped ? "opacity-40" : ""}`}>
-                      {/* Track / time column */}
-                      {trackMode && !isSkipped ? (
-                        <button
-                          onClick={() => setDone({ ...done, [dk]: !isDone })}
-                          className="shrink-0 w-16 flex items-center justify-end gap-1 pt-0.5"
-                          aria-label="toggle done"
-                        >
-                          {isDone
-                            ? <CheckCircle2 size={15} className="text-emerald-400" />
-                            : <Circle size={15} className="text-slate-600 hover:text-slate-400" />}
-                          <span className={`text-xs font-bold tabular-nums ${isDone ? "text-emerald-400/70 line-through" : "text-rose-300/90"}`}>{a.time}</span>
-                        </button>
-                      ) : (
-                        <span className="shrink-0 w-16 text-right text-xs font-bold text-rose-300/90 pt-0.5 tabular-nums">{a.time}</span>
-                      )}
-
-                      {/* Activity content */}
-                      <div className="relative pl-4 border-l border-white/10 pb-0.5 min-w-0 flex-1">
-                        <span className="absolute -left-[5px] top-1.5 w-2.5 h-2.5 rounded-full bg-gradient-to-br from-rose-400 to-fuchsia-500" />
-                        <p className={`font-semibold leading-snug flex items-center gap-2 flex-wrap ${isDone ? "text-slate-500 line-through" : isSkipped ? "line-through text-slate-500" : ""}`}>
-                          {a.title}
-                          {isImported && (
-                            <span className="text-[0.6rem] font-bold bg-violet-500/20 text-violet-300 border border-violet-500/30 rounded-full px-1.5 py-0.5">
-                              from {fmtDate(srcDate)}
-                            </span>
-                          )}
-                          {a.booking && !isSkipped && (
-                            <span className="inline-flex items-center gap-1 text-[0.65rem] font-bold uppercase tracking-wide bg-amber-500/20 text-amber-300 border border-amber-500/30 rounded-full px-2 py-0.5">
-                              <Ticket size={10} /> book ahead
-                            </span>
-                          )}
-                          {mapUrl && !isSkipped && (
-                            <a
-                              href={mapUrl} target="_blank" rel="noreferrer"
-                              onClick={(e) => e.stopPropagation()}
-                              className="inline-flex items-center gap-0.5 text-[0.65rem] font-semibold text-sky-400/80 hover:text-sky-300"
-                              title={a.place ?? "Open in Google Maps"}
-                            >
-                              <MapPin size={10} /> map
-                            </a>
-                          )}
-                        </p>
-                        {a.note && <p className={`text-sm mt-0.5 ${isDone || isSkipped ? "text-slate-600" : "text-slate-400"}`}>{a.note}</p>}
-                      </div>
-
-                      {/* Activity vote */}
-                      {FIREBASE_ENABLED && !isSkipped && (
-                        <button
-                          type="button"
-                          onClick={(e) => { e.stopPropagation(); onVoteToggle(key); }}
-                          disabled={!myName}
-                          title={voters.length ? voters.join(", ") : myName ? "Tap to join" : "Pick a name to vote"}
-                          className={`shrink-0 flex items-center gap-1 rounded-full px-1.5 py-0.5 text-[0.6rem] font-bold border transition-colors disabled:cursor-not-allowed mt-0.5 ${
-                            myVoted
-                              ? "bg-rose-500/20 border-rose-500/30 text-rose-300 hover:bg-rose-500/30"
-                              : voters.length > 0
-                                ? "bg-white/8 border-white/12 text-slate-400 hover:bg-white/12"
-                                : "border-transparent text-slate-700 hover:border-white/10 hover:text-slate-500"
-                          }`}
-                        >
-                          👍{voters.length > 0 && <span>{voters.length}</span>}
-                        </button>
-                      )}
-
-                      {/* Skip toggle in edit mode */}
-                      {editMode && (
-                        <button
-                          type="button"
-                          onClick={(e) => { e.stopPropagation(); onSkip(key, !isSkipped); }}
-                          className={`shrink-0 w-7 h-7 rounded-lg flex items-center justify-center border transition-colors ${
-                            isSkipped
-                              ? "bg-emerald-500/15 border-emerald-500/30 text-emerald-400 hover:bg-emerald-500/25"
-                              : "bg-white/5 border-white/10 text-slate-500 hover:bg-rose-500/10 hover:border-rose-500/20 hover:text-rose-400"
-                          }`}
-                          title={isSkipped ? "Restore activity" : "Skip this activity"}
-                        >
-                          {isSkipped ? <Eye size={12} /> : <EyeOff size={12} />}
-                        </button>
-                      )}
-                    </li>
-                  );
-                })}
-              </ul>
+                    return (
+                      <ActivityRow
+                        key={key}
+                        activityKey={key}
+                        activity={a}
+                        srcDate={srcDate}
+                        isSkipped={isSkipped}
+                        isImported={isImported}
+                        trackMode={trackMode}
+                        isDone={isDone}
+                        onToggleDone={() => setDone({ ...done, [dk]: !isDone })}
+                        voters={voters}
+                        myVoted={myVoted}
+                        myName={myName}
+                        onVoteToggle={() => onVoteToggle(key)}
+                        editMode={editMode}
+                        onSkipToggle={() => onSkip(key, !isSkipped)}
+                        canMoveUp={idx > 0}
+                        canMoveDown={idx < displayKeys.length - 1}
+                        onMoveUp={() => onMove(key, day.date, day.date, displayKeys[idx - 1] ?? null)}
+                        onMoveDown={() => onMove(key, day.date, day.date, displayKeys[idx + 2] ?? null)}
+                        canMovePrevDay={!!prevDate}
+                        canMoveNextDay={!!nextDate}
+                        onMovePrevDay={() => prevDate && onMove(key, day.date, prevDate, null)}
+                        onMoveNextDay={() => nextDate && onMove(key, day.date, nextDate, null)}
+                      />
+                    );
+                  })}
+                </ul>
+              </SortableContext>
 
               <div className="mt-5 space-y-2.5">
                 {day.events && day.events.length > 0 && (
@@ -448,9 +578,11 @@ export function Itinerary() {
   const [done, setDone] = useLocalStorage<Record<string, boolean>>("itinerary-done", {});
 
   const { forDate, add: addComment } = useDayComments();
-  const { overrides, skip } = useItineraryOverrides();
+  const { overrides, skip, setOrder } = useItineraryOverrides();
   const { getVoters, toggle: toggleVote } = useActivityVotes();
   const myName = getIdentityName();
+  const [activeDragKey, setActiveDragKey] = useState<string | null>(null);
+  const sensors = useSensors(useSensor(PointerSensor, { activationConstraint: { distance: 5 } }));
 
   const totalDone = useMemo(() => Object.values(done).filter(Boolean).length, [done]);
 
@@ -461,6 +593,44 @@ export function Itinerary() {
     requestAnimationFrame(() =>
       document.getElementById(`day-${i}`)?.scrollIntoView({ behavior: "smooth", block: "start" }),
     );
+  };
+
+  // Current effective activity order for a day, given live overrides
+  const getOrder = (date: string): string[] => {
+    const d = DAYS.find((x) => x.date === date);
+    if (!d) return [];
+    const defaultKeys = d.activities.map((_, i) => `${date}:${i}`);
+    return overrides[date]?.order?.length ? [...overrides[date].order] : defaultKeys;
+  };
+  const keyToDate = (key: string): string | undefined => DAYS.find((d) => getOrder(d.date).includes(key))?.date;
+
+  // Moves `key` so it lands just before `beforeKey` in `toDate` (or at the end if null),
+  // skipping it at its origin day if it's leaving that day, restoring it if it's coming back.
+  const moveActivity = (key: string, fromDate: string, toDate: string, beforeKey: string | null) => {
+    const originDate = key.slice(0, key.lastIndexOf(":"));
+    if (fromDate !== toDate) setOrder(fromDate, getOrder(fromDate).filter((k) => k !== key));
+    skip(originDate, key, originDate !== toDate);
+    const toOrder = getOrder(toDate).filter((k) => k !== key);
+    const insertAt = beforeKey ? toOrder.indexOf(beforeKey) : -1;
+    if (insertAt < 0) toOrder.push(key); else toOrder.splice(insertAt, 0, key);
+    setOrder(toDate, toOrder);
+  };
+
+  const handleDragEnd = ({ active, over }: DragEndEvent) => {
+    setActiveDragKey(null);
+    if (!over) return;
+    const draggedKey = String(active.id);
+    const overId = String(over.id);
+    if (overId === draggedKey) return;
+    const fromDate = keyToDate(draggedKey);
+    if (!fromDate) return;
+    if (overId.startsWith("daydrop:")) {
+      moveActivity(draggedKey, fromDate, overId.slice("daydrop:".length), null);
+      return;
+    }
+    const toDate = keyToDate(overId);
+    if (!toDate) return;
+    moveActivity(draggedKey, fromDate, toDate, overId);
   };
 
   useEffect(() => {
@@ -513,27 +683,49 @@ export function Itinerary() {
         </div>
       </div>
 
-      <div className="space-y-3">
-        {DAYS.map((d, i) => (
-          <DayCard
-            key={d.date}
-            day={d}
-            index={i}
-            open={!!openMap[i]}
-            onToggle={() => setOpenMap((m) => ({ ...m, [i]: !m[i] }))}
-            trackMode={trackMode}
-            done={done}
-            setDone={setDone}
-            override={overrides[d.date]}
-            comments={forDate(d.date)}
-            myName={myName}
-            onSkip={(key, val) => skip(d.date, key, val)}
-            onAddComment={(text) => { if (myName) addComment(d.date, myName, text); }}
-            getVoters={getVoters}
-            onVoteToggle={(key) => { if (myName) toggleVote(key, myName); }}
-          />
-        ))}
-      </div>
+      <DndContext
+        sensors={sensors}
+        collisionDetection={closestCenter}
+        onDragStart={({ active }) => setActiveDragKey(String(active.id))}
+        onDragEnd={handleDragEnd}
+        onDragCancel={() => setActiveDragKey(null)}
+      >
+        <div className="space-y-3">
+          {DAYS.map((d, i) => (
+            <DayCard
+              key={d.date}
+              day={d}
+              index={i}
+              open={!!openMap[i]}
+              onToggle={() => setOpenMap((m) => ({ ...m, [i]: !m[i] }))}
+              trackMode={trackMode}
+              done={done}
+              setDone={setDone}
+              override={overrides[d.date]}
+              comments={forDate(d.date)}
+              myName={myName}
+              prevDate={DAYS[i - 1]?.date}
+              nextDate={DAYS[i + 1]?.date}
+              onSkip={(key, val) => skip(d.date, key, val)}
+              onAddComment={(text) => { if (myName) addComment(d.date, myName, text); }}
+              getVoters={getVoters}
+              onVoteToggle={(key) => { if (myName) toggleVote(key, myName); }}
+              onMove={moveActivity}
+            />
+          ))}
+        </div>
+        <DragOverlay>
+          {activeDragKey && (() => {
+            const resolved = resolveActivity(activeDragKey);
+            return resolved ? (
+              <div className="flex items-center gap-2 rounded-lg bg-slate-800 border border-indigo-400/50 shadow-xl px-3 py-2 text-sm font-semibold text-slate-100">
+                <GripVertical size={14} className="text-slate-500 shrink-0" />
+                {resolved.activity.title}
+              </div>
+            ) : null;
+          })()}
+        </DragOverlay>
+      </DndContext>
     </section>
   );
 }

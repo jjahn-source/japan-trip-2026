@@ -28,18 +28,5 @@ export function useItineraryOverrides() {
     await updateDoc(tripDoc, { [`overrides.${date}.order`]: order }).catch(console.error);
   };
 
-  const moveActivity = async (
-    key: string,
-    fromDate: string,
-    toDate: string,
-    newToOrder: string[],
-  ): Promise<void> => {
-    if (!FIREBASE_ENABLED || !tripDoc) return;
-    await updateDoc(tripDoc, {
-      [`overrides.${fromDate}.skipped`]: arrayUnion(key),
-      [`overrides.${toDate}.order`]: newToOrder,
-    }).catch(console.error);
-  };
-
-  return { overrides, skip, setOrder, moveActivity };
+  return { overrides, skip, setOrder };
 }
