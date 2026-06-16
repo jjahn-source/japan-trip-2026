@@ -16,12 +16,12 @@ export function CrewChat() {
   const { messages, send } = useCrewChat();
   const [draft, setDraft] = useState("");
   const myName = getIdentityName();
-  const bottomRef = useRef<HTMLDivElement>(null);
+  const scrollRef = useRef<HTMLDivElement>(null);
   const prevLen = useRef(0);
 
   useEffect(() => {
-    if (messages.length > prevLen.current) {
-      bottomRef.current?.scrollIntoView({ behavior: "smooth" });
+    if (messages.length > prevLen.current && scrollRef.current) {
+      scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
     }
     prevLen.current = messages.length;
   }, [messages.length]);
@@ -43,7 +43,7 @@ export function CrewChat() {
         sub="Plans, dumb ideas, hype — all 8 of you in real time"
       />
       <div className="glass rounded-2xl overflow-hidden">
-        <div className="h-80 overflow-y-auto p-4 space-y-3 scroll-smooth">
+        <div ref={scrollRef} className="h-80 overflow-y-auto p-4 space-y-3">
           {messages.length === 0 && (
             <p className="text-slate-500 text-sm text-center py-10">
               No messages yet — kick it off
@@ -76,7 +76,6 @@ export function CrewChat() {
               </div>
             );
           })}
-          <div ref={bottomRef} />
         </div>
 
         <div className="border-t border-white/10 p-3 flex gap-2">
