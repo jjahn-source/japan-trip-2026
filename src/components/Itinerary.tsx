@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import {
-  ChevronDown, ChevronUp, Train, Ticket,
+  ChevronDown, Train, Ticket,
   CalendarPlus, Map, MapPin, ListChecks, ChevronsDownUp, ChevronsUpDown,
   CheckCircle2, Circle, Sparkles, AlertTriangle, Dices,
   Eye, EyeOff, Pencil, Send, MessageCircle,
@@ -66,8 +66,8 @@ function TopButton({ onClick, children }: { onClick: () => void; children: React
 
 function DayCard({
   day, index, open, onToggle, trackMode, done, setDone,
-  override, comments, myName, allDays,
-  onSkip, onSetOrder, onMove, onAddComment,
+  override, comments, myName,
+  onSkip, onAddComment,
 }: {
   day: Day;
   index: number;
@@ -79,10 +79,7 @@ function DayCard({
   override?: DayOverride;
   comments: DayComment[];
   myName: string | null;
-  allDays: Day[];
   onSkip: (key: string, val: boolean) => void;
-  onSetOrder: (order: string[]) => void;
-  onMove: (key: string, toDate: string) => void;
   onAddComment: (text: string) => void;
 }) {
   const [editMode, setEditMode] = useState(false);
@@ -105,20 +102,6 @@ function DayCard({
   const doneCount = displayKeys.filter((k) => !skippedSet.has(k) && done[doneKey(k)]).length;
   const visibleCount = displayKeys.filter((k) => !skippedSet.has(k)).length;
   const pct = visibleCount ? Math.round((doneCount / visibleCount) * 100) : 0;
-
-  // Reorder helpers
-  const moveUp = (idx: number) => {
-    if (idx === 0) return;
-    const next = [...effectiveKeys];
-    [next[idx - 1], next[idx]] = [next[idx], next[idx - 1]];
-    onSetOrder(next);
-  };
-  const moveDown = (idx: number) => {
-    if (idx === effectiveKeys.length - 1) return;
-    const next = [...effectiveKeys];
-    [next[idx], next[idx + 1]] = [next[idx + 1], next[idx]];
-    onSetOrder(next);
-  };
 
   const submitComment = () => {
     const text = commentDraft.trim();
@@ -225,7 +208,7 @@ function DayCard({
               )}
 
               <ul className="space-y-3">
-                {displayKeys.map((key, displayIdx) => {
+                {displayKeys.map((key) => {
                   const resolved = resolveActivity(key);
                   if (!resolved) return null;
                   const { activity: a, srcDate } = resolved;
@@ -234,7 +217,6 @@ function DayCard({
                   const dk = doneKey(key);
                   const isDone = !!done[dk];
                   const mapUrl = activityMapUrl(a);
-                  const posInOrder = effectiveKeys.indexOf(key);
 
                   return (
                     <li key={key} className={`flex gap-3 ${isSkipped ? "opacity-40" : ""}`}>
@@ -283,59 +265,20 @@ function DayCard({
                         {a.note && <p className={`text-sm mt-0.5 ${isDone || isSkipped ? "text-slate-600" : "text-slate-400"}`}>{a.note}</p>}
                       </div>
 
-                      {/* Edit controls */}
+                      {/* Skip toggle in edit mode */}
                       {editMode && (
-                        <div className="shrink-0 flex flex-col gap-1 items-end pt-0.5" onClick={(e) => e.stopPropagation()}>
-                          <div className="flex gap-1">
-                            <button
-                              type="button"
-                              disabled={posInOrder === 0}
-                              onClick={() => moveUp(displayIdx)}
-                              className="w-6 h-6 rounded flex items-center justify-center bg-white/5 border border-white/10 text-slate-400 hover:bg-white/10 disabled:opacity-20 disabled:cursor-not-allowed"
-                              title="Move up"
-                            >
-                              <ChevronUp size={11} />
-                            </button>
-                            <button
-                              type="button"
-                              disabled={posInOrder === effectiveKeys.length - 1}
-                              onClick={() => moveDown(displayIdx)}
-                              className="w-6 h-6 rounded flex items-center justify-center bg-white/5 border border-white/10 text-slate-400 hover:bg-white/10 disabled:opacity-20 disabled:cursor-not-allowed"
-                              title="Move down"
-                            >
-                              <ChevronDown size={11} />
-                            </button>
-                            <button
-                              type="button"
-                              onClick={() => onSkip(key, !isSkipped)}
-                              className={`w-6 h-6 rounded flex items-center justify-center border transition-colors ${
-                                isSkipped
-                                  ? "bg-emerald-500/15 border-emerald-500/30 text-emerald-400 hover:bg-emerald-500/25"
-                                  : "bg-white/5 border-white/10 text-slate-400 hover:bg-rose-500/10 hover:border-rose-500/20 hover:text-rose-400"
-                              }`}
-                              title={isSkipped ? "Restore" : "Skip"}
-                            >
-                              {isSkipped ? <Eye size={11} /> : <EyeOff size={11} />}
-                            </button>
-                          </div>
-                          <select
-                            value=""
-                            onChange={(e) => { if (e.target.value) onMove(key, e.target.value); }}
-                            className="text-[0.6rem] bg-white/5 border border-white/10 rounded px-1 py-0.5 text-slate-400 cursor-pointer max-w-[110px]"
-                          >
-                            <option value="">Move to day →</option>
-                            {allDays
-                              .filter((d) => d.date !== day.date)
-                              .map((d) => {
-                                const n = allDays.indexOf(d) + 1;
-                                return (
-                                  <option key={d.date} value={d.date}>
-                                    Day {n} · {d.city} {d.date.slice(5)}
-                                  </option>
-                                );
-                              })}
-                          </select>
-                        </div>
+                        <button
+                          type="button"
+                          onClick={(e) => { e.stopPropagation(); onSkip(key, !isSkipped); }}
+                          className={`shrink-0 w-7 h-7 rounded-lg flex items-center justify-center border transition-colors ${
+                            isSkipped
+                              ? "bg-emerald-500/15 border-emerald-500/30 text-emerald-400 hover:bg-emerald-500/25"
+                              : "bg-white/5 border-white/10 text-slate-500 hover:bg-rose-500/10 hover:border-rose-500/20 hover:text-rose-400"
+                          }`}
+                          title={isSkipped ? "Restore activity" : "Skip this activity"}
+                        >
+                          {isSkipped ? <Eye size={12} /> : <EyeOff size={12} />}
+                        </button>
                       )}
                     </li>
                   );
@@ -480,7 +423,7 @@ export function Itinerary() {
   const [done, setDone] = useLocalStorage<Record<string, boolean>>("itinerary-done", {});
 
   const { forDate, add: addComment } = useDayComments();
-  const { overrides, skip, setOrder, moveActivity } = useItineraryOverrides();
+  const { overrides, skip } = useItineraryOverrides();
   const myName = getIdentityName();
 
   const totalDone = useMemo(() => Object.values(done).filter(Boolean).length, [done]);
@@ -492,15 +435,6 @@ export function Itinerary() {
     requestAnimationFrame(() =>
       document.getElementById(`day-${i}`)?.scrollIntoView({ behavior: "smooth", block: "start" }),
     );
-  };
-
-  const handleMove = (key: string, fromDate: string, toDate: string) => {
-    const toDay = DAYS.find((d) => d.date === toDate);
-    if (!toDay) return;
-    const toDefaultOrder = toDay.activities.map((_, i) => `${toDate}:${i}`);
-    const toCurrentOrder = overrides[toDate]?.order?.length ? overrides[toDate].order : toDefaultOrder;
-    const newToOrder = [...toCurrentOrder.filter((k) => k !== key), key];
-    moveActivity(key, fromDate, toDate, newToOrder);
   };
 
   useEffect(() => {
@@ -567,10 +501,7 @@ export function Itinerary() {
             override={overrides[d.date]}
             comments={forDate(d.date)}
             myName={myName}
-            allDays={DAYS}
             onSkip={(key, val) => skip(d.date, key, val)}
-            onSetOrder={(order) => setOrder(d.date, order)}
-            onMove={(key, toDate) => handleMove(key, d.date, toDate)}
             onAddComment={(text) => { if (myName) addComment(d.date, myName, text); }}
           />
         ))}

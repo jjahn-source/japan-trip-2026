@@ -3,28 +3,24 @@ import { onSnapshot, updateDoc } from "firebase/firestore";
 import { FIREBASE_ENABLED, tripDoc } from "../lib/firebase";
 import { CREW, type CrewMember } from "./useIdentity";
 
-export type SplitMap = Record<string, Record<string, boolean>>;
-
 export function useSplits() {
-  const [splits, setSplits] = useState<SplitMap>({});
+  const [settled, setSettled] = useState<Record<string, boolean>>({});
 
   useEffect(() => {
     if (!FIREBASE_ENABLED || !tripDoc) return;
     return onSnapshot(tripDoc, (snap) => {
-      if (snap.exists()) setSplits((snap.data()?.splits ?? {}) as SplitMap);
+      if (snap.exists()) setSettled((snap.data()?.splits ?? {}) as Record<string, boolean>);
     });
   }, []);
 
-  const toggle = async (itemId: string, memberName: CrewMember): Promise<void> => {
+  const toggle = async (memberName: CrewMember): Promise<void> => {
     if (!FIREBASE_ENABLED || !tripDoc) return;
-    const current = splits[itemId]?.[memberName] ?? false;
     await updateDoc(tripDoc, {
-      [`splits.${itemId}.${memberName}`]: !current,
+      [`splits.${memberName}`]: !(settled[memberName] ?? false),
     }).catch(console.error);
   };
 
-  const paidCount = (itemId: string): number =>
-    CREW.filter((m) => splits[itemId]?.[m]).length;
+  const settledCount = CREW.filter((m) => settled[m]).length;
 
-  return { splits, toggle, paidCount };
+  return { settled, toggle, settledCount };
 }
