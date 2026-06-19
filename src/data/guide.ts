@@ -373,6 +373,46 @@ export const GUIDE: GuideSection[] = [
     ],
   },
   {
+    id: "konbini",
+    title: "Konbini Survival",
+    emoji: "🏪",
+    intro: "7-Eleven, Lawson, FamilyMart — open 24/7, on every corner. You'll walk into one 3+ times a day. Here's how to win every visit.",
+    articles: [
+      {
+        title: "ATMs & paying — cash strategy",
+        emoji: "💴",
+        body: [
+          "7-Eleven ATM is the crew's go-to: accepts all foreign cards, English UI, ¥110 flat fee (~$0.70). Pull ¥20,000–30,000 at a time. Japan Post ATMs are a backup — also English, slightly cheaper fee, but fewer locations.",
+          "PAY WITH IC CARD at the register — tap your Suica/PASMO and skip counting coins. Works at all three major chains. The terminal says 'IC card' with a tap symbol.",
+          "Decline 'pay in USD' if the screen offers it — that's dynamic currency conversion (5–8% markup). Always pay in yen.",
+          "Budget ~¥5,000 ($31) per person per day in cash; refill when you drop under ¥3,000. ¥10,000 notes break everywhere without drama.",
+        ],
+      },
+      {
+        title: "Food & drinks — what to actually buy",
+        emoji: "🍙",
+        body: [
+          "BREAKFAST: Onigiri (¥120–180) + hot canned coffee or green tea. Three onigiri = full stomach, ¥500. Pick them up cold; eat immediately — the seaweed wrapper is in a separate film layer, peel from the arrow.",
+          "HOT FOOD: Nikuman (steamed pork bun, ¥150) and karaage chicken sit in the warmer by the register. Point at what you want and say 'kore, onegai shimasu.' Ask to heat cold items: 'atatamete moraemasu ka?'",
+          "WINTER DRINKS: The drink fridge has a RED label section on the right — those cans are HOT. Corn soup in a can (¥130) is a hand-warmer that you drink. Canned café au lait, hot lemon, milk tea all on the same rack.",
+          "DESSERT tier-S: Lawson Uchi Café Purin (custard pudding, ¥300ish) and FamilyMart's chocolate cream puff. Seasonal items change weekly — try anything you haven't seen before.",
+          "KONBINI BEER: Outside drinking is legal. Grab a tallboy after temples and stroll. Asahi Super Dry, Sapporo Black Label, Kirin Ichiban are all ¥200–250.",
+        ],
+      },
+      {
+        title: "Services & hidden features",
+        emoji: "🖨️",
+        body: [
+          "PRINTING: Konbini printers do PDF tickets, hotel confirmations, boarding passes — use FamilyMart's netprint.ne.jp or 7-Eleven's netprint service (upload from phone, get a code, print at the machine). ~¥20–60 per page.",
+          "WASTE BINS: Bins are ONLY at konbini entrances, almost nowhere else outside. Sort your trash into burnable / plastic / cans before you arrive. Ask staff if unsure — they're used to it.",
+          "TAKKYUBIN: Any konbini counter accepts Yamato (black cat) luggage shipping. Say 'takkyubin onegai shimasu', show the destination address in Japanese. ~¥2,500 ($16) per bag, next-day delivery.",
+          "TIPPING: Zero. Never. Pay the exact price, say arigatō, and leave. They may chase you down the street to return anything extra.",
+          "HOURS: Konbini are literally 24/7/365. No Japan holiday closes them. If you need medicine, snacks, cash, or emergency rain gear at 3am, konbini has you.",
+        ],
+      },
+    ],
+  },
+  {
     id: "runbooks",
     title: "Runbooks — Exact Tutorials",
     emoji: "📋",

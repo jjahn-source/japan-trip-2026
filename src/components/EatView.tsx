@@ -1,8 +1,68 @@
+import { useState } from "react";
 import { motion } from "motion/react";
+import { ChevronDown, ClipboardCopy } from "lucide-react";
 import { Food } from "./Food";
 import { SectionHeading } from "./SectionHeading";
 import { DISH_ENCYCLOPEDIA, CHAINS, KONBINI_HALL_OF_FAME, REGIONAL_EATS } from "../data/eat";
+import { PHRASES, type PhraseGroup, type Phrase } from "../data/phrases";
 import { slugify } from "../utils/nav";
+
+const RESTAURANT_PHRASES: PhraseGroup | undefined = PHRASES.find((g) => g.group === "Restaurant");
+
+function RestaurantPhrasesCard() {
+  const [open, setOpen] = useState(false);
+  const [copied, setCopied] = useState<number | null>(null);
+
+  if (!RESTAURANT_PHRASES) return null;
+
+  function copy(jp: string, idx: number) {
+    navigator.clipboard.writeText(jp).then(() => {
+      setCopied(idx);
+      setTimeout(() => setCopied(null), 1400);
+    });
+  }
+
+  return (
+    <div className="mx-4 sm:mx-0 mb-6 rounded-2xl bg-rose-500/[0.06] border border-rose-500/20 overflow-hidden">
+      <button
+        type="button"
+        onClick={() => setOpen((o) => !o)}
+        className="w-full flex items-center justify-between gap-3 px-4 py-3 text-left"
+      >
+        <span className="text-sm font-bold text-rose-300 flex items-center gap-2">
+          🍜 Order like a local
+          <span className="text-[0.65rem] font-normal text-slate-500">{RESTAURANT_PHRASES.phrases.length} phrases · tap to copy</span>
+        </span>
+        <ChevronDown
+          size={16}
+          className={`text-slate-500 shrink-0 transition-transform ${open ? "rotate-180" : ""}`}
+        />
+      </button>
+      {open && (
+        <div className="border-t border-rose-500/15 px-2 pb-2 grid gap-0.5">
+          {RESTAURANT_PHRASES.phrases.map((p: Phrase, i: number) => (
+            <button
+              key={i}
+              type="button"
+              onClick={() => copy(p.jp, i)}
+              className="text-left rounded-xl px-3 py-2.5 hover:bg-white/5 transition-colors group flex items-start justify-between gap-2"
+            >
+              <div>
+                <p className="text-xs font-semibold text-slate-200 group-hover:text-white">{p.en}</p>
+                <p className="text-[0.75rem] text-rose-300/80 font-[Noto_Serif_JP] mt-0.5">{p.jp}</p>
+                <p className="text-[0.65rem] text-slate-500 italic">{p.romaji}</p>
+              </div>
+              <ClipboardCopy
+                size={13}
+                className={`shrink-0 mt-1 transition-colors ${copied === i ? "text-emerald-400" : "text-slate-600 group-hover:text-slate-400"}`}
+              />
+            </button>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+}
 
 export type EatTab = "spots" | "dishes" | "regional" | "chains";
 
@@ -134,7 +194,7 @@ function ChainsSection() {
 }
 
 export function EatView({ tab }: { tab: EatTab }) {
-  if (tab === "spots") return <div className="pt-8"><Food /></div>;
+  if (tab === "spots") return <div className="pt-8"><RestaurantPhrasesCard /><Food /></div>;
   if (tab === "dishes") return <DishSection />;
   if (tab === "regional") return <RegionalSection />;
   return <ChainsSection />;

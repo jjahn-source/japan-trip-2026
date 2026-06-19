@@ -1,5 +1,6 @@
 import { Check } from "lucide-react";
 import { SPLIT_ITEMS } from "../data/splits";
+import { BUDGET_ITEMS } from "../data/budget";
 import { useSplits } from "../hooks/useSplits";
 import { CREW, type CrewMember, getIdentityName } from "../hooks/useIdentity";
 import { FIREBASE_ENABLED } from "../lib/firebase";
@@ -11,6 +12,7 @@ const INITIALS: Record<string, string> = {
 };
 
 const TOTAL_PP = SPLIT_ITEMS.reduce((s, i) => s + i.ppUSD, 0);
+const BUDGET_TOTAL = BUDGET_ITEMS.reduce((s, i) => s + i.perPersonUSD, 0);
 
 export function BudgetSplit() {
   const { settled, toggle, settledCount } = useSplits();
@@ -27,6 +29,21 @@ export function BudgetSplit() {
         title="Settled Up?"
         sub={`~$${TOTAL_PP}/pp total (Airbnbs · teamLab · USJ · Ghibli · Shibuya Sky · Skytree) · tap your name when you've paid JJ back`}
       />
+
+        <div className="mb-5 glass rounded-2xl p-5 flex items-center justify-between gap-4">
+        <div>
+          <p className="text-[0.65rem] font-bold uppercase tracking-wide text-slate-500 mb-1">Pre-paid share / person</p>
+          <p className="text-3xl font-black text-white">${TOTAL_PP}</p>
+          <p className="text-xs text-slate-400 mt-1">
+            {SPLIT_ITEMS.length} items &middot; {CREW.length - settledCount} of {CREW.length} still owe JJ
+          </p>
+        </div>
+        <div className="text-right shrink-0 border-l border-white/10 pl-5">
+          <p className="text-[0.65rem] font-bold uppercase tracking-wide text-slate-500 mb-1">Full trip est.</p>
+          <p className="text-2xl font-bold text-slate-300">${BUDGET_TOTAL.toLocaleString()}</p>
+          <p className="text-[0.65rem] text-slate-500 mt-1">per person incl. flights</p>
+        </div>
+      </div>
 
       <div className={`glass rounded-2xl p-5 border ${allDone ? "border-emerald-500/30" : "border-white/5"}`}>
         <div className="flex items-center justify-between mb-4">
