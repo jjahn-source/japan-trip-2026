@@ -1,6 +1,6 @@
 import { useMemo } from "react";
 import { motion } from "motion/react";
-import { ExternalLink, CheckCircle2, Circle, AlarmClock, CalendarPlus } from "lucide-react";
+import { ExternalLink, CheckCircle2, Circle, AlarmClock, CalendarPlus, AlertTriangle } from "lucide-react";
 import { BOOKINGS } from "../data/bookings";
 import { SectionHeading } from "./SectionHeading";
 import { useBookingsSync } from "../hooks/useBookingsSync";
@@ -48,6 +48,9 @@ export function Bookings() {
     [isDone],
   );
 
+  const overdueCount = ordered.filter((b) => !isDone(b.id) && daysUntil(b.deadline) < 0).length;
+  const nextUp = ordered.find((b) => !isDone(b.id));
+
   return (
     <section id="bookings" className="section-pad py-24">
       <SectionHeading
@@ -66,6 +69,22 @@ export function Bookings() {
         </button>
       </div>
 
+      {(overdueCount > 0 || (nextUp && daysUntil(nextUp.deadline) <= 14)) && (
+        <div className="mb-6 flex items-center gap-3 rounded-xl bg-red-500/10 border border-red-500/30 px-4 py-3">
+          <AlertTriangle size={16} className="text-red-400 shrink-0" />
+          <div className="min-w-0">
+            {overdueCount > 0 && (
+              <p className="text-sm font-bold text-red-300">{overdueCount} booking{overdueCount > 1 ? "s" : ""} overdue</p>
+            )}
+            {nextUp && daysUntil(nextUp.deadline) >= 0 && daysUntil(nextUp.deadline) <= 14 && (
+              <p className="text-xs text-slate-400 mt-0.5">
+                Next deadline: <span className="font-semibold text-amber-300">{nextUp.what}</span> in {daysUntil(nextUp.deadline)}d
+              </p>
+            )}
+          </div>
+        </div>
+      )}
+
       <div className="grid gap-4 md:grid-cols-2">
         {ordered.map((b, i) => {
           const done = isDone(b.id);
@@ -73,6 +92,7 @@ export function Bookings() {
           const at = whenAt(b.id);
           const d = daysUntil(b.deadline);
           const bk = bucket(d, done);
+          const criticalOverdue = !done && d < 0 && b.priority === "critical";
           return (
             <motion.div
               key={b.id}
@@ -80,7 +100,7 @@ export function Bookings() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-40px" }}
               transition={{ duration: 0.35, delay: (i % 2) * 0.06 }}
-              className={`glass rounded-2xl p-5 border-l-4 ${bk.border} transition-opacity ${done ? "opacity-50" : ""}`}
+              className={`glass rounded-2xl p-5 border-l-4 ${bk.border} transition-opacity ${done ? "opacity-50" : ""} ${criticalOverdue ? "ring-1 ring-red-500/40 animate-pulse" : ""}`}
             >
               <div className="flex items-start justify-between gap-3">
                 <button

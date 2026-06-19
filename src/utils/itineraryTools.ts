@@ -164,6 +164,21 @@ export function buildBookingsICS(bookings: Booking[]): string {
   return wrapCalendar(events);
 }
 
+// ── Distance helpers ─────────────────────────────────────────────────────────
+export function walkMinutes(km: number): number {
+  return Math.round((km / 5) * 60);
+}
+
+export function haversineKm([lat1, lon1]: [number, number], [lat2, lon2]: [number, number]): number {
+  const R = 6371;
+  const dLat = ((lat2 - lat1) * Math.PI) / 180;
+  const dLon = ((lon2 - lon1) * Math.PI) / 180;
+  const a =
+    Math.sin(dLat / 2) ** 2 +
+    Math.cos((lat1 * Math.PI) / 180) * Math.cos((lat2 * Math.PI) / 180) * Math.sin(dLon / 2) ** 2;
+  return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+}
+
 /** Trigger a client-side .ics download. */
 export function downloadICS(filename: string, ics: string): void {
   const blob = new Blob([ics], { type: "text/calendar;charset=utf-8" });

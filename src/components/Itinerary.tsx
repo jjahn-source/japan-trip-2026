@@ -25,7 +25,10 @@ import { getIdentityName } from "../hooks/useIdentity";
 import { FIREBASE_ENABLED } from "../lib/firebase";
 import {
   daySpan, activityMapUrl, mapsRouteUrl, buildDayICS, buildTripICS, downloadICS,
+  haversineKm, walkMinutes,
 } from "../utils/itineraryTools";
+import { DayMap } from "./DayMap";
+import { STAY_LEGS } from "../data/stays";
 
 type Activity = Day["activities"][number];
 
@@ -77,6 +80,7 @@ function ActivityRow({
   voters, myVoted, myName, onVoteToggle, editMode, onSkipToggle,
   canMoveUp, canMoveDown, onMoveUp, onMoveDown,
   canMovePrevDay, canMoveNextDay, onMovePrevDay, onMoveNextDay,
+  walkMins,
 }: {
   activityKey: string;
   activity: Activity;
@@ -100,6 +104,7 @@ function ActivityRow({
   canMoveNextDay: boolean;
   onMovePrevDay: () => void;
   onMoveNextDay: () => void;
+  walkMins?: number;
 }) {
   const { attributes, listeners, setNodeRef, transform, transition, isDragging } = useSortable({ id: activityKey });
   const mapUrl = activityMapUrl(activity);
@@ -108,7 +113,7 @@ function ActivityRow({
     <li
       ref={setNodeRef}
       style={{ transform: CSS.Transform.toString(transform), transition, opacity: isDragging ? 0.3 : 1 }}
-      className={`flex gap-3 items-start ${isSkipped ? "opacity-40" : ""}`}
+      className={`relative flex gap-3 items-start ${isSkipped ? "opacity-40" : ""} ${walkMins !== undefined && !isSkipped ? "pb-4" : ""}`}
     >
       {/* Track / time column */}
       {trackMode && !isSkipped ? (
@@ -244,6 +249,13 @@ function ActivityRow({
           {isSkipped ? <Eye size={12} /> : <EyeOff size={12} />}
         </button>
       )}
+
+      {walkMins !== undefined && !isSkipped && (
+        <span className="absolute bottom-0.5 left-16 flex items-center gap-1 text-[0.58rem] text-slate-600 pointer-events-none select-none">
+          <span className="inline-block w-px h-2 bg-white/[0.07]" />
+          ~{walkMins} min walk
+        </span>
+      )}
     </li>
   );
 }
@@ -273,10 +285,22 @@ function DayCard({
 }) {
   const [editMode, setEditMode] = useState(false);
   const [commentDraft, setCommentDraft] = useState("");
+  const [showMap, setShowMap] = useState(false);
   const { setNodeRef: setListRef } = useDroppable({ id: `daydrop:${day.date}` });
 
   const span = daySpan(day);
   const mappedCount = day.activities.filter((a) => a.coord).length;
+
+  const walkMinsMap = useMemo(() => {
+    const result: Record<number, number> = {};
+    const mapped = day.activities
+      .map((a, i) => ({ coord: a.coord, origIdx: i }))
+      .filter((x): x is { coord: [number, number]; origIdx: number } => !!x.coord);
+    for (let i = 0; i + 1 < mapped.length; i++) {
+      result[mapped[i].origIdx] = walkMinutes(haversineKm(mapped[i].coord, mapped[i + 1].coord));
+    }
+    return result;
+  }, [day.activities]);
   const bookCount = day.activities.filter((a) => a.booking).length;
   const routeUrl = mapsRouteUrl(day);
 
@@ -348,6 +372,32 @@ function DayCard({
             <div className="px-4 sm:px-5 pb-5 pt-1">
               <WeatherBadge city={day.city} dateISO={day.date} wx={day.wx} />
 
+              {(() => {
+                const tonightLeg = STAY_LEGS.find((s) => day.date >= s.startISO && day.date < s.endISO);
+                return tonightLeg ? (
+                  <div className="mb-3 flex items-center gap-2.5 rounded-xl bg-white/5 border border-white/10 px-3 py-2">
+                    <span className="text-lg shrink-0">{tonightLeg.emoji}</span>
+                    <div className="min-w-0">
+                      <p className="text-[0.65rem] font-bold uppercase tracking-wide text-slate-500">Tonight's base</p>
+                      <p className="text-sm font-semibold truncate">{tonightLeg.city} <span className="font-[Noto_Serif_JP] font-normal text-slate-400">{tonightLeg.cityJp}</span></p>
+                      <p className="text-[0.7rem] text-slate-400 leading-snug line-clamp-1">{tonightLeg.brief}</p>
+                    </div>
+                  </div>
+                ) : null;
+              })()}
+
+              {day.date >= "2026-12-25" && (
+                <div className="mb-3 flex items-start gap-2.5 rounded-xl bg-amber-500/10 border border-amber-500/30 px-3 py-2.5">
+                  <span className="text-base shrink-0">🎌</span>
+                  <div>
+                    <p className="text-xs font-bold text-amber-300">Holiday crunch</p>
+                    <p className="text-[0.7rem] text-slate-400 leading-snug">
+                      Dec 25–29 is peak domestic travel season in Japan. Popular spots run 2–3× normal crowds. Go early, split squads, book restaurants now.
+                    </p>
+                  </div>
+                </div>
+              )}
+
               <div className="mb-4 flex flex-wrap gap-2">
                 <button
                   onClick={() => downloadICS(`japan-2026-dec-${day.date.slice(8)}.ics`, buildDayICS(day))}
@@ -363,6 +413,18 @@ function DayCard({
                     <Map size={12} /> Route this day in Maps
                   </a>
                 )}
+                {mappedCount > 0 && (
+                  <button
+                    onClick={() => setShowMap((m) => !m)}
+                    className={`inline-flex items-center gap-1.5 rounded-lg px-2.5 py-1.5 text-xs font-semibold border transition-colors ${
+                      showMap
+                        ? "bg-rose-500/20 border-rose-500/40 text-rose-300"
+                        : "bg-white/5 border-white/10 text-slate-400 hover:bg-white/10 hover:text-slate-200"
+                    }`}
+                  >
+                    <MapPin size={12} /> {showMap ? "Hide map" : `Day map · ${mappedCount} stops`}
+                  </button>
+                )}
                 {FIREBASE_ENABLED && (
                   <button
                     onClick={() => setEditMode((e) => !e)}
@@ -376,6 +438,12 @@ function DayCard({
                   </button>
                 )}
               </div>
+
+              {showMap && mappedCount > 0 && (
+                <div className="mb-4">
+                  <DayMap activities={day.activities} dayTheme={day.theme} />
+                </div>
+              )}
 
               {trackMode && (
                 <div className="mb-4 flex items-center gap-3">
@@ -409,6 +477,8 @@ function DayCard({
                     const isDone = !!done[dk];
                     const voters = getVoters(key);
                     const myVoted = myName ? voters.includes(myName) : false;
+                    const origIdx = parseInt(key.split(":")[1] ?? "-1", 10);
+                    const wm = !isSkipped ? walkMinsMap[origIdx] : undefined;
 
                     return (
                       <ActivityRow
@@ -435,6 +505,7 @@ function DayCard({
                         canMoveNextDay={!!nextDate}
                         onMovePrevDay={() => prevDate && onMove(key, day.date, prevDate, null)}
                         onMoveNextDay={() => nextDate && onMove(key, day.date, nextDate, null)}
+                        walkMins={wm}
                       />
                     );
                   })}

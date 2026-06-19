@@ -25,6 +25,8 @@ export type StayLeg = {
   nights: number;
   emoji: string;
   brief: string;
+  startISO: string; // check-in date "YYYY-MM-DD"
+  endISO: string;   // checkout date "YYYY-MM-DD" (exclusive)
   defaultPick: string; // option id in the Budget Lock combo
   searchUrl: string; // live Airbnb search for these dates (the static-site "live prices" link)
   options: StayOption[];
@@ -45,6 +47,8 @@ export const STAY_LEGS: StayLeg[] = [
     emoji: "🌃",
     brief:
       "Six nights, one Shinjuku base. The Kamakura + Enoshima day trip launches from here on Suica. Six nights triggers long-stay + early-booking discounts (baked into these totals).",
+    startISO: "2026-12-15",
+    endISO: "2026-12-21",
     defaultPick: "11981272",
     searchUrl:
       "https://www.airbnb.com/s/Shinjuku--Tokyo--Japan/homes?checkin=2026-12-15&checkout=2026-12-21&adults=8&room_types%5B%5D=Entire+home%2Fapt&min_bedrooms=3&min_bathrooms=2",
@@ -132,6 +136,8 @@ export const STAY_LEGS: StayLeg[] = [
     emoji: "⛩️",
     brief:
       "Three packed nights. Kyoto is compact — anywhere in the grid works; Kyoto-Station-area is best for the Dec 24 Uji→Osaka launch. Nara + Uji day trips run from here.",
+    startISO: "2026-12-21",
+    endISO: "2026-12-24",
     defaultPick: "40359294",
     searchUrl:
       "https://www.airbnb.com/s/Kyoto--Japan/homes?checkin=2026-12-21&checkout=2026-12-24&adults=8&room_types%5B%5D=Entire+home%2Fapt&min_bedrooms=3&min_bathrooms=2",
@@ -219,6 +225,8 @@ export const STAY_LEGS: StayLeg[] = [
     emoji: "🐙",
     brief:
       "Five nights in the Namba/Nihonbashi blast radius: Christmas Eve Dotonbori, USJ, the Hiroshima and Himeji/Kobe day trips, the victory lap, then the Dec 29 shinkansen sprint to Haneda.",
+    startISO: "2026-12-24",
+    endISO: "2026-12-29",
     defaultPick: "1334423068782122936",
     searchUrl:
       "https://www.airbnb.com/s/Namba--Osaka--Japan/homes?checkin=2026-12-24&checkout=2026-12-29&adults=8&room_types%5B%5D=Entire+home%2Fapt&min_bedrooms=3&min_bathrooms=2",
