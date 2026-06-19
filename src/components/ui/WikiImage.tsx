@@ -24,7 +24,7 @@ export function WikiImage({ wiki, category }: { wiki?: string; category: Categor
       { signal: ac.signal }
     )
       .then((r) => r.json())
-      .then((d) => { setSrc(d.thumbnail?.source ?? null); setLoading(false); })
+      .then((d) => { setSrc(d.originalimage?.source ?? d.thumbnail?.source ?? null); setLoading(false); })
       .catch(() => setLoading(false));
     return () => ac.abort();
   }, [wiki]);
