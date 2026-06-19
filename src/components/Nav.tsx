@@ -6,6 +6,7 @@ const TABS: { view: View; label: string; emoji: string }[] = [
   { view: "explore", label: "Explore", emoji: "⛩️" },
   { view: "eat", label: "Eat", emoji: "🍜" },
   { view: "guide", label: "Guide", emoji: "🧭" },
+  { view: "crew",  label: "Crew",  emoji: "🎮" },
 ];
 
 const INITIALS: Record<string, string> = {

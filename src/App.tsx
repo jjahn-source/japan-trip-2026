@@ -23,10 +23,13 @@ const NightView = lazy(() => import("./components/NightView").then((m) => ({ def
 const PlayView = lazy(() => import("./components/PlayView").then((m) => ({ default: m.PlayView })));
 const GuideView = lazy(() => import("./components/GuideView").then((m) => ({ default: m.GuideView })));
 const ShopView = lazy(() => import("./components/ShopView").then((m) => ({ default: m.ShopView })));
+const CrewView = lazy(() => import("./components/CrewView").then((m) => ({ default: m.CrewView })));
 const SearchOverlay = lazy(() => import("./components/SearchOverlay").then((m) => ({ default: m.SearchOverlay })));
 
 type ExploreTab = "sights" | "night" | "play" | "shop";
 type EatTab = "spots" | "dishes" | "regional" | "chains";
+type GuideTab = "survival" | "packing";
+type CrewTab = "wars" | "bingo" | "awards" | "rituals";
 
 const EXPLORE_TABS: { id: ExploreTab; label: string; emoji: string }[] = [
   { id: "sights", label: "Sights", emoji: "⛩️" },
@@ -42,10 +45,24 @@ const EAT_TABS: { id: EatTab; label: string; emoji: string }[] = [
   { id: "chains",   label: "Chains",   emoji: "🏪" },
 ];
 
+const GUIDE_TABS: { id: GuideTab; label: string; emoji: string }[] = [
+  { id: "survival", label: "Survival", emoji: "🧭" },
+  { id: "packing",  label: "Packing",  emoji: "🎒" },
+];
+
+const CREW_TABS: { id: CrewTab; label: string; emoji: string }[] = [
+  { id: "wars",    label: "Wars",    emoji: "🎖️" },
+  { id: "bingo",   label: "Bingo",   emoji: "🎰" },
+  { id: "awards",  label: "Awards",  emoji: "🏆" },
+  { id: "rituals", label: "Rituals", emoji: "🌅" },
+];
+
 export default function App() {
   const [view, setView] = useHashView();
   const [exploreTab, setExploreTab] = useState<ExploreTab>("sights");
   const [eatTab, setEatTab] = useState<EatTab>("spots");
+  const [guideTab, setGuideTab] = useState<GuideTab>("survival");
+  const [crewTab, setCrewTab] = useState<CrewTab>("wars");
   const [searchOpen, setSearchOpen] = useState(false);
   const [resetIdentity, setResetIdentity] = useState(false);
   const { name, chooseName } = useIdentity();
@@ -87,6 +104,16 @@ export default function App() {
 
   const switchEatTab = (tab: EatTab) => {
     setEatTab(tab);
+    window.scrollTo({ top: 0 });
+  };
+
+  const switchGuideTab = (tab: GuideTab) => {
+    setGuideTab(tab);
+    window.scrollTo({ top: 0 });
+  };
+
+  const switchCrewTab = (tab: CrewTab) => {
+    setCrewTab(tab);
     window.scrollTo({ top: 0 });
   };
 
@@ -178,9 +205,56 @@ export default function App() {
           </>
         )}
         {view === "guide" && (
-          <Suspense fallback={<div className="section-pad py-24 pt-32 text-center text-slate-400">Loading…</div>}>
-            <GuideView />
-          </Suspense>
+          <>
+            <div className="sticky top-[68px] z-40 bg-[#09090f]/90 backdrop-blur-xl border-b border-white/8">
+              <div className="section-pad flex gap-1 py-2">
+                {GUIDE_TABS.map((t) => (
+                  <button
+                    key={t.id}
+                    type="button"
+                    onClick={() => switchGuideTab(t.id)}
+                    className={`flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold transition-colors whitespace-nowrap ${
+                      guideTab === t.id
+                        ? "bg-teal-500 text-white shadow-sm shadow-teal-500/30"
+                        : "text-slate-400 hover:text-white hover:bg-white/10"
+                    }`}
+                  >
+                    <span>{t.emoji}</span>
+                    {t.label}
+                  </button>
+                ))}
+              </div>
+            </div>
+            <Suspense fallback={<div className="section-pad py-24 pt-32 text-center text-slate-400">Loading…</div>}>
+              <GuideView tab={guideTab} />
+            </Suspense>
+          </>
+        )}
+        {view === "crew" && (
+          <>
+            <div className="sticky top-[68px] z-40 bg-[#09090f]/90 backdrop-blur-xl border-b border-white/8">
+              <div className="section-pad flex gap-1 py-2">
+                {CREW_TABS.map((t) => (
+                  <button
+                    key={t.id}
+                    type="button"
+                    onClick={() => switchCrewTab(t.id)}
+                    className={`flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold transition-colors whitespace-nowrap ${
+                      crewTab === t.id
+                        ? "bg-violet-500 text-white shadow-sm shadow-violet-500/30"
+                        : "text-slate-400 hover:text-white hover:bg-white/10"
+                    }`}
+                  >
+                    <span>{t.emoji}</span>
+                    {t.label}
+                  </button>
+                ))}
+              </div>
+            </div>
+            <Suspense fallback={<div className="section-pad py-24 pt-32 text-center text-slate-400">Loading…</div>}>
+              <CrewView tab={crewTab} />
+            </Suspense>
+          </>
         )}
       </main>
       <Footer />

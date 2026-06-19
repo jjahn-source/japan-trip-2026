@@ -13,6 +13,7 @@ import {
   Eye, EyeOff, Pencil, Send, MessageCircle,
 } from "lucide-react";
 import { DAYS, type Day } from "../data/itinerary";
+import { CONTINGENCIES } from "../data/contingencies";
 import { SectionHeading } from "./SectionHeading";
 import { WeatherBadge } from "./WeatherBadge";
 import { Collapse } from "./ui/Collapse";
@@ -514,6 +515,50 @@ function DayCard({
                     </ul>
                   </Collapse>
                 )}
+
+                {(() => {
+                  const cont = CONTINGENCIES.find((c) => c.date === day.date);
+                  if (!cont) return null;
+                  return (
+                    <Collapse
+                      className="rounded-xl bg-sky-500/[0.07] border border-sky-500/20 px-4 py-3"
+                      title={<SecTitle icon={<span>☂️</span>} label="Contingency Plans" count={cont.rainPlan.length + cont.energySlumpPlan.length + cont.lastMinuteCancellation.length} colorClass="text-sky-300" />}
+                    >
+                      <div className="mt-3 space-y-4">
+                        <div>
+                          <p className="text-[0.65rem] font-bold uppercase tracking-wider text-sky-400 mb-1.5">If it rains</p>
+                          <ul className="space-y-1">
+                            {cont.rainPlan.map((item, i) => (
+                              <li key={i} className="text-sm text-slate-300 leading-relaxed flex gap-2">
+                                <span className="text-sky-400 shrink-0">▸</span><span>{item}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                        <div>
+                          <p className="text-[0.65rem] font-bold uppercase tracking-wider text-amber-400 mb-1.5">Energy slump</p>
+                          <ul className="space-y-1">
+                            {cont.energySlumpPlan.map((item, i) => (
+                              <li key={i} className="text-sm text-slate-300 leading-relaxed flex gap-2">
+                                <span className="text-amber-400 shrink-0">▸</span><span>{item}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                        <div>
+                          <p className="text-[0.65rem] font-bold uppercase tracking-wider text-rose-400 mb-1.5">Last-minute cancellation</p>
+                          <ul className="space-y-1">
+                            {cont.lastMinuteCancellation.map((item, i) => (
+                              <li key={i} className="text-sm text-slate-300 leading-relaxed flex gap-2">
+                                <span className="text-rose-400 shrink-0">▸</span><span>{item}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      </div>
+                    </Collapse>
+                  );
+                })()}
 
                 {/* Day comments */}
                 {FIREBASE_ENABLED && (

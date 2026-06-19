@@ -8,6 +8,9 @@ import { TIPS } from "../data/tips";
 import { DOCTRINES, DOCTRINE_PREAMBLE, type Severity } from "../data/doctrines";
 import { EMERGENCY_LINES, ESSENTIALS, EMERGENCY_PHRASES } from "../data/essentials";
 import { SectionHeading } from "./SectionHeading";
+import { PackingView } from "./PackingView";
+
+export type GuideTab = "survival" | "packing";
 
 const SEVERITY_STYLE: Record<Severity, string> = {
   LAW: "bg-rose-500/20 text-rose-300 border-rose-500/40",
@@ -74,7 +77,8 @@ function PhraseRow({ en, jp, romaji }: { en: string; jp: string; romaji: string 
   );
 }
 
-export function GuideView() {
+export function GuideView({ tab }: { tab: GuideTab }) {
+  if (tab === "packing") return <PackingView />;
   return (
     <div className="section-pad py-24 pt-32">
       <SectionHeading
