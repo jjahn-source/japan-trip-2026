@@ -26,6 +26,7 @@ const ShopView = lazy(() => import("./components/ShopView").then((m) => ({ defau
 const SearchOverlay = lazy(() => import("./components/SearchOverlay").then((m) => ({ default: m.SearchOverlay })));
 
 type ExploreTab = "sights" | "night" | "play" | "shop";
+type EatTab = "spots" | "dishes" | "regional" | "chains";
 
 const EXPLORE_TABS: { id: ExploreTab; label: string; emoji: string }[] = [
   { id: "sights", label: "Sights", emoji: "⛩️" },
@@ -34,9 +35,17 @@ const EXPLORE_TABS: { id: ExploreTab; label: string; emoji: string }[] = [
   { id: "shop",   label: "Shop",   emoji: "🛍️" },
 ];
 
+const EAT_TABS: { id: EatTab; label: string; emoji: string }[] = [
+  { id: "spots",    label: "Spots",    emoji: "🍱" },
+  { id: "dishes",   label: "Dishes",   emoji: "🍜" },
+  { id: "regional", label: "Regional", emoji: "🗺️" },
+  { id: "chains",   label: "Chains",   emoji: "🏪" },
+];
+
 export default function App() {
   const [view, setView] = useHashView();
   const [exploreTab, setExploreTab] = useState<ExploreTab>("sights");
+  const [eatTab, setEatTab] = useState<EatTab>("spots");
   const [searchOpen, setSearchOpen] = useState(false);
   const [resetIdentity, setResetIdentity] = useState(false);
   const { name, chooseName } = useIdentity();
@@ -73,6 +82,11 @@ export default function App() {
 
   const switchExploreTab = (tab: ExploreTab) => {
     setExploreTab(tab);
+    window.scrollTo({ top: 0 });
+  };
+
+  const switchEatTab = (tab: EatTab) => {
+    setEatTab(tab);
     window.scrollTo({ top: 0 });
   };
 
@@ -137,10 +151,35 @@ export default function App() {
             </Suspense>
           </>
         )}
-        {view !== "plan" && view !== "explore" && (
+        {view === "eat" && (
+          <>
+            <div className="sticky top-[68px] z-40 bg-[#09090f]/90 backdrop-blur-xl border-b border-white/8">
+              <div className="section-pad flex gap-1 py-2">
+                {EAT_TABS.map((t) => (
+                  <button
+                    key={t.id}
+                    type="button"
+                    onClick={() => switchEatTab(t.id)}
+                    className={`flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold transition-colors whitespace-nowrap ${
+                      eatTab === t.id
+                        ? "bg-amber-500 text-white shadow-sm shadow-amber-500/30"
+                        : "text-slate-400 hover:text-white hover:bg-white/10"
+                    }`}
+                  >
+                    <span>{t.emoji}</span>
+                    {t.label}
+                  </button>
+                ))}
+              </div>
+            </div>
+            <Suspense fallback={<div className="section-pad py-24 pt-32 text-center text-slate-400">Loading…</div>}>
+              <EatView tab={eatTab} />
+            </Suspense>
+          </>
+        )}
+        {view === "guide" && (
           <Suspense fallback={<div className="section-pad py-24 pt-32 text-center text-slate-400">Loading…</div>}>
-            {view === "eat" && <EatView />}
-            {view === "guide" && <GuideView />}
+            <GuideView />
           </Suspense>
         )}
       </main>

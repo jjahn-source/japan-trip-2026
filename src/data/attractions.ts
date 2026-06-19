@@ -19,6 +19,7 @@ export type Category =
 
 export type Attraction = {
   id: string;
+  wiki?: string;
   name: string;
   jp: string;
   city: City;
@@ -30,6 +31,7 @@ export type Attraction = {
   station: string;
   duration: string;
   decNote?: string;
+  links?: { label: string; url: string }[];
 };
 
 // NOTE: All prices shown USD-first with yen in parentheses, converted at ¥160 = $1 (June 2026 rate).
@@ -180,6 +182,7 @@ export const ATTRACTIONS: Attraction[] = [
   // ───────────────────────── TOKYO ─────────────────────────
   {
     id: "sensoji",
+    wiki: "Sensō-ji",
     name: "Senso-ji Temple",
     jp: "浅草寺",
     city: "Tokyo",
@@ -194,6 +197,7 @@ export const ATTRACTIONS: Attraction[] = [
   },
   {
     id: "meiji",
+    wiki: "Meiji Shrine",
     name: "Meiji Jingu Shrine",
     jp: "明治神宮",
     city: "Tokyo",
@@ -208,6 +212,7 @@ export const ATTRACTIONS: Attraction[] = [
   },
   {
     id: "shibuya-crossing",
+    wiki: "Shibuya Crossing",
     name: "Shibuya Scramble Crossing",
     jp: "渋谷スクランブル交差点",
     city: "Tokyo",
@@ -222,6 +227,7 @@ export const ATTRACTIONS: Attraction[] = [
   },
   {
     id: "shibuya-sky",
+    wiki: "Shibuya Sky",
     name: "Shibuya Sky",
     jp: "渋谷スカイ",
     city: "Tokyo",
@@ -236,6 +242,7 @@ export const ATTRACTIONS: Attraction[] = [
   },
   {
     id: "teamlab",
+    wiki: "teamLab Planets TOKYO",
     name: "teamLab Planets",
     jp: "チームラボプラネッツ",
     city: "Tokyo",
@@ -250,6 +257,7 @@ export const ATTRACTIONS: Attraction[] = [
   },
   {
     id: "teamlab-borderless",
+    wiki: "teamLab Borderless",
     name: "teamLab Borderless (Azabudai Hills)",
     jp: "チームラボボーダレス",
     city: "Tokyo",
@@ -264,6 +272,7 @@ export const ATTRACTIONS: Attraction[] = [
   },
   {
     id: "skytree",
+    wiki: "Tokyo Skytree",
     name: "Tokyo Skytree",
     jp: "東京スカイツリー",
     city: "Tokyo",
@@ -278,6 +287,7 @@ export const ATTRACTIONS: Attraction[] = [
   },
   {
     id: "tokyo-tower",
+    wiki: "Tokyo Tower",
     name: "Tokyo Tower",
     jp: "東京タワー",
     city: "Tokyo",
@@ -292,6 +302,7 @@ export const ATTRACTIONS: Attraction[] = [
   },
   {
     id: "tsukiji",
+    wiki: "Tsukiji market",
     name: "Tsukiji Outer Market",
     jp: "築地場外市場",
     city: "Tokyo",
@@ -306,6 +317,7 @@ export const ATTRACTIONS: Attraction[] = [
   },
   {
     id: "toyosu",
+    wiki: "Toyosu Market",
     name: "Toyosu Market & Senkyaku Banrai",
     jp: "豊洲市場",
     city: "Tokyo",
@@ -320,6 +332,7 @@ export const ATTRACTIONS: Attraction[] = [
   },
   {
     id: "akihabara",
+    wiki: "Akihabara",
     name: "Akihabara Electric Town",
     jp: "秋葉原",
     city: "Tokyo",
@@ -334,6 +347,7 @@ export const ATTRACTIONS: Attraction[] = [
   },
   {
     id: "ueno",
+    wiki: "Ueno Park",
     name: "Ueno Park & Museums",
     jp: "上野公園",
     city: "Tokyo",
@@ -348,6 +362,7 @@ export const ATTRACTIONS: Attraction[] = [
   },
   {
     id: "harajuku",
+    wiki: "Takeshita Street",
     name: "Takeshita Street, Harajuku",
     jp: "竹下通り",
     city: "Tokyo",
@@ -362,6 +377,7 @@ export const ATTRACTIONS: Attraction[] = [
   },
   {
     id: "omotesando",
+    wiki: "Omotesando",
     name: "Omotesando & Cat Street",
     jp: "表参道",
     city: "Tokyo",
@@ -376,6 +392,7 @@ export const ATTRACTIONS: Attraction[] = [
   },
   {
     id: "shinjuku-gyoen",
+    wiki: "Shinjuku Gyoen National Garden",
     name: "Shinjuku Gyoen Garden",
     jp: "新宿御苑",
     city: "Tokyo",
@@ -390,6 +407,7 @@ export const ATTRACTIONS: Attraction[] = [
   },
   {
     id: "golden-gai",
+    wiki: "Golden Gai",
     name: "Golden Gai",
     jp: "ゴールデン街",
     city: "Tokyo",
@@ -404,6 +422,7 @@ export const ATTRACTIONS: Attraction[] = [
   },
   {
     id: "omoide",
+    wiki: "Omoide Yokochō",
     name: "Omoide Yokocho",
     jp: "思い出横丁",
     city: "Tokyo",
@@ -418,6 +437,7 @@ export const ATTRACTIONS: Attraction[] = [
   },
   {
     id: "kabukicho",
+    wiki: "Kabukichō",
     name: "Kabukicho & Godzilla Head",
     jp: "歌舞伎町",
     city: "Tokyo",
@@ -432,6 +452,7 @@ export const ATTRACTIONS: Attraction[] = [
   },
   {
     id: "ghibli",
+    wiki: "Ghibli Museum",
     name: "Ghibli Museum",
     jp: "三鷹の森ジブリ美術館",
     city: "Tokyo",
@@ -446,6 +467,7 @@ export const ATTRACTIONS: Attraction[] = [
   },
   {
     id: "disneysea",
+    wiki: "Tokyo DisneySea",
     name: "Tokyo DisneySea",
     jp: "東京ディズニーシー",
     city: "Tokyo",
@@ -460,6 +482,7 @@ export const ATTRACTIONS: Attraction[] = [
   },
   {
     id: "pokemon-center",
+    wiki: "Nintendo Tokyo",
     name: "Pokémon Center & Nintendo Tokyo",
     jp: "ポケモンセンター",
     city: "Tokyo",
@@ -474,6 +497,7 @@ export const ATTRACTIONS: Attraction[] = [
   },
   {
     id: "imperial-palace",
+    wiki: "Tokyo Imperial Palace",
     name: "Imperial Palace East Gardens",
     jp: "皇居東御苑",
     city: "Tokyo",
@@ -488,6 +512,7 @@ export const ATTRACTIONS: Attraction[] = [
   },
   {
     id: "yanaka",
+    wiki: "Yanaka, Tokyo",
     name: "Yanaka Old Town",
     jp: "谷中",
     city: "Tokyo",
@@ -502,6 +527,7 @@ export const ATTRACTIONS: Attraction[] = [
   },
   {
     id: "nezu-shrine",
+    wiki: "Nezu Shrine",
     name: "Nezu Shrine",
     jp: "根津神社",
     city: "Tokyo",
@@ -516,6 +542,7 @@ export const ATTRACTIONS: Attraction[] = [
   },
   {
     id: "shimokita",
+    wiki: "Shimokitazawa",
     name: "Shimokitazawa",
     jp: "下北沢",
     city: "Tokyo",
@@ -530,6 +557,7 @@ export const ATTRACTIONS: Attraction[] = [
   },
   {
     id: "roppongi",
+    wiki: "Roppongi Hills Mori Tower",
     name: "Roppongi Hills & Mori Art Museum",
     jp: "六本木ヒルズ",
     city: "Tokyo",
@@ -544,6 +572,7 @@ export const ATTRACTIONS: Attraction[] = [
   },
   {
     id: "tokyo-station",
+    wiki: "Tokyo Station",
     name: "Tokyo Station & Marunouchi Illumination",
     jp: "東京駅・丸の内",
     city: "Tokyo",
@@ -558,6 +587,7 @@ export const ATTRACTIONS: Attraction[] = [
   },
   {
     id: "kappabashi",
+    wiki: "Kappabashi",
     name: "Kappabashi Kitchen Town",
     jp: "かっぱ橋道具街",
     city: "Tokyo",
@@ -572,6 +602,7 @@ export const ATTRACTIONS: Attraction[] = [
   },
   {
     id: "inokashira",
+    wiki: "Inokashira Park",
     name: "Inokashira Park & Kichijoji",
     jp: "井の頭公園・吉祥寺",
     city: "Tokyo",
@@ -586,6 +617,7 @@ export const ATTRACTIONS: Attraction[] = [
   },
   {
     id: "sengakuji",
+    wiki: "Sengaku-ji",
     name: "Sengaku-ji (47 Ronin)",
     jp: "泉岳寺",
     city: "Tokyo",
@@ -600,6 +632,7 @@ export const ATTRACTIONS: Attraction[] = [
   },
   {
     id: "odaiba",
+    wiki: "Odaiba",
     name: "Odaiba & teamLab Bayside",
     jp: "お台場",
     city: "Tokyo",
@@ -616,6 +649,7 @@ export const ATTRACTIONS: Attraction[] = [
   // ───────────────────────── KYOTO ─────────────────────────
   {
     id: "fushimi",
+    wiki: "Fushimi Inari-taisha",
     name: "Fushimi Inari Taisha",
     jp: "伏見稲荷大社",
     city: "Kyoto",
@@ -630,6 +664,7 @@ export const ATTRACTIONS: Attraction[] = [
   },
   {
     id: "kinkakuji",
+    wiki: "Kinkaku-ji",
     name: "Kinkaku-ji (Golden Pavilion)",
     jp: "金閣寺",
     city: "Kyoto",
@@ -644,6 +679,7 @@ export const ATTRACTIONS: Attraction[] = [
   },
   {
     id: "kiyomizu",
+    wiki: "Kiyomizudera",
     name: "Kiyomizu-dera",
     jp: "清水寺",
     city: "Kyoto",
@@ -658,6 +694,7 @@ export const ATTRACTIONS: Attraction[] = [
   },
   {
     id: "arashiyama",
+    wiki: "Arashiyama",
     name: "Arashiyama Bamboo Grove",
     jp: "嵐山竹林",
     city: "Kyoto",
@@ -672,6 +709,7 @@ export const ATTRACTIONS: Attraction[] = [
   },
   {
     id: "tenryuji",
+    wiki: "Tenryu-ji",
     name: "Tenryu-ji Temple",
     jp: "天龍寺",
     city: "Kyoto",
@@ -686,6 +724,7 @@ export const ATTRACTIONS: Attraction[] = [
   },
   {
     id: "monkey-park",
+    wiki: "Iwatayama Monkey Park",
     name: "Iwatayama Monkey Park",
     jp: "嵐山モンキーパーク",
     city: "Kyoto",
@@ -700,6 +739,7 @@ export const ATTRACTIONS: Attraction[] = [
   },
   {
     id: "gion",
+    wiki: "Gion",
     name: "Gion & Hanamikoji Street",
     jp: "祇園",
     city: "Kyoto",
@@ -714,6 +754,7 @@ export const ATTRACTIONS: Attraction[] = [
   },
   {
     id: "yasaka-shrine",
+    wiki: "Yasaka Shrine",
     name: "Yasaka Shrine",
     jp: "八坂神社",
     city: "Kyoto",
@@ -728,6 +769,7 @@ export const ATTRACTIONS: Attraction[] = [
   },
   {
     id: "nishiki",
+    wiki: "Nishiki Market",
     name: "Nishiki Market",
     jp: "錦市場",
     city: "Kyoto",
@@ -756,6 +798,7 @@ export const ATTRACTIONS: Attraction[] = [
   },
   {
     id: "philosophers",
+    wiki: "Philosopher's Walk",
     name: "Philosopher's Path",
     jp: "哲学の道",
     city: "Kyoto",
@@ -784,6 +827,7 @@ export const ATTRACTIONS: Attraction[] = [
   },
   {
     id: "nijo",
+    wiki: "Nijō Castle",
     name: "Nijo Castle",
     jp: "二条城",
     city: "Kyoto",
@@ -884,6 +928,7 @@ export const ATTRACTIONS: Attraction[] = [
   // ───────────────────────── OSAKA ─────────────────────────
   {
     id: "dotonbori",
+    wiki: "Dōtonbori",
     name: "Dotonbori",
     jp: "道頓堀",
     city: "Osaka",
@@ -912,6 +957,7 @@ export const ATTRACTIONS: Attraction[] = [
   },
   {
     id: "osaka-castle",
+    wiki: "Osaka Castle",
     name: "Osaka Castle",
     jp: "大阪城",
     city: "Osaka",
@@ -954,6 +1000,7 @@ export const ATTRACTIONS: Attraction[] = [
   },
   {
     id: "kuromon",
+    wiki: "Kuromon Ichiba Market",
     name: "Kuromon Ichiba Market",
     jp: "黒門市場",
     city: "Osaka",
@@ -1080,6 +1127,7 @@ export const ATTRACTIONS: Attraction[] = [
   },
   {
     id: "sumiyoshi",
+    wiki: "Sumiyoshi Taisha",
     name: "Sumiyoshi Taisha",
     jp: "住吉大社",
     city: "Osaka",
@@ -1096,6 +1144,7 @@ export const ATTRACTIONS: Attraction[] = [
   // ───────────────────────── NARA ─────────────────────────
   {
     id: "nara-park",
+    wiki: "Nara Park",
     name: "Nara Park Deer",
     jp: "奈良公園",
     city: "Nara",
@@ -1110,6 +1159,7 @@ export const ATTRACTIONS: Attraction[] = [
   },
   {
     id: "todaiji",
+    wiki: "Tōdai-ji",
     name: "Todai-ji & the Great Buddha",
     jp: "東大寺",
     city: "Nara",
@@ -1124,6 +1174,7 @@ export const ATTRACTIONS: Attraction[] = [
   },
   {
     id: "kasuga",
+    wiki: "Kasuga Grand Shrine",
     name: "Kasuga Taisha",
     jp: "春日大社",
     city: "Nara",
@@ -1182,6 +1233,7 @@ export const ATTRACTIONS: Attraction[] = [
   // ──────────────────── HIROSHIMA & MIYAJIMA ────────────────────
   {
     id: "peace-park",
+    wiki: "Hiroshima Peace Memorial Park",
     name: "Peace Memorial Park & Museum",
     jp: "平和記念公園",
     city: "Hiroshima",
@@ -1196,6 +1248,7 @@ export const ATTRACTIONS: Attraction[] = [
   },
   {
     id: "itsukushima",
+    wiki: "Itsukushima Shrine",
     name: "Itsukushima Floating Torii",
     jp: "厳島神社",
     city: "Hiroshima",
@@ -1238,6 +1291,7 @@ export const ATTRACTIONS: Attraction[] = [
   },
   {
     id: "shukkeien",
+    wiki: "Shukkeien",
     name: "Shukkei-en Garden",
     jp: "縮景園",
     city: "Hiroshima",
@@ -1252,6 +1306,7 @@ export const ATTRACTIONS: Attraction[] = [
   },
   {
     id: "hiroshima-castle",
+    wiki: "Hiroshima Castle",
     name: "Hiroshima Castle",
     jp: "広島城",
     city: "Hiroshima",
@@ -1268,6 +1323,7 @@ export const ATTRACTIONS: Attraction[] = [
   // ───────────────────────── DAY TRIPS ─────────────────────────
   {
     id: "kamakura-daibutsu",
+    wiki: "Kōtoku-in",
     name: "Kamakura Great Buddha (Kotoku-in)",
     jp: "鎌倉大仏・高徳院",
     city: "Day Trips",
@@ -1282,6 +1338,7 @@ export const ATTRACTIONS: Attraction[] = [
   },
   {
     id: "hase-dera",
+    wiki: "Hase-dera, Kamakura",
     name: "Hase-dera Temple",
     jp: "長谷寺",
     city: "Day Trips",
@@ -1296,6 +1353,7 @@ export const ATTRACTIONS: Attraction[] = [
   },
   {
     id: "tsurugaoka",
+    wiki: "Tsurugaoka Hachimangū",
     name: "Tsurugaoka Hachimangu",
     jp: "鶴岡八幡宮",
     city: "Day Trips",
@@ -1310,6 +1368,7 @@ export const ATTRACTIONS: Attraction[] = [
   },
   {
     id: "enoshima",
+    wiki: "Enoshima",
     name: "Enoshima Island",
     jp: "江の島",
     city: "Day Trips",
@@ -1324,6 +1383,7 @@ export const ATTRACTIONS: Attraction[] = [
   },
   {
     id: "enoden",
+    wiki: "Enoden",
     name: "Enoden Coastal Tram",
     jp: "江ノ電",
     city: "Day Trips",
@@ -1338,6 +1398,7 @@ export const ATTRACTIONS: Attraction[] = [
   },
   {
     id: "himeji",
+    wiki: "Himeji Castle",
     name: "Himeji Castle",
     jp: "姫路城",
     city: "Day Trips",
@@ -1352,6 +1413,7 @@ export const ATTRACTIONS: Attraction[] = [
   },
   {
     id: "kobe",
+    wiki: "Kobe",
     name: "Kobe — Beef & Harborland",
     jp: "神戸",
     city: "Day Trips",
@@ -1366,6 +1428,7 @@ export const ATTRACTIONS: Attraction[] = [
   },
   {
     id: "arima",
+    wiki: "Arima Onsen",
     name: "Arima Onsen",
     jp: "有馬温泉",
     city: "Day Trips",
@@ -1380,6 +1443,7 @@ export const ATTRACTIONS: Attraction[] = [
   },
   {
     id: "nikko",
+    wiki: "Nikkō Tōshō-gū",
     name: "Nikko Toshogu",
     jp: "日光東照宮",
     city: "Day Trips",
@@ -1411,6 +1475,7 @@ export const ATTRACTIONS: Attraction[] = [
   // Tokyo
   {
     id: "kagurazaka",
+    wiki: "Kagurazaka",
     name: "Kagurazaka",
     jp: "神楽坂",
     city: "Tokyo",
@@ -1425,6 +1490,7 @@ export const ATTRACTIONS: Attraction[] = [
   },
   {
     id: "sunshine-city",
+    wiki: "Sunshine City",
     name: "Sunshine City, Ikebukuro",
     jp: "サンシャインシティ",
     city: "Tokyo",
@@ -1439,6 +1505,7 @@ export const ATTRACTIONS: Attraction[] = [
   },
   {
     id: "koenji",
+    wiki: "Kōenji",
     name: "Koenji Vintage District",
     jp: "高円寺",
     city: "Tokyo",
@@ -1453,6 +1520,7 @@ export const ATTRACTIONS: Attraction[] = [
   },
   {
     id: "ryogoku-sumo",
+    wiki: "Ryōgoku Kokugikan",
     name: "Ryogoku Kokugikan & Sumo Town",
     jp: "両国国技館",
     city: "Tokyo",
@@ -1467,6 +1535,7 @@ export const ATTRACTIONS: Attraction[] = [
   },
   {
     id: "red-tokyo-tower",
+    wiki: "Tokyo Tower",
     name: "RED° Tokyo Tower",
     jp: "RED° TOKYO TOWER",
     city: "Tokyo",
@@ -1481,6 +1550,7 @@ export const ATTRACTIONS: Attraction[] = [
   },
   {
     id: "yurakucho-gado",
+    wiki: "Yūrakuchō",
     name: "Yurakucho Gado-shita Izakaya",
     jp: "有楽町ガード下",
     city: "Tokyo",
@@ -1497,6 +1567,7 @@ export const ATTRACTIONS: Attraction[] = [
   // Kyoto
   {
     id: "toji",
+    wiki: "Tō-ji",
     name: "To-ji Temple & Five-Story Pagoda",
     jp: "東寺",
     city: "Kyoto",
@@ -1511,6 +1582,7 @@ export const ATTRACTIONS: Attraction[] = [
   },
   {
     id: "kyoto-railway",
+    wiki: "Kyoto Railway Museum",
     name: "Kyoto Railway Museum",
     jp: "京都鉄道博物館",
     city: "Kyoto",
@@ -1525,6 +1597,7 @@ export const ATTRACTIONS: Attraction[] = [
   },
   {
     id: "manga-museum",
+    wiki: "Kyoto International Manga Museum",
     name: "Kyoto International Manga Museum",
     jp: "京都国際マンガミュージアム",
     city: "Kyoto",
@@ -1541,6 +1614,7 @@ export const ATTRACTIONS: Attraction[] = [
   // Osaka
   {
     id: "tempozan-wheel",
+    wiki: "Tempozan Ferris Wheel",
     name: "Tempozan Ferris Wheel & Harbor",
     jp: "天保山大観覧車",
     city: "Osaka",
@@ -1555,6 +1629,7 @@ export const ATTRACTIONS: Attraction[] = [
   },
   {
     id: "nakanoshima",
+    wiki: "Nakanoshima, Osaka",
     name: "Nakanoshima",
     jp: "中之島",
     city: "Osaka",
@@ -1571,6 +1646,7 @@ export const ATTRACTIONS: Attraction[] = [
   // Nara
   {
     id: "wakakusa",
+    wiki: "Mount Wakakusa",
     name: "Mt. Wakakusa",
     jp: "若草山",
     city: "Nara",
@@ -1585,6 +1661,7 @@ export const ATTRACTIONS: Attraction[] = [
   },
   {
     id: "nara-national-museum",
+    wiki: "Nara National Museum",
     name: "Nara National Museum",
     jp: "奈良国立博物館",
     city: "Nara",
@@ -1601,6 +1678,7 @@ export const ATTRACTIONS: Attraction[] = [
   // Hiroshima
   {
     id: "mazda-museum",
+    wiki: "Mazda Museum",
     name: "Mazda Museum",
     jp: "マツダミュージアム",
     city: "Hiroshima",
@@ -1617,6 +1695,7 @@ export const ATTRACTIONS: Attraction[] = [
   // Day Trips
   {
     id: "kawaguchiko",
+    wiki: "Lake Kawaguchi",
     name: "Lake Kawaguchiko & Mt. Fuji",
     jp: "河口湖・富士山",
     city: "Day Trips",
@@ -1631,6 +1710,7 @@ export const ATTRACTIONS: Attraction[] = [
   },
   {
     id: "koyasan",
+    wiki: "Kōya-san",
     name: "Koyasan (Mt. Koya)",
     jp: "高野山",
     city: "Day Trips",
@@ -1645,6 +1725,7 @@ export const ATTRACTIONS: Attraction[] = [
   },
   {
     id: "kurama",
+    wiki: "Kurama-dera",
     name: "Kurama & Kibune Onsen",
     jp: "鞍馬・貴船",
     city: "Day Trips",
@@ -1661,6 +1742,7 @@ export const ATTRACTIONS: Attraction[] = [
   // More to do — second wave
   {
     id: "nakano-broadway",
+    wiki: "Nakano Broadway",
     name: "Nakano Broadway",
     jp: "中野ブロードウェイ",
     city: "Tokyo",
@@ -1675,6 +1757,7 @@ export const ATTRACTIONS: Attraction[] = [
   },
   {
     id: "hokusai-museum",
+    wiki: "Sumida Hokusai Museum",
     name: "Sumida Hokusai Museum",
     jp: "すみだ北斎美術館",
     city: "Tokyo",
@@ -1689,6 +1772,7 @@ export const ATTRACTIONS: Attraction[] = [
   },
   {
     id: "kennin-ji",
+    wiki: "Kennin-ji",
     name: "Kennin-ji Temple",
     jp: "建仁寺",
     city: "Kyoto",
@@ -1703,6 +1787,7 @@ export const ATTRACTIONS: Attraction[] = [
   },
   {
     id: "nishijin-orinasukan",
+    wiki: "Nishijin",
     name: "Nishijin Textile District & Orinasukan",
     jp: "西陣・織成舘",
     city: "Kyoto",
@@ -1717,6 +1802,7 @@ export const ATTRACTIONS: Attraction[] = [
   },
   {
     id: "kawagoe",
+    wiki: "Kawagoe",
     name: "Kawagoe (Little Edo)",
     jp: "川越",
     city: "Day Trips",
@@ -1731,6 +1817,7 @@ export const ATTRACTIONS: Attraction[] = [
   },
   {
     id: "takao",
+    wiki: "Mount Takao",
     name: "Mt. Takao",
     jp: "高尾山",
     city: "Day Trips",
@@ -1748,6 +1835,7 @@ export const ATTRACTIONS: Attraction[] = [
   // Tokyo
   {
     id: "miyashita-park",
+    wiki: "Miyashita Park",
     name: "Miyashita Park & Shibuya Yokocho",
     jp: "ミヤシタパーク・渋谷横丁",
     city: "Tokyo",
@@ -1762,6 +1850,7 @@ export const ATTRACTIONS: Attraction[] = [
   },
   {
     id: "edo-tokyo-openair",
+    wiki: "Edo-Tokyo Open Air Architectural Museum",
     name: "Edo-Tokyo Open Air Architectural Museum",
     jp: "江戸東京たてもの園",
     city: "Tokyo",
@@ -1776,6 +1865,7 @@ export const ATTRACTIONS: Attraction[] = [
   },
   {
     id: "shimokita-bonus",
+    wiki: "Shimokitazawa",
     name: "Bonus Track & Shimokitazawa Backstreets",
     jp: "ボーナストラック",
     city: "Tokyo",
@@ -1790,6 +1880,7 @@ export const ATTRACTIONS: Attraction[] = [
   },
   {
     id: "tokyo-national-museum",
+    wiki: "Tokyo National Museum",
     name: "Tokyo National Museum",
     jp: "東京国立博物館",
     city: "Tokyo",
@@ -1805,6 +1896,7 @@ export const ATTRACTIONS: Attraction[] = [
   // Kyoto
   {
     id: "ryoanji",
+    wiki: "Ryōan-ji",
     name: "Ryoan-ji Rock Garden",
     jp: "龍安寺",
     city: "Kyoto",
@@ -1819,6 +1911,7 @@ export const ATTRACTIONS: Attraction[] = [
   },
   {
     id: "pontocho",
+    wiki: "Pontochō",
     name: "Pontocho Alley",
     jp: "先斗町",
     city: "Kyoto",
@@ -1833,6 +1926,7 @@ export const ATTRACTIONS: Attraction[] = [
   },
   {
     id: "daitokuji",
+    wiki: "Daitoku-ji",
     name: "Daitoku-ji Zen Temple Complex",
     jp: "大徳寺",
     city: "Kyoto",
@@ -1847,6 +1941,7 @@ export const ATTRACTIONS: Attraction[] = [
   },
   {
     id: "kyoto-tower",
+    wiki: "Kyoto Tower",
     name: "Kyoto Tower",
     jp: "京都タワー",
     city: "Kyoto",
@@ -1862,6 +1957,7 @@ export const ATTRACTIONS: Attraction[] = [
   // Osaka
   {
     id: "hozenji",
+    wiki: "Hōzenji Yokochō",
     name: "Hozenji Yokocho",
     jp: "法善寺横丁",
     city: "Osaka",
@@ -1876,6 +1972,7 @@ export const ATTRACTIONS: Attraction[] = [
   },
   {
     id: "shinsaibashi",
+    wiki: "Shinsaibashi",
     name: "Shinsaibashi-suji Arcade",
     jp: "心斎橋筋商店街",
     city: "Osaka",
@@ -1890,6 +1987,7 @@ export const ATTRACTIONS: Attraction[] = [
   },
   {
     id: "tennoji-zoo",
+    wiki: "Tennōji Park",
     name: "Tennoji Park & Zoo",
     jp: "天王寺動物園",
     city: "Osaka",
@@ -1905,6 +2003,7 @@ export const ATTRACTIONS: Attraction[] = [
   // Nara / Uji
   {
     id: "horyuji",
+    wiki: "Hōryū-ji",
     name: "Horyu-ji Temple",
     jp: "法隆寺",
     city: "Nara",
@@ -1920,6 +2019,7 @@ export const ATTRACTIONS: Attraction[] = [
   // Hiroshima area
   {
     id: "onomichi",
+    wiki: "Onomichi",
     name: "Onomichi — Temple Walk & Cat Alleys",
     jp: "尾道",
     city: "Hiroshima",
@@ -1934,6 +2034,7 @@ export const ATTRACTIONS: Attraction[] = [
   },
   {
     id: "tomonoura",
+    wiki: "Tomonoura",
     name: "Tomonoura Port Town",
     jp: "鞆の浦",
     city: "Hiroshima",
@@ -1949,6 +2050,7 @@ export const ATTRACTIONS: Attraction[] = [
   // Day-trip-adjacent (Kansai/coast)
   {
     id: "amanohashidate",
+    wiki: "Amanohashidate",
     name: "Amanohashidate Sandbar",
     jp: "天橋立",
     city: "Day Trips",
@@ -1977,6 +2079,7 @@ export const ATTRACTIONS: Attraction[] = [
   },
   {
     id: "yoshinoyama",
+    wiki: "Mount Yoshino",
     name: "Mt. Yoshino",
     jp: "吉野山",
     city: "Nara",
