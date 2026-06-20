@@ -10,7 +10,7 @@ import {
   ChevronDown, ChevronUp, ChevronLeft, ChevronRight, Train, Ticket, GripVertical,
   CalendarPlus, Map, MapPin, ListChecks, ChevronsDownUp, ChevronsUpDown,
   CheckCircle2, Circle, Sparkles, AlertTriangle, Dices,
-  Eye, EyeOff, Pencil, Send, MessageCircle,
+  Eye, EyeOff, Pencil, Send, MessageCircle, Printer,
 } from "lucide-react";
 import { DAYS, type Day } from "../data/itinerary";
 import { CONTINGENCIES } from "../data/contingencies";
@@ -772,6 +772,9 @@ export function Itinerary() {
           <TopButton onClick={collapseAll}><ChevronsDownUp size={13} /> Collapse all</TopButton>
           <TopButton onClick={() => downloadICS("japan-trip-2026.ics", buildTripICS(DAYS))}>
             <CalendarPlus size={13} /> Add whole trip to calendar
+          </TopButton>
+          <TopButton onClick={() => window.print()}>
+            <Printer size={13} /> Print itinerary
           </TopButton>
           <button
             onClick={() => setTrackMode(!trackMode)}

@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { onSnapshot, updateDoc } from "firebase/firestore";
 import { FIREBASE_ENABLED, tripDoc } from "../lib/firebase";
 import { CREW, type CrewMember } from "./useIdentity";
+import { toast } from "../lib/toast";
 
 export function useSplits() {
   const [settled, setSettled] = useState<Record<string, boolean>>({});
@@ -17,7 +18,7 @@ export function useSplits() {
     if (!FIREBASE_ENABLED || !tripDoc) return;
     await updateDoc(tripDoc, {
       [`splits.${memberName}`]: !(settled[memberName] ?? false),
-    }).catch(console.error);
+    }).catch((err) => { console.error(err); toast.error("Budget sync failed — check your connection"); });
   };
 
   const settledCount = CREW.filter((m) => settled[m]).length;

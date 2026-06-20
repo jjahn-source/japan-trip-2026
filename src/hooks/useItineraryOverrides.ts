@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { onSnapshot, updateDoc, arrayUnion, arrayRemove } from "firebase/firestore";
 import { FIREBASE_ENABLED, tripDoc } from "../lib/firebase";
+import { toast } from "../lib/toast";
 
 export type DayOverride = { order: string[]; skipped: string[] };
 
@@ -20,12 +21,12 @@ export function useItineraryOverrides() {
     if (!FIREBASE_ENABLED || !tripDoc) return;
     await updateDoc(tripDoc, {
       [`overrides.${date}.skipped`]: value ? arrayUnion(key) : arrayRemove(key),
-    }).catch(console.error);
+    }).catch((err) => { console.error(err); toast.error("Itinerary sync failed — check your connection"); });
   };
 
   const setOrder = async (date: string, order: string[]): Promise<void> => {
     if (!FIREBASE_ENABLED || !tripDoc) return;
-    await updateDoc(tripDoc, { [`overrides.${date}.order`]: order }).catch(console.error);
+    await updateDoc(tripDoc, { [`overrides.${date}.order`]: order }).catch((err) => { console.error(err); toast.error("Itinerary sync failed — check your connection"); });
   };
 
   return { overrides, skip, setOrder };

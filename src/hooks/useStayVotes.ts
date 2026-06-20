@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { onSnapshot, updateDoc, arrayUnion, arrayRemove } from "firebase/firestore";
 import { FIREBASE_ENABLED, tripDoc } from "../lib/firebase";
+import { toast } from "../lib/toast";
 
 export function useStayVotes() {
   const [votes, setVotes] = useState<Record<string, string[]>>({});
@@ -20,7 +21,7 @@ export function useStayVotes() {
     const key = `${leg}_${listingId}`;
     const current = votes[key] ?? [];
     const op = current.includes(name) ? arrayRemove(name) : arrayUnion(name);
-    await updateDoc(tripDoc, { [`stayVotes.${key}`]: op }).catch(console.error);
+    await updateDoc(tripDoc, { [`stayVotes.${key}`]: op }).catch((err) => { console.error(err); toast.error("Stay vote sync failed — check your connection"); });
   };
 
   return { getVotes, toggle };

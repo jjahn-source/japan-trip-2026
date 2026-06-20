@@ -3,6 +3,7 @@ import { onSnapshot, updateDoc } from "firebase/firestore";
 import { FIREBASE_ENABLED, tripDoc } from "../lib/firebase";
 import { useLocalStorage } from "./useLocalStorage";
 import { getIdentityName } from "./useIdentity";
+import { toast } from "../lib/toast";
 
 export type BookingEntry = { done: boolean; by: string | null; at: string | null };
 
@@ -37,7 +38,7 @@ export function useBookingsSync() {
       [`bookings.${id}.done`]: nowDone,
       [`bookings.${id}.by`]: nowDone ? name : null,
       [`bookings.${id}.at`]: nowDone ? new Date().toISOString() : null,
-    }).catch(console.error);
+    }).catch((err) => { console.error(err); toast.error("Booking sync failed — check your connection"); });
   };
 
   return { isDone, whoBy, whenAt, toggle };

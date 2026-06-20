@@ -43,7 +43,7 @@ export function CrewChat() {
         sub="Plans, dumb ideas, hype — all 8 of you in real time"
       />
       <div className="glass rounded-2xl overflow-hidden">
-        <div ref={scrollRef} className="h-80 overflow-y-auto p-4 space-y-3">
+        <div ref={scrollRef} role="log" aria-live="polite" aria-label="Crew chat messages" className="h-80 overflow-y-auto p-4 space-y-3">
           {messages.length === 0 && (
             <p className="text-slate-500 text-sm text-center py-10">
               No messages yet — kick it off
@@ -86,6 +86,8 @@ export function CrewChat() {
             onKeyDown={(e) => { if (e.key === "Enter" && !e.shiftKey) { e.preventDefault(); submit(); } }}
             placeholder={myName ? "Say something…" : "Pick a name above to chat"}
             disabled={!myName}
+            maxLength={500}
+            aria-label="Chat message"
             className="flex-1 bg-white/5 border border-white/10 rounded-xl px-3 py-2 text-sm text-slate-100 placeholder-slate-600 focus:outline-none focus:border-rose-500/40 disabled:opacity-40 min-w-0"
           />
           <button

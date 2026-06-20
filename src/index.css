@@ -109,3 +109,73 @@ body {
 ::-webkit-scrollbar-thumb {
   @apply bg-white/10 rounded-full;
 }
+
+@media print {
+  /* Clean white background, black text */
+  body {
+    background: white !important;
+    background-image: none !important;
+    color: black !important;
+  }
+
+  /* Hide navigation chrome, buttons, and interactive elements */
+  header,
+  nav,
+  footer,
+  .no-print,
+  [role="status"],
+  button:not(.print-show) {
+    display: none !important;
+  }
+
+  /* Remove glassmorphic effects */
+  .glass {
+    background: white !important;
+    backdrop-filter: none !important;
+    border: 1px solid #e2e8f0 !important;
+    color: black !important;
+  }
+
+  /* Page breaks between days */
+  [id^="day-"] {
+    page-break-before: always;
+    break-before: page;
+  }
+  [id^="day-"]:first-of-type {
+    page-break-before: avoid;
+    break-before: avoid;
+  }
+
+  /* Ensure content is readable */
+  .text-slate-400,
+  .text-slate-500,
+  .text-slate-600 {
+    color: #475569 !important;
+  }
+  .text-slate-300,
+  .text-slate-200,
+  .text-slate-100 {
+    color: #1e293b !important;
+  }
+  .text-rose-400,
+  .text-rose-300 {
+    color: #be123c !important;
+  }
+
+  /* Full width for print */
+  .section-pad {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    max-width: 100% !important;
+  }
+
+  /* Remove shadows */
+  * {
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+
+  main {
+    padding-top: 0 !important;
+  }
+}

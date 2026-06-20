@@ -2,7 +2,7 @@
 // Strategy: network-first for page navigations (so new deploys load fresh),
 // cache-first for content-hashed static assets (immutable → safe to cache),
 // and cross-origin requests (map tiles, Wikipedia, fonts) always hit network.
-const VERSION = "v1";
+const VERSION = "__SW_BUILD__";
 const CACHE = `japan-trip-${VERSION}`;
 const BASE = new URL("./", self.location).pathname; // "/japan-trip-2026/"
 const PRECACHE = [BASE, `${BASE}manifest.webmanifest`, `${BASE}icon.svg`];

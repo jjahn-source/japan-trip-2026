@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { onSnapshot, updateDoc, arrayUnion, arrayRemove } from "firebase/firestore";
 import { FIREBASE_ENABLED, tripDoc } from "../lib/firebase";
+import { toast } from "../lib/toast";
 
 // key format: "YYYY-MM-DD:activityIndex" — colon replaced with underscore for Firestore field path
 function sanitize(key: string) {
@@ -24,7 +25,7 @@ export function useActivityVotes() {
     const k = sanitize(key);
     const current = votes[k] ?? [];
     const op = current.includes(name) ? arrayRemove(name) : arrayUnion(name);
-    await updateDoc(tripDoc, { [`activityVotes.${k}`]: op }).catch(console.error);
+    await updateDoc(tripDoc, { [`activityVotes.${k}`]: op }).catch((err) => { console.error(err); toast.error("Vote sync failed — check your connection"); });
   };
 
   return { getVoters, toggle };

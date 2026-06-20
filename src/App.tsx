@@ -13,6 +13,7 @@ import { BudgetSplit } from "./components/BudgetSplit";
 import { IdentityModal } from "./components/IdentityModal";
 import { useHashView, type View } from "./hooks/useHashView";
 import { useIdentity } from "./hooks/useIdentity";
+import { useOnlineStatus } from "./hooks/useOnlineStatus";
 import { initTripDoc, FIREBASE_ENABLED } from "./lib/firebase";
 import { scrollToAnchor } from "./utils/nav";
 import { lazy, Suspense, useEffect, useState } from "react";
@@ -66,6 +67,7 @@ export default function App() {
   const [searchOpen, setSearchOpen] = useState(false);
   const [resetIdentity, setResetIdentity] = useState(false);
   const { name, chooseName } = useIdentity();
+  const online = useOnlineStatus();
 
   useEffect(() => {
     if (FIREBASE_ENABLED) initTripDoc();
@@ -130,6 +132,18 @@ export default function App() {
         identityName={name}
         onChangeIdentity={() => setResetIdentity(true)}
       />
+      {!online && (
+        <div
+          role="status"
+          aria-live="polite"
+          className="fixed top-[72px] inset-x-0 z-40 flex justify-center px-3 pt-2"
+        >
+          <div className="flex items-center gap-2 rounded-xl border border-amber-500/30 bg-amber-500/15 px-4 py-2 text-xs font-semibold text-amber-300 backdrop-blur-xl shadow-lg">
+            <span aria-hidden="true">⚠️</span>
+            You're offline — crew sync paused
+          </div>
+        </div>
+      )}
       {searchOpen && (
         <Suspense fallback={null}>
           <SearchOverlay onClose={() => setSearchOpen(false)} onNavigate={navigateTo} />

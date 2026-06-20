@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { onSnapshot, updateDoc } from "firebase/firestore";
 import { FIREBASE_ENABLED, tripDoc } from "../lib/firebase";
 import { CREW, type CrewMember } from "./useIdentity";
+import { toast } from "../lib/toast";
 
 export type CrewEntry = { flightBooked: boolean; passportValid: boolean };
 export type CrewData = Record<CrewMember, CrewEntry>;
@@ -25,7 +26,7 @@ export function useCrewSync() {
 
   const update = async (name: CrewMember, field: keyof CrewEntry, value: boolean): Promise<void> => {
     if (!FIREBASE_ENABLED || !tripDoc) return;
-    await updateDoc(tripDoc, { [`crew.${name}.${field}`]: value }).catch(console.error);
+    await updateDoc(tripDoc, { [`crew.${name}.${field}`]: value }).catch((err) => { console.error(err); toast.error("Crew sync failed — check your connection"); });
   };
 
   return { crew, update };
