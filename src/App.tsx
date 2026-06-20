@@ -24,11 +24,20 @@ const GuideView = lazy(() => import("./components/GuideView").then((m) => ({ def
 const ShopView = lazy(() => import("./components/ShopView").then((m) => ({ default: m.ShopView })));
 const CrewView = lazy(() => import("./components/CrewView").then((m) => ({ default: m.CrewView })));
 const SearchOverlay = lazy(() => import("./components/SearchOverlay").then((m) => ({ default: m.SearchOverlay })));
+const RouteMap = lazy(() => import("./components/RouteMap").then((m) => ({ default: m.RouteMap })));
 
+type PlanTab = "home" | "days" | "book" | "crew";
 type ExploreTab = "sights" | "night" | "play" | "shop";
 type EatTab = "spots" | "dishes" | "regional" | "chains";
 type GuideTab = "survival" | "packing";
 type CrewTab = "wars" | "bingo" | "awards" | "rituals";
+
+const PLAN_TABS: { id: PlanTab; label: string; emoji: string }[] = [
+  { id: "home", label: "Home",  emoji: "🏠" },
+  { id: "days", label: "Days",  emoji: "📅" },
+  { id: "book", label: "Book",  emoji: "✅" },
+  { id: "crew", label: "Crew",  emoji: "👥" },
+];
 
 const EXPLORE_TABS: { id: ExploreTab; label: string; emoji: string }[] = [
   { id: "sights", label: "Sights", emoji: "⛩️" },
@@ -58,6 +67,7 @@ const CREW_TABS: { id: CrewTab; label: string; emoji: string }[] = [
 
 export default function App() {
   const [view, setView] = useHashView();
+  const [planTab, setPlanTab] = useState<PlanTab>("home");
   const [exploreTab, setExploreTab] = useState<ExploreTab>("sights");
   const [eatTab, setEatTab] = useState<EatTab>("spots");
   const [guideTab, setGuideTab] = useState<GuideTab>("survival");
@@ -95,6 +105,11 @@ export default function App() {
   const handleChooseName = (n: Parameters<typeof chooseName>[0]) => {
     chooseName(n);
     setResetIdentity(false);
+  };
+
+  const switchPlanTab = (tab: PlanTab) => {
+    setPlanTab(tab);
+    window.scrollTo({ top: 0 });
   };
 
   const switchExploreTab = (tab: ExploreTab) => {
@@ -150,13 +165,45 @@ export default function App() {
       <main>
         {view === "plan" && (
           <>
-            <Dashboard />
-            <CrewBoard myName={name} />
-            <Itinerary />
-            <Bookings />
-            <StayView />
-            <BudgetSplit />
-            <CrewChat />
+            <div className="sticky top-[68px] z-40 bg-[#09090f]/90 backdrop-blur-xl border-b border-white/8">
+              <div className="section-pad flex gap-1 py-2">
+                {PLAN_TABS.map((t) => (
+                  <button
+                    key={t.id}
+                    type="button"
+                    onClick={() => switchPlanTab(t.id)}
+                    className={`flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold transition-colors whitespace-nowrap ${
+                      planTab === t.id
+                        ? "bg-rose-500 text-white shadow-sm shadow-rose-500/30"
+                        : "text-slate-400 hover:text-white hover:bg-white/10"
+                    }`}
+                  >
+                    <span>{t.emoji}</span>
+                    {t.label}
+                  </button>
+                ))}
+              </div>
+            </div>
+            {planTab === "home" && <Dashboard />}
+            {planTab === "days" && (
+              <Suspense fallback={<div className="section-pad py-24 pt-32 text-center text-slate-400">Loading…</div>}>
+                <RouteMap />
+                <Itinerary />
+              </Suspense>
+            )}
+            {planTab === "book" && (
+              <>
+                <Bookings />
+                <StayView />
+              </>
+            )}
+            {planTab === "crew" && (
+              <>
+                <CrewBoard myName={name} />
+                <BudgetSplit />
+                <CrewChat />
+              </>
+            )}
           </>
         )}
         {view === "explore" && (
