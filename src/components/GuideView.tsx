@@ -9,6 +9,7 @@ import { DOCTRINES, DOCTRINE_PREAMBLE, type Severity } from "../data/doctrines";
 import { EMERGENCY_LINES, ESSENTIALS, EMERGENCY_PHRASES } from "../data/essentials";
 import { SectionHeading } from "./SectionHeading";
 import { PackingView } from "./PackingView";
+import { CurrencyCalc } from "./CurrencyCalc";
 
 export type GuideTab = "survival" | "packing";
 
@@ -256,6 +257,11 @@ export function GuideView({ tab }: { tab: GuideTab }) {
             </Accordion>
           ))}
         </div>
+      </div>
+
+      {/* Currency Calculator */}
+      <div className="mt-20">
+        <CurrencyCalc />
       </div>
     </div>
   );

@@ -22,6 +22,7 @@ import { useDayComments, type DayComment } from "../hooks/useDayComments";
 import { useItineraryOverrides, type DayOverride } from "../hooks/useItineraryOverrides";
 import { useActivityVotes } from "../hooks/useActivityVotes";
 import { getIdentityName } from "../hooks/useIdentity";
+import { useCrewPresence } from "../hooks/useCrewPresence";
 import { FIREBASE_ENABLED } from "../lib/firebase";
 import {
   daySpan, activityMapUrl, mapsRouteUrl, buildDayICS, buildTripICS, downloadICS,
@@ -80,7 +81,7 @@ function ActivityRow({
   voters, myVoted, myName, onVoteToggle, editMode, onSkipToggle,
   canMoveUp, canMoveDown, onMoveUp, onMoveDown,
   canMovePrevDay, canMoveNextDay, onMovePrevDay, onMoveNextDay,
-  walkMins,
+  walkMins, presenceNames, onPresenceToggle,
 }: {
   activityKey: string;
   activity: Activity;
@@ -105,6 +106,8 @@ function ActivityRow({
   onMovePrevDay: () => void;
   onMoveNextDay: () => void;
   walkMins?: number;
+  presenceNames?: string[];
+  onPresenceToggle?: () => void;
 }) {
   const { attributes, listeners, setNodeRef, transform, transition, isDragging } = useSortable({ id: activityKey });
   const mapUrl = activityMapUrl(activity);
@@ -158,6 +161,29 @@ function ActivityRow({
           )}
         </p>
         {activity.note && <p className={`text-sm mt-0.5 ${isDone || isSkipped ? "text-slate-600" : "text-slate-400"}`}>{activity.note}</p>}
+        {FIREBASE_ENABLED && presenceNames !== undefined && myName && onPresenceToggle && !isSkipped && (
+          <div className="flex flex-wrap items-center gap-1 mt-1.5">
+            {presenceNames.map((n) => (
+              <span
+                key={n}
+                className="text-[0.55rem] font-bold bg-white/8 border border-white/10 text-slate-400 rounded-full px-1.5 py-0.5"
+              >
+                {n.slice(0, 2)}
+              </span>
+            ))}
+            <button
+              type="button"
+              onClick={(e) => { e.stopPropagation(); onPresenceToggle(); }}
+              className={`text-[0.55rem] font-bold rounded-full px-1.5 py-0.5 border transition-colors ${
+                presenceNames.includes(myName)
+                  ? "bg-emerald-500/15 border-emerald-500/25 text-emerald-300 hover:bg-emerald-500/25"
+                  : "bg-white/5 border-white/10 text-slate-600 hover:text-slate-300 hover:border-white/20"
+              }`}
+            >
+              {presenceNames.includes(myName) ? "✓ here" : "I'm here"}
+            </button>
+          </div>
+        )}
       </div>
 
       {/* Activity vote */}
@@ -264,6 +290,7 @@ function DayCard({
   day, index, open, onToggle, trackMode, done, setDone,
   override, comments, myName, prevDate, nextDate,
   onSkip, onAddComment, getVoters, onVoteToggle, onMove,
+  getPresent, onPresenceToggle,
 }: {
   day: Day;
   index: number;
@@ -282,6 +309,8 @@ function DayCard({
   getVoters: (key: string) => string[];
   onVoteToggle: (key: string) => void;
   onMove: (key: string, fromDate: string, toDate: string, beforeKey: string | null) => void;
+  getPresent?: (date: string, idx: number) => string[];
+  onPresenceToggle?: (date: string, idx: number) => void;
 }) {
   const [editMode, setEditMode] = useState(false);
   const [commentDraft, setCommentDraft] = useState("");
@@ -506,6 +535,8 @@ function DayCard({
                         onMovePrevDay={() => prevDate && onMove(key, day.date, prevDate, null)}
                         onMoveNextDay={() => nextDate && onMove(key, day.date, nextDate, null)}
                         walkMins={wm}
+                        presenceNames={getPresent ? getPresent(srcDate, origIdx) : undefined}
+                        onPresenceToggle={onPresenceToggle ? () => onPresenceToggle(srcDate, origIdx) : undefined}
                       />
                     );
                   })}
@@ -696,6 +727,7 @@ export function Itinerary() {
   const { forDate, add: addComment } = useDayComments();
   const { overrides, skip, setOrder } = useItineraryOverrides();
   const { getVoters, toggle: toggleVote } = useActivityVotes();
+  const { getPresent, toggle: togglePresence } = useCrewPresence();
   const myName = getIdentityName();
   const [activeDragKey, setActiveDragKey] = useState<string | null>(null);
   const sensors = useSensors(useSensor(PointerSensor, { activationConstraint: { distance: 5 } }));
@@ -830,6 +862,8 @@ export function Itinerary() {
               getVoters={getVoters}
               onVoteToggle={(key) => { if (myName) toggleVote(key, myName); }}
               onMove={moveActivity}
+              getPresent={FIREBASE_ENABLED ? getPresent : undefined}
+              onPresenceToggle={FIREBASE_ENABLED && myName ? (date, idx) => togglePresence(date, idx, myName) : undefined}
             />
           ))}
         </div>

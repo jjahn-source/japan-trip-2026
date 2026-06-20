@@ -1,12 +1,10 @@
 import { Nav } from "./components/Nav";
-import { TodayBanner } from "./components/TodayBanner";
+import { Dashboard } from "./components/Dashboard";
 import { BackToTop } from "./components/BackToTop";
 import { Itinerary } from "./components/Itinerary";
 import { Bookings } from "./components/Bookings";
 import { StayView } from "./components/StayView";
-import { CurrencyCalc } from "./components/CurrencyCalc";
 import { Footer } from "./components/Footer";
-import { PreTripPhases } from "./components/PreTripPhases";
 import { CrewBoard } from "./components/CrewBoard";
 import { CrewChat } from "./components/CrewChat";
 import { BudgetSplit } from "./components/BudgetSplit";
@@ -152,15 +150,13 @@ export default function App() {
       <main>
         {view === "plan" && (
           <>
-            <TodayBanner />
-            <PreTripPhases />
+            <Dashboard />
             <CrewBoard myName={name} />
             <Itinerary />
-            <BudgetSplit />
-            <CrewChat />
             <Bookings />
             <StayView />
-            <CurrencyCalc />
+            <BudgetSplit />
+            <CrewChat />
           </>
         )}
         {view === "explore" && (
