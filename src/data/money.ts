@@ -1,6 +1,8 @@
 // "Don't waste a yen" — researched money moves for THIS trip (Jun 2026 sources).
 // Rate: ¥160 = $1. Verdicts are specific to our Dec 14–29 2026 route.
 
+export const YEN_RATE = 160; // ¥ per $1, working rate for Dec 2026
+
 export type MoveTag = "Transport" | "Food" | "Shopping" | "Sightseeing" | "Logistics";
 
 export type MoneyMove = {
