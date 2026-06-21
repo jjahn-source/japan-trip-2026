@@ -5,7 +5,7 @@ import { toast, type ToastEvent } from "../lib/toast";
 const DURATION = 4000;
 
 const STYLES: Record<ToastEvent["type"], string> = {
-  error: "border-rose-500/40 bg-rose-500/15 text-rose-200",
+  error: "border-accent-500/40 bg-accent-500/15 text-accent-200",
   success: "border-emerald-500/40 bg-emerald-500/15 text-emerald-200",
   info: "border-slate-500/40 bg-slate-500/15 text-slate-200",
 };

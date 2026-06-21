@@ -46,9 +46,9 @@ function PreTripDashboard() {
   return (
     <div className="section-pad -mt-8 space-y-3 pb-2">
       {/* Countdown */}
-      <div className="glass rounded-2xl border border-rose-500/25 bg-rose-500/5 p-4 sm:p-5 flex flex-col sm:flex-row sm:items-center gap-4">
+      <div className="glass rounded-2xl border border-accent-500/25 bg-accent-500/5 p-4 sm:p-5 flex flex-col sm:flex-row sm:items-center gap-4">
         <div className="flex-1 min-w-0">
-          <p className="text-[0.62rem] font-bold uppercase tracking-[0.2em] text-rose-300">
+          <p className="text-[0.62rem] font-bold uppercase tracking-[0.2em] text-accent-300">
             {until === 0 ? "Wheels up today" : `${until} day${until === 1 ? "" : "s"} until wheels up`}
           </p>
           <h2 className="text-lg sm:text-2xl font-black mt-0.5 truncate">First up: {d0.emoji} {d0.title}</h2>
@@ -57,7 +57,7 @@ function PreTripDashboard() {
         <button
           type="button"
           onClick={() => openDay(0)}
-          className="shrink-0 inline-flex items-center gap-1.5 rounded-full bg-rose-500 hover:bg-rose-400 transition-colors px-5 py-2.5 font-bold text-white text-sm"
+          className="shrink-0 inline-flex items-center gap-1.5 rounded-full bg-accent-500 hover:bg-accent-400 transition-colors px-5 py-2.5 font-bold text-white text-sm"
         >
           Preview Day 1 <ArrowRight size={15} />
         </button>
@@ -112,7 +112,7 @@ function PreTripDashboard() {
                   <span
                     className={`mt-0.5 shrink-0 text-[0.6rem] font-bold px-1.5 py-0.5 rounded-full whitespace-nowrap ${
                       b.priority === "critical"
-                        ? "bg-rose-500/20 text-rose-300"
+                        ? "bg-accent-500/20 text-accent-300"
                         : b.priority === "high"
                         ? "bg-amber-500/20 text-amber-300"
                         : "bg-slate-500/20 text-slate-400"
@@ -176,7 +176,7 @@ function InTripDashboard({ idx }: { idx: number }) {
               <div className="flex-1 rounded-xl bg-white/5 border border-white/10 p-2.5">
                 <p className="text-[0.55rem] font-bold uppercase tracking-wider text-emerald-400 mb-0.5">Now</p>
                 <p className="text-xs font-semibold text-slate-100 leading-snug">{currentAct.title}</p>
-                <p className="text-[0.6rem] text-rose-300 font-bold tabular-nums mt-0.5">{currentAct.time}</p>
+                <p className="text-[0.6rem] text-accent-300 font-bold tabular-nums mt-0.5">{currentAct.time}</p>
               </div>
             )}
             {nextAct && (
@@ -205,7 +205,7 @@ function InTripDashboard({ idx }: { idx: number }) {
           <div className="space-y-1.5">
             {lastMsgs.map((msg) => (
               <div key={msg.id} className="flex gap-2 items-baseline">
-                <span className="text-[0.65rem] font-bold text-rose-300 shrink-0">{msg.author}</span>
+                <span className="text-[0.65rem] font-bold text-accent-300 shrink-0">{msg.author}</span>
                 <span className="text-xs text-slate-300 leading-snug truncate">{msg.text}</span>
               </div>
             ))}

@@ -14,7 +14,7 @@ import { CurrencyCalc } from "./CurrencyCalc";
 export type GuideTab = "survival" | "packing";
 
 const SEVERITY_STYLE: Record<Severity, string> = {
-  LAW: "bg-rose-500/20 text-rose-300 border-rose-500/40",
+  LAW: "bg-accent-500/20 text-accent-300 border-accent-500/40",
   STRONG: "bg-amber-500/20 text-amber-300 border-amber-500/40",
   FLEX: "bg-sky-500/20 text-sky-300 border-sky-500/40",
 };
@@ -60,7 +60,7 @@ function PhraseRow({ en, jp, romaji }: { en: string; jp: string; romaji: string 
     <li className="flex items-center justify-between gap-3 rounded-lg px-2 py-2 hover:bg-white/[0.04]">
       <div className="min-w-0">
         <p className="text-sm font-medium">{en}</p>
-        <p className="text-sm text-rose-300 font-[Noto_Serif_JP]">{jp}</p>
+        <p className="text-sm text-accent-300 font-[Noto_Serif_JP]">{jp}</p>
         <p className="text-xs text-slate-500 italic">{romaji}</p>
       </div>
       <button
@@ -111,7 +111,7 @@ export function GuideView({ tab }: { tab: GuideTab }) {
               <div className="min-w-0">
                 <div className="flex items-baseline gap-2 flex-wrap">
                   <span className="font-bold text-sm text-slate-100">{l.label}</span>
-                  <span className="font-black text-rose-300 tabular-nums">{l.number}</span>
+                  <span className="font-black text-accent-300 tabular-nums">{l.number}</span>
                 </div>
                 <p className="text-xs text-slate-400 leading-relaxed mt-0.5">{l.note}</p>
               </div>
@@ -131,13 +131,13 @@ export function GuideView({ tab }: { tab: GuideTab }) {
 
         {/* Emergency phrases — copy-ready */}
         <div className="glass rounded-2xl p-4">
-          <p className="text-xs font-bold text-rose-300 uppercase tracking-wider mb-2.5">Emergency phrases</p>
+          <p className="text-xs font-bold text-accent-300 uppercase tracking-wider mb-2.5">Emergency phrases</p>
           <ul className="grid gap-x-6 gap-y-1.5 sm:grid-cols-2">
             {EMERGENCY_PHRASES.map((p) => (
               <li key={p.en} className="flex items-baseline justify-between gap-3 text-sm">
                 <span className="text-slate-300">{p.en}</span>
                 <span className="text-right shrink-0">
-                  <span className="text-rose-300 font-[Noto_Serif_JP]">{p.jp}</span>
+                  <span className="text-accent-300 font-[Noto_Serif_JP]">{p.jp}</span>
                   <span className="block text-[0.65rem] text-slate-500 italic">{p.romaji}</span>
                 </span>
               </li>
@@ -148,7 +148,7 @@ export function GuideView({ tab }: { tab: GuideTab }) {
 
       {/* Crew Doctrines — the standing orders */}
       <div className="mb-16">
-        <div className="glass rounded-2xl p-5 sm:p-6 mb-5 border-rose-500/20">
+        <div className="glass rounded-2xl p-5 sm:p-6 mb-5 border-accent-500/20">
           <h3 className="text-xl sm:text-2xl font-extrabold">📜 The Crew Doctrines</h3>
           <p className="mt-1.5 text-sm text-slate-400 leading-relaxed max-w-3xl">{DOCTRINE_PREAMBLE}</p>
           <div className="mt-3 flex flex-wrap gap-2 text-[0.65rem] font-bold">
@@ -193,7 +193,7 @@ export function GuideView({ tab }: { tab: GuideTab }) {
                 <Accordion key={a.title} title={a.title} emoji={a.emoji}>
                   <ul className="space-y-2.5">
                     {a.body.map((p, i) => (
-                      <li key={i} className="text-sm text-slate-300 leading-relaxed pl-3 border-l-2 border-rose-500/30">
+                      <li key={i} className="text-sm text-slate-300 leading-relaxed pl-3 border-l-2 border-accent-500/30">
                         {p}
                       </li>
                     ))}

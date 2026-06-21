@@ -55,7 +55,7 @@ function BingoSection() {
         <span className="text-sm font-bold text-violet-300">{count} / {total}</span>
         <button
           onClick={() => setChecked({})}
-          className="text-xs text-slate-500 hover:text-rose-300 transition-colors"
+          className="text-xs text-slate-500 hover:text-accent-300 transition-colors"
         >
           Reset all
         </button>

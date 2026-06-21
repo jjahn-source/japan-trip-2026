@@ -31,7 +31,7 @@ const CATEGORIES: ("All" | Category)[] = [
 ];
 
 const TIER_LABEL: Record<number, { label: string; cls: string }> = {
-  1: { label: "MUST SEE", cls: "bg-rose-500/20 text-rose-300 border-rose-500/40" },
+  1: { label: "MUST SEE", cls: "bg-accent-500/20 text-accent-300 border-accent-500/40" },
   2: { label: "EXCELLENT", cls: "bg-amber-500/20 text-amber-300 border-amber-500/40" },
   3: { label: "IF TIME", cls: "bg-sky-500/20 text-sky-300 border-sky-500/40" },
 };
@@ -56,7 +56,7 @@ function Chip({
       onClick={onClick}
       className={`rounded-full px-3.5 py-1.5 text-xs font-semibold border transition-colors ${
         active
-          ? "bg-rose-500 border-rose-400 text-white"
+          ? "bg-accent-500 border-accent-400 text-white"
           : "glass text-slate-300 hover:bg-white/10"
       }`}
     >
@@ -131,7 +131,7 @@ export function Explore() {
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
                 placeholder="Search temples, neon, monkeys, mochi…"
-                className="w-full rounded-xl bg-white/5 border border-white/10 pl-11 pr-4 py-3 outline-none focus:border-rose-400/60 placeholder:text-slate-600"
+                className="w-full rounded-xl bg-white/5 border border-white/10 pl-11 pr-4 py-3 outline-none focus:border-accent-400/60 placeholder:text-slate-600"
               />
             </div>
             <div className="flex flex-wrap gap-1.5">
@@ -252,7 +252,7 @@ export function Explore() {
                 transition={{ duration: 0.35, delay: Math.min(i * 0.03, 0.3) }}
                 className="glass rounded-2xl p-5 scroll-mt-28"
               >
-                <p className="text-xs font-semibold text-rose-400 uppercase tracking-wider">{n.city}</p>
+                <p className="text-xs font-semibold text-accent-400 uppercase tracking-wider">{n.city}</p>
                 <h3 className="font-bold text-lg mt-0.5">
                   {n.name} <span className="text-slate-500 text-sm font-[Noto_Serif_JP] font-normal">{n.jp}</span>
                 </h3>
@@ -260,7 +260,7 @@ export function Explore() {
                 <ul className="mt-3 space-y-1">
                   {n.knownFor.map((k) => (
                     <li key={k} className="text-xs text-slate-300 flex gap-1.5">
-                      <span className="text-rose-400">·</span> {k}
+                      <span className="text-accent-400">·</span> {k}
                     </li>
                   ))}
                 </ul>
@@ -314,12 +314,12 @@ export function Explore() {
                     🚄 {t.travel}
                   </p>
                   <details className="mt-3 group">
-                    <summary className="cursor-pointer text-sm font-bold text-rose-300 hover:text-rose-200">
+                    <summary className="cursor-pointer text-sm font-bold text-accent-300 hover:text-accent-200">
                       ▸ The run of show ({t.play.length} steps)
                     </summary>
                     <ol className="mt-2 space-y-1.5">
                       {t.play.map((p, pi) => (
-                        <li key={pi} className="text-sm text-slate-300 leading-relaxed pl-3 border-l-2 border-rose-500/30">
+                        <li key={pi} className="text-sm text-slate-300 leading-relaxed pl-3 border-l-2 border-accent-500/30">
                           {p}
                         </li>
                       ))}

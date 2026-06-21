@@ -1,8 +1,22 @@
 @import "tailwindcss";
 
 @theme {
-  --font-sans: "Inter", system-ui, sans-serif;
+  --font-sans: "Plus Jakarta Sans", system-ui, sans-serif;
+  --font-mono: "DM Mono", monospace;
   --font-serif-jp: "Noto Serif JP", serif;
+
+  /* Japan vermillion — replaces rose-* system-wide */
+  --color-accent-50: #fff1f1;
+  --color-accent-100: #fde8e8;
+  --color-accent-200: #f8a8a8;
+  --color-accent-300: #f06b6b;
+  --color-accent-400: #e03434;
+  --color-accent-500: #d42b2b;
+  --color-accent-600: #b82020;
+  --color-accent-700: #961818;
+  --color-accent-800: #7a1212;
+  --color-accent-900: #5e0d0d;
+  --color-accent-950: #3f0505;
 }
 
 html {
@@ -12,17 +26,16 @@ html {
 }
 
 body {
-  @apply bg-slate-950 text-slate-100 antialiased;
-  background-image:
-    radial-gradient(ellipse 80% 50% at 50% -20%, rgba(244, 63, 94, 0.15), transparent),
-    radial-gradient(ellipse 60% 40% at 80% 110%, rgba(99, 102, 241, 0.1), transparent);
+  @apply antialiased;
+  background-color: #08111f;
+  color: #e2eaf4;
   background-attachment: fixed;
   -webkit-tap-highlight-color: transparent;
 }
 
 /* keyboard users get a clear focus ring; mouse/touch users don't */
 :focus-visible {
-  outline: 2px solid rgba(244, 63, 94, 0.7);
+  outline: 2px solid rgba(212, 43, 43, 0.7);
   outline-offset: 2px;
   border-radius: 4px;
 }
@@ -54,11 +67,21 @@ body {
 }
 
 ::selection {
-  @apply bg-rose-500/40;
+  background-color: rgba(212, 43, 43, 0.35);
 }
 
+/* solid surface card — all content cards */
 .glass {
-  @apply bg-white/[0.04] backdrop-blur-xl border border-white/10;
+  background-color: #0e1b2d;
+  border: 1px solid #1c2e47;
+}
+
+/* blurry glass — used ONLY for the fixed nav (sits above scrolled content) */
+.glass-nav {
+  background-color: rgba(8, 17, 31, 0.88);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid #1c2e47;
 }
 
 .section-pad {
@@ -76,8 +99,9 @@ body {
     stroke-dashoffset: -28;
   }
 }
+
 .leaflet-container {
-  background: #0b1120;
+  background: #08111f;
 }
 
 /* search/deep-link landing flash so you can see what you jumped to */
@@ -85,9 +109,9 @@ body {
   animation: anchorflash 1.6s ease-out;
 }
 @keyframes anchorflash {
-  0% { box-shadow: 0 0 0 2px rgba(244, 63, 94, 0); }
-  15% { box-shadow: 0 0 0 2px rgba(244, 63, 94, 0.9); }
-  100% { box-shadow: 0 0 0 2px rgba(244, 63, 94, 0); }
+  0%   { box-shadow: 0 0 0 2px rgba(212, 43, 43, 0); }
+  15%  { box-shadow: 0 0 0 2px rgba(212, 43, 43, 0.9); }
+  100% { box-shadow: 0 0 0 2px rgba(212, 43, 43, 0); }
 }
 
 /* hide scrollbar on horizontal chip/tab rows (still scrollable by touch/drag) */
@@ -107,18 +131,17 @@ body {
   background: transparent;
 }
 ::-webkit-scrollbar-thumb {
-  @apply bg-white/10 rounded-full;
+  background-color: rgba(28, 46, 71, 0.8);
+  border-radius: 9999px;
 }
 
 @media print {
-  /* Clean white background, black text */
   body {
     background: white !important;
     background-image: none !important;
     color: black !important;
   }
 
-  /* Hide navigation chrome, buttons, and interactive elements */
   header,
   nav,
   footer,
@@ -128,7 +151,6 @@ body {
     display: none !important;
   }
 
-  /* Remove glassmorphic effects */
   .glass {
     background: white !important;
     backdrop-filter: none !important;
@@ -136,7 +158,6 @@ body {
     color: black !important;
   }
 
-  /* Page breaks between days */
   [id^="day-"] {
     page-break-before: always;
     break-before: page;
@@ -146,7 +167,6 @@ body {
     break-before: avoid;
   }
 
-  /* Ensure content is readable */
   .text-slate-400,
   .text-slate-500,
   .text-slate-600 {
@@ -157,19 +177,17 @@ body {
   .text-slate-100 {
     color: #1e293b !important;
   }
-  .text-rose-400,
-  .text-rose-300 {
-    color: #be123c !important;
+  .text-accent-400,
+  .text-accent-300 {
+    color: #961818 !important;
   }
 
-  /* Full width for print */
   .section-pad {
     padding-left: 0 !important;
     padding-right: 0 !important;
     max-width: 100% !important;
   }
 
-  /* Remove shadows */
   * {
     box-shadow: none !important;
     text-shadow: none !important;

@@ -86,7 +86,7 @@ const PHASES: Phase[] = [
 ];
 
 const COLOR_STYLES: Record<Phase["color"], { border: string; kicker: string; dot: string; card: string }> = {
-  rose:    { border: "border-rose-500/50",    kicker: "text-rose-300",    dot: "bg-rose-500",    card: "bg-rose-500/8"    },
+  rose:    { border: "border-accent-500/50",    kicker: "text-accent-300",    dot: "bg-accent-500",    card: "bg-accent-500/8"    },
   amber:   { border: "border-amber-500/40",   kicker: "text-amber-300",   dot: "bg-amber-500",   card: "bg-amber-500/5"   },
   sky:     { border: "border-sky-500/40",     kicker: "text-sky-300",     dot: "bg-sky-500",     card: "bg-sky-500/5"     },
   indigo:  { border: "border-indigo-500/40",  kicker: "text-indigo-300",  dot: "bg-indigo-500",  card: "bg-indigo-500/5"  },
@@ -109,7 +109,7 @@ export function PreTripPhases() {
   return (
     <section className="section-pad py-16">
       <div className="mb-8">
-        <p className="text-rose-400 font-semibold tracking-[0.25em] uppercase text-xs mb-2">Countdown</p>
+        <p className="text-accent-400 font-semibold tracking-[0.25em] uppercase text-xs mb-2">Countdown</p>
         <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight">Pre-Trip Phases</h2>
         <p className="text-slate-400 mt-2 text-sm sm:text-base">What the crew needs to do, when.</p>
       </div>

@@ -17,7 +17,7 @@ export const FOOD: CityFood[] = [
   {
     city: "Tokyo",
     emoji: "🗼",
-    accent: "from-rose-500 to-pink-600",
+    accent: "from-accent-500 to-pink-600",
     items: [
       { dish: "Ramen", jp: "ラーメン", where: "Ichiran (solo booths), Nakiryu (Michelin-starred tantanmen, Otsuka), Tokyo Station Ramen Street, Fuunji tsukemen (Shinjuku)", why: "December cold + tonkotsu broth = perfection. Nakiryu's a 1-star bowl for ~$9 (¥1,400)", groupTip: "Ichiran's booths mean 8 people never need a table; Fuunji's chicken-dashi tsukemen is worth the queue" },
       { dish: "Sushi breakfast", jp: "寿司", where: "Tsukiji Outer Market — Sushizanmai (24h), Yamacho standing sushi, Maguroya for tuna bowls", why: "Tuna bowls and grilled scallops at 8am hits different. Winter buri (yellowtail) is fat and at its peak", groupTip: "Graze the stalls instead of one sit-down — faster for 8. ~$13 (¥2,000) for a loaded kaisendon" },
@@ -86,7 +86,7 @@ export const FOOD: CityFood[] = [
   {
     city: "Kobe",
     emoji: "🥩",
-    accent: "from-red-600 to-rose-700",
+    accent: "from-red-600 to-accent-700",
     items: [
       { dish: "Kobe beef teppanyaki", jp: "神戸牛", where: "Steakland (value, Sannomiya), Misono (1945, birthplace of teppanyaki), Steak House Ikuta", why: "A5 Tajima beef seared on iron in front of you. The whole reason to detour to Kobe", groupTip: "Steakland lunch ~$25–38 (¥4–6k); dinner courses $75–125+ (¥12–20k+). Book the splurge ahead for 8" },
       { dish: "Kobe beef, charcoal-grilled", jp: "炭火焼", where: "Aragawa (1967, virgin Tajima, bincho charcoal — legendary, pricey)", why: "The original Kobe steakhouse, charcoal-oven steaks. A bucket-list splurge if the crew pools funds", groupTip: "Easily $200+ (¥32k+)/head — pick ONE person's birthday and go big, or admire from the menu" },

@@ -52,12 +52,12 @@ function CrewCard({
   return (
     <div
       className={`glass rounded-2xl p-4 flex flex-col items-center gap-3 ${
-        isMe ? "border border-rose-500/40 bg-rose-500/5" : ""
+        isMe ? "border border-accent-500/40 bg-accent-500/5" : ""
       }`}
     >
       <div
         className={`w-11 h-11 rounded-full flex items-center justify-center text-sm font-bold ${
-          isMe ? "bg-rose-500/30 text-rose-200" : "bg-white/10 text-slate-300"
+          isMe ? "bg-accent-500/30 text-accent-200" : "bg-white/10 text-slate-300"
         }`}
       >
         {initials}
@@ -65,7 +65,7 @@ function CrewCard({
       <div className="text-center">
         <p className="text-sm font-semibold leading-none">{name}</p>
         {isMe && (
-          <p className="text-[0.6rem] text-rose-400 font-bold uppercase tracking-wide mt-0.5">You</p>
+          <p className="text-[0.6rem] text-accent-400 font-bold uppercase tracking-wide mt-0.5">You</p>
         )}
       </div>
       <div className="w-full space-y-1.5">

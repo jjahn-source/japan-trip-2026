@@ -129,7 +129,7 @@ export function CurrencyCalc() {
               value={jpy}
               onChange={(e) => handleJpy(e.target.value)}
               placeholder="0"
-              className="w-full bg-white/10 border border-white/15 rounded-xl px-4 py-3 text-xl font-bold text-slate-100 placeholder:text-slate-600 focus:outline-none focus:border-rose-400/60 focus:bg-white/[0.12] transition-colors"
+              className="w-full bg-white/10 border border-white/15 rounded-xl px-4 py-3 text-xl font-bold text-slate-100 placeholder:text-slate-600 focus:outline-none focus:border-accent-400/60 focus:bg-white/[0.12] transition-colors"
             />
           </div>
 

@@ -128,15 +128,15 @@ function ActivityRow({
           {isDone
             ? <CheckCircle2 size={15} className="text-emerald-400" />
             : <Circle size={15} className="text-slate-600 hover:text-slate-400" />}
-          <span className={`text-xs font-bold tabular-nums ${isDone ? "text-emerald-400/70 line-through" : "text-rose-300/90"}`}>{activity.time}</span>
+          <span className={`text-xs font-bold tabular-nums ${isDone ? "text-emerald-400/70 line-through" : "text-accent-300/90"}`}>{activity.time}</span>
         </button>
       ) : (
-        <span className="shrink-0 w-16 text-right text-xs font-bold text-rose-300/90 pt-0.5 tabular-nums">{activity.time}</span>
+        <span className="shrink-0 w-16 text-right text-xs font-bold text-accent-300/90 pt-0.5 tabular-nums">{activity.time}</span>
       )}
 
       {/* Activity content */}
       <div className="relative pl-4 border-l border-white/10 pb-0.5 min-w-0 flex-1">
-        <span className="absolute -left-[5px] top-1.5 w-2.5 h-2.5 rounded-full bg-gradient-to-br from-rose-400 to-fuchsia-500" />
+        <span className="absolute -left-[5px] top-1.5 w-2.5 h-2.5 rounded-full bg-gradient-to-br from-accent-400 to-fuchsia-500" />
         <p className={`font-semibold leading-snug flex items-center gap-2 flex-wrap ${isDone ? "text-slate-500 line-through" : isSkipped ? "line-through text-slate-500" : ""}`}>
           {activity.title}
           {isImported && (
@@ -195,7 +195,7 @@ function ActivityRow({
           title={voters.length ? voters.join(", ") : myName ? "Tap to join" : "Pick a name to vote"}
           className={`shrink-0 flex items-center gap-1 rounded-full px-1.5 py-0.5 text-[0.6rem] font-bold border transition-colors disabled:cursor-not-allowed mt-0.5 ${
             myVoted
-              ? "bg-rose-500/20 border-rose-500/30 text-rose-300 hover:bg-rose-500/30"
+              ? "bg-accent-500/20 border-accent-500/30 text-accent-300 hover:bg-accent-500/30"
               : voters.length > 0
                 ? "bg-white/8 border-white/12 text-slate-400 hover:bg-white/12"
                 : "border-transparent text-slate-700 hover:border-white/10 hover:text-slate-500"
@@ -268,7 +268,7 @@ function ActivityRow({
           className={`shrink-0 w-7 h-7 rounded-lg flex items-center justify-center border transition-colors ${
             isSkipped
               ? "bg-emerald-500/15 border-emerald-500/30 text-emerald-400 hover:bg-emerald-500/25"
-              : "bg-white/5 border-white/10 text-slate-500 hover:bg-rose-500/10 hover:border-rose-500/20 hover:text-rose-400"
+              : "bg-white/5 border-white/10 text-slate-500 hover:bg-accent-500/10 hover:border-accent-500/20 hover:text-accent-400"
           }`}
           title={isSkipped ? "Restore activity" : "Skip this activity"}
         >
@@ -380,7 +380,7 @@ function DayCard({
           <div className="mt-1 flex flex-wrap items-center gap-x-3 gap-y-0.5 text-[0.68rem] font-semibold text-slate-500">
             <span>{day.activities.length} stops</span>
             {span && <><span>·</span><span>{span.first}–{span.last} ({span.label})</span></>}
-            {mappedCount > 0 && <><span>·</span><span className="text-rose-400/80">{mappedCount} mapped</span></>}
+            {mappedCount > 0 && <><span>·</span><span className="text-accent-400/80">{mappedCount} mapped</span></>}
             {bookCount > 0 && <><span>·</span><span className="text-amber-400/90">{bookCount} to book</span></>}
             {day.events && day.events.length > 0 && <><span>·</span><span className="text-violet-300">✨ {day.events.length} live</span></>}
             {trackMode && doneCount > 0 && <><span>·</span><span className="text-emerald-400">{doneCount}/{visibleCount} done</span></>}
@@ -437,7 +437,7 @@ function DayCard({
                 {routeUrl && (
                   <a
                     href={routeUrl} target="_blank" rel="noreferrer"
-                    className="inline-flex items-center gap-1.5 rounded-lg bg-rose-500/15 border border-rose-500/30 px-2.5 py-1.5 text-xs font-semibold text-rose-300 hover:bg-rose-500/25 transition-colors"
+                    className="inline-flex items-center gap-1.5 rounded-lg bg-accent-500/15 border border-accent-500/30 px-2.5 py-1.5 text-xs font-semibold text-accent-300 hover:bg-accent-500/25 transition-colors"
                   >
                     <Map size={12} /> Route this day in Maps
                   </a>
@@ -447,7 +447,7 @@ function DayCard({
                     onClick={() => setShowMap((m) => !m)}
                     className={`inline-flex items-center gap-1.5 rounded-lg px-2.5 py-1.5 text-xs font-semibold border transition-colors ${
                       showMap
-                        ? "bg-rose-500/20 border-rose-500/40 text-rose-300"
+                        ? "bg-accent-500/20 border-accent-500/40 text-accent-300"
                         : "bg-white/5 border-white/10 text-slate-400 hover:bg-white/10 hover:text-slate-200"
                     }`}
                   >
@@ -648,11 +648,11 @@ function DayCard({
                           </ul>
                         </div>
                         <div>
-                          <p className="text-[0.65rem] font-bold uppercase tracking-wider text-rose-400 mb-1.5">Last-minute cancellation</p>
+                          <p className="text-[0.65rem] font-bold uppercase tracking-wider text-accent-400 mb-1.5">Last-minute cancellation</p>
                           <ul className="space-y-1">
                             {cont.lastMinuteCancellation.map((item, i) => (
                               <li key={i} className="text-sm text-slate-300 leading-relaxed flex gap-2">
-                                <span className="text-rose-400 shrink-0">▸</span><span>{item}</span>
+                                <span className="text-accent-400 shrink-0">▸</span><span>{item}</span>
                               </li>
                             ))}
                           </ul>

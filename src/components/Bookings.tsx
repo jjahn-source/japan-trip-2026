@@ -63,7 +63,7 @@ export function Bookings() {
         <button
           type="button"
           onClick={() => downloadICS("japan-2026-deadlines.ics", buildBookingsICS(BOOKINGS))}
-          className="inline-flex items-center gap-1.5 rounded-full bg-rose-500/15 border border-rose-500/30 px-3.5 py-1.5 text-xs font-semibold text-rose-300 hover:bg-rose-500/25 transition-colors"
+          className="inline-flex items-center gap-1.5 rounded-full bg-accent-500/15 border border-accent-500/30 px-3.5 py-1.5 text-xs font-semibold text-accent-300 hover:bg-accent-500/25 transition-colors"
         >
           <CalendarPlus size={13} /> Add all deadlines to calendar
         </button>
@@ -132,7 +132,7 @@ export function Bookings() {
                 </div>
               )}
 
-              <div className="mt-2 flex items-center gap-2 text-sm font-semibold text-rose-300">
+              <div className="mt-2 flex items-center gap-2 text-sm font-semibold text-accent-300">
                 <AlarmClock size={15} />
                 <span>{b.when}</span>
                 {!done && d >= 0 && <span className="text-slate-500 font-normal">· {d} days left</span>}

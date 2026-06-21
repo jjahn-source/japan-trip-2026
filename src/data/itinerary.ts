@@ -100,7 +100,7 @@ export const DAYS: Day[] = [
     cityJp: "東京",
     title: "Touchdown → Shinjuku Neon Baptism",
     emoji: "🛬",
-    theme: "from-rose-500 to-pink-600",
+    theme: "from-accent-500 to-pink-600",
     wx: "☀️ 54°/40°F (12°/4°C) — Tokyo's driest, sunniest month; rain odds ~15%",
     transport: "Land HND 14:35. Airport Limousine Bus to Shinjuku (~60 min, $9 (¥1,400)) — the 8-people-with-bags move; reserve seats online. Walk/taxi to the Airbnb from the Shinjuku stop.",
     activities: [
@@ -927,7 +927,7 @@ export const DAYS: Day[] = [
     cityJp: "大阪",
     title: "Osaka Victory Lap — Castle, Crab & 4km of Lights",
     emoji: "🐙",
-    theme: "from-pink-500 to-rose-600",
+    theme: "from-pink-500 to-accent-600",
     wx: "🌤 53°/39°F (12°/4°C) — illumination-walk weather; sunset 16:55",
     transport: "Loop: Namba → Kuromon (walk) → Osaka Castle (Sennichimae+Chuo lines) → Shinsekai (Sakaisuji) → split squads → Umeda (Midosuji) → walk the lights home south. One circle, no doubling.",
     activities: [

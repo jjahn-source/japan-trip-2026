@@ -23,13 +23,13 @@ function RestaurantPhrasesCard() {
   }
 
   return (
-    <div className="mx-4 sm:mx-0 mb-6 rounded-2xl bg-rose-500/[0.06] border border-rose-500/20 overflow-hidden">
+    <div className="mx-4 sm:mx-0 mb-6 rounded-2xl bg-accent-500/[0.06] border border-accent-500/20 overflow-hidden">
       <button
         type="button"
         onClick={() => setOpen((o) => !o)}
         className="w-full flex items-center justify-between gap-3 px-4 py-3 text-left"
       >
-        <span className="text-sm font-bold text-rose-300 flex items-center gap-2">
+        <span className="text-sm font-bold text-accent-300 flex items-center gap-2">
           🍜 Order like a local
           <span className="text-[0.65rem] font-normal text-slate-500">{RESTAURANT_PHRASES.phrases.length} phrases · tap to copy</span>
         </span>
@@ -39,7 +39,7 @@ function RestaurantPhrasesCard() {
         />
       </button>
       {open && (
-        <div className="border-t border-rose-500/15 px-2 pb-2 grid gap-0.5">
+        <div className="border-t border-accent-500/15 px-2 pb-2 grid gap-0.5">
           {RESTAURANT_PHRASES.phrases.map((p: Phrase, i: number) => (
             <button
               key={i}
@@ -49,7 +49,7 @@ function RestaurantPhrasesCard() {
             >
               <div>
                 <p className="text-xs font-semibold text-slate-200 group-hover:text-white">{p.en}</p>
-                <p className="text-[0.75rem] text-rose-300/80 font-[Noto_Serif_JP] mt-0.5">{p.jp}</p>
+                <p className="text-[0.75rem] text-accent-300/80 font-[Noto_Serif_JP] mt-0.5">{p.jp}</p>
                 <p className="text-[0.65rem] text-slate-500 italic">{p.romaji}</p>
               </div>
               <ClipboardCopy
@@ -90,7 +90,7 @@ function DishSection() {
                 {d.name}{" "}
                 <span className="text-slate-500 text-sm font-[Noto_Serif_JP] font-normal">{d.jp}</span>
               </h3>
-              <span className="shrink-0 text-xs font-bold text-rose-300">{d.price}</span>
+              <span className="shrink-0 text-xs font-bold text-accent-300">{d.price}</span>
             </div>
             <p className="mt-2 text-sm text-slate-400 leading-relaxed">{d.what}</p>
             <p className="mt-2.5 text-xs text-amber-200/90 bg-amber-500/10 border border-amber-500/20 rounded-lg px-2.5 py-2">
@@ -129,7 +129,7 @@ function RegionalSection() {
                 <div key={it.name} className="rounded-xl bg-white/[0.03] border border-white/5 p-3.5">
                   <div className="flex items-baseline justify-between gap-2">
                     <h4 className="font-bold text-sm">{it.name}</h4>
-                    <span className="shrink-0 text-[0.65rem] font-bold uppercase tracking-wide text-rose-300">{it.where}</span>
+                    <span className="shrink-0 text-[0.65rem] font-bold uppercase tracking-wide text-accent-300">{it.where}</span>
                   </div>
                   <p className="mt-1.5 text-xs text-slate-400 leading-relaxed">{it.note}</p>
                 </div>

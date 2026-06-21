@@ -12,7 +12,7 @@ export function Chip({
   color?: "rose" | "fuchsia";
 }) {
   const activeCls =
-    color === "fuchsia" ? "bg-fuchsia-500 border-fuchsia-400 text-white" : "bg-rose-500 border-rose-400 text-white";
+    color === "fuchsia" ? "bg-fuchsia-500 border-fuchsia-400 text-white" : "bg-accent-500 border-accent-400 text-white";
   return (
     <button
       type="button"

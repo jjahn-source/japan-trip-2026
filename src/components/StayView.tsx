@@ -104,8 +104,8 @@ function OptionCard({
                 onClick={onVote}
                 className={`inline-flex items-center gap-1 text-[0.65rem] font-semibold rounded-full px-2 py-1 border transition-colors ${
                   voted
-                    ? "bg-rose-500/20 border-rose-500/40 text-rose-300"
-                    : "bg-white/5 border-white/10 text-slate-400 hover:bg-rose-500/10 hover:border-rose-500/20 hover:text-rose-400"
+                    ? "bg-accent-500/20 border-accent-500/40 text-accent-300"
+                    : "bg-white/5 border-white/10 text-slate-400 hover:bg-accent-500/10 hover:border-accent-500/20 hover:text-accent-400"
                 }`}
                 aria-label={voted ? "Remove vote" : "Vote for this place"}
               >
@@ -162,7 +162,7 @@ export function StayView() {
                   href={leg.searchUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="shrink-0 inline-flex items-center gap-1.5 text-xs font-semibold text-rose-300 hover:text-rose-200 transition-colors border border-rose-500/30 rounded-full px-3 py-1.5"
+                  className="shrink-0 inline-flex items-center gap-1.5 text-xs font-semibold text-accent-300 hover:text-accent-200 transition-colors border border-accent-500/30 rounded-full px-3 py-1.5"
                 >
                   Check live prices <ExternalLink size={11} />
                 </a>

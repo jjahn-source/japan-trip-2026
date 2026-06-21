@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import type { Category } from "../../data/attractions";
 
 const CATEGORY_STYLE: Record<Category, { gradient: string; emoji: string }> = {
-  "Temple & Shrine":   { gradient: "from-rose-900/60 to-rose-700/30",      emoji: "⛩️" },
+  "Temple & Shrine":   { gradient: "from-accent-900/60 to-accent-700/30",      emoji: "⛩️" },
   "Museum & Art":      { gradient: "from-violet-900/60 to-violet-700/30",   emoji: "🎨" },
   "Viewpoint":         { gradient: "from-sky-900/60 to-sky-700/30",         emoji: "🏙️" },
   "Park & Nature":     { gradient: "from-emerald-900/60 to-emerald-700/30", emoji: "🌿" },

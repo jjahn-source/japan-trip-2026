@@ -40,7 +40,7 @@ export function Food() {
                     <h4 className="font-bold">{f.dish}</h4>
                     <span className="text-slate-500 text-sm font-[Noto_Serif_JP]">{f.jp}</span>
                   </div>
-                  <p className="mt-1 text-xs font-semibold text-rose-300">{f.where}</p>
+                  <p className="mt-1 text-xs font-semibold text-accent-300">{f.where}</p>
                   <p className="mt-2 text-sm text-slate-400">{f.why}</p>
                   {f.groupTip && (
                     <p className="mt-3 flex items-start gap-1.5 text-xs text-emerald-300/90 bg-emerald-500/10 border border-emerald-500/20 rounded-lg px-2.5 py-1.5">

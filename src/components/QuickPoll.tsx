@@ -125,7 +125,7 @@ function NewPollForm({ onSubmit, onCancel }: { onSubmit: (q: string, opts: strin
                 type="button"
                 onClick={() => removeOption(i)}
                 aria-label="Remove option"
-                className="text-slate-600 hover:text-rose-400 transition-colors"
+                className="text-slate-600 hover:text-accent-400 transition-colors"
               >
                 <X size={13} />
               </button>

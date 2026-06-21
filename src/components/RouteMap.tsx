@@ -5,14 +5,15 @@ import { DAYS } from "../data/itinerary";
 import { STAY_LEGS } from "../data/stays";
 
 function dayColor(theme: string): string {
-  if (theme.includes("rose") || theme.includes("pink")) return "#f43f5e";
+  if (theme.includes("accent") || theme.includes("rose") || theme.includes("pink")) return "#d42b2b";
   if (theme.includes("orange") || theme.includes("amber")) return "#f97316";
   if (theme.includes("violet") || theme.includes("purple")) return "#8b5cf6";
   if (theme.includes("sky") || theme.includes("blue") || theme.includes("cyan")) return "#0ea5e9";
   if (theme.includes("emerald") || theme.includes("teal") || theme.includes("green")) return "#10b981";
+  if (theme.includes("fuchsia")) return "#d946ef";
   if (theme.includes("indigo")) return "#6366f1";
   if (theme.includes("slate")) return "#64748b";
-  return "#f43f5e";
+  return "#d42b2b";
 }
 
 export function RouteMap() {
@@ -72,7 +73,7 @@ export function RouteMap() {
           fillOpacity: 0.9,
         });
         circle.bindPopup(
-          `<b style="font-size:12px">${day.emoji} ${day.title}</b><br><span style="font-size:11px">${a.title}</span>${a.time && a.time !== "—" ? `<br><span style="font-size:10px;color:#f43f5e">${a.time}</span>` : ""}`,
+          `<b style="font-size:12px">${day.emoji} ${day.title}</b><br><span style="font-size:11px">${a.title}</span>${a.time && a.time !== "—" ? `<br><span style="font-size:10px;color:#d42b2b">${a.time}</span>` : ""}`,
         );
         circle.addTo(map);
       }
@@ -105,7 +106,7 @@ export function RouteMap() {
 
   return (
     <div className="section-pad pb-0 pt-6">
-      <p className="text-[0.62rem] font-bold uppercase tracking-[0.2em] text-rose-300 mb-0.5">The Route</p>
+      <p className="text-[0.62rem] font-bold uppercase tracking-[0.2em] text-accent-300 mb-0.5">The Route</p>
       <h2 className="text-xl sm:text-2xl font-black">16 Days Across Japan</h2>
       <p className="text-xs text-slate-400 mt-0.5 mb-3">Tokyo → Kyoto → Osaka · tap any stop to see what's there</p>
       <div

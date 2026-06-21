@@ -55,7 +55,7 @@ export function CrewChat() {
               <div key={m.id} className={`flex gap-2.5 ${isMe ? "flex-row-reverse" : ""}`}>
                 <div
                   className={`w-7 h-7 rounded-full shrink-0 flex items-center justify-center text-[0.58rem] font-bold ${
-                    isMe ? "bg-rose-500/30 text-rose-300" : "bg-white/10 text-slate-300"
+                    isMe ? "bg-accent-500/30 text-accent-300" : "bg-white/10 text-slate-300"
                   }`}
                 >
                   {m.author.slice(0, 2).toUpperCase()}
@@ -66,7 +66,7 @@ export function CrewChat() {
                   )}
                   <div
                     className={`rounded-2xl px-3 py-2 text-sm leading-snug break-words ${
-                      isMe ? "bg-rose-500/20 text-slate-100 rounded-tr-sm" : "bg-white/10 text-slate-200 rounded-tl-sm"
+                      isMe ? "bg-accent-500/20 text-slate-100 rounded-tr-sm" : "bg-white/10 text-slate-200 rounded-tl-sm"
                     }`}
                   >
                     {m.text}
@@ -88,14 +88,14 @@ export function CrewChat() {
             disabled={!myName}
             maxLength={500}
             aria-label="Chat message"
-            className="flex-1 bg-white/5 border border-white/10 rounded-xl px-3 py-2 text-sm text-slate-100 placeholder-slate-600 focus:outline-none focus:border-rose-500/40 disabled:opacity-40 min-w-0"
+            className="flex-1 bg-white/5 border border-white/10 rounded-xl px-3 py-2 text-sm text-slate-100 placeholder-slate-600 focus:outline-none focus:border-accent-500/40 disabled:opacity-40 min-w-0"
           />
           <button
             type="button"
             onClick={submit}
             disabled={!draft.trim() || !myName}
             aria-label="Send"
-            className="shrink-0 w-9 h-9 rounded-xl bg-rose-500/20 border border-rose-500/30 text-rose-300 hover:bg-rose-500/30 transition-colors flex items-center justify-center disabled:opacity-30 disabled:cursor-not-allowed"
+            className="shrink-0 w-9 h-9 rounded-xl bg-accent-500/20 border border-accent-500/30 text-accent-300 hover:bg-accent-500/30 transition-colors flex items-center justify-center disabled:opacity-30 disabled:cursor-not-allowed"
           >
             <Send size={15} />
           </button>

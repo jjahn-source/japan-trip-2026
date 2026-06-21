@@ -17,7 +17,7 @@ export function SectionHeading({
       transition={{ duration: 0.5 }}
       className="mb-10"
     >
-      <p className="text-rose-400 font-semibold tracking-[0.25em] uppercase text-xs mb-2">
+      <p className="text-accent-400 font-semibold tracking-[0.25em] uppercase text-xs mb-2">
         {kicker}
       </p>
       <h2 className="text-3xl sm:text-5xl font-extrabold tracking-tight">{title}</h2>

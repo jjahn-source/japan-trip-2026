@@ -50,7 +50,7 @@ function Accordion({
 }
 
 const CITY_STYLE: Record<string, string> = {
-  Tokyo: "bg-rose-500/20 text-rose-300 border-rose-500/30",
+  Tokyo: "bg-accent-500/20 text-accent-300 border-accent-500/30",
   Osaka: "bg-violet-500/20 text-violet-300 border-violet-500/30",
   Kyoto: "bg-emerald-500/20 text-emerald-300 border-emerald-500/30",
   All: "bg-slate-500/20 text-slate-300 border-slate-500/30",
@@ -77,7 +77,7 @@ export function ShopView() {
             className="scroll-mt-28"
           >
             <Accordion title={cat.title} emoji={cat.emoji} defaultOpen={ci === 0}>
-              <p className="text-sm text-slate-400 leading-relaxed mb-5 border-l-2 border-rose-500/30 pl-3">
+              <p className="text-sm text-slate-400 leading-relaxed mb-5 border-l-2 border-accent-500/30 pl-3">
                 {cat.intro}
               </p>
 
@@ -140,7 +140,7 @@ export function ShopView() {
               <li>• Spend ¥5,000+ at one store, one day</li>
               <li>• Show your physical passport (not a photo)</li>
               <li>• Look for 「免税」 or "Tax-Free" signage</li>
-              <li>• Say: <em className="text-rose-300">Menzei dekimasu ka?</em></li>
+              <li>• Say: <em className="text-accent-300">Menzei dekimasu ka?</em></li>
             </ul>
           </div>
           <div className="space-y-1.5">

@@ -14,13 +14,14 @@ interface DayMapProps {
 // Extract the first `from-*` color from a Tailwind gradient string for pin tinting.
 // Falls back to a rose gradient if no match.
 function pinGradient(theme: string): string {
-  if (theme.includes("rose") || theme.includes("pink")) return "linear-gradient(135deg,#f43f5e,#ec4899)";
+  if (theme.includes("accent") || theme.includes("rose") || theme.includes("pink")) return "linear-gradient(135deg,#d42b2b,#e03434)";
   if (theme.includes("orange") || theme.includes("amber")) return "linear-gradient(135deg,#f97316,#f59e0b)";
   if (theme.includes("violet") || theme.includes("purple")) return "linear-gradient(135deg,#8b5cf6,#a855f7)";
+  if (theme.includes("fuchsia")) return "linear-gradient(135deg,#d946ef,#a855f7)";
   if (theme.includes("sky") || theme.includes("blue") || theme.includes("cyan")) return "linear-gradient(135deg,#0ea5e9,#06b6d4)";
   if (theme.includes("emerald") || theme.includes("teal") || theme.includes("green")) return "linear-gradient(135deg,#10b981,#14b8a6)";
   if (theme.includes("indigo")) return "linear-gradient(135deg,#6366f1,#8b5cf6)";
-  return "linear-gradient(135deg,#f43f5e,#fb923c)";
+  return "linear-gradient(135deg,#d42b2b,#b82020)";
 }
 
 export function DayMap({ activities, dayTheme }: DayMapProps) {
@@ -71,7 +72,7 @@ export function DayMap({ activities, dayTheme }: DayMapProps) {
     if (mapped.length > 1) {
       L.polyline(
         mapped.map((a) => a.coord),
-        { color: "#f43f5e", weight: 2.5, opacity: 0.75, dashArray: "8 14", className: "route-flow" },
+        { color: "#d42b2b", weight: 2.5, opacity: 0.75, dashArray: "8 14", className: "route-flow" },
       ).addTo(map);
     }
 

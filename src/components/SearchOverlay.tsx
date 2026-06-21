@@ -32,7 +32,7 @@ const INDEX: Hit[] = [
 ];
 
 const KIND_STYLE: Record<string, string> = {
-  Sight: "bg-rose-500/20 text-rose-300",
+  Sight: "bg-accent-500/20 text-accent-300",
   "Day Trip": "bg-indigo-500/20 text-indigo-300",
   Area: "bg-emerald-500/20 text-emerald-300",
   Night: "bg-fuchsia-500/20 text-fuchsia-300",

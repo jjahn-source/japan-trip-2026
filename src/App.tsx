@@ -165,7 +165,7 @@ export default function App() {
       <main>
         {view === "plan" && (
           <>
-            <div className="sticky top-[68px] z-40 bg-[#09090f]/90 backdrop-blur-xl border-b border-white/8">
+            <div className="sticky top-[68px] z-40 bg-[#08111f]/92 backdrop-blur-xl border-b border-[#1C2E47]">
               <div className="section-pad flex gap-1 py-2">
                 {PLAN_TABS.map((t) => (
                   <button
@@ -174,8 +174,8 @@ export default function App() {
                     onClick={() => switchPlanTab(t.id)}
                     className={`flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold transition-colors whitespace-nowrap ${
                       planTab === t.id
-                        ? "bg-rose-500 text-white shadow-sm shadow-rose-500/30"
-                        : "text-slate-400 hover:text-white hover:bg-white/10"
+                        ? "bg-accent-500/15 text-accent-300 border border-accent-500/25"
+                        : "text-[#7A90AE] hover:text-white hover:bg-white/8"
                     }`}
                   >
                     <span>{t.emoji}</span>
@@ -208,7 +208,7 @@ export default function App() {
         )}
         {view === "explore" && (
           <>
-            <div className="sticky top-[68px] z-40 bg-[#09090f]/90 backdrop-blur-xl border-b border-white/8">
+            <div className="sticky top-[68px] z-40 bg-[#08111f]/92 backdrop-blur-xl border-b border-[#1C2E47]">
               <div className="section-pad flex gap-1 py-2">
                 {EXPLORE_TABS.map((t) => (
                   <button
@@ -217,8 +217,8 @@ export default function App() {
                     onClick={() => switchExploreTab(t.id)}
                     className={`flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold transition-colors whitespace-nowrap ${
                       exploreTab === t.id
-                        ? "bg-rose-500 text-white shadow-sm shadow-rose-500/30"
-                        : "text-slate-400 hover:text-white hover:bg-white/10"
+                        ? "bg-accent-500/15 text-accent-300 border border-accent-500/25"
+                        : "text-[#7A90AE] hover:text-white hover:bg-white/8"
                     }`}
                   >
                     <span>{t.emoji}</span>
@@ -237,7 +237,7 @@ export default function App() {
         )}
         {view === "eat" && (
           <>
-            <div className="sticky top-[68px] z-40 bg-[#09090f]/90 backdrop-blur-xl border-b border-white/8">
+            <div className="sticky top-[68px] z-40 bg-[#08111f]/92 backdrop-blur-xl border-b border-[#1C2E47]">
               <div className="section-pad flex gap-1 py-2">
                 {EAT_TABS.map((t) => (
                   <button
@@ -246,8 +246,8 @@ export default function App() {
                     onClick={() => switchEatTab(t.id)}
                     className={`flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold transition-colors whitespace-nowrap ${
                       eatTab === t.id
-                        ? "bg-amber-500 text-white shadow-sm shadow-amber-500/30"
-                        : "text-slate-400 hover:text-white hover:bg-white/10"
+                        ? "bg-amber-500/15 text-amber-300 border border-amber-500/25"
+                        : "text-[#7A90AE] hover:text-white hover:bg-white/8"
                     }`}
                   >
                     <span>{t.emoji}</span>
@@ -263,7 +263,7 @@ export default function App() {
         )}
         {view === "guide" && (
           <>
-            <div className="sticky top-[68px] z-40 bg-[#09090f]/90 backdrop-blur-xl border-b border-white/8">
+            <div className="sticky top-[68px] z-40 bg-[#08111f]/92 backdrop-blur-xl border-b border-[#1C2E47]">
               <div className="section-pad flex gap-1 py-2">
                 {GUIDE_TABS.map((t) => (
                   <button
@@ -272,8 +272,8 @@ export default function App() {
                     onClick={() => switchGuideTab(t.id)}
                     className={`flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold transition-colors whitespace-nowrap ${
                       guideTab === t.id
-                        ? "bg-teal-500 text-white shadow-sm shadow-teal-500/30"
-                        : "text-slate-400 hover:text-white hover:bg-white/10"
+                        ? "bg-teal-500/15 text-teal-300 border border-teal-500/25"
+                        : "text-[#7A90AE] hover:text-white hover:bg-white/8"
                     }`}
                   >
                     <span>{t.emoji}</span>
@@ -289,7 +289,7 @@ export default function App() {
         )}
         {view === "crew" && (
           <>
-            <div className="sticky top-[68px] z-40 bg-[#09090f]/90 backdrop-blur-xl border-b border-white/8">
+            <div className="sticky top-[68px] z-40 bg-[#08111f]/92 backdrop-blur-xl border-b border-[#1C2E47]">
               <div className="section-pad flex gap-1 py-2">
                 {CREW_TABS.map((t) => (
                   <button
@@ -298,8 +298,8 @@ export default function App() {
                     onClick={() => switchCrewTab(t.id)}
                     className={`flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold transition-colors whitespace-nowrap ${
                       crewTab === t.id
-                        ? "bg-violet-500 text-white shadow-sm shadow-violet-500/30"
-                        : "text-slate-400 hover:text-white hover:bg-white/10"
+                        ? "bg-violet-500/15 text-violet-300 border border-violet-500/25"
+                        : "text-[#7A90AE] hover:text-white hover:bg-white/8"
                     }`}
                   >
                     <span>{t.emoji}</span>

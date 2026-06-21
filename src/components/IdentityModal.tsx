@@ -21,9 +21,9 @@ export function IdentityModal({ open, onChoose }: { open: boolean; onChoose: (n:
               key={n}
               type="button"
               onClick={() => onChoose(n)}
-              className="flex flex-col items-center gap-1.5 rounded-xl bg-white/5 hover:bg-rose-500/20 border border-white/10 hover:border-rose-500/40 px-2 py-3 transition-colors group"
+              className="flex flex-col items-center gap-1.5 rounded-xl bg-white/5 hover:bg-accent-500/20 border border-white/10 hover:border-accent-500/40 px-2 py-3 transition-colors group"
             >
-              <span className="w-9 h-9 rounded-full bg-white/10 group-hover:bg-rose-500/30 flex items-center justify-center text-[0.65rem] font-bold text-slate-300 group-hover:text-rose-200 transition-colors">
+              <span className="w-9 h-9 rounded-full bg-white/10 group-hover:bg-accent-500/30 flex items-center justify-center text-[0.65rem] font-bold text-slate-300 group-hover:text-accent-200 transition-colors">
                 {INITIALS[n]}
               </span>
               <span className="text-xs font-semibold">{n}</span>
