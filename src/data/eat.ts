@@ -169,7 +169,7 @@ export const REGIONAL_EATS: RegionalEat[] = [
       { name: "Kushikatsu at Daruma", where: "Shinsekai origin store", note: "Sticks $0.80–2 (¥130–300). NO DOUBLE DIPPING. They will announce it to the room in two languages" },
       { name: "Kani Doraku crab kaiseki", where: "Under the giant moving crab", note: "December = crab season peak in crab city: sashimi, sukiyaki, grilled, tempura. Course $50–94 (¥8–15k). The booked-ahead Kansai farewell" },
       { name: "551 Horai butaman", where: "Namba/stations everywhere", note: "Steamed pork buns ($5.50 / ¥880 for 4) Osakans carry like contraband. The line moves fast; buy a 4-pack for the house" },
-      { name: "Fugu at Zubora-ya / Shinsekai specialists", where: "Shinsekai / Dotonbori", note: "Winter pufferfish: tessa sashimi, tecchiri hotpot, hirezake. Licensed-chef course $50–125 (¥8–20k). The one nervous-laughter dinner" },
+      { name: "Fugu at Shinsekai / Dotonbori specialists", where: "Shinsekai / Dotonbori (Zubora-ya closed 2020 — try Fugu Fukuichi or Fugu Yoshida)", note: "Winter pufferfish: tessa sashimi, tecchiri hotpot, hirezake. Licensed-chef course $50–125 (¥8–20k). The one nervous-laughter dinner" },
       { name: "Doteyaki & oden standing bars", where: "Tenma / Shinsekai", note: "Miso-braised beef tendon ($3–5 / ¥500–800) and winter oden against the December cold, with $2 (¥350) highballs" },
     ],
   },

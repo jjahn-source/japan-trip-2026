@@ -89,11 +89,10 @@ export const RESERVATIONS: Reservation[] = [
     date: "2026-12-24",
     time: "17:30",
     city: "Osaka",
-    bookedVia: "Direct call",
-    phone: "+81-6-6211-0743",
+    bookedVia: "Walk-in only",
     confirmed: false,
-    bookByDate: "2026-12-01",
-    notes: "Party of 8. Call 2 weeks ahead. Christmas Eve, expect crowds.",
+    bookByDate: "2026-12-24",
+    notes: "Kiji Honten (Osaka) does NOT take reservations — walk-in only, first-come first-served. Expect 30–60 min wait on Christmas Eve. Arrive early or have a backup.",
   },
   // Activities needing advance booking
   {
@@ -107,7 +106,7 @@ export const RESERVATIONS: Reservation[] = [
     bookingLink: "https://planets.teamlab.art",
     confirmed: false,
     bookByDate: "2026-12-02",
-    notes: "Timed entry every 30 min. Book 2 weeks ahead for groups. ~$30/person.",
+    notes: "Timed entry every 30 min. Book 2 weeks ahead for groups. ~$24/person weekday (¥3,800) / ~$26 weekend (¥4,200) — Dec 16 is a Wednesday.",
   },
   {
     id: "ghibli-tokyo",
@@ -120,7 +119,7 @@ export const RESERVATIONS: Reservation[] = [
     bookingLink: "https://www.lawson.co.jp",
     confirmed: false,
     bookByDate: "2026-11-10",
-    notes: "Tickets drop Dec 10, 10:00 JST. Sells out in minutes. All 8 try at once.",
+    notes: "Tickets for December visits release November 10 at 10:00 JST via l-tike.com (Lawson Ticket International). Sells out in minutes. All 8 try at once. Name on booking must match passport.",
   },
   {
     id: "sumo-tokyo",

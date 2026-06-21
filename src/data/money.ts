@@ -142,6 +142,6 @@ export const PASS_MATH: PassRow[] = [
   { name: "7-Day JR Pass", price: "¥50,000 ($313)", verdict: "SKIP", math: "Golden Route point-to-point is ≈¥27,700. You'd need a Tokyo–Hiroshima round trip inside one 7-day window to break even — our schedule never clusters like that." },
   { name: "Point-to-point on SmartEX + IC", price: "pay per leg", verdict: "BUY", math: "Tokyo→Kyoto ¥14,170, Kyoto/Osaka legs, + Hiroshima & Himeji day-trip round-trips — every leg is cheaper than a pass and you can ride Nozomi." },
   { name: "Osaka Amazing Pass (1-day)", price: "¥3,500 ($22)", verdict: "BUY", math: "ONLY on Dec 27: Castle ¥600 + Umeda Sky ¥2,000 + Dotonbori cruise ¥1,000 + unlimited subway clears the price before dinner." },
-  { name: "Kansai Thru Pass (2-day)", price: "≈¥5,600 ($35)", verdict: "MAYBE", math: "Covers non-JR subway/bus/private rail across Kyoto, Nara, Kobe, Osaka. Pencil it against your actual Kyoto/Nara transit tally — it wins on heavy-bus Kyoto days." },
+  { name: "Kansai Thru Pass (2-day)", price: "≈¥4,400 ($28)", verdict: "MAYBE", math: "Covers non-JR subway/bus/private rail across Kyoto, Nara, Kobe, Osaka. Pencil it against your actual Kyoto/Nara transit tally — it wins on heavy-bus Kyoto days." },
   { name: "Welcome Suica / ICOCA", price: "load ¥5,000", verdict: "BUY", math: "The backbone: one tap for every metro, bus, konbini, vending machine. No deposit on Welcome Suica; ICOCA works identically in Kansai. This replaces the rail pass entirely." },
 ];
