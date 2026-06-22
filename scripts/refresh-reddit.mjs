@@ -1,7 +1,7 @@
 import { writeFileSync } from "fs";
 
 const SKIP_FLAIRS = ["Weekly Discussion", "Megathread", "Weekly Thread"];
-const UA = "japan-trip-app/1.0 (github.com/jjahn-source/japan-trip-2026)";
+const UA = "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36";
 
 // Reddit RSS/Atom feed — public, no OAuth required
 const res = await fetch("https://www.reddit.com/r/JapanTravel/hot/.rss?limit=15", {
