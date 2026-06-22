@@ -1,8 +1,6 @@
 name: Refresh Reddit Feed
 
 on:
-  schedule:
-    - cron: '0 */2 * * *'  # Every 2 hours
   workflow_dispatch:
 
 permissions:
@@ -17,7 +15,7 @@ jobs:
         with:
           node-version: 22
       - name: Fetch r/JapanTravel
-        run: node scripts/refresh-reddit.mjs
+        run: node scripts/refresh-reddit.mjs || echo "Reddit blocked from CI — curated posts remain"
       - name: Commit if changed
         run: |
           git config user.name "github-actions[bot]"

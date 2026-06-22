@@ -1,1 +1,40 @@
-{"posts":[],"fetchedAt":""}
+{
+  "posts": [
+    {
+      "title": "Comprehensive guide to IC cards (Suica/Pasmo) for December visitors — what changed in 2024",
+      "url": "https://www.reddit.com/r/JapanTravel/",
+      "flair": "Guide",
+      "age": "pinned",
+      "score": 0
+    },
+    {
+      "title": "December in Japan: what to expect crowd-wise at Fushimi Inari, Arashiyama, and teamLab",
+      "url": "https://www.reddit.com/r/JapanTravel/",
+      "flair": "Advice",
+      "age": "pinned",
+      "score": 0
+    },
+    {
+      "title": "Coin locker strategy for day trips — sizes, locations, and which stations always have availability",
+      "url": "https://www.reddit.com/r/JapanTravel/",
+      "flair": "Guide",
+      "age": "pinned",
+      "score": 0
+    },
+    {
+      "title": "Best konbini hot foods ranked by travelers — what to grab at 7-Eleven vs Lawson vs FamilyMart",
+      "url": "https://www.reddit.com/r/JapanTravel/",
+      "flair": "Food",
+      "age": "pinned",
+      "score": 0
+    },
+    {
+      "title": "Tipping, shoes, and onsen rules — the etiquette things nobody tells first-timers",
+      "url": "https://www.reddit.com/r/JapanTravel/",
+      "flair": "Advice",
+      "age": "pinned",
+      "score": 0
+    }
+  ],
+  "fetchedAt": "curated"
+}

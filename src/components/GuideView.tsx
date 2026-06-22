@@ -91,7 +91,7 @@ function JapanAlertsPanel() {
         className="w-full flex items-center justify-between gap-3 px-4 py-3.5 text-left"
       >
         <span className="text-sm font-bold text-orange-300 flex items-center gap-2">
-          🌐 r/JapanTravel — hot right now
+          🌐 r/JapanTravel — community tips
           {!loading && alerts.length > 0 && (
             <span className="text-[0.65rem] font-normal text-slate-500">{alerts.length} posts</span>
           )}
@@ -107,7 +107,7 @@ function JapanAlertsPanel() {
             <div className="px-4 py-4 text-xs text-slate-500">Fetching latest posts…</div>
           )}
           {!loading && (error || alerts.length === 0) && (
-            <div className="px-4 py-4 text-xs text-slate-500">Couldn't reach Reddit — try refreshing.</div>
+            <div className="px-4 py-4 text-xs text-slate-500">No tips loaded.</div>
           )}
           {alerts.map((a) => (
             <a
