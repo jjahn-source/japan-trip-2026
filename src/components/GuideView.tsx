@@ -80,7 +80,7 @@ function PhraseRow({ en, jp, romaji }: { en: string; jp: string; romaji: string 
 }
 
 function JapanAlertsPanel() {
-  const { alerts, loading } = useJapanAlerts();
+  const { alerts, loading, error } = useJapanAlerts();
   const [open, setOpen] = useState(true);
 
   return (
@@ -106,8 +106,8 @@ function JapanAlertsPanel() {
           {loading && (
             <div className="px-4 py-4 text-xs text-slate-500">Fetching latest posts…</div>
           )}
-          {!loading && alerts.length === 0 && (
-            <div className="px-4 py-4 text-xs text-slate-500">No posts loaded — check your connection.</div>
+          {!loading && (error || alerts.length === 0) && (
+            <div className="px-4 py-4 text-xs text-slate-500">Couldn't reach Reddit — try refreshing.</div>
           )}
           {alerts.map((a) => (
             <a
