@@ -27,6 +27,7 @@ jobs:
       - run: npm run build
         env:
           VITE_FIREBASE_CONFIG: ${{ secrets.VITE_FIREBASE_CONFIG }}
+          VITE_GOOGLE_PLACES_KEY: ${{ secrets.VITE_GOOGLE_PLACES_KEY }}
       - uses: actions/upload-pages-artifact@v3
         with:
           path: dist
