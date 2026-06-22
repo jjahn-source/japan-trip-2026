@@ -66,7 +66,13 @@ function RestaurantPhrasesCard() {
 
 export type EatTab = "spots" | "dishes" | "regional" | "chains";
 
+const DISH_PAGE_SIZE = 12;
+
 function DishSection() {
+  const [page, setPage] = useState(1);
+  const visible = DISH_ENCYCLOPEDIA.slice(0, page * DISH_PAGE_SIZE);
+  const hasMore = visible.length < DISH_ENCYCLOPEDIA.length;
+
   return (
     <section className="section-pad pt-32 pb-16 sm:pb-24">
       <SectionHeading
@@ -74,8 +80,8 @@ function DishSection() {
         title="Dish Encyclopedia"
         sub="Every major food genre: what it is, how to order it, what it costs."
       />
-      <div className="grid gap-4 md:grid-cols-2">
-        {DISH_ENCYCLOPEDIA.map((d, i) => (
+      <div className="grid gap-4 sm:grid-cols-2">
+        {visible.map((d, i) => (
           <motion.div
             key={d.name}
             id={`dish-${slugify(d.name)}`}
@@ -99,6 +105,17 @@ function DishSection() {
           </motion.div>
         ))}
       </div>
+      {hasMore && (
+        <div className="mt-8 text-center">
+          <button
+            type="button"
+            onClick={() => setPage((p) => p + 1)}
+            className="px-6 py-3 rounded-xl glass text-sm font-semibold text-slate-300 hover:text-white hover:bg-white/10 transition-colors min-h-[48px]"
+          >
+            Show {Math.min(DISH_PAGE_SIZE, DISH_ENCYCLOPEDIA.length - visible.length)} more dishes
+          </button>
+        </div>
+      )}
     </section>
   );
 }
