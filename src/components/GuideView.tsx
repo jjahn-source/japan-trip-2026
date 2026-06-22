@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { ChevronDown, Copy, Check } from "lucide-react";
+import { ChevronDown, Copy, Check, ExternalLink } from "lucide-react";
+import { useJapanAlerts } from "../hooks/useJapanAlerts";
 import { GUIDE } from "../data/guide";
 import { PHRASES } from "../data/phrases";
 import { FAQS } from "../data/faq";
@@ -78,6 +79,56 @@ function PhraseRow({ en, jp, romaji }: { en: string; jp: string; romaji: string 
   );
 }
 
+function JapanAlertsPanel() {
+  const { alerts, loading } = useJapanAlerts();
+  const [open, setOpen] = useState(false);
+
+  if (loading || alerts.length === 0) return null;
+
+  return (
+    <div className="mb-10 rounded-2xl bg-orange-500/[0.06] border border-orange-500/20 overflow-hidden">
+      <button
+        type="button"
+        onClick={() => setOpen((o) => !o)}
+        className="w-full flex items-center justify-between gap-3 px-4 py-3 text-left"
+      >
+        <span className="text-sm font-bold text-orange-300 flex items-center gap-2">
+          🌐 From r/JapanTravel right now
+          <span className="text-[0.65rem] font-normal text-slate-500">{alerts.length} relevant posts</span>
+        </span>
+        <ChevronDown
+          size={16}
+          className={`text-slate-500 shrink-0 transition-transform ${open ? "rotate-180" : ""}`}
+        />
+      </button>
+      {open && (
+        <div className="border-t border-orange-500/15 divide-y divide-white/5">
+          {alerts.map((a) => (
+            <a
+              key={a.url}
+              href={a.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-start justify-between gap-3 px-4 py-3 hover:bg-white/5 transition-colors group"
+            >
+              <div className="min-w-0">
+                {a.flair && (
+                  <span className="inline-block text-[0.6rem] font-bold uppercase tracking-wide text-orange-300/70 mb-0.5">
+                    {a.flair} ·{" "}
+                  </span>
+                )}
+                <span className="text-xs text-slate-500">{a.age}</span>
+                <p className="text-sm text-slate-200 group-hover:text-white leading-snug mt-0.5">{a.title}</p>
+              </div>
+              <ExternalLink size={12} className="shrink-0 mt-1 text-slate-600 group-hover:text-slate-400" />
+            </a>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+}
+
 export function GuideView({ tab }: { tab: GuideTab }) {
   if (tab === "packing") return <PackingView />;
   return (
@@ -87,6 +138,7 @@ export function GuideView({ tab }: { tab: GuideTab }) {
         title="Survival Guide"
         sub="Transport, money, etiquette, December tactics, and emergencies — everything you'd otherwise google at 11pm in a hotel bed."
       />
+      <JapanAlertsPanel />
 
       {/* Emergency & Essentials — one tap away */}
       <div id="emergency" className="mb-16">

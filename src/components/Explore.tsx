@@ -6,6 +6,8 @@ import { NEIGHBORHOODS } from "../data/neighborhoods";
 import { DAY_TRIPS } from "../data/daytrips";
 import { SectionHeading } from "./SectionHeading";
 import { WikiImage } from "./ui/WikiImage";
+import { PlaceBadge } from "./ui/PlaceBadge";
+import { CrowdTip } from "./ui/CrowdTip";
 import { slugify } from "../utils/nav";
 
 type SightsSection = "spots" | "hoods" | "trips";
@@ -206,6 +208,13 @@ export function Explore() {
                     </div>
 
                     <p className="mt-3 text-sm text-slate-400 leading-relaxed flex-1">{a.desc}</p>
+
+                    {a.googlePlaceId && (
+                      <div className="mt-2">
+                        <PlaceBadge placeId={a.googlePlaceId} />
+                      </div>
+                    )}
+                    <CrowdTip bestVisitTime={a.bestVisitTime} crowdWarning={a.crowdWarning} />
 
                     <div className="mt-4 grid grid-cols-2 gap-x-4 gap-y-1.5 text-xs text-slate-400">
                       <span className="flex items-center gap-1.5"><Clock size={12} className="text-slate-500 shrink-0" />{a.hours}</span>
