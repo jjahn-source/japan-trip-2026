@@ -1,9 +1,40 @@
 import { writeFileSync } from "fs";
 
-const SKIP_FLAIRS = ["Weekly Discussion", "Megathread", "Weekly Thread"];
+const CLIENT_ID = process.env.REDDIT_CLIENT_ID;
+const CLIENT_SECRET = process.env.REDDIT_CLIENT_SECRET;
 
-const res = await fetch("https://www.reddit.com/r/JapanTravel/hot.json?limit=15&raw_json=1", {
-  headers: { "User-Agent": "japan-trip-app/1.0 (github.com/jjahn-source/japan-trip-2026)" },
+if (!CLIENT_ID || !CLIENT_SECRET) {
+  console.error("Missing REDDIT_CLIENT_ID or REDDIT_CLIENT_SECRET — skipping refresh");
+  process.exit(0); // exit 0 so workflow doesn't fail
+}
+
+const SKIP_FLAIRS = ["Weekly Discussion", "Megathread", "Weekly Thread"];
+const UA = "japan-trip-app/1.0 (github.com/jjahn-source/japan-trip-2026)";
+
+// Reddit requires OAuth even for public read-only access
+const auth = Buffer.from(`${CLIENT_ID}:${CLIENT_SECRET}`).toString("base64");
+const tokenRes = await fetch("https://www.reddit.com/api/v1/access_token", {
+  method: "POST",
+  headers: {
+    Authorization: `Basic ${auth}`,
+    "User-Agent": UA,
+    "Content-Type": "application/x-www-form-urlencoded",
+  },
+  body: "grant_type=client_credentials",
+});
+
+if (!tokenRes.ok) {
+  console.error(`Token fetch failed: ${tokenRes.status}`);
+  process.exit(1);
+}
+
+const { access_token } = await tokenRes.json();
+
+const res = await fetch("https://oauth.reddit.com/r/JapanTravel/hot?limit=15&raw_json=1", {
+  headers: {
+    Authorization: `Bearer ${access_token}`,
+    "User-Agent": UA,
+  },
 });
 
 if (!res.ok) {
