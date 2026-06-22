@@ -11,7 +11,7 @@ export interface PlaceInfo {
 const CACHE_TTL = 60 * 60 * 1000; // 1 hour
 
 function cacheKey(placeId: string) {
-  return `gplace:${placeId}`;
+  return `gplace2:${placeId}`;
 }
 
 function readCache(placeId: string): PlaceInfo | null {
@@ -32,6 +32,14 @@ function writeCache(placeId: string, data: PlaceInfo) {
   } catch {}
 }
 
+function fmtTime(hhmm: string): string {
+  const h = parseInt(hhmm.slice(0, 2), 10);
+  const m = hhmm.slice(2);
+  const suffix = h >= 12 ? "PM" : "AM";
+  const h12 = h > 12 ? h - 12 : h === 0 ? 12 : h;
+  return `${h12}:${m} ${suffix}`;
+}
+
 const UNKNOWN: PlaceInfo = { status: "unknown", closesAt: null, rating: null };
 
 export function useGooglePlace(placeId: string | undefined): PlaceInfo {
@@ -39,43 +47,39 @@ export function useGooglePlace(placeId: string | undefined): PlaceInfo {
 
   useEffect(() => {
     if (!placeId) return;
-    const key = import.meta.env.VITE_GOOGLE_PLACES_KEY as string | undefined;
-    if (!key) return;
+    const apiKey = import.meta.env.VITE_GOOGLE_PLACES_KEY as string | undefined;
+    if (!apiKey) return;
 
     const cached = readCache(placeId);
     if (cached) { setInfo(cached); return; }
 
-    const url =
-      `https://maps.googleapis.com/maps/api/place/details/json` +
-      `?place_id=${encodeURIComponent(placeId)}` +
-      `&fields=opening_hours,rating` +
-      `&key=${key}`;
-
-    fetch(url)
+    // Places API (New) at places.googleapis.com — supports browser CORS, unlike maps.googleapis.com
+    fetch(`https://places.googleapis.com/v1/places/${encodeURIComponent(placeId)}`, {
+      headers: {
+        "X-Goog-Api-Key": apiKey,
+        "X-Goog-FieldMask": "regularOpeningHours,rating",
+      },
+    })
       .then((r) => r.json())
       .then((json) => {
-        const oh = json?.result?.opening_hours;
-        const rating = json?.result?.rating ?? null;
-        if (!oh) { writeCache(placeId, UNKNOWN); return; }
+        const oh = json?.regularOpeningHours;
+        const rating: number | null = json?.rating ?? null;
 
-        const status: PlaceStatus = oh.open_now ? "open" : "closed";
+        if (!oh) {
+          writeCache(placeId, UNKNOWN);
+          return;
+        }
 
-        // Find today's period to get closing time
+        const status: PlaceStatus = oh.openNow ? "open" : "closed";
+
         let closesAt: string | null = null;
         if (oh.periods) {
-          const now = new Date();
-          const todayIdx = now.getDay();
-          const todayPeriod = oh.periods.find(
-            (p: { open?: { day: number }; close?: { time: string } }) => p.open?.day === todayIdx && p.close,
+          const todayIdx = new Date().getDay();
+          const period = oh.periods.find(
+            (p: { open?: { day: number }; close?: { time: string } }) =>
+              p.open?.day === todayIdx && p.close,
           );
-          if (todayPeriod?.close?.time) {
-            const t = todayPeriod.close.time;
-            const h = parseInt(t.slice(0, 2), 10);
-            const m = t.slice(2);
-            const suffix = h >= 12 ? "PM" : "AM";
-            const h12 = h > 12 ? h - 12 : h === 0 ? 12 : h;
-            closesAt = `${h12}:${m} ${suffix}`;
-          }
+          if (period?.close?.time) closesAt = fmtTime(period.close.time);
         }
 
         const result: PlaceInfo = { status, closesAt, rating };
