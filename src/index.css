@@ -102,6 +102,47 @@ body {
 
 .leaflet-container {
   background: #08111f;
+  font-family: inherit;
+}
+
+/* Dark glass popups */
+.leaflet-popup-content-wrapper {
+  background: rgba(15, 23, 42, 0.92) !important;
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255,255,255,0.1) !important;
+  border-radius: 10px !important;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.5) !important;
+  color: #e2e8f0 !important;
+}
+.leaflet-popup-tip {
+  background: rgba(15, 23, 42, 0.92) !important;
+}
+.leaflet-popup-close-button {
+  color: #94a3b8 !important;
+}
+.leaflet-popup-content b {
+  color: #f1f5f9;
+}
+
+/* Dark attribution box */
+.leaflet-control-attribution {
+  background: rgba(8, 17, 31, 0.75) !important;
+  color: #475569 !important;
+  font-size: 9px !important;
+}
+.leaflet-control-attribution a {
+  color: #64748b !important;
+}
+
+/* Dark zoom buttons */
+.leaflet-control-zoom a {
+  background: rgba(15, 23, 42, 0.85) !important;
+  border-color: rgba(255,255,255,0.1) !important;
+  color: #94a3b8 !important;
+}
+.leaflet-control-zoom a:hover {
+  background: rgba(30, 41, 59, 0.95) !important;
+  color: #e2e8f0 !important;
 }
 
 /* search/deep-link landing flash so you can see what you jumped to */
