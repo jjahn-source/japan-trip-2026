@@ -13,7 +13,8 @@ const CACHE_KEY = "japan-alerts";
 const SKIP_FLAIRS = ["Weekly Discussion", "Megathread", "Weekly Thread"];
 
 const REDDIT_URL = "https://www.reddit.com/r/JapanTravel/hot.json?limit=15&raw_json=1";
-const PROXY_URL = `https://corsproxy.io/?${encodeURIComponent(REDDIT_URL)}`;
+// allorigins.win /raw returns the upstream response body directly — no wrapping
+const PROXY_URL = `https://api.allorigins.win/raw?url=${encodeURIComponent(REDDIT_URL)}`;
 
 function relativeAge(utcSeconds: number): string {
   const diff = Math.floor(Date.now() / 1000) - utcSeconds;
@@ -22,32 +23,18 @@ function relativeAge(utcSeconds: number): string {
   return `${Math.floor(diff / 86400)}d ago`;
 }
 
-async function fetchReddit(): Promise<JapanAlert[]> {
-  const tryUrl = async (url: string) => {
-    const r = await fetch(url);
-    if (!r.ok) throw new Error(`${r.status}`);
-    return r.json();
+type RedditChild = {
+  data: {
+    title: string;
+    permalink: string;
+    link_flair_text: string | null;
+    created_utc: number;
+    score: number;
+    stickied: boolean;
   };
+};
 
-  // Try direct first, fall back to CORS proxy
-  let json: unknown;
-  try {
-    json = await tryUrl(REDDIT_URL);
-  } catch {
-    json = await tryUrl(PROXY_URL);
-  }
-
-  type RedditChild = {
-    data: {
-      title: string;
-      permalink: string;
-      link_flair_text: string | null;
-      created_utc: number;
-      score: number;
-      stickied: boolean;
-    };
-  };
-
+function parseRedditJson(json: unknown): JapanAlert[] {
   return ((json as { data?: { children?: RedditChild[] } })?.data?.children ?? [])
     .map((c) => c.data)
     .filter((d) => !d.stickied && !SKIP_FLAIRS.includes(d.link_flair_text ?? ""))
@@ -59,6 +46,19 @@ async function fetchReddit(): Promise<JapanAlert[]> {
       age: relativeAge(d.created_utc),
       score: d.score,
     }));
+}
+
+async function fetchReddit(): Promise<JapanAlert[]> {
+  // Try direct first (works in dev / if Reddit ever enables CORS)
+  try {
+    const r = await fetch(REDDIT_URL);
+    if (r.ok) return parseRedditJson(await r.json());
+  } catch {}
+
+  // Fall back to allorigins.win proxy
+  const r = await fetch(PROXY_URL);
+  if (!r.ok) throw new Error(`proxy ${r.status}`);
+  return parseRedditJson(await r.json());
 }
 
 export function useJapanAlerts(): { alerts: JapanAlert[]; loading: boolean; error: boolean } {
