@@ -4,6 +4,7 @@ import { Search, MapPin, Clock, Wallet, TrainFront, Snowflake, Star } from "luci
 import { ATTRACTIONS, type City, type Category } from "../data/attractions";
 import { NEIGHBORHOODS } from "../data/neighborhoods";
 import { DAY_TRIPS } from "../data/daytrips";
+import { VIBES, WEIRD_IDS, type Vibe } from "../data/vibes";
 import { SectionHeading } from "./SectionHeading";
 import { WikiImage } from "./ui/WikiImage";
 import { PlaceBadge } from "./ui/PlaceBadge";
@@ -75,6 +76,7 @@ export function Explore() {
   const [city, setCity] = useState<(typeof CITIES)[number]>("All");
   const [cat, setCat] = useState<(typeof CATEGORIES)[number]>("All");
   const [mustOnly, setMustOnly] = useState(false);
+  const [vibe, setVibe] = useState<Vibe | null>(null);
   const [section, setSection] = useState<SightsSection>("spots");
   const [hoodCity, setHoodCity] = useState<(typeof HOOD_CITIES)[number]>("All");
   const [page, setPage] = useState(1);
@@ -82,15 +84,25 @@ export function Explore() {
 
   const results = useMemo(() => {
     const q = query.trim().toLowerCase();
+    const vibeDef = vibe ? VIBES.find((v) => v.id === vibe) : null;
     return ATTRACTIONS.filter((a) => {
-      if (city !== "All" && a.city !== city) return false;
-      if (cat !== "All" && a.category !== cat) return false;
-      if (mustOnly && a.tier !== 1) return false;
+      if (vibeDef) {
+        if (vibeDef.weirdOnly) {
+          if (!WEIRD_IDS.has(a.id)) return false;
+        } else {
+          if (!vibeDef.categories.includes(a.category)) return false;
+          if (vibeDef.cities && !vibeDef.cities.includes(a.city)) return false;
+        }
+      } else {
+        if (city !== "All" && a.city !== city) return false;
+        if (cat !== "All" && a.category !== cat) return false;
+        if (mustOnly && a.tier !== 1) return false;
+      }
       if (q && !`${a.name} ${a.jp} ${a.desc} ${a.city} ${a.category}`.toLowerCase().includes(q))
         return false;
       return true;
     }).sort((a, b) => a.tier - b.tier);
-  }, [query, city, cat, mustOnly]);
+  }, [query, city, cat, mustOnly, vibe]);
 
   const visibleResults = results.slice(0, page * PAGE_SIZE);
   const hasMoreResults = visibleResults.length < results.length;
@@ -105,6 +117,15 @@ export function Explore() {
 
   const setFilter = useCallback(<T,>(setter: (v: T) => void, value: T) => {
     setter(value);
+    setVibe(null);
+    setPage(1);
+  }, []);
+
+  const setVibeFilter = useCallback((v: Vibe | null) => {
+    setVibe(v);
+    setCity("All");
+    setCat("All");
+    setMustOnly(false);
     setPage(1);
   }, []);
 
@@ -154,23 +175,45 @@ export function Explore() {
                 className="w-full rounded-xl bg-white/5 border border-white/10 pl-11 pr-4 py-3 outline-none focus:border-accent-400/60 placeholder:text-slate-600"
               />
             </div>
-            <div className="flex flex-wrap gap-1.5">
-              {CITIES.map((c) => (
-                <Chip key={c} active={city === c} onClick={() => setFilter(setCity, c)}>
-                  {c}
-                </Chip>
+            {/* Vibe filter */}
+            <div className="flex flex-wrap gap-1.5 pb-2 border-b border-white/5">
+              {VIBES.map((v) => (
+                <button
+                  type="button"
+                  key={v.id}
+                  onClick={() => setVibeFilter(vibe === v.id ? null : v.id)}
+                  className={`rounded-full px-4 py-2 text-sm font-semibold border transition-colors min-h-[40px] ${
+                    vibe === v.id
+                      ? "bg-violet-500 border-violet-400 text-white"
+                      : "glass text-slate-300 hover:bg-white/10"
+                  }`}
+                >
+                  {v.emoji} {v.label}
+                </button>
               ))}
             </div>
-            <div className="flex flex-wrap gap-1.5">
-              {CATEGORIES.map((c) => (
-                <Chip key={c} active={cat === c} onClick={() => setFilter(setCat, c)}>
-                  {c}
-                </Chip>
-              ))}
-              <Chip active={mustOnly} onClick={() => setFilter(setMustOnly, !mustOnly)}>
-                ★ Must-sees only
-              </Chip>
-            </div>
+            {/* City + category filters — hidden when a vibe is active */}
+            {!vibe && (
+              <>
+                <div className="flex flex-wrap gap-1.5">
+                  {CITIES.map((c) => (
+                    <Chip key={c} active={city === c} onClick={() => setFilter(setCity, c)}>
+                      {c}
+                    </Chip>
+                  ))}
+                </div>
+                <div className="flex flex-wrap gap-1.5">
+                  {CATEGORIES.map((c) => (
+                    <Chip key={c} active={cat === c} onClick={() => setFilter(setCat, c)}>
+                      {c}
+                    </Chip>
+                  ))}
+                  <Chip active={mustOnly} onClick={() => setFilter(setMustOnly, !mustOnly)}>
+                    ★ Must-sees only
+                  </Chip>
+                </div>
+              </>
+            )}
           </div>
 
           <p className="text-sm text-slate-500 mb-4">{results.length} results</p>
