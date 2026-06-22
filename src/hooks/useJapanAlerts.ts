@@ -8,9 +8,11 @@ export interface JapanAlert {
   score: number;
 }
 
-const CITIES = ["Tokyo", "Kyoto", "Osaka", "Nara", "Hiroshima", "Hakone", "Japan"];
 const CACHE_TTL = 30 * 60 * 1000; // 30 min
 const CACHE_KEY = "japan-alerts";
+
+// Skip pinned/megathread posts that don't add travel value
+const SKIP_FLAIRS = ["Weekly Discussion", "Megathread", "Weekly Thread"];
 
 function relativeAge(utcSeconds: number): string {
   const diff = Math.floor(Date.now() / 1000) - utcSeconds;
@@ -36,13 +38,13 @@ export function useJapanAlerts(): { alerts: JapanAlert[]; loading: boolean } {
       }
     } catch {}
 
-    fetch("https://www.reddit.com/r/JapanTravel/hot.json?limit=25&raw_json=1")
+    fetch("https://www.reddit.com/r/JapanTravel/hot.json?limit=15&raw_json=1")
       .then((r) => r.json())
       .then((json) => {
         const posts: JapanAlert[] = (json?.data?.children ?? [])
-          .map((c: { data: { title: string; permalink: string; link_flair_text: string | null; created_utc: number; score: number } }) => c.data)
-          .filter((d: { title: string }) =>
-            CITIES.some((city) => d.title.toLowerCase().includes(city.toLowerCase())),
+          .map((c: { data: { title: string; permalink: string; link_flair_text: string | null; created_utc: number; score: number; stickied: boolean } }) => c.data)
+          .filter((d: { stickied: boolean; link_flair_text: string | null }) =>
+            !d.stickied && !SKIP_FLAIRS.includes(d.link_flair_text ?? ""),
           )
           .slice(0, 5)
           .map((d: { title: string; permalink: string; link_flair_text: string | null; created_utc: number; score: number }) => ({
