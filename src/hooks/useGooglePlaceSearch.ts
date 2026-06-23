@@ -61,27 +61,31 @@ export function isClosedAt(regularOpeningHours: any, dow: string, timeHHMM: stri
   );
   if (open24h) return false;
 
-  // Filter periods matching target day
-  const periods = regularOpeningHours.periods.filter((p: any) => p.open && p.open.day === targetDay);
-  if (periods.length === 0) return true; // closed all day
+  // Convert check time to week-minutes (0-10080)
+  const checkWeekMinutes = targetDay * 1440 + targetMinutes;
 
-  for (const period of periods) {
+  // Check all periods for coverage
+  for (const period of regularOpeningHours.periods) {
+    if (!period.open) continue;
     if (!period.close) return false; // Open all day starting at open time
-    const openMinutes = parseTimeMinutes(period.open.time);
-    let closeMinutes = parseTimeMinutes(period.close.time);
 
-    // Handle overnight close times (e.g. opens 18:00 close 02:00)
-    if (closeMinutes < openMinutes) {
-      closeMinutes += 1440;
+    // Convert period times to week-minutes
+    const openWeekMinutes = period.open.day * 1440 + parseTimeMinutes(period.open.time);
+    let closeWeekMinutes = period.close.day * 1440 + parseTimeMinutes(period.close.time);
+
+    // If close time is before open time, it wraps to next week
+    if (closeWeekMinutes < openWeekMinutes) {
+      closeWeekMinutes += 10080;
     }
 
-    let checkMinutes = targetMinutes;
-    if (checkMinutes < openMinutes && period.close.day !== targetDay) {
-      checkMinutes += 1440; // check overnight overlap
-    }
-
-    if (checkMinutes >= openMinutes && checkMinutes <= closeMinutes) {
+    // Check if check time falls within this period (handle week wrapping)
+    if (checkWeekMinutes >= openWeekMinutes && checkWeekMinutes <= closeWeekMinutes) {
       return false; // within open window
+    }
+
+    // Also check if check time + 10080 falls within (wrapping perspective)
+    if (checkWeekMinutes + 10080 >= openWeekMinutes && checkWeekMinutes + 10080 <= closeWeekMinutes) {
+      return false;
     }
   }
 
@@ -98,6 +102,7 @@ export function useGooglePlaceSearch(query: string | undefined, city?: string) {
     }
     const apiKey = import.meta.env.VITE_GOOGLE_PLACES_KEY as string | undefined;
     if (!apiKey) {
+      console.warn("VITE_GOOGLE_PLACES_KEY environment variable is not set. Place search will not work.");
       setInfo({ ...UNKNOWN, loading: false });
       return;
     }
@@ -124,7 +129,10 @@ export function useGooglePlaceSearch(query: string | undefined, city?: string) {
         languageCode: "en",
       }),
     })
-      .then((r) => r.json())
+      .then((r) => {
+        if (!r.ok) throw new Error(`HTTP ${r.status}: ${r.statusText}`);
+        return r.json();
+      })
       .then((json) => {
         const place = json?.places?.[0];
         if (!place) {
@@ -150,7 +158,7 @@ export function useGooglePlaceSearch(query: string | undefined, city?: string) {
             if (period?.close?.time) {
               const hhmm = period.close.time;
               const h = parseInt(hhmm.slice(0, 2), 10);
-              const m = hhmm.slice(2);
+              const m = hhmm.slice(2).padStart(2, "0");
               const suffix = h >= 12 ? "PM" : "AM";
               const h12 = h > 12 ? h - 12 : h === 0 ? 12 : h;
               closesAt = `${h12}:${m} ${suffix}`;
