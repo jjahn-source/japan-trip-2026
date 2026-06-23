@@ -2,6 +2,7 @@ import { useState } from "react";
 import { motion } from "motion/react";
 import { ChevronDown, ClipboardCopy } from "lucide-react";
 import { Food } from "./Food";
+import { GurunaviSpots } from "./GurunaviSpots";
 import { SectionHeading } from "./SectionHeading";
 import { DISH_ENCYCLOPEDIA, CHAINS, KONBINI_HALL_OF_FAME, REGIONAL_EATS } from "../data/eat";
 import { PHRASES, type PhraseGroup, type Phrase } from "../data/phrases";
@@ -211,7 +212,7 @@ function ChainsSection() {
 }
 
 export function EatView({ tab }: { tab: EatTab }) {
-  if (tab === "spots") return <div className="pt-8"><RestaurantPhrasesCard /><Food /></div>;
+  if (tab === "spots") return <div className="pt-8"><RestaurantPhrasesCard /><GurunaviSpots /><Food /></div>;
   if (tab === "dishes") return <DishSection />;
   if (tab === "regional") return <RegionalSection />;
   return <ChainsSection />;
