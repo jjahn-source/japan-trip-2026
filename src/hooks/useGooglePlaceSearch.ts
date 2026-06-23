@@ -1,5 +1,16 @@
 import { useEffect, useState } from "react";
 
+if (typeof window !== "undefined") {
+  (window as any).gPlacesRegistry = (window as any).gPlacesRegistry || {};
+}
+
+const registerPlace = (queryStr: string, res: PlaceSearchInfo) => {
+  if (typeof window !== "undefined") {
+    (window as any).gPlacesRegistry[queryStr.toLowerCase().trim()] = res;
+    window.dispatchEvent(new CustomEvent("gplace-registered"));
+  }
+};
+
 export type PlaceStatus = "open" | "closed" | "unknown";
 
 export interface PlaceSearchInfo {
@@ -110,6 +121,7 @@ export function useGooglePlaceSearch(query: string | undefined, city?: string) {
     const searchQuery = city ? `${query}, ${city}` : query;
     const cached = readCache(searchQuery);
     if (cached) {
+      registerPlace(searchQuery, cached);
       setInfo({ ...cached, loading: false });
       return;
     }
@@ -176,6 +188,7 @@ export function useGooglePlaceSearch(query: string | undefined, city?: string) {
         };
 
         writeCache(searchQuery, result);
+        registerPlace(searchQuery, result);
         setInfo({ ...result, loading: false });
       })
       .catch(() => {

@@ -17,6 +17,7 @@ import { CONTINGENCIES } from "../data/contingencies";
 import { SectionHeading } from "./SectionHeading";
 import { WeatherBadge } from "./WeatherBadge";
 import { Collapse } from "./ui/Collapse";
+import { PlaceSearchBadge } from "./ui/PlaceSearchBadge";
 import { useLocalStorage } from "../hooks/useLocalStorage";
 import { useDayComments, type DayComment } from "../hooks/useDayComments";
 import { useItineraryOverrides, type DayOverride } from "../hooks/useItineraryOverrides";
@@ -25,6 +26,8 @@ import { useActivityVotes } from "../hooks/useActivityVotes";
 import { getIdentityName } from "../hooks/useIdentity";
 import { useCrewPresence } from "../hooks/useCrewPresence";
 import { FIREBASE_ENABLED } from "../lib/firebase";
+import { detectConflicts, autoFixOverrides, type Conflict } from "../utils/itineraryOptimizer";
+import { toast } from "../lib/toast";
 import {
   daySpan, activityMapUrl, mapsRouteUrl, buildDayICS, buildTripICS, downloadICS,
   haversineKm, walkMinutes,
@@ -162,6 +165,9 @@ function ActivityRow({
           )}
         </p>
         {activity.note && <p className={`text-sm mt-0.5 ${isDone || isSkipped ? "text-slate-600" : "text-slate-400"}`}>{activity.note}</p>}
+        {activity.place && !isSkipped && (
+          <PlaceSearchBadge query={activity.place} city={srcDate.slice(0, 4) === "2026" ? "Japan" : undefined} time={activity.time} dow={DAYS.find(d => d.date === srcDate)?.dow} />
+        )}
         {FIREBASE_ENABLED && presenceNames !== undefined && myName && onPresenceToggle && !isSkipped && (
           <div className="flex flex-wrap items-center gap-1 mt-1.5">
             {presenceNames.map((n) => (
@@ -826,7 +832,28 @@ export function Itinerary() {
   const [done, setDone] = useLocalStorage<Record<string, boolean>>("itinerary-done", {});
 
   const { forDate, add: addComment } = useDayComments();
-  const { overrides, skip, setOrder } = useItineraryOverrides();
+  const { overrides, skip, setOrder, setAllOverrides } = useItineraryOverrides();
+  const [placeRegistry, setPlaceRegistry] = useState<Record<string, any>>({});
+  const [conflicts, setConflicts] = useState<Conflict[]>([]);
+
+  useEffect(() => {
+    const updateRegistry = () => {
+      setPlaceRegistry({ ...((window as any).gPlacesRegistry || {}) });
+    };
+    window.addEventListener("gplace-registered", updateRegistry);
+    updateRegistry();
+    return () => window.removeEventListener("gplace-registered", updateRegistry);
+  }, []);
+
+  useEffect(() => {
+    setConflicts(detectConflicts(DAYS, overrides, placeRegistry));
+  }, [overrides, placeRegistry]);
+
+  const handleAutoFix = async () => {
+    const fixed = autoFixOverrides(DAYS, overrides);
+    await setAllOverrides(fixed);
+    toast.success("AI Optimizer: Schedule conflicts resolved and sorted chronologically!");
+  };
   const { getVoters, toggle: toggleVote } = useActivityVotes();
   const { getPresent, toggle: togglePresence } = useCrewPresence();
   const myName = getIdentityName();
@@ -960,6 +987,32 @@ export function Itinerary() {
         onDragEnd={handleDragEnd}
         onDragCancel={() => setActiveDragKey(null)}
       >
+        {conflicts.length > 0 && (
+          <div className="mb-6 rounded-2xl border border-red-500/30 bg-red-500/[0.05] p-5 text-sm text-slate-300 shadow-[0_0_20px_rgba(239,68,68,0.08)] backdrop-blur-md">
+            <div className="flex items-center gap-2 mb-3 text-red-400 font-bold uppercase tracking-wider text-xs">
+              <AlertTriangle size={15} className="animate-pulse shrink-0" />
+              <span>Route Optimization Suggestions ({conflicts.length})</span>
+            </div>
+            <ul className="space-y-2 list-disc pl-4 mb-4 text-xs text-slate-400 leading-relaxed">
+              {conflicts.slice(0, 3).map((c, idx) => (
+                <li key={idx} className="marker:text-red-500">
+                  <span className="font-semibold text-slate-300">{c.activityTitle}</span>: {c.detail}
+                </li>
+              ))}
+              {conflicts.length > 3 && (
+                <li className="list-none pl-0 text-slate-500">...and {conflicts.length - 3} more schedule errors.</li>
+              )}
+            </ul>
+            <button
+              type="button"
+              onClick={handleAutoFix}
+              className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-red-500 to-orange-500 hover:from-red-600 hover:to-orange-600 text-white font-bold text-xs uppercase tracking-wider px-4 py-2.5 shadow-lg shadow-red-500/10 hover:shadow-red-500/20 active:scale-95 transition-all"
+            >
+              <Sparkles size={13} className="animate-bounce" />
+              Auto-Fix Schedule Conflicts
+            </button>
+          </div>
+        )}
         <div className="space-y-3">
           {DAYS.map((d, i) => (
             <DayCard
