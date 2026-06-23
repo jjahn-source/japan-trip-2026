@@ -601,7 +601,11 @@ function DayCard({
 
               {showMap && mappedCount > 0 && (
                 <div className="mb-4">
-                  <DayMap activities={effectiveActivities} dayTheme={day.theme} />
+                  <DayMap
+                    key={effectiveActivities.map((a) => a.title).join("|")}
+                    activities={effectiveActivities}
+                    dayTheme={day.theme}
+                  />
                 </div>
               )}
 
