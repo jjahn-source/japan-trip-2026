@@ -8,30 +8,19 @@
       "age": "2d ago",
       "score": 0,
       "snippet": "Greetings and salutations! I have no doubt dime a dozen of similar post appear here every hour... but I am in need of advice travelers more seasoned than myself. Tōhoku 2027 (24 days, 22 nights) I'm travelling to Japan for the fourth time in my life, this time in December/January. Destination: Comiket + Tōhoku! Background: I am a solo traveler, with Japanese on ~C1 level (I got A in JLPT N2 in 202...",
-      "matchedDates": "December/January (Winter)",
-      "relevance": "Explicitly covers a December/January winter trip including Comiket and Tōhoku, offering relevant winter travel insights."
+      "matchedDates": "December/January",
+      "relevance": "Explicitly covers a December/January winter trip, including Comiket and Tohoku, offering winter-specific insights relevant to the trip timeframe."
     },
     {
       "title": "Itinerary Check - 36 Nights in Japan (first time solo)",
       "url": "https://www.reddit.com/r/JapanTravel/comments/1ucqeeu/itinerary_check_36_nights_in_japan_first_time_solo/",
       "subreddit": "JapanTravel",
       "flair": null,
-      "age": "22h ago",
+      "age": "1d ago",
       "score": 0,
       "snippet": "Hi everyone, sorry in advance for the long post. It's me and my friends' first trip to Japan and would love feedback on the plan (it's also my first solo trip) I'll be the first 19 days solo (Tokyo - Kanazawa - Kyoto - Hiroshima), then my friends will meet me in Osaka and continue the trip to Hakone and Tokyo together. No car, using trains/local transport. We're all in good shape and are comfortab...",
       "matchedDates": "None (General)",
-      "relevance": "Covers the exact Tokyo-Kyoto-Osaka route using trains, providing useful general pacing and logistics advice."
-    },
-    {
-      "title": "Itinerary review, family with tweens",
-      "url": "https://www.reddit.com/r/JapanTravel/comments/1uby490/itinerary_review_family_with_tweens/",
-      "subreddit": "JapanTravel",
-      "flair": null,
-      "age": "1d ago",
-      "score": 0,
-      "snippet": "Hi all, would really appreciate some feedback on our itinerary so far. &#x200B; We're a couple in mid 40s with two girls 11 and 10 years old, traveling from UK, visiting Japan for the first time. We're interested in nature, historical sights and culture. The girls love everything cute, cats, arts and crafts and Pokémon. We're planning to collect all the Eki stamps and goushin, as well as hunt for ...",
-      "matchedDates": "None (General)",
-      "relevance": "Family itinerary feedback that includes Tokyo, Kyoto, and Osaka, offering relevant general route and activity advice."
+      "relevance": "Covers the exact same route (Tokyo-Kyoto-Osaka) with train transport, providing useful general pacing and logistics advice."
     },
     {
       "title": "Itinerary for a 5-Day First Japan Trip",
@@ -42,20 +31,20 @@
       "score": 0,
       "snippet": "I have revised my previous itinerary and focused on Tokyo only. This is a 5-day Japan trip, and I'd like to ask for feedback on my itinerary: &gt; Is this too much or lacking? &gt; What things should I remove? &gt; Are there places or things to do you can recommend in each area? &gt; Is the sequence okay? I have also uploaded a pdf link of the itinerary so you can view it better: ITINERARY PDF DAY...",
       "matchedDates": "None (General)",
-      "relevance": "Provides general Tokyo itinerary pacing and sequencing advice applicable to any season."
+      "relevance": "General first-time Tokyo itinerary feedback that can offer useful daily pacing and sequencing tips for the Tokyo leg."
     },
     {
-      "title": "Review our itinerary please !",
-      "url": "https://www.reddit.com/r/JapanTravel/comments/1ub1uq5/review_our_itinerary_please/",
+      "title": "Itinerary review, family with tweens",
+      "url": "https://www.reddit.com/r/JapanTravel/comments/1uby490/itinerary_review_family_with_tweens/",
       "subreddit": "JapanTravel",
       "flair": null,
       "age": "2d ago",
       "score": 0,
-      "snippet": "We are going in October/November for first time and just looking to see if we need tweaks or anything from more experienced travellers! Thanks in advance! Day 1 Shinjuku (October 24th Meiji jingu (morning) Shinjuku garden Shopping Day 2 Shibuya/Shimokitazawa (25th) Museum of emerging science and innovation (10-5) Gundam store Shimokitazawa Train to Osaka Osaka (4 Days) stay near Dotonburi Day 1 Os...",
+      "snippet": "Hi all, would really appreciate some feedback on our itinerary so far. &#x200B; We're a couple in mid 40s with two girls 11 and 10 years old, traveling from UK, visiting Japan for the first time. We're interested in nature, historical sights and culture. The girls love everything cute, cats, arts and crafts and Pokémon. We're planning to collect all the Eki stamps and goushin, as well as hunt for ...",
       "matchedDates": "None (General)",
-      "relevance": "Covers the Tokyo-Osaka-Kyoto route with pacing and logistics advice useful as general reference."
+      "relevance": "Family itinerary feedback with a focus on cultural sights and eki stamps, offering general activity ideas for the Tokyo-Kyoto-Osaka route."
     }
   ],
-  "fetchedAt": "2026-06-23T15:30:13.651Z",
+  "fetchedAt": "2026-06-23T20:09:11.352Z",
   "curatedBy": "glm-5.1"
 }
