@@ -55,7 +55,12 @@ function waypointToken(a: Activity): string {
 
 /** Directions through every mapped stop of the day, in order. null if <2 stops. */
 export function mapsRouteUrl(day: Day): string | null {
-  const stops = day.activities.filter((a) => a.coord || a.place);
+  return mapsRouteUrlForActivities(day.activities);
+}
+
+/** Directions through a provided activity list (e.g. after applying overrides). */
+export function mapsRouteUrlForActivities(activities: Activity[]): string | null {
+  const stops = activities.filter((a) => a.coord || a.place);
   if (stops.length < 2) return null;
   const path = stops.map(waypointToken).join("/");
   return `https://www.google.com/maps/dir/${path}`;

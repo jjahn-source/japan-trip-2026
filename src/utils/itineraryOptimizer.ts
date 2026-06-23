@@ -127,11 +127,13 @@ export function autoFixOverrides(
 ): Record<string, DayOverride> {
   const nextOverrides = JSON.parse(JSON.stringify(overrides)) as Record<string, DayOverride>;
 
-  // Initialize order for every day if missing
+  // Initialize order for every day if missing; also guard against partial Firebase data
   days.forEach((day) => {
     if (!nextOverrides[day.date]) {
       nextOverrides[day.date] = { order: [], skipped: [] };
     }
+    if (!nextOverrides[day.date].order) nextOverrides[day.date].order = [];
+    if (!nextOverrides[day.date].skipped) nextOverrides[day.date].skipped = [];
     if (nextOverrides[day.date].order.length === 0) {
       nextOverrides[day.date].order = day.activities.map((_, i) => `${day.date}:${i}`);
     }
@@ -146,8 +148,8 @@ export function autoFixOverrides(
       if (activity && isDateLocked(activity)) {
         // Find where it currently resides and delete it from order / skipped list
         Object.keys(nextOverrides).forEach((date) => {
-          nextOverrides[date].order = nextOverrides[date].order.filter((k) => k !== key);
-          nextOverrides[date].skipped = nextOverrides[date].skipped.filter((k) => k !== key);
+          nextOverrides[date].order = (nextOverrides[date].order ?? []).filter((k) => k !== key);
+          nextOverrides[date].skipped = (nextOverrides[date].skipped ?? []).filter((k) => k !== key);
         });
 
         // Add back to original day

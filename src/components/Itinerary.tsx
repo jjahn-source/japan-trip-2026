@@ -29,7 +29,7 @@ import { FIREBASE_ENABLED } from "../lib/firebase";
 import { detectConflicts, autoFixOverrides, type Conflict } from "../utils/itineraryOptimizer";
 import { toast } from "../lib/toast";
 import {
-  daySpan, activityMapUrl, mapsRouteUrl, buildDayICS, buildTripICS, downloadICS,
+  daySpan, activityMapUrl, mapsRouteUrl, mapsRouteUrlForActivities, buildDayICS, buildTripICS, downloadICS,
   haversineKm, walkMinutes,
 } from "../utils/itineraryTools";
 import { DayMap } from "./DayMap";
@@ -340,12 +340,28 @@ function DayCard({
     return result;
   }, [day.activities]);
   const bookCount = day.activities.filter((a) => a.booking).length;
-  const routeUrl = mapsRouteUrl(day);
 
   // Activity keys and ordering
   const defaultKeys = day.activities.map((_, i) => `${day.date}:${i}`);
   const effectiveKeys: string[] = override?.order?.length ? override.order : defaultKeys;
   const skippedSet = new Set<string>(override?.skipped ?? []);
+
+  // Resolve the ordered, non-skipped activities for the dynamic Maps route
+  const effectiveActivities = useMemo(() => {
+    return effectiveKeys
+      .filter((k) => !skippedSet.has(k))
+      .map((key) => {
+        const i = key.lastIndexOf(":");
+        if (i < 0) return null;
+        const srcDate = key.slice(0, i);
+        const idx = Number(key.slice(i + 1));
+        const srcDay = DAYS.find((d) => d.date === srcDate);
+        return srcDay?.activities[idx] ?? null;
+      })
+      .filter((a): a is Activity => a !== null);
+  }, [effectiveKeys, skippedSet]);
+
+  const routeUrl = mapsRouteUrlForActivities(effectiveActivities);
 
   // In view mode hide skipped; in edit mode show all so they can be restored
   const displayKeys = editMode ? effectiveKeys : effectiveKeys.filter((k) => !skippedSet.has(k));
