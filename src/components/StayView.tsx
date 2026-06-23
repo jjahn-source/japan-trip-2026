@@ -50,92 +50,114 @@ function LiveCard({
 
   return (
     <div
-      className={`glass rounded-xl p-4 border ${
+      className={`glass rounded-xl overflow-hidden border flex flex-col ${
         rank === 1 ? "border-amber-400/40 bg-amber-500/5" : "border-white/10"
       }`}
     >
-      <div className="flex items-start justify-between gap-2 mb-2">
-        <div className="min-w-0 flex items-start gap-2">
-          <span className="shrink-0 text-[0.6rem] font-bold text-slate-600 mt-0.5 w-4">
-            #{rank}
-          </span>
-          <span className="font-bold text-sm leading-snug">{opt.name}</span>
-        </div>
-        {badge && (
-          <span
-            className={`shrink-0 text-[0.62rem] font-bold uppercase tracking-wide px-2 py-0.5 rounded-full border ${badge.cls}`}
-          >
-            {badge.label}
-          </span>
-        )}
-      </div>
-
-      <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs text-slate-300 mb-1">
-        <span>{ratingStr}</span>
-        {bedsStr && (
-          <>
-            <span className="text-slate-600">·</span>
-            <span>{bedsStr}</span>
-          </>
-        )}
-      </div>
-
-      <div className="flex items-baseline gap-2 mb-3">
-        <span className="text-emerald-400 font-bold text-base">
-          ${opt.ppCost}/pp
-        </span>
-        <span className="text-xs text-slate-500">
-          ${opt.totalUSD.toLocaleString()} total
-        </span>
-      </div>
-
-      <div className="flex items-center justify-between gap-3">
-        <a
-          href={opt.url}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex items-center gap-1.5 text-xs font-semibold text-indigo-300 hover:text-indigo-200 transition-colors"
-        >
-          View on Airbnb <ExternalLink size={12} />
-        </a>
-
-        {FIREBASE_ENABLED && (
-          <div className="flex items-center gap-2">
-            {votes.length > 0 && (
-              <div className="flex items-center gap-0.5">
-                {votes.slice(0, 4).map((v) => (
-                  <span
-                    key={v}
-                    className="w-5 h-5 rounded-full bg-white/10 flex items-center justify-center text-[0.5rem] font-bold text-slate-300"
-                    title={v}
-                  >
-                    {CREW_INITIALS[v] ?? v.slice(0, 2)}
-                  </span>
-                ))}
-                {votes.length > 4 && (
-                  <span className="text-[0.6rem] text-slate-500 ml-0.5">
-                    +{votes.length - 4}
-                  </span>
-                )}
-              </div>
-            )}
-            {myName && (
-              <button
-                type="button"
-                onClick={onVote}
-                className={`inline-flex items-center gap-1 text-[0.65rem] font-semibold rounded-full px-2 py-1 border transition-colors ${
-                  voted
-                    ? "bg-accent-500/20 border-accent-500/40 text-accent-300"
-                    : "bg-white/5 border-white/10 text-slate-400 hover:bg-accent-500/10 hover:border-accent-500/20 hover:text-accent-400"
-                }`}
-                aria-label={voted ? "Remove vote" : "Vote for this place"}
+      {opt.imgUrl && (
+        <a href={opt.url} target="_blank" rel="noopener noreferrer" className="block w-full h-36 overflow-hidden relative bg-slate-800">
+          <img
+            src={opt.imgUrl}
+            alt={opt.name}
+            className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+            loading="lazy"
+          />
+          {badge && (
+            <div className="absolute top-2 right-2">
+              <span
+                className={`text-[0.62rem] font-bold uppercase tracking-wide px-2 py-0.5 rounded-full border shadow-sm backdrop-blur-md ${badge.cls}`}
               >
-                <ThumbsUp size={10} />
-                {voted ? "Voted" : "Vote"}
-              </button>
-            )}
+                {badge.label}
+              </span>
+            </div>
+          )}
+        </a>
+      )}
+
+      <div className="p-4 flex-1 flex flex-col">
+        <div className="flex items-start justify-between gap-2 mb-2">
+          <div className="min-w-0 flex items-start gap-2">
+            <span className={`shrink-0 text-[0.65rem] font-bold mt-0.5 px-1.5 rounded-sm ${rank === 1 ? "bg-amber-500/20 text-amber-400" : "bg-white/10 text-slate-400"}`}>
+              #{rank}
+            </span>
+            <span className="font-bold text-sm leading-snug line-clamp-2" title={opt.name}>{opt.name}</span>
           </div>
-        )}
+          {!opt.imgUrl && badge && (
+            <span
+              className={`shrink-0 text-[0.62rem] font-bold uppercase tracking-wide px-2 py-0.5 rounded-full border ${badge.cls}`}
+            >
+              {badge.label}
+            </span>
+          )}
+        </div>
+
+        <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs text-slate-300 mb-1">
+          <span>{ratingStr}</span>
+          {bedsStr && (
+            <>
+              <span className="text-slate-600">·</span>
+              <span>{bedsStr}</span>
+            </>
+          )}
+        </div>
+
+        <div className="flex items-baseline gap-2 mb-3 mt-auto pt-2">
+          <span className="text-emerald-400 font-bold text-base">
+            ${opt.ppCost}/pp
+          </span>
+          <span className="text-xs text-slate-500">
+            ${opt.totalUSD.toLocaleString()} total
+          </span>
+        </div>
+
+        <div className="flex items-center justify-between gap-3">
+          <a
+            href={opt.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1.5 text-xs font-semibold text-indigo-300 hover:text-indigo-200 transition-colors"
+          >
+            View on Airbnb <ExternalLink size={12} />
+          </a>
+
+          {FIREBASE_ENABLED && (
+            <div className="flex items-center gap-2">
+              {votes.length > 0 && (
+                <div className="flex items-center gap-0.5">
+                  {votes.slice(0, 4).map((v) => (
+                    <span
+                      key={v}
+                      className="w-5 h-5 rounded-full bg-white/10 flex items-center justify-center text-[0.5rem] font-bold text-slate-300"
+                      title={v}
+                    >
+                      {CREW_INITIALS[v] ?? v.slice(0, 2)}
+                    </span>
+                  ))}
+                  {votes.length > 4 && (
+                    <span className="text-[0.6rem] text-slate-500 ml-0.5">
+                      +{votes.length - 4}
+                    </span>
+                  )}
+                </div>
+              )}
+              {myName && (
+                <button
+                  type="button"
+                  onClick={onVote}
+                  className={`inline-flex items-center gap-1 text-[0.65rem] font-semibold rounded-full px-2 py-1 border transition-colors ${
+                    voted
+                      ? "bg-accent-500/20 border-accent-500/40 text-accent-300"
+                      : "bg-white/5 border-white/10 text-slate-400 hover:bg-accent-500/10 hover:border-accent-500/20 hover:text-accent-400"
+                  }`}
+                  aria-label={voted ? "Remove vote" : "Vote for this place"}
+                >
+                  <ThumbsUp size={10} />
+                  {voted ? "Voted" : "Vote"}
+                </button>
+              )}
+            </div>
+          )}
+        </div>
       </div>
     </div>
   );

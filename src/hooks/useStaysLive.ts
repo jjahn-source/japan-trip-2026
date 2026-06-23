@@ -13,6 +13,7 @@ export type LiveListing = {
   reviews: number | null;
   guestFav: boolean;
   superhost: boolean;
+  imgUrl?: string;
   url: string;
 };
 

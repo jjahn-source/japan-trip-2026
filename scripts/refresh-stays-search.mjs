@@ -138,6 +138,11 @@ function parseSearchHtml(html, nights) {
       block.match(/itemprop="name"\s+content="([^"]+)"/);
     const name = nameMatch ? nameMatch[1].trim() : `Listing ${id}`;
 
+    // Extract cover image URL
+    const imgMatch = block.match(/https:\/\/a0\.muscache\.com\/im\/pictures\/[^"'\s\\]+/);
+    // Remove query params like ?im_w=720 for a cleaner/larger URL if we want, but im_w=720 is a good size
+    const imgUrl = imgMatch ? imgMatch[0].replace(/&amp;/g, '&') : null;
+
     results.push({
       id,
       name,
@@ -150,6 +155,7 @@ function parseSearchHtml(html, nights) {
       reviews,
       guestFav,
       superhost,
+      imgUrl,
       url: `https://www.airbnb.com/rooms/${id}?check_in=CHECKIN&check_out=CHECKOUT&adults=8`,
     });
   }
