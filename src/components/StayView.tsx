@@ -4,6 +4,7 @@ import { ExternalLink, ChevronDown, ChevronUp, ThumbsUp } from "lucide-react";
 import { STAY_LEGS, COMBO_NOTES, GROUP, BUDGET_CAP_PP, FX_NOTE } from "../data/stays";
 import { SectionHeading } from "./SectionHeading";
 import { useStayVotes } from "../hooks/useStayVotes";
+import { useStayPrices } from "../hooks/useStayPrices";
 import { getIdentityName } from "../hooks/useIdentity";
 import { FIREBASE_ENABLED } from "../lib/firebase";
 import type { StayOption } from "../data/stays";
@@ -19,14 +20,18 @@ function OptionCard({
   votes,
   myName,
   onVote,
+  livePrice,
 }: {
   opt: StayOption;
   isDefault: boolean;
   votes: string[];
   myName: string | null;
   onVote: () => void;
+  livePrice: number | null;
+  unavailable?: boolean;
 }) {
-  const ppCost = Math.round(opt.totalUSD / GROUP);
+  const totalUSD = livePrice ?? opt.totalUSD;
+  const ppCost = Math.round(totalUSD / GROUP);
   const voted = myName ? votes.includes(myName) : false;
 
   return (
@@ -45,6 +50,11 @@ function OptionCard({
             Budget Lock
           </span>
         )}
+        {unavailable && (
+          <span className="shrink-0 text-[0.62rem] font-bold uppercase tracking-wide px-2 py-0.5 rounded-full bg-red-500/20 border border-red-400/40 text-red-400">
+            Dates unavailable
+          </span>
+        )}
       </div>
 
       <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs text-slate-300 mb-2">
@@ -53,6 +63,9 @@ function OptionCard({
         <span>{opt.beds}</span>
         <span className="text-slate-600">·</span>
         <span className="text-emerald-400 font-semibold">${ppCost}/pp</span>
+        {livePrice !== null && (
+          <span className="text-[0.6rem] text-emerald-600 font-medium">live</span>
+        )}
       </div>
 
       <p className="text-xs text-slate-400 mb-2">{opt.walk}</p>
@@ -124,13 +137,14 @@ export function StayView() {
   const [expanded, setExpanded] = useState<Record<string, boolean>>({});
   const { getVotes, toggle } = useStayVotes();
   const myName = getIdentityName();
+  const { getPrice, isUnavailable, fetchedAt } = useStayPrices();
 
   return (
     <section id="stays" className="section-pad py-24">
       <SectionHeading
         kicker="Accommodations"
         title="Where We're Staying"
-        sub={`${GROUP} people · 3 bases · 14 nights · ≤$${BUDGET_CAP_PP}/person target`}
+        sub={`${GROUP} people · 3 bases · 14 nights · ≤$${BUDGET_CAP_PP}/person target${fetchedAt ? ` · prices live as of ${new Date(fetchedAt).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" })}` : ""}`}
       />
 
       <div className="space-y-8 mb-12">
@@ -175,6 +189,8 @@ export function StayView() {
                 votes={getVotes(leg.id, defaultOpt.id)}
                 myName={myName}
                 onVote={() => myName && toggle(leg.id, defaultOpt.id, myName)}
+                livePrice={getPrice(defaultOpt.id)}
+                unavailable={isUnavailable(defaultOpt.id)}
               />
 
               <button
@@ -204,6 +220,8 @@ export function StayView() {
                           votes={getVotes(leg.id, opt.id)}
                           myName={myName}
                           onVote={() => myName && toggle(leg.id, opt.id, myName)}
+                          livePrice={getPrice(opt.id)}
+                          unavailable={isUnavailable(opt.id)}
                         />
                       ))}
                     </div>
