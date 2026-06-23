@@ -66,6 +66,33 @@ export function mapsRouteUrlForActivities(activities: Activity[]): string | null
   return `https://www.google.com/maps/dir/${path}`;
 }
 
+/**
+ * Google Maps Embed API — Directions mode URL.
+ * Free, unlimited, no JS SDK. Requires a Places API key (same key used for place search).
+ * Returns null if fewer than 2 mappable stops or no API key.
+ */
+export function mapsEmbedDirectionsUrl(activities: Activity[], apiKey: string): string | null {
+  const stops = activities.filter((a) => a.coord || a.place);
+  if (stops.length < 2) return null;
+
+  const encode = (a: Activity): string =>
+    a.place ? encodeURIComponent(a.place) : `${a.coord![0]},${a.coord![1]}`;
+
+  const origin = encode(stops[0]);
+  const destination = encode(stops[stops.length - 1]);
+  const middle = stops.slice(1, -1);
+
+  const params = new URLSearchParams({
+    key: apiKey,
+    origin,
+    destination,
+    mode: "walking",
+    ...(middle.length > 0 ? { waypoints: middle.map(encode).join("|") } : {}),
+  });
+
+  return `https://www.google.com/maps/embed/v1/directions?${params.toString()}`;
+}
+
 // ── ICS (iCalendar) export ───────────────────────────────────────────────────
 function pad(n: number): string {
   return String(n).padStart(2, "0");

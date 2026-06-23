@@ -29,8 +29,8 @@ import { FIREBASE_ENABLED } from "../lib/firebase";
 import { detectConflicts, autoFixOverrides, type Conflict } from "../utils/itineraryOptimizer";
 import { toast } from "../lib/toast";
 import {
-  daySpan, activityMapUrl, mapsRouteUrl, mapsRouteUrlForActivities, buildDayICS, buildTripICS, downloadICS,
-  haversineKm, walkMinutes,
+  daySpan, activityMapUrl, mapsRouteUrlForActivities, mapsEmbedDirectionsUrl,
+  buildDayICS, buildTripICS, downloadICS, haversineKm, walkMinutes,
 } from "../utils/itineraryTools";
 import { DayMap } from "./DayMap";
 import { STAY_LEGS } from "../data/stays";
@@ -324,6 +324,7 @@ function DayCard({
   const [editMode, setEditMode] = useState(false);
   const [commentDraft, setCommentDraft] = useState("");
   const [showMap, setShowMap] = useState(false);
+  const [showEmbed, setShowEmbed] = useState(false);
   const { setNodeRef: setListRef } = useDroppable({ id: `daydrop:${day.date}` });
 
   const span = daySpan(day);
@@ -362,6 +363,8 @@ function DayCard({
   }, [effectiveKeys, skippedSet]);
 
   const routeUrl = mapsRouteUrlForActivities(effectiveActivities);
+  const embedApiKey = import.meta.env.VITE_GOOGLE_PLACES_KEY as string | undefined;
+  const embedUrl = embedApiKey ? mapsEmbedDirectionsUrl(effectiveActivities, embedApiKey) : null;
 
   // In view mode hide skipped; in edit mode show all so they can be restored
   const displayKeys = editMode ? effectiveKeys : effectiveKeys.filter((k) => !skippedSet.has(k));
@@ -570,6 +573,18 @@ function DayCard({
                     <MapPin size={12} /> {showMap ? "Hide map" : `Day map · ${mappedCount} stops`}
                   </button>
                 )}
+                {embedUrl && (
+                  <button
+                    onClick={() => setShowEmbed((e) => !e)}
+                    className={`inline-flex items-center gap-1.5 rounded-lg px-2.5 py-1.5 text-xs font-semibold border transition-colors ${
+                      showEmbed
+                        ? "bg-sky-500/20 border-sky-500/40 text-sky-300"
+                        : "bg-white/5 border-white/10 text-slate-400 hover:bg-white/10 hover:text-slate-200"
+                    }`}
+                  >
+                    <Map size={12} /> {showEmbed ? "Hide route" : "Route view"}
+                  </button>
+                )}
                 {FIREBASE_ENABLED && (
                   <button
                     onClick={() => setEditMode((e) => !e)}
@@ -586,7 +601,22 @@ function DayCard({
 
               {showMap && mappedCount > 0 && (
                 <div className="mb-4">
-                  <DayMap activities={day.activities} dayTheme={day.theme} />
+                  <DayMap activities={effectiveActivities} dayTheme={day.theme} />
+                </div>
+              )}
+
+              {showEmbed && embedUrl && (
+                <div className="mb-4 rounded-xl overflow-hidden border border-white/10" style={{ height: "320px" }}>
+                  <iframe
+                    src={embedUrl}
+                    title="Route view"
+                    width="100%"
+                    height="100%"
+                    style={{ border: 0 }}
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                    allowFullScreen
+                  />
                 </div>
               )}
 

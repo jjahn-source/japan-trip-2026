@@ -1,6 +1,13 @@
 import { Star, AlertTriangle, Loader2 } from "lucide-react";
 import { useGooglePlaceSearch, isClosedAt } from "../../hooks/useGooglePlaceSearch";
 
+const PRICE_SYMBOLS = ["", "¥", "¥¥", "¥¥¥", "¥¥¥¥"];
+
+function fmtRatingCount(n: number): string {
+  if (n >= 1000) return `${(n / 1000).toFixed(n >= 10000 ? 0 : 1)}k`;
+  return String(n);
+}
+
 export function PlaceSearchBadge({
   query,
   city,
@@ -13,7 +20,7 @@ export function PlaceSearchBadge({
   dow?: string;
 }) {
   const info = useGooglePlaceSearch(query, city);
-  const { status, closesAt, rating, regularOpeningHours, loading } = info;
+  const { status, closesAt, rating, userRatingCount, priceLevel, regularOpeningHours, loading } = info;
 
   if (!query || (!loading && status === "unknown" && rating === null)) return null;
 
@@ -26,7 +33,6 @@ export function PlaceSearchBadge({
     );
   }
 
-  // Check if scheduled during closed hours
   const isClosedNow = time && dow && regularOpeningHours && isClosedAt(regularOpeningHours, dow, time);
 
   return (
@@ -35,6 +41,15 @@ export function PlaceSearchBadge({
         <span className="inline-flex items-center gap-0.5 text-[0.65rem] font-bold text-amber-400 bg-amber-500/10 border border-amber-500/20 rounded px-1">
           <Star size={9} className="fill-amber-400 shrink-0" />
           {rating.toFixed(1)}
+          {userRatingCount != null && userRatingCount > 0 && (
+            <span className="font-normal text-amber-400/70 ml-0.5">({fmtRatingCount(userRatingCount)})</span>
+          )}
+        </span>
+      )}
+
+      {priceLevel != null && priceLevel > 0 && (
+        <span className="text-[0.65rem] font-semibold text-slate-400 bg-white/5 border border-white/10 rounded px-1">
+          {PRICE_SYMBOLS[priceLevel]}
         </span>
       )}
 

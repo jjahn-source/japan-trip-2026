@@ -18,6 +18,8 @@ export interface PlaceSearchInfo {
   status: PlaceStatus;
   closesAt: string | null;
   rating: number | null;
+  userRatingCount?: number | null;
+  priceLevel?: number | null;
   regularOpeningHours?: any;
   displayName?: string;
 }
@@ -134,7 +136,7 @@ export function useGooglePlaceSearch(query: string | undefined, city?: string) {
       headers: {
         "Content-Type": "application/json",
         "X-Goog-Api-Key": apiKey,
-        "X-Goog-FieldMask": "places.id,places.displayName,places.regularOpeningHours,places.rating,places.location",
+        "X-Goog-FieldMask": "places.id,places.displayName,places.regularOpeningHours,places.rating,places.userRatingCount,places.priceLevel,places.location",
       },
       body: JSON.stringify({
         textQuery: searchQuery,
@@ -154,6 +156,16 @@ export function useGooglePlaceSearch(query: string | undefined, city?: string) {
         }
 
         const rating = place.rating ?? null;
+        const userRatingCount: number | null = place.userRatingCount ?? null;
+        // priceLevel comes as a string enum e.g. "PRICE_LEVEL_MODERATE" → convert to 1-4
+        const priceLevelMap: Record<string, number> = {
+          PRICE_LEVEL_INEXPENSIVE: 1,
+          PRICE_LEVEL_MODERATE: 2,
+          PRICE_LEVEL_EXPENSIVE: 3,
+          PRICE_LEVEL_VERY_EXPENSIVE: 4,
+        };
+        const priceLevel: number | null =
+          place.priceLevel ? (priceLevelMap[place.priceLevel] ?? null) : null;
         const oh = place.regularOpeningHours;
         const displayName = place.displayName?.text ?? "";
 
@@ -183,6 +195,8 @@ export function useGooglePlaceSearch(query: string | undefined, city?: string) {
           status,
           closesAt,
           rating,
+          userRatingCount,
+          priceLevel,
           regularOpeningHours: oh,
           displayName,
         };
