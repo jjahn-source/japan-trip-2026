@@ -21,6 +21,7 @@ function OptionCard({
   myName,
   onVote,
   livePrice,
+  unavailable,
 }: {
   opt: StayOption;
   isDefault: boolean;
