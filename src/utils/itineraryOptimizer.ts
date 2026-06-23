@@ -161,7 +161,6 @@ export function autoFixOverrides(
   // Step 2: Chronologically sort each day's orders by their time
   days.forEach((day) => {
     const order = nextOverrides[day.date].order;
-    const skippedSet = new Set(nextOverrides[day.date].skipped);
 
     // Resolve details for items in order
     const resolvedItems = order.map((key) => {
