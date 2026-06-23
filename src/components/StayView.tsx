@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { ExternalLink, ChevronDown, ChevronUp, ThumbsUp } from "lucide-react";
+import { ExternalLink, ChevronDown, ChevronUp, ThumbsUp, RefreshCw } from "lucide-react";
 import { STAY_LEGS, COMBO_NOTES, GROUP, BUDGET_CAP_PP, FX_NOTE } from "../data/stays";
 import { SectionHeading } from "./SectionHeading";
 import { useStayVotes } from "../hooks/useStayVotes";
@@ -145,8 +145,28 @@ export function StayView() {
       <SectionHeading
         kicker="Accommodations"
         title="Where We're Staying"
-        sub={`${GROUP} people · 3 bases · 14 nights · ≤$${BUDGET_CAP_PP}/person target${fetchedAt ? ` · prices live as of ${new Date(fetchedAt).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" })}` : ""}`}
+        sub={`${GROUP} people · 3 bases · 14 nights · ≤$${BUDGET_CAP_PP}/person target`}
       />
+
+      {fetchedAt && (
+        <div className="flex items-center gap-2 mb-6 -mt-2">
+          <span className="inline-flex items-center gap-1.5 text-xs font-medium px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400">
+            <RefreshCw size={10} />
+            Prices pulled{" "}
+            {new Date(fetchedAt).toLocaleDateString("en-US", {
+              month: "short",
+              day: "numeric",
+              year: "numeric",
+            })}{" "}
+            at{" "}
+            {new Date(fetchedAt).toLocaleTimeString("en-US", {
+              hour: "numeric",
+              minute: "2-digit",
+              timeZoneName: "short",
+            })}
+          </span>
+        </div>
+      )}
 
       <div className="space-y-8 mb-12">
         {STAY_LEGS.map((leg, li) => {
