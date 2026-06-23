@@ -20,6 +20,7 @@ import { Collapse } from "./ui/Collapse";
 import { useLocalStorage } from "../hooks/useLocalStorage";
 import { useDayComments, type DayComment } from "../hooks/useDayComments";
 import { useItineraryOverrides, type DayOverride } from "../hooks/useItineraryOverrides";
+import { useItineraryOptimizations, type DayOptimization } from "../hooks/useItineraryOptimizations";
 import { useActivityVotes } from "../hooks/useActivityVotes";
 import { getIdentityName } from "../hooks/useIdentity";
 import { useCrewPresence } from "../hooks/useCrewPresence";
@@ -291,6 +292,7 @@ function DayCard({
   override, comments, myName, prevDate, nextDate,
   onSkip, onAddComment, getVoters, onVoteToggle, onMove,
   getPresent, onPresenceToggle,
+  optimization,
 }: {
   day: Day;
   index: number;
@@ -311,6 +313,7 @@ function DayCard({
   onMove: (key: string, fromDate: string, toDate: string, beforeKey: string | null) => void;
   getPresent?: (date: string, idx: number) => string[];
   onPresenceToggle?: (date: string, idx: number) => void;
+  optimization?: DayOptimization;
 }) {
   const [editMode, setEditMode] = useState(false);
   const [commentDraft, setCommentDraft] = useState("");
@@ -423,6 +426,97 @@ function DayCard({
                     <p className="text-[0.7rem] text-slate-400 leading-snug">
                       Dec 25–29 is peak domestic travel season in Japan. Popular spots run 2–3× normal crowds. Go early, split squads, book restaurants now.
                     </p>
+                  </div>
+                </div>
+              )}
+
+              {optimization && (
+                <div className="mb-3 rounded-xl border border-pink-500/30 bg-pink-500/[0.04] shadow-[0_0_15px_rgba(236,72,153,0.05)] p-3.5 backdrop-blur-md">
+                  <div className="flex items-center gap-2 mb-2 text-pink-300">
+                    <Sparkles size={13} className="animate-pulse shrink-0" />
+                    <span className="text-[0.68rem] font-bold uppercase tracking-wider">Live Updates & AI Optimizations</span>
+                  </div>
+
+                  <div className="space-y-2 text-xs">
+                    {optimization.weatherAlert && (
+                      <div className="flex items-start gap-2 text-slate-300">
+                        <span className="shrink-0 text-sm">🌧️</span>
+                        <div>
+                          <span className="font-semibold text-sky-300">Weather: </span>
+                          {optimization.weatherAlert}
+                        </div>
+                      </div>
+                    )}
+
+                    {(optimization.transitAlert || optimization.crowdAlert) && (
+                      <div className="flex items-start gap-2 text-slate-300">
+                        <span className="shrink-0 text-sm">⚠️</span>
+                        <div>
+                          {optimization.transitAlert && (
+                            <div>
+                              <span className="font-semibold text-amber-300">Transit: </span>
+                              {optimization.transitAlert}
+                            </div>
+                          )}
+                          {optimization.crowdAlert && (
+                            <div className={optimization.transitAlert ? "mt-1" : ""}>
+                              <span className="font-semibold text-amber-300">Crowd Alert: </span>
+                              {optimization.crowdAlert}
+                            </div>
+                          )}
+                        </div>
+                      </div>
+                    )}
+
+                    {optimization.suggestedSwap && (
+                      <div className="rounded-lg bg-emerald-500/10 border border-emerald-500/20 p-2.5 mt-2">
+                        <div className="font-bold text-emerald-400 flex items-center gap-1.5 mb-1 text-[0.7rem] uppercase tracking-wide">
+                          <ChevronsUpDown size={11} className="shrink-0" />
+                          <span>Suggested Swap</span>
+                        </div>
+                        <p className="text-slate-300 leading-snug">
+                          Swap <span className="line-through text-slate-400">{optimization.suggestedSwap.originalActivity}</span> with{" "}
+                          <span className="font-semibold text-emerald-300">{optimization.suggestedSwap.suggestedAlt}</span>
+                        </p>
+                        <p className="mt-1 text-[0.7rem] text-slate-400 leading-relaxed">
+                          Reason: {optimization.suggestedSwap.reason}
+                        </p>
+                      </div>
+                    )}
+
+                    {optimization.newEvents && optimization.newEvents.length > 0 && (
+                      <div className="mt-2.5">
+                        <div className="font-bold text-indigo-300 flex items-center gap-1.5 mb-1.5 text-[0.7rem] uppercase tracking-wide">
+                          <Sparkles size={11} className="shrink-0" />
+                          <span>New Events Found</span>
+                        </div>
+                        <div className="space-y-1.5">
+                          {optimization.newEvents.map((evt, idx) => (
+                            <div key={idx} className="rounded-lg bg-white/5 border border-white/10 p-2 text-slate-300">
+                              <div className="font-semibold text-[0.75rem] flex items-center gap-2 flex-wrap">
+                                <span>{evt.name}</span>
+                                {evt.station && (
+                                  <span className="text-[0.6rem] bg-white/10 text-slate-300 rounded px-1.5">
+                                    🚉 {evt.station}
+                                  </span>
+                                )}
+                              </div>
+                              <p className="mt-1 text-[0.7rem] text-slate-400 leading-relaxed">{evt.note}</p>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+
+                    {optimization.tips && optimization.tips.length > 0 && (
+                      <div className="mt-2 pl-2 border-l-2 border-pink-500/20 space-y-1 text-slate-400">
+                        {optimization.tips.map((tip, idx) => (
+                          <p key={idx} className="leading-relaxed">
+                            💡 {tip}
+                          </p>
+                        ))}
+                      </div>
+                    )}
                   </div>
                 </div>
               )}
@@ -726,6 +820,7 @@ function getTodayIndex(): number {
 }
 
 export function Itinerary() {
+  const { data: optimData } = useItineraryOptimizations();
   const [openMap, setOpenMap] = useState<Record<number, boolean>>(() => ({ [getTodayIndex()]: true }));
   const [trackMode, setTrackMode] = useLocalStorage("itinerary-track-mode", false);
   const [done, setDone] = useLocalStorage<Record<string, boolean>>("itinerary-done", {});
@@ -804,6 +899,23 @@ export function Itinerary() {
         sub="Every day: activities, live December events, local intel, and backup plans. Flip Trip Mode to tick off the adventure as it happens."
       />
 
+      {optimData?.globalTips && optimData.globalTips.length > 0 && (
+        <div className="mb-6 rounded-2xl border border-pink-500/20 bg-pink-500/[0.03] p-4 text-sm text-slate-300 shadow-[0_0_20px_rgba(236,72,153,0.05)] backdrop-blur-md">
+          <div className="flex items-center gap-2 mb-2 text-pink-300 font-bold uppercase tracking-wider text-xs">
+            <Sparkles size={14} className="animate-pulse" />
+            <span>Live AI Insights & Intel updates</span>
+          </div>
+          <ul className="space-y-1.5 list-none pl-0">
+            {optimData.globalTips.map((tip, idx) => (
+              <li key={idx} className="flex gap-2 items-start leading-relaxed text-slate-300">
+                <span className="text-pink-400 shrink-0">💴</span>
+                <span>{tip}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+
       <div className="glass rounded-2xl p-4 mb-6 space-y-3">
         <div className="flex flex-wrap gap-2">
           <TopButton onClick={expandAll}><ChevronsUpDown size={13} /> Expand all</TopButton>
@@ -871,6 +983,7 @@ export function Itinerary() {
               onMove={moveActivity}
               getPresent={FIREBASE_ENABLED ? getPresent : undefined}
               onPresenceToggle={FIREBASE_ENABLED && myName ? (date, idx) => togglePresence(date, idx, myName) : undefined}
+              optimization={optimData?.optimizations?.[d.date]}
             />
           ))}
         </div>
