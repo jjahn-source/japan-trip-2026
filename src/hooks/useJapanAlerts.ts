@@ -7,6 +7,9 @@ export interface JapanAlert {
   age: string;
   score: number;
   relevance?: string;
+  subreddit?: string;
+  matchedDates?: string;
+  snippet?: string;
 }
 
 const CACHE_TTL = 30 * 60 * 1000; // 30 min

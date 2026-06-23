@@ -117,8 +117,18 @@ function JapanAlertsPanel() {
               rel="noopener noreferrer"
               className="flex items-start justify-between gap-3 px-4 py-3 hover:bg-white/5 transition-colors group"
             >
-              <div className="min-w-0">
-                <div className="flex items-center gap-2 mb-0.5">
+              <div className="min-w-0 flex-1">
+                <div className="flex flex-wrap items-center gap-2 mb-1">
+                  {a.subreddit && (
+                    <span className="text-[0.6rem] font-bold text-orange-400">
+                      r/{a.subreddit}
+                    </span>
+                  )}
+                  {a.matchedDates && (
+                    <span className="text-[0.55rem] bg-orange-500/10 text-orange-300 px-1.5 py-0.5 rounded border border-orange-500/20 font-medium">
+                      {a.matchedDates}
+                    </span>
+                  )}
                   {a.flair && (
                     <span className="text-[0.6rem] font-bold uppercase tracking-wide text-orange-300/70">
                       {a.flair}
@@ -128,10 +138,12 @@ function JapanAlertsPanel() {
                 </div>
                 <p className="text-sm text-slate-200 group-hover:text-white leading-snug">{a.title}</p>
                 {a.relevance && (
-                  <p className="text-[0.6rem] text-orange-300/60 mt-0.5 leading-snug">{a.relevance}</p>
+                  <p className="text-[0.65rem] text-orange-300/60 mt-1 leading-relaxed italic">
+                    Why relevant: {a.relevance}
+                  </p>
                 )}
               </div>
-              <ExternalLink size={12} className="shrink-0 mt-1 text-slate-600 group-hover:text-slate-400" />
+              <ExternalLink size={12} className="shrink-0 mt-1 text-slate-600 group-hover:text-slate-400 align-self-start" />
             </a>
           ))}
         </div>
