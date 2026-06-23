@@ -24,6 +24,9 @@ type Cache = { fetchedAt: number; byBase: Partial<Record<BaseName, DailyForecast
 const STALE_MS = 3 * 60 * 60 * 1000; // 3h
 let inFlight = false; // module-level guard so many badges don't each fetch
 
+// Static pre-fetched weather data URL (written by scripts/refresh-weather.mjs)
+const STATIC_URL = `${import.meta.env.BASE_URL}weather.json`;
+
 /** Map a messy day.city string to one of the three bases. */
 export function cityToBase(city: string): BaseName {
   const c = city.toLowerCase();
@@ -55,36 +58,61 @@ export function useWeather(): Cache["byBase"] {
     if (fresh || inFlight || !navigator.onLine) return;
     inFlight = true;
 
-    const names = Object.keys(WEATHER_BASES) as BaseName[];
-    const lat = names.map((n) => WEATHER_BASES[n][0]).join(",");
-    const lon = names.map((n) => WEATHER_BASES[n][1]).join(",");
-    const url =
-      `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}` +
-      `&daily=weather_code,temperature_2m_max,temperature_2m_min,precipitation_probability_max` +
-      `&timezone=Asia%2FTokyo&temperature_unit=fahrenheit&forecast_days=16`;
-
-    fetch(url)
-      .then((r) => (r.ok ? r.json() : null))
-      .then((j) => {
-        if (!j) return;
-        const arr = Array.isArray(j) ? j : [j]; // multi-location → array; single → object
+    // Try static pre-fetched data first, fall back to live API
+    const tryStaticFirst = async (): Promise<Cache["byBase"] | null> => {
+      try {
+        const r = await fetch(STATIC_URL);
+        if (!r.ok) return null;
+        const j = await r.json();
+        if (!j?.cities) return null;
         const byBase: Cache["byBase"] = {};
-        names.forEach((n, i) => {
-          const d = arr[i]?.daily;
+        const names = Object.keys(WEATHER_BASES) as BaseName[];
+        for (const n of names) {
+          const d = j.cities[n];
           if (d?.time) {
-            byBase[n] = {
-              time: d.time,
-              code: d.weather_code,
-              tmax: d.temperature_2m_max,
-              tmin: d.temperature_2m_min,
-              precip: d.precipitation_probability_max,
-            };
+            byBase[n] = { time: d.time, code: d.code, tmax: d.tmax, tmin: d.tmin, precip: d.precip };
           }
-        });
-        if (Object.keys(byBase).length) setCache({ fetchedAt: Date.now(), byBase });
-      })
-      .catch(() => {})
-      .finally(() => { inFlight = false; });
+        }
+        return Object.keys(byBase).length > 0 ? byBase : null;
+      } catch {
+        return null;
+      }
+    };
+
+    const fetchLiveAPI = async (): Promise<Cache["byBase"] | null> => {
+      const names = Object.keys(WEATHER_BASES) as BaseName[];
+      const lat = names.map((n) => WEATHER_BASES[n][0]).join(",");
+      const lon = names.map((n) => WEATHER_BASES[n][1]).join(",");
+      const url =
+        `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}` +
+        `&daily=weather_code,temperature_2m_max,temperature_2m_min,precipitation_probability_max` +
+        `&timezone=Asia%2FTokyo&temperature_unit=fahrenheit&forecast_days=16`;
+
+      const r = await fetch(url);
+      if (!r.ok) return null;
+      const j = await r.json();
+      const arr = Array.isArray(j) ? j : [j];
+      const byBase: Cache["byBase"] = {};
+      names.forEach((n, i) => {
+        const d = arr[i]?.daily;
+        if (d?.time) {
+          byBase[n] = {
+            time: d.time,
+            code: d.weather_code,
+            tmax: d.temperature_2m_max,
+            tmin: d.temperature_2m_min,
+            precip: d.precipitation_probability_max,
+          };
+        }
+      });
+      return Object.keys(byBase).length > 0 ? byBase : null;
+    };
+
+    (async () => {
+      const byBase = (await tryStaticFirst()) ?? (await fetchLiveAPI().catch(() => null));
+      if (byBase) setCache({ fetchedAt: Date.now(), byBase });
+      inFlight = false;
+    })();
   }, [cache.fetchedAt, cache.byBase, setCache]);
 
   return cache.byBase;

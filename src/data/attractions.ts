@@ -32,6 +32,11 @@ export type Attraction = {
   duration: string;
   decNote?: string;
   links?: { label: string; url: string }[];
+  googlePlaceId?: string;
+  bestVisitTime?: string;
+  crowdWarning?: string;
+  verifiedAt?: string;
+  weird?: boolean;
 };
 
 // NOTE: All prices shown USD-first with yen in parentheses, converted at ¥160 = $1 (June 2026 rate).
@@ -46,6 +51,7 @@ export const ATTRACTIONS: Attraction[] = [
     city: "Tokyo",
     category: "Entertainment",
     tier: 2,
+    weird: true,
     desc: "Drive a real go-kart on PUBLIC Tokyo streets in costume — Shibuya Crossing, Rainbow Bridge, Akihabara loops. The single most 'wait, this is legal?' thing in the city, and the photos are unreal.",
     hours: "Day & night slots, ~1–2h tours",
     cost: "$55–90 (¥8,800–14,400)",
@@ -60,6 +66,7 @@ export const ATTRACTIONS: Attraction[] = [
     city: "Tokyo",
     category: "Entertainment",
     tier: 2,
+    weird: true,
     desc: "No tournament is in town in December, so the move is a dawn stable visit: watch rikishi grind through bone-rattling practice bouts feet away, then often a chanko-nabe lunch. Raw, quiet, unforgettable.",
     hours: "Early morning (~07:00–10:00)",
     cost: "$55–110 (¥8,800–17,600) via tour",
@@ -194,6 +201,9 @@ export const ATTRACTIONS: Attraction[] = [
     station: "Asakusa (Ginza/Asakusa lines)",
     duration: "1.5–2h",
     decNote: "Gorgeous at dawn or after dark when lit up and empty — stalls close ~18:00. Late Dec the Hagoita-ichi battledore market fills the grounds.",
+    bestVisitTime: "Before 8 AM or after 6 PM (lit up & empty)",
+    crowdWarning: "9 AM–4 PM: school groups + tour buses fill Nakamise",
+    googlePlaceId: "ChIJ8T1GpMGOGGARDYGSgpooDWw",
   },
   {
     id: "meiji",
@@ -209,6 +219,8 @@ export const ATTRACTIONS: Attraction[] = [
     station: "Harajuku (JR Yamanote)",
     duration: "1–1.5h",
     decNote: "Late December = New Year prep; the shrine gears up for ~3 million hatsumode visitors. Closes at dusk — go before the ~16:30 sunset.",
+    bestVisitTime: "Opening (sunrise, ~6:40 AM) for weddings + zero crowd",
+    crowdWarning: "Weekend 10 AM–2 PM: wedding photoshoots + tourist peak",
   },
   {
     id: "shibuya-crossing",
@@ -224,6 +236,8 @@ export const ATTRACTIONS: Attraction[] = [
     station: "Shibuya (Hachiko exit)",
     duration: "30 min",
     decNote: "December nights add Christmas ads to the giant screens, and the Aoyama-dori illumination glows two blocks over. Pure Blade Runner.",
+    bestVisitTime: "8–10 PM (peak neon, post-dinner rush)",
+    crowdWarning: "Fri/Sat nights: intersection itself is mob-level fun, plan extra time",
   },
   {
     id: "shibuya-sky",
@@ -254,6 +268,8 @@ export const ATTRACTIONS: Attraction[] = [
     station: "Shin-Toyosu (Yurikamome)",
     duration: "2–2.5h",
     decNote: "Book on the official DMM store 2–3 weeks out; morning slots vanish first. Wear pants you can roll up — the water is warmed, the December walk to the door is not.",
+    bestVisitTime: "First slot of the day (9 AM) or last slot (after 7 PM)",
+    crowdWarning: "Midday slots: queues inside each room can double your visit time",
   },
   {
     id: "teamlab-borderless",
@@ -338,6 +354,7 @@ export const ATTRACTIONS: Attraction[] = [
     city: "Tokyo",
     category: "Entertainment",
     tier: 1,
+    weird: true,
     desc: "Anime, retro games, electronics, and arcades stacked eight floors high. Super Potato for retro game treasure, GiGO and Taito for crane games, Yodobashi for everything with a plug. Mandarake's complex is eight floors of secondhand otaku archaeology.",
     hours: "Shops ~10:00–20:00, arcades till 23:00+",
     cost: "Free to browse; your wallet decides",
@@ -638,6 +655,7 @@ export const ATTRACTIONS: Attraction[] = [
     city: "Tokyo",
     category: "Entertainment",
     tier: 3,
+    weird: true,
     desc: "Reclaimed bay island with a 1:1 scale moving Unicorn Gundam outside DiverCity, a replica Statue of Liberty, big malls, and Rainbow Bridge views back at the skyline. A lazy half-day when the group needs malls and arcades indoors.",
     hours: "Malls 11:00–21:00; Gundam outdoor 24h",
     cost: "Free to wander",
@@ -661,6 +679,9 @@ export const ATTRACTIONS: Attraction[] = [
     station: "Inari (JR Nara line, 2 stops)",
     duration: "1.5–3h",
     decNote: "Sunrise in December (~6:50) means you can beat the tour buses without waking at 5. Bring gloves — the upper trail is near-freezing at dawn.",
+    bestVisitTime: "Before 8 AM or after 5 PM",
+    crowdWarning: "10 AM–2 PM: tour bus peak, gates are shoulder-to-shoulder",
+    googlePlaceId: "ChIJK3vOQyb0WTkRxMd8MKZV3wQ",
   },
   {
     id: "kinkakuji",
@@ -701,6 +722,8 @@ export const ATTRACTIONS: Attraction[] = [
     category: "Park & Nature",
     tier: 1,
     desc: "The famous green corridor of towering bamboo. It's short — 500m — so the magic is entirely crowd-dependent: at 7:30am it's a cathedral, at noon it's a queue. Pair with Tenryu-ji and the river.",
+    bestVisitTime: "7–8 AM (pre-tourist-bus)",
+    crowdWarning: "After 9 AM becomes a walking traffic jam; skip or accept it",
     hours: "24h",
     cost: "Free",
     station: "Saga-Arashiyama (JR) / Randen tram",
@@ -940,6 +963,8 @@ export const ATTRACTIONS: Attraction[] = [
     station: "Namba (multiple lines)",
     duration: "2–3h",
     decNote: "Cold air + neon reflections on the canal = December Dotonbori hits harder. Crab restaurants (Kani Doraku) are in full season.",
+    bestVisitTime: "After 7 PM for peak neon",
+    crowdWarning: "Saturday evenings: shoulder-to-shoulder on the bridge — plan 20 extra min",
   },
   {
     id: "usj",

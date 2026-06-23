@@ -1,0 +1,41 @@
+name: Auto-Update Content Feeds
+
+on:
+  schedule:
+    - cron: "0 */6 * * *" # Every 6 hours
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Refresh Reddit feed
+        run: node scripts/refresh-reddit.mjs || echo "Reddit refresh failed — keeping stale data"
+        env:
+          NVIDIA_NIM_API_KEY: ${{ secrets.NVIDIA_NIM_API_KEY }}
+
+      - name: Refresh weather forecasts
+        run: node scripts/refresh-weather.mjs || echo "Weather refresh failed — keeping stale data"
+
+      - name: Refresh travel intel
+        run: node scripts/refresh-travel-intel.mjs || echo "Travel intel refresh failed — keeping stale data"
+
+      - name: Refresh AI crew briefing
+        run: node scripts/refresh-briefing.mjs || echo "Briefing refresh failed — keeping stale data"
+        env:
+          NVIDIA_NIM_API_KEY: ${{ secrets.NVIDIA_NIM_API_KEY }}
+
+      - name: Commit and push if changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add public/reddit-alerts.json public/weather.json public/travel-intel.json public/crew-briefing.json
+          git diff --cached --quiet || (git commit -m "chore: auto-update content feeds [bot]" && git push)

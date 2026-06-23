@@ -1,11 +1,14 @@
-import { useMemo, useState } from "react";
+import { useMemo, useState, useCallback } from "react";
 import { motion } from "motion/react";
 import { Search, MapPin, Clock, Wallet, TrainFront, Snowflake, Star } from "lucide-react";
 import { ATTRACTIONS, type City, type Category } from "../data/attractions";
 import { NEIGHBORHOODS } from "../data/neighborhoods";
 import { DAY_TRIPS } from "../data/daytrips";
+import { VIBES, WEIRD_IDS, type Vibe } from "../data/vibes";
 import { SectionHeading } from "./SectionHeading";
 import { WikiImage } from "./ui/WikiImage";
+import { PlaceBadge } from "./ui/PlaceBadge";
+import { CrowdTip } from "./ui/CrowdTip";
 import { slugify } from "../utils/nav";
 
 type SightsSection = "spots" | "hoods" | "trips";
@@ -53,8 +56,9 @@ function Chip({
 }) {
   return (
     <button
+      type="button"
       onClick={onClick}
-      className={`rounded-full px-3.5 py-1.5 text-xs font-semibold border transition-colors ${
+      className={`rounded-full px-4 py-2 text-sm font-semibold border transition-colors min-h-[40px] ${
         active
           ? "bg-accent-500 border-accent-400 text-white"
           : "glass text-slate-300 hover:bg-white/10"
@@ -65,33 +69,70 @@ function Chip({
   );
 }
 
+const PAGE_SIZE = 12;
+
 export function Explore() {
   const [query, setQuery] = useState("");
   const [city, setCity] = useState<(typeof CITIES)[number]>("All");
   const [cat, setCat] = useState<(typeof CATEGORIES)[number]>("All");
   const [mustOnly, setMustOnly] = useState(false);
+  const [vibe, setVibe] = useState<Vibe | null>(null);
   const [section, setSection] = useState<SightsSection>("spots");
   const [hoodCity, setHoodCity] = useState<(typeof HOOD_CITIES)[number]>("All");
+  const [page, setPage] = useState(1);
+  const [hoodPage, setHoodPage] = useState(1);
 
   const results = useMemo(() => {
     const q = query.trim().toLowerCase();
+    const vibeDef = vibe ? VIBES.find((v) => v.id === vibe) : null;
     return ATTRACTIONS.filter((a) => {
-      if (city !== "All" && a.city !== city) return false;
-      if (cat !== "All" && a.category !== cat) return false;
-      if (mustOnly && a.tier !== 1) return false;
+      if (vibeDef) {
+        if (vibeDef.weirdOnly) {
+          if (!WEIRD_IDS.has(a.id)) return false;
+        } else {
+          if (!vibeDef.categories.includes(a.category)) return false;
+          if (vibeDef.cities && !vibeDef.cities.includes(a.city)) return false;
+        }
+      } else {
+        if (city !== "All" && a.city !== city) return false;
+        if (cat !== "All" && a.category !== cat) return false;
+        if (mustOnly && a.tier !== 1) return false;
+      }
       if (q && !`${a.name} ${a.jp} ${a.desc} ${a.city} ${a.category}`.toLowerCase().includes(q))
         return false;
       return true;
     }).sort((a, b) => a.tier - b.tier);
-  }, [query, city, cat, mustOnly]);
+  }, [query, city, cat, mustOnly, vibe]);
+
+  const visibleResults = results.slice(0, page * PAGE_SIZE);
+  const hasMoreResults = visibleResults.length < results.length;
 
   const hoodResults = useMemo(() => {
     if (hoodCity === "All") return NEIGHBORHOODS;
     return NEIGHBORHOODS.filter((n) => n.city === hoodCity);
   }, [hoodCity]);
 
+  const visibleHoods = hoodResults.slice(0, hoodPage * PAGE_SIZE);
+  const hasMoreHoods = visibleHoods.length < hoodResults.length;
+
+  const setFilter = useCallback(<T,>(setter: (v: T) => void, value: T) => {
+    setter(value);
+    setVibe(null);
+    setPage(1);
+  }, []);
+
+  const setVibeFilter = useCallback((v: Vibe | null) => {
+    setVibe(v);
+    setCity("All");
+    setCat("All");
+    setMustOnly(false);
+    setPage(1);
+  }, []);
+
   const switchSection = (s: SightsSection) => {
     setSection(s);
+    setPage(1);
+    setHoodPage(1);
     window.scrollTo({ top: 0 });
   };
 
@@ -134,29 +175,51 @@ export function Explore() {
                 className="w-full rounded-xl bg-white/5 border border-white/10 pl-11 pr-4 py-3 outline-none focus:border-accent-400/60 placeholder:text-slate-600"
               />
             </div>
-            <div className="flex flex-wrap gap-1.5">
-              {CITIES.map((c) => (
-                <Chip key={c} active={city === c} onClick={() => setCity(c)}>
-                  {c}
-                </Chip>
+            {/* Vibe filter */}
+            <div className="flex flex-wrap gap-1.5 pb-2 border-b border-white/5">
+              {VIBES.map((v) => (
+                <button
+                  type="button"
+                  key={v.id}
+                  onClick={() => setVibeFilter(vibe === v.id ? null : v.id)}
+                  className={`rounded-full px-4 py-2 text-sm font-semibold border transition-colors min-h-[40px] ${
+                    vibe === v.id
+                      ? "bg-violet-500 border-violet-400 text-white"
+                      : "glass text-slate-300 hover:bg-white/10"
+                  }`}
+                >
+                  {v.emoji} {v.label}
+                </button>
               ))}
             </div>
-            <div className="flex flex-wrap gap-1.5">
-              {CATEGORIES.map((c) => (
-                <Chip key={c} active={cat === c} onClick={() => setCat(c)}>
-                  {c}
-                </Chip>
-              ))}
-              <Chip active={mustOnly} onClick={() => setMustOnly(!mustOnly)}>
-                ★ Must-sees only
-              </Chip>
-            </div>
+            {/* City + category filters — hidden when a vibe is active */}
+            {!vibe && (
+              <>
+                <div className="flex flex-wrap gap-1.5">
+                  {CITIES.map((c) => (
+                    <Chip key={c} active={city === c} onClick={() => setFilter(setCity, c)}>
+                      {c}
+                    </Chip>
+                  ))}
+                </div>
+                <div className="flex flex-wrap gap-1.5">
+                  {CATEGORIES.map((c) => (
+                    <Chip key={c} active={cat === c} onClick={() => setFilter(setCat, c)}>
+                      {c}
+                    </Chip>
+                  ))}
+                  <Chip active={mustOnly} onClick={() => setFilter(setMustOnly, !mustOnly)}>
+                    ★ Must-sees only
+                  </Chip>
+                </div>
+              </>
+            )}
           </div>
 
           <p className="text-sm text-slate-500 mb-4">{results.length} results</p>
 
-          <div className="grid gap-4 md:grid-cols-2">
-            {results.map((a, i) => {
+          <div className="grid gap-4 sm:grid-cols-2">
+            {visibleResults.map((a, i) => {
               const tier = TIER_LABEL[a.tier];
               const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`${a.name} ${a.city} Japan`)}`;
               const wikiUrl = a.wiki ? `https://en.wikipedia.org/wiki/${encodeURIComponent(a.wiki)}` : null;
@@ -188,6 +251,13 @@ export function Explore() {
                     </div>
 
                     <p className="mt-3 text-sm text-slate-400 leading-relaxed flex-1">{a.desc}</p>
+
+                    {a.googlePlaceId && (
+                      <div className="mt-2">
+                        <PlaceBadge placeId={a.googlePlaceId} />
+                      </div>
+                    )}
+                    <CrowdTip bestVisitTime={a.bestVisitTime} crowdWarning={a.crowdWarning} />
 
                     <div className="mt-4 grid grid-cols-2 gap-x-4 gap-y-1.5 text-xs text-slate-400">
                       <span className="flex items-center gap-1.5"><Clock size={12} className="text-slate-500 shrink-0" />{a.hours}</span>
@@ -223,6 +293,18 @@ export function Explore() {
               );
             })}
           </div>
+
+          {hasMoreResults && (
+            <div className="mt-8 text-center">
+              <button
+                type="button"
+                onClick={() => setPage((p) => p + 1)}
+                className="px-6 py-3 rounded-xl glass text-sm font-semibold text-slate-300 hover:text-white hover:bg-white/10 transition-colors min-h-[48px]"
+              >
+                Show {Math.min(PAGE_SIZE, results.length - visibleResults.length)} more
+              </button>
+            </div>
+          )}
         </>
       )}
 
@@ -236,14 +318,14 @@ export function Explore() {
           />
           <div className="flex flex-wrap gap-1.5 mb-4">
             {HOOD_CITIES.map((c) => (
-              <Chip key={c} active={hoodCity === c} onClick={() => setHoodCity(c)}>
+              <Chip key={c} active={hoodCity === c} onClick={() => { setHoodCity(c); setHoodPage(1); }}>
                 {c}
               </Chip>
             ))}
           </div>
           <p className="text-sm text-slate-500 mb-4">{hoodResults.length} neighborhoods</p>
-          <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-            {hoodResults.map((n, i) => (
+          <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-3">
+            {visibleHoods.map((n, i) => (
               <motion.div
                 key={n.name}
                 id={`hood-${slugify(n.name)}`}
@@ -270,6 +352,18 @@ export function Explore() {
               </motion.div>
             ))}
           </div>
+
+          {hasMoreHoods && (
+            <div className="mt-8 text-center">
+              <button
+                type="button"
+                onClick={() => setHoodPage((p) => p + 1)}
+                className="px-6 py-3 rounded-xl glass text-sm font-semibold text-slate-300 hover:text-white hover:bg-white/10 transition-colors min-h-[48px]"
+              >
+                Show {Math.min(PAGE_SIZE, hoodResults.length - visibleHoods.length)} more
+              </button>
+            </div>
+          )}
         </>
       )}
 

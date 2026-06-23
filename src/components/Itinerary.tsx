@@ -719,8 +719,14 @@ function DayCard({
   );
 }
 
+function getTodayIndex(): number {
+  const today = new Date().toISOString().slice(0, 10);
+  const idx = DAYS.findIndex((d) => d.date === today);
+  return idx >= 0 ? idx : 0;
+}
+
 export function Itinerary() {
-  const [openMap, setOpenMap] = useState<Record<number, boolean>>({ 0: true });
+  const [openMap, setOpenMap] = useState<Record<number, boolean>>(() => ({ [getTodayIndex()]: true }));
   const [trackMode, setTrackMode] = useLocalStorage("itinerary-track-mode", false);
   const [done, setDone] = useLocalStorage<Record<string, boolean>>("itinerary-done", {});
 
@@ -820,17 +826,18 @@ export function Itinerary() {
             {trackMode && totalDone > 0 && <span className="ml-1 tabular-nums">· {totalDone} done</span>}
           </button>
         </div>
-        <div className="flex flex-wrap gap-1.5 pt-1 border-t border-white/5">
-          {DAYS.map((d, i) => (
-            <button
-              key={d.date}
-              onClick={() => jumpTo(i)}
-              className="rounded-md glass border border-white/5 hover:bg-white/10 px-2 py-1 text-[0.68rem] font-semibold text-slate-400 hover:text-slate-100 transition-colors"
-              title={d.title}
-            >
-              {d.emoji} {d.date.slice(8)}
-            </button>
-          ))}
+        <div className="pt-1 border-t border-white/5">
+          <select
+            value={String(DAYS.findIndex((_, i) => openMap[i]) ?? 0)}
+            onChange={(e) => jumpTo(Number(e.target.value))}
+            className="w-full sm:w-auto rounded-xl border border-white/10 bg-[#09090f]/80 text-slate-300 text-sm font-semibold px-3 py-2 min-h-[40px] focus:outline-none focus:border-white/30"
+          >
+            {DAYS.map((d, i) => (
+              <option key={d.date} value={i} className="bg-[#09090f] text-slate-200">
+                {d.emoji} Day {i + 1} · {d.date.slice(5).replace("-", "/")} — {d.title}
+              </option>
+            ))}
+          </select>
         </div>
       </div>
 

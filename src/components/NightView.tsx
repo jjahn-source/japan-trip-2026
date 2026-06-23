@@ -26,11 +26,14 @@ const TIER_LABEL: Record<number, { label: string; cls: string }> = {
   3: { label: "SIDE QUEST", cls: "bg-sky-500/20 text-sky-300 border-sky-500/40" },
 };
 
+const PAGE_SIZE = 12;
+
 function Chip({ active, onClick, children }: { active: boolean; onClick: () => void; children: React.ReactNode }) {
   return (
     <button
+      type="button"
       onClick={onClick}
-      className={`rounded-full px-3.5 py-1.5 text-xs font-semibold border transition-colors ${
+      className={`rounded-full px-4 py-2 text-sm font-semibold border transition-colors min-h-[40px] ${
         active ? "bg-fuchsia-500 border-fuchsia-400 text-white" : "glass text-slate-300 hover:bg-white/10"
       }`}
     >
@@ -42,6 +45,7 @@ function Chip({ active, onClick, children }: { active: boolean; onClick: () => v
 export function NightView() {
   const [city, setCity] = useState<(typeof CITIES)[number]>("All");
   const [kind, setKind] = useState<(typeof KINDS)[number]>("All");
+  const [page, setPage] = useState(1);
 
   const results = useMemo(
     () =>
@@ -50,6 +54,14 @@ export function NightView() {
       ).sort((a, b) => a.tier - b.tier),
     [city, kind],
   );
+
+  const visible = results.slice(0, page * PAGE_SIZE);
+  const hasMore = visible.length < results.length;
+
+  const setFilter = <T,>(setter: (v: T) => void, value: T) => {
+    setter(value);
+    setPage(1);
+  };
 
   return (
     <div className="section-pad py-24 pt-32">
@@ -81,22 +93,24 @@ export function NightView() {
       <div className="glass rounded-2xl p-4 mb-8 space-y-3">
         <div className="flex flex-wrap gap-1.5">
           {CITIES.map((c) => (
-            <Chip key={c} active={city === c} onClick={() => setCity(c)}>
+            <Chip key={c} active={city === c} onClick={() => setFilter(setCity, c)}>
               {c}
             </Chip>
           ))}
         </div>
         <div className="flex flex-wrap gap-1.5">
           {KINDS.map((k) => (
-            <Chip key={k} active={kind === k} onClick={() => setKind(k)}>
+            <Chip key={k} active={kind === k} onClick={() => setFilter(setKind, k)}>
               {k}
             </Chip>
           ))}
         </div>
       </div>
 
-      <div className="grid gap-4 md:grid-cols-2">
-        {results.map((s, i) => {
+      <p className="text-sm text-slate-500 mb-4">{results.length} spots</p>
+
+      <div className="grid gap-4 sm:grid-cols-2">
+        {visible.map((s, i) => {
           const tier = TIER_LABEL[s.tier];
           return (
             <motion.article
@@ -134,6 +148,18 @@ export function NightView() {
         })}
       </div>
 
+      {hasMore && (
+        <div className="mt-8 text-center">
+          <button
+            type="button"
+            onClick={() => setPage((p) => p + 1)}
+            className="px-6 py-3 rounded-xl glass text-sm font-semibold text-slate-300 hover:text-white hover:bg-white/10 transition-colors min-h-[48px]"
+          >
+            Show {Math.min(PAGE_SIZE, results.length - visible.length)} more spots
+          </button>
+        </div>
+      )}
+
       {/* Drink menu decoder */}
       <div className="mt-24">
         <SectionHeading
@@ -141,7 +167,7 @@ export function NightView() {
           title="The Drink Menu, Decoded"
           sub="Everything on an izakaya drink menu, what it actually is, and what it costs."
         />
-        <div className="grid gap-4 md:grid-cols-2">
+        <div className="grid gap-4 sm:grid-cols-2">
           {DRINK_MENU.map((d) => (
             <div key={d.name} className="glass rounded-2xl p-5">
               <div className="flex items-baseline justify-between gap-3">

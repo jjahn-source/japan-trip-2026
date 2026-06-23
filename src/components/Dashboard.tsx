@@ -1,4 +1,5 @@
 import { ArrowRight, AlertTriangle, PartyPopper } from "lucide-react";
+import { useState, useEffect } from "react";
 import { DAYS } from "../data/itinerary";
 import { BOOKINGS } from "../data/bookings";
 import { useBookingsSync } from "../hooks/useBookingsSync";
@@ -8,6 +9,8 @@ import { CREW } from "../hooks/useIdentity";
 import { FIREBASE_ENABLED } from "../lib/firebase";
 import { QuickPoll } from "./QuickPoll";
 import { WeatherBadge } from "./WeatherBadge";
+import { TravelIntelPanel } from "./TravelIntelPanel";
+import { CrewBriefingPanel } from "./CrewBriefingPanel";
 import { scrollToAnchor } from "../utils/nav";
 
 function todayISO(): string {
@@ -27,6 +30,64 @@ function fmtDeadline(isoDate: string): string {
 function openDay(i: number) {
   window.dispatchEvent(new CustomEvent("trip:open-day", { detail: i }));
   scrollToAnchor(`day-${i}`);
+}
+
+function timeAgoShort(iso: string): string {
+  const diff = Math.floor((Date.now() - new Date(iso).getTime()) / 1000);
+  if (diff < 60) return "just now";
+  if (diff < 3600) return `${Math.floor(diff / 60)}m`;
+  if (diff < 86400) return `${Math.floor(diff / 3600)}h`;
+  const d = Math.floor(diff / 86400);
+  if (d < 7) return `${d}d`;
+  return new Date(iso).toLocaleDateString("en-US", { weekday: "short" });
+}
+
+function FeedStatusFooter() {
+  const [stamps, setStamps] = useState<Record<string, string | null>>({});
+
+  useEffect(() => {
+    const feeds = [
+      { key: "Reddit", url: `${import.meta.env.BASE_URL}reddit-alerts.json` },
+      { key: "Weather", url: `${import.meta.env.BASE_URL}weather.json` },
+      { key: "Intel", url: `${import.meta.env.BASE_URL}travel-intel.json` },
+      { key: "Briefing", url: `${import.meta.env.BASE_URL}crew-briefing.json` },
+    ];
+
+    Promise.allSettled(
+      feeds.map(async (f) => {
+        try {
+          const r = await fetch(f.url);
+          if (!r.ok) return { key: f.key, ts: null };
+          const j = await r.json();
+          return { key: f.key, ts: j.fetchedAt ?? j.generatedAt ?? null };
+        } catch {
+          return { key: f.key, ts: null };
+        }
+      }),
+    ).then((results) => {
+      const s: Record<string, string | null> = {};
+      for (const r of results) {
+        if (r.status === "fulfilled" && r.value) {
+          s[r.value.key] = r.value.ts;
+        }
+      }
+      setStamps(s);
+    });
+  }, []);
+
+  const entries = Object.entries(stamps).filter(([, ts]) => ts);
+  if (entries.length === 0) return null;
+
+  return (
+    <p className="text-[0.55rem] text-slate-600 text-center pt-1">
+      {entries.map(([key, ts], i) => (
+        <span key={key}>
+          {i > 0 && " · "}
+          {key} {timeAgoShort(ts!)}
+        </span>
+      ))}
+    </p>
+  );
 }
 
 function PreTripDashboard() {
@@ -135,8 +196,15 @@ function PreTripDashboard() {
         </div>
       )}
 
+      {/* Travel Intel + AI Briefing */}
+      <TravelIntelPanel />
+      <CrewBriefingPanel />
+
       {/* Quick Poll */}
       <QuickPoll />
+
+      {/* Feed status */}
+      <FeedStatusFooter />
     </div>
   );
 }

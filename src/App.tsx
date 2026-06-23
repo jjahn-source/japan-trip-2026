@@ -162,7 +162,7 @@ export default function App() {
           <SearchOverlay onClose={() => setSearchOpen(false)} onNavigate={navigateTo} />
         </Suspense>
       )}
-      <main>
+      <main className="pb-20 sm:pb-0">
         {view === "plan" && (
           <>
             <div className="sticky top-[68px] z-40 bg-[#08111f]/92 backdrop-blur-xl border-b border-[#1C2E47]">
@@ -215,7 +215,7 @@ export default function App() {
                     key={t.id}
                     type="button"
                     onClick={() => switchExploreTab(t.id)}
-                    className={`flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold transition-colors whitespace-nowrap ${
+                    className={`flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-sm font-semibold transition-colors whitespace-nowrap min-h-[40px] ${
                       exploreTab === t.id
                         ? "bg-accent-500/15 text-accent-300 border border-accent-500/25"
                         : "text-[#7A90AE] hover:text-white hover:bg-white/8"
@@ -244,7 +244,7 @@ export default function App() {
                     key={t.id}
                     type="button"
                     onClick={() => switchEatTab(t.id)}
-                    className={`flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold transition-colors whitespace-nowrap ${
+                    className={`flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-sm font-semibold transition-colors whitespace-nowrap min-h-[40px] ${
                       eatTab === t.id
                         ? "bg-amber-500/15 text-amber-300 border border-amber-500/25"
                         : "text-[#7A90AE] hover:text-white hover:bg-white/8"
@@ -270,7 +270,7 @@ export default function App() {
                     key={t.id}
                     type="button"
                     onClick={() => switchGuideTab(t.id)}
-                    className={`flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold transition-colors whitespace-nowrap ${
+                    className={`flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-sm font-semibold transition-colors whitespace-nowrap min-h-[40px] ${
                       guideTab === t.id
                         ? "bg-teal-500/15 text-teal-300 border border-teal-500/25"
                         : "text-[#7A90AE] hover:text-white hover:bg-white/8"
@@ -296,7 +296,7 @@ export default function App() {
                     key={t.id}
                     type="button"
                     onClick={() => switchCrewTab(t.id)}
-                    className={`flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold transition-colors whitespace-nowrap ${
+                    className={`flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-sm font-semibold transition-colors whitespace-nowrap min-h-[40px] ${
                       crewTab === t.id
                         ? "bg-violet-500/15 text-violet-300 border border-violet-500/25"
                         : "text-[#7A90AE] hover:text-white hover:bg-white/8"

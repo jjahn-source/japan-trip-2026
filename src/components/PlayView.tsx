@@ -28,11 +28,14 @@ const KIND_EMOJI: Record<string, string> = {
   "Purikura": "📸",
 };
 
+const PAGE_SIZE = 12;
+
 function Chip({ active, onClick, children }: { active: boolean; onClick: () => void; children: React.ReactNode }) {
   return (
     <button
+      type="button"
       onClick={onClick}
-      className={`rounded-full px-3.5 py-1.5 text-xs font-semibold border transition-colors ${
+      className={`rounded-full px-4 py-2 text-sm font-semibold border transition-colors min-h-[40px] ${
         active ? "bg-violet-500 border-violet-400 text-white" : "glass text-slate-300 hover:bg-white/10"
       }`}
     >
@@ -44,6 +47,7 @@ function Chip({ active, onClick, children }: { active: boolean; onClick: () => v
 export function PlayView() {
   const [city, setCity] = useState<(typeof CITIES)[number]>("All");
   const [kind, setKind] = useState<(typeof KINDS)[number]>("All");
+  const [page, setPage] = useState(1);
 
   const results = useMemo(
     () =>
@@ -52,6 +56,14 @@ export function PlayView() {
       ),
     [city, kind],
   );
+
+  const visible = results.slice(0, page * PAGE_SIZE);
+  const hasMore = visible.length < results.length;
+
+  const setFilter = <T,>(setter: (v: T) => void, value: T) => {
+    setter(value);
+    setPage(1);
+  };
 
   return (
     <div className="section-pad py-24 pt-32">
@@ -63,14 +75,14 @@ export function PlayView() {
 
       {/* Filters */}
       <div className="glass rounded-2xl p-4 mb-8 space-y-3">
-        <div className="flex flex-wrap gap-2">
+        <div className="flex flex-wrap gap-1.5">
           {CITIES.map((c) => (
-            <Chip key={c} active={city === c} onClick={() => setCity(c)}>{c}</Chip>
+            <Chip key={c} active={city === c} onClick={() => setFilter(setCity, c)}>{c}</Chip>
           ))}
         </div>
-        <div className="flex flex-wrap gap-2 pt-2 border-t border-white/5">
+        <div className="flex flex-wrap gap-1.5 pt-2 border-t border-white/5">
           {KINDS.map((k) => (
-            <Chip key={k} active={kind === k} onClick={() => setKind(k)}>
+            <Chip key={k} active={kind === k} onClick={() => setFilter(setKind, k)}>
               {k !== "All" ? `${KIND_EMOJI[k] ?? ""} ` : ""}{k}
             </Chip>
           ))}
@@ -80,8 +92,8 @@ export function PlayView() {
       <p className="text-sm text-slate-500 mb-5 tabular-nums">{results.length} spot{results.length !== 1 ? "s" : ""}</p>
 
       {/* Spot cards */}
-      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 mb-16">
-        {results.map((s, i) => (
+      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 mb-4">
+        {visible.map((s, i) => (
           <motion.div
             key={`${s.name}-${s.city}`}
             initial={{ opacity: 0, y: 20 }}
@@ -126,6 +138,20 @@ export function PlayView() {
           </div>
         )}
       </div>
+
+      {hasMore && (
+        <div className="mb-12 text-center">
+          <button
+            type="button"
+            onClick={() => setPage((p) => p + 1)}
+            className="px-6 py-3 rounded-xl glass text-sm font-semibold text-slate-300 hover:text-white hover:bg-white/10 transition-colors min-h-[48px]"
+          >
+            Show {Math.min(PAGE_SIZE, results.length - visible.length)} more spots
+          </button>
+        </div>
+      )}
+
+      {!hasMore && results.length > 0 && <div className="mb-12" />}
 
       {/* Crane School */}
       <div className="mb-4">

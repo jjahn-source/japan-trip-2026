@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { ChevronDown, Copy, Check } from "lucide-react";
+import { ChevronDown, Copy, Check, ExternalLink } from "lucide-react";
+import { useJapanAlerts } from "../hooks/useJapanAlerts";
 import { GUIDE } from "../data/guide";
 import { PHRASES } from "../data/phrases";
 import { FAQS } from "../data/faq";
@@ -78,10 +79,72 @@ function PhraseRow({ en, jp, romaji }: { en: string; jp: string; romaji: string 
   );
 }
 
+function JapanAlertsPanel() {
+  const { alerts, loading, error } = useJapanAlerts();
+  const [open, setOpen] = useState(true);
+
+  return (
+    <div className="mb-10 rounded-2xl bg-orange-500/[0.06] border border-orange-500/20 overflow-hidden">
+      <button
+        type="button"
+        onClick={() => setOpen((o) => !o)}
+        className="w-full flex items-center justify-between gap-3 px-4 py-3.5 text-left"
+      >
+        <span className="text-sm font-bold text-orange-300 flex items-center gap-2">
+          🌐 r/JapanTravel — community tips
+          {!loading && alerts.length > 0 && (
+            <span className="text-[0.65rem] font-normal text-slate-500">{alerts.length} posts</span>
+          )}
+        </span>
+        <ChevronDown
+          size={16}
+          className={`text-slate-500 shrink-0 transition-transform ${open ? "rotate-180" : ""}`}
+        />
+      </button>
+      {open && (
+        <div className="border-t border-orange-500/15 divide-y divide-white/5">
+          {loading && (
+            <div className="px-4 py-4 text-xs text-slate-500">Fetching latest posts…</div>
+          )}
+          {!loading && (error || alerts.length === 0) && (
+            <div className="px-4 py-4 text-xs text-slate-500">No tips loaded.</div>
+          )}
+          {alerts.map((a) => (
+            <a
+              key={a.url}
+              href={a.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-start justify-between gap-3 px-4 py-3 hover:bg-white/5 transition-colors group"
+            >
+              <div className="min-w-0">
+                <div className="flex items-center gap-2 mb-0.5">
+                  {a.flair && (
+                    <span className="text-[0.6rem] font-bold uppercase tracking-wide text-orange-300/70">
+                      {a.flair}
+                    </span>
+                  )}
+                  <span className="text-[0.6rem] text-slate-600">{a.age} · ↑{a.score}</span>
+                </div>
+                <p className="text-sm text-slate-200 group-hover:text-white leading-snug">{a.title}</p>
+                {a.relevance && (
+                  <p className="text-[0.6rem] text-orange-300/60 mt-0.5 leading-snug">{a.relevance}</p>
+                )}
+              </div>
+              <ExternalLink size={12} className="shrink-0 mt-1 text-slate-600 group-hover:text-slate-400" />
+            </a>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+}
+
 export function GuideView({ tab }: { tab: GuideTab }) {
   if (tab === "packing") return <PackingView />;
   return (
     <div className="section-pad py-24 pt-32">
+      <JapanAlertsPanel />
       <SectionHeading
         kicker="The Manual"
         title="Survival Guide"
