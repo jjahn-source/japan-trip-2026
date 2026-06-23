@@ -50,37 +50,49 @@ function LiveCard({
 
   return (
     <div
-      className={`glass rounded-xl overflow-hidden border flex flex-col ${
-        rank === 1 ? "border-amber-400/40 bg-amber-500/5" : "border-white/10"
-      }`}
+      className={`glass rounded-xl overflow-hidden border flex flex-col group ${
+        rank === 1 ? "border-amber-400/40 bg-amber-500/5 shadow-lg shadow-amber-500/10" : "border-white/10 hover:border-white/20"
+      } transition-colors`}
     >
       {opt.imgUrl && (
-        <a href={opt.url} target="_blank" rel="noopener noreferrer" className="block w-full h-36 overflow-hidden relative bg-slate-800">
+        <a href={opt.url} target="_blank" rel="noopener noreferrer" className="block w-full h-40 overflow-hidden relative bg-slate-800 shrink-0">
           <img
             src={opt.imgUrl}
             alt={opt.name}
-            className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
             loading="lazy"
           />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+
           {badge && (
-            <div className="absolute top-2 right-2">
+            <div className="absolute top-3 left-3 z-10">
               <span
-                className={`text-[0.62rem] font-bold uppercase tracking-wide px-2 py-0.5 rounded-full border shadow-sm backdrop-blur-md ${badge.cls}`}
+                className={`text-[0.65rem] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full border shadow-md backdrop-blur-md ${badge.cls}`}
               >
                 {badge.label}
               </span>
             </div>
           )}
+
+          <div className="absolute bottom-3 right-3 z-10">
+            <span className={`text-[0.7rem] font-bold px-2 py-1 rounded-md shadow-md backdrop-blur-md ${rank === 1 ? "bg-amber-500/90 text-black" : "bg-black/70 text-white"}`}>
+              #{rank} Pick
+            </span>
+          </div>
         </a>
       )}
 
       <div className="p-4 flex-1 flex flex-col">
-        <div className="flex items-start justify-between gap-2 mb-2">
-          <div className="min-w-0 flex items-start gap-2">
-            <span className={`shrink-0 text-[0.65rem] font-bold mt-0.5 px-1.5 rounded-sm ${rank === 1 ? "bg-amber-500/20 text-amber-400" : "bg-white/10 text-slate-400"}`}>
-              #{rank}
-            </span>
-            <span className="font-bold text-sm leading-snug line-clamp-2" title={opt.name}>{opt.name}</span>
+        <div className="flex items-start justify-between gap-2 mb-1.5">
+          <div className="min-w-0 flex-1">
+            {!opt.imgUrl && (
+              <span className={`inline-block mb-1.5 shrink-0 text-[0.65rem] font-bold px-1.5 rounded-sm ${rank === 1 ? "bg-amber-500/20 text-amber-400" : "bg-white/10 text-slate-400"}`}>
+                #{rank} Pick
+              </span>
+            )}
+            <h4 className="font-bold text-base leading-snug line-clamp-2 text-white group-hover:text-indigo-300 transition-colors" title={opt.name}>
+              {opt.name}
+            </h4>
           </div>
           {!opt.imgUrl && badge && (
             <span
@@ -91,8 +103,8 @@ function LiveCard({
           )}
         </div>
 
-        <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs text-slate-300 mb-1">
-          <span>{ratingStr}</span>
+        <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs text-slate-300 mb-4">
+          <span className={opt.rating ? "text-amber-400 font-medium" : ""}>{ratingStr}</span>
           {bedsStr && (
             <>
               <span className="text-slate-600">·</span>
@@ -101,21 +113,21 @@ function LiveCard({
           )}
         </div>
 
-        <div className="flex items-baseline gap-2 mb-3 mt-auto pt-2">
-          <span className="text-emerald-400 font-bold text-base">
+        <div className="flex items-baseline gap-2 mb-4 mt-auto">
+          <span className="text-emerald-400 font-extrabold text-lg tracking-tight">
             ${opt.ppCost}/pp
           </span>
-          <span className="text-xs text-slate-500">
+          <span className="text-xs text-slate-400 font-medium">
             ${opt.totalUSD.toLocaleString()} total
           </span>
         </div>
 
-        <div className="flex items-center justify-between gap-3">
+        <div className="flex items-center justify-between gap-3 pt-4 border-t border-white/5">
           <a
             href={opt.url}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 text-xs font-semibold text-indigo-300 hover:text-indigo-200 transition-colors"
+            className="inline-flex items-center gap-1.5 text-xs font-semibold text-indigo-400 hover:text-indigo-300 transition-colors"
           >
             View on Airbnb <ExternalLink size={12} />
           </a>
