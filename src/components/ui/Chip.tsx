@@ -1,5 +1,5 @@
-/** Shared filter/toggle chip. Extracted from the duplicated copies in Explore
- * and NightView so filter rows are consistent and tap-friendly on mobile. */
+/** Shared filter/toggle chip. Extracted from the duplicated copies in Explore,
+ * NightView, and PlayView so filter rows are consistent and tap-friendly on mobile. */
 export function Chip({
   active,
   onClick,
@@ -9,10 +9,14 @@ export function Chip({
   active: boolean;
   onClick: () => void;
   children: React.ReactNode;
-  color?: "rose" | "fuchsia";
+  color?: "rose" | "fuchsia" | "violet";
 }) {
   const activeCls =
-    color === "fuchsia" ? "bg-fuchsia-500 border-fuchsia-400 text-white" : "bg-accent-500 border-accent-400 text-white";
+    color === "violet"
+      ? "bg-violet-500 border-violet-400 text-white"
+      : color === "fuchsia"
+        ? "bg-fuchsia-500 border-fuchsia-400 text-white"
+        : "bg-accent-500 border-accent-400 text-white";
   return (
     <button
       type="button"

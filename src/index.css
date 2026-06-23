@@ -27,7 +27,7 @@ html {
 
 body {
   @apply antialiased;
-  background-color: #08111f;
+  background-color: #060e1a;
   color: #e2eaf4;
   background-attachment: fixed;
   -webkit-tap-highlight-color: transparent;
@@ -72,16 +72,17 @@ body {
 
 /* solid surface card — all content cards */
 .glass {
-  background-color: #0e1b2d;
-  border: 1px solid #1c2e47;
+  background-color: #0f2035;
+  border: 1px solid #1e3252;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.45);
 }
 
 /* blurry glass — used ONLY for the fixed nav (sits above scrolled content) */
 .glass-nav {
-  background-color: rgba(8, 17, 31, 0.88);
+  background-color: rgba(6, 14, 26, 0.92);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border: 1px solid #1c2e47;
+  border: 1px solid #1e3252;
 }
 
 .section-pad {
@@ -101,7 +102,7 @@ body {
 }
 
 .leaflet-container {
-  background: #08111f;
+  background: #060e1a;
 }
 
 /* search/deep-link landing flash so you can see what you jumped to */
