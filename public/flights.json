@@ -1,0 +1,15 @@
+{
+  "fetchedAt": "2026-06-24T13:27:17.514Z",
+  "routes": [
+    {
+      "route": "Tokyo → Sapporo",
+      "date": "2026-12-20",
+      "flights": []
+    },
+    {
+      "route": "Sapporo → Osaka/Kyoto",
+      "date": "2026-12-23",
+      "flights": []
+    }
+  ]
+}
