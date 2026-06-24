@@ -271,7 +271,7 @@ function InTripDashboard({ idx }: { idx: number }) {
       {/* Today card */}
       <div className="glass rounded-2xl border border-emerald-500/30 bg-emerald-500/5 p-4 sm:p-5">
         <p className="text-[0.62rem] font-bold uppercase tracking-[0.2em] text-emerald-300">
-          Today · Day {idx + 1} of {DAYS.length} · {d.dow} Dec {d.date.slice(8)}
+          Today · Day {idx + 1} of {DAYS.length} · {d.dow} Dec {d?.date?.slice(8)}
         </p>
         <h2 className="text-xl font-black mt-0.5 mb-2">{d.emoji} {d.title}</h2>
         <WeatherBadge city={d.city} dateISO={d.date} wx={d.wx} />

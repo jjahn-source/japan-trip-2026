@@ -33,7 +33,7 @@ export function TodayBanner() {
       <Shell tone="live">
         <div className="flex-1 min-w-0">
           <p className="text-[0.62rem] font-bold uppercase tracking-[0.2em] text-emerald-300">
-            Today · Day {idx + 1} of {DAYS.length} · {d.dow} Dec {d.date.slice(8)}
+            Today · Day {idx + 1} of {DAYS.length} · {d.dow} Dec {d?.date?.slice(8)}
           </p>
           <h2 className="text-lg sm:text-2xl font-black mt-0.5 truncate">{d.emoji} {d.title}</h2>
           <p className="text-xs sm:text-sm text-slate-300 mt-0.5">{d.city} · {d.activities.length} stops · {dares} dares{events ? ` · ${events} live events` : ""}</p>

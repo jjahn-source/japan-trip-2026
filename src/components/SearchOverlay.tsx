@@ -27,7 +27,7 @@ const INDEX: Hit[] = [
   ...FOOD.flatMap((c) => c.items.map((i) => ({ title: i.dish, sub: `${c.city} · food`, kind: "Eat", tab: "eat" as View, anchor: "", text: `${i.dish} ${i.jp} ${i.where} ${i.why}`.toLowerCase() }))),
   ...GUIDE.flatMap((sec) => sec.articles.map((ar) => ({ title: ar.title, sub: `Guide · ${sec.title}`, kind: "Guide", tab: "guide" as View, anchor: sec.id, text: `${ar.title} ${ar.body.join(" ")}`.toLowerCase() }))),
   ...FAQS.map((f) => ({ title: f.q, sub: "FAQ", kind: "FAQ", tab: "guide" as View, anchor: "", text: `${f.q} ${f.a}`.toLowerCase() })),
-  ...DAYS.map((d, i) => ({ title: d.title, sub: `Dec ${d.date.slice(8)} · ${d.city}`, kind: "Day", tab: "plan" as View, anchor: `day-${i}`, text: `${d.title} ${d.city} ${d.activities.map((a) => a.title).join(" ")}`.toLowerCase() })),
+  ...DAYS.map((d, i) => ({ title: d.title, sub: `Dec ${d?.date?.slice(8)} · ${d.city}`, kind: "Day", tab: "plan" as View, anchor: `day-${i}`, text: `${d.title} ${d.city} ${d.activities.map((a) => a.title).join(" ")}`.toLowerCase() })),
   ...SHOP.flatMap((cat) => cat.items.map((item) => ({ title: item.name, sub: `Shop · ${cat.title} · ${item.city}`, kind: "Shop", tab: "explore" as View, anchor: `shop-${cat.id}`, text: `${item.name} ${item.where} ${item.what} ${item.tip ?? ""}`.toLowerCase() }))),
 ];
 

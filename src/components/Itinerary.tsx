@@ -1009,7 +1009,7 @@ export function Itinerary() {
           >
             {DAYS.map((d, i) => (
               <option key={d.date} value={i} className="bg-[#09090f] text-slate-200">
-                {d.emoji} Day {i + 1} · {d.date.slice(5).replace("-", "/")} — {d.title}
+                {d.emoji} Day {i + 1} · {d?.date?.slice(5).replace("-", "/")} — {d.title}
               </option>
             ))}
           </select>

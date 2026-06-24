@@ -53,7 +53,7 @@ export const STAY_LEGS: StayLeg[] = [
     coord: [35.6896, 139.6917],
     defaultPick: "11981272",
     searchUrl:
-      "https://www.airbnb.com/s/Shinjuku--Tokyo--Japan/homes?checkin=2026-12-15&checkout=2026-12-21&adults=8&room_types%5B%5D=Entire+home%2Fapt&min_bedrooms=3&min_bathrooms=2",
+      "https://www.airbnb.com/s/Tokyo--Japan/homes?checkin=2026-12-15&checkout=2026-12-21&adults=8&room_types%5B%5D=Entire+home%2Fapt&min_bedrooms=3&min_bathrooms=2",
     options: [
       {
         id: "11981272",
