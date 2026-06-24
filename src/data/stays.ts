@@ -51,7 +51,7 @@ export const STAY_LEGS: StayLeg[] = [
     startISO: "2026-12-15",
     endISO: "2026-12-21",
     coord: [35.6896, 139.6917],
-    defaultPick: "11981272",
+    defaultPick: "1081600201241889397",
     searchUrl:
       "https://www.airbnb.com/s/Tokyo--Japan/homes?checkin=2026-12-15&checkout=2026-12-21&adults=8&room_types%5B%5D=Entire+home%2Fapt&min_bedrooms=3&min_bathrooms=2",
     options: [
@@ -153,10 +153,22 @@ export const STAY_LEGS: StayLeg[] = [
     startISO: "2026-12-21",
     endISO: "2026-12-24",
     coord: [35.0116, 135.7681],
-    defaultPick: "40359294",
+    defaultPick: "1573827469869098967",
     searchUrl:
       "https://www.airbnb.com/s/Kyoto--Japan/homes?checkin=2026-12-21&checkout=2026-12-24&adults=8&room_types%5B%5D=Entire+home%2Fapt&min_bedrooms=3&min_bathrooms=2",
     options: [
+      {
+        id: "1573827469869098967",
+        name: "Toru · 5BR / 9 Beds Near Kyoto Station",
+        area: "South Kyoto (near Kyoto Stn)",
+        url: "https://www.airbnb.com/rooms/1573827469869098967?check_in=2026-12-21&check_out=2026-12-24&adults=8",
+        beds: "5BR · 9 beds · 2.5 baths",
+        rating: "4.82★ (28)",
+        totalUSD: 1009,
+        walk: "Excellent group house near Kyoto Station",
+        tags: ["BUDGET PICK", "9 BEDS", "$126/GUY"],
+        note: "Cheapest whole house with this much space in Kyoto. $126/guy."
+      },
       {
         id: "40359294",
         name: "Tofukuji Traditional 2-Story Machiya",
@@ -243,10 +255,22 @@ export const STAY_LEGS: StayLeg[] = [
     startISO: "2026-12-24",
     endISO: "2026-12-29",
     coord: [34.6684, 135.5023],
-    defaultPick: "1334423068782122936",
+    defaultPick: "1646871133354989220",
     searchUrl:
       "https://www.airbnb.com/s/Namba--Osaka--Japan/homes?checkin=2026-12-24&checkout=2026-12-29&adults=8&room_types%5B%5D=Entire+home%2Fapt&min_bedrooms=3&min_bathrooms=2",
     options: [
+      {
+        id: "1646871133354989220",
+        name: "Extra-large, 170㎡ villa · 7 beds",
+        area: "Osaka (Namba area)",
+        url: "https://www.airbnb.com/rooms/1646871133354989220?check_in=2026-12-24&check_out=2026-12-29&adults=8",
+        beds: "3BR · 7 beds · 2 baths",
+        rating: "5.0★ (4) · Guest Favorite",
+        totalUSD: 960,
+        walk: "Jacuzzi, spacious, convenient transportation",
+        tags: ["BUDGET PICK", "JACUZZI", "$120/GUY"],
+        note: "Stupidly cheap for a massive 170sqm house. Just $120/guy for 5 nights."
+      },
       {
         id: "1334423068782122936",
         name: "Namba Whole Building · Up to 10",
