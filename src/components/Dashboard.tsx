@@ -11,6 +11,7 @@ import { CREW } from "../hooks/useIdentity";
 import { FIREBASE_ENABLED } from "../lib/firebase";
 import { QuickPoll } from "./QuickPoll";
 import { WeatherBadge } from "./WeatherBadge";
+import { FlightIntelPanel } from "./FlightIntelPanel";
 import { TravelIntelPanel } from "./TravelIntelPanel";
 import { CrewBriefingPanel } from "./CrewBriefingPanel";
 import { scrollToAnchor } from "../utils/nav";
@@ -49,6 +50,7 @@ function FeedStatusFooter() {
 
   useEffect(() => {
     const feeds = [
+      { key: "Flights", url: `${import.meta.env.BASE_URL}flights.json` },
       { key: "Reddit", url: `${import.meta.env.BASE_URL}reddit-alerts.json` },
       { key: "Weather", url: `${import.meta.env.BASE_URL}weather.json` },
       { key: "Intel", url: `${import.meta.env.BASE_URL}travel-intel.json` },
@@ -235,6 +237,7 @@ function PreTripDashboard() {
           </div>
         </div>
       )}
+      <FlightIntelPanel />
       <TravelIntelPanel />
       <CrewBriefingPanel />
 
