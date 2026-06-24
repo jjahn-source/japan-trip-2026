@@ -57,4 +57,4 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add public/reddit-alerts.json public/weather.json public/travel-intel.json public/crew-briefing.json public/itinerary-optimizations.json public/stays-live.json
-          git diff --cached --quiet || (git commit -m "chore: auto-update content feeds [bot]" && git push)
+          git diff --cached --quiet || (git commit -m "chore: auto-update content feeds [bot]" && git pull --rebase && git push)
