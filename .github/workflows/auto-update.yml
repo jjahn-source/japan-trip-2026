@@ -56,4 +56,5 @@ jobs:
         run: node scripts/refresh-dining-sniper.mjs || echo "Dining sniper failed — keeping stale data"
 
       - name: Commit Dining Alerts
-        run: git add public/dining-alerts.json && git diff --cached --quiet || git commit -m "chore: refresh dining alerts" && git push
+        run: |
+          git add public/dining-alerts.json && git diff --cached --quiet || git commit -m "chore: refresh dining alerts" && git push
