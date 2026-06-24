@@ -21,33 +21,37 @@ try {
   console.error("Exchange rate fetch failed:", err.message);
 }
 
-// ── Travel advisory: US State Dept JSON feed (reliable, no key) ──────
+// ── Travel advisory: UK FCDO API (reliable, no key) ──────────────────
 let advisory = null;
 try {
-  console.log("Fetching Japan travel advisory (US State Dept)...");
+  console.log("Fetching Japan travel advisory (UK FCDO)...");
   const advRes = await fetch(
-    "https://travel.state.gov/content/dam/tsg-global/tsg_global_content_root/tsg_root/content/passports/en/alertswarnings/japan-travel-advisory.json",
+    "https://www.gov.uk/api/content/foreign-travel-advice/japan",
     { signal: AbortSignal.timeout(15000) }
   );
   if (advRes.ok) {
     const advJson = await advRes.json();
-    const level = advJson?.advisoryLevel ?? null;
-    const message = advJson?.message ?? null;
-    if (level) {
-      advisory = { level, message, source: "US State Department" };
-      console.log(`Japan advisory: Level ${level} — ${message ?? "(no message)"}`);
-    }
+    const alerts = advJson?.details?.alert_status ?? [];
+    const updatedAt = advJson?.details?.updated_at ?? null;
+    const changeDesc = advJson?.details?.change_description ?? null;
+    // No active alerts = safe to travel normally
+    const level = alerts.length === 0 ? 1 : 3;
+    const message = alerts.length === 0
+      ? "No active travel alerts. Exercise normal precautions."
+      : `Active alerts: ${alerts.join(", ")}`;
+    advisory = { level, message, alerts, updatedAt, changeDesc, source: "UK FCDO" };
+    console.log(`Japan advisory: Level ${level} — ${message}`);
   } else {
-    console.error(`State Dept advisory returned ${advRes.status}`);
+    console.error(`FCDO advisory returned ${advRes.status}`);
   }
 } catch (err) {
   console.error("Travel advisory fetch failed:", err.message);
 }
 
-// Fallback: if State Dept fails, use a static known-safe default rather than dropping the field
+// Fallback: static safe default (Japan is consistently Level 1)
 if (!advisory) {
-  advisory = { level: 1, message: "Exercise normal precautions.", source: "US State Department (cached fallback)" };
-  console.log("Using static advisory fallback (Level 1 — Japan is consistently safe)");
+  advisory = { level: 1, message: "Exercise normal precautions.", source: "FCDO (cached fallback)" };
+  console.log("Using static advisory fallback (Level 1)");
 }
 
 // ── Write output ─────────────────────────────────────────────────────
