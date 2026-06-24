@@ -1,4 +1,4 @@
-import { ArrowRight, AlertTriangle, PartyPopper, AlertOctagon } from "lucide-react";
+import { ArrowRight, AlertTriangle, PartyPopper, AlertOctagon, Utensils } from "lucide-react";
 import { useState, useEffect } from "react";
 import { DAYS } from "../data/itinerary";
 import { BOOKINGS } from "../data/bookings";
@@ -6,6 +6,7 @@ import { useBookingsSync } from "../hooks/useBookingsSync";
 import { useCrewSync } from "../hooks/useCrewSync";
 import { useCrewChat } from "../hooks/useCrewChat";
 import { useJMAAlerts } from "../hooks/useJMAAlerts";
+import { useDiningAlerts } from "../hooks/useDiningAlerts";
 import { CREW } from "../hooks/useIdentity";
 import { FIREBASE_ENABLED } from "../lib/firebase";
 import { QuickPoll } from "./QuickPoll";
@@ -98,6 +99,7 @@ function PreTripDashboard() {
   const { isDone } = useBookingsSync();
   const { crew } = useCrewSync();
   const { alerts: jmaAlerts } = useJMAAlerts();
+  const { alerts: diningAlerts } = useDiningAlerts();
 
   const pendingBookings = BOOKINGS.filter((b) => !isDone(b.id))
     .sort((a, b) => a.deadline.localeCompare(b.deadline))
@@ -199,6 +201,27 @@ function PreTripDashboard() {
       )}
 
       {/* Travel Intel + AI Briefing */}
+      {diningAlerts.length > 0 && (
+        <div className="bg-emerald-500/20 border border-emerald-500/50 rounded-2xl p-4 mb-4">
+          <div className="flex items-center gap-2 mb-2">
+            <div className="animate-pulse bg-emerald-500 rounded-full p-1 text-black">
+              <Utensils size={16} />
+            </div>
+            <h3 className="text-emerald-100 font-bold text-sm">Dining Cancellation Found!</h3>
+          </div>
+          {diningAlerts.map((alert, idx) => (
+            <div key={idx} className="bg-black/40 rounded-lg p-3 mt-2 flex justify-between items-center">
+              <div>
+                <p className="font-bold text-white text-sm">{alert.restaurant}</p>
+                <p className="text-emerald-300 text-xs mt-1">Available: {alert.slots.join(", ")}</p>
+              </div>
+              <a href={alert.url} target="_blank" rel="noopener noreferrer" className="bg-emerald-500 hover:bg-emerald-400 text-black px-3 py-1.5 rounded font-bold text-xs transition-colors">
+                Book Now
+              </a>
+            </div>
+          ))}
+        </div>
+      )}
       {jmaAlerts.length > 0 && (
         <div className="bg-orange-500/20 border border-orange-500/50 rounded-2xl p-4 mb-4 flex items-start gap-3">
           <AlertOctagon className="text-orange-400 shrink-0 mt-0.5" size={20} />
