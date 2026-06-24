@@ -32,7 +32,7 @@ const LEGS = [
     startISO: "2026-12-15",
     endISO: "2026-12-21",
     searchUrl:
-      "https://www.airbnb.com/s/Shinjuku--Tokyo--Japan/homes" +
+      "https://www.airbnb.com/s/Tokyo--Japan/homes" +
       "?checkin=2026-12-15&checkout=2026-12-21&adults=8" +
       "&room_types[]=Entire+home%2Fapt&min_bedrooms=3&min_bathrooms=2",
   },
