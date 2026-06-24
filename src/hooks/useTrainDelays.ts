@@ -7,7 +7,7 @@ export type TrainDelay = {
 };
 
 // Lines we actually care about for this trip
-const CRITICAL_LINES = ["山手線", "東海道新幹線", "中央線", "大阪環状線", "御堂筋線", "銀座線", "丸ノ内線"];
+export const CRITICAL_LINES = ["山手線", "東海道新幹線", "中央線", "大阪環状線", "御堂筋線", "銀座線", "丸ノ内線"];
 
 export function useTrainDelays() {
   const [delayedLines, setDelayedLines] = useState<TrainDelay[]>([]);
@@ -24,7 +24,7 @@ export function useTrainDelays() {
       .then((data) => {
         if (!mounted) return;
 
-        const delays: TrainDelay[] = data.map((item: any) => ({
+        const delays: TrainDelay[] = data.map((item: { name: string; company: string; source: string }) => ({
           name: item.name,
           company: item.company,
           source: item.source

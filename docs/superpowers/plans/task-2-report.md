@@ -22,3 +22,7 @@ Successfully implemented real-time transit delay monitoring by integrating the T
 
 ## Concerns
 - No significant concerns. The silent fallback behavior requested in the brief works as intended, meaning network disruptions to `rti-giken.jp` will naturally result in no banners being shown.
+## Task 2 Fixes
+1. Replaced `any` with `{ name: string; company: string; source: string }` in `src/hooks/useTrainDelays.ts` data mapping.
+2. Exported `CRITICAL_LINES` from `src/hooks/useTrainDelays.ts` and imported it into `src/components/Nav.tsx` to eliminate duplicated magic strings.
+3. Fixed layout overlap between the transit alert banner and main header by wrapping them in a common `fixed top-0 flex flex-col` container so they stack correctly without overlapping. Preserved mobile safe-area paddings.
