@@ -7,6 +7,7 @@ on:
 
 permissions:
   contents: write
+  issues: write
 
 jobs:
   refresh:
@@ -20,9 +21,6 @@ jobs:
 
       - name: Install dependencies
         run: npm ci
-
-      - name: Install Playwright Chromium
-        run: npx playwright install chromium --with-deps
 
       - name: Refresh Reddit feed
         run: node scripts/refresh-reddit.mjs || echo "Reddit refresh failed — keeping stale data"
@@ -49,12 +47,19 @@ jobs:
           NVIDIA_NIM_API_KEY: ${{ secrets.NVIDIA_NIM_API_KEY }}
           LAST30DAYS_PATH: /tmp/last30days-skill/scripts/last30days.py
 
-      - name: Refresh Airbnb Stays
-        run: node scripts/refresh-stays-search.mjs || echo "Airbnb stays refresh failed — keeping stale data"
-
       - name: Commit and push if changed
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add public/reddit-alerts.json public/weather.json public/travel-intel.json public/crew-briefing.json public/itinerary-optimizations.json public/stays-live.json
+          git add public/reddit-alerts.json public/weather.json public/travel-intel.json public/crew-briefing.json public/itinerary-optimizations.json
           git diff --cached --quiet || (git commit -m "chore: auto-update content feeds [bot]" && git pull --rebase && git push)
+
+      - name: Notify on failure
+        if: failure()
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh issue create \
+            --title "⚠️ ${{ github.workflow }} failed $(date -u +%Y-%m-%d)" \
+            --body "Run: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}" \
+            --label "bot-failure" 2>/dev/null || true

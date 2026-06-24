@@ -285,6 +285,17 @@ async function main() {
     const all = parseSearchHtml(html, leg.nights);
     console.log(`  Found ${all.length} listings with prices`);
 
+    if (all.length === 0) {
+      console.warn(`  WARNING: 0 listings parsed for ${leg.city} — possible bot challenge page. Keeping previous data.`);
+      const prevLeg = prevData?.legs?.find((l) => l.id === leg.id);
+      if (prevLeg) {
+        console.log(`  Preserved previous data for ${leg.city} (${prevLeg.options?.length ?? 0} listings)`);
+        legs.push(prevLeg);
+      }
+      if (i < LEGS.length - 1) await sleep(4000);
+      continue;
+    }
+
     // Score and sort
     const scored = all
       .map((l) => ({ ...l, _score: score(l) }))
@@ -349,6 +360,12 @@ async function main() {
     totalDropped,
     legs,
   };
+
+  const legsWithOptions = legs.filter((l) => l.options?.length > 0);
+  if (legsWithOptions.length === 0) {
+    console.error("ERROR: All 3 legs have 0 options after scrape — refusing to overwrite stays-live.json. Keeping stale data.");
+    process.exit(1);
+  }
 
   writeFileSync(OUT_PATH, JSON.stringify(output, null, 2));
   console.log(`\nWrote ${legs.length} legs to ${OUT_PATH}`);

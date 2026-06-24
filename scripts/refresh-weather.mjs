@@ -1,5 +1,20 @@
 import { writeFileSync } from "fs";
 
+async function fetchWithRetry(url, opts = {}, retries = 3) {
+  for (let attempt = 1; attempt <= retries; attempt++) {
+    try {
+      const res = await fetch(url, { signal: AbortSignal.timeout(15000), ...opts });
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      return res;
+    } catch (err) {
+      if (attempt === retries) throw err;
+      const wait = attempt * 1500;
+      console.warn(`Fetch attempt ${attempt} failed: ${err.message} — retrying in ${wait}ms`);
+      await new Promise((r) => setTimeout(r, wait));
+    }
+  }
+}
+
 // Same three bases the app uses (from src/hooks/useWeather.ts)
 const BASES = {
   Tokyo: [35.6896, 139.7006],
@@ -19,7 +34,7 @@ const url =
 
 console.log("Fetching Open-Meteo forecast for Tokyo/Kyoto/Osaka...");
 
-const res = await fetch(url, { signal: AbortSignal.timeout(15000) });
+const res = await fetchWithRetry(url);
 
 if (!res.ok) {
   console.error(`Open-Meteo returned ${res.status}`);

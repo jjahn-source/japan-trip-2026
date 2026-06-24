@@ -82,7 +82,11 @@ try {
   });
 
   if (!res.ok) {
-    console.error(`NIM API returned ${res.status}: ${await res.text()}`);
+    if (res.status === 401 || res.status === 403) {
+      console.error(`FATAL: NVIDIA_NIM_API_KEY is expired or invalid (HTTP ${res.status}). Update the secret at GitHub > Settings > Secrets and variables > Actions.`);
+    } else {
+      console.error(`NIM API returned ${res.status}: ${await res.text()}`);
+    }
     process.exit(1);
   }
 

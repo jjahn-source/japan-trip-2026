@@ -58,7 +58,7 @@ if (existsSync(last30DaysPath)) {
   console.log(`Running last30days.py for topic: "${topic}"...`);
   try {
     const cmd = `python3 "${last30DaysPath}" "${topic}" --emit=json --quick`;
-    const stdout = execSync(cmd, { encoding: "utf-8", maxBuffer: 10 * 1024 * 1024 });
+    const stdout = execSync(cmd, { encoding: "utf-8", maxBuffer: 10 * 1024 * 1024, timeout: 60000 });
     const firstCurly = stdout.indexOf("{");
     const lastCurly = stdout.lastIndexOf("}");
     if (firstCurly !== -1 && lastCurly !== -1) {
@@ -160,7 +160,11 @@ try {
   });
 
   if (!res.ok) {
-    console.error(`NIM API returned ${res.status}: ${await res.text()}`);
+    if (res.status === 401 || res.status === 403) {
+      console.error(`FATAL: NVIDIA_NIM_API_KEY is expired or invalid (HTTP ${res.status}). Update the secret at GitHub > Settings > Secrets and variables > Actions.`);
+    } else {
+      console.error(`NIM API returned ${res.status}: ${await res.text()}`);
+    }
     process.exit(1);
   }
 

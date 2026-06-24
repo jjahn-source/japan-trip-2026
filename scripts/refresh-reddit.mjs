@@ -247,7 +247,11 @@ Select at most 5 posts. If none are relevant, return { "selected": [] }.`,
         console.log("GLM 5.1 response contained no JSON object — using unfiltered fallback");
       }
     } else {
-      console.error(`NIM API returned ${nimRes.status}: ${await nimRes.text()}`);
+      if (nimRes.status === 401 || nimRes.status === 403) {
+        console.error(`FATAL: NVIDIA_NIM_API_KEY is expired or invalid (HTTP ${nimRes.status}). Update the secret at GitHub > Settings > Secrets and variables > Actions.`);
+      } else {
+        console.error(`NIM API returned ${nimRes.status}: ${await nimRes.text()}`);
+      }
     }
   } catch (err) {
     console.error("NIM curation failed:", err.message);

@@ -1,21 +1,32 @@
 import { writeFileSync } from "fs";
 
+async function fetchWithRetry(url, opts = {}, retries = 3) {
+  for (let attempt = 1; attempt <= retries; attempt++) {
+    try {
+      const res = await fetch(url, { signal: AbortSignal.timeout(15000), ...opts });
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      return res;
+    } catch (err) {
+      if (attempt === retries) throw err;
+      const wait = attempt * 1500;
+      console.warn(`Fetch attempt ${attempt} failed: ${err.message} — retrying in ${wait}ms`);
+      await new Promise((r) => setTimeout(r, wait));
+    }
+  }
+}
+
 // ── Exchange rate: Frankfurter (free, no key, ECB data) ──────────────
 let exchangeRate = null;
 try {
   console.log("Fetching USD→JPY exchange rate...");
-  const rateRes = await fetch("https://api.frankfurter.dev/v1/latest?base=USD&symbols=JPY", {
-    signal: AbortSignal.timeout(10000),
-  });
-  if (rateRes.ok) {
-    const rateJson = await rateRes.json();
-    const jpy = rateJson.rates?.JPY;
-    if (jpy) {
-      exchangeRate = { usd_jpy: jpy, source: "ECB via Frankfurter", date: rateJson.date };
-      console.log(`USD→JPY: ¥${jpy}`);
-    }
+  const rateRes = await fetchWithRetry("https://api.frankfurter.dev/v1/latest?base=USD&symbols=JPY");
+  const rateJson = await rateRes.json();
+  const jpy = rateJson.rates?.JPY;
+  if (jpy && jpy > 50 && jpy < 300) {
+    exchangeRate = { usd_jpy: jpy, source: "ECB via Frankfurter", date: rateJson.date };
+    console.log(`USD→JPY: ¥${jpy}`);
   } else {
-    console.error(`Frankfurter returned ${rateRes.status}`);
+    console.warn(`USD/JPY rate ${jpy} is out of expected range (50–300) — ignoring`);
   }
 } catch (err) {
   console.error("Exchange rate fetch failed:", err.message);
