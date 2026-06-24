@@ -1,10 +1,11 @@
-import { ArrowRight, AlertTriangle, PartyPopper } from "lucide-react";
+import { ArrowRight, AlertTriangle, PartyPopper, AlertOctagon } from "lucide-react";
 import { useState, useEffect } from "react";
 import { DAYS } from "../data/itinerary";
 import { BOOKINGS } from "../data/bookings";
 import { useBookingsSync } from "../hooks/useBookingsSync";
 import { useCrewSync } from "../hooks/useCrewSync";
 import { useCrewChat } from "../hooks/useCrewChat";
+import { useJMAAlerts } from "../hooks/useJMAAlerts";
 import { CREW } from "../hooks/useIdentity";
 import { FIREBASE_ENABLED } from "../lib/firebase";
 import { QuickPoll } from "./QuickPoll";
@@ -96,6 +97,7 @@ function PreTripDashboard() {
   const until = Math.max(0, daysBetween(today, d0.date));
   const { isDone } = useBookingsSync();
   const { crew } = useCrewSync();
+  const { alerts: jmaAlerts } = useJMAAlerts();
 
   const pendingBookings = BOOKINGS.filter((b) => !isDone(b.id))
     .sort((a, b) => a.deadline.localeCompare(b.deadline))
@@ -197,6 +199,19 @@ function PreTripDashboard() {
       )}
 
       {/* Travel Intel + AI Briefing */}
+      {jmaAlerts.length > 0 && (
+        <div className="bg-orange-500/20 border border-orange-500/50 rounded-2xl p-4 mb-4 flex items-start gap-3">
+          <AlertOctagon className="text-orange-400 shrink-0 mt-0.5" size={20} />
+          <div>
+            <h3 className="text-orange-100 font-bold text-sm mb-1">JMA Official Weather Advisory</h3>
+            <ul className="text-orange-200/80 text-xs list-disc pl-4">
+              {jmaAlerts.map((a, i) => (
+                <li key={i}>{a.name} active for {a.area}</li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      )}
       <TravelIntelPanel />
       <CrewBriefingPanel />
 
