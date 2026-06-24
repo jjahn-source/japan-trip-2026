@@ -57,7 +57,9 @@ export function useStaysLive() {
 
   useEffect(() => {
     if (cache) return;
-    fetch(STATIC_URL)
+    // Add cache-busting query param so mobile browsers don't aggressively cache the JSON
+    const fetchUrl = `${STATIC_URL}?t=${Date.now()}`;
+    fetch(fetchUrl, { cache: "no-store" })
       .then((r) => (r.ok ? r.json() : null))
       .then((json: StaysLiveData | null) => {
         if (json?.legs?.length) {
