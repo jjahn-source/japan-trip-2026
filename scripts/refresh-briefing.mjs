@@ -10,7 +10,7 @@ if (!NIM_API_KEY && existsSync(".env.local")) {
 const NIM_BASE = "https://integrate.api.nvidia.com/v1/chat/completions";
 const NIM_MODEL = "z-ai/glm-5.1";
 const OUTPUT = "public/crew-briefing.json";
-const MIN_AGE_MS = 6 * 24 * 60 * 60 * 1000; // 6 days
+const MIN_AGE_MS = 6 * 60 * 60 * 1000; // 6 hours
 
 // ── Self-throttle: skip if recent briefing exists ────────────────────
 if (existsSync(OUTPUT)) {
@@ -18,8 +18,8 @@ if (existsSync(OUTPUT)) {
     const existing = JSON.parse(readFileSync(OUTPUT, "utf-8"));
     const age = Date.now() - new Date(existing.generatedAt).getTime();
     if (age < MIN_AGE_MS) {
-      const daysAgo = Math.floor(age / (24 * 60 * 60 * 1000));
-      console.log(`Briefing is ${daysAgo}d old (< 6d) — skipping generation`);
+      const hoursAgo = Math.floor(age / (60 * 60 * 1000));
+      console.log(`Briefing is ${hoursAgo}h old (< 6h) — skipping generation`);
       process.exit(0);
     }
   } catch {}
@@ -78,7 +78,7 @@ try {
       Authorization: `Bearer ${NIM_API_KEY}`,
     },
     body: JSON.stringify(body),
-    signal: AbortSignal.timeout(30000),
+    signal: AbortSignal.timeout(90000),
   });
 
   if (!res.ok) {

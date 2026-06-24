@@ -206,7 +206,7 @@ Select at most 5 posts. If none are relevant, return { "selected": [] }.`,
         Authorization: `Bearer ${NIM_API_KEY}`,
       },
       body: JSON.stringify(body),
-      signal: AbortSignal.timeout(30000),
+      signal: AbortSignal.timeout(90000),
     });
 
     if (nimRes.ok) {

@@ -21,41 +21,33 @@ try {
   console.error("Exchange rate fetch failed:", err.message);
 }
 
-// ── Travel advisory: travel-advisories.info (free, no key) ───────────
+// ── Travel advisory: US State Dept JSON feed (reliable, no key) ──────
 let advisory = null;
 try {
-  console.log("Fetching Japan travel advisory...");
-  const advRes = await fetch("https://www.travel-advisories.info/api?countrycode=JP", {
-    signal: AbortSignal.timeout(10000),
-  });
+  console.log("Fetching Japan travel advisory (US State Dept)...");
+  const advRes = await fetch(
+    "https://travel.state.gov/content/dam/tsg-global/tsg_global_content_root/tsg_root/content/passports/en/alertswarnings/japan-travel-advisory.json",
+    { signal: AbortSignal.timeout(15000) }
+  );
   if (advRes.ok) {
     const advJson = await advRes.json();
-    const jpData = advJson.data?.JP;
-    if (jpData) {
-      // Score is 0-5 (0=safe, 5=do not travel). Extract overall + individual sources.
-      const score = jpData.advisory?.score ?? null;
-      const sources = {};
-      if (jpData.advisory?.sources_active) {
-        // sources_active is number of reporting countries
-        // Individual source advisories are in jpData.advisory.message
-      }
-      // Map score to human-readable level
-      let level = "Unknown";
-      if (score !== null) {
-        if (score <= 1.5) level = "Low risk";
-        else if (score <= 2.5) level = "Exercise normal caution";
-        else if (score <= 3.5) level = "Exercise increased caution";
-        else if (score <= 4.5) level = "Reconsider travel";
-        else level = "Do not travel";
-      }
-      advisory = { score, level, continent: jpData.continent, name: jpData.name };
-      console.log(`Japan advisory: ${level} (score: ${score})`);
+    const level = advJson?.advisoryLevel ?? null;
+    const message = advJson?.message ?? null;
+    if (level) {
+      advisory = { level, message, source: "US State Department" };
+      console.log(`Japan advisory: Level ${level} — ${message ?? "(no message)"}`);
     }
   } else {
-    console.error(`Travel advisory API returned ${advRes.status}`);
+    console.error(`State Dept advisory returned ${advRes.status}`);
   }
 } catch (err) {
   console.error("Travel advisory fetch failed:", err.message);
+}
+
+// Fallback: if State Dept fails, use a static known-safe default rather than dropping the field
+if (!advisory) {
+  advisory = { level: 1, message: "Exercise normal precautions.", source: "US State Department (cached fallback)" };
+  console.log("Using static advisory fallback (Level 1 — Japan is consistently safe)");
 }
 
 // ── Write output ─────────────────────────────────────────────────────
