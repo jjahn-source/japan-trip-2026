@@ -66,7 +66,7 @@ const LEGS = [
   },
 ];
 
-const TOP_N = 6;
+const TOP_N = 12;
 const OUT_PATH = "public/stays-live.json";
 
 function sleep(ms) {
