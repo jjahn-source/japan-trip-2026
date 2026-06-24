@@ -56,6 +56,18 @@ export const STAY_LEGS: StayLeg[] = [
       "https://www.airbnb.com/s/Tokyo--Japan/homes?checkin=2026-12-15&checkout=2026-12-21&adults=8&room_types%5B%5D=Entire+home%2Fapt&min_bedrooms=3&min_bathrooms=2",
     options: [
       {
+        id: "1081600201241889397",
+        name: "10 guests, 4 bedrooms, 7 beds, 2 baths",
+        area: "Toshima-ku (Ikebukuro)",
+        url: "https://www.airbnb.com/rooms/1081600201241889397?check_in=2026-12-15&check_out=2026-12-21&adults=8",
+        beds: "4BR · 7 beds · 2 baths",
+        rating: "New",
+        totalUSD: 1600,
+        walk: "Quiet neighborhood in Toshima-ku, near Ikebukuro",
+        tags: ["TOSHIMA-KU", "7 BEDS"],
+        note: "Cheaper house that sleeps 10 with 4 bedrooms. It is located further out in Toshima-ku, but great for a group."
+      },
+      {
         id: "11981272",
         name: "4 Rooms / 3.5 Baths · 1 Stop to Shinjuku",
         area: "Nakano edge (1 stop to Shinjuku)",
