@@ -1,7 +1,7 @@
 {
-  "fetchedAt": "2026-06-24T16:16:53.404Z",
-  "totalNew": 16,
-  "totalDropped": 16,
+  "fetchedAt": "2026-06-24T16:32:28.219Z",
+  "totalNew": 9,
+  "totalDropped": 9,
   "legs": [
     {
       "id": "tokyo",
@@ -12,7 +12,7 @@
       "emoji": "🌃",
       "startISO": "2026-12-15",
       "endISO": "2026-12-21",
-      "searchUrl": "https://www.airbnb.com/s/Shinjuku--Tokyo--Japan/homes?checkin=2026-12-15&checkout=2026-12-21&adults=8&room_types[]=Entire+home%2Fapt&min_bedrooms=3&min_bathrooms=2",
+      "searchUrl": "https://www.airbnb.com/s/Tokyo--Japan/homes?checkin=2026-12-15&checkout=2026-12-21&adults=8&room_types[]=Entire+home%2Fapt&min_bedrooms=3&min_bathrooms=2",
       "options": [
         {
           "id": "11981272",
@@ -31,36 +31,132 @@
           "ppCost": 202
         },
         {
-          "id": "40952860",
-          "name": "15 min 新宿｜70㎡ ｜10ppl ｜many facilities nearby｜kids",
-          "totalUSD": 2785,
+          "id": "1416434810680072562",
+          "name": "140㎡/6minutes from station/4LDK/Toilet・ShowerRoom3",
+          "totalUSD": 1515,
           "nights": 6,
-          "bedrooms": 3,
-          "beds": 6,
-          "baths": 2,
-          "rating": 4.77,
-          "reviews": 81,
-          "guestFav": false,
+          "bedrooms": 4,
+          "beds": 11,
+          "baths": 3,
+          "rating": 5,
+          "reviews": 37,
+          "guestFav": true,
           "superhost": false,
-          "imgUrl": "https://a0.muscache.com/im/pictures/hosting/Hosting-40952860/original/c336f482-f000-4dca-850a-38fd96028768.png?im_w=720",
-          "url": "https://www.airbnb.com/rooms/40952860?check_in=2026-12-15&check_out=2026-12-21&adults=8",
-          "ppCost": 348
+          "imgUrl": "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTQxNjQzNDgxMDY4MDA3MjU2Mg==/original/8e40f774-678d-4df3-8811-6c3f6a1dcb04.jpeg?im_w=720",
+          "url": "https://www.airbnb.com/rooms/1416434810680072562?check_in=2026-12-15&check_out=2026-12-21&adults=8",
+          "ppCost": 189
         },
         {
-          "id": "50964247",
-          "name": "N) 2 Shower /2Toilet /5bedroom /2Kitchen /N-HOUSE",
-          "totalUSD": 2437,
+          "id": "1551815032858824863",
+          "name": "Open Sale • New Designer Villa • Asakusa Skytree",
+          "totalUSD": 1555,
           "nights": 6,
-          "bedrooms": 5,
-          "beds": 11,
+          "bedrooms": 3,
+          "beds": 10,
           "baths": 2,
-          "rating": 4.52,
-          "reviews": 62,
+          "rating": 5,
+          "reviews": 29,
+          "guestFav": true,
+          "superhost": false,
+          "imgUrl": "https://a0.muscache.com/im/pictures/airbnb-platform-assets/AirbnbPlatformAssets-GuestFavorite/original/4d090f93-f9a5-4f06-95e4-ca737c0d0ab5.png?im_w=240",
+          "url": "https://www.airbnb.com/rooms/1551815032858824863?check_in=2026-12-15&check_out=2026-12-21&adults=8",
+          "ppCost": 194
+        },
+        {
+          "id": "1569400351992603857",
+          "name": "Spacious private 120 ㎡, 10 beds for 15 people, newly built, 4 minutes by train to Skytree. Bathroom &amp; shower room.",
+          "totalUSD": 1856,
+          "nights": 6,
+          "bedrooms": 4,
+          "beds": 10,
+          "baths": 3.5,
+          "rating": 4.79,
+          "reviews": 33,
+          "guestFav": false,
+          "superhost": true,
+          "imgUrl": "https://a0.muscache.com/im/pictures/hosting/Hosting-1569400351992603857/original/e9602b70-3ce1-4391-9591-d03bbbfbb07e.png?im_w=720",
+          "url": "https://www.airbnb.com/rooms/1569400351992603857?check_in=2026-12-15&check_out=2026-12-21&adults=8",
+          "ppCost": 232
+        },
+        {
+          "id": "1617971641857413700",
+          "name": "【Rooftop BBQ】Jujo Ginza St 4BR 120㎡PH",
+          "totalUSD": 1294,
+          "nights": 6,
+          "bedrooms": 4,
+          "beds": 9,
+          "baths": 2,
+          "rating": 4.67,
+          "reviews": 12,
           "guestFav": false,
           "superhost": false,
-          "imgUrl": "https://a0.muscache.com/im/pictures/miso/Hosting-50964247/original/2f7d46ca-4611-440e-862e-b8944213c87e.jpeg?im_w=720",
-          "url": "https://www.airbnb.com/rooms/50964247?check_in=2026-12-15&check_out=2026-12-21&adults=8",
-          "ppCost": 305
+          "imgUrl": "https://a0.muscache.com/im/pictures/hosting/Hosting-1617971641857413700/original/0f0d977b-7288-45a5-ad9d-d0383250fcad.png?im_w=720",
+          "url": "https://www.airbnb.com/rooms/1617971641857413700?check_in=2026-12-15&check_out=2026-12-21&adults=8",
+          "ppCost": 162
+        },
+        {
+          "id": "1399792204604581129",
+          "name": "1 train to Haneda and Narita Airports | 10 minutes to Asakusa | 3 bedrooms | Each bedroom has a shower | Max 12 people",
+          "totalUSD": 2704,
+          "nights": 6,
+          "bedrooms": 3,
+          "beds": null,
+          "baths": 3,
+          "rating": 5,
+          "reviews": 31,
+          "guestFav": true,
+          "superhost": false,
+          "imgUrl": "https://a0.muscache.com/im/pictures/airbnb-platform-assets/AirbnbPlatformAssets-GuestFavorite/original/4d090f93-f9a5-4f06-95e4-ca737c0d0ab5.png?im_w=240",
+          "url": "https://www.airbnb.com/rooms/1399792204604581129?check_in=2026-12-15&check_out=2026-12-21&adults=8",
+          "ppCost": 338
+        },
+        {
+          "id": "1619395424990911417",
+          "name": "3-min to Kanegafuchi | Free Parking | Private 4LDK",
+          "totalUSD": 1495,
+          "nights": 6,
+          "bedrooms": 4,
+          "beds": 7,
+          "baths": 2.5,
+          "rating": 5,
+          "reviews": 4,
+          "guestFav": false,
+          "superhost": true,
+          "imgUrl": "https://a0.muscache.com/im/pictures/hosting/Hosting-1619395424990911417/original/69489365-f34d-4b31-b6b3-50982b9de9ef.jpeg?im_w=720",
+          "url": "https://www.airbnb.com/rooms/1619395424990911417?check_in=2026-12-15&check_out=2026-12-21&adults=8",
+          "ppCost": 187
+        },
+        {
+          "id": "1700989316781771162",
+          "name": "Tokyo Art House | Skytree View | Family Memories",
+          "totalUSD": 1751,
+          "nights": 6,
+          "bedrooms": 3,
+          "beds": 7,
+          "baths": 2,
+          "rating": 5,
+          "reviews": 6,
+          "guestFav": true,
+          "superhost": false,
+          "imgUrl": "https://a0.muscache.com/im/pictures/hosting/Hosting-1700989316781771162/original/0091873d-0708-4272-877a-ff3c8968b17a.jpeg?im_w=720",
+          "url": "https://www.airbnb.com/rooms/1700989316781771162?check_in=2026-12-15&check_out=2026-12-21&adults=8",
+          "ppCost": 219
+        },
+        {
+          "id": "1018486271872870033",
+          "name": "8 min to station, new 102 m² / Skytree &amp; Asakusa / 4 BR / family / private detached house / direct access to airport / calm environment",
+          "totalUSD": 3137,
+          "nights": 6,
+          "bedrooms": 4,
+          "beds": 7,
+          "baths": 2.5,
+          "rating": 5,
+          "reviews": 36,
+          "guestFav": true,
+          "superhost": false,
+          "imgUrl": "https://a0.muscache.com/im/pictures/airbnb-platform-assets/AirbnbPlatformAssets-GuestFavorite/original/4d090f93-f9a5-4f06-95e4-ca737c0d0ab5.png?im_w=240",
+          "url": "https://www.airbnb.com/rooms/1018486271872870033?check_in=2026-12-15&check_out=2026-12-21&adults=8",
+          "ppCost": 392
         },
         {
           "id": "1460406426159210801",
@@ -79,20 +175,20 @@
           "ppCost": 437
         },
         {
-          "id": "1517052329343209381",
-          "name": "Renovated Shinjuku House, 3 min walk to station",
-          "totalUSD": 3883,
+          "id": "1659549082076801183",
+          "name": "5 minutes to Shibuya Train, 8 minutes on foot to Sangenjaya Station, 180㎡ (1937 sq ft), 8 bedrooms, 4 showers",
+          "totalUSD": 3082,
           "nights": 6,
-          "bedrooms": 4,
-          "beds": 8,
-          "baths": 2,
-          "rating": 4.89,
-          "reviews": 28,
+          "bedrooms": 8,
+          "beds": 14,
+          "baths": 4,
+          "rating": 5,
+          "reviews": 15,
           "guestFav": true,
           "superhost": false,
-          "imgUrl": "https://a0.muscache.com/im/pictures/hosting/Hosting-1517052329343209381/original/b9cf152f-b2e1-4715-9a8b-530ae385cb8b.jpeg?im_w=720",
-          "url": "https://www.airbnb.com/rooms/1517052329343209381?check_in=2026-12-15&check_out=2026-12-21&adults=8",
-          "ppCost": 485
+          "imgUrl": "https://a0.muscache.com/im/pictures/hosting/Hosting-1659549082076801183/original/be06cceb-dd2f-4f26-bc00-4dfc76fe7195.jpeg?im_w=720",
+          "url": "https://www.airbnb.com/rooms/1659549082076801183?check_in=2026-12-15&check_out=2026-12-21&adults=8",
+          "ppCost": 385
         },
         {
           "id": "1645306819614363751",
@@ -109,164 +205,116 @@
           "imgUrl": "https://a0.muscache.com/im/pictures/hosting/Hosting-1645306819614363751/original/4e292ee6-babd-49ae-ba06-ce1f5ee73cc8.jpeg?im_w=720",
           "url": "https://www.airbnb.com/rooms/1645306819614363751?check_in=2026-12-15&check_out=2026-12-21&adults=8",
           "ppCost": 446
-        },
-        {
-          "id": "1625231944908108911",
-          "name": "Shinjuku Kabukicho, 66 m², 3 bedrooms, 2 bathrooms, 2 toilets, 11 minutes to Shinjuku Station, 5 minutes to Higashi-Shinjuku, 5 minutes to Shinjuku-Sanchome, direct access to Shibuya, Harajuku, Akihabara",
-          "totalUSD": 3657,
-          "nights": 6,
-          "bedrooms": 3,
-          "beds": 6,
-          "baths": 3,
-          "rating": 4.93,
-          "reviews": 14,
-          "guestFav": true,
-          "superhost": false,
-          "imgUrl": "https://a0.muscache.com/im/pictures/airbnb-platform-assets/AirbnbPlatformAssets-GuestFavorite/original/4d090f93-f9a5-4f06-95e4-ca737c0d0ab5.png?im_w=240",
-          "url": "https://www.airbnb.com/rooms/1625231944908108911?check_in=2026-12-15&check_out=2026-12-21&adults=8",
-          "ppCost": 457
-        },
-        {
-          "id": "1611917089580064705",
-          "name": "Shinjuku Detached home/Shinjuku area 6 min!/mifi",
-          "totalUSD": 3512,
-          "nights": 6,
-          "bedrooms": 5,
-          "beds": 9,
-          "baths": 2,
-          "rating": 5,
-          "reviews": 7,
-          "guestFav": true,
-          "superhost": false,
-          "imgUrl": "https://a0.muscache.com/im/pictures/hosting/Hosting-1611917089580064705/original/1e84660e-7717-42f4-8a8e-ba131cb37776.jpeg?im_w=720",
-          "url": "https://www.airbnb.com/rooms/1611917089580064705?check_in=2026-12-15&check_out=2026-12-21&adults=8",
-          "ppCost": 439
-        },
-        {
-          "id": "1680864306508785603",
-          "name": "New Designer123㎡ Home｜5min Station｜10min Shinjuku",
-          "totalUSD": 2940,
-          "nights": 6,
-          "bedrooms": 4,
-          "beds": 10,
-          "baths": 2,
-          "rating": 5,
-          "reviews": 3,
-          "guestFav": false,
-          "superhost": true,
-          "imgUrl": "https://a0.muscache.com/im/pictures/hosting/Hosting-1680864306508785603/original/1b708f90-1e80-4042-8ece-b4d089e75579.jpeg?im_w=720",
-          "url": "https://www.airbnb.com/rooms/1680864306508785603?check_in=2026-12-15&check_out=2026-12-21&adults=8",
-          "ppCost": 368
-        },
-        {
-          "id": "1649745054647737772",
-          "name": "ZLH34F Cozy, Great-Value Apartment / Convenient Transportation / Near Subway / Shinjuku Business District /",
-          "totalUSD": 1510,
-          "nights": 6,
-          "bedrooms": 3,
-          "beds": 6,
-          "baths": 2,
-          "rating": null,
-          "reviews": null,
-          "guestFav": false,
-          "superhost": false,
-          "imgUrl": "https://a0.muscache.com/im/pictures/hosting/Hosting-1649745054647737772/original/797f32f0-c083-4b30-8753-800b0147c6df.jpeg?im_w=720",
-          "url": "https://www.airbnb.com/rooms/1649745054647737772?check_in=2026-12-15&check_out=2026-12-21&adults=8",
-          "ppCost": 189
-        },
-        {
-          "id": "1710666075466208292",
-          "name": "ISSHUKU Kita-Shinjuku II | 3-story entire house | 4 bedrooms | Up to 11 people | Good access to Shinjuku | Ideal for groups",
-          "totalUSD": 1861,
-          "nights": 6,
-          "bedrooms": 4,
-          "beds": 9,
-          "baths": 2,
-          "rating": null,
-          "reviews": null,
-          "guestFav": false,
-          "superhost": false,
-          "imgUrl": "https://a0.muscache.com/im/pictures/hosting/Hosting-1710666075466208292/original/cbcbb3bd-835d-4249-afe8-83edcecd0208.jpeg?im_w=720",
-          "url": "https://www.airbnb.com/rooms/1710666075466208292?check_in=2026-12-15&check_out=2026-12-21&adults=8",
-          "ppCost": 233
-        },
-        {
-          "id": "1706427922093171198",
-          "name": "Shinjuku 1 Stop｜3min to Hatsudai Sta｜3BR New House",
-          "totalUSD": 2309,
-          "nights": 6,
-          "bedrooms": 3,
-          "beds": 6,
-          "baths": 2,
-          "rating": null,
-          "reviews": null,
-          "guestFav": false,
-          "superhost": true,
-          "imgUrl": "https://a0.muscache.com/im/pictures/hosting/Hosting-1706427922093171198/original/7ab49e44-94cd-41b3-8145-e1d110ab0228.jpeg?im_w=720",
-          "url": "https://www.airbnb.com/rooms/1706427922093171198?check_in=2026-12-15&check_out=2026-12-21&adults=8",
-          "ppCost": 289
         }
       ],
       "changelog": [
         {
           "type": "new",
-          "id": "11981272",
-          "name": "4baths/4rooms /1stop Shinjuku/Whole house",
-          "totalUSD": 1612
+          "id": "1416434810680072562",
+          "name": "140㎡/6minutes from station/4LDK/Toilet・ShowerRoom3",
+          "totalUSD": 1515
         },
         {
           "type": "new",
-          "id": "50964247",
-          "name": "N) 2 Shower /2Toilet /5bedroom /2Kitchen /N-HOUSE",
-          "totalUSD": 2437
+          "id": "1551815032858824863",
+          "name": "Open Sale • New Designer Villa • Asakusa Skytree",
+          "totalUSD": 1555
         },
         {
           "type": "new",
-          "id": "1649745054647737772",
-          "name": "ZLH34F Cozy, Great-Value Apartment / Convenient Transportation / Near Subway / Shinjuku Business District /",
-          "totalUSD": 1510
+          "id": "1569400351992603857",
+          "name": "Spacious private 120 ㎡, 10 beds for 15 people, newly built, 4 minutes by train to Skytree. Bathroom &amp; shower room.",
+          "totalUSD": 1856
         },
         {
           "type": "new",
-          "id": "1710666075466208292",
-          "name": "ISSHUKU Kita-Shinjuku II | 3-story entire house | 4 bedrooms | Up to 11 people | Good access to Shinjuku | Ideal for groups",
-          "totalUSD": 1861
+          "id": "1617971641857413700",
+          "name": "【Rooftop BBQ】Jujo Ginza St 4BR 120㎡PH",
+          "totalUSD": 1294
         },
         {
           "type": "new",
-          "id": "1706427922093171198",
-          "name": "Shinjuku 1 Stop｜3min to Hatsudai Sta｜3BR New House",
-          "totalUSD": 2309
+          "id": "1399792204604581129",
+          "name": "1 train to Haneda and Narita Airports | 10 minutes to Asakusa | 3 bedrooms | Each bedroom has a shower | Max 12 people",
+          "totalUSD": 2704
         },
         {
-          "type": "dropped",
-          "id": "19211909",
-          "name": "120sqm 5LDK 3-Stories House 3BT JR Shin-Okubo 5min",
-          "totalUSD": 4358
+          "type": "new",
+          "id": "1619395424990911417",
+          "name": "3-min to Kanegafuchi | Free Parking | Private 4LDK",
+          "totalUSD": 1495
         },
         {
-          "type": "dropped",
+          "type": "new",
+          "id": "1700989316781771162",
+          "name": "Tokyo Art House | Skytree View | Family Memories",
+          "totalUSD": 1751
+        },
+        {
+          "type": "new",
+          "id": "1018486271872870033",
+          "name": "8 min to station, new 102 m² / Skytree &amp; Asakusa / 4 BR / family / private detached house / direct access to airport / calm environment",
+          "totalUSD": 3137
+        },
+        {
+          "type": "new",
           "id": "1659549082076801183",
           "name": "5 minutes to Shibuya Train, 8 minutes on foot to Sangenjaya Station, 180㎡ (1937 sq ft), 8 bedrooms, 4 showers",
           "totalUSD": 3082
         },
         {
           "type": "dropped",
-          "id": "1299222944081397108",
-          "name": "CityCenter/6MinShinjuku/2Bath/Parking/6MinwalkSta.",
-          "totalUSD": 5406
+          "id": "40952860",
+          "name": "15 min 新宿｜70㎡ ｜10ppl ｜many facilities nearby｜kids",
+          "totalUSD": 2785
         },
         {
           "type": "dropped",
-          "id": "1547913982354714651",
-          "name": "New! [Shinjuku] 100 ㎡ | 5-minute walk from the station | Private villa | Sleeps up to 14",
-          "totalUSD": 4636
+          "id": "50964247",
+          "name": "N) 2 Shower /2Toilet /5bedroom /2Kitchen /N-HOUSE",
+          "totalUSD": 2437
         },
         {
           "type": "dropped",
-          "id": "1464468887608700677",
-          "name": "200㎡Penthouse/Shinjuku5min / Shibuya17min",
-          "totalUSD": 6152
+          "id": "1517052329343209381",
+          "name": "Renovated Shinjuku House, 3 min walk to station",
+          "totalUSD": 3883
+        },
+        {
+          "type": "dropped",
+          "id": "1625231944908108911",
+          "name": "Shinjuku Kabukicho, 66 m², 3 bedrooms, 2 bathrooms, 2 toilets, 11 minutes to Shinjuku Station, 5 minutes to Higashi-Shinjuku, 5 minutes to Shinjuku-Sanchome, direct access to Shibuya, Harajuku, Akihabara",
+          "totalUSD": 3657
+        },
+        {
+          "type": "dropped",
+          "id": "1611917089580064705",
+          "name": "Shinjuku Detached home/Shinjuku area 6 min!/mifi",
+          "totalUSD": 3512
+        },
+        {
+          "type": "dropped",
+          "id": "1680864306508785603",
+          "name": "New Designer123㎡ Home｜5min Station｜10min Shinjuku",
+          "totalUSD": 2940
+        },
+        {
+          "type": "dropped",
+          "id": "1649745054647737772",
+          "name": "ZLH34F Cozy, Great-Value Apartment / Convenient Transportation / Near Subway / Shinjuku Business District /",
+          "totalUSD": 1510
+        },
+        {
+          "type": "dropped",
+          "id": "1710666075466208292",
+          "name": "ISSHUKU Kita-Shinjuku II | 3-story entire house | 4 bedrooms | Up to 11 people | Good access to Shinjuku | Ideal for groups",
+          "totalUSD": 1861
+        },
+        {
+          "type": "dropped",
+          "id": "1706427922093171198",
+          "name": "Shinjuku 1 Stop｜3min to Hatsudai Sta｜3BR New House",
+          "totalUSD": 2309
         }
       ]
     },
@@ -474,80 +522,7 @@
           "ppCost": 141
         }
       ],
-      "changelog": [
-        {
-          "type": "new",
-          "id": "919029258968660234",
-          "name": "3 bedrooms, max 8  people, 5 mins to station",
-          "totalUSD": 631
-        },
-        {
-          "type": "new",
-          "id": "35134130",
-          "name": "5 min from Kyoto station-瑞(ZUI) Private residence-",
-          "totalUSD": 916
-        },
-        {
-          "type": "new",
-          "id": "38015810",
-          "name": "NijoCastle 99㎡Private Inn 3 Baths Great for Groups",
-          "totalUSD": 1071
-        },
-        {
-          "type": "new",
-          "id": "1369453788527640419",
-          "name": "up to 8,Heated Home, Easy Arashiyama /Gion &amp; Osaka",
-          "totalUSD": 955
-        },
-        {
-          "type": "new",
-          "id": "1606123314583614975",
-          "name": "9-minute direct access to Kyoto Station | Direct access to Shin-Osaka and Kobe | Entire modern building | Near the station | Maximum 11 people | Ideal base for sightseeing in Kansai | Close to Lake Biwa",
-          "totalUSD": 722
-        },
-        {
-          "type": "new",
-          "id": "1627492476077708230",
-          "name": "Kyoto Station 450 meters / Toji Temple 550 meters / Kyoto Aquarium 850 meters / Entire three-story building / Maximum 9 people / Dryer provided / ～Lotus～",
-          "totalUSD": 1089
-        },
-        {
-          "type": "dropped",
-          "id": "1317101540104556001",
-          "name": "KaoriNoTobira/Nijo Castle Art Kyomachi House/1 min walk from bus station/Super large 3 bedrooms 2 bathrooms 2 toilets/Private courtyard",
-          "totalUSD": 1541
-        },
-        {
-          "type": "dropped",
-          "id": "14956154",
-          "name": "【5 min to Gion】Best traditional luxury house",
-          "totalUSD": 2211
-        },
-        {
-          "type": "dropped",
-          "id": "1475840353560585166",
-          "name": "Ancient machiya 164 ㎡ ｜6 min to st ｜Osaka direct",
-          "totalUSD": 1627
-        },
-        {
-          "type": "dropped",
-          "id": "1524371596867690237",
-          "name": "Chiyo Seian, Gion and Shirakawa nearby, Kyoto townhouse, bed warmer, Shigaraki-yaki semi-open-air bath, luxury inn with an atrium, 2-minute walk from Higashiyama Station",
-          "totalUSD": 1639
-        },
-        {
-          "type": "dropped",
-          "id": "1417021250570300382",
-          "name": "[Kamogawa Shorouan] A stay at a higher rank",
-          "totalUSD": 2141
-        },
-        {
-          "type": "dropped",
-          "id": "37767082",
-          "name": "Miyagawacho Samurai Machiya",
-          "totalUSD": 2478
-        }
-      ]
+      "changelog": []
     },
     {
       "id": "osaka",
@@ -753,68 +728,7 @@
           "ppCost": 400
         }
       ],
-      "changelog": [
-        {
-          "type": "new",
-          "id": "30134726",
-          "name": "180m2 Big house for 8-16person from namba 7-10min",
-          "totalUSD": 1163
-        },
-        {
-          "type": "new",
-          "id": "1422327342847970622",
-          "name": "Near Namba Station 119 ㎡/Dotonbori, Shinsaibashi, Kuromon Market all within walking distance/2 baths, 2 toilets",
-          "totalUSD": 1634
-        },
-        {
-          "type": "new",
-          "id": "1559372842880727116",
-          "name": "Wanoie · Meixuan | Single-Family Japanese-Style House in Downtown Osaka, Just a 1-Minute Walk from the Subway Station, 5-Minute Drive to Namba and Shinsaibashi, Accommodates Up to 10 Guests",
-          "totalUSD": 1037
-        },
-        {
-          "type": "new",
-          "id": "1447514833523552850",
-          "name": "New Open!Nipponbashi area /big house/4rooms",
-          "totalUSD": 1275
-        },
-        {
-          "type": "new",
-          "id": "1655686458120297026",
-          "name": "89 m². 3 showers, 3 toilets. 5-minute walk from Nihonbashi Station (Kuromon Exit). 7–12-minute walk from Namba Station, Shinsaibashi, and Dōtonbori. Wifi.",
-          "totalUSD": 814
-        },
-        {
-          "type": "dropped",
-          "id": "1460757086475439285",
-          "name": "Kuromon No. 5/7 beds/KIX direct/Dotonbori/Namba",
-          "totalUSD": 2287
-        },
-        {
-          "type": "dropped",
-          "id": "1292656613096026943",
-          "name": "[Good location] Kuromon Market, Dotonbori within walking distance/85㎡ large space/maximum 12 people/Osaka Castle, USJ very close/Nara Kyoto direct access",
-          "totalUSD": 2354
-        },
-        {
-          "type": "dropped",
-          "id": "1213638244168348184",
-          "name": "Kuromon Market Area Direct to KIX Spacious 3LDK",
-          "totalUSD": 2104
-        },
-        {
-          "type": "dropped",
-          "id": "1289483923807916387",
-          "name": "Walk to Dotonbori｜Sleeps 13｜Private Open-Air Bath",
-          "totalUSD": 2934
-        },
-        {
-          "type": "dropped",
-          "id": "1494937134417603550",
-          "name": "ShinsaibashiArea Station 4 minutes 6 bedrooms 123㎡",
-          "totalUSD": 2996
-        }
-      ]
+      "changelog": []
     }
   ]
 }
