@@ -64,33 +64,50 @@ const allEntries = [];
 for (const sub of subreddits) {
   const url = `https://www.reddit.com/r/${sub}/hot.rss?limit=25`;
   console.log(`Fetching r/${sub}...`);
-  try {
-    const res = await fetch(url, {
-      headers: {
-        "User-Agent": UA,
-        Accept: "application/atom+xml",
-        "Accept-Language": "en-US,en;q=0.9",
-      },
-      signal: AbortSignal.timeout(15000),
-    });
+  let fetched = false;
+  for (let attempt = 1; attempt <= 3; attempt++) {
+    try {
+      const res = await fetch(url, {
+        headers: {
+          "User-Agent": UA,
+          Accept: "application/atom+xml",
+          "Accept-Language": "en-US,en;q=0.9",
+        },
+        signal: AbortSignal.timeout(15000),
+      });
 
-    if (!res.ok) {
-      console.error(`Reddit RSS for r/${sub} returned ${res.status}`);
-      continue;
-    }
+      if (res.status === 429) {
+        const retryAfter = parseInt(res.headers.get("retry-after") || "10", 10);
+        const wait = retryAfter * 1000 || attempt * 5000;
+        console.warn(`Reddit rate-limited r/${sub} (attempt ${attempt}) — waiting ${wait / 1000}s`);
+        await sleep(wait);
+        continue;
+      }
 
-    const xml = await res.text();
-    const entries = [...xml.matchAll(/<entry>([\s\S]*?)<\/entry>/g)].map((m) => m[1]);
-    for (const entryXml of entries) {
-      allEntries.push({ entryXml, subreddit: sub });
+      if (!res.ok) {
+        console.error(`Reddit RSS for r/${sub} returned ${res.status}`);
+        break;
+      }
+
+      const xml = await res.text();
+      const entries = [...xml.matchAll(/<entry>([\s\S]*?)<\/entry>/g)].map((m) => m[1]);
+      for (const entryXml of entries) {
+        allEntries.push({ entryXml, subreddit: sub });
+      }
+      console.log(`Fetched ${entries.length} posts from r/${sub}`);
+      fetched = true;
+      break;
+    } catch (err) {
+      console.error(`Failed to fetch r/${sub} (attempt ${attempt}):`, err.message);
     }
-    console.log(`Fetched ${entries.length} posts from r/${sub}`);
-  } catch (err) {
-    console.error(`Failed to fetch r/${sub}:`, err.message);
   }
 
-  // 1-second delay to avoid triggering rate limits
-  await sleep(1000);
+  if (!fetched) {
+    console.warn(`Skipping r/${sub} after failed attempts`);
+  }
+
+  // Delay between subreddit fetches — Reddit rate-limits CI IPs aggressively
+  await sleep(4000);
 }
 
 if (allEntries.length === 0) {

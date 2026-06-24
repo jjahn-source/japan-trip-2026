@@ -33,56 +33,7 @@ try {
   process.exit(1);
 }
 
-// ── Step 2: Load weather forecast ────────────────────────────────────
-let weatherData = null;
-const weatherPath = join(__dirname, "../public/weather.json");
-if (existsSync(weatherPath)) {
-  try {
-    weatherData = JSON.parse(readFileSync(weatherPath, "utf-8"));
-    console.log("Loaded weather forecast data");
-  } catch (err) {
-    console.error("Failed to parse weather.json:", err.message);
-  }
-}
-
-// Helper to map weather forecast
-function getForecastForDay(weatherData, date, city) {
-  if (!weatherData || !weatherData.cities) return null;
-  const c = city.toLowerCase();
-  let baseName = "Tokyo";
-  if (c.includes("kyoto") || c.includes("nara") || c.includes("uji")) baseName = "Kyoto";
-  else if (c.includes("osaka") || c.includes("hiroshima") || c.includes("himeji") || c.includes("kobe") || c.includes("miyajima")) baseName = "Osaka";
-
-  const baseForecast = weatherData.cities[baseName];
-  if (!baseForecast || !baseForecast.time) return null;
-
-  const idx = baseForecast.time.indexOf(date);
-  if (idx === -1) return null;
-
-  const code = baseForecast.code[idx];
-  let label = "Clear";
-  if (code === 0) label = "Clear";
-  else if (code <= 2) label = "Mostly Sunny";
-  else if (code === 3) label = "Cloudy";
-  else if (code <= 48) label = "Fog";
-  else if (code <= 57) label = "Drizzle";
-  else if (code <= 65) label = "Rain";
-  else if (code <= 67) label = "Freezing Rain";
-  else if (code <= 77) label = "Snow";
-  else if (code <= 82) label = "Showers";
-  else if (code <= 86) label = "Snow Showers";
-  else label = "Thunderstorm";
-
-  return {
-    code,
-    label,
-    tmax: baseForecast.tmax[idx],
-    tmin: baseForecast.tmin[idx],
-    precip: baseForecast.precip[idx],
-  };
-}
-
-// ── Step 3: Load travel intel ────────────────────────────────────────
+// ── Step 2: Load travel intel ────────────────────────────────────────
 let travelIntelData = null;
 const travelIntelPath = join(__dirname, "../public/travel-intel.json");
 if (existsSync(travelIntelPath)) {
@@ -130,24 +81,24 @@ const daysContext = DAYS.map((d) => ({
   title: d.title,
   activities: d.activities.map((a) => ({ time: a.time, title: a.title })),
   alts: d.alts || [],
-  weatherForecast: getForecastForDay(weatherData, d.date, d.city)
 }));
 
 const systemPrompt = `You are a travel assistant optimizing a 16-day Japan trip (Dec 14–29, 2026, Tokyo → Kyoto → Osaka) for a group of 8 friends.
 You are given:
 1. Static itinerary days containing the planned activities and optional rain/energy alternatives (alts).
-2. Current weather forecast data for each day (if available).
-3. Travel intelligence (USD/JPY exchange rate and advisory risk).
-4. Social/web search results from the last 30 days containing recent winter event announcements, crowd alerts (e.g. popular spot booking warnings, tickets sold out), or transit delays.
+2. Travel intelligence (USD/JPY exchange rate and advisory risk).
+3. Social/web search results from the last 30 days containing recent winter event announcements, crowd alerts (e.g. popular spot booking warnings, tickets sold out), or transit delays.
+
+Use your knowledge of typical December weather in Tokyo, Kyoto, and Osaka (cold, dry, occasional rain) to generate weatherAlert fields where relevant (e.g. outdoor-heavy days, early December cold snaps, rain risk on day trips).
 
 Your goal is to output a JSON object containing day-by-day optimizations and alerts, and a list of global tips.
 
 CRITICAL INSTRUCTIONS:
-- You must suggest swaps with alternatives ONLY if there's a reason (e.g. weather forecast shows high rain probability, or social alerts indicate that an outdoor activity will be closed/overcrowded).
+- You must suggest swaps with alternatives ONLY if there's a reason (e.g. typical December rain risk for an outdoor-heavy day, or social alerts indicate that an activity will be closed/overcrowded).
 - The suggested swap's originalActivity must exist in that day's activities.
 - The suggestedAlt must be selected from that day's alts or general contingencies.
 - Only suggest a swap if it is highly relevant. Do not force swaps.
-- If there is a weather alert (e.g. high rain probability, freezing cold), specify it in "weatherAlert".
+- If December weather poses a real risk for a day's outdoor activities (e.g. Arashiyama bamboo grove in rain, outdoor markets), specify it in "weatherAlert".
 - If social searches show crowd alerts or transit issues, specify them in "crowdAlert" or "transitAlert".
 - Identify any newly discovered winter events or popups that coincide with the day's city/date in "newEvents" based on the search findings.
 - Write 1-2 practical, bite-sized daily tips for the day in "tips".
@@ -194,7 +145,7 @@ const body = {
     { role: "user", content: userContent }
   ],
   temperature: 0.3,
-  max_tokens: 2048,
+  max_tokens: 4096,
 };
 
 try {
@@ -205,7 +156,7 @@ try {
       Authorization: `Bearer ${NIM_API_KEY}`,
     },
     body: JSON.stringify(body),
-    signal: AbortSignal.timeout(60000),
+    signal: AbortSignal.timeout(120000),
   });
 
   if (!res.ok) {
@@ -230,13 +181,25 @@ try {
   const jsonStr = rawText.substring(firstCurly, lastCurly + 1);
   const parsed = JSON.parse(jsonStr);
 
+  const coveredDays = Object.keys(parsed.optimizations || {}).length;
+  const expectedDays = DAYS.length;
+  if (coveredDays < expectedDays * 0.75) {
+    console.warn(`WARNING: GLM only covered ${coveredDays}/${expectedDays} days — output may be truncated`);
+  }
+  const daysWithOnlyTips = Object.values(parsed.optimizations || {}).filter(
+    (v) => Object.keys(v).every((k) => k === "tips")
+  ).length;
+  if (daysWithOnlyTips > 0) {
+    console.warn(`WARNING: ${daysWithOnlyTips} days have only tips (no alerts/swaps/events)`);
+  }
+
   const finalOutput = {
     ...parsed,
     generatedAt: new Date().toISOString()
   };
 
   writeFileSync(OUTPUT, JSON.stringify(finalOutput, null, 2));
-  console.log(`Wrote itinerary optimizations to ${OUTPUT}`);
+  console.log(`Wrote itinerary optimizations to ${OUTPUT} (${coveredDays}/${expectedDays} days covered)`);
 } catch (err) {
   console.error("Generation failed:", err.message);
   process.exit(1);
