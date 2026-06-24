@@ -57,9 +57,11 @@ export function TravelIntelPanel() {
               >
                 {adv.level}
               </span>
-              <p className="text-[0.55rem] text-slate-600 mt-0.5">
-                Advisory score: {adv.score.toFixed(1)} / 5
-              </p>
+              {adv.score != null && (
+                <p className="text-[0.55rem] text-slate-600 mt-0.5">
+                  Advisory score: {adv.score.toFixed(1)} / 5
+                </p>
+              )}
             </div>
           </div>
         )}
