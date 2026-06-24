@@ -1,7 +1,7 @@
 {
-  "fetchedAt": "2026-06-24T19:57:04.885Z",
-  "totalNew": 2,
-  "totalDropped": 2,
+  "fetchedAt": "2026-06-24T20:43:31.883Z",
+  "totalNew": 0,
+  "totalDropped": 0,
   "legs": [
     {
       "id": "tokyo",
@@ -413,20 +413,7 @@
           "ppCost": 203
         }
       ],
-      "changelog": [
-        {
-          "type": "new",
-          "id": "1627492476077708230",
-          "name": "Kyoto Station 450 meters / Toji Temple 550 meters / Kyoto Aquarium 850 meters / Entire three-story building / Maximum 9 people / Dryer provided / ～Lotus～",
-          "totalUSD": 1089
-        },
-        {
-          "type": "dropped",
-          "id": "1524371596867690237",
-          "name": "Chiyo Seian, Gion and Shirakawa nearby, Kyoto townhouse, bed warmer, Shigaraki-yaki semi-open-air bath, luxury inn with an atrium, 2-minute walk from Higashiyama Station",
-          "totalUSD": 1639
-        }
-      ]
+      "changelog": []
     },
     {
       "id": "osaka",
@@ -632,20 +619,7 @@
           "ppCost": 433
         }
       ],
-      "changelog": [
-        {
-          "type": "new",
-          "id": "1199346434897377337",
-          "name": "New business/Kuromon Market 300 sqm with open-air hot spring/rooftop garden for rent/Nihonbashi Station 3 min/Dotonbori 5 min/Namba Station 7 min",
-          "totalUSD": 3463
-        },
-        {
-          "type": "dropped",
-          "id": "1292656613096026943",
-          "name": "[Good location] Kuromon Market, Dotonbori within walking distance/85㎡ large space/maximum 12 people/Osaka Castle, USJ very close/Nara Kyoto direct access",
-          "totalUSD": 2354
-        }
-      ]
+      "changelog": []
     }
   ]
 }
