@@ -1,5 +1,7 @@
 import { Search } from "lucide-react";
 import type { View } from "../hooks/useHashView";
+import { useTrainDelays } from "../hooks/useTrainDelays";
+import { AlertTriangle } from "lucide-react";
 
 const TABS: { view: View; label: string; emoji: string }[] = [
   { view: "plan",    label: "Plan",    emoji: "🗓️" },
@@ -27,8 +29,20 @@ export function Nav({
   identityName?: string | null;
   onChangeIdentity?: () => void;
 }) {
+  const { hasMajorDelays, delayedLines } = useTrainDelays();
+
   return (
     <>
+      {hasMajorDelays && (
+        <div className="bg-red-500/90 text-white px-4 py-2 text-xs sm:text-sm font-medium flex items-center justify-center gap-2 sticky top-0 z-50 shadow-md">
+          <AlertTriangle size={16} className="shrink-0" />
+          <span>
+            <strong>Transit Alert:</strong> Delays reported on major lines
+            ({delayedLines.filter(d => ["山手線", "東海道新幹線", "中央線", "大阪環状線", "御堂筋線", "銀座線", "丸ノ内線"].includes(d.name)).map(d => d.name).join(", ") || "Multiple"}).
+            Check Google Maps before departing.
+          </span>
+        </div>
+      )}
       {/* ── Top header ─────────────────────────────────────────────── */}
       <header className="fixed top-0 inset-x-0 z-50 px-3 pt-[env(safe-area-inset-top)]">
         <nav className="glass-nav mx-auto mt-3 max-w-6xl rounded-2xl px-3 sm:px-5 py-2.5 sm:py-3 flex items-center justify-between gap-2 sm:gap-3">
