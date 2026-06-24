@@ -3,6 +3,10 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches: [main]
+  workflow_run:
+    workflows: ["Refresh Airbnb Stay Prices", "Auto-Update Content Feeds"]
+    types:
+      - completed
   workflow_dispatch:
 
 permissions:
