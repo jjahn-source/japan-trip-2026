@@ -34,6 +34,8 @@ import {
 } from "../utils/itineraryTools";
 import { DayMap } from "./DayMap";
 import { STAY_LEGS } from "../data/stays";
+import { ThemeParkTimes } from "./ThemeParkTimes";
+import { THEME_PARKS } from "../hooks/useThemeParkTimes";
 
 type Activity = Day["activities"][number];
 
@@ -542,6 +544,20 @@ function DayCard({
                   </div>
                 </div>
               )}
+
+              {(() => {
+                const titleLower = day.title.toLowerCase();
+                const parkId = titleLower.includes("disneysea") ? THEME_PARKS.TDS
+                             : titleLower.includes("disneyland") ? THEME_PARKS.TDL
+                             : (titleLower.includes("universal") || titleLower.includes("usj")) ? THEME_PARKS.USJ
+                             : null;
+
+                return parkId ? (
+                  <div className="mb-4">
+                    <ThemeParkTimes parkId={parkId} parkName={day.title} />
+                  </div>
+                ) : null;
+              })()}
 
               <div className="mb-4 flex flex-wrap gap-2">
                 <button
