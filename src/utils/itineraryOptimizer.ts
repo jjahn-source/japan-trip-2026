@@ -225,6 +225,27 @@ function solveTSP(
   if (items.length === 0) return [];
   if (items.length === 1) return [items[0].key];
 
+  if (items.length > 8) {
+    const path: string[] = [];
+    const unvisited = [...items];
+    let currentCoord = startCoord;
+    while (unvisited.length > 0) {
+      let nearestIdx = 0;
+      let nearestDist = Infinity;
+      for (let i = 0; i < unvisited.length; i++) {
+        const dist = haversineKm(currentCoord, unvisited[i].coord);
+        if (dist < nearestDist) {
+          nearestDist = dist;
+          nearestIdx = i;
+        }
+      }
+      const nextItem = unvisited.splice(nearestIdx, 1)[0];
+      currentCoord = nextItem.coord;
+      path.push(nextItem.key);
+    }
+    return path;
+  }
+
   let bestPath: string[] = [];
   let minDist = Infinity;
 
@@ -384,6 +405,9 @@ export function autoFixSingleDay(
     }
     if (!nextOverrides[day.date].order) nextOverrides[day.date].order = [];
     if (!nextOverrides[day.date].skipped) nextOverrides[day.date].skipped = [];
+    if (nextOverrides[day.date].order.length === 0) {
+      nextOverrides[day.date].order = day.activities.map((_, i) => `${day.date}:${i}`);
+    }
   });
 
   const targetDay = days.find((d) => d.date === date);
@@ -398,9 +422,11 @@ export function autoFixSingleDay(
     const srcDay = days.find((x) => x.date === srcDate);
     const activity = srcDay?.activities[idx];
     if (activity && srcDate !== date && isDateLocked(activity)) {
-      // Remove from target day
-      nextOverrides[date].order = (nextOverrides[date].order ?? []).filter((k) => k !== key);
-      nextOverrides[date].skipped = (nextOverrides[date].skipped ?? []).filter((k) => k !== key);
+      // Find where it currently resides and delete it from all order / skipped lists
+      Object.keys(nextOverrides).forEach((d) => {
+        nextOverrides[d].order = (nextOverrides[d].order ?? []).filter((k) => k !== key);
+        nextOverrides[d].skipped = (nextOverrides[d].skipped ?? []).filter((k) => k !== key);
+      });
 
       // Add back to original home day
       if (!nextOverrides[srcDate].order.includes(key)) {
