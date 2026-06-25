@@ -503,7 +503,7 @@ function DayCard({
   // Activity keys and ordering
   const defaultKeys = day.activities.map((_, i) => `${day.date}:${i}`);
   const effectiveKeys: string[] = override?.order?.length ? override.order : defaultKeys;
-  const skippedSet = new Set<string>(override?.skipped ?? []);
+  const skippedSet = useMemo(() => new Set<string>(override?.skipped ?? []), [override?.skipped]);
 
   // Resolve the ordered, non-skipped activities for the dynamic Maps route
   const effectiveActivities = useMemo(() => {
@@ -1220,7 +1220,6 @@ export function Itinerary() {
   const { forDate, add: addComment } = useDayComments();
   const { overrides, skip, setOrder, setAllOverrides } = useItineraryOverrides();
   const [placeRegistry, setPlaceRegistry] = useState<Record<string, any>>({});
-  const [conflicts, setConflicts] = useState<Conflict[]>([]);
 
   useEffect(() => {
     const updateRegistry = () => {
@@ -1231,9 +1230,10 @@ export function Itinerary() {
     return () => window.removeEventListener("gplace-registered", updateRegistry);
   }, []);
 
-  useEffect(() => {
-    setConflicts(detectConflicts(DAYS, overrides, placeRegistry));
-  }, [overrides, placeRegistry]);
+  const conflicts = useMemo(
+    () => detectConflicts(DAYS, overrides, placeRegistry),
+    [overrides, placeRegistry]
+  );
 
   const handleAutoFix = async () => {
     const fixed = autoFixOverrides(DAYS, overrides);

@@ -256,7 +256,6 @@ export const ATTRACTIONS: Attraction[] = [
   },
   {
     id: "teamlab",
-    wiki: "teamLab Planets TOKYO",
     name: "teamLab Planets",
     jp: "チームラボプラネッツ",
     city: "Tokyo",
@@ -273,7 +272,6 @@ export const ATTRACTIONS: Attraction[] = [
   },
   {
     id: "teamlab-borderless",
-    wiki: "teamLab Borderless",
     name: "teamLab Borderless (Azabudai Hills)",
     jp: "チームラボボーダレス",
     city: "Tokyo",
@@ -318,7 +316,7 @@ export const ATTRACTIONS: Attraction[] = [
   },
   {
     id: "tsukiji",
-    wiki: "Tsukiji market",
+    wiki: "Tsukiji_fish_market",
     name: "Tsukiji Outer Market",
     jp: "築地場外市場",
     city: "Tokyo",
@@ -681,7 +679,7 @@ export const ATTRACTIONS: Attraction[] = [
     decNote: "Sunrise in December (~6:50) means you can beat the tour buses without waking at 5. Bring gloves — the upper trail is near-freezing at dawn.",
     bestVisitTime: "Before 8 AM or after 5 PM",
     crowdWarning: "10 AM–2 PM: tour bus peak, gates are shoulder-to-shoulder",
-    googlePlaceId: "ChIJK3vOQyb0WTkRxMd8MKZV3wQ",
+    googlePlaceId: "ChIJIW0uPRUPAWAR6eI6dRzKGns",
   },
   {
     id: "kinkakuji",

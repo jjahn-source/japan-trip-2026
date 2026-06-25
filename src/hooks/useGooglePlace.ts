@@ -60,8 +60,12 @@ export function useGooglePlace(placeId: string | undefined): PlaceInfo {
         "X-Goog-FieldMask": "regularOpeningHours,rating",
       },
     })
-      .then((r) => r.json())
+      .then((r) => (r.ok ? r.json() : null))
       .then((json) => {
+        if (!json) {
+          writeCache(placeId, UNKNOWN);
+          return;
+        }
         const oh = json?.regularOpeningHours;
         const rating: number | null = json?.rating ?? null;
 

@@ -53,10 +53,10 @@ const SECTIONS: CheckSection[] = [
 ];
 
 export function DepartureRunbook() {
+  const [checked, setChecked] = useLocalStorage<Record<string, boolean>>("departure-runbook", {});
+
   const today = new Date().toISOString().split("T")[0];
   if (today >= DEPARTURE_DATE) return null;
-
-  const [checked, setChecked] = useLocalStorage<Record<string, boolean>>("departure-runbook", {});
 
   const toggle = (id: string) => setChecked({ ...checked, [id]: !checked[id] });
 

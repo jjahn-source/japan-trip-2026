@@ -38,6 +38,16 @@ export function isDateLocked(a: Activity): boolean {
   );
 }
 
+// True when an activity is a travel leg between venues (train, shinkansen,
+// ferry, bus, etc.) rather than a destination. These break a "same-area"
+// walking segment: a long hop across one is intended travel, not an anomaly.
+const TRANSPORT_RE =
+  /\b(jr|shinkansen|nozomi|kintetsu|odakyu|keikyu|hankyu|hanshin|keihan|limousine|ferry|train|subway|metro|transit|monorail|bus)\b/i;
+
+export function isTransport(a: Activity): boolean {
+  return TRANSPORT_RE.test(a.title);
+}
+
 // Adjusts minutes for late-night/past-midnight activities (00:00 to 02:59)
 // by adding 1440 minutes (24 hours) so they sort correctly after 23:00.
 export function parseMinutesAdjusted(time: string): number | null {
@@ -55,7 +65,6 @@ export function detectConflicts(
   overrides: Record<string, DayOverride>,
   placeData: Record<string, any> // Keyed by query: { regularOpeningHours }
 ): Conflict[] {
-  console.log("DEBUG detectConflicts called with overrides:", JSON.stringify(overrides));
   const conflicts: Conflict[] = [];
 
   // Helper to resolve current activity ordering
@@ -163,57 +172,60 @@ export function detectConflicts(
     }
 
     // Rule 5: Geographic Distance & Zig-Zagging
-    const mappedActivities = activitiesWithKeys.filter(
-      (x) =>
-        x.activity.coord &&
-        !isDateLocked(x.activity) &&
-        !x.activity.title.toLowerCase().includes("transit") &&
-        !x.activity.title.toLowerCase().includes("bus") &&
-        !x.activity.title.toLowerCase().includes("train") &&
-        !x.activity.title.toLowerCase().includes("ferry") &&
-        !x.activity.title.toLowerCase().includes("metro") &&
-        !x.activity.title.toLowerCase().includes("subway") &&
-        !x.activity.title.toLowerCase().includes("shinkansen") &&
-        !x.activity.title.toLowerCase().includes("limousine")
-    );
-
-    // Check for large distance jumps (> 15 km)
-    for (let i = 0; i + 1 < mappedActivities.length; i++) {
-      const act1 = mappedActivities[i];
-      const act2 = mappedActivities[i + 1];
-      const dist = haversineKm(act1.activity.coord!, act2.activity.coord!);
-      if (dist > 15) {
-        conflicts.push({
-          type: "GEO_DISTANCE_ANOMALY",
-          activityKey: act2.key,
-          activityTitle: act2.activity.title,
-          currentDay: day.date,
-          detail: `Large distance jump: "${act1.activity.title}" to "${act2.activity.title}" is ${dist.toFixed(1)} km apart. Consider grouping activities by area.`,
-        });
+    // Split the day into walking segments at transport legs (train, shinkansen,
+    // ferry, etc.) and date-locked anchors. A long hop across a transport leg is
+    // intended travel, not an anomaly — so distance/zig-zag checks only run
+    // *within* a segment of consecutive same-area venues, never across a break.
+    const segments: { key: string; activity: Activity }[][] = [];
+    let segment: { key: string; activity: Activity }[] = [];
+    activitiesWithKeys.forEach(({ key, activity }) => {
+      if (isTransport(activity) || isDateLocked(activity)) {
+        if (segment.length) segments.push(segment);
+        segment = [];
+        return;
       }
-    }
+      if (activity.coord) segment.push({ key, activity });
+    });
+    if (segment.length) segments.push(segment);
 
-    // Check for zig-zagging: A -> B -> C where dist(A, B) > 10, dist(B, C) > 10, but dist(A, C) < 5
-    for (let i = 0; i + 2 < mappedActivities.length; i++) {
-      const actA = mappedActivities[i];
-      const actB = mappedActivities[i + 1];
-      const actC = mappedActivities[i + 2];
-      const distAB = haversineKm(actA.activity.coord!, actB.activity.coord!);
-      const distBC = haversineKm(actB.activity.coord!, actC.activity.coord!);
-      const distAC = haversineKm(actA.activity.coord!, actC.activity.coord!);
-      if (distAB > 10 && distBC > 10 && distAC < 5) {
-        conflicts.push({
-          type: "GEO_DISTANCE_ANOMALY",
-          activityKey: actB.key,
-          activityTitle: actB.activity.title,
-          currentDay: day.date,
-          detail: `Zig-zag routing detected: you travel from "${actA.activity.title}" to "${actB.activity.title}" (${distAB.toFixed(1)} km) and then back to "${actC.activity.title}" (${distBC.toFixed(1)} km), which is only ${distAC.toFixed(1)} km from "${actA.activity.title}".`,
-        });
+    segments.forEach((venues) => {
+      // Check for large distance jumps (> 15 km) between consecutive venues
+      for (let i = 0; i + 1 < venues.length; i++) {
+        const act1 = venues[i];
+        const act2 = venues[i + 1];
+        const dist = haversineKm(act1.activity.coord!, act2.activity.coord!);
+        if (dist > 15) {
+          conflicts.push({
+            type: "GEO_DISTANCE_ANOMALY",
+            activityKey: act2.key,
+            activityTitle: act2.activity.title,
+            currentDay: day.date,
+            detail: `Large distance jump: "${act1.activity.title}" to "${act2.activity.title}" is ${dist.toFixed(1)} km apart with no transit between them. Consider grouping activities by area.`,
+          });
+        }
       }
-    }
+
+      // Check for zig-zagging: A -> B -> C where dist(A, B) > 10, dist(B, C) > 10, but dist(A, C) < 5
+      for (let i = 0; i + 2 < venues.length; i++) {
+        const actA = venues[i];
+        const actB = venues[i + 1];
+        const actC = venues[i + 2];
+        const distAB = haversineKm(actA.activity.coord!, actB.activity.coord!);
+        const distBC = haversineKm(actB.activity.coord!, actC.activity.coord!);
+        const distAC = haversineKm(actA.activity.coord!, actC.activity.coord!);
+        if (distAB > 10 && distBC > 10 && distAC < 5) {
+          conflicts.push({
+            type: "GEO_DISTANCE_ANOMALY",
+            activityKey: actB.key,
+            activityTitle: actB.activity.title,
+            currentDay: day.date,
+            detail: `Zig-zag routing detected: you travel from "${actA.activity.title}" to "${actB.activity.title}" (${distAB.toFixed(1)} km) and then back to "${actC.activity.title}" (${distBC.toFixed(1)} km), which is only ${distAC.toFixed(1)} km from "${actA.activity.title}".`,
+          });
+        }
+      }
+    });
   });
 
-  console.log("DEBUG detectConflicts returning conflicts:", JSON.stringify(conflicts));
   return conflicts;
 }
 

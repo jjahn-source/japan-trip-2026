@@ -44,7 +44,6 @@ export function Bookings() {
         if (ad !== bd) return ad ? 1 : -1;
         return daysUntil(a.deadline) - daysUntil(b.deadline);
       }),
-    // eslint-disable-next-line react-hooks/exhaustive-deps
     [isDone],
   );
 

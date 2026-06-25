@@ -1,0 +1,21 @@
+{
+  "lastChecked": "2026-06-24T22:21:35.668Z",
+  "alerts": [],
+  "diagnostics": [
+    {
+      "id": "pokemon-cafe",
+      "state": "tooEarly",
+      "detail": "Café is currently booking only through 2026-07-31 — December not open yet."
+    },
+    {
+      "id": "teamlab-planets",
+      "state": "tooEarly",
+      "detail": "Ticket store is live, but December is still outside the ~2-month sales window."
+    },
+    {
+      "id": "nintendo-museum",
+      "state": "tooEarly",
+      "detail": "Museum page is live; December is outside the ~3-month lottery lead time."
+    }
+  ]
+}

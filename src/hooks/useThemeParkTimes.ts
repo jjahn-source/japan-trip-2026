@@ -9,9 +9,9 @@ export type RideWaitTime = {
 
 // Map friendly names to ThemeParks.wiki UUIDs
 export const THEME_PARKS = {
-  TDL: "7340550b-c14d-4def-80bb-acdb51d49a66", // Tokyo Disneyland
-  TDS: "b6aa2ac7-2b5d-4f10-9730-1c4b1849fc35", // Tokyo DisneySea
-  USJ: "1bb09581-c71c-4235-961f-1ed4fcd85c76", // Universal Studios Japan
+  TDL: "3cc919f1-d16d-43e0-8c3f-1dd269bd1a42", // Tokyo Disneyland
+  TDS: "67b290d5-3478-4f23-b601-2f8fb71ba803", // Tokyo DisneySea
+  USJ: "47f61fac-7586-41ac-ae80-61c9257cf33e", // Universal Studios Japan
 };
 
 export function useThemeParkTimes(parkId: string | null) {

@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { RefreshCw } from "lucide-react";
 import { SectionHeading } from "./SectionHeading";
+import { useTravelIntel } from "../hooks/useTravelIntel";
 
 const FALLBACK_RATE = 160;
 
@@ -34,20 +35,20 @@ export function CurrencyCalc() {
   const [usd, setUsd] = useState("");
   const lastEdited = useRef<"jpy" | "usd">("jpy");
 
+  // The live USD→JPY rate comes from the static travel-intel feed (fetched
+  // server-side in scripts/refresh-travel-intel.mjs). Calling the FX API
+  // directly from the browser is blocked by CORS.
+  const { intel, loading: intelLoading } = useTravelIntel();
+
   useEffect(() => {
-    fetch("https://api.frankfurter.app/latest?from=USD&to=JPY")
-      .then((r) => r.json())
-      .then((data: { rates?: { JPY?: number } }) => {
-        const r = data?.rates?.JPY;
-        if (r && r > 0) {
-          setRate(Math.round(r));
-          setRateStatus("live");
-        } else {
-          setRateStatus("fallback");
-        }
-      })
-      .catch(() => setRateStatus("fallback"));
-  }, []);
+    const live = intel.exchangeRate?.usd_jpy;
+    if (live && live > 0) {
+      setRate(Math.round(live));
+      setRateStatus("live");
+    } else if (!intelLoading) {
+      setRateStatus("fallback");
+    }
+  }, [intel.exchangeRate, intelLoading]);
 
   useEffect(() => {
     if (lastEdited.current === "jpy" && jpy) {
@@ -57,7 +58,10 @@ export function CurrencyCalc() {
       const n = parseFloat(usd);
       if (!isNaN(n)) setJpy(Math.round(n * rate).toString());
     }
-  }, [rate]); // re-sync inputs when live rate arrives or rate is reset
+    // re-sync inputs when the live rate arrives or rate is reset; jpy/usd are
+    // intentionally read-not-tracked to avoid clobbering active typing.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [rate]);
 
   const handleJpy = (val: string) => {
     lastEdited.current = "jpy";

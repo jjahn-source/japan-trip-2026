@@ -12,7 +12,7 @@
     "refresh-reddit": "node scripts/refresh-reddit.mjs && git add public/reddit-alerts.json && git diff --cached --quiet || git commit -m \"chore: refresh Reddit feed\" && git push",
     "refresh-stays": "node scripts/refresh-stays.mjs && git add public/stays-prices.json && git diff --cached --quiet || git commit -m \"chore: refresh Airbnb stay prices\" && git push",
     "refresh-stays-search": "node scripts/refresh-stays-search.mjs && git add public/stays-live.json && git diff --cached --quiet || git commit -m \"chore: refresh Airbnb live search\" && git push",
-    "refresh-all": "node scripts/refresh-reddit.mjs; node scripts/refresh-weather.mjs; node scripts/refresh-travel-intel.mjs; node scripts/refresh-briefing.mjs; node scripts/refresh-itinerary-optimizations.mjs; node scripts/refresh-stays-search.mjs"
+    "refresh-all": "node scripts/refresh-reddit.mjs; node scripts/refresh-weather.mjs; node scripts/refresh-travel-intel.mjs; node scripts/refresh-briefing.mjs; node scripts/refresh-itinerary-optimizations.mjs; node scripts/refresh-stays-search.mjs; node scripts/refresh-train-delays.mjs"
   },
   "dependencies": {
     "@dnd-kit/core": "^6.3.1",
