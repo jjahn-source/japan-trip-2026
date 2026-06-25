@@ -58,7 +58,6 @@ import { FIREBASE_ENABLED } from "../lib/firebase";
 import {
   detectConflicts,
   autoFixOverrides,
-  autoFixDay,
   autoFixSingleDay,
   type Conflict,
 } from "../utils/itineraryOptimizer";
