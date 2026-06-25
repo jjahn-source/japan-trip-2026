@@ -1,16 +1,42 @@
 import { useEffect, useMemo, useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import {
-  DndContext, DragOverlay, PointerSensor, closestCenter, useDroppable, useSensor, useSensors,
+  DndContext,
+  DragOverlay,
+  PointerSensor,
+  closestCenter,
+  useDroppable,
+  useSensor,
+  useSensors,
   type DragEndEvent,
 } from "@dnd-kit/core";
 import { SortableContext, useSortable, verticalListSortingStrategy } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
 import {
-  ChevronDown, ChevronUp, ChevronLeft, ChevronRight, Train, Ticket, GripVertical,
-  CalendarPlus, Map, MapPin, ListChecks, ChevronsDownUp, ChevronsUpDown,
-  CheckCircle2, Circle, Sparkles, AlertTriangle, Dices,
-  Eye, EyeOff, Pencil, Send, MessageCircle, Printer,
+  ChevronDown,
+  ChevronUp,
+  ChevronLeft,
+  ChevronRight,
+  Train,
+  Ticket,
+  GripVertical,
+  CalendarPlus,
+  Map,
+  MapPin,
+  ListChecks,
+  ChevronsDownUp,
+  ChevronsUpDown,
+  CheckCircle2,
+  Circle,
+  Sparkles,
+  AlertTriangle,
+  Dices,
+  Eye,
+  EyeOff,
+  Pencil,
+  Send,
+  MessageCircle,
+  Printer,
 } from "lucide-react";
 import { DAYS, type Day } from "../data/itinerary";
 import { CONTINGENCIES } from "../data/contingencies";
@@ -21,16 +47,31 @@ import { PlaceSearchBadge } from "./ui/PlaceSearchBadge";
 import { useLocalStorage } from "../hooks/useLocalStorage";
 import { useDayComments, type DayComment } from "../hooks/useDayComments";
 import { useItineraryOverrides, type DayOverride } from "../hooks/useItineraryOverrides";
-import { useItineraryOptimizations, type DayOptimization } from "../hooks/useItineraryOptimizations";
+import {
+  useItineraryOptimizations,
+  type DayOptimization,
+} from "../hooks/useItineraryOptimizations";
 import { useActivityVotes } from "../hooks/useActivityVotes";
 import { getIdentityName } from "../hooks/useIdentity";
 import { useCrewPresence } from "../hooks/useCrewPresence";
 import { FIREBASE_ENABLED } from "../lib/firebase";
-import { detectConflicts, autoFixOverrides, type Conflict } from "../utils/itineraryOptimizer";
+import {
+  detectConflicts,
+  autoFixOverrides,
+  autoFixDay,
+  autoFixSingleDay,
+  type Conflict,
+} from "../utils/itineraryOptimizer";
 import { toast } from "../lib/toast";
 import {
-  daySpan, activityMapUrl, mapsRouteUrlForActivities,
-  buildDayICS, buildTripICS, downloadICS, haversineKm, walkMinutes,
+  daySpan,
+  activityMapUrl,
+  mapsRouteUrlForActivities,
+  buildDayICS,
+  buildTripICS,
+  downloadICS,
+  haversineKm,
+  walkMinutes,
 } from "../utils/itineraryTools";
 import { DayMap } from "./DayMap";
 import { STAY_LEGS } from "../data/stays";
@@ -50,7 +91,10 @@ function resolveActivity(key: string): { activity: Activity; srcDate: string } |
 }
 
 function fmtDate(iso: string) {
-  return new Date(iso + "T00:00:00").toLocaleDateString("en-US", { month: "short", day: "numeric" });
+  return new Date(iso + "T00:00:00").toLocaleDateString("en-US", {
+    month: "short",
+    day: "numeric",
+  });
 }
 
 function fmtCommentAt(iso: string) {
@@ -62,11 +106,25 @@ function fmtCommentAt(iso: string) {
   );
 }
 
-function SecTitle({ icon, label, count, colorClass }: { icon: React.ReactNode; label: string; count: number; colorClass: string }) {
+function SecTitle({
+  icon,
+  label,
+  count,
+  colorClass,
+}: {
+  icon: React.ReactNode;
+  label: string;
+  count: number;
+  colorClass: string;
+}) {
   return (
-    <span className={`flex items-center gap-2 text-xs font-bold uppercase tracking-wider ${colorClass}`}>
+    <span
+      className={`flex items-center gap-2 text-xs font-bold uppercase tracking-wider ${colorClass}`}
+    >
       {icon} {label}
-      <span className="text-[0.62rem] font-bold bg-white/10 text-slate-200 rounded-full px-1.5 py-0.5 tabular-nums">{count}</span>
+      <span className="text-[0.62rem] font-bold bg-white/10 text-slate-200 rounded-full px-1.5 py-0.5 tabular-nums">
+        {count}
+      </span>
     </span>
   );
 }
@@ -83,11 +141,32 @@ function TopButton({ onClick, children }: { onClick: () => void; children: React
 }
 
 function ActivityRow({
-  activityKey, activity, srcDate, isSkipped, isImported, trackMode, isDone, onToggleDone,
-  voters, myVoted, myName, onVoteToggle, editMode, onSkipToggle,
-  canMoveUp, canMoveDown, onMoveUp, onMoveDown,
-  canMovePrevDay, canMoveNextDay, onMovePrevDay, onMoveNextDay,
-  walkMins, presenceNames, onPresenceToggle,
+  activityKey,
+  activity,
+  srcDate,
+  isSkipped,
+  isImported,
+  trackMode,
+  isDone,
+  onToggleDone,
+  voters,
+  myVoted,
+  myName,
+  onVoteToggle,
+  editMode,
+  onSkipToggle,
+  canMoveUp,
+  canMoveDown,
+  onMoveUp,
+  onMoveDown,
+  canMovePrevDay,
+  canMoveNextDay,
+  onMovePrevDay,
+  onMoveNextDay,
+  walkMins,
+  presenceNames,
+  onPresenceToggle,
+  conflict,
 }: {
   activityKey: string;
   activity: Activity;
@@ -114,14 +193,21 @@ function ActivityRow({
   walkMins?: number;
   presenceNames?: string[];
   onPresenceToggle?: () => void;
+  conflict?: Conflict;
 }) {
-  const { attributes, listeners, setNodeRef, transform, transition, isDragging } = useSortable({ id: activityKey });
+  const { attributes, listeners, setNodeRef, transform, transition, isDragging } = useSortable({
+    id: activityKey,
+  });
   const mapUrl = activityMapUrl(activity);
 
   return (
     <li
       ref={setNodeRef}
-      style={{ transform: CSS.Transform.toString(transform), transition, opacity: isDragging ? 0.3 : 1 }}
+      style={{
+        transform: CSS.Transform.toString(transform),
+        transition,
+        opacity: isDragging ? 0.3 : 1,
+      }}
       className={`relative flex gap-3 items-start ${isSkipped ? "opacity-40" : ""} ${walkMins !== undefined && !isSkipped ? "pb-4" : ""}`}
     >
       {/* Track / time column */}
@@ -131,19 +217,29 @@ function ActivityRow({
           className="shrink-0 w-16 flex items-center justify-end gap-1 pt-0.5"
           aria-label="toggle done"
         >
-          {isDone
-            ? <CheckCircle2 size={15} className="text-emerald-400" />
-            : <Circle size={15} className="text-slate-600 hover:text-slate-400" />}
-          <span className={`text-xs font-bold tabular-nums ${isDone ? "text-emerald-400/70 line-through" : "text-accent-300/90"}`}>{activity.time}</span>
+          {isDone ? (
+            <CheckCircle2 size={15} className="text-emerald-400" />
+          ) : (
+            <Circle size={15} className="text-slate-600 hover:text-slate-400" />
+          )}
+          <span
+            className={`text-xs font-bold tabular-nums ${isDone ? "text-emerald-400/70 line-through" : "text-accent-300/90"}`}
+          >
+            {activity.time}
+          </span>
         </button>
       ) : (
-        <span className="shrink-0 w-16 text-right text-xs font-bold text-accent-300/90 pt-0.5 tabular-nums">{activity.time}</span>
+        <span className="shrink-0 w-16 text-right text-xs font-bold text-accent-300/90 pt-0.5 tabular-nums">
+          {activity.time}
+        </span>
       )}
 
       {/* Activity content */}
       <div className="relative pl-4 border-l border-white/10 pb-0.5 min-w-0 flex-1">
         <span className="absolute -left-[5px] top-1.5 w-2.5 h-2.5 rounded-full bg-gradient-to-br from-accent-400 to-fuchsia-500" />
-        <p className={`font-semibold leading-snug flex items-center gap-2 flex-wrap ${isDone ? "text-slate-500 line-through" : isSkipped ? "line-through text-slate-500" : ""}`}>
+        <p
+          className={`font-semibold leading-snug flex items-center gap-2 flex-wrap ${isDone ? "text-slate-500 line-through" : isSkipped ? "line-through text-slate-500" : ""}`}
+        >
           {activity.title}
           {isImported && (
             <span className="text-[0.6rem] font-bold bg-violet-500/20 text-violet-300 border border-violet-500/30 rounded-full px-1.5 py-0.5">
@@ -157,7 +253,9 @@ function ActivityRow({
           )}
           {mapUrl && !isSkipped && (
             <a
-              href={mapUrl} target="_blank" rel="noreferrer"
+              href={mapUrl}
+              target="_blank"
+              rel="noreferrer"
               onClick={(e) => e.stopPropagation()}
               className="inline-flex items-center gap-0.5 text-[0.65rem] font-semibold text-sky-400/80 hover:text-sky-300"
               title={activity.place ?? "Open in Google Maps"}
@@ -166,40 +264,67 @@ function ActivityRow({
             </a>
           )}
         </p>
-        {activity.note && <p className={`text-sm mt-0.5 ${isDone || isSkipped ? "text-slate-600" : "text-slate-400"}`}>{activity.note}</p>}
-        {activity.place && !isSkipped && (
-          <PlaceSearchBadge query={activity.place} city={srcDate.slice(0, 4) === "2026" ? "Japan" : undefined} time={activity.time} dow={DAYS.find(d => d.date === srcDate)?.dow} />
+        {activity.note && (
+          <p
+            className={`text-sm mt-0.5 ${isDone || isSkipped ? "text-slate-600" : "text-slate-400"}`}
+          >
+            {activity.note}
+          </p>
         )}
-        {FIREBASE_ENABLED && presenceNames !== undefined && myName && onPresenceToggle && !isSkipped && (
-          <div className="flex flex-wrap items-center gap-1 mt-1.5">
-            {presenceNames.map((n) => (
-              <span
-                key={n}
-                className="text-[0.55rem] font-bold bg-white/8 border border-white/10 text-slate-400 rounded-full px-1.5 py-0.5"
-              >
-                {n.slice(0, 2)}
-              </span>
-            ))}
-            <button
-              type="button"
-              onClick={(e) => { e.stopPropagation(); onPresenceToggle(); }}
-              className={`text-[0.55rem] font-bold rounded-full px-1.5 py-0.5 border transition-colors ${
-                presenceNames.includes(myName)
-                  ? "bg-emerald-500/15 border-emerald-500/25 text-emerald-300 hover:bg-emerald-500/25"
-                  : "bg-white/5 border-white/10 text-slate-600 hover:text-slate-300 hover:border-white/20"
-              }`}
-            >
-              {presenceNames.includes(myName) ? "✓ here" : "I'm here"}
-            </button>
+        {activity.place && !isSkipped && (
+          <PlaceSearchBadge
+            query={activity.place}
+            city={DAYS.find((d) => d.date === srcDate)?.city}
+            time={activity.time}
+            dow={DAYS.find((d) => d.date === srcDate)?.dow}
+          />
+        )}
+        {conflict && !isSkipped && (
+          <div className="mt-1.5 flex items-start gap-1.5 text-[0.68rem] font-bold text-red-300 bg-red-500/10 border border-red-500/20 rounded px-2.5 py-1">
+            <AlertTriangle size={11} className="mt-0.5 shrink-0 text-red-400" />
+            <span>{conflict.detail}</span>
           </div>
         )}
+        {FIREBASE_ENABLED &&
+          presenceNames !== undefined &&
+          myName &&
+          onPresenceToggle &&
+          !isSkipped && (
+            <div className="flex flex-wrap items-center gap-1 mt-1.5">
+              {presenceNames.map((n) => (
+                <span
+                  key={n}
+                  className="text-[0.55rem] font-bold bg-white/8 border border-white/10 text-slate-400 rounded-full px-1.5 py-0.5"
+                >
+                  {n.slice(0, 2)}
+                </span>
+              ))}
+              <button
+                type="button"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  onPresenceToggle();
+                }}
+                className={`text-[0.55rem] font-bold rounded-full px-1.5 py-0.5 border transition-colors ${
+                  presenceNames.includes(myName)
+                    ? "bg-emerald-500/15 border-emerald-500/25 text-emerald-300 hover:bg-emerald-500/25"
+                    : "bg-white/5 border-white/10 text-slate-600 hover:text-slate-300 hover:border-white/20"
+                }`}
+              >
+                {presenceNames.includes(myName) ? "✓ here" : "I'm here"}
+              </button>
+            </div>
+          )}
       </div>
 
       {/* Activity vote */}
       {FIREBASE_ENABLED && !isSkipped && (
         <button
           type="button"
-          onClick={(e) => { e.stopPropagation(); onVoteToggle(); }}
+          onClick={(e) => {
+            e.stopPropagation();
+            onVoteToggle();
+          }}
           disabled={!myName}
           title={voters.length ? voters.join(", ") : myName ? "Tap to join" : "Pick a name to vote"}
           className={`shrink-0 flex items-center gap-1 rounded-full px-1.5 py-0.5 text-[0.6rem] font-bold border transition-colors disabled:cursor-not-allowed mt-0.5 ${
@@ -220,7 +345,10 @@ function ActivityRow({
           <div className="flex flex-col">
             <button
               type="button"
-              onClick={(e) => { e.stopPropagation(); onMoveUp(); }}
+              onClick={(e) => {
+                e.stopPropagation();
+                onMoveUp();
+              }}
               disabled={!canMoveUp}
               title="Move up"
               className="w-5 h-3.5 flex items-center justify-center rounded-t bg-white/5 border border-white/10 border-b-0 text-slate-500 hover:bg-white/10 hover:text-slate-200 disabled:opacity-20"
@@ -229,7 +357,10 @@ function ActivityRow({
             </button>
             <button
               type="button"
-              onClick={(e) => { e.stopPropagation(); onMoveDown(); }}
+              onClick={(e) => {
+                e.stopPropagation();
+                onMoveDown();
+              }}
               disabled={!canMoveDown}
               title="Move down"
               className="w-5 h-3.5 flex items-center justify-center rounded-b bg-white/5 border border-white/10 text-slate-500 hover:bg-white/10 hover:text-slate-200 disabled:opacity-20"
@@ -240,7 +371,10 @@ function ActivityRow({
           {canMovePrevDay && (
             <button
               type="button"
-              onClick={(e) => { e.stopPropagation(); onMovePrevDay(); }}
+              onClick={(e) => {
+                e.stopPropagation();
+                onMovePrevDay();
+              }}
               title="Move to previous day"
               className="w-5 h-7 flex items-center justify-center rounded bg-white/5 border border-white/10 text-slate-500 hover:bg-indigo-500/15 hover:border-indigo-500/30 hover:text-indigo-300"
             >
@@ -250,7 +384,10 @@ function ActivityRow({
           {canMoveNextDay && (
             <button
               type="button"
-              onClick={(e) => { e.stopPropagation(); onMoveNextDay(); }}
+              onClick={(e) => {
+                e.stopPropagation();
+                onMoveNextDay();
+              }}
               title="Move to next day"
               className="w-5 h-7 flex items-center justify-center rounded bg-white/5 border border-white/10 text-slate-500 hover:bg-indigo-500/15 hover:border-indigo-500/30 hover:text-indigo-300"
             >
@@ -273,7 +410,10 @@ function ActivityRow({
       {editMode && (
         <button
           type="button"
-          onClick={(e) => { e.stopPropagation(); onSkipToggle(); }}
+          onClick={(e) => {
+            e.stopPropagation();
+            onSkipToggle();
+          }}
           className={`shrink-0 w-7 h-7 rounded-lg flex items-center justify-center border transition-colors ${
             isSkipped
               ? "bg-emerald-500/15 border-emerald-500/30 text-emerald-400 hover:bg-emerald-500/25"
@@ -287,8 +427,7 @@ function ActivityRow({
 
       {walkMins !== undefined && !isSkipped && (
         <span className="absolute bottom-0.5 left-16 flex items-center gap-1 text-[0.58rem] text-slate-600 pointer-events-none select-none">
-          <span className="inline-block w-px h-2 bg-white/[0.07]" />
-          ~{walkMins} min walk
+          <span className="inline-block w-px h-2 bg-white/[0.07]" />~{walkMins} min walk
         </span>
       )}
     </li>
@@ -296,11 +435,28 @@ function ActivityRow({
 }
 
 function DayCard({
-  day, index, open, onToggle, trackMode, done, setDone,
-  override, comments, myName, prevDate, nextDate,
-  onSkip, onAddComment, getVoters, onVoteToggle, onMove,
-  getPresent, onPresenceToggle,
+  day,
+  index,
+  open,
+  onToggle,
+  trackMode,
+  done,
+  setDone,
+  override,
+  comments,
+  myName,
+  prevDate,
+  nextDate,
+  onSkip,
+  onAddComment,
+  getVoters,
+  onVoteToggle,
+  onMove,
+  getPresent,
+  onPresenceToggle,
   optimization,
+  dayConflicts,
+  onAutoFixDay,
 }: {
   day: Day;
   index: number;
@@ -322,6 +478,8 @@ function DayCard({
   getPresent?: (date: string, idx: number) => string[];
   onPresenceToggle?: (date: string, idx: number) => void;
   optimization?: DayOptimization;
+  dayConflicts: Conflict[];
+  onAutoFixDay: () => void;
 }) {
   const [editMode, setEditMode] = useState(false);
   const [commentDraft, setCommentDraft] = useState("");
@@ -393,7 +551,9 @@ function DayCard({
         onClick={onToggle}
         className="w-full flex items-center gap-4 p-4 sm:p-5 text-left hover:bg-white/[0.03] transition-colors"
       >
-        <div className={`shrink-0 w-14 h-14 rounded-xl bg-gradient-to-br ${day.theme} flex flex-col items-center justify-center font-bold shadow-lg`}>
+        <div
+          className={`shrink-0 w-14 h-14 rounded-xl bg-gradient-to-br ${day.theme} flex flex-col items-center justify-center font-bold shadow-lg`}
+        >
           <span className="text-[0.6rem] uppercase opacity-90">{day.dow}</span>
           <span className="text-sm leading-tight">{fmtDate(day.date)}</span>
         </div>
@@ -401,20 +561,64 @@ function DayCard({
           <div className="flex items-center gap-2 text-xs text-slate-400 font-semibold uppercase tracking-wider">
             <span>Day {index + 1}</span>
             <span>·</span>
-            <span>{day.city} <span className="font-[Noto_Serif_JP]">{day.cityJp}</span></span>
+            <span>
+              {day.city} <span className="font-[Noto_Serif_JP]">{day.cityJp}</span>
+            </span>
           </div>
-          <h3 className="font-bold text-lg sm:text-xl truncate">{day.emoji} {day.title}</h3>
+          <h3 className="font-bold text-lg sm:text-xl truncate">
+            {day.emoji} {day.title}
+          </h3>
           <div className="mt-1 flex flex-wrap items-center gap-x-3 gap-y-0.5 text-[0.68rem] font-semibold text-slate-500">
             <span>{day.activities.length} stops</span>
-            {span && <><span>·</span><span>{span.first}–{span.last} ({span.label})</span></>}
-            {mappedCount > 0 && <><span>·</span><span className="text-accent-400/80">{mappedCount} mapped</span></>}
-            {bookCount > 0 && <><span>·</span><span className="text-amber-400/90">{bookCount} to book</span></>}
-            {day.events && day.events.length > 0 && <><span>·</span><span className="text-violet-300">✨ {day.events.length} live</span></>}
-            {trackMode && doneCount > 0 && <><span>·</span><span className="text-emerald-400">{doneCount}/{visibleCount} done</span></>}
-            {comments.length > 0 && <><span>·</span><span className="text-indigo-400/80"><MessageCircle size={10} className="inline mr-0.5" />{comments.length}</span></>}
+            {span && (
+              <>
+                <span>·</span>
+                <span>
+                  {span.first}–{span.last} ({span.label})
+                </span>
+              </>
+            )}
+            {mappedCount > 0 && (
+              <>
+                <span>·</span>
+                <span className="text-accent-400/80">{mappedCount} mapped</span>
+              </>
+            )}
+            {bookCount > 0 && (
+              <>
+                <span>·</span>
+                <span className="text-amber-400/90">{bookCount} to book</span>
+              </>
+            )}
+            {day.events && day.events.length > 0 && (
+              <>
+                <span>·</span>
+                <span className="text-violet-300">✨ {day.events.length} live</span>
+              </>
+            )}
+            {trackMode && doneCount > 0 && (
+              <>
+                <span>·</span>
+                <span className="text-emerald-400">
+                  {doneCount}/{visibleCount} done
+                </span>
+              </>
+            )}
+            {comments.length > 0 && (
+              <>
+                <span>·</span>
+                <span className="text-indigo-400/80">
+                  <MessageCircle size={10} className="inline mr-0.5" />
+                  {comments.length}
+                </span>
+              </>
+            )}
           </div>
         </div>
-        <ChevronDown size={20} className={`shrink-0 text-slate-400 transition-transform ${open ? "rotate-180" : ""}`} />
+        <ChevronDown
+          size={20}
+          className={`shrink-0 text-slate-400 transition-transform ${open ? "rotate-180" : ""}`}
+        />
       </button>
 
       <AnimatePresence initial={false}>
@@ -429,14 +633,25 @@ function DayCard({
               <WeatherBadge city={day.city} dateISO={day.date} wx={day.wx} />
 
               {(() => {
-                const tonightLeg = STAY_LEGS.find((s) => day.date >= s.startISO && day.date < s.endISO);
+                const tonightLeg = STAY_LEGS.find(
+                  (s) => day.date >= s.startISO && day.date < s.endISO
+                );
                 return tonightLeg ? (
                   <div className="mb-3 flex items-center gap-2.5 rounded-xl bg-white/5 border border-white/10 px-3 py-2">
                     <span className="text-lg shrink-0">{tonightLeg.emoji}</span>
                     <div className="min-w-0">
-                      <p className="text-[0.65rem] font-bold uppercase tracking-wide text-slate-500">Tonight's base</p>
-                      <p className="text-sm font-semibold truncate">{tonightLeg.city} <span className="font-[Noto_Serif_JP] font-normal text-slate-400">{tonightLeg.cityJp}</span></p>
-                      <p className="text-[0.7rem] text-slate-400 leading-snug line-clamp-1">{tonightLeg.brief}</p>
+                      <p className="text-[0.65rem] font-bold uppercase tracking-wide text-slate-500">
+                        Tonight's base
+                      </p>
+                      <p className="text-sm font-semibold truncate">
+                        {tonightLeg.city}{" "}
+                        <span className="font-[Noto_Serif_JP] font-normal text-slate-400">
+                          {tonightLeg.cityJp}
+                        </span>
+                      </p>
+                      <p className="text-[0.7rem] text-slate-400 leading-snug line-clamp-1">
+                        {tonightLeg.brief}
+                      </p>
                     </div>
                   </div>
                 ) : null;
@@ -448,9 +663,40 @@ function DayCard({
                   <div>
                     <p className="text-xs font-bold text-amber-300">Holiday crunch</p>
                     <p className="text-[0.7rem] text-slate-400 leading-snug">
-                      Dec 25–29 is peak domestic travel season in Japan. Popular spots run 2–3× normal crowds. Go early, split squads, book restaurants now.
+                      Dec 25–29 is peak domestic travel season in Japan. Popular spots run 2–3×
+                      normal crowds. Go early, split squads, book restaurants now.
                     </p>
                   </div>
+                </div>
+              )}
+
+              {dayConflicts.length > 0 && (
+                <div className="mb-3 rounded-xl border border-red-500/30 bg-red-500/[0.04] shadow-[0_0_15px_rgba(239,68,68,0.05)] p-3.5 backdrop-blur-md">
+                  <div className="flex items-center justify-between gap-3 mb-2 flex-wrap">
+                    <div className="flex items-center gap-2 text-red-400">
+                      <AlertTriangle size={14} className="animate-pulse shrink-0" />
+                      <span className="text-[0.68rem] font-bold uppercase tracking-wider">
+                        Day Optimization Alerts ({dayConflicts.length})
+                      </span>
+                    </div>
+                    <button
+                      type="button"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        onAutoFixDay();
+                      }}
+                      className="inline-flex items-center gap-1 text-[0.65rem] font-bold uppercase tracking-wide bg-red-500/20 text-red-300 border border-red-500/30 rounded px-2 py-0.5 hover:bg-red-500/30 active:scale-95 transition-all"
+                    >
+                      <Sparkles size={9} /> Auto-Fix Day
+                    </button>
+                  </div>
+                  <ul className="space-y-1.5 list-disc pl-4 text-xs text-slate-400">
+                    {dayConflicts.map((c, idx) => (
+                      <li key={idx} className="marker:text-red-500">
+                        {c.detail}
+                      </li>
+                    ))}
+                  </ul>
                 </div>
               )}
 
@@ -458,7 +704,9 @@ function DayCard({
                 <div className="mb-3 rounded-xl border border-pink-500/30 bg-pink-500/[0.04] shadow-[0_0_15px_rgba(236,72,153,0.05)] p-3.5 backdrop-blur-md">
                   <div className="flex items-center gap-2 mb-2 text-pink-300">
                     <Sparkles size={13} className="animate-pulse shrink-0" />
-                    <span className="text-[0.68rem] font-bold uppercase tracking-wider">Live Updates & AI Optimizations</span>
+                    <span className="text-[0.68rem] font-bold uppercase tracking-wider">
+                      Live Updates & AI Optimizations
+                    </span>
                   </div>
 
                   <div className="space-y-2 text-xs">
@@ -499,8 +747,14 @@ function DayCard({
                           <span>Suggested Swap</span>
                         </div>
                         <p className="text-slate-300 leading-snug">
-                          Swap <span className="line-through text-slate-400">{optimization.suggestedSwap.originalActivity}</span> with{" "}
-                          <span className="font-semibold text-emerald-300">{optimization.suggestedSwap.suggestedAlt}</span>
+                          Swap{" "}
+                          <span className="line-through text-slate-400">
+                            {optimization.suggestedSwap.originalActivity}
+                          </span>{" "}
+                          with{" "}
+                          <span className="font-semibold text-emerald-300">
+                            {optimization.suggestedSwap.suggestedAlt}
+                          </span>
                         </p>
                         <p className="mt-1 text-[0.7rem] text-slate-400 leading-relaxed">
                           Reason: {optimization.suggestedSwap.reason}
@@ -516,7 +770,10 @@ function DayCard({
                         </div>
                         <div className="space-y-1.5">
                           {optimization.newEvents.map((evt, idx) => (
-                            <div key={idx} className="rounded-lg bg-white/5 border border-white/10 p-2 text-slate-300">
+                            <div
+                              key={idx}
+                              className="rounded-lg bg-white/5 border border-white/10 p-2 text-slate-300"
+                            >
                               <div className="font-semibold text-[0.75rem] flex items-center gap-2 flex-wrap">
                                 <span>{evt.name}</span>
                                 {evt.station && (
@@ -525,7 +782,9 @@ function DayCard({
                                   </span>
                                 )}
                               </div>
-                              <p className="mt-1 text-[0.7rem] text-slate-400 leading-relaxed">{evt.note}</p>
+                              <p className="mt-1 text-[0.7rem] text-slate-400 leading-relaxed">
+                                {evt.note}
+                              </p>
                             </div>
                           ))}
                         </div>
@@ -547,10 +806,13 @@ function DayCard({
 
               {(() => {
                 const titleLower = day.title.toLowerCase();
-                const parkId = titleLower.includes("disneysea") ? THEME_PARKS.TDS
-                             : titleLower.includes("disneyland") ? THEME_PARKS.TDL
-                             : (titleLower.includes("universal") || titleLower.includes("usj")) ? THEME_PARKS.USJ
-                             : null;
+                const parkId = titleLower.includes("disneysea")
+                  ? THEME_PARKS.TDS
+                  : titleLower.includes("disneyland")
+                    ? THEME_PARKS.TDL
+                    : titleLower.includes("universal") || titleLower.includes("usj")
+                      ? THEME_PARKS.USJ
+                      : null;
 
                 return parkId ? (
                   <div className="mb-4">
@@ -561,14 +823,18 @@ function DayCard({
 
               <div className="mb-4 flex flex-wrap gap-2">
                 <button
-                  onClick={() => downloadICS(`japan-2026-dec-${day.date.slice(8)}.ics`, buildDayICS(day))}
+                  onClick={() =>
+                    downloadICS(`japan-2026-dec-${day.date.slice(8)}.ics`, buildDayICS(day))
+                  }
                   className="inline-flex items-center gap-1.5 rounded-lg bg-emerald-500/15 border border-emerald-500/30 px-2.5 py-1.5 text-xs font-semibold text-emerald-300 hover:bg-emerald-500/25 transition-colors"
                 >
                   <CalendarPlus size={12} /> Add day to calendar
                 </button>
                 {routeUrl && (
                   <a
-                    href={routeUrl} target="_blank" rel="noreferrer"
+                    href={routeUrl}
+                    target="_blank"
+                    rel="noreferrer"
                     className="inline-flex items-center gap-1.5 rounded-lg bg-accent-500/15 border border-accent-500/30 px-2.5 py-1.5 text-xs font-semibold text-accent-300 hover:bg-accent-500/25 transition-colors"
                   >
                     <Map size={12} /> Route this day in Maps
@@ -619,7 +885,9 @@ function DayCard({
                       transition={{ type: "spring", stiffness: 80, damping: 20 }}
                     />
                   </div>
-                  <span className="text-xs font-bold tabular-nums text-emerald-300">{doneCount}/{visibleCount}</span>
+                  <span className="text-xs font-bold tabular-nums text-emerald-300">
+                    {doneCount}/{visibleCount}
+                  </span>
                 </div>
               )}
 
@@ -664,15 +932,22 @@ function DayCard({
                         onSkipToggle={() => onSkip(key, !isSkipped)}
                         canMoveUp={idx > 0}
                         canMoveDown={idx < displayKeys.length - 1}
-                        onMoveUp={() => onMove(key, day.date, day.date, displayKeys[idx - 1] ?? null)}
-                        onMoveDown={() => onMove(key, day.date, day.date, displayKeys[idx + 2] ?? null)}
+                        onMoveUp={() =>
+                          onMove(key, day.date, day.date, displayKeys[idx - 1] ?? null)
+                        }
+                        onMoveDown={() =>
+                          onMove(key, day.date, day.date, displayKeys[idx + 2] ?? null)
+                        }
                         canMovePrevDay={!!prevDate}
                         canMoveNextDay={!!nextDate}
                         onMovePrevDay={() => prevDate && onMove(key, day.date, prevDate, null)}
                         onMoveNextDay={() => nextDate && onMove(key, day.date, nextDate, null)}
                         walkMins={wm}
                         presenceNames={getPresent ? getPresent(srcDate, origIdx) : undefined}
-                        onPresenceToggle={onPresenceToggle ? () => onPresenceToggle(srcDate, origIdx) : undefined}
+                        onPresenceToggle={
+                          onPresenceToggle ? () => onPresenceToggle(srcDate, origIdx) : undefined
+                        }
+                        conflict={dayConflicts.find((c) => c.activityKey === key)}
                       />
                     );
                   })}
@@ -684,7 +959,14 @@ function DayCard({
                   <Collapse
                     className="rounded-xl bg-amber-500/[0.07] border border-amber-500/20 px-4 py-3"
                     defaultOpen={day.events.some((e) => e.kind === "closure")}
-                    title={<SecTitle icon={<Sparkles size={13} />} label="Happening during our visit" count={day.events.length} colorClass="text-amber-300" />}
+                    title={
+                      <SecTitle
+                        icon={<Sparkles size={13} />}
+                        label="Happening during our visit"
+                        count={day.events.length}
+                        colorClass="text-amber-300"
+                      />
+                    }
                   >
                     <div className="mt-3 space-y-2">
                       {day.events.map((ev) => {
@@ -701,18 +983,31 @@ function DayCard({
                         return (
                           <div key={ev.name} className={`rounded-xl border p-3 ${style}`}>
                             <div className="flex items-start gap-2 flex-wrap">
-                              {isWarn
-                                ? <AlertTriangle size={14} className="text-red-400 mt-0.5 shrink-0" />
-                                : <Sparkles size={14} className="text-amber-400 mt-0.5 shrink-0" />}
-                              <span className="font-bold text-sm leading-snug text-slate-100">{ev.name}</span>
-                              <span className="text-[0.65rem] font-bold uppercase tracking-wide bg-white/10 text-slate-300 rounded-full px-2 py-0.5">{ev.window}</span>
+                              {isWarn ? (
+                                <AlertTriangle size={14} className="text-red-400 mt-0.5 shrink-0" />
+                              ) : (
+                                <Sparkles size={14} className="text-amber-400 mt-0.5 shrink-0" />
+                              )}
+                              <span className="font-bold text-sm leading-snug text-slate-100">
+                                {ev.name}
+                              </span>
+                              <span className="text-[0.65rem] font-bold uppercase tracking-wide bg-white/10 text-slate-300 rounded-full px-2 py-0.5">
+                                {ev.window}
+                              </span>
                             </div>
-                            <p className="mt-1.5 text-xs text-slate-300 leading-relaxed">{ev.note}</p>
+                            <p className="mt-1.5 text-xs text-slate-300 leading-relaxed">
+                              {ev.note}
+                            </p>
                             <p className="mt-1.5 flex flex-wrap items-center gap-x-3 gap-y-0.5 text-[0.68rem] text-slate-500 font-semibold">
                               <span>💴 {ev.cost}</span>
                               <span>🚉 {ev.station}</span>
                               {ev.url && (
-                                <a href={ev.url} target="_blank" rel="noreferrer" className="text-sky-400/80 hover:text-sky-300 underline decoration-dotted">
+                                <a
+                                  href={ev.url}
+                                  target="_blank"
+                                  rel="noreferrer"
+                                  className="text-sky-400/80 hover:text-sky-300 underline decoration-dotted"
+                                >
                                   official ↗
                                 </a>
                               )}
@@ -727,12 +1022,20 @@ function DayCard({
                 {day.intel && day.intel.length > 0 && (
                   <Collapse
                     className="rounded-xl bg-cyan-500/[0.07] border border-cyan-500/20 px-4 py-3"
-                    title={<SecTitle icon={<span>🧠</span>} label="Local Intel" count={day.intel.length} colorClass="text-cyan-300" />}
+                    title={
+                      <SecTitle
+                        icon={<span>🧠</span>}
+                        label="Local Intel"
+                        count={day.intel.length}
+                        colorClass="text-cyan-300"
+                      />
+                    }
                   >
                     <ul className="mt-3 space-y-1.5">
                       {day.intel.map((tip, i) => (
                         <li key={i} className="text-sm text-slate-300 leading-relaxed flex gap-2">
-                          <span className="text-cyan-400 shrink-0">▸</span><span>{tip}</span>
+                          <span className="text-cyan-400 shrink-0">▸</span>
+                          <span>{tip}</span>
                         </li>
                       ))}
                     </ul>
@@ -742,12 +1045,20 @@ function DayCard({
                 {day.alts && day.alts.length > 0 && (
                   <Collapse
                     className="rounded-xl bg-fuchsia-500/[0.07] border border-fuchsia-500/20 px-4 py-3"
-                    title={<SecTitle icon={<Dices size={13} />} label="Audibles & rain plans" count={day.alts.length} colorClass="text-fuchsia-300" />}
+                    title={
+                      <SecTitle
+                        icon={<Dices size={13} />}
+                        label="Audibles & rain plans"
+                        count={day.alts.length}
+                        colorClass="text-fuchsia-300"
+                      />
+                    }
                   >
                     <ul className="mt-3 space-y-1.5">
                       {day.alts.map((a, i) => (
                         <li key={i} className="text-sm text-slate-300 leading-relaxed flex gap-2">
-                          <span className="text-fuchsia-400 shrink-0">▸</span><span>{a}</span>
+                          <span className="text-fuchsia-400 shrink-0">▸</span>
+                          <span>{a}</span>
                         </li>
                       ))}
                     </ul>
@@ -760,35 +1071,64 @@ function DayCard({
                   return (
                     <Collapse
                       className="rounded-xl bg-sky-500/[0.07] border border-sky-500/20 px-4 py-3"
-                      title={<SecTitle icon={<span>☂️</span>} label="Contingency Plans" count={cont.rainPlan.length + cont.energySlumpPlan.length + cont.lastMinuteCancellation.length} colorClass="text-sky-300" />}
+                      title={
+                        <SecTitle
+                          icon={<span>☂️</span>}
+                          label="Contingency Plans"
+                          count={
+                            cont.rainPlan.length +
+                            cont.energySlumpPlan.length +
+                            cont.lastMinuteCancellation.length
+                          }
+                          colorClass="text-sky-300"
+                        />
+                      }
                     >
                       <div className="mt-3 space-y-4">
                         <div>
-                          <p className="text-[0.65rem] font-bold uppercase tracking-wider text-sky-400 mb-1.5">If it rains</p>
+                          <p className="text-[0.65rem] font-bold uppercase tracking-wider text-sky-400 mb-1.5">
+                            If it rains
+                          </p>
                           <ul className="space-y-1">
                             {cont.rainPlan.map((item, i) => (
-                              <li key={i} className="text-sm text-slate-300 leading-relaxed flex gap-2">
-                                <span className="text-sky-400 shrink-0">▸</span><span>{item}</span>
+                              <li
+                                key={i}
+                                className="text-sm text-slate-300 leading-relaxed flex gap-2"
+                              >
+                                <span className="text-sky-400 shrink-0">▸</span>
+                                <span>{item}</span>
                               </li>
                             ))}
                           </ul>
                         </div>
                         <div>
-                          <p className="text-[0.65rem] font-bold uppercase tracking-wider text-amber-400 mb-1.5">Energy slump</p>
+                          <p className="text-[0.65rem] font-bold uppercase tracking-wider text-amber-400 mb-1.5">
+                            Energy slump
+                          </p>
                           <ul className="space-y-1">
                             {cont.energySlumpPlan.map((item, i) => (
-                              <li key={i} className="text-sm text-slate-300 leading-relaxed flex gap-2">
-                                <span className="text-amber-400 shrink-0">▸</span><span>{item}</span>
+                              <li
+                                key={i}
+                                className="text-sm text-slate-300 leading-relaxed flex gap-2"
+                              >
+                                <span className="text-amber-400 shrink-0">▸</span>
+                                <span>{item}</span>
                               </li>
                             ))}
                           </ul>
                         </div>
                         <div>
-                          <p className="text-[0.65rem] font-bold uppercase tracking-wider text-accent-400 mb-1.5">Last-minute cancellation</p>
+                          <p className="text-[0.65rem] font-bold uppercase tracking-wider text-accent-400 mb-1.5">
+                            Last-minute cancellation
+                          </p>
                           <ul className="space-y-1">
                             {cont.lastMinuteCancellation.map((item, i) => (
-                              <li key={i} className="text-sm text-slate-300 leading-relaxed flex gap-2">
-                                <span className="text-accent-400 shrink-0">▸</span><span>{item}</span>
+                              <li
+                                key={i}
+                                className="text-sm text-slate-300 leading-relaxed flex gap-2"
+                              >
+                                <span className="text-accent-400 shrink-0">▸</span>
+                                <span>{item}</span>
                               </li>
                             ))}
                           </ul>
@@ -805,7 +1145,9 @@ function DayCard({
                       <MessageCircle size={13} />
                       Day notes
                       {comments.length > 0 && (
-                        <span className="text-[0.62rem] font-bold bg-white/10 text-slate-200 rounded-full px-1.5 py-0.5 tabular-nums">{comments.length}</span>
+                        <span className="text-[0.62rem] font-bold bg-white/10 text-slate-200 rounded-full px-1.5 py-0.5 tabular-nums">
+                          {comments.length}
+                        </span>
                       )}
                     </p>
                     {comments.length > 0 && (
@@ -817,7 +1159,9 @@ function DayCard({
                             </div>
                             <div className="min-w-0">
                               <span className="text-xs font-bold text-slate-400">{c.author}</span>
-                              <span className="text-[0.6rem] text-slate-600 ml-2">{fmtCommentAt(c.at)}</span>
+                              <span className="text-[0.6rem] text-slate-600 ml-2">
+                                {fmtCommentAt(c.at)}
+                              </span>
                               <p className="text-sm text-slate-300 mt-0.5 leading-snug">{c.text}</p>
                             </div>
                           </div>
@@ -829,7 +1173,12 @@ function DayCard({
                         type="text"
                         value={commentDraft}
                         onChange={(e) => setCommentDraft(e.target.value)}
-                        onKeyDown={(e) => { if (e.key === "Enter" && !e.shiftKey) { e.preventDefault(); submitComment(); } }}
+                        onKeyDown={(e) => {
+                          if (e.key === "Enter" && !e.shiftKey) {
+                            e.preventDefault();
+                            submitComment();
+                          }
+                        }}
                         placeholder={myName ? "Add a note for this day…" : "Pick a name to comment"}
                         disabled={!myName}
                         className="flex-1 bg-white/5 border border-white/10 rounded-lg px-3 py-1.5 text-sm text-slate-100 placeholder-slate-600 focus:outline-none focus:border-indigo-500/40 disabled:opacity-40 min-w-0"
@@ -863,7 +1212,9 @@ function getTodayIndex(): number {
 
 export function Itinerary() {
   const { data: optimData } = useItineraryOptimizations();
-  const [openMap, setOpenMap] = useState<Record<number, boolean>>(() => ({ [getTodayIndex()]: true }));
+  const [openMap, setOpenMap] = useState<Record<number, boolean>>(() => ({
+    [getTodayIndex()]: true,
+  }));
   const [trackMode, setTrackMode] = useLocalStorage("itinerary-track-mode", false);
   const [done, setDone] = useLocalStorage<Record<string, boolean>>("itinerary-done", {});
 
@@ -890,6 +1241,16 @@ export function Itinerary() {
     await setAllOverrides(fixed);
     toast.success("AI Optimizer: Schedule conflicts resolved and sorted chronologically!");
   };
+
+  const handleAutoFixDay = async (date: string) => {
+    const day = DAYS.find((d) => d.date === date);
+    if (!day) return;
+    const fixed = autoFixSingleDay(date, DAYS, overrides);
+    await setAllOverrides(fixed);
+    toast.success(
+      `AI Optimizer: Resolved conflicts for ${day.emoji} Day ${DAYS.indexOf(day) + 1}!`
+    );
+  };
   const { getVoters, toggle: toggleVote } = useActivityVotes();
   const { getPresent, toggle: togglePresence } = useCrewPresence();
   const myName = getIdentityName();
@@ -903,7 +1264,7 @@ export function Itinerary() {
   const jumpTo = (i: number) => {
     setOpenMap((m) => ({ ...m, [i]: true }));
     requestAnimationFrame(() =>
-      document.getElementById(`day-${i}`)?.scrollIntoView({ behavior: "smooth", block: "start" }),
+      document.getElementById(`day-${i}`)?.scrollIntoView({ behavior: "smooth", block: "start" })
     );
   };
 
@@ -914,17 +1275,28 @@ export function Itinerary() {
     const defaultKeys = d.activities.map((_, i) => `${date}:${i}`);
     return overrides[date]?.order?.length ? [...overrides[date].order] : defaultKeys;
   };
-  const keyToDate = (key: string): string | undefined => DAYS.find((d) => getOrder(d.date).includes(key))?.date;
+  const keyToDate = (key: string): string | undefined =>
+    DAYS.find((d) => getOrder(d.date).includes(key))?.date;
 
   // Moves `key` so it lands just before `beforeKey` in `toDate` (or at the end if null),
   // skipping it at its origin day if it's leaving that day, restoring it if it's coming back.
-  const moveActivity = (key: string, fromDate: string, toDate: string, beforeKey: string | null) => {
+  const moveActivity = (
+    key: string,
+    fromDate: string,
+    toDate: string,
+    beforeKey: string | null
+  ) => {
     const originDate = key.slice(0, key.lastIndexOf(":"));
-    if (fromDate !== toDate) setOrder(fromDate, getOrder(fromDate).filter((k) => k !== key));
+    if (fromDate !== toDate)
+      setOrder(
+        fromDate,
+        getOrder(fromDate).filter((k) => k !== key)
+      );
     skip(originDate, key, originDate !== toDate);
     const toOrder = getOrder(toDate).filter((k) => k !== key);
     const insertAt = beforeKey ? toOrder.indexOf(beforeKey) : -1;
-    if (insertAt < 0) toOrder.push(key); else toOrder.splice(insertAt, 0, key);
+    if (insertAt < 0) toOrder.push(key);
+    else toOrder.splice(insertAt, 0, key);
     setOrder(toDate, toOrder);
   };
 
@@ -981,8 +1353,12 @@ export function Itinerary() {
 
       <div className="glass rounded-2xl p-4 mb-6 space-y-3">
         <div className="flex flex-wrap gap-2">
-          <TopButton onClick={expandAll}><ChevronsUpDown size={13} /> Expand all</TopButton>
-          <TopButton onClick={collapseAll}><ChevronsDownUp size={13} /> Collapse all</TopButton>
+          <TopButton onClick={expandAll}>
+            <ChevronsUpDown size={13} /> Expand all
+          </TopButton>
+          <TopButton onClick={collapseAll}>
+            <ChevronsDownUp size={13} /> Collapse all
+          </TopButton>
           <TopButton onClick={() => downloadICS("japan-trip-2026.ics", buildTripICS(DAYS))}>
             <CalendarPlus size={13} /> Add whole trip to calendar
           </TopButton>
@@ -998,7 +1374,9 @@ export function Itinerary() {
             }`}
           >
             <ListChecks size={13} /> Trip Mode {trackMode ? "ON" : "OFF"}
-            {trackMode && totalDone > 0 && <span className="ml-1 tabular-nums">· {totalDone} done</span>}
+            {trackMode && totalDone > 0 && (
+              <span className="ml-1 tabular-nums">· {totalDone} done</span>
+            )}
           </button>
         </div>
         <div className="pt-1 border-t border-white/5">
@@ -1032,11 +1410,14 @@ export function Itinerary() {
             <ul className="space-y-2 list-disc pl-4 mb-4 text-xs text-slate-400 leading-relaxed">
               {conflicts.slice(0, 3).map((c, idx) => (
                 <li key={idx} className="marker:text-red-500">
-                  <span className="font-semibold text-slate-300">{c.activityTitle}</span>: {c.detail}
+                  <span className="font-semibold text-slate-300">{c.activityTitle}</span>:{" "}
+                  {c.detail}
                 </li>
               ))}
               {conflicts.length > 3 && (
-                <li className="list-none pl-0 text-slate-500">...and {conflicts.length - 3} more schedule errors.</li>
+                <li className="list-none pl-0 text-slate-500">
+                  ...and {conflicts.length - 3} more schedule errors.
+                </li>
               )}
             </ul>
             <button
@@ -1066,26 +1447,37 @@ export function Itinerary() {
               prevDate={DAYS[i - 1]?.date}
               nextDate={DAYS[i + 1]?.date}
               onSkip={(key, val) => skip(d.date, key, val)}
-              onAddComment={(text) => { if (myName) addComment(d.date, myName, text); }}
+              onAddComment={(text) => {
+                if (myName) addComment(d.date, myName, text);
+              }}
               getVoters={getVoters}
-              onVoteToggle={(key) => { if (myName) toggleVote(key, myName); }}
+              onVoteToggle={(key) => {
+                if (myName) toggleVote(key, myName);
+              }}
               onMove={moveActivity}
               getPresent={FIREBASE_ENABLED ? getPresent : undefined}
-              onPresenceToggle={FIREBASE_ENABLED && myName ? (date, idx) => togglePresence(date, idx, myName) : undefined}
+              onPresenceToggle={
+                FIREBASE_ENABLED && myName
+                  ? (date, idx) => togglePresence(date, idx, myName)
+                  : undefined
+              }
               optimization={optimData?.optimizations?.[d.date]}
+              dayConflicts={conflicts.filter((c) => c.currentDay === d.date)}
+              onAutoFixDay={() => handleAutoFixDay(d.date)}
             />
           ))}
         </div>
         <DragOverlay>
-          {activeDragKey && (() => {
-            const resolved = resolveActivity(activeDragKey);
-            return resolved ? (
-              <div className="flex items-center gap-2 rounded-lg bg-slate-800 border border-indigo-400/50 shadow-xl px-3 py-2 text-sm font-semibold text-slate-100">
-                <GripVertical size={14} className="text-slate-500 shrink-0" />
-                {resolved.activity.title}
-              </div>
-            ) : null;
-          })()}
+          {activeDragKey &&
+            (() => {
+              const resolved = resolveActivity(activeDragKey);
+              return resolved ? (
+                <div className="flex items-center gap-2 rounded-lg bg-slate-800 border border-indigo-400/50 shadow-xl px-3 py-2 text-sm font-semibold text-slate-100">
+                  <GripVertical size={14} className="text-slate-500 shrink-0" />
+                  {resolved.activity.title}
+                </div>
+              ) : null;
+            })()}
         </DragOverlay>
       </DndContext>
     </section>

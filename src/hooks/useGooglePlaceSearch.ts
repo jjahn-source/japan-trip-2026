@@ -51,13 +51,20 @@ function writeCache(query: string, data: PlaceSearchInfo) {
 const UNKNOWN: PlaceSearchInfo = { status: "unknown", closesAt: null, rating: null };
 
 function parseTimeMinutes(hhmm: string): number {
+  if (!hhmm) return 0;
   const h = parseInt(hhmm.slice(0, 2), 10);
   const m = parseInt(hhmm.slice(2), 10);
   return h * 60 + m;
 }
 
 const MAP_DOW: Record<string, number> = {
-  Sun: 0, Mon: 1, Tue: 2, Wed: 3, Thu: 4, Fri: 5, Sat: 6
+  Sun: 0,
+  Mon: 1,
+  Tue: 2,
+  Wed: 3,
+  Thu: 4,
+  Fri: 5,
+  Sat: 6,
 };
 
 export function isClosedAt(regularOpeningHours: any, dow: string, timeHHMM: string): boolean {
@@ -97,7 +104,10 @@ export function isClosedAt(regularOpeningHours: any, dow: string, timeHHMM: stri
     }
 
     // Also check if check time + 10080 falls within (wrapping perspective)
-    if (checkWeekMinutes + 10080 >= openWeekMinutes && checkWeekMinutes + 10080 <= closeWeekMinutes) {
+    if (
+      checkWeekMinutes + 10080 >= openWeekMinutes &&
+      checkWeekMinutes + 10080 <= closeWeekMinutes
+    ) {
       return false;
     }
   }
@@ -106,7 +116,10 @@ export function isClosedAt(regularOpeningHours: any, dow: string, timeHHMM: stri
 }
 
 export function useGooglePlaceSearch(query: string | undefined, city?: string) {
-  const [info, setInfo] = useState<PlaceSearchInfo & { loading: boolean }>({ ...UNKNOWN, loading: false });
+  const [info, setInfo] = useState<PlaceSearchInfo & { loading: boolean }>({
+    ...UNKNOWN,
+    loading: false,
+  });
 
   useEffect(() => {
     if (!query) {
@@ -115,7 +128,9 @@ export function useGooglePlaceSearch(query: string | undefined, city?: string) {
     }
     const apiKey = import.meta.env.VITE_GOOGLE_PLACES_KEY as string | undefined;
     if (!apiKey) {
-      console.warn("VITE_GOOGLE_PLACES_KEY environment variable is not set. Place search will not work.");
+      console.warn(
+        "VITE_GOOGLE_PLACES_KEY environment variable is not set. Place search will not work."
+      );
       setInfo({ ...UNKNOWN, loading: false });
       return;
     }
@@ -136,7 +151,8 @@ export function useGooglePlaceSearch(query: string | undefined, city?: string) {
       headers: {
         "Content-Type": "application/json",
         "X-Goog-Api-Key": apiKey,
-        "X-Goog-FieldMask": "places.id,places.displayName,places.regularOpeningHours,places.rating,places.userRatingCount,places.priceLevel,places.location",
+        "X-Goog-FieldMask":
+          "places.id,places.displayName,places.regularOpeningHours,places.rating,places.userRatingCount,places.priceLevel,places.location",
       },
       body: JSON.stringify({
         textQuery: searchQuery,
@@ -164,8 +180,9 @@ export function useGooglePlaceSearch(query: string | undefined, city?: string) {
           PRICE_LEVEL_EXPENSIVE: 3,
           PRICE_LEVEL_VERY_EXPENSIVE: 4,
         };
-        const priceLevel: number | null =
-          place.priceLevel ? (priceLevelMap[place.priceLevel] ?? null) : null;
+        const priceLevel: number | null = place.priceLevel
+          ? (priceLevelMap[place.priceLevel] ?? null)
+          : null;
         const oh = place.regularOpeningHours;
         const displayName = place.displayName?.text ?? "";
 
@@ -176,9 +193,7 @@ export function useGooglePlaceSearch(query: string | undefined, city?: string) {
           status = oh.openNow ? "open" : "closed";
           if (oh.periods) {
             const todayIdx = new Date().getDay();
-            const period = oh.periods.find(
-              (p: any) => p.open?.day === todayIdx && p.close
-            );
+            const period = oh.periods.find((p: any) => p.open?.day === todayIdx && p.close);
             if (period?.close?.time) {
               const hhmm = period.close.time;
               const h = parseInt(hhmm.slice(0, 2), 10);

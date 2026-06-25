@@ -1,16 +1,22 @@
 import type { Day, Activity } from "../data/itinerary";
 import type { DayOverride } from "../hooks/useItineraryOverrides";
-import { isTimed, parseMinutes } from "./itineraryTools";
+import { isTimed, parseMinutes, haversineKm } from "./itineraryTools";
 import { isClosedAt } from "../hooks/useGooglePlaceSearch";
 
 export interface Conflict {
-  type: "DATE_MISMATCH" | "CHRONO_ORDER" | "VENUE_CLOSED";
+  type: "DATE_MISMATCH" | "CHRONO_ORDER" | "VENUE_CLOSED" | "TIME_OVERLAP" | "GEO_DISTANCE_ANOMALY";
   activityKey: string;
   activityTitle: string;
   currentDay: string;
   srcDate?: string;
   detail: string;
 }
+
+const CITY_COORDS: Record<string, [number, number]> = {
+  Tokyo: [35.6896, 139.6917],
+  Kyoto: [35.0116, 135.7681],
+  Osaka: [34.6684, 135.5023],
+};
 
 // Critical date-locked items
 export function isDateLocked(a: Activity): boolean {
@@ -32,11 +38,24 @@ export function isDateLocked(a: Activity): boolean {
   );
 }
 
+// Adjusts minutes for late-night/past-midnight activities (00:00 to 02:59)
+// by adding 1440 minutes (24 hours) so they sort correctly after 23:00.
+export function parseMinutesAdjusted(time: string): number | null {
+  const mins = parseMinutes(time);
+  if (mins === null) return null;
+  const h = Math.floor(mins / 60);
+  if (h < 3) {
+    return mins + 1440;
+  }
+  return mins;
+}
+
 export function detectConflicts(
   days: Day[],
   overrides: Record<string, DayOverride>,
   placeData: Record<string, any> // Keyed by query: { regularOpeningHours }
 ): Conflict[] {
+  console.log("DEBUG detectConflicts called with overrides:", JSON.stringify(overrides));
   const conflicts: Conflict[] = [];
 
   // Helper to resolve current activity ordering
@@ -83,7 +102,7 @@ export function detectConflicts(
 
     // Rule 2: Chronological order
     const timedActivities = activitiesWithKeys
-      .map(({ key, activity }) => ({ key, activity, mins: parseMinutes(activity.time) }))
+      .map(({ key, activity }) => ({ key, activity, mins: parseMinutesAdjusted(activity.time) }))
       .filter((x): x is { key: string; activity: Activity; mins: number } => x.mins !== null);
 
     for (let i = 0; i + 1 < timedActivities.length; i++) {
@@ -116,9 +135,190 @@ export function detectConflicts(
         }
       }
     });
+
+    // Rule 4: Time Overlap
+    // Sort timed items for overlap checks
+    const sortedTimed = [...timedActivities].sort((a, b) => a.mins - b.mins);
+    for (let i = 0; i + 1 < sortedTimed.length; i++) {
+      const act1 = sortedTimed[i];
+      const act2 = sortedTimed[i + 1];
+      const diff = Math.abs(act1.mins - act2.mins);
+      if (diff < 30) {
+        const isFlight1 =
+          act1.activity.title.toLowerCase().includes("flight") ||
+          act1.activity.title.toLowerCase().includes("check-in");
+        const isFlight2 =
+          act2.activity.title.toLowerCase().includes("flight") ||
+          act2.activity.title.toLowerCase().includes("check-in");
+        if (!isFlight1 && !isFlight2) {
+          conflicts.push({
+            type: "TIME_OVERLAP",
+            activityKey: act2.key,
+            activityTitle: act2.activity.title,
+            currentDay: day.date,
+            detail: `Time conflict: "${act1.activity.title}" (${act1.activity.time}) and "${act2.activity.title}" (${act2.activity.time}) are scheduled within ${diff} minutes of each other.`,
+          });
+        }
+      }
+    }
+
+    // Rule 5: Geographic Distance & Zig-Zagging
+    const mappedActivities = activitiesWithKeys.filter(
+      (x) =>
+        x.activity.coord &&
+        !isDateLocked(x.activity) &&
+        !x.activity.title.toLowerCase().includes("transit") &&
+        !x.activity.title.toLowerCase().includes("bus") &&
+        !x.activity.title.toLowerCase().includes("train") &&
+        !x.activity.title.toLowerCase().includes("ferry") &&
+        !x.activity.title.toLowerCase().includes("metro") &&
+        !x.activity.title.toLowerCase().includes("subway") &&
+        !x.activity.title.toLowerCase().includes("shinkansen") &&
+        !x.activity.title.toLowerCase().includes("limousine")
+    );
+
+    // Check for large distance jumps (> 15 km)
+    for (let i = 0; i + 1 < mappedActivities.length; i++) {
+      const act1 = mappedActivities[i];
+      const act2 = mappedActivities[i + 1];
+      const dist = haversineKm(act1.activity.coord!, act2.activity.coord!);
+      if (dist > 15) {
+        conflicts.push({
+          type: "GEO_DISTANCE_ANOMALY",
+          activityKey: act2.key,
+          activityTitle: act2.activity.title,
+          currentDay: day.date,
+          detail: `Large distance jump: "${act1.activity.title}" to "${act2.activity.title}" is ${dist.toFixed(1)} km apart. Consider grouping activities by area.`,
+        });
+      }
+    }
+
+    // Check for zig-zagging: A -> B -> C where dist(A, B) > 10, dist(B, C) > 10, but dist(A, C) < 5
+    for (let i = 0; i + 2 < mappedActivities.length; i++) {
+      const actA = mappedActivities[i];
+      const actB = mappedActivities[i + 1];
+      const actC = mappedActivities[i + 2];
+      const distAB = haversineKm(actA.activity.coord!, actB.activity.coord!);
+      const distBC = haversineKm(actB.activity.coord!, actC.activity.coord!);
+      const distAC = haversineKm(actA.activity.coord!, actC.activity.coord!);
+      if (distAB > 10 && distBC > 10 && distAC < 5) {
+        conflicts.push({
+          type: "GEO_DISTANCE_ANOMALY",
+          activityKey: actB.key,
+          activityTitle: actB.activity.title,
+          currentDay: day.date,
+          detail: `Zig-zag routing detected: you travel from "${actA.activity.title}" to "${actB.activity.title}" (${distAB.toFixed(1)} km) and then back to "${actC.activity.title}" (${distBC.toFixed(1)} km), which is only ${distAC.toFixed(1)} km from "${actA.activity.title}".`,
+        });
+      }
+    }
   });
 
+  console.log("DEBUG detectConflicts returning conflicts:", JSON.stringify(conflicts));
   return conflicts;
+}
+
+// TSP solver using brute-force search for small paths
+function solveTSP(
+  startCoord: [number, number],
+  items: { key: string; coord: [number, number] }[]
+): string[] {
+  if (items.length === 0) return [];
+  if (items.length === 1) return [items[0].key];
+
+  let bestPath: string[] = [];
+  let minDist = Infinity;
+
+  const permute = (arr: number[], m: number[] = []) => {
+    if (arr.length === 0) {
+      let currentCoord = startCoord;
+      let totalDist = 0;
+      const currentPath: string[] = [];
+      for (const idx of m) {
+        const item = items[idx];
+        totalDist += haversineKm(currentCoord, item.coord);
+        currentCoord = item.coord;
+        currentPath.push(item.key);
+      }
+      if (totalDist < minDist) {
+        minDist = totalDist;
+        bestPath = currentPath;
+      }
+    } else {
+      for (let i = 0; i < arr.length; i++) {
+        const curr = arr.slice();
+        const next = curr.splice(i, 1);
+        permute(curr.slice(), m.concat(next));
+      }
+    }
+  };
+
+  const indices = Array.from({ length: items.length }, (_, i) => i);
+  permute(indices);
+  return bestPath;
+}
+
+export function autoFixDay(day: Day, dayOverride: DayOverride, days: Day[]): DayOverride {
+  const override = JSON.parse(JSON.stringify(dayOverride)) as DayOverride;
+  if (!override.order) override.order = [];
+  if (!override.skipped) override.skipped = [];
+
+  const defaultKeys = day.activities.map((_, i) => `${day.date}:${i}`);
+  if (override.order.length === 0) {
+    override.order = [...defaultKeys];
+  }
+
+  // Resolve all activities in the current order
+  const resolvedItems = override.order
+    .map((key) => {
+      const parts = key.split(":");
+      const srcDate = parts[0];
+      const idx = Number(parts[1]);
+      const srcDay = days.find((x) => x.date === srcDate);
+      const activity = srcDay?.activities[idx];
+      return { key, activity, srcDate };
+    })
+    .filter((x): x is { key: string; activity: Activity; srcDate: string } => !!x.activity);
+
+  // 1. Separate timed vs untimed
+  const timed = resolvedItems
+    .map((item) => ({ ...item, mins: parseMinutesAdjusted(item.activity.time) }))
+    .filter(
+      (x): x is { key: string; activity: Activity; srcDate: string; mins: number } =>
+        x.mins !== null
+    );
+
+  const untimed = resolvedItems.filter((item) => parseMinutesAdjusted(item.activity.time) === null);
+
+  // Sort timed items chronologically
+  timed.sort((a, b) => a.mins - b.mins);
+
+  // 2. Untimed items with coordinates
+  const untimedMapped = untimed
+    .filter((item) => !!item.activity.coord)
+    .map((item) => ({ key: item.key, coord: item.activity.coord! }));
+
+  const untimedUnmapped = untimed.filter((item) => !item.activity.coord);
+
+  // Determine starting coordinate for TSP solver
+  let startCoord = CITY_COORDS[day.city] || [35.6896, 139.6917];
+  if (timed.length > 0) {
+    const lastTimedWithCoord = [...timed].reverse().find((item) => !!item.activity.coord);
+    if (lastTimedWithCoord) {
+      startCoord = lastTimedWithCoord.activity.coord!;
+    }
+  }
+
+  // Solve TSP for untimed mapped items
+  const tspOrderKeys = solveTSP(startCoord, untimedMapped);
+
+  // Reassemble order: timed first, then geo-sorted untimed, then remaining untimed unmapped
+  override.order = [
+    ...timed.map((t) => t.key),
+    ...tspOrderKeys,
+    ...untimedUnmapped.map((u) => u.key),
+  ];
+
+  return override;
 }
 
 export function autoFixOverrides(
@@ -127,7 +327,7 @@ export function autoFixOverrides(
 ): Record<string, DayOverride> {
   const nextOverrides = JSON.parse(JSON.stringify(overrides)) as Record<string, DayOverride>;
 
-  // Initialize order for every day if missing; also guard against partial Firebase data
+  // Initialize order for every day if missing
   days.forEach((day) => {
     if (!nextOverrides[day.date]) {
       nextOverrides[day.date] = { order: [], skipped: [] };
@@ -149,7 +349,9 @@ export function autoFixOverrides(
         // Find where it currently resides and delete it from order / skipped list
         Object.keys(nextOverrides).forEach((date) => {
           nextOverrides[date].order = (nextOverrides[date].order ?? []).filter((k) => k !== key);
-          nextOverrides[date].skipped = (nextOverrides[date].skipped ?? []).filter((k) => k !== key);
+          nextOverrides[date].skipped = (nextOverrides[date].skipped ?? []).filter(
+            (k) => k !== key
+          );
         });
 
         // Add back to original day
@@ -160,30 +362,74 @@ export function autoFixOverrides(
     });
   });
 
-  // Step 2: Chronologically sort each day's orders by their time
+  // Step 2: Optimize each day individually
   days.forEach((day) => {
-    const order = nextOverrides[day.date].order;
-
-    // Resolve details for items in order
-    const resolvedItems = order.map((key) => {
-      const parts = key.split(":");
-      const srcDate = parts[0];
-      const idx = Number(parts[1]);
-      const srcDay = days.find((x) => x.date === srcDate);
-      const activity = srcDay?.activities[idx];
-      const mins = activity ? parseMinutes(activity.time) : null;
-      return { key, activity, mins };
-    });
-
-    const timed = resolvedItems.filter((x) => x.mins !== null) as { key: string; activity: Activity; mins: number }[];
-    const untimed = resolvedItems.filter((x) => x.mins === null);
-
-    // Sort timed items by minutes
-    timed.sort((a, b) => a.mins - b.mins);
-
-    // Reconstruct ordered list: timed ones first in chronological order, untimed after
-    nextOverrides[day.date].order = [...timed.map((t) => t.key), ...untimed.map((u) => u.key)];
+    nextOverrides[day.date] = autoFixDay(day, nextOverrides[day.date], days);
   });
+
+  return nextOverrides;
+}
+
+export function autoFixSingleDay(
+  date: string,
+  days: Day[],
+  overrides: Record<string, DayOverride>
+): Record<string, DayOverride> {
+  const nextOverrides = JSON.parse(JSON.stringify(overrides)) as Record<string, DayOverride>;
+
+  // Initialize overrides for all days if missing
+  days.forEach((day) => {
+    if (!nextOverrides[day.date]) {
+      nextOverrides[day.date] = { order: [], skipped: [] };
+    }
+    if (!nextOverrides[day.date].order) nextOverrides[day.date].order = [];
+    if (!nextOverrides[day.date].skipped) nextOverrides[day.date].skipped = [];
+  });
+
+  const targetDay = days.find((d) => d.date === date);
+  if (!targetDay) return nextOverrides;
+
+  // 1. Move date-locked activities belonging to other days out of the target day
+  const targetOrder = nextOverrides[date].order;
+  targetOrder.forEach((key) => {
+    const parts = key.split(":");
+    const srcDate = parts[0];
+    const idx = Number(parts[1]);
+    const srcDay = days.find((x) => x.date === srcDate);
+    const activity = srcDay?.activities[idx];
+    if (activity && srcDate !== date && isDateLocked(activity)) {
+      // Remove from target day
+      nextOverrides[date].order = (nextOverrides[date].order ?? []).filter((k) => k !== key);
+      nextOverrides[date].skipped = (nextOverrides[date].skipped ?? []).filter((k) => k !== key);
+
+      // Add back to original home day
+      if (!nextOverrides[srcDate].order.includes(key)) {
+        nextOverrides[srcDate].order.push(key);
+      }
+    }
+  });
+
+  // 2. Pull date-locked activities belonging to the target day back to the target day
+  const defaultKeys = targetDay.activities.map((_, i) => `${date}:${i}`);
+  defaultKeys.forEach((key) => {
+    const idx = Number(key.split(":")[1]);
+    const activity = targetDay.activities[idx];
+    if (activity && isDateLocked(activity)) {
+      // Find where it currently resides and delete it
+      Object.keys(nextOverrides).forEach((d) => {
+        nextOverrides[d].order = (nextOverrides[d].order ?? []).filter((k) => k !== key);
+        nextOverrides[d].skipped = (nextOverrides[d].skipped ?? []).filter((k) => k !== key);
+      });
+
+      // Add back to target day
+      if (!nextOverrides[date].order.includes(key)) {
+        nextOverrides[date].order.push(key);
+      }
+    }
+  });
+
+  // 3. Optimize the target day itself
+  nextOverrides[date] = autoFixDay(targetDay, nextOverrides[date], days);
 
   return nextOverrides;
 }
