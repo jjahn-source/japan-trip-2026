@@ -1,129 +1,140 @@
 {
   "optimizations": {
-    "2026-12-14": {
-      "tips": [
-        "Load your Suica/Pasmo into your Apple/Google Wallet while you still have free airport Wi-Fi at MSP.",
-        "Set your phone timezone to JST (UTC+9) right after takeoff to start syncing your sleep cycle to Tokyo time."
-      ]
-    },
     "2026-12-15": {
+      "weatherAlert": "Tokyo in mid-December can be brisk and clear, but occasional rain is possible. If raining on arrival, the Omoide Yokocho outdoor stalls will be cramped and smoky under umbrellas.",
       "tips": [
-        "Hit the Limousine Bus ticket counter at Haneda before grabbing your bags to secure spots for all 8.",
-        "Use the Tokyo Metropolitan Gov't Building free observatory if you want a skyline view without spending yen on night one."
+        "Hit the Limousine Bus ATM or convenience store ATM to withdraw JPY; with the current ~161 JPY/USD rate, you'll get great value.",
+        "Use the MSP layover to add Suica to your Apple/Google Wallet so you're ready to tap-and-go the second you land."
       ]
     },
     "2026-12-16": {
-      "weatherAlert": "December evenings in Tokyo are dry but cold (often near 40°F/5°C). The Shibuya Blue Cave outdoor illumination walk will feel biting, especially after sunset.",
+      "weatherAlert": "High rain risk for an outdoor-heavy day. Meiji Shrine walk and Shibuya Blue Cave outdoor illumination are exposed.",
+      "suggestedSwap": {
+        "originalActivity": "Shibuya Blue Cave illumination",
+        "suggestedAlt": "Miyashita Park covered rooftop + Parco + Tower Records",
+        "reason": "If it rains, the 600k outdoor LED walk along Yoyogi Park will be miserable; the covered Miyashita Park and Parco complex keeps you dry and entertained."
+      },
       "tips": [
-        "Shibuya Sky sunset slots sell out fast; if unbooked, pivot immediately to Mag's Park rooftop or Hikarie 11F Sky Lobby.",
-        "Layer up for the Blue Cave walk—it's all outdoors along the wind-tunneled Shibuya River."
+        "Shibuya Sky sunset slots sell out fast; if you haven't pre-booked, pivot to Mag's Park rooftop or Hikarie 11F Sky Lobby.",
+        "Pre-download offline maps for Tokyo; cell service can be spotty in underground arcades."
       ]
     },
     "2026-12-17": {
-      "weatherAlert": "High rain risk in mid-December. Senso-ji and Nakamise are partially outdoors, and Ueno Ameyoko is an open-air market.",
-      "suggestedSwap": {
-        "originalActivity": "Ueno Ameyoko market under the tracks",
-        "suggestedAlt": "Rain plan: Tokyo National Museum (samurai swords + armor, 2h) slots between Asakusa and Akiba on the same line.",
-        "reason": "Heavy rain makes the open-air Ameyoko market miserable; the Tokyo National Museum is a world-class indoor alternative right in Ueno Park."
-      },
+      "weatherAlert": "Senso-ji and Nakamise are mostly outdoors/covered walkways; rain makes the market cramped but manageable.",
       "tips": [
-        "If it rains, buy a clear konbini umbrella (¥500) for the Nakamise stretch, then head indoors.",
-        "Skytree queues can be brutal in bad weather as outdoor tourists pivot indoors; check the Asahi Beer Hall Sky Room alternative."
+        "Arrive at Senso-ji right at 08:30 to beat the tour buses for clear photos of the incense burner.",
+        "If the Skytree queue is insane, pivot to the Asahi Beer Hall 22F Sky Room next door for the same river view with a drink in hand."
       ]
     },
     "2026-12-18": {
       "tips": [
-        "teamLab Planets requires walking barefoot in water; roll your pants up and wear easily removable shoes.",
-        "Golden Gai bars seat 4-6 max; split into two squads of 4 and use WhatsApp to share good spots."
+        "teamLab Planets is barefoot and involves wading through water; December floors are cold, so wear warm socks you don't mind getting slightly damp.",
+        "Golden Gai bars seat 6-8 people max; split the squad and share findings via group chat."
       ]
     },
     "2026-12-19": {
-      "weatherAlert": "Coastal Kamakura and Enoshima are highly exposed to winter winds and rain. The Fuji-over-Sagami-Bay sunset requires clear skies.",
+      "weatherAlert": "Coastal Kamakura and Enoshima are highly exposed to winter winds and rain. The Enoden tram ride and Fuji view require clear skies.",
       "suggestedSwap": {
         "originalActivity": "Enoshima island — climb to the Sea Candle",
-        "suggestedAlt": "Enoshima onsen finish: Enospa overlooks the bay — soak with a Fuji view before the train if legs are cooked.",
-        "reason": "If it's raining or excessively windy, the exposed Sea Candle climb will be miserable; Enospa provides a warm, scenic indoor alternative."
+        "suggestedAlt": "Enoshima onsen finish: Enospa overlooks the bay",
+        "reason": "If it's raining or bitterly cold with high winds, climbing the exposed Enoshima island will be miserable; Enospa offers a warm soak with the same bay view."
       },
       "tips": [
-        "Check the morning weather forecast; if it's totally overcast, swap the Enoshima coastal tram segment for Hokokuji's indoor bamboo grove and matcha.",
-        "The Enoden local train is charming but slow; if you're running late, the Shonan Shinjuku line is faster to Fujisawa."
+        "December is peak clarity for Mt. Fuji—if the sky is clear, the sunset view over Sagami Bay will be epic; if cloudy, skip the Sea Candle.",
+        "Grab a hot corn soup or canned coffee from a platform vending machine to stay warm on the train."
       ]
     },
     "2026-12-20": {
       "tips": [
-        "Run the Airbnb laundry during dinner so everyone packs clean clothes for the Kyoto leg.",
-        "Thermae-Yu requires tattoos to be covered; bring waterproof bandages if anyone in the group has ink."
+        "If you didn't secure Ghibli Museum tickets, pivot to Nakano Broadway for an incredible otaku deep-dive without the entry fee.",
+        "Run the Airbnb washer during dinner so everyone lands in Kyoto with a clean kit."
       ]
     },
     "2026-12-21": {
+      "weatherAlert": "Gion's golden hour and Shirakawa canal walk are less magical in heavy rain.",
+      "suggestedSwap": {
+        "originalActivity": "Gion at golden hour — Hanamikoji + Shirakawa canal",
+        "suggestedAlt": "Kyoto International Manga Museum",
+        "reason": "If it's pouring, walking the exposed canal and streets loses its charm; the Manga Museum is an indoor, massive time-vortex that keeps the whole group dry."
+      },
       "tips": [
-        "Sit on the LEFT side of the Nozomi shinkansen (Seat E) for the best chance at a Mt. Fuji view around minute 40.",
-        "Pontocho Alley restaurants are tiny; confirm your reservation for 8 is locked in, as walk-ins for large groups are nearly impossible."
+        "Grab ekiben at Tokyo Station before boarding—there are 200+ kinds and it's a ritual.",
+        "Sit on the LEFT side of the Nozomi (Seat E) for the Mt. Fuji view around minute 40."
       ]
     },
     "2026-12-22": {
-      "weatherAlert": "Fushimi Inari at dawn is entirely outdoors and exposed to cold December winds on the mountain.",
+      "weatherAlert": "Fushimi Inari at dawn is slippery when wet; the stone steps become hazardous in rain.",
+      "suggestedSwap": {
+        "originalActivity": "FUSHIMI INARI AT DAWN",
+        "suggestedAlt": "Sanjusangendo — 1,001 golden Kannon statues",
+        "reason": "If it's raining heavily, the thousands of wet, uneven stone steps at Fushimi Inari are a slip hazard; Sanjusangendo offers a jaw-dropping, entirely indoor alternative."
+      },
       "tips": [
-        "Wear layers and heat-tech for the Fushimi Inari dawn hike; it's significantly colder at the Yotsutsuji intersection.",
-        "Funaoka Onsen has a famous 'electric bath'—start on the low setting before you fully commit."
+        "Vending machine hot corn soup on the descent is a winter lifesaver—don't skip it.",
+        "Funaoka Onsen has a 1923 'electric bath'—it's weirdly tingly and a quintessential sento experience."
       ]
     },
     "2026-12-23": {
-      "weatherAlert": "Arashiyama Bamboo Grove offers little shelter in rain, and Iwatayama Monkey Park is dangerously slippery on wet steps. Nara deer park is entirely exposed.",
+      "weatherAlert": "Arashiyama Bamboo Grove is highly exposed; rain makes the path extremely crowded with umbrellas and ruins photos.",
       "suggestedSwap": {
-        "originalActivity": "Iwatayama Monkey Park — humans enter the cage",
-        "suggestedAlt": "Kimono Forest at Randen Arashiyama station: pillar-lit fabric columns glowing at dusk — free, on the way out anyway.",
-        "reason": "If it rains, the steep 20-30 min hike up to Iwatayama Monkey Park becomes a slippery, cold mud pit; the Kimono Forest is covered and easily accessible."
+        "originalActivity": "Arashiyama Bamboo Grove before the buses exist",
+        "suggestedAlt": "Hokokuji bamboo temple",
+        "reason": "If it rains, the narrow Arashiyama path becomes an umbrella traffic jam; Hokokuji offers a quieter, partially covered bamboo grove with matcha indoors."
       },
       "tips": [
-        "Nara deer can be aggressive with food; buy deer crackers one pack at a time and show empty hands when done.",
-        "Wakakusa-yama is closed for the year as of Dec 13—don't accidentally start the climb!"
+        "Wakakusa-yama is closed for the winter (closes 2nd Sunday of December), so don't attempt the climb.",
+        "Bow to the deer with empty hands to show you're out of crackers—they actually understand this gesture!"
       ]
     },
     "2026-12-24": {
       "tips": [
-        "KFC for Christmas Eve is no joke in Japan—pre-order your bucket days in advance online or expect a 2-hour line.",
-        "Nintendo Museum lottery tickets are strict; have your QR codes and IDs ready for entry."
+        "KFC for Christmas dinner is no joke in Japan—pre-order or expect to wait in a massive line.",
+        "If you lost the Nintendo Museum lottery, Uji's Byodo-in and matcha scene easily fills the morning."
       ]
     },
     "2026-12-25": {
-      "crowdAlert": "USJ on Christmas Day will be at maximum capacity. Super Nintendo World timed entry will be fiercely contested.",
+      "crowdAlert": "USJ on Christmas Day will be at peak capacity, especially for Super Nintendo World.",
       "tips": [
-        "Rope-drop 45 minutes early and sprint directly to Super Nintendo World the second the gates open.",
-        "If Express Passes are sold out, rely on single-rider lines for Harry Potter and the Forbidden Journey to save 60% of the wait."
+        "Rope-drop 45 minutes early and head STRAIGHT to Super Nintendo World; timed entry fills up instantly.",
+        "If Express Passes are sold out, use single-rider lines to cut 60% off Mario Kart wait times."
       ]
     },
     "2026-12-26": {
-      "weatherAlert": "Miyajima island is highly exposed to sea winds. The floating torii gate viewing and Omotesando street are outdoor-heavy.",
+      "weatherAlert": "Miyajima's floating torii is best at low tide, but rain makes the ferry ride and island walk cold and windy.",
       "tips": [
-        "The Peace Memorial Museum is emotionally heavy; it's okay to step out to the park if someone needs a breather.",
-        "Check the tide schedule—high tide is required to see the torii 'floating', while low tide lets you walk out to it."
+        "This is the longest day of the trip; if anyone is redlining, it's okay to skip Miyajima and wait at Hiroshima Station.",
+        "The Peace Memorial Museum hits heavy—that's the point. Shukkei-en garden nearby offers a quiet, reflective space to decompress."
       ]
     },
     "2026-12-27": {
+      "weatherAlert": "Midosuji Illumination is a 4km outdoor walk; cold, rainy winter weather can make this miserable.",
+      "suggestedSwap": {
+        "originalActivity": "MIDOSUJI ILLUMINATION — 4km of lit boulevard, walked south",
+        "suggestedAlt": "Osaka Museum of Housing & Living",
+        "reason": "If it's pouring and freezing, a 4km outdoor walk loses its appeal; the indoor Osaka Museum of Housing & Living offers a life-size Edo street experience out of the cold."
+      },
       "tips": [
-        "Midosuji Illumination is best photographed after sunset; start the Umeda Sky Building at 16:30 to catch the transition.",
-        "Misono Building bars are tiny; split into groups of 2-4 to actually find seats in the micro-bars."
+        "Buy 551 Horai pork buns at Namba station BEFORE the crab dinner—they sell out nightly and make the best next-day breakfast.",
+        "Split squads for the afternoon: nerds hit Den Den Town, hypebeasts hit Amerikamura."
       ]
     },
     "2026-12-28": {
-      "weatherAlert": "Himeji Castle involves extensive outdoor walking and steep, cold stone staircases in December.",
       "tips": [
-        "Wear thick socks and easy-slip shoes for Himeji Castle; you must remove shoes inside the main keep and the floors are freezing.",
-        "Do your final tax-free shopping tonight in Namba; verify all receipts are stapled in your passports for airport customs."
+        "Kobe beef lunch sets are significantly cheaper than dinner; save the splurge for midday.",
+        "Do a tax-free paperwork check tonight: ensure receipts are with passports and purchases are accessible for customs on exit."
       ]
     },
     "2026-12-29": {
       "tips": [
-        "Sit on the LEFT side (Seat A/E) of the Nozomi for one last Mt. Fuji view on the ride back to Tokyo.",
-        "Zero-out your Suica cards by buying snacks or using the station top-up machines; you can't get a refund on the balance."
+        "Sit on the LEFT side (Seat A) of the Nozomi heading east for one last Mt. Fuji view.",
+        "Zero out your Suica balance at the konbini or station machine before flying; refunds are a hassle at the airport."
       ]
     }
   },
   "globalTips": [
-    "The USD/JPY rate is highly favorable at ~161.85. Use a card with no foreign transaction fees for large purchases, but carry cash (withdrawn from 7-Eleven ATMs) for smaller shops, temples, and konbini runs.",
-    "With 8 people, always split into 2-4 person squads for restaurants, bars, and arcade lanes—Japan's venues rarely seat large groups together.",
-    "December in Japan is cold and dry but occasionally rainy. Pack Uniqlo Heat-Tech, a windproof outer layer, and a compact umbrella; clear konbini umbrellas (¥500) are great backups for sudden showers."
+    "With the USD/JPY rate hovering around 161, your dollar stretches far—withdraw larger sums at 7-Eleven ATMs to minimize per-transaction fees and pay in JPY (not USD) if credit cards prompt you to choose.",
+    "December in Japan is cold, dry, and occasionally rainy; pack versatile layers, a solid rain shell, and comfortable, slip-resistant walking shoes for wet temple steps.",
+    "Pre-book major attractions (teamLab, USJ Express Pass, Shibuya Sky) as far in advance as possible—December crowds are real, and walk-up tickets are rarely available."
   ],
-  "generatedAt": "2026-06-26T09:40:00.964Z"
+  "generatedAt": "2026-06-26T14:39:21.055Z"
 }
