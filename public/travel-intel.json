@@ -1,8 +1,8 @@
 {
   "exchangeRate": {
-    "usd_jpy": 162.44,
+    "usd_jpy": 162.71,
     "source": "ECB via Frankfurter",
-    "date": "2026-06-30"
+    "date": "2026-07-01"
   },
   "advisory": {
     "level": 1,
@@ -12,5 +12,5 @@
     "changeDesc": "Removal of information about Tsunami advisory following earthquake in the Philippines ('Warning and insurance' page).",
     "source": "UK FCDO"
   },
-  "fetchedAt": "2026-07-01T10:01:24.711Z"
+  "fetchedAt": "2026-07-01T14:49:08.703Z"
 }
