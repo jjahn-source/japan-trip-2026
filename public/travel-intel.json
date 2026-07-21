@@ -1,8 +1,8 @@
 {
   "exchangeRate": {
-    "usd_jpy": 162.38,
+    "usd_jpy": 162.74,
     "source": "ECB via Frankfurter",
-    "date": "2026-07-20"
+    "date": "2026-07-21"
   },
   "advisory": {
     "level": 1,
@@ -12,5 +12,5 @@
     "changeDesc": "Addition of information about extreme heat (see ‘Extreme weather and natural disasters' on the ‘Safety and security' page). ",
     "source": "UK FCDO"
   },
-  "fetchedAt": "2026-07-21T08:37:46.918Z"
+  "fetchedAt": "2026-07-21T14:06:14.982Z"
 }
