@@ -1,4 +1,9 @@
 {
+  "exchangeRate": {
+    "usd_jpy": 160.24,
+    "source": "ECB via Frankfurter",
+    "date": "2026-07-31"
+  },
   "advisory": {
     "level": 1,
     "message": "No active travel alerts. Exercise normal precautions.",
@@ -7,5 +12,5 @@
     "changeDesc": "Addition of information about a large earthquake which struck Kumamoto prefecture on 28 July 2026 ('Warnings and insurance' page).",
     "source": "UK FCDO"
   },
-  "fetchedAt": "2026-08-01T13:41:03.435Z"
+  "fetchedAt": "2026-08-01T19:17:50.038Z"
 }
