@@ -1,7 +1,7 @@
 {
-  "fetchedAt": "2026-08-05T10:38:53.579Z",
-  "totalNew": 9,
-  "totalDropped": 9,
+  "fetchedAt": "2026-08-06T10:42:30.588Z",
+  "totalNew": 6,
+  "totalDropped": 6,
   "legs": [
     {
       "id": "tokyo",
@@ -15,9 +15,25 @@
       "searchUrl": "https://www.airbnb.com/s/Tokyo--Japan/homes?checkin=2026-12-15&checkout=2026-12-21&adults=8&room_types[]=Entire+home%2Fapt&min_bedrooms=3&min_bathrooms=2",
       "options": [
         {
+          "id": "947433616806700473",
+          "name": "Spacious 80㎡ near Ikebukuro with 2 showers",
+          "totalUSD": 1629,
+          "nights": 6,
+          "bedrooms": 3,
+          "beds": 8,
+          "baths": 3,
+          "rating": 4.92,
+          "reviews": 92,
+          "guestFav": true,
+          "superhost": false,
+          "imgUrl": "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6OTQ3NDMzNjE2ODA2NzAwNDcz/original/5077e3c7-998f-447a-bf1e-66df19319cf4.jpeg?im_w=720",
+          "url": "https://www.airbnb.com/rooms/947433616806700473?check_in=2026-12-15&check_out=2026-12-21&adults=8",
+          "ppCost": 204
+        },
+        {
           "id": "989371479641705339",
-          "name": "This Shinjuku house gives you 120 sqm, an arcade machine, and a private backyard",
-          "totalUSD": 1844,
+          "name": "Spacious Shinjuku home near cafes and izakayas",
+          "totalUSD": 1845,
           "nights": 6,
           "bedrooms": 3,
           "beds": 10,
@@ -31,8 +47,40 @@
           "ppCost": 231
         },
         {
+          "id": "47892050",
+          "name": "Spacious Ikebukuro pad near Sunshine City",
+          "totalUSD": 1882,
+          "nights": 6,
+          "bedrooms": 4,
+          "beds": 11,
+          "baths": 2,
+          "rating": 4.68,
+          "reviews": 212,
+          "guestFav": false,
+          "superhost": false,
+          "imgUrl": "https://a0.muscache.com/im/pictures/miso/Hosting-47892050/original/ba0681f8-daf0-45a6-97d2-2327b69fec96.jpeg?im_w=720",
+          "url": "https://www.airbnb.com/rooms/47892050?check_in=2026-12-15&check_out=2026-12-21&adults=8",
+          "ppCost": 235
+        },
+        {
+          "id": "1383032065574744988",
+          "name": "Designer house walkable to Ikebukuro",
+          "totalUSD": 1606,
+          "nights": 6,
+          "bedrooms": 4,
+          "beds": 7,
+          "baths": 2,
+          "rating": 4.76,
+          "reviews": 25,
+          "guestFav": false,
+          "superhost": false,
+          "imgUrl": "https://a0.muscache.com/im/pictures/miso/Hosting-1383032065574744988/original/638a5f6a-576b-4922-99fc-25cd6a3fd34a.jpeg?im_w=720",
+          "url": "https://www.airbnb.com/rooms/1383032065574744988?check_in=2026-12-15&check_out=2026-12-21&adults=8",
+          "ppCost": 201
+        },
+        {
           "id": "1520682382057839812",
-          "name": "This newly renovated Kita-Ikebukuro apartment puts you a short walk from Ikebukuro",
+          "name": "Newly renovated, walking distance to Ikebukuro",
           "totalUSD": 2027,
           "nights": 6,
           "bedrooms": 3,
@@ -48,8 +96,8 @@
         },
         {
           "id": "38680636",
-          "name": "This 3-story modern Japanese villa in Ikebukuro puts you in a quiet residential area",
-          "totalUSD": 2593,
+          "name": "3-story house with free parking near Ikebukuro",
+          "totalUSD": 2595,
           "nights": 6,
           "bedrooms": 5,
           "beds": 7,
@@ -64,8 +112,8 @@
         },
         {
           "id": "37636988",
-          "name": "This newly built Nishi-Ikebukuro villa puts you a 1-minute walk from a station",
-          "totalUSD": 2315,
+          "name": "New villa with a jacuzzi near Ikebukuro",
+          "totalUSD": 2317,
           "nights": 6,
           "bedrooms": 3,
           "beds": 6,
@@ -76,12 +124,12 @@
           "superhost": true,
           "imgUrl": "https://a0.muscache.com/im/pictures/39c7d147-6cd2-491d-9a08-50c6401c5f81.jpg?im_w=720",
           "url": "https://www.airbnb.com/rooms/37636988?check_in=2026-12-15&check_out=2026-12-21&adults=8",
-          "ppCost": 289
+          "ppCost": 290
         },
         {
           "id": "1457667220695870297",
-          "name": "This 3-story Ikebukuro house gives you a bathtub, free parking, and a full kitchen",
-          "totalUSD": 2380,
+          "name": "3-story home with free parking near Ikebukuro",
+          "totalUSD": 2382,
           "nights": 6,
           "bedrooms": 4,
           "beds": 7,
@@ -96,8 +144,8 @@
         },
         {
           "id": "1439632899178812171",
-          "name": "This 99㎡ Shinjuku townhouse gives you a projector and a private entrance",
-          "totalUSD": 2460,
+          "name": "Two-floor home with a projector near Ikebukuro",
+          "totalUSD": 2455,
           "nights": 6,
           "bedrooms": 4,
           "beds": 9,
@@ -108,12 +156,12 @@
           "superhost": false,
           "imgUrl": "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTQzOTYzMjg5OTE3ODgxMjE3MQ==/original/732bf1c0-550b-474f-b804-4c1204cdb55e.jpeg?im_w=720",
           "url": "https://www.airbnb.com/rooms/1439632899178812171?check_in=2026-12-15&check_out=2026-12-21&adults=8",
-          "ppCost": 308
+          "ppCost": 307
         },
         {
           "id": "1462072344448003258",
-          "name": "This entire-floor Ikebukuro apartment gives you a quiet residential base in Tokyo",
-          "totalUSD": 2640,
+          "name": "Entire floor near Ikebukuro Station",
+          "totalUSD": 2632,
           "nights": 6,
           "bedrooms": 6,
           "beds": 7,
@@ -124,12 +172,12 @@
           "superhost": false,
           "imgUrl": "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTQ2MjA3MjM0NDQ0ODAwMzI1OA==/original/f25c981b-ae61-4a20-a177-95125d45f801.jpeg?im_w=720",
           "url": "https://www.airbnb.com/rooms/1462072344448003258?check_in=2026-12-15&check_out=2026-12-21&adults=8",
-          "ppCost": 330
+          "ppCost": 329
         },
         {
           "id": "1487299821965478879",
-          "name": "This spacious 135㎡ Nakano house gives you a private courtyard near Shinjuku",
-          "totalUSD": 3268,
+          "name": "Private courtyard, 4 min from Shinjuku",
+          "totalUSD": 3272,
           "nights": 6,
           "bedrooms": 4,
           "beds": 9,
@@ -143,82 +191,70 @@
           "ppCost": 409
         },
         {
-          "id": "1475803831251793783",
-          "name": "This modern Ikebukuro house gives you 100㎡ of freshly renovated space",
-          "totalUSD": 2388,
-          "nights": 6,
-          "bedrooms": 5,
-          "beds": 7,
-          "baths": 2,
-          "rating": 4.91,
-          "reviews": 11,
-          "guestFav": false,
-          "superhost": false,
-          "imgUrl": "https://a0.muscache.com/im/pictures/hosting/Hosting-1475803831251793783/original/39bdeeee-557a-4d09-8e7b-b5491ad06ae7.jpeg?im_w=720",
-          "url": "https://www.airbnb.com/rooms/1475803831251793783?check_in=2026-12-15&check_out=2026-12-21&adults=8",
-          "ppCost": 299
-        },
-        {
-          "id": "1645306819614363751",
-          "name": "This newly built Shinjuku house gives you three stories of modern design and floor heating",
-          "totalUSD": 3501,
+          "id": "1680864306508785603",
+          "name": "Brand-new 3-story house, 10 min to Shinjuku",
+          "totalUSD": 3014,
           "nights": 6,
           "bedrooms": 4,
-          "beds": 6,
+          "beds": 10,
           "baths": 2,
           "rating": 5,
-          "reviews": 19,
+          "reviews": 10,
           "guestFav": true,
           "superhost": false,
-          "imgUrl": "https://a0.muscache.com/im/pictures/airbnb-platform-assets/AirbnbPlatformAssets-GuestFavorite/original/4d090f93-f9a5-4f06-95e4-ca737c0d0ab5.png?im_w=240",
-          "url": "https://www.airbnb.com/rooms/1645306819614363751?check_in=2026-12-15&check_out=2026-12-21&adults=8",
-          "ppCost": 438
-        },
-        {
-          "id": "1611917089580064705",
-          "name": "This 3-story Shinjuku home puts you right by Shin-Okubo Koreatown",
-          "totalUSD": 3599,
-          "nights": 6,
-          "bedrooms": 5,
-          "beds": 9,
-          "baths": 2,
-          "rating": 5,
-          "reviews": 7,
-          "guestFav": true,
-          "superhost": false,
-          "imgUrl": "https://a0.muscache.com/im/pictures/hosting/Hosting-1611917089580064705/original/1e84660e-7717-42f4-8a8e-ba131cb37776.jpeg?im_w=720",
-          "url": "https://www.airbnb.com/rooms/1611917089580064705?check_in=2026-12-15&check_out=2026-12-21&adults=8",
-          "ppCost": 450
-        },
-        {
-          "id": "1678995623087036403",
-          "name": "This four-story Higashi-Ikebukuro house gives you a large balcony and a piano",
-          "totalUSD": 2987,
-          "nights": 6,
-          "bedrooms": 3,
-          "beds": 6,
-          "baths": 2,
-          "rating": 5,
-          "reviews": 3,
-          "guestFav": false,
-          "superhost": true,
-          "imgUrl": "https://a0.muscache.com/im/pictures/hosting/Hosting-1678995623087036403/original/999ad98d-1018-49d7-86c8-9cd0180f6652.jpeg?im_w=720",
-          "url": "https://www.airbnb.com/rooms/1678995623087036403?check_in=2026-12-15&check_out=2026-12-21&adults=8",
-          "ppCost": 373
+          "imgUrl": "https://a0.muscache.com/im/pictures/hosting/Hosting-1680864306508785603/original/1b708f90-1e80-4042-8ece-b4d089e75579.jpeg?im_w=720",
+          "url": "https://www.airbnb.com/rooms/1680864306508785603?check_in=2026-12-15&check_out=2026-12-21&adults=8",
+          "ppCost": 377
         }
       ],
       "changelog": [
         {
           "type": "new",
-          "id": "1678995623087036403",
-          "name": "This four-story Higashi-Ikebukuro house gives you a large balcony and a piano",
-          "totalUSD": 2987
+          "id": "947433616806700473",
+          "name": "Spacious 80㎡ near Ikebukuro with 2 showers",
+          "totalUSD": 1629
+        },
+        {
+          "type": "new",
+          "id": "47892050",
+          "name": "Spacious Ikebukuro pad near Sunshine City",
+          "totalUSD": 1882
+        },
+        {
+          "type": "new",
+          "id": "1383032065574744988",
+          "name": "Designer house walkable to Ikebukuro",
+          "totalUSD": 1606
+        },
+        {
+          "type": "new",
+          "id": "1680864306508785603",
+          "name": "Brand-new 3-story house, 10 min to Shinjuku",
+          "totalUSD": 3014
         },
         {
           "type": "dropped",
-          "id": "1578227724628367512",
-          "name": "This two-story Shibuya house puts you in tatami rooms with Hokusai art",
-          "totalUSD": 2380
+          "id": "1475803831251793783",
+          "name": "This modern Ikebukuro house gives you 100㎡ of freshly renovated space",
+          "totalUSD": 2388
+        },
+        {
+          "type": "dropped",
+          "id": "1645306819614363751",
+          "name": "This newly built Shinjuku house gives you three stories of modern design and floor heating",
+          "totalUSD": 3501
+        },
+        {
+          "type": "dropped",
+          "id": "1611917089580064705",
+          "name": "This 3-story Shinjuku home puts you right by Shin-Okubo Koreatown",
+          "totalUSD": 3599
+        },
+        {
+          "type": "dropped",
+          "id": "1678995623087036403",
+          "name": "This four-story Higashi-Ikebukuro house gives you a large balcony and a piano",
+          "totalUSD": 2987
         }
       ]
     },
@@ -235,8 +271,8 @@
       "options": [
         {
           "id": "572655228725985532",
-          "name": "This traditional Kyoto villa gives you a cypress bath and semi-open-air tub",
-          "totalUSD": 1469,
+          "name": "Open-air rock bath and cypress soaking tub",
+          "totalUSD": 1470,
           "nights": 3,
           "bedrooms": 4,
           "beds": 7,
@@ -250,9 +286,25 @@
           "ppCost": 184
         },
         {
+          "id": "1437433892470277487",
+          "name": "Century-old machiya, renovated in 2025",
+          "totalUSD": 1224,
+          "nights": 3,
+          "bedrooms": 3,
+          "beds": 6,
+          "baths": 2,
+          "rating": 4.97,
+          "reviews": 97,
+          "guestFav": true,
+          "superhost": false,
+          "imgUrl": "https://a0.muscache.com/im/pictures/airbnb-platform-assets/AirbnbPlatformAssets-GuestFavorite/original/4d090f93-f9a5-4f06-95e4-ca737c0d0ab5.png?im_w=240",
+          "url": "https://www.airbnb.com/rooms/1437433892470277487?check_in=2026-12-21&check_out=2026-12-24&adults=8",
+          "ppCost": 153
+        },
+        {
           "id": "1161992592317099544",
-          "name": "Gardens surround you at this riverside Kyoto machiya with a jacuzzi",
-          "totalUSD": 1233,
+          "name": "Machiya surrounded by gardens between rivers",
+          "totalUSD": 1234,
           "nights": 3,
           "bedrooms": 3,
           "beds": 8,
@@ -267,8 +319,8 @@
         },
         {
           "id": "1489470124558231822",
-          "name": "This luxury Higashiyama machiya gives you a garden and semi-open-air baths",
-          "totalUSD": 1133,
+          "name": "Luxury machiya with semi-open-air baths",
+          "totalUSD": 1134,
           "nights": 3,
           "bedrooms": 3,
           "beds": 7,
@@ -283,7 +335,7 @@
         },
         {
           "id": "43424417",
-          "name": "A restored century-old Higashiyama machiya where you’ll find a courtyard bath and weeping cherry",
+          "name": "Century-old machiya with a courtyard bath",
           "totalUSD": 1423,
           "nights": 3,
           "bedrooms": 4,
@@ -299,8 +351,8 @@
         },
         {
           "id": "1627492476077708230",
-          "name": "This three-storey Kyoto house puts you a 7-minute walk from the station",
-          "totalUSD": 1076,
+          "name": "Three-story home, 7 minutes to Kyoto Station",
+          "totalUSD": 1077,
           "nights": 3,
           "bedrooms": 3,
           "beds": 7,
@@ -315,8 +367,8 @@
         },
         {
           "id": "1456463767819792013",
-          "name": "Twin machiya townhouses on a stone-paved Kyoto street give you two distinct worlds",
-          "totalUSD": 1138,
+          "name": "Twin machiya on a stone-paved street",
+          "totalUSD": 1139,
           "nights": 3,
           "bedrooms": 4,
           "beds": 8,
@@ -331,8 +383,8 @@
         },
         {
           "id": "37146394",
-          "name": "This two-story kyo-machiya in Kyoto gives you tatami rooms and a garden",
-          "totalUSD": 1784,
+          "name": "100-year-old machiya in quiet Kyoto neighborhood",
+          "totalUSD": 1785,
           "nights": 3,
           "bedrooms": 5,
           "beds": 10,
@@ -347,8 +399,8 @@
         },
         {
           "id": "1561965987600291879",
-          "name": "This Kyoto machiya puts you a 2-minute walk from Kamogawa with a semi-open-air bath",
-          "totalUSD": 1292,
+          "name": "Traditional machiya with a semi-open-air bath",
+          "totalUSD": 1293,
           "nights": 3,
           "bedrooms": 3,
           "beds": 8,
@@ -363,8 +415,8 @@
         },
         {
           "id": "43098005",
-          "name": "Soak in a Shigaraki bath facing the garden at this restored Higashiyama machiya",
-          "totalUSD": 1802,
+          "name": "Century-old machiya with Takase River views",
+          "totalUSD": 1803,
           "nights": 3,
           "bedrooms": 4,
           "beds": 9,
@@ -379,8 +431,8 @@
         },
         {
           "id": "1163503730558129027",
-          "name": "This restored teahouse in Higashiyama puts you in Kyoto’s lantern-lit geisha district",
-          "totalUSD": 1897,
+          "name": "Restored teahouse in Kyoto’s geisha district",
+          "totalUSD": 1898,
           "nights": 3,
           "bedrooms": 3,
           "beds": 9,
@@ -395,11 +447,11 @@
         },
         {
           "id": "1361306744055389457",
-          "name": "Three courtyards greet you at this 150 sqm Kyoto machiya with a jacuzzi",
-          "totalUSD": 1897,
+          "name": "Three-courtyard machiya with designed gardens",
+          "totalUSD": 1898,
           "nights": 3,
           "bedrooms": 4,
-          "beds": 9,
+          "beds": 10,
           "baths": 3,
           "rating": 4.95,
           "reviews": 64,
@@ -408,84 +460,20 @@
           "imgUrl": "https://a0.muscache.com/im/pictures/hosting/Hosting-1361306744055389457/original/7f19d936-a14b-4e6f-ad92-12679f7d330f.jpeg?im_w=720",
           "url": "https://www.airbnb.com/rooms/1361306744055389457?check_in=2026-12-21&check_out=2026-12-24&adults=8",
           "ppCost": 237
-        },
-        {
-          "id": "1530016874125559216",
-          "name": "This 140㎡ Kyoto machiya gives you a tsukubai garden and jacuzzi",
-          "totalUSD": 1897,
-          "nights": 3,
-          "bedrooms": 3,
-          "beds": 7,
-          "baths": 3,
-          "rating": 4.98,
-          "reviews": 44,
-          "guestFav": true,
-          "superhost": false,
-          "imgUrl": "https://a0.muscache.com/im/pictures/hosting/Hosting-1530016874125559216/original/fdcd2641-08da-4bd9-a2cc-9d1cb4eab2cf.jpeg?im_w=720",
-          "url": "https://www.airbnb.com/rooms/1530016874125559216?check_in=2026-12-21&check_out=2026-12-24&adults=8",
-          "ppCost": 237
         }
       ],
       "changelog": [
         {
           "type": "new",
-          "id": "572655228725985532",
-          "name": "This traditional Kyoto villa gives you a cypress bath and semi-open-air tub",
-          "totalUSD": 1469
+          "id": "1437433892470277487",
+          "name": "Century-old machiya, renovated in 2025",
+          "totalUSD": 1224
         },
         {
-          "type": "new",
-          "id": "1489470124558231822",
-          "name": "This luxury Higashiyama machiya gives you a garden and semi-open-air baths",
-          "totalUSD": 1133
-        },
-        {
-          "type": "new",
-          "id": "1561965987600291879",
-          "name": "This Kyoto machiya puts you a 2-minute walk from Kamogawa with a semi-open-air bath",
-          "totalUSD": 1292
-        },
-        {
-          "type": "new",
-          "id": "43098005",
-          "name": "Soak in a Shigaraki bath facing the garden at this restored Higashiyama machiya",
-          "totalUSD": 1802
-        },
-        {
-          "type": "new",
+          "type": "dropped",
           "id": "1530016874125559216",
           "name": "This 140㎡ Kyoto machiya gives you a tsukubai garden and jacuzzi",
           "totalUSD": 1897
-        },
-        {
-          "type": "dropped",
-          "id": "1257025548142510342",
-          "name": "This 2-floor Kyoto house puts you in a quiet area, a 6-minute walk from the station",
-          "totalUSD": 1226
-        },
-        {
-          "type": "dropped",
-          "id": "1675937752566323038",
-          "name": "This two-story Kyoto house puts you a 4-minute walk from Toji Temple",
-          "totalUSD": 1004
-        },
-        {
-          "type": "dropped",
-          "id": "1490938331312013072",
-          "name": "This Kyoto machiya gives you a semi-open air bath and courtyard near the station",
-          "totalUSD": 1632
-        },
-        {
-          "type": "dropped",
-          "id": "1396222582823342415",
-          "name": "This luxury Higashiyama machiya gives you a semi-open air bath and courtyard",
-          "totalUSD": 1796
-        },
-        {
-          "type": "dropped",
-          "id": "1475840353560585166",
-          "name": "This century-old Yamashina machiya gives you a tranquil garden and game room",
-          "totalUSD": 1555
         }
       ]
     },
@@ -502,7 +490,7 @@
       "options": [
         {
           "id": "30134726",
-          "name": "This 180sqm Naniwa apartment gives you a quiet base near Namba",
+          "name": "Spacious 180m² condo near Namba stations",
           "totalUSD": 1217,
           "nights": 5,
           "bedrooms": 5,
@@ -517,9 +505,25 @@
           "ppCost": 152
         },
         {
+          "id": "41069017",
+          "name": "Three-story home near Tsutenkaku",
+          "totalUSD": 1091,
+          "nights": 5,
+          "bedrooms": 3,
+          "beds": 9,
+          "baths": 2,
+          "rating": 4.88,
+          "reviews": 40,
+          "guestFav": true,
+          "superhost": false,
+          "imgUrl": "https://a0.muscache.com/im/pictures/hosting/Hosting-41069017/original/4509af07-176c-49c0-8a61-a685828dfa9b.jpeg?im_w=720",
+          "url": "https://www.airbnb.com/rooms/41069017?check_in=2026-12-24&check_out=2026-12-29&adults=8",
+          "ppCost": 136
+        },
+        {
           "id": "1062605608667903488",
-          "name": "This classic Japanese house in Chuo puts you a 7-minute walk from Namba",
-          "totalUSD": 1572,
+          "name": "Walk to Dotonbori and Kuromon Market",
+          "totalUSD": 1573,
           "nights": 5,
           "bedrooms": 5,
           "beds": 8,
@@ -534,8 +538,8 @@
         },
         {
           "id": "986032381351934342",
-          "name": "This 5-story Chuo house puts you 30 seconds from Dotonbori with a rooftop balcony",
-          "totalUSD": 1451,
+          "name": "5-story house with a rooftop bath",
+          "totalUSD": 1452,
           "nights": 5,
           "bedrooms": 4,
           "beds": 7,
@@ -546,12 +550,12 @@
           "superhost": false,
           "imgUrl": "https://a0.muscache.com/im/pictures/51e9c22c-c0e0-43eb-bfeb-fc2ac80d9081.jpg?im_w=720",
           "url": "https://www.airbnb.com/rooms/986032381351934342?check_in=2026-12-24&check_out=2026-12-29&adults=8",
-          "ppCost": 181
+          "ppCost": 182
         },
         {
           "id": "1581499968373009179",
-          "name": "This spacious 4-floor Ikuno Ward house puts you a 1-minute walk from a train station",
-          "totalUSD": 1316,
+          "name": "4-floor house, 1 min to JR station",
+          "totalUSD": 1317,
           "nights": 5,
           "bedrooms": 4,
           "beds": 8,
@@ -566,8 +570,8 @@
         },
         {
           "id": "1614921969674419855",
-          "name": "This 100-sqm Naniwa Ward house puts you a 3-minute walk from the subway",
-          "totalUSD": 910,
+          "name": "One minute from Tsutenkaku, near stations",
+          "totalUSD": 911,
           "nights": 5,
           "bedrooms": 3,
           "beds": 7,
@@ -582,7 +586,7 @@
         },
         {
           "id": "1646871133354989220",
-          "name": "This 4-story Nishinari villa gives you an oversized jacuzzi and brand-new interiors",
+          "name": "4-story villa with a jetted tub",
           "totalUSD": 825,
           "nights": 5,
           "bedrooms": 3,
@@ -598,8 +602,8 @@
         },
         {
           "id": "1381518135279946352",
-          "name": "Tatami rooms, a tea space, and a soaking bath await you at this Nishinari house",
-          "totalUSD": 2122,
+          "name": "Designer Japanese home with a soaking bath",
+          "totalUSD": 2124,
           "nights": 5,
           "bedrooms": 4,
           "beds": 6,
@@ -610,18 +614,18 @@
           "superhost": false,
           "imgUrl": "https://a0.muscache.com/im/pictures/airbnb-platform-assets/AirbnbPlatformAssets-GuestFavorite/original/4d090f93-f9a5-4f06-95e4-ca737c0d0ab5.png?im_w=240",
           "url": "https://www.airbnb.com/rooms/1381518135279946352?check_in=2026-12-24&check_out=2026-12-29&adults=8",
-          "ppCost": 265
+          "ppCost": 266
         },
         {
           "id": "1292656613096026943",
-          "name": "This Chuo house gives you a private balcony, fireplace, and home theater",
-          "totalUSD": 2184,
+          "name": "Whole house near Dotonbori with fireplace",
+          "totalUSD": 2186,
           "nights": 5,
           "bedrooms": 3,
           "beds": 10,
           "baths": 2,
           "rating": 4.96,
-          "reviews": 84,
+          "reviews": 85,
           "guestFav": true,
           "superhost": false,
           "imgUrl": "https://a0.muscache.com/im/pictures/airbnb-platform-assets/AirbnbPlatformAssets-GuestFavorite/original/4d090f93-f9a5-4f06-95e4-ca737c0d0ab5.png?im_w=240",
@@ -630,8 +634,8 @@
         },
         {
           "id": "1476446772854984355",
-          "name": "This 138 m2 Nishinari villa puts you near Shinsekai with a patio and private entrance",
-          "totalUSD": 1943,
+          "name": "Walking distance to Shinsekai and Tsutenkaku",
+          "totalUSD": 1953,
           "nights": 5,
           "bedrooms": 5,
           "beds": 10,
@@ -642,12 +646,12 @@
           "superhost": false,
           "imgUrl": "https://a0.muscache.com/im/pictures/hosting/Hosting-1476446772854984355/original/34fc47f4-2a34-4efc-9592-d918c8016a15.jpeg?im_w=720",
           "url": "https://www.airbnb.com/rooms/1476446772854984355?check_in=2026-12-24&check_out=2026-12-29&adults=8",
-          "ppCost": 243
+          "ppCost": 244
         },
         {
           "id": "1684622005795168981",
-          "name": "This three-storey Nishinari house gives you warm wood interiors and bright open spaces",
-          "totalUSD": 1230,
+          "name": "Three-storey Japanese minimalist wood house",
+          "totalUSD": 1231,
           "nights": 5,
           "bedrooms": 4,
           "beds": 6,
@@ -661,25 +665,9 @@
           "ppCost": 154
         },
         {
-          "id": "1686611464473921003",
-          "name": "This 2-story Nishinari house gives you warm wood and Japanese-modern calm",
-          "totalUSD": 1620,
-          "nights": 5,
-          "bedrooms": 4,
-          "beds": 6,
-          "baths": 3,
-          "rating": 5,
-          "reviews": 6,
-          "guestFav": false,
-          "superhost": true,
-          "imgUrl": "https://a0.muscache.com/im/pictures/hosting/Hosting-1686611464473921003/original/ec83414a-498e-44ef-89ec-6896ce546fe9.jpeg?im_w=720",
-          "url": "https://www.airbnb.com/rooms/1686611464473921003?check_in=2026-12-24&check_out=2026-12-29&adults=8",
-          "ppCost": 203
-        },
-        {
           "id": "1739699595270153228",
-          "name": "This Japanese-modern Chuo house puts you a 1-minute walk from Dotonbori",
-          "totalUSD": 2454,
+          "name": "Modern Japanese-style house near Dotonbori",
+          "totalUSD": 2456,
           "nights": 5,
           "bedrooms": 3,
           "beds": 7,
@@ -696,39 +684,15 @@
       "changelog": [
         {
           "type": "new",
-          "id": "30134726",
-          "name": "This 180sqm Naniwa apartment gives you a quiet base near Namba",
-          "totalUSD": 1217
-        },
-        {
-          "type": "new",
-          "id": "1476446772854984355",
-          "name": "This 138 m2 Nishinari villa puts you near Shinsekai with a patio and private entrance",
-          "totalUSD": 1943
-        },
-        {
-          "type": "new",
-          "id": "1739699595270153228",
-          "name": "This Japanese-modern Chuo house puts you a 1-minute walk from Dotonbori",
-          "totalUSD": 2454
+          "id": "41069017",
+          "name": "Three-story home near Tsutenkaku",
+          "totalUSD": 1091
         },
         {
           "type": "dropped",
-          "id": "904674001916454890",
-          "name": "This fully renovated Naniwa Ward house gives you 3 floors and a rooftop retreat",
-          "totalUSD": 1076
-        },
-        {
-          "type": "dropped",
-          "id": "1518501935430114217",
-          "name": "This three-story Nishinari house gives you 110 sqm and a large garage",
-          "totalUSD": 1353
-        },
-        {
-          "type": "dropped",
-          "id": "1546873621859922974",
-          "name": "This Ikuno Ward house gives you tatami rooms, a courtyard garden, and a view-side tub",
-          "totalUSD": 973
+          "id": "1686611464473921003",
+          "name": "This 2-story Nishinari house gives you warm wood and Japanese-modern calm",
+          "totalUSD": 1620
         }
       ]
     }
