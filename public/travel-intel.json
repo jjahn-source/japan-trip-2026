@@ -1,4 +1,9 @@
 {
+  "exchangeRate": {
+    "usd_jpy": 158.34,
+    "source": "ECB via Frankfurter",
+    "date": "2026-08-07"
+  },
   "advisory": {
     "level": 1,
     "message": "No active travel alerts. Exercise normal precautions.",
@@ -7,5 +12,5 @@
     "changeDesc": "Updated information about the earthquake in Kumamoto prefecture ('Warnings and insurance' page).",
     "source": "UK FCDO"
   },
-  "fetchedAt": "2026-08-07T19:05:34.663Z"
+  "fetchedAt": "2026-08-08T01:59:12.352Z"
 }
