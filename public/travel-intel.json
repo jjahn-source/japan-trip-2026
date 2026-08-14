@@ -1,8 +1,8 @@
 {
   "exchangeRate": {
-    "usd_jpy": 159.33,
+    "usd_jpy": 159.01,
     "source": "ECB via Frankfurter",
-    "date": "2026-08-13"
+    "date": "2026-08-14"
   },
   "advisory": {
     "level": 1,
@@ -12,5 +12,5 @@
     "changeDesc": "Updated information about the earthquake in Kumamoto prefecture ('Warnings and insurance' page).",
     "source": "UK FCDO"
   },
-  "fetchedAt": "2026-08-14T13:18:13.232Z"
+  "fetchedAt": "2026-08-14T19:01:10.259Z"
 }
