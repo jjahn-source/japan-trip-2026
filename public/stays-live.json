@@ -1,7 +1,7 @@
 {
-  "fetchedAt": "2026-08-27T18:57:49.871Z",
-  "totalNew": 13,
-  "totalDropped": 13,
+  "fetchedAt": "2026-08-28T19:59:57.575Z",
+  "totalNew": 15,
+  "totalDropped": 16,
   "legs": [
     {
       "id": "tokyo",
@@ -15,25 +15,25 @@
       "searchUrl": "https://www.airbnb.com/s/Tokyo--Japan/homes?checkin=2026-12-15&checkout=2026-12-21&adults=8&room_types[]=Entire+home%2Fapt&min_bedrooms=3&min_bathrooms=2",
       "options": [
         {
-          "id": "47892050",
-          "name": "Spacious Ikebukuro pad near Sunshine City",
-          "totalUSD": 1944,
+          "id": "41841403",
+          "name": "Renovated hilltop home, 8 min to Shinjuku",
+          "totalUSD": 1997,
           "nights": 6,
-          "bedrooms": 4,
-          "beds": 11,
-          "baths": 2,
-          "rating": 4.68,
-          "reviews": 213,
+          "bedrooms": 5,
+          "beds": 12,
+          "baths": 2.5,
+          "rating": 4.92,
+          "reviews": 157,
           "guestFav": false,
-          "superhost": false,
-          "imgUrl": "https://a0.muscache.com/im/pictures/miso/Hosting-47892050/original/ba0681f8-daf0-45a6-97d2-2327b69fec96.jpeg?im_w=720",
-          "url": "https://www.airbnb.com/rooms/47892050?check_in=2026-12-15&check_out=2026-12-21&adults=8",
-          "ppCost": 243
+          "superhost": true,
+          "imgUrl": "https://a0.muscache.com/im/pictures/d904331a-3dfd-4bf7-87f9-b2e4b71b0e8d.jpg?im_w=720",
+          "url": "https://www.airbnb.com/rooms/41841403?check_in=2026-12-15&check_out=2026-12-21&adults=8",
+          "ppCost": 250
         },
         {
           "id": "1110467376203496947",
           "name": "Stylish house, 5 minutes to Skytree",
-          "totalUSD": 2110,
+          "totalUSD": 2109,
           "nights": 6,
           "bedrooms": 3,
           "beds": 8,
@@ -47,41 +47,9 @@
           "ppCost": 264
         },
         {
-          "id": "1317674624138868330",
-          "name": "Free parking near Shinjuku in Nakano",
-          "totalUSD": 1751,
-          "nights": 6,
-          "bedrooms": 4,
-          "beds": 6,
-          "baths": 2,
-          "rating": 4.92,
-          "reviews": 36,
-          "guestFav": true,
-          "superhost": false,
-          "imgUrl": "https://a0.muscache.com/im/pictures/hosting/Hosting-1317674624138868330/original/04e7896f-8d56-4d64-8451-3b0327c3212c.jpeg?im_w=720",
-          "url": "https://www.airbnb.com/rooms/1317674624138868330?check_in=2026-12-15&check_out=2026-12-21&adults=8",
-          "ppCost": 219
-        },
-        {
-          "id": "1117068531305927834",
-          "name": "Three-story home, 6 minutes to Ikebukuro",
-          "totalUSD": 2174,
-          "nights": 6,
-          "bedrooms": 4,
-          "beds": 8,
-          "baths": 2,
-          "rating": 4.98,
-          "reviews": 65,
-          "guestFav": true,
-          "superhost": false,
-          "imgUrl": "https://a0.muscache.com/im/pictures/hosting/Hosting-1117068531305927834/original/6b644f7f-198e-44ca-a154-ccf2f1437895.jpeg?im_w=720",
-          "url": "https://www.airbnb.com/rooms/1117068531305927834?check_in=2026-12-15&check_out=2026-12-21&adults=8",
-          "ppCost": 272
-        },
-        {
           "id": "1383032065574744988",
           "name": "Designer house walkable to Ikebukuro",
-          "totalUSD": 1590,
+          "totalUSD": 1589,
           "nights": 6,
           "bedrooms": 4,
           "beds": 7,
@@ -95,41 +63,9 @@
           "ppCost": 199
         },
         {
-          "id": "1599084269009732394",
-          "name": "10 minutes to Shinjuku with free parking",
-          "totalUSD": 2289,
-          "nights": 6,
-          "bedrooms": 3,
-          "beds": 10,
-          "baths": 2,
-          "rating": 5,
-          "reviews": 29,
-          "guestFav": true,
-          "superhost": false,
-          "imgUrl": "https://a0.muscache.com/im/pictures/hosting/Hosting-1599084269009732394/original/d980aba9-f401-4833-bb34-8375f332b4c7.jpeg?im_w=720",
-          "url": "https://www.airbnb.com/rooms/1599084269009732394?check_in=2026-12-15&check_out=2026-12-21&adults=8",
-          "ppCost": 286
-        },
-        {
-          "id": "909834219389134686",
-          "name": "Spacious 3-story home near Shinjuku",
-          "totalUSD": 3627,
-          "nights": 6,
-          "bedrooms": 4,
-          "beds": 6,
-          "baths": 2,
-          "rating": 4.99,
-          "reviews": 205,
-          "guestFav": true,
-          "superhost": false,
-          "imgUrl": "https://a0.muscache.com/im/pictures/miso/Hosting-909834219389134686/original/76ffea2b-1672-40cd-b61c-ab2a0a1edc1e.jpeg?im_w=720",
-          "url": "https://www.airbnb.com/rooms/909834219389134686?check_in=2026-12-15&check_out=2026-12-21&adults=8",
-          "ppCost": 453
-        },
-        {
           "id": "1457667220695870297",
           "name": "3-story home with free parking near Ikebukuro",
-          "totalUSD": 2357,
+          "totalUSD": 2356,
           "nights": 6,
           "bedrooms": 4,
           "beds": 7,
@@ -145,7 +81,7 @@
         {
           "id": "1439632899178812171",
           "name": "Two-floor home with a projector near Ikebukuro",
-          "totalUSD": 2415,
+          "totalUSD": 2420,
           "nights": 6,
           "bedrooms": 4,
           "beds": 9,
@@ -156,12 +92,12 @@
           "superhost": false,
           "imgUrl": "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTQzOTYzMjg5OTE3ODgxMjE3MQ==/original/732bf1c0-550b-474f-b804-4c1204cdb55e.jpeg?im_w=720",
           "url": "https://www.airbnb.com/rooms/1439632899178812171?check_in=2026-12-15&check_out=2026-12-21&adults=8",
-          "ppCost": 302
+          "ppCost": 303
         },
         {
           "id": "1462072344448003258",
           "name": "Entire floor near Ikebukuro Station",
-          "totalUSD": 2547,
+          "totalUSD": 2549,
           "nights": 6,
           "bedrooms": 6,
           "beds": 7,
@@ -172,28 +108,12 @@
           "superhost": false,
           "imgUrl": "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTQ2MjA3MjM0NDQ0ODAwMzI1OA==/original/f25c981b-ae61-4a20-a177-95125d45f801.jpeg?im_w=720",
           "url": "https://www.airbnb.com/rooms/1462072344448003258?check_in=2026-12-15&check_out=2026-12-21&adults=8",
-          "ppCost": 318
-        },
-        {
-          "id": "1284446650333296268",
-          "name": "Spacious villa one stop from Ikebukuro",
-          "totalUSD": 3244,
-          "nights": 6,
-          "bedrooms": 5,
-          "beds": null,
-          "baths": 2,
-          "rating": 4.95,
-          "reviews": 43,
-          "guestFav": true,
-          "superhost": false,
-          "imgUrl": "https://a0.muscache.com/im/pictures/hosting/Hosting-1284446650333296268/original/31d4154f-cc8a-4024-96f2-9dd80a8802b4.jpeg?im_w=720",
-          "url": "https://www.airbnb.com/rooms/1284446650333296268?check_in=2026-12-15&check_out=2026-12-21&adults=8",
-          "ppCost": 406
+          "ppCost": 319
         },
         {
           "id": "1681130427502268744",
           "name": "Brand-new 3-story home near Shinjuku",
-          "totalUSD": 2412,
+          "totalUSD": 2411,
           "nights": 6,
           "bedrooms": 4,
           "beds": 9,
@@ -204,69 +124,139 @@
           "superhost": false,
           "imgUrl": "https://a0.muscache.com/im/pictures/hosting/Hosting-1681130427502268744/original/9f7363a3-7340-43b7-bdcb-852a468675ef.jpeg?im_w=720",
           "url": "https://www.airbnb.com/rooms/1681130427502268744?check_in=2026-12-15&check_out=2026-12-21&adults=8",
-          "ppCost": 302
+          "ppCost": 301
+        },
+        {
+          "id": "1439186911927339907",
+          "name": "Private patio with outdoor dining in Shinjuku",
+          "totalUSD": 4007,
+          "nights": 6,
+          "bedrooms": 5,
+          "beds": 9,
+          "baths": 3,
+          "rating": 4.98,
+          "reviews": 46,
+          "guestFav": true,
+          "superhost": false,
+          "imgUrl": "https://a0.muscache.com/im/pictures/hosting/Hosting-1439186911927339907/original/cdf6683c-b873-4634-a87d-a874d83da361.png?im_w=720",
+          "url": "https://www.airbnb.com/rooms/1439186911927339907?check_in=2026-12-15&check_out=2026-12-21&adults=8",
+          "ppCost": 501
+        },
+        {
+          "id": "1337602897936222646",
+          "name": "Designer villa, 5 min to Yamanote Line",
+          "totalUSD": 3723,
+          "nights": 6,
+          "bedrooms": 4,
+          "beds": 6,
+          "baths": 2.5,
+          "rating": 4.94,
+          "reviews": 34,
+          "guestFav": true,
+          "superhost": false,
+          "imgUrl": "https://a0.muscache.com/im/pictures/miso/Hosting-1337602897936222646/original/a7c99a66-64b2-4480-aa24-532226a81325.jpeg?im_w=720",
+          "url": "https://www.airbnb.com/rooms/1337602897936222646?check_in=2026-12-15&check_out=2026-12-21&adults=8",
+          "ppCost": 465
+        },
+        {
+          "id": "1608762715053075072",
+          "name": "Walk to Takadanobaba in Shinjuku",
+          "totalUSD": 2522,
+          "nights": 6,
+          "bedrooms": 5,
+          "beds": 9,
+          "baths": 2,
+          "rating": 5,
+          "reviews": 4,
+          "guestFav": false,
+          "superhost": true,
+          "imgUrl": "https://a0.muscache.com/im/pictures/hosting/Hosting-1608762715053075072/original/8bbfa20d-6bd9-4ebd-ba7f-dbb0248631e1.jpeg?im_w=720",
+          "url": "https://www.airbnb.com/rooms/1608762715053075072?check_in=2026-12-15&check_out=2026-12-21&adults=8",
+          "ppCost": 315
+        },
+        {
+          "id": "1464468887608700677",
+          "name": "Penthouse with panoramic Shinjuku night views",
+          "totalUSD": 5824,
+          "nights": 6,
+          "bedrooms": 5,
+          "beds": 13,
+          "baths": 4.5,
+          "rating": 5,
+          "reviews": 40,
+          "guestFav": true,
+          "superhost": false,
+          "imgUrl": "https://a0.muscache.com/im/pictures/hosting/Hosting-1464468887608700677/original/69ca0980-9adc-4179-87e4-c83c461b0a81.jpeg?im_w=720",
+          "url": "https://www.airbnb.com/rooms/1464468887608700677?check_in=2026-12-15&check_out=2026-12-21&adults=8",
+          "ppCost": 728
         }
       ],
       "changelog": [
         {
           "type": "new",
+          "id": "41841403",
+          "name": "Renovated hilltop home, 8 min to Shinjuku",
+          "totalUSD": 1997
+        },
+        {
+          "type": "new",
+          "id": "1439186911927339907",
+          "name": "Private patio with outdoor dining in Shinjuku",
+          "totalUSD": 4007
+        },
+        {
+          "type": "new",
+          "id": "1337602897936222646",
+          "name": "Designer villa, 5 min to Yamanote Line",
+          "totalUSD": 3723
+        },
+        {
+          "type": "new",
+          "id": "1608762715053075072",
+          "name": "Walk to Takadanobaba in Shinjuku",
+          "totalUSD": 2522
+        },
+        {
+          "type": "new",
+          "id": "1464468887608700677",
+          "name": "Penthouse with panoramic Shinjuku night views",
+          "totalUSD": 5824
+        },
+        {
+          "type": "dropped",
+          "id": "47892050",
+          "name": "Spacious Ikebukuro pad near Sunshine City",
+          "totalUSD": 1944
+        },
+        {
+          "type": "dropped",
+          "id": "1317674624138868330",
+          "name": "Free parking near Shinjuku in Nakano",
+          "totalUSD": 1751
+        },
+        {
+          "type": "dropped",
           "id": "1117068531305927834",
           "name": "Three-story home, 6 minutes to Ikebukuro",
           "totalUSD": 2174
         },
         {
-          "type": "new",
-          "id": "1383032065574744988",
-          "name": "Designer house walkable to Ikebukuro",
-          "totalUSD": 1590
+          "type": "dropped",
+          "id": "1599084269009732394",
+          "name": "10 minutes to Shinjuku with free parking",
+          "totalUSD": 2289
         },
         {
-          "type": "new",
+          "type": "dropped",
           "id": "909834219389134686",
           "name": "Spacious 3-story home near Shinjuku",
           "totalUSD": 3627
         },
         {
-          "type": "new",
+          "type": "dropped",
           "id": "1284446650333296268",
           "name": "Spacious villa one stop from Ikebukuro",
           "totalUSD": 3244
-        },
-        {
-          "type": "new",
-          "id": "1681130427502268744",
-          "name": "Brand-new 3-story home near Shinjuku",
-          "totalUSD": 2412
-        },
-        {
-          "type": "dropped",
-          "id": "45966430",
-          "name": "Asakusa&amp;Skytree 10 minutes &amp; Airport pickup",
-          "totalUSD": 2476
-        },
-        {
-          "type": "dropped",
-          "id": "1312810213982476407",
-          "name": "17 min from Ikebukuro/Entire House/12 pax【Chihaya】",
-          "totalUSD": 1706
-        },
-        {
-          "type": "dropped",
-          "id": "1185113132093931503",
-          "name": "Shinjuku 12min/1720ft/160㎡ /Penthouse/Shibuya25min",
-          "totalUSD": 2805
-        },
-        {
-          "type": "dropped",
-          "id": "1584624598448163244",
-          "name": "30-second walk from the station | Living room with a slide | 7 minutes by train from Ikebukuro | 3 bedrooms | 2 showers",
-          "totalUSD": 2147
-        },
-        {
-          "type": "dropped",
-          "id": "1602637809645056759",
-          "name": "About 10 minutes to Oshiage and Asakusa | Up to 10 people | 3-bedroom, 3-bathroom, kitchen detached house | 4-minute walk from the station | Ideal as a base for sightseeing in Tokyo",
-          "totalUSD": 2477
         }
       ]
     },
@@ -282,20 +272,52 @@
       "searchUrl": "https://www.airbnb.com/s/Kyoto--Japan/homes?checkin=2026-12-21&checkout=2026-12-24&adults=8&room_types[]=Entire+home%2Fapt&min_bedrooms=3&min_bathrooms=2",
       "options": [
         {
-          "id": "33668825",
-          "name": "Near Kitano Tenmangu with free parking",
-          "totalUSD": 1231,
+          "id": "30778795",
+          "name": "Newly built Machiya with a jacuzzi",
+          "totalUSD": 917,
           "nights": 3,
-          "bedrooms": 5,
-          "beds": 15,
+          "bedrooms": 3,
+          "beds": 7,
           "baths": 2,
-          "rating": 4.9,
-          "reviews": 191,
+          "rating": 4.85,
+          "reviews": 348,
+          "guestFav": false,
+          "superhost": true,
+          "imgUrl": "https://a0.muscache.com/im/pictures/07942e72-799b-4235-8d51-c4b074c9828e.jpg?im_w=720",
+          "url": "https://www.airbnb.com/rooms/30778795?check_in=2026-12-21&check_out=2026-12-24&adults=8",
+          "ppCost": 115
+        },
+        {
+          "id": "807742809615242611",
+          "name": "Fully renovated machiya in Higashiyama",
+          "totalUSD": 761,
+          "nights": 3,
+          "bedrooms": 3,
+          "beds": 8,
+          "baths": 2,
+          "rating": 4.81,
+          "reviews": 123,
           "guestFav": true,
           "superhost": false,
-          "imgUrl": "https://a0.muscache.com/im/pictures/84894ada-25dd-4084-ab58-cc8a3e21c9de.jpg?im_w=720",
-          "url": "https://www.airbnb.com/rooms/33668825?check_in=2026-12-21&check_out=2026-12-24&adults=8",
-          "ppCost": 154
+          "imgUrl": "https://a0.muscache.com/im/pictures/miso/Hosting-807742809615242611/original/040ce6ee-7dc7-4c1b-8c83-57cff9865b7d.jpeg?im_w=720",
+          "url": "https://www.airbnb.com/rooms/807742809615242611?check_in=2026-12-21&check_out=2026-12-24&adults=8",
+          "ppCost": 95
+        },
+        {
+          "id": "29372027",
+          "name": "River views, steps from Kiyomizu-Gojo Station",
+          "totalUSD": 1117,
+          "nights": 3,
+          "bedrooms": 3,
+          "beds": 8,
+          "baths": 2,
+          "rating": 4.86,
+          "reviews": 322,
+          "guestFav": true,
+          "superhost": false,
+          "imgUrl": "https://a0.muscache.com/im/pictures/d03c3697-a9a2-4bef-8ee4-806431c051dc.jpg?im_w=720",
+          "url": "https://www.airbnb.com/rooms/29372027?check_in=2026-12-21&check_out=2026-12-24&adults=8",
+          "ppCost": 140
         },
         {
           "id": "1101440694188331725",
@@ -316,34 +338,34 @@
         {
           "id": "1437433892470277487",
           "name": "Century-old machiya, renovated in 2025",
-          "totalUSD": 1172,
+          "totalUSD": 1162,
           "nights": 3,
           "bedrooms": 3,
           "beds": 6,
           "baths": 2,
           "rating": 4.97,
-          "reviews": 101,
+          "reviews": 102,
           "guestFav": true,
           "superhost": false,
           "imgUrl": "https://a0.muscache.com/im/pictures/hosting/Hosting-1437433892470277487/original/81cc2f56-5908-495f-8572-cfc94b820e91.jpeg?im_w=720",
           "url": "https://www.airbnb.com/rooms/1437433892470277487?check_in=2026-12-21&check_out=2026-12-24&adults=8",
-          "ppCost": 147
+          "ppCost": 145
         },
         {
-          "id": "51357547",
-          "name": "Century-old machiya with a professional kitchen",
-          "totalUSD": 1390,
+          "id": "785412812653194049",
+          "name": "Restored machiya with a Japanese garden",
+          "totalUSD": 1264,
           "nights": 3,
           "bedrooms": 4,
-          "beds": 14,
-          "baths": 5,
-          "rating": 4.78,
-          "reviews": 293,
-          "guestFav": false,
-          "superhost": true,
-          "imgUrl": "https://a0.muscache.com/im/pictures/9c827811-2a70-4430-ae4c-427cc7dcf43c.jpg?im_w=720",
-          "url": "https://www.airbnb.com/rooms/51357547?check_in=2026-12-21&check_out=2026-12-24&adults=8",
-          "ppCost": 174
+          "beds": 10,
+          "baths": 2,
+          "rating": 4.84,
+          "reviews": 135,
+          "guestFav": true,
+          "superhost": false,
+          "imgUrl": "https://a0.muscache.com/im/pictures/f83c1288-d11f-4f28-94bf-76b6f3c905e6.jpg?im_w=720",
+          "url": "https://www.airbnb.com/rooms/785412812653194049?check_in=2026-12-21&check_out=2026-12-24&adults=8",
+          "ppCost": 158
         },
         {
           "id": "563322770306057839",
@@ -396,7 +418,7 @@
         {
           "id": "1627492476077708230",
           "name": "Three-story home, 7 minutes to Kyoto Station",
-          "totalUSD": 1066,
+          "totalUSD": 1065,
           "nights": 3,
           "bedrooms": 3,
           "beds": 7,
@@ -440,109 +462,56 @@
           "imgUrl": "https://a0.muscache.com/im/pictures/pro_photo_tool/Hosting-37146394-unapproved/original/2e787819-abc0-412b-8c9c-f2c9a6f3f3f4.JPEG?im_w=720",
           "url": "https://www.airbnb.com/rooms/37146394?check_in=2026-12-21&check_out=2026-12-24&adults=8",
           "ppCost": 221
-        },
-        {
-          "id": "32553250",
-          "name": "Century-old machiya with a courtyard",
-          "totalUSD": 1571,
-          "nights": 3,
-          "bedrooms": 3,
-          "beds": 6,
-          "baths": 3,
-          "rating": 4.81,
-          "reviews": 166,
-          "guestFav": true,
-          "superhost": false,
-          "imgUrl": "https://a0.muscache.com/im/pictures/e5f1f0bc-8cd1-4729-b353-8cb3569ab74e.jpg?im_w=720",
-          "url": "https://www.airbnb.com/rooms/32553250?check_in=2026-12-21&check_out=2026-12-24&adults=8",
-          "ppCost": 196
-        },
-        {
-          "id": "1490938331312013072",
-          "name": "Machiya with a semi-open-air bath",
-          "totalUSD": 1505,
-          "nights": 3,
-          "bedrooms": 3,
-          "beds": 7,
-          "baths": 2,
-          "rating": 4.97,
-          "reviews": 67,
-          "guestFav": true,
-          "superhost": false,
-          "imgUrl": "https://a0.muscache.com/im/pictures/hosting/Hosting-1490938331312013072/original/739046c2-bf7e-43a5-88f4-b2d87afc30be.jpeg?im_w=720",
-          "url": "https://www.airbnb.com/rooms/1490938331312013072?check_in=2026-12-21&check_out=2026-12-24&adults=8",
-          "ppCost": 188
         }
       ],
       "changelog": [
         {
           "type": "new",
+          "id": "30778795",
+          "name": "Newly built Machiya with a jacuzzi",
+          "totalUSD": 917
+        },
+        {
+          "type": "new",
+          "id": "807742809615242611",
+          "name": "Fully renovated machiya in Higashiyama",
+          "totalUSD": 761
+        },
+        {
+          "type": "new",
+          "id": "29372027",
+          "name": "River views, steps from Kiyomizu-Gojo Station",
+          "totalUSD": 1117
+        },
+        {
+          "type": "new",
+          "id": "785412812653194049",
+          "name": "Restored machiya with a Japanese garden",
+          "totalUSD": 1264
+        },
+        {
+          "type": "dropped",
           "id": "33668825",
           "name": "Near Kitano Tenmangu with free parking",
           "totalUSD": 1231
         },
         {
-          "type": "new",
+          "type": "dropped",
           "id": "51357547",
           "name": "Century-old machiya with a professional kitchen",
           "totalUSD": 1390
         },
         {
-          "type": "new",
-          "id": "37146394",
-          "name": "100-year-old machiya in quiet Kyoto neighborhood",
-          "totalUSD": 1766
-        },
-        {
-          "type": "new",
+          "type": "dropped",
           "id": "32553250",
           "name": "Century-old machiya with a courtyard",
           "totalUSD": 1571
         },
         {
-          "type": "new",
+          "type": "dropped",
           "id": "1490938331312013072",
           "name": "Machiya with a semi-open-air bath",
           "totalUSD": 1505
-        },
-        {
-          "type": "dropped",
-          "id": "30778795",
-          "name": "Gion Area Private residence 竹の葉-Luxury Rental",
-          "totalUSD": 917
-        },
-        {
-          "type": "dropped",
-          "id": "807742809615242611",
-          "name": "【Jpreserve Ushiwakamaru】About 10min by nearest st.",
-          "totalUSD": 761
-        },
-        {
-          "type": "dropped",
-          "id": "38935280",
-          "name": "15min to Kyoto St., Entire cozy traditional house",
-          "totalUSD": 891
-        },
-        {
-          "type": "dropped",
-          "id": "29372027",
-          "name": "Stay by the Kamo River｜Near Gion｜Prime Location",
-          "totalUSD": 1118
-        },
-        {
-          "type": "dropped",
-          "id": "38015810",
-          "name": "NijoCastle 99㎡Private Inn 3 Baths Great for Groups",
-          "totalUSD": 1049
-        },
-        {
-          "type": "price_drop",
-          "id": "1437433892470277487",
-          "name": "Century-old machiya, renovated in 2025",
-          "totalUSD": 1172,
-          "prevUSD": 1216,
-          "delta": -44,
-          "pct": -4
         }
       ]
     },
@@ -557,22 +526,6 @@
       "endISO": "2026-12-29",
       "searchUrl": "https://www.airbnb.com/s/Namba--Osaka--Japan/homes?checkin=2026-12-24&checkout=2026-12-29&adults=8&room_types[]=Entire+home%2Fapt&min_bedrooms=3&min_bathrooms=2",
       "options": [
-        {
-          "id": "1444719075098313050",
-          "name": "Terrace and jacuzzi near Shin-Imamiya Station",
-          "totalUSD": 529,
-          "nights": 5,
-          "bedrooms": 3,
-          "beds": 7,
-          "baths": 2.5,
-          "rating": 4.85,
-          "reviews": 26,
-          "guestFav": false,
-          "superhost": true,
-          "imgUrl": "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTQ0NDcxOTA3NTA5ODMxMzA1MA==/original/dff1637d-5d9d-44bd-ba4e-d1211656d118.jpeg?im_w=720",
-          "url": "https://www.airbnb.com/rooms/1444719075098313050?check_in=2026-12-24&check_out=2026-12-29&adults=8",
-          "ppCost": 66
-        },
         {
           "id": "30134726",
           "name": "Spacious 180m² condo near Namba stations",
@@ -590,9 +543,25 @@
           "ppCost": 154
         },
         {
+          "id": "1744952236554781120",
+          "name": "Brand-new house with dual private entrances",
+          "totalUSD": 417,
+          "nights": 5,
+          "bedrooms": 3,
+          "beds": 6,
+          "baths": 2,
+          "rating": 5,
+          "reviews": 3,
+          "guestFav": false,
+          "superhost": true,
+          "imgUrl": "https://a0.muscache.com/im/pictures/hosting/Hosting-1744952236554781120/original/ea15dff1-709a-4da0-8a30-030cae027d1b.jpeg?im_w=720",
+          "url": "https://www.airbnb.com/rooms/1744952236554781120?check_in=2026-12-24&check_out=2026-12-29&adults=8",
+          "ppCost": 52
+        },
+        {
           "id": "1107812392021503952",
           "name": "Retro Japanese home with bar and theater",
-          "totalUSD": 1307,
+          "totalUSD": 1306,
           "nights": 5,
           "bedrooms": 5,
           "beds": 12,
@@ -604,38 +573,6 @@
           "imgUrl": "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTEwNzgxMjM5MjAyMTUwMzk1Mg%3D%3D/original/b73955b0-27e0-4db9-8e90-4e407871e272.jpeg?im_w=720",
           "url": "https://www.airbnb.com/rooms/1107812392021503952?check_in=2026-12-24&check_out=2026-12-29&adults=8",
           "ppCost": 163
-        },
-        {
-          "id": "885991226997646591",
-          "name": "New villa with free parking near Namba",
-          "totalUSD": 1284,
-          "nights": 5,
-          "bedrooms": 4,
-          "beds": 7,
-          "baths": 3.5,
-          "rating": 4.95,
-          "reviews": 125,
-          "guestFav": false,
-          "superhost": true,
-          "imgUrl": "https://a0.muscache.com/im/pictures/miso/Hosting-885991226997646591/original/dc32e572-ce02-4773-b126-a88562e3d7dc.jpeg?im_w=720",
-          "url": "https://www.airbnb.com/rooms/885991226997646591?check_in=2026-12-24&check_out=2026-12-29&adults=8",
-          "ppCost": 161
-        },
-        {
-          "id": "1275258531452011545",
-          "name": "Newly built with a jacuzzi and garden",
-          "totalUSD": 1269,
-          "nights": 5,
-          "bedrooms": 4,
-          "beds": 8,
-          "baths": 3,
-          "rating": 4.99,
-          "reviews": 77,
-          "guestFav": true,
-          "superhost": false,
-          "imgUrl": "https://a0.muscache.com/im/pictures/miso/Hosting-1275258531452011545/original/1406abe7-0dde-4099-80c6-c271a027acba.jpeg?im_w=720",
-          "url": "https://www.airbnb.com/rooms/1275258531452011545?check_in=2026-12-24&check_out=2026-12-29&adults=8",
-          "ppCost": 159
         },
         {
           "id": "847779683265102517",
@@ -656,7 +593,7 @@
         {
           "id": "1518501935430114217",
           "name": "Three-story house with free parking",
-          "totalUSD": 1147,
+          "totalUSD": 1114,
           "nights": 5,
           "bedrooms": 4,
           "beds": 6,
@@ -667,23 +604,23 @@
           "superhost": false,
           "imgUrl": "https://a0.muscache.com/im/pictures/hosting/Hosting-1518501935430114217/original/29e96a7d-51d2-4d05-9f24-222afd16328c.jpeg?im_w=720",
           "url": "https://www.airbnb.com/rooms/1518501935430114217?check_in=2026-12-24&check_out=2026-12-29&adults=8",
-          "ppCost": 143
+          "ppCost": 139
         },
         {
-          "id": "1249905491640749508",
-          "name": "Newly built with a jacuzzi near Namba",
-          "totalUSD": 1256,
+          "id": "847529236540241450",
+          "name": "Right in front of Kuromon Market",
+          "totalUSD": 1502,
           "nights": 5,
-          "bedrooms": 5,
-          "beds": 8,
-          "baths": 3,
-          "rating": 4.92,
-          "reviews": 48,
-          "guestFav": false,
-          "superhost": true,
-          "imgUrl": "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTI0OTkwNTQ5MTY0MDc0OTUwOA%3D%3D/original/b4def35a-8b42-4ac1-b378-15a4eb2f3255.jpeg?im_w=720",
-          "url": "https://www.airbnb.com/rooms/1249905491640749508?check_in=2026-12-24&check_out=2026-12-29&adults=8",
-          "ppCost": 157
+          "bedrooms": 4,
+          "beds": 7,
+          "baths": 3.5,
+          "rating": 4.79,
+          "reviews": 187,
+          "guestFav": true,
+          "superhost": false,
+          "imgUrl": "https://a0.muscache.com/im/pictures/miso/Hosting-847529236540241450/original/e19caf19-9308-4992-a30a-1960c464b551.jpeg?im_w=720",
+          "url": "https://www.airbnb.com/rooms/847529236540241450?check_in=2026-12-24&check_out=2026-12-29&adults=8",
+          "ppCost": 188
         },
         {
           "id": "1062605608667903488",
@@ -702,41 +639,41 @@
           "ppCost": 195
         },
         {
-          "id": "1614921969674419855",
-          "name": "One minute from Tsutenkaku, near stations",
-          "totalUSD": 902,
-          "nights": 5,
-          "bedrooms": 3,
-          "beds": 7,
-          "baths": 2,
-          "rating": 4.48,
-          "reviews": 23,
-          "guestFav": false,
-          "superhost": false,
-          "imgUrl": "https://a0.muscache.com/im/pictures/hosting/Hosting-1614921969674419855/original/234fc097-b227-4479-b385-d7fc14ac48d0.jpeg?im_w=720",
-          "url": "https://www.airbnb.com/rooms/1614921969674419855?check_in=2026-12-24&check_out=2026-12-29&adults=8",
-          "ppCost": 113
-        },
-        {
-          "id": "1599277564253505932",
-          "name": "Traditional Japanese house with courtyard garden",
-          "totalUSD": 1617,
+          "id": "1598942079472421474",
+          "name": "Brand-new 3-story house near Namba",
+          "totalUSD": 1278,
           "nights": 5,
           "bedrooms": 3,
           "beds": 6,
-          "baths": 3,
-          "rating": 4.96,
-          "reviews": 27,
+          "baths": 2.5,
+          "rating": 5,
+          "reviews": 24,
           "guestFav": true,
           "superhost": false,
-          "imgUrl": "https://a0.muscache.com/im/pictures/hosting/Hosting-1599277564253505932/original/b423917d-c0b1-4833-840f-955c8c0c5169.jpeg?im_w=720",
-          "url": "https://www.airbnb.com/rooms/1599277564253505932?check_in=2026-12-24&check_out=2026-12-29&adults=8",
-          "ppCost": 202
+          "imgUrl": "https://a0.muscache.com/im/pictures/hosting/Hosting-1598942079472421474/original/ea384dec-e63b-478f-b513-2ec092769438.jpeg?im_w=720",
+          "url": "https://www.airbnb.com/rooms/1598942079472421474?check_in=2026-12-24&check_out=2026-12-29&adults=8",
+          "ppCost": 160
+        },
+        {
+          "id": "1578593369135998584",
+          "name": "Ceramic soaking tubs with garden views",
+          "totalUSD": 1385,
+          "nights": 5,
+          "bedrooms": 4,
+          "beds": 7,
+          "baths": 2.5,
+          "rating": 5,
+          "reviews": 21,
+          "guestFav": true,
+          "superhost": false,
+          "imgUrl": "https://a0.muscache.com/im/pictures/hosting/Hosting-1578593369135998584/original/bab05c8c-01f3-425c-b72c-74b97f6d2329.jpeg?im_w=720",
+          "url": "https://www.airbnb.com/rooms/1578593369135998584?check_in=2026-12-24&check_out=2026-12-29&adults=8",
+          "ppCost": 173
         },
         {
           "id": "1476446772854984355",
           "name": "Spacious villa near Shinsekai and Tsutenkaku",
-          "totalUSD": 1863,
+          "totalUSD": 1862,
           "nights": 5,
           "bedrooms": 5,
           "beds": null,
@@ -748,44 +685,121 @@
           "imgUrl": "https://a0.muscache.com/im/pictures/hosting/Hosting-1476446772854984355/original/34fc47f4-2a34-4efc-9592-d918c8016a15.jpeg?im_w=720",
           "url": "https://www.airbnb.com/rooms/1476446772854984355?check_in=2026-12-24&check_out=2026-12-29&adults=8",
           "ppCost": 233
+        },
+        {
+          "id": "1584424224137196557",
+          "name": "Spacious Japanese home, direct to Namba",
+          "totalUSD": 1304,
+          "nights": 5,
+          "bedrooms": 4,
+          "beds": null,
+          "baths": 2.5,
+          "rating": 5,
+          "reviews": 7,
+          "guestFav": true,
+          "superhost": false,
+          "imgUrl": "https://a0.muscache.com/im/pictures/hosting/Hosting-1584424224137196557/original/427a8a48-c367-485c-8267-1b4d900c73a2.jpeg?im_w=720",
+          "url": "https://www.airbnb.com/rooms/1584424224137196557?check_in=2026-12-24&check_out=2026-12-29&adults=8",
+          "ppCost": 163
+        },
+        {
+          "id": "1285164088220656472",
+          "name": "Inside Kuromon Market, walk to Namba",
+          "totalUSD": 3184,
+          "nights": 5,
+          "bedrooms": 3,
+          "beds": 11,
+          "baths": 2,
+          "rating": 4.93,
+          "reviews": 161,
+          "guestFav": true,
+          "superhost": false,
+          "imgUrl": "https://a0.muscache.com/im/pictures/miso/Hosting-1285164088220656472/original/78d5599a-5744-43a4-b7d2-1f1ddd70da82.jpeg?im_w=720",
+          "url": "https://www.airbnb.com/rooms/1285164088220656472?check_in=2026-12-24&check_out=2026-12-29&adults=8",
+          "ppCost": 398
         }
       ],
       "changelog": [
         {
           "type": "new",
+          "id": "1744952236554781120",
+          "name": "Brand-new house with dual private entrances",
+          "totalUSD": 417
+        },
+        {
+          "type": "new",
+          "id": "847529236540241450",
+          "name": "Right in front of Kuromon Market",
+          "totalUSD": 1502
+        },
+        {
+          "type": "new",
+          "id": "1598942079472421474",
+          "name": "Brand-new 3-story house near Namba",
+          "totalUSD": 1278
+        },
+        {
+          "type": "new",
+          "id": "1578593369135998584",
+          "name": "Ceramic soaking tubs with garden views",
+          "totalUSD": 1385
+        },
+        {
+          "type": "new",
+          "id": "1584424224137196557",
+          "name": "Spacious Japanese home, direct to Namba",
+          "totalUSD": 1304
+        },
+        {
+          "type": "new",
+          "id": "1285164088220656472",
+          "name": "Inside Kuromon Market, walk to Namba",
+          "totalUSD": 3184
+        },
+        {
+          "type": "dropped",
+          "id": "1444719075098313050",
+          "name": "Terrace and jacuzzi near Shin-Imamiya Station",
+          "totalUSD": 529
+        },
+        {
+          "type": "dropped",
           "id": "885991226997646591",
           "name": "New villa with free parking near Namba",
           "totalUSD": 1284
         },
         {
-          "type": "new",
+          "type": "dropped",
+          "id": "1275258531452011545",
+          "name": "Newly built with a jacuzzi and garden",
+          "totalUSD": 1269
+        },
+        {
+          "type": "dropped",
           "id": "1249905491640749508",
           "name": "Newly built with a jacuzzi near Namba",
           "totalUSD": 1256
         },
         {
-          "type": "new",
+          "type": "dropped",
           "id": "1614921969674419855",
           "name": "One minute from Tsutenkaku, near stations",
           "totalUSD": 902
         },
         {
           "type": "dropped",
-          "id": "1488179166331694061",
-          "name": "[Hua] Hotel-style 100m² large floor/private 3 bedrooms 4 bathrooms 3 bathrooms maximum 13 people family travel/living convenient airport direct station 3 minutes walk near Namba",
-          "totalUSD": 785
+          "id": "1599277564253505932",
+          "name": "Traditional Japanese house with courtyard garden",
+          "totalUSD": 1617
         },
         {
-          "type": "dropped",
-          "id": "1578593369135998584",
-          "name": "Traditional ceramic bathtub | 2 min from Hanazonocho Station | 120 ㎡ | No transfers, Namba 4 min, Umeda 13 min",
-          "totalUSD": 1385
-        },
-        {
-          "type": "dropped",
-          "id": "1584424224137196557",
-          "name": "Nishikura Kee's Cozy Home Garden North 01 New/Japanese Mattress/Garden Town Station 2 mins/Direct to Umeda/Namba",
-          "totalUSD": 1305
+          "type": "price_drop",
+          "id": "1518501935430114217",
+          "name": "Three-story house with free parking",
+          "totalUSD": 1114,
+          "prevUSD": 1147,
+          "delta": -33,
+          "pct": -3
         }
       ]
     }
