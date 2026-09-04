@@ -1,8 +1,8 @@
 {
   "exchangeRate": {
-    "usd_jpy": 156.01,
+    "usd_jpy": 156.25,
     "source": "ECB via Frankfurter",
-    "date": "2026-09-03"
+    "date": "2026-09-04"
   },
   "advisory": {
     "level": 1,
@@ -12,5 +12,5 @@
     "changeDesc": "Addition of information about flooding and heavy rain ('Safety and security' page).",
     "source": "UK FCDO"
   },
-  "fetchedAt": "2026-09-04T10:59:49.953Z"
+  "fetchedAt": "2026-09-04T16:06:10.968Z"
 }
