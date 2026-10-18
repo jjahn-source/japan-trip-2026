@@ -78,9 +78,10 @@ const KEEP = /^(id|aweme_id|note_id|code|shortcode|pk|title|desc|description|cap
  */
 // Noise every platform ships: media renditions, music, tracking. Never what a planner needs.
 const DROP = /^(.*(image|thumb|avatar|cover|icon|music|sound|song|audio|sticker|effect|mask|telemetry|tracking|logging|log_pb|risk|share_info|bit_rate|url_list|display_resources|dimensions|candidates|versions|preview|badge|banner|anchor|label_|interaction|emoji|_acl|comment_config|cha_list|still).*|media)$/i;
-export function compact(v: unknown, depth = 0, maxItems = 20): unknown {
+// Japanese runs about one token per character, so text is clipped hard: 300 characters per field.
+export function compact(v: unknown, depth = 0, maxItems = 12): unknown {
   if (v == null || typeof v === 'number' || typeof v === 'boolean') return v;
-  if (typeof v === 'string') return v.length > 600 ? `${v.slice(0, 600)}…` : v;
+  if (typeof v === 'string') return v.length > 300 ? `${v.slice(0, 300)}…` : v;
   if (depth > 13) return undefined;
   if (Array.isArray(v)) {
     const out = v.slice(0, maxItems).map((x) => compact(x, depth + 1, maxItems)).filter((x) => x !== undefined && !(typeof x === 'object' && x && !Array.isArray(x) && !Object.keys(x).length));
@@ -100,7 +101,7 @@ export function compact(v: unknown, depth = 0, maxItems = 20): unknown {
   return undefined;
 }
 /** Compact JSON as text, clipped to `max` characters. */
-export const digest = (v: unknown, max = 7000) => { const s = JSON.stringify(compact(v) ?? null); return s.length > max ? `${s.slice(0, max)}…(clipped)` : s; };
+export const digest = (v: unknown, max = 5000) => { const s = JSON.stringify(compact(v) ?? null); return s.length > max ? `${s.slice(0, max)}…(clipped)` : s; };
 
 export const readJson = <T>(p: string, fallback: T): T => (existsSync(p) ? JSON.parse(readFileSync(p, 'utf8')) as T : fallback);
 export function writeJson(p: string, v: unknown) { mkdirSync(dirname(p), { recursive: true }); writeFileSync(p, `${JSON.stringify(v, null, 2)}\n`); }

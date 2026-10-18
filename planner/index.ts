@@ -205,7 +205,8 @@ Research method, for every theme:
 3. Verify it is real, open in the trip window, and suits THIS group (size, ages, budget, vibe). Note booking needs and when bookings open. Prefer places with recent (2025–2026) evidence.
 4. Tabelog: you may read it to judge a place, and cite its page URL, but never copy its scores, reviews or photos into your notes.
 5. Avoid tourist traps unless the brief asks for the classic; say plainly when a famous place is not worth it and what to do instead.
-Save candidates with save_candidates as you go (aim for 12–20 strong ones per task, each with concrete evidence and coordinates from find_place). Finish with a 5–10 line summary of the area logic (which neighbourhoods to pair, transport passes, timing traps).`;
+Be economical, like a pro with a deadline: about 12–18 tool calls in all; one precise search beats three vague ones; never fetch the same page twice; stop when you have enough.
+Save candidates with save_candidates as you go (aim for 10–16 strong ones per task, each with concrete evidence and coordinates from find_place). Finish with a 5–10 line summary of the area logic (which neighbourhoods to pair, transport passes, timing traps).`;
 
 const THEMES: { key: string; brief: string }[] = [
   { key: 'food', brief: 'Food: the meals worth planning a day around: local specialties, ramen/sushi/yakiniku/izakaya, breakfast and late-night spots, places that seat the whole group, food markets and streets.' },
@@ -227,11 +228,12 @@ ${brief.wishes.map((w) => `- ${w.id}: ${w.text}`).join('\n')}
 This task: ${leg.city}, ${leg.from} to ${leg.to}${leg.base ? `, staying at ${leg.base}` : ''}.
 Theme: ${theme.brief}${extra ? `\n\nAlso: ${extra}` : ''}`;
     const runner = client.beta.messages.toolRunner({
-      model: MODEL, max_tokens: 16000, betas: BETAS, fallbacks: 'default', max_iterations: 60,
+      model: MODEL, max_tokens: 16000, betas: [...BETAS, 'task-budgets-2026-03-13'], fallbacks: 'default', max_iterations: 40,
       // Cache the whole conversation, not just the system prompt: every step re-sends everything
       // before it, and cached tokens are read back at 5% of the price.
       cache_control: { type: 'ephemeral' },
-      system: sys(RESEARCH_SYSTEM), output_config: { effort: 'medium' },
+      // A token budget the model can see, so it spends its searches where they count.
+      system: sys(RESEARCH_SYSTEM), output_config: { effort: 'medium', task_budget: { type: 'tokens', total: 100000 } },
       // Old tool results are cleared early (the candidates are already saved in code): each turn
       // re-reads the whole conversation, so this is most of the cost.
       context_management: { edits: [{ type: 'clear_tool_uses_20250919', trigger: { type: 'input_tokens', value: 30000 }, keep: { type: 'tool_uses', value: 3 }, exclude_tools: ['save_candidates'] }] },
@@ -343,7 +345,7 @@ Rules:
 async function makePlan(brief: Brief, cands: Candidate[], stays: AnchorStay[], notes: string[], extra: string, previous?: Plan): Promise<Plan> {
   const catalogue = cands.map((c) => ({ id: c.id, name: c.name, ja: c.name_ja, city: c.city, area: c.area, kind: c.kind, why: c.why, best_time: c.best_time, dates: c.dates, price: c.price, booking: c.booking, group: c.group_of_8, hours: c.hours, lat: c.lat, lng: c.lng, wishes: c.wish_ids, confidence: +c.confidence.toFixed(2), status: c.verified?.status ?? null }));
   const user = `BRIEF\n${JSON.stringify(brief, null, 1)}\n\nSTAYS (fixed)\n${stays.map((s) => `- ${s.stay.short} (${s.city}): in ${s.stay.checkInISO}, out ${s.stay.checkOutISO}, at ${s.at.lat},${s.at.lng}`).join('\n')}\n\nAREA NOTES FROM RESEARCH\n${notes.join('\n\n').slice(0, 30000)}\n\nCANDIDATES\n${JSON.stringify(catalogue)}${previous ? `\n\nCURRENT PLAN (keep everything the change does not affect)\n${JSON.stringify(previous)}` : ''}${extra ? `\n\nINSTRUCTIONS\n${extra}` : ''}`;
-  let plan = await structured('plan', Plan, PLAN_SYSTEM, user, 'xhigh');
+  let plan = await structured('plan', Plan, PLAN_SYSTEM, user, 'high');
   const byId = new Map(cands.map((c) => [c.id!, c]));
   // Coordinates come from verified research, not from the model's memory.
   const pin = (p: Plan) => { for (const d of p.days) for (const s of d.stops) { const c = s.candidate_id ? byId.get(s.candidate_id) : undefined; if (c?.lat != null) { s.lat = c.lat; s.lng = c.lng; } } return p; };
@@ -351,7 +353,7 @@ async function makePlan(brief: Brief, cands: Candidate[], stays: AnchorStay[], n
   const issues = checkPlan(plan, brief, byId);
   if (!issues.length) return plan;
   log(`  ${issues.length} problem(s) found; repairing:\n    ${issues.slice(0, 12).join('\n    ')}`);
-  const repaired = pin(await structured('plan-repair', Plan, PLAN_SYSTEM, `${user}\n\nYOUR PREVIOUS PLAN\n${JSON.stringify(plan)}\n\nFIX THESE PROBLEMS (change only what is needed)\n${issues.map((x) => `- ${x}`).join('\n')}`, 'xhigh'));
+  const repaired = pin(await structured('plan-repair', Plan, PLAN_SYSTEM, `${user}\n\nYOUR PREVIOUS PLAN\n${JSON.stringify(plan)}\n\nFIX THESE PROBLEMS (change only what is needed)\n${issues.map((x) => `- ${x}`).join('\n')}`, 'high'));
   const left = checkPlan(repaired, brief, byId);
   if (left.length) log(`  ${left.length} problem(s) remain after repair; they are listed in the itinerary's warnings.`);
   return Object.assign(repaired, { warnings: left });
@@ -365,7 +367,7 @@ async function writeDay(brief: Brief, day: Plan['days'][number], n: number, byId
     return { index: i, time: `${s.start}–${s.end}`, name: s.name, plan: s.plan, transport_next: s.transport, research: c ? { why: c.why, best_time: c.best_time, dates: c.dates, price: c.price, booking: c.booking, group: c.group_of_8, hours: c.hours, verified: c.verified ? { status: c.verified.status, rating: c.verified.rating, ratings: c.verified.ratings, hours: c.verified.hours, source: c.verified.source } : null, evidence: c.evidence } : null };
   });
   const user = `Group: ${brief.people} people. ${brief.who}\nDay ${n}: ${day.date}, ${day.city}: ${day.title}\nWishes: ${brief.wishes.map((w) => `${w.id}: ${w.text}`).join(' · ')}\n\nSTOPS\n${JSON.stringify(dossier)}`;
-  return structured('write', DayGuide, WRITE_SYSTEM, user, 'high');
+  return structured('write', DayGuide, WRITE_SYSTEM, user, 'medium');
 }
 
 // ── Assemble the site's itinerary ──
@@ -411,11 +413,14 @@ function assemble(brief: Brief, plan: Plan & { warnings?: string[] }, guides: z.
 interface State { briefText: string; brief: Brief; candidates: Candidate[]; notes: string[]; plan: Plan }
 const BRIEF_SYSTEM = `Read a traveller's trip brief and extract it faithfully. Every concrete preference, wish, constraint, place or activity mentioned becomes its own wish (keep their words). Dates are in ${today.slice(0, 4)} unless stated.`;
 
+let ONLY: string | null = null; // --only <city>: research, plan and write one city as a preview
 async function plan(briefFile: string, extra = '', previous?: State) {
   const briefText = readFileSync(briefFile, 'utf8');
   const stays = anchors();
   log(`Sources on: ${Object.entries(S.has).filter(([, f]) => f()).map(([k]) => k).join(', ') || 'none'} (+ Claude web search, TREK Places, Wikipedia)`);
-  const brief = previous?.briefText === briefText ? previous.brief : await structured('brief', Brief, BRIEF_SYSTEM, briefText, 'medium');
+  const fullBrief = previous?.briefText === briefText ? previous.brief : await structured('brief', Brief, BRIEF_SYSTEM, briefText, 'medium');
+  const brief = ONLY ? { ...fullBrief, legs: fullBrief.legs.filter((l) => l.city.toLowerCase() === ONLY!.toLowerCase()) } : fullBrief;
+  if (!brief.legs.length) throw new Error(`No leg in the brief for "${ONLY}".`);
   log(`Brief: ${brief.legs.map((l) => `${l.city} ${l.from}→${l.to}`).join(' · ')} · ${brief.wishes.length} wishes`);
   let candidates = previous?.candidates ?? [];
   let notes = previous?.notes ?? [];
@@ -425,9 +430,17 @@ async function plan(briefFile: string, extra = '', previous?: State) {
       const all = brief.legs.filter((x) => x.city.toLowerCase() === l.city.toLowerCase());
       return { ...l, from: all.map((x) => x.from).join(' and '), to: all.map((x) => x.to).join(' and '), base: all.map((x) => x.base).filter(Boolean).join(' / ') || null };
     });
+    // Short stays (two nights or fewer) get two broader researchers instead of four.
+    const nights = (l: { from: string; to: string }) => l.from.split(' and ').reduce((n, f, i) => n + (Date.parse(l.to.split(' and ')[i]) - Date.parse(f)) / 864e5, 0);
+    const MERGED = [
+      { key: 'food-night', brief: `${THEMES[0].brief}\n${THEMES[1].brief}` },
+      { key: 'sights-shop', brief: `${THEMES[2].brief}\n${THEMES[3].brief}` },
+    ];
     const jobs = previous
       ? cities.map((leg) => ({ leg, theme: { key: 'edit', brief: `Only what this change needs: ${extra}. Find the best options for it.` } }))
-      : cities.flatMap((leg) => THEMES.map((theme) => ({ leg, theme })));
+      : cities.flatMap((leg) => (nights(leg) <= 2 ? MERGED : THEMES).map((theme, _, all) => ({
+        leg, theme: { ...theme, brief: `${theme.brief}\n(Other researchers cover: ${all.filter((x) => x !== theme).map((x) => x.key).join(', ') || 'nothing else'}; stay on your theme.)` },
+      })));
     log(`Researching ${jobs.length} task(s) in parallel…`);
     const res = await pool(jobs, 6, ({ leg, theme }) => researchLeg(brief, leg, theme, previous ? '' : extra).catch((e) => {
       if (fatal(e)) throw e;
@@ -437,11 +450,11 @@ async function plan(briefFile: string, extra = '', previous?: State) {
     candidates = await resolveAll([...(previous?.candidates ?? []), ...res.flatMap((r) => r.candidates)], stays);
     notes = [...notes, ...res.map((r, i) => `${jobs[i].leg.city} · ${jobs[i].theme.key}: ${r.notes}`).filter((x) => x.length > 30)];
     log(`${candidates.length} verified candidates`);
-    if (!previous && candidates.length < 20) throw new Error(`Only ${candidates.length} places survived research; not planning a trip on that. See the log above.`);
+    if (!previous && candidates.length < (ONLY ? 8 : 20)) throw new Error(`Only ${candidates.length} places survived research; not planning a trip on that. See the log above.`);
   }
   log('Planning the days…');
-  const p = await makePlan(brief, candidates, stays, notes, extra, previous?.plan);
-  writeJson(STATE, { briefText, brief, candidates, notes, plan: p } satisfies State);
+  const p = await makePlan(brief, candidates, ONLY ? stays.filter((s) => s.city.toLowerCase() === ONLY!.toLowerCase()) : stays, notes, extra, previous?.plan);
+  if (!ONLY) writeJson(STATE, { briefText, brief, candidates, notes, plan: p } satisfies State);
   log('Writing the guidebook…');
   const byId = new Map(candidates.map((c) => [c.id!, c]));
   const guides = await pool(p.days, 5, (d, i) => writeDay(brief, d, i + 1, byId).catch((e) => {
@@ -449,7 +462,9 @@ async function plan(briefFile: string, extra = '', previous?: State) {
     log(`  writing ${d.date} failed: ${(e as Error).message}`); return { notes: [], stops: [] };
   }));
   const it = assemble(brief, p, guides, byId, stays, briefText);
-  writeJson(OUT, it);
+  const out = ONLY ? resolve(ROOT, `data/research/preview-${ONLY.toLowerCase()}.json`) : OUT;
+  writeJson(out, it);
+  if (ONLY) log(`Preview only: wrote ${out.replace(`${ROOT}/`, '')}; the site's itinerary is unchanged.`);
   log(`Claude cost this run: ~$${dollars().toFixed(2)} (cached steps are free on re-runs).`);
   log(`Wrote data/itinerary.json: ${it.days.length} days, ${it.days.reduce((n, d) => n + d.stops.length, 0)} stops, ${it.todos.length} to-dos${it.warnings.length ? `, ${it.warnings.length} warning(s)` : ''}.`);
   return it;
@@ -466,6 +481,8 @@ function rebuildSite() {
 }
 
 const [cmd = 'plan', ...args] = process.argv.slice(2);
+const onlyAt = args.indexOf('--only');
+if (onlyAt >= 0) { ONLY = args[onlyAt + 1] ?? null; args.splice(onlyAt, 2); }
 const flags = new Set(args.filter((a) => a.startsWith('--')));
 const rest = args.filter((a) => !a.startsWith('--'));
 if (cmd === 'status') {
@@ -485,5 +502,5 @@ if (cmd === 'status') {
     const instr = `Work this in if it is worth it (watch/read it first): ${rest.join(' ')}`;
     if (prev) await plan(briefFile, instr, { ...prev, briefText: readFileSync(briefFile, 'utf8') }); else await plan(briefFile);
   } else throw new Error(`Unknown command ${cmd}`);
-  if (!flags.has('--no-site')) rebuildSite();
+  if (!flags.has('--no-site') && !ONLY) rebuildSite();
 }
