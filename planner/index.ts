@@ -160,10 +160,11 @@ async function structured<T extends z.ZodType>(stage: string, schema: T, system:
   return cached(`claude-${stage}`, [model, system, user, effort], async () => {
     for (let attempt = 0; ; attempt++) {
       const params = { model, max_tokens: 64000, system: sys(system), messages: [{ role: 'user' as const, content: user }], output_config: { effort, format: betaZodOutputFormat(schema) } };
-      const msg = NOW
+      // Haiku's fact reading costs cents either way, so it never waits in the batch queue.
+      const msg = NOW || stage === 'facts'
         ? await client.beta.messages.stream({ ...params, betas: BETAS, ...fallbackFor(model) }).finalMessage()
         : await viaBatch(params);
-      meter(msg.usage, model, stage, !NOW);
+      meter(msg.usage, model, stage, !(NOW || stage === 'facts'));
       if (msg.stop_reason === 'refusal') throw new Error(`${stage}: the model declined (${msg.stop_details?.category ?? 'no category'})`);
       if (msg.stop_reason === 'max_tokens') throw new Error(`${stage}: output hit max_tokens`);
       const text = msg.content.flatMap((b) => (b.type === 'text' ? [b.text] : [])).join('');
