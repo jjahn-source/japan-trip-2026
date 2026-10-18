@@ -498,7 +498,7 @@ function measuredTransport(p: Plan, legs: Legs) {
     const l = legs.get(`${d.date}#${i}`);
     if (!s.transport || !l) return;
     const real = /taxi|cab|\bcar\b|drive/i.test(s.transport) && l.carMinutes != null ? l.carMinutes : l.mode === 'walk' && /walk/i.test(s.transport) && !/train|bus|line|ropeway|ship|boat/i.test(s.transport) ? l.minutes : null;
-    if (real != null) s.transport = s.transport.replace(/(?:about |~)?\s?\d+(?:\s?[–-]\s?\d+)?\s?(?:min(?:ute)?s?)\b/i, `${real} min`);
+    if (real != null) s.transport = s.transport.replace(/(?:about |~)?\d+(?:\s?[–-]\s?\d+)?\s?(?:min(?:ute)?s?)\b/i, `${real} min`);
   });
 }
 
@@ -618,7 +618,10 @@ function patchDay(d: ItinDay, errors: FactError[], measured: F.Allowed[]): strin
   for (const e of errors) {
     const src = (() => { try { return new URL(e.source_url).hostname.replace(/^www\./, ''); } catch { return 'source'; } })();
     let done = false;
-    if (e.stop < 0) d.notes = d.notes.map((n) => { const r = done ? null : swap(n.text, e); if (r) done = true; return r ? { ...n, text: r } : n; });
+    if (e.stop < 0) {
+      d.notes = d.notes.map((n) => { const r = done ? null : swap(n.text, e); if (r) done = true; return r ? { ...n, text: r } : n; });
+      if (!done) { d.notes.push({ kind: 'CHECK', text: e.fix }); done = true; }
+    }
     const g = d.stops[e.stop]?.guide;
     if (g && !done) {
       for (const k of ['story', 'cost', 'booking', 'hours'] as const) { const r = !done && g[k] ? swap(g[k]!, e) : null; if (r) { g[k] = r; done = true; } }
