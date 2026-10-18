@@ -30,6 +30,19 @@ const client = new Anthropic({ maxRetries: 5 });
 const sys = (text: string) => [{ type: 'text' as const, text, cache_control: { type: 'ephemeral' as const } }];
 const today = new Date().toISOString().slice(0, 10);
 
+// What this run costs, from the API's own usage reports (Opus 5.5: $4/$20 per M tokens; cache reads
+// $0.20, cache writes $5; web search $10 per 1,000).
+const spend = { in: 0, out: 0, cacheRead: 0, cacheWrite: 0, searches: 0 };
+type Usage = { input_tokens: number; output_tokens: number; cache_read_input_tokens?: number | null; cache_creation_input_tokens?: number | null; server_tool_use?: { web_search_requests?: number | null } | null };
+function meter(u: Usage | undefined) {
+  if (!u) return;
+  spend.in += u.input_tokens; spend.out += u.output_tokens; spend.cacheRead += u.cache_read_input_tokens ?? 0;
+  spend.cacheWrite += u.cache_creation_input_tokens ?? 0; spend.searches += u.server_tool_use?.web_search_requests ?? 0;
+}
+export const dollars = () => (spend.in * 4 + spend.out * 20 + spend.cacheRead * 0.2 + spend.cacheWrite * 5) / 1e6 + spend.searches * 0.01;
+/** Errors that will fail every other request too (bad request, auth, no credit): stop the run. */
+const fatal = (e: unknown) => e instanceof Anthropic.BadRequestError || e instanceof Anthropic.AuthenticationError || e instanceof Anthropic.PermissionDeniedError;
+
 // ── Schemas (nullable rather than optional: structured outputs want every field present) ──
 const Brief = z.object({
   title: z.string().describe('Short trip title, e.g. "Japan, Dec 2026 · 8 friends"'),
@@ -112,6 +125,7 @@ async function structured<T extends z.ZodType>(stage: string, schema: T, system:
         output_config: { effort, format: betaZodOutputFormat(schema) },
       });
       const msg = await stream.finalMessage();
+      meter(msg.usage);
       if (msg.stop_reason === 'refusal') throw new Error(`${stage}: the model declined (${msg.stop_details?.category ?? 'no category'})`);
       if (msg.stop_reason === 'max_tokens') throw new Error(`${stage}: output hit max_tokens`);
       const text = msg.content.flatMap((b) => (b.type === 'text' ? [b.text] : [])).join('');
@@ -209,15 +223,17 @@ ${brief.wishes.map((w) => `- ${w.id}: ${w.text}`).join('\n')}
 This task: ${leg.city}, ${leg.from} to ${leg.to}${leg.base ? `, staying at ${leg.base}` : ''}.
 Theme: ${theme.brief}${extra ? `\n\nAlso: ${extra}` : ''}`;
     const runner = client.beta.messages.toolRunner({
-      model: MODEL, max_tokens: 16000, betas: BETAS, fallbacks: 'default', max_iterations: 70,
-      system: sys(RESEARCH_SYSTEM), output_config: { effort: 'high' },
-      // Old tool results are cleared as the run goes; the candidates are already saved in code.
-      context_management: { edits: [{ type: 'clear_tool_uses_20250919' }] },
-      tools: [...researchTools(brief, found), { type: 'web_search_20260209', name: 'web_search', max_uses: 20 }, { type: 'web_fetch_20260209', name: 'web_fetch', max_uses: 20 }],
+      model: MODEL, max_tokens: 16000, betas: BETAS, fallbacks: 'default', max_iterations: 60,
+      system: sys(RESEARCH_SYSTEM), output_config: { effort: 'medium' },
+      // Old tool results are cleared early (the candidates are already saved in code): each turn
+      // re-reads the whole conversation, so this is most of the cost.
+      context_management: { edits: [{ type: 'clear_tool_uses_20250919', trigger: { type: 'input_tokens', value: 30000 }, keep: { type: 'tool_uses', value: 3 }, exclude_tools: ['save_candidates'] }] },
+      tools: [...researchTools(brief, found), { type: 'web_search_20260209', name: 'web_search', max_uses: 12 }, { type: 'web_fetch_20260209', name: 'web_fetch', max_uses: 10, max_content_tokens: 6000 }],
       messages: [{ role: 'user', content: task }],
     });
     let notes = '';
     for await (const m of runner) {
+      meter(m.usage);
       if (m.stop_reason === 'pause_turn') runner.pushMessages({ role: 'assistant', content: m.content });
       const t = m.content.flatMap((b) => (b.type === 'text' ? [b.text] : [])).join('\n');
       if (t.trim()) notes = t;
@@ -397,23 +413,37 @@ async function plan(briefFile: string, extra = '', previous?: State) {
   let candidates = previous?.candidates ?? [];
   let notes = previous?.notes ?? [];
   if (!previous || extra) {
+    // One research pass per city, however many times the trip comes back to it (Tokyo twice).
+    const cities = [...new Map(brief.legs.map((l) => [l.city.toLowerCase(), l])).values()].map((l) => {
+      const all = brief.legs.filter((x) => x.city.toLowerCase() === l.city.toLowerCase());
+      return { ...l, from: all.map((x) => x.from).join(' and '), to: all.map((x) => x.to).join(' and '), base: all.map((x) => x.base).filter(Boolean).join(' / ') || null };
+    });
     const jobs = previous
-      ? brief.legs.map((leg) => ({ leg, theme: { key: 'edit', brief: `Only what this change needs: ${extra}. Find the best options for it.` } }))
-      : brief.legs.flatMap((leg) => THEMES.map((theme) => ({ leg, theme })));
+      ? cities.map((leg) => ({ leg, theme: { key: 'edit', brief: `Only what this change needs: ${extra}. Find the best options for it.` } }))
+      : cities.flatMap((leg) => THEMES.map((theme) => ({ leg, theme })));
     log(`Researching ${jobs.length} task(s) in parallel…`);
-    const res = await pool(jobs, 6, ({ leg, theme }) => researchLeg(brief, leg, theme, previous ? '' : extra).catch((e) => { log(`  ${leg.city} · ${theme.key} failed: ${(e as Error).message}`); return { candidates: [], notes: '' }; }));
+    const res = await pool(jobs, 6, ({ leg, theme }) => researchLeg(brief, leg, theme, previous ? '' : extra).catch((e) => {
+      if (fatal(e)) throw e;
+      log(`  ${leg.city} · ${theme.key} failed: ${(e as Error).message}`); return { candidates: [], notes: '' };
+    }));
+    log(`  research so far: ~$${dollars().toFixed(2)}`);
     candidates = await resolveAll([...(previous?.candidates ?? []), ...res.flatMap((r) => r.candidates)], stays);
     notes = [...notes, ...res.map((r, i) => `${jobs[i].leg.city} · ${jobs[i].theme.key}: ${r.notes}`).filter((x) => x.length > 30)];
     log(`${candidates.length} verified candidates`);
+    if (!previous && candidates.length < 20) throw new Error(`Only ${candidates.length} places survived research; not planning a trip on that. See the log above.`);
   }
   log('Planning the days…');
   const p = await makePlan(brief, candidates, stays, notes, extra, previous?.plan);
   writeJson(STATE, { briefText, brief, candidates, notes, plan: p } satisfies State);
   log('Writing the guidebook…');
   const byId = new Map(candidates.map((c) => [c.id!, c]));
-  const guides = await pool(p.days, 5, (d, i) => writeDay(brief, d, i + 1, byId).catch((e) => { log(`  writing ${d.date} failed: ${(e as Error).message}`); return { notes: [], stops: [] }; }));
+  const guides = await pool(p.days, 5, (d, i) => writeDay(brief, d, i + 1, byId).catch((e) => {
+    if (fatal(e)) throw e;
+    log(`  writing ${d.date} failed: ${(e as Error).message}`); return { notes: [], stops: [] };
+  }));
   const it = assemble(brief, p, guides, byId, stays, briefText);
   writeJson(OUT, it);
+  log(`Claude cost this run: ~$${dollars().toFixed(2)} (cached steps are free on re-runs).`);
   log(`Wrote data/itinerary.json: ${it.days.length} days, ${it.days.reduce((n, d) => n + d.stops.length, 0)} stops, ${it.todos.length} to-dos${it.warnings.length ? `, ${it.warnings.length} warning(s)` : ''}.`);
   return it;
 }

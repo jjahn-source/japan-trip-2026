@@ -100,7 +100,7 @@ export function compact(v: unknown, depth = 0, maxItems = 20): unknown {
   return undefined;
 }
 /** Compact JSON as text, clipped to `max` characters. */
-export const digest = (v: unknown, max = 12000) => { const s = JSON.stringify(compact(v) ?? null); return s.length > max ? `${s.slice(0, max)}…(clipped)` : s; };
+export const digest = (v: unknown, max = 7000) => { const s = JSON.stringify(compact(v) ?? null); return s.length > max ? `${s.slice(0, max)}…(clipped)` : s; };
 
 export const readJson = <T>(p: string, fallback: T): T => (existsSync(p) ? JSON.parse(readFileSync(p, 'utf8')) as T : fallback);
 export function writeJson(p: string, v: unknown) { mkdirSync(dirname(p), { recursive: true }); writeFileSync(p, `${JSON.stringify(v, null, 2)}\n`); }
