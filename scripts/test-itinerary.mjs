@@ -88,3 +88,60 @@ test('verified facts catch closures, hours on the date, last entry and fixed rid
 test('pages become plain text', () => {
   assert.equal(htmlText('<p>営業時間&nbsp;10:00</p><script>x()</script><td>大人</td><td>&yen;2,000</td>'), '営業時間 10:00\n大人\n¥2,000');
 });
+
+import { solveDay, estimateHop, hhmm } from '../planner/solver.ts';
+
+// A straight street: stop k sits k km east of the start. Fixed hops: 10 min per km, walking.
+const at = (k) => ({ lat: 35.0, lng: 139.0 + k * 0.011 });
+const line = (a, b) => { const d = Math.round(Math.abs(a.lng - b.lng) / 0.011); return { minutes: d * 10, mode: 'walk', yen: 0 }; };
+const S = (id, k, extra = {}) => ({ id, name: id, ...at(k), minutes: 60, priority: 5, ...extra });
+const base = { start: { id: 'home', name: 'home', ...at(0), time: 9 * 60 }, people: 8 };
+
+test('the solver orders stops along the way, with a group buffer between them', () => {
+  const r = solveDay({ ...base, stops: [S('c', 3), S('a', 1), S('b', 2)] }, line);
+  assert.deepEqual(r.order.map((o) => o.id), ['a', 'b', 'c']);
+  assert.equal(hhmm(r.order[0].start), '09:15'); // 10 min walk + 3 min group buffer, rounded up to 5
+  assert.ok(r.complete);
+});
+
+test('the solver respects opening hours, last entry and fixed show times', () => {
+  const r = solveDay({ ...base, stops: [
+    S('museum', 1, { windows: [{ open: 10 * 60, close: 17 * 60 }] }),
+    S('show', 2, { fixedStart: 13 * 60, minutes: 90 }),
+    S('late', 3, { lastEntry: 9 * 60 + 30, priority: 9 }),
+  ] }, line);
+  const by = Object.fromEntries(r.order.map((o) => [o.id, o]));
+  assert.ok(by.museum.start >= 600 && by.museum.end <= 1020);
+  assert.equal(hhmm(by.show.start), '13:00');
+  assert.ok(!by.late, 'a place whose last entry has passed is dropped');
+  assert.match(r.dropped.find((d) => d.id === 'late').why, /last entry/);
+});
+
+test('the solver spaces meals and never books two dinners', () => {
+  const r = solveDay({ ...base, start: { ...base.start, time: 11 * 60 }, stops: [
+    S('lunch', 1, { meal: 'lunch' }), S('dinner1', 2, { meal: 'dinner', priority: 8 }), S('dinner2', 3, { meal: 'dinner', priority: 6 }), S('sight', 2, { minutes: 120 }),
+  ] }, line);
+  const meals = r.order.filter((o) => /lunch|dinner/.test(o.id));
+  assert.equal(meals.filter((m) => m.id.startsWith('dinner')).length, 1);
+  for (let i = 1; i < meals.length; i++) assert.ok(meals[i].start - meals[i - 1].end >= 150);
+});
+
+test('the solver keeps must-do anchors and stays inside the taxi budget', () => {
+  const taxi = (_, to) => (to.id === 'booked' ? { minutes: 10, mode: 'walk', yen: 0 } : { minutes: 15, mode: 'taxi', yen: 8000 });
+  const r = solveDay({ ...base, taxiCapPerPerson: 900, stops: [S('booked', 1, { must: true, priority: 1 }), S('far', 5, { priority: 10 })] }, taxi);
+  assert.deepEqual(r.order.map((o) => o.id), ['booked']);
+  assert.match(r.dropped[0].why, /taxi budget/);
+});
+
+test('a ride that ends elsewhere continues from where it lands', () => {
+  const r = solveDay({ ...base, stops: [S('ropeway', 1, { endAt: { id: 'top', name: 'top', ...at(4) }, minutes: 30 }), S('summit', 4, { priority: 4 })] }, line);
+  const sum = r.order.find((o) => o.id === 'summit');
+  assert.equal(sum.hop.minutes, 0); // already there
+});
+
+test('travel estimates: short walks, trains in town, taxis after the last train', () => {
+  const a = { lat: 35.69, lng: 139.70 }, b = { lat: 35.66, lng: 139.70 };
+  assert.equal(estimateHop(a, { lat: 35.693, lng: 139.70 }, 600, { people: 8 }).mode, 'walk');
+  assert.equal(estimateHop(a, b, 600, { people: 8 }).mode, 'transit');
+  assert.equal(estimateHop(a, b, 25 * 60, { people: 8 }).mode, 'taxi');
+});
