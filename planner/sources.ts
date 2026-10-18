@@ -37,11 +37,12 @@ export function socialSearch(platform: SocialPlatform, query: string) {
   return soft(`${platform} search`, async () => {
     const r = await ({
       tiktok: () => tikhub('/api/v1/tiktok/app/v3/fetch_video_search_result', { keyword: query, count: 20, sort_type: 0, publish_time: 180, region: /[぀-ヿ一-鿿]/.test(query) ? 'JP' : 'US' }),
-      instagram: () => tikhub('/api/v1/instagram/v2/search_reels', { keyword: query }),
+      // Instagram keyword search returns nothing for Japanese; hashtags are how it's searched anyway.
+      instagram: () => tikhub('/api/v1/instagram/v1/fetch_hashtag_posts', { hashtag: query.replace(/[#\s]/g, '') }),
       lemon8: () => tikhub('/api/v1/lemon8/app/fetch_search', { query }),
       xiaohongshu: () => tikhub('/api/v1/xiaohongshu/app_v2/search_notes', { keyword: query, sort_type: 'general' }),
-      reddit: () => tikhub('/api/v1/reddit/app/fetch_dynamic_search', { query, search_type: 'post', sort: 'relevance', time_range: 'year' }),
-      threads: () => tikhub('/api/v1/threads/web/search_top', { query }),
+      reddit: () => tikhub('/api/v1/reddit/app/fetch_dynamic_search', { query, search_type: 'post', sort: 'RELEVANCE', need_format: 'True' }),
+      threads: () => tikhub('/api/v1/threads/web/search_posts', { query }),
       youtube: () => tikhub('/api/v1/youtube/web_v2/get_general_search_v2', { keyword: query }),
     })[platform]();
     return digest(r);

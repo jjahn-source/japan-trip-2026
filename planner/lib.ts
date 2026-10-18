@@ -76,10 +76,12 @@ const KEEP = /^(id|aweme_id|note_id|code|shortcode|pk|title|desc|description|cap
  * A short digest of an arbitrary JSON reply: keeps the fields above (recursively), drops the rest,
  * clips long strings and lists, so 200 KB of TikTok JSON becomes a few KB a model can read.
  */
+// Noise every platform ships: media renditions, music, tracking. Never what a planner needs.
+const DROP = /^(.*(image|thumb|avatar|cover|icon|music|sound|song|audio|sticker|effect|mask|telemetry|tracking|logging|log_pb|risk|share_info|bit_rate|url_list|display_resources|dimensions|candidates|versions|preview|badge|banner|anchor|label_|interaction|emoji|_acl|comment_config|cha_list|still).*|media)$/i;
 export function compact(v: unknown, depth = 0, maxItems = 20): unknown {
   if (v == null || typeof v === 'number' || typeof v === 'boolean') return v;
   if (typeof v === 'string') return v.length > 600 ? `${v.slice(0, 600)}…` : v;
-  if (depth > 7) return undefined;
+  if (depth > 13) return undefined;
   if (Array.isArray(v)) {
     const out = v.slice(0, maxItems).map((x) => compact(x, depth + 1, maxItems)).filter((x) => x !== undefined && !(typeof x === 'object' && x && !Array.isArray(x) && !Object.keys(x).length));
     return out.length ? out : undefined;
@@ -87,6 +89,7 @@ export function compact(v: unknown, depth = 0, maxItems = 20): unknown {
   if (typeof v === 'object') {
     const out: Record<string, unknown> = {};
     for (const [k, x] of Object.entries(v as Record<string, unknown>)) {
+      if (DROP.test(k)) continue;
       if (KEEP.test(k) && (typeof x !== 'object' || x === null)) { const c = compact(x, depth + 1, maxItems); if (c !== undefined && c !== '') out[k] = c; continue; }
       // Plain lists (bitrates, sizes, ids) only matter under a useful key, e.g. hashtags.
       if (Array.isArray(x) && x.every((y) => typeof y !== 'object' || y === null) && !KEEP.test(k)) continue;
