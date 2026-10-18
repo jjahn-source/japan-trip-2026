@@ -240,6 +240,25 @@ export async function embedFor(url: string): Promise<Media | null> {
     return null;
   }, 30);
 }
+/** The venue's own preview image (og:image on its website): free, and the photo it chose for itself. */
+export async function siteImage(website: string): Promise<Media | null> {
+  return cached('ogimage2', website, async () => {
+    try {
+      const res = await fetch(website, { signal: AbortSignal.timeout(12000), redirect: 'follow', headers: { 'User-Agent': 'Mozilla/5.0 (Macintosh) japan-plan-c-trip-site/1.0' } });
+      if (!res.ok || !/html/.test(res.headers.get('content-type') ?? '')) return null;
+      const head = (await res.text()).slice(0, 200000);
+      const m = head.match(/<meta[^>]+(?:property|name)=["'](?:og:image|twitter:image)(?::url)?["'][^>]*content=["']([^"']+)["']/i)
+        ?? head.match(/<meta[^>]+content=["']([^"']+)["'][^>]*(?:property|name)=["'](?:og:image|twitter:image)["']/i);
+      if (!m) return null;
+      const url = new URL(m[1].replace(/&amp;/g, '&'), res.url).toString();
+      if (!/^https:/.test(url) || /logo|icon|favicon|placeholder|noimage|blank\./i.test(url)) return null;
+      // Only a real, loadable picture of a decent size makes it into the guide.
+      const img = await fetch(url, { signal: AbortSignal.timeout(12000), headers: { 'User-Agent': 'Mozilla/5.0 (Macintosh)' } });
+      if (!img.ok || !/^image\//.test(img.headers.get('content-type') ?? '') || (await img.arrayBuffer()).byteLength < 15000) return null;
+      return { kind: 'image' as const, url, credit: new URL(res.url).hostname.replace(/^www\./, '') };
+    } catch { return null; }
+  }, 30);
+}
 /** A freely licensed photo of the place: the Wikipedia article's lead image, if the article sits on the spot. */
 export async function photoFor(name: string, at: LatLng): Promise<Media | null> {
   return cached('photo', [name, at.lat.toFixed(3), at.lng.toFixed(3)], async () => {

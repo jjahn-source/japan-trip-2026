@@ -218,7 +218,10 @@ const THEMES: { key: string; brief: string }[] = [
 async function researchLeg(brief: Brief, leg: Brief['legs'][number], theme: (typeof THEMES)[number], extra: string): Promise<{ candidates: Candidate[]; notes: string }> {
   // Which sources were on is part of the key: adding a key later re-runs the research with it.
   const on = Object.entries(S.has).filter(([, f]) => f()).map(([k]) => k);
-  return cached('research', [MODEL, brief, leg, theme.key, extra, RESEARCH_SYSTEM, on], async () => {
+  // Keyed on the group and the leg, not the whole brief, so a one-city preview's research is reused
+  // by the full run (and vice versa).
+  const group = { people: brief.people, who: brief.who, pace: brief.pace, wishes: brief.wishes };
+  return cached('research', [MODEL, group, leg, theme.key, extra, RESEARCH_SYSTEM, on], async () => {
     const found: Candidate[] = [];
     const task = `Trip: ${brief.title}. Group: ${brief.people} people. ${brief.who}
 Pace: ${brief.pace}
@@ -280,7 +283,11 @@ async function resolveAll(cands: Candidate[], stays: AnchorStay[]): Promise<Cand
       const m = await S.embedFor(e.url);
       if (m) media.push(m);
     }
-    if (at) { const p = await S.photoFor(c.name_ja ?? c.name, at); if (p) media.unshift(p); }
+    if (at) {
+      // A photo: Wikipedia's (famous places), else the venue's own preview image from its website.
+      const p = await S.photoFor(c.name_ja ?? c.name, at) ?? (trusted?.website ? await S.siteImage(trusted.website) : null);
+      if (p) media.unshift(p);
+    }
     return { ...c, id: `c${i + 1}`, lat: at?.lat ?? null, lng: at?.lng ?? null, verified: trusted, hours: c.hours ?? trusted?.hours?.join('; ') ?? null, media };
   });
   return out.filter((c) => c.verified?.status !== 'CLOSED_PERMANENTLY' && c.lat != null);
@@ -466,7 +473,7 @@ async function plan(briefFile: string, extra = '', previous?: State) {
   writeJson(out, it);
   if (ONLY) log(`Preview only: wrote ${out.replace(`${ROOT}/`, '')}; the site's itinerary is unchanged.`);
   log(`Claude cost this run: ~$${dollars().toFixed(2)} (cached steps are free on re-runs).`);
-  log(`Wrote data/itinerary.json: ${it.days.length} days, ${it.days.reduce((n, d) => n + d.stops.length, 0)} stops, ${it.todos.length} to-dos${it.warnings.length ? `, ${it.warnings.length} warning(s)` : ''}.`);
+  log(`Wrote ${ONLY ? 'the preview' : 'data/itinerary.json'}: ${it.days.length} days, ${it.days.reduce((n, d) => n + d.stops.length, 0)} stops, ${it.todos.length} to-dos${it.warnings.length ? `, ${it.warnings.length} warning(s)` : ''}.`);
   return it;
 }
 

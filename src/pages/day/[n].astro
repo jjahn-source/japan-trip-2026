@@ -190,7 +190,7 @@ if (day.sun && day.stops.length) {
                   return (
                     <div class="guide">
                       {photo && (
-                        <figure class="g-photo"><img src={photo.url} alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer" />{photo.credit && <figcaption>{photo.credit}</figcaption>}</figure>
+                        <figure class="g-photo"><img src={photo.url} alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer" onerror="this.closest('figure').remove()" />{photo.credit && <figcaption>{photo.credit}</figcaption>}</figure>
                       )}
                       <p class="g-story">{g.story}</p>
                       {g.how.length > 0 && (<Fragment><h4>How to do it</h4><ol class="g-how">{g.how.map((x) => <li set:html={inline(x)} />)}</ol></Fragment>)}
