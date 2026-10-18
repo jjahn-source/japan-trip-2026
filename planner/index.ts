@@ -224,6 +224,9 @@ This task: ${leg.city}, ${leg.from} to ${leg.to}${leg.base ? `, staying at ${leg
 Theme: ${theme.brief}${extra ? `\n\nAlso: ${extra}` : ''}`;
     const runner = client.beta.messages.toolRunner({
       model: MODEL, max_tokens: 16000, betas: BETAS, fallbacks: 'default', max_iterations: 60,
+      // Cache the whole conversation, not just the system prompt: every step re-sends everything
+      // before it, and cached tokens are read back at 5% of the price.
+      cache_control: { type: 'ephemeral' },
       system: sys(RESEARCH_SYSTEM), output_config: { effort: 'medium' },
       // Old tool results are cleared early (the candidates are already saved in code): each turn
       // re-reads the whole conversation, so this is most of the cost.
