@@ -1,0 +1,19 @@
+---
+import Shell from '../layouts/Shell.astro';
+import { trip } from '../lib/trip';
+import { url } from '../lib/format';
+const t = trip();
+---
+<Shell title="Today · Japan Plan C" active="today" view={{ kind: 'plain', redirect: 'today' }}>
+  <h1 class="display">Today</h1>
+  <p>Opening today's page. If nothing happens, pick a day:</p>
+  <ol class="days">
+    {t.days.map((d) => <li><a href={url(`/day/${d.n}/`)}>Day {d.n} · {d.label} · {d.title}</a></li>)}
+  </ol>
+</Shell>
+
+<style>
+  h1 { margin-top: 1rem; font-size: 1.6rem; color: var(--print); }
+  p { margin-top: 0.5rem; }
+  .days { margin-top: 0.75rem; padding-left: 1.2rem; display: grid; gap: 0.35rem; font-size: 0.92rem; }
+</style>

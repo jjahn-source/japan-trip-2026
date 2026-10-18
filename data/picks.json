@@ -1,0 +1,195 @@
+{
+ "generated": "2026-10-18T00:27:53.979Z",
+ "method": "Web research for the trip dates; each pick cites its source.",
+ "days": {
+  "3": [
+   {
+    "id": "pick-3-nonbei-yokoch",
+    "name": "Nonbei Yokochō",
+    "ja": "のんべい横丁",
+    "kind": "bar",
+    "lat": 35.6603,
+    "lng": 139.7022,
+    "near": {
+     "stop": "d03-s12",
+     "i": 12,
+     "km": 0.15
+    },
+    "views30": 0,
+    "rise": 1,
+    "december": 1,
+    "tag": "pick",
+    "why": "Shibuya's lantern-lit 'Drunkard's Alley': a row of six-seat bars by the tracks. Good for a round before karaoke.",
+    "when": "Most bars from about 18:00",
+    "check": false,
+    "source": "https://takemetherejapan.com/posts/shibuya-harajuku-izakaya-guide/",
+    "sourceName": "Take Me There Japan",
+    "wiki": "https://en.wikipedia.org/wiki/Nonbei_Yokoch%C5%8D",
+    "photo": null,
+    "photoPage": null
+   }
+  ],
+  "5": [
+   {
+    "id": "pick-5-tokyo-christmas-market-shin-toyosu",
+    "name": "Tokyo Christmas Market (Shin-Toyosu)",
+    "ja": "東京クリスマスマーケット 新豊洲",
+    "kind": "event",
+    "lat": 35.6486,
+    "lng": 139.7898,
+    "near": {
+     "stop": "d05-s01",
+     "i": 1,
+     "km": 0.09
+    },
+    "views30": 0,
+    "rise": 1,
+    "december": 1,
+    "tag": "pick",
+    "why": "Japan's biggest Christmas market moved to Shin-Toyosu for 2026, next to teamLab Planets: German stalls, glühwein, a giant tree.",
+    "when": "Nov 20 – Dec 25 · 11:00–21:30 · ¥1,000 weekdays",
+    "check": true,
+    "source": "https://www.kkday.com/en/blog/101429/tokyo-christmas-market",
+    "sourceName": "KKday",
+    "wiki": "https://www.kkday.com/en/blog/101429/tokyo-christmas-market",
+    "photo": null,
+    "photoPage": null
+   }
+  ],
+  "6": [
+   {
+    "id": "pick-6-g-ra-park-winter-illumination",
+    "name": "Gōra Park winter illumination",
+    "ja": "強羅公園 イルミネーション",
+    "kind": "event",
+    "lat": 35.2486,
+    "lng": 139.0471,
+    "near": {
+     "stop": "d06-s06",
+     "i": 6,
+     "km": 0.22
+    },
+    "views30": 0,
+    "rise": 1,
+    "december": 1,
+    "tag": "pick",
+    "why": "A light tunnel through the bamboo grove of the French-style park, five minutes up from the Gyoza Center. On a clear evening, Fuji too.",
+    "when": "Dec 1 – Feb 28 · from dusk · ¥520",
+    "check": true,
+    "source": "https://anabaoffjapan.com/articles/kanagawa-winter-illuminations/",
+    "sourceName": "Anaba OffJapan",
+    "wiki": "https://en.wikipedia.org/wiki/G%C5%8Dra_Park",
+    "photo": null,
+    "photoPage": null
+   }
+  ],
+  "7": [
+   {
+    "id": "pick-7-hakone-glass-forest-crystal-illumination",
+    "name": "Hakone Glass Forest: Crystal Illumination",
+    "ja": "箱根ガラスの森 クリスタル・イルミネーション",
+    "kind": "event",
+    "lat": 35.2597,
+    "lng": 139.0247,
+    "near": {
+     "stop": "d07-s02",
+     "i": 2,
+     "km": 1.74
+    },
+    "views30": 0,
+    "rise": 1,
+    "december": 1,
+    "tag": "pick",
+    "why": "A 10 m tree of 150,000 crystal pieces and lantern-lit gardens, near the villa. The plan's own fallback if the ropeway is stopped.",
+    "when": "Dec 1 – 25 · 10:00–17:00 · ¥1,800",
+    "check": true,
+    "source": "https://tokyocheapo.com/events/hakone-crystal-illumination/",
+    "sourceName": "Tokyo Cheapo",
+    "wiki": "https://en.wikipedia.org/wiki/Hakone_Glass_Forest_Museum",
+    "photo": null,
+    "photoPage": null
+   }
+  ],
+  "12": [
+   {
+    "id": "pick-12-nigatsu-d-balcony",
+    "name": "Nigatsu-dō balcony",
+    "ja": "東大寺 二月堂",
+    "kind": "view",
+    "lat": 34.6894,
+    "lng": 135.8443,
+    "near": {
+     "stop": "d12-s01",
+     "i": 1,
+     "km": 0.37
+    },
+    "views30": 0,
+    "rise": 1,
+    "december": 1,
+    "tag": "pick",
+    "why": "A short climb above the Great Buddha Hall: Tōdai-ji's hilltop hall with a free wraparound view over Nara's rooftops.",
+    "when": "Open all day · free",
+    "check": false,
+    "source": "https://selfguidejapan.com/blog/things-to-do-in-nara",
+    "sourceName": "Self Guide Japan",
+    "wiki": "https://en.wikipedia.org/wiki/Nigatsu-d%C5%8D",
+    "photo": "https://thumb.wikimedia.org/wikipedia/en/thumb/0/0f/Nigatsudo.jpg/500px-Nigatsudo.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "photoPage": "https://commons.wikimedia.org/wiki/File:Nigatsudo.jpg"
+   }
+  ],
+  "14": [
+   {
+    "id": "pick-14-flash-disc-ranch",
+    "name": "Flash Disc Ranch",
+    "ja": "フラッシュ・ディスク・ランチ",
+    "kind": "shop",
+    "lat": 35.6612,
+    "lng": 139.6676,
+    "near": {
+     "stop": "d14-s02",
+     "i": 2,
+     "km": 0.06
+    },
+    "views30": 0,
+    "rise": 1,
+    "december": 1,
+    "tag": "pick",
+    "why": "Shimokitazawa's most-recommended vinyl shop: a ¥100 bin and crates of Japanese city pop and soundtracks.",
+    "when": "Afternoons",
+    "check": false,
+    "source": "https://arigatojapan.co.jp/tokyo-osaka-kyoto-record-shops/",
+    "sourceName": "Arigato Japan",
+    "wiki": "https://arigatojapan.co.jp/tokyo-osaka-kyoto-record-shops/",
+    "photo": null,
+    "photoPage": null
+   }
+  ],
+  "15": [
+   {
+    "id": "pick-15-marunouchi-illumination",
+    "name": "Marunouchi Illumination",
+    "ja": "丸の内イルミネーション",
+    "kind": "event",
+    "lat": 35.6795,
+    "lng": 139.7639,
+    "near": {
+     "stop": "d15-s04",
+     "i": 4,
+     "km": 0.79
+    },
+    "views30": 0,
+    "rise": 1,
+    "december": 1,
+    "tag": "pick",
+    "why": "Champagne-gold lights along the tree-lined Naka-dōri, a 10-minute walk from Itoya Ginza, and still on after Christmas.",
+    "when": "Nov 12 – Feb 14 · 16:00–23:00 (to midnight in Dec) · free",
+    "check": false,
+    "source": "https://www.gotokyo.org/en/story/guide/winter-illuimnation-guide/index.html",
+    "sourceName": "GO TOKYO (official)",
+    "wiki": "https://en.wikipedia.org/wiki/Marunouchi",
+    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/99/Tokyo_Marunouchi_in_autumn.jpg/500px-Tokyo_Marunouchi_in_autumn.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "photoPage": "https://commons.wikimedia.org/wiki/File:Tokyo_Marunouchi_in_autumn.jpg"
+   }
+  ]
+ }
+}

@@ -1,0 +1,8 @@
+node_modules/
+dist/
+.astro/
+.env
+data/.trending-candidates.json
+.playwright-mcp/
+data/.places-cache.json
+.impeccable/review/

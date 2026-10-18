@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=390">
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Narrow:wght@500;700&family=BIZ+UDPGothic:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#ecebe7;--ink:#151515;--red:#d4252f;--blue:#1f6fb2;--rule:#b9b6ae}
+*{box-sizing:border-box;margin:0}
+html,body{width:390px;height:844px;overflow:hidden;background:var(--paper);font-family:"BIZ UDPGothic",sans-serif;color:var(--ink)}
+.page{position:absolute;inset:0 34px 0 0;padding:14px 12px 0 14px}
+.run{display:flex;justify-content:space-between;font-family:"Archivo Narrow";font-weight:700;font-size:11px;border-bottom:2px solid var(--ink);padding-bottom:4px;letter-spacing:.04em}
+h1{font-family:"Archivo Narrow";font-weight:700;font-size:34px;line-height:1;margin-top:10px}
+h1 em{font-style:normal;color:var(--red)}
+.sub{font-size:12.5px;margin-top:4px}
+table{width:100%;border-collapse:collapse;margin-top:12px;font-size:12.5px}
+th{font-family:"Archivo Narrow";text-align:left;font-size:10.5px;letter-spacing:.06em;border-bottom:1px solid var(--ink);padding:3px 2px}
+td{border-bottom:1px solid var(--rule);padding:6px 2px;vertical-align:top}
+td.t{font-family:"Archivo Narrow";font-weight:700;font-variant-numeric:tabular-nums;width:74px;font-size:13.5px}
+tr.big td{color:var(--red)}
+tr.now td{background:#fff;}
+tr.now td.t::before{content:"▶ ";color:var(--red)}
+.k{font-size:10px;display:inline-block;border:1px solid currentColor;padding:0 3px;margin-right:4px;font-family:"Archivo Narrow";font-weight:700}
+.tabs{position:absolute;right:0;top:0;bottom:0;width:30px;display:flex;flex-direction:column}
+.tabs a{flex:1;display:grid;place-items:center;font-family:"Archivo Narrow";font-weight:700;font-size:11px;color:#fff;border-bottom:1px solid var(--paper)}
+.tabs a:nth-child(-n+5){background:#3d8a5a}.tabs a:nth-child(n+6):nth-child(-n+7){background:#7a5aa6}.tabs a:nth-child(n+8):nth-child(-n+13){background:var(--blue)}.tabs a:nth-child(n+14){background:#c9661f}
+.tabs a.on{background:var(--red)!important;margin-left:-8px}
+.foot{margin-top:10px;font-size:11px;color:#555}
+</style></head><body>
+<div class="page">
+ <div class="run"><span>JAPAN PLAN C · 時刻表</span><span>DEC 2026 · 8 PAX</span></div>
+ <h1>Day 7 <em>Sun 20</em> Hakone loop</h1>
+ <div class="sub">Fuji views · pirate ship · Yunessun wine baths — all on the Freepass</div>
+ <table>
+  <tr><th>TIME</th><th>STOP</th></tr>
+  <tr><td class="t">08:50</td><td><span class="k">RW</span>Hakone Ropeway, Tōgendai — first car 9:00</td></tr>
+  <tr><td class="t">09:20</td><td>Ōwakudani · black eggs, leave by 10:05</td></tr>
+  <tr class="big"><td class="t">10:45</td><td><span class="k">SHIP</span>Pirate ship → Moto-Hakone</td></tr>
+  <tr><td class="t">11:30</td><td>Hakone Shrine · Peace Torii</td></tr>
+  <tr><td class="t">12:30</td><td>Ashinoko Chaya · donabe rice lunch</td></tr>
+  <tr><td class="t">14:10</td><td><span class="k">BUS</span>K bus → Amazake-chaya, back 14:33</td></tr>
+  <tr class="now"><td class="t">15:20</td><td>Yunessun · wine, sake &amp; coffee baths</td></tr>
+  <tr class="big"><td class="t">17:24</td><td><span class="k">BUS</span>Last direct Kowakien → Sengoku</td></tr>
+ </table>
+ <div class="foot">Ropeway status: check hakonenavi.jp at 8:00 · wind stops it</div>
+</div>
+<nav class="tabs"><a>1</a><a>2</a><a>3</a><a>4</a><a>5</a><a>6</a><a class="on">7</a><a>8</a><a>9</a><a>10</a><a>11</a><a>12</a><a>13</a><a>14</a><a>15</a><a>16</a></nav>
+</body></html>

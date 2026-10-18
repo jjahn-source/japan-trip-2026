@@ -1,0 +1,36 @@
+{
+  "name": "japan-plan-c",
+  "private": true,
+  "type": "module",
+  "version": "1.0.0",
+  "scripts": {
+    "sync": "cp /Users/jjahn/TREK/japan-plan-c.md data/japan-plan-c.md",
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "check": "astro check",
+    "test": "node --test scripts/test-search.mjs",
+    "fonts": "node scripts/subset-fonts.mjs",
+    "trending": "astro build && node scripts/trending.mjs && astro build",
+    "transit": "astro build && node scripts/transit.mjs && astro build",
+    "legs": "astro build && node scripts/legs.mjs && astro build",
+    "picks": "astro build && node scripts/picks.mjs && astro build",
+    "places": "astro build && node scripts/places.mjs && astro build",
+    "climate": "astro build && node scripts/climate.mjs && astro build",
+    "timetable": "astro build && node --env-file-if-exists=.env scripts/timetable.mjs && astro build"
+  },
+  "dependencies": {
+    "@fontsource-variable/archivo": "5.3.0",
+    "@fontsource-variable/atkinson-hyperlegible-next": "5.3.0",
+    "astro": "7.3.5",
+    "lucide-static": "1.48.0",
+    "mapbox-gl": "3.31.0",
+    "maplibre-gl": "6.11.2"
+  },
+  "devDependencies": {
+    "@astrojs/check": "0.9.10",
+    "@types/node": "24.19.0",
+    "subset-font": "2.9.0",
+    "typescript": "6.0.3"
+  }
+}

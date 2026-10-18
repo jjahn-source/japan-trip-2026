@@ -1,0 +1,100 @@
+---
+import Shell from '../layouts/Shell.astro';
+import { trip } from '../lib/trip';
+import { esc, ja } from '../lib/format';
+
+const t = trip();
+const num = (s: string) => Number(s.replace(/[^\d.]/g, ''));
+const totalRow = t.budgetTotals.find((r) => r.category === 'Total');
+const cats = t.budgetTotals.filter((r) => r.category !== 'Total').map((r) => ({ ...r, value: num(r.perPerson) }));
+const total = totalRow ? num(totalRow.perPerson) : cats.reduce((a, c) => a + c.value, 0);
+const max = Math.max(...cats.map((c) => c.value));
+const groupTotal = total * t.people;
+const fmt = (n: number) => `$${n.toLocaleString('en-US')}`;
+const groups = [...new Set(t.budget.map((b) => b.category))];
+---
+<Shell title="Budget · Japan Plan C" active="budget" view={{ kind: 'plain' }}>
+  <header class="mast">
+    <div class="wrap">
+      <h1 class="display">Budget</h1>
+      <p class="fxline" data-fx-rate hidden></p>
+      <p class="hero"><span class="big time">{fmt(total)}</span><span class="unit">per person, all in<br><span class="sub">≈ {fmt(groupTotal)} for the {t.people} of you · estimates from the TREK plan</span></span></p>
+    </div>
+  </header>
+
+  <div class="wrap">
+    <section aria-labelledby="split-h">
+      <div class="section-head"><h2 id="split-h">Where it goes</h2><span class="aside">USD per person</span></div>
+      <ul class="bars" role="list">
+        {cats.map((c) => (
+          <li class="bar-row" tabindex="0" aria-label={`${c.category}: ${c.perPerson} per person, ${Math.round((c.value / total) * 100)} percent of the total`}>
+            <span class="cat">{c.category}</span>
+            <span class="track"><span class="fill" style={`--w:${((c.value / max) * 100).toFixed(1)}%`}></span><span class="val time">{c.perPerson}</span></span>
+            <span class="tip" role="tooltip"><b>{c.category}</b> {c.perPerson} pp · {Math.round((c.value / total) * 100)}% of {fmt(total)}</span>
+          </li>
+        ))}
+      </ul>
+      <p class="note">Flights ($1,050 pp) are an estimate carried over from Plan B, and the shopping fund is “your call”. Swap in real numbers in TREK and re-export.</p>
+    </section>
+
+    {groups.map((g) => (
+      <section aria-labelledby={`g-${g}`}>
+        <div class="section-head"><h2 id={`g-${g}`}>{g}</h2></div>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th scope="col">Item</th><th scope="col" class="n">Group</th><th scope="col" class="n">Per person</th></tr></thead>
+            <tbody>
+              {t.budget.filter((b) => b.category === g).map((b) => (
+                <tr>
+                  <td><span class="item" set:html={ja(esc(b.item.replace(/ — 8 × .*$/, '')))} /><span class="bnote" set:html={ja(esc(b.note.replace(/\s*Group total for 8\.?/, '')))} /></td>
+                  <td class="n time">{b.group}</td>
+                  <td class="n time">{b.perPerson}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </section>
+    ))}
+    <p class="foot">Per-person figures are in USD, exactly as given in the export; group totals keep their original currency.</p>
+  </div>
+</Shell>
+
+<style>
+  .mast { margin-top: 1rem; }
+  .fxline { margin-top: 0.4rem; font-size: 0.85rem; color: var(--text-2); }
+  h1 { font-size: 1.6rem; line-height: 1; color: var(--print); }
+  .hero { display: flex; align-items: center; gap: 1rem; margin-top: 1rem; }
+  .big { font-size: clamp(2.6rem, 2rem + 3vw, 4rem); line-height: 0.9; }
+  .unit { font-weight: 650; line-height: 1.35; font-size: 0.92rem; }
+  .sub { font-weight: 400; color: var(--text-2); font-size: 0.85rem; }
+  .big { color: var(--print); }
+
+  .bars { --bar: #4b3fa3; list-style: none; padding: 0; display: grid; gap: 0.5rem; max-width: 46rem; }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme='light']) .bars { --bar: #7d72df; } }
+  :root[data-theme='dark'] .bars { --bar: #7d72df; }
+  .bar-row { position: relative; display: grid; grid-template-columns: 7.5rem 1fr; align-items: center; gap: 0.75rem; padding: 0.35rem 0; border-radius: 6px; outline-offset: 2px; }
+  .cat { font-weight: 650; font-size: 0.95rem; }
+  .track { display: flex; align-items: center; gap: 0.5rem; min-width: 0; }
+  .fill { display: block; height: 18px; width: var(--w); min-width: 4px; background: var(--bar); border-radius: 0 4px 4px 0; }
+  .val { font-size: 0.95rem; color: var(--text); white-space: nowrap; }
+  .tip {
+    position: absolute; left: 7.5rem; bottom: calc(100% + 4px); z-index: 2; pointer-events: none;
+    background: var(--text); color: var(--paper); font-size: 0.8125rem; padding: 0.35rem 0.6rem; border-radius: 6px; white-space: nowrap;
+    opacity: 0; transform: translateY(4px); transition: opacity 0.15s, transform 0.15s var(--ease-out);
+  }
+  .bar-row:hover .tip, .bar-row:focus-visible .tip { opacity: 1; transform: none; }
+  .bar-row:hover .fill, .bar-row:focus-visible .fill { filter: brightness(1.12); }
+  .note { margin-top: 1rem; font-size: 0.875rem; color: var(--text-2); max-width: var(--measure); }
+
+  .table-wrap { overflow-x: auto; }
+  table { width: 100%; border-collapse: collapse; font-size: 0.95rem; }
+  th { text-align: left; font-size: 0.75rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-2); font-weight: 700; padding: 0 0.5rem 0.5rem 0; border-bottom: 1.5px solid var(--print); }
+  td { padding: 0.7rem 0.5rem 0.7rem 0; border-bottom: 1px solid var(--print-line); vertical-align: top; }
+  .n { text-align: right; white-space: nowrap; }
+  th.n { text-align: right; }
+  .item { display: block; font-weight: 600; }
+  .bnote { display: block; color: var(--text-2); font-size: 0.85rem; margin-top: 0.15rem; }
+  .bnote:empty { display: none; }
+  .foot { margin: 3rem 0 2.5rem; color: var(--text-2); font-size: 0.875rem; }
+</style>

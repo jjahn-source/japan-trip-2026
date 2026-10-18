@@ -1,0 +1,841 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-17T22:02:16+00:00",
+  "title": "Design System: Japan Plan C",
+  "extensions": {
+    "colorMeta": {
+      "paper": {
+        "role": "neutral",
+        "displayName": "Card Stock",
+        "canonical": "oklch(97.6% 0.004 285)",
+        "tonalRamp": [
+          "oklch(15% 0.01 285)",
+          "oklch(26% 0.01 285)",
+          "oklch(37% 0.01 285)",
+          "oklch(48% 0.01 285)",
+          "oklch(60% 0.01 285)",
+          "oklch(72% 0.01 285)",
+          "oklch(84% 0.01 285)",
+          "oklch(95% 0.01 285)"
+        ],
+        "canonicalDark": "oklch(17.5% 0.03 282)"
+      },
+      "paper-2": {
+        "role": "neutral",
+        "displayName": "Card Stock, Second Leaf",
+        "canonical": "oklch(94.6% 0.009 285)",
+        "tonalRamp": [
+          "oklch(15% 0.012 285)",
+          "oklch(26% 0.012 285)",
+          "oklch(37% 0.012 285)",
+          "oklch(48% 0.012 285)",
+          "oklch(60% 0.012 285)",
+          "oklch(72% 0.012 285)",
+          "oklch(84% 0.012 285)",
+          "oklch(95% 0.012 285)"
+        ],
+        "canonicalDark": "oklch(21% 0.036 282)"
+      },
+      "paper-3": {
+        "role": "neutral",
+        "displayName": "Card Stock, Third Leaf",
+        "canonical": "oklch(91.5% 0.014 285)",
+        "tonalRamp": [
+          "oklch(15% 0.015 285)",
+          "oklch(26% 0.015 285)",
+          "oklch(37% 0.015 285)",
+          "oklch(48% 0.015 285)",
+          "oklch(60% 0.015 285)",
+          "oklch(72% 0.015 285)",
+          "oklch(84% 0.015 285)",
+          "oklch(95% 0.015 285)"
+        ],
+        "canonicalDark": "oklch(25% 0.045 282)"
+      },
+      "field": {
+        "role": "primary",
+        "displayName": "Stamp-Pad Violet Field",
+        "canonical": "oklch(36% 0.15 282)",
+        "tonalRamp": [
+          "oklch(15% 0.15 282)",
+          "oklch(26% 0.15 282)",
+          "oklch(37% 0.15 282)",
+          "oklch(48% 0.15 282)",
+          "oklch(60% 0.15 282)",
+          "oklch(72% 0.15 282)",
+          "oklch(84% 0.15 282)",
+          "oklch(95% 0.15 282)"
+        ],
+        "canonicalDark": "oklch(30% 0.13 282)"
+      },
+      "field-deep": {
+        "role": "primary",
+        "displayName": "Deep Violet Field",
+        "canonical": "oklch(28.5% 0.125 282)",
+        "tonalRamp": [
+          "oklch(15% 0.125 282)",
+          "oklch(26% 0.125 282)",
+          "oklch(37% 0.125 282)",
+          "oklch(48% 0.125 282)",
+          "oklch(60% 0.125 282)",
+          "oklch(72% 0.125 282)",
+          "oklch(84% 0.125 282)",
+          "oklch(95% 0.125 282)"
+        ],
+        "canonicalDark": "oklch(24% 0.11 282)"
+      },
+      "on-field": {
+        "role": "neutral",
+        "displayName": "On-Field White",
+        "canonical": "oklch(98.5% 0.006 285)",
+        "tonalRamp": [
+          "oklch(15% 0.01 285)",
+          "oklch(26% 0.01 285)",
+          "oklch(37% 0.01 285)",
+          "oklch(48% 0.01 285)",
+          "oklch(60% 0.01 285)",
+          "oklch(72% 0.01 285)",
+          "oklch(84% 0.01 285)",
+          "oklch(95% 0.01 285)"
+        ],
+        "canonicalDark": "oklch(97% 0.01 285)"
+      },
+      "on-field-2": {
+        "role": "neutral",
+        "displayName": "On-Field Lavender",
+        "canonical": "oklch(85% 0.06 285)",
+        "tonalRamp": [
+          "oklch(15% 0.06 285)",
+          "oklch(26% 0.06 285)",
+          "oklch(37% 0.06 285)",
+          "oklch(48% 0.06 285)",
+          "oklch(60% 0.06 285)",
+          "oklch(72% 0.06 285)",
+          "oklch(84% 0.06 285)",
+          "oklch(95% 0.06 285)"
+        ],
+        "canonicalDark": "oklch(82% 0.06 285)"
+      },
+      "print": {
+        "role": "primary",
+        "displayName": "Stamp-Pad Violet Print",
+        "canonical": "oklch(36% 0.15 282)",
+        "tonalRamp": [
+          "oklch(15% 0.15 282)",
+          "oklch(26% 0.15 282)",
+          "oklch(37% 0.15 282)",
+          "oklch(48% 0.15 282)",
+          "oklch(60% 0.15 282)",
+          "oklch(72% 0.15 282)",
+          "oklch(84% 0.15 282)",
+          "oklch(95% 0.15 282)"
+        ],
+        "canonicalDark": "oklch(82% 0.085 285)"
+      },
+      "print-2": {
+        "role": "primary",
+        "displayName": "Violet Mid-Print",
+        "canonical": "oklch(48% 0.12 282)",
+        "tonalRamp": [
+          "oklch(15% 0.12 282)",
+          "oklch(26% 0.12 282)",
+          "oklch(37% 0.12 282)",
+          "oklch(48% 0.12 282)",
+          "oklch(60% 0.12 282)",
+          "oklch(72% 0.12 282)",
+          "oklch(84% 0.12 282)",
+          "oklch(95% 0.12 282)"
+        ],
+        "canonicalDark": "oklch(72% 0.09 285)"
+      },
+      "print-line": {
+        "role": "neutral",
+        "displayName": "Violet Hairline",
+        "canonical": "oklch(85% 0.045 282)",
+        "tonalRamp": [
+          "oklch(15% 0.045 282)",
+          "oklch(26% 0.045 282)",
+          "oklch(37% 0.045 282)",
+          "oklch(48% 0.045 282)",
+          "oklch(60% 0.045 282)",
+          "oklch(72% 0.045 282)",
+          "oklch(84% 0.045 282)",
+          "oklch(95% 0.045 282)"
+        ],
+        "canonicalDark": "oklch(34% 0.06 282)"
+      },
+      "print-wash": {
+        "role": "neutral",
+        "displayName": "Violet Wash",
+        "canonical": "oklch(92.5% 0.028 282)",
+        "tonalRamp": [
+          "oklch(15% 0.028 282)",
+          "oklch(26% 0.028 282)",
+          "oklch(37% 0.028 282)",
+          "oklch(48% 0.028 282)",
+          "oklch(60% 0.028 282)",
+          "oklch(72% 0.028 282)",
+          "oklch(84% 0.028 282)",
+          "oklch(95% 0.028 282)"
+        ],
+        "canonicalDark": "oklch(26% 0.06 282)"
+      },
+      "verm": {
+        "role": "secondary",
+        "displayName": "Vermilion Stamp Ink",
+        "canonical": "oklch(60.5% 0.205 35)",
+        "tonalRamp": [
+          "oklch(15% 0.19 35)",
+          "oklch(26% 0.19 35)",
+          "oklch(37% 0.19 35)",
+          "oklch(48% 0.19 35)",
+          "oklch(60% 0.19 35)",
+          "oklch(72% 0.19 35)",
+          "oklch(84% 0.19 35)",
+          "oklch(95% 0.19 35)"
+        ],
+        "canonicalDark": "oklch(68% 0.19 38)"
+      },
+      "verm-text": {
+        "role": "secondary",
+        "displayName": "Vermilion Text",
+        "canonical": "oklch(51% 0.19 33)",
+        "tonalRamp": [
+          "oklch(15% 0.18 33)",
+          "oklch(26% 0.18 33)",
+          "oklch(37% 0.18 33)",
+          "oklch(48% 0.18 33)",
+          "oklch(60% 0.18 33)",
+          "oklch(72% 0.18 33)",
+          "oklch(84% 0.18 33)",
+          "oklch(95% 0.18 33)"
+        ],
+        "canonicalDark": "oklch(74% 0.16 40)"
+      },
+      "verm-wash": {
+        "role": "secondary",
+        "displayName": "Vermilion Wash",
+        "canonical": "oklch(94% 0.035 35)",
+        "tonalRamp": [
+          "oklch(15% 0.035 35)",
+          "oklch(26% 0.035 35)",
+          "oklch(37% 0.035 35)",
+          "oklch(48% 0.035 35)",
+          "oklch(60% 0.035 35)",
+          "oklch(72% 0.035 35)",
+          "oklch(84% 0.035 35)",
+          "oklch(95% 0.035 35)"
+        ],
+        "canonicalDark": "oklch(28% 0.07 35)"
+      },
+      "verm-fill": {
+        "role": "secondary",
+        "displayName": "Vermilion Fill",
+        "canonical": "oklch(52% 0.19 33)",
+        "tonalRamp": [
+          "oklch(15% 0.18 33)",
+          "oklch(26% 0.18 33)",
+          "oklch(37% 0.18 33)",
+          "oklch(48% 0.18 33)",
+          "oklch(60% 0.18 33)",
+          "oklch(72% 0.18 33)",
+          "oklch(84% 0.18 33)",
+          "oklch(95% 0.18 33)"
+        ],
+        "canonicalDark": "oklch(70% 0.17 40)"
+      },
+      "on-verm": {
+        "role": "neutral",
+        "displayName": "On-Vermilion",
+        "canonical": "#ffffff",
+        "tonalRamp": [
+          "oklch(15% 0.0 282)",
+          "oklch(26% 0.0 282)",
+          "oklch(37% 0.0 282)",
+          "oklch(48% 0.0 282)",
+          "oklch(60% 0.0 282)",
+          "oklch(72% 0.0 282)",
+          "oklch(84% 0.0 282)",
+          "oklch(95% 0.0 282)"
+        ],
+        "canonicalDark": "oklch(17% 0.03 282)"
+      },
+      "text": {
+        "role": "neutral",
+        "displayName": "Ink Text",
+        "canonical": "oklch(22% 0.035 282)",
+        "tonalRamp": [
+          "oklch(15% 0.035 282)",
+          "oklch(26% 0.035 282)",
+          "oklch(37% 0.035 282)",
+          "oklch(48% 0.035 282)",
+          "oklch(60% 0.035 282)",
+          "oklch(72% 0.035 282)",
+          "oklch(84% 0.035 282)",
+          "oklch(95% 0.035 282)"
+        ],
+        "canonicalDark": "oklch(94% 0.012 285)"
+      },
+      "text-2": {
+        "role": "neutral",
+        "displayName": "Ink Text, Secondary",
+        "canonical": "oklch(43% 0.045 282)",
+        "tonalRamp": [
+          "oklch(15% 0.045 282)",
+          "oklch(26% 0.045 282)",
+          "oklch(37% 0.045 282)",
+          "oklch(48% 0.045 282)",
+          "oklch(60% 0.045 282)",
+          "oklch(72% 0.045 282)",
+          "oklch(84% 0.045 282)",
+          "oklch(95% 0.045 282)"
+        ],
+        "canonicalDark": "oklch(76% 0.035 285)"
+      },
+      "chart-bar": {
+        "role": "tertiary",
+        "displayName": "Budget Bar Violet",
+        "canonical": "#4b3fa3",
+        "tonalRamp": [
+          "oklch(15% 0.15 282)",
+          "oklch(26% 0.15 282)",
+          "oklch(37% 0.15 282)",
+          "oklch(48% 0.15 282)",
+          "oklch(60% 0.15 282)",
+          "oklch(72% 0.15 282)",
+          "oklch(84% 0.15 282)",
+          "oklch(95% 0.15 282)"
+        ],
+        "canonicalDark": "#7d72df"
+      },
+      "map-violet": {
+        "role": "primary",
+        "displayName": "Map Violet",
+        "canonical": "#3a2f8f",
+        "tonalRamp": [
+          "oklch(15% 0.15 282)",
+          "oklch(26% 0.15 282)",
+          "oklch(37% 0.15 282)",
+          "oklch(48% 0.15 282)",
+          "oklch(60% 0.15 282)",
+          "oklch(72% 0.15 282)",
+          "oklch(84% 0.15 282)",
+          "oklch(95% 0.15 282)"
+        ],
+        "note": "Literal of print violet for MapLibre layers and DOM markers; constant in every light."
+      },
+      "map-verm": {
+        "role": "secondary",
+        "displayName": "Map Vermilion",
+        "canonical": "#e3411f",
+        "tonalRamp": [
+          "oklch(15% 0.19 35)",
+          "oklch(26% 0.19 35)",
+          "oklch(37% 0.19 35)",
+          "oklch(48% 0.19 35)",
+          "oklch(60% 0.19 35)",
+          "oklch(72% 0.19 35)",
+          "oklch(84% 0.19 35)",
+          "oklch(95% 0.19 35)"
+        ],
+        "note": "Active stop ring fill, to-book ring stroke."
+      },
+      "map-ring": {
+        "role": "neutral",
+        "displayName": "Map Ring White",
+        "canonical": "#ffffff",
+        "tonalRamp": [
+          "oklch(15% 0.0 282)",
+          "oklch(26% 0.0 282)",
+          "oklch(37% 0.0 282)",
+          "oklch(48% 0.0 282)",
+          "oklch(60% 0.0 282)",
+          "oklch(72% 0.0 282)",
+          "oklch(84% 0.0 282)",
+          "oklch(95% 0.0 282)"
+        ],
+        "note": "Fill of every map ring and stamp in every light."
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display (expanded Archivo)",
+        "purpose": "Day numbers (1.9rem), page titles (1.6rem), countdown figure (1.35rem), JAPAN C brand (1.15rem). Always wdth 125."
+      },
+      "headline": {
+        "displayName": "Section Head",
+        "purpose": "Violet section heads in the panel followed by a hairline to the edge; wdth 118."
+      },
+      "title": {
+        "displayName": "Stop Title",
+        "purpose": "Timetable stop names; day titles at 650."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Reading text in the panel; 68ch measure where the panel allows."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Ring marks, booking state, captions, legends."
+      },
+      "time": {
+        "displayName": "Time",
+        "purpose": "Every time, date, deadline, count and code; tabular figures, wdth 106."
+      },
+      "marker": {
+        "displayName": "Map Marker",
+        "purpose": "Base-ring numerals and name plates on the map; Archivo 750 wdth 108, tabular."
+      },
+      "kanji": {
+        "displayName": "Kanji",
+        "purpose": "Stamp centres, rail stamps, station-sign kanji, day-trip map stamps, narrow-map city plates; weight 900."
+      }
+    },
+    "shadows": [
+      {
+        "name": "dock",
+        "value": "0 1px 2px oklch(0% 0 0 / 0.12), 0 18px 48px -16px oklch(0% 0 0 / 0.5)",
+        "purpose": "Desktop panel over the map."
+      },
+      {
+        "name": "sheet",
+        "value": "0 -1px 0 oklch(0% 0 0 / 0.06), 0 -12px 36px -12px oklch(0% 0 0 / 0.45)",
+        "purpose": "Phone bottom sheet, cast upward."
+      },
+      {
+        "name": "map-control",
+        "value": "0 1px 2px oklch(0% 0 0 / 0.18), 0 8px 22px -8px oklch(0% 0 0 / 0.45)",
+        "purpose": "Zoom, compass and locate groups."
+      },
+      {
+        "name": "popup",
+        "value": "0 1px 2px oklch(0% 0 0 / 0.2), 0 10px 28px -8px oklch(0% 0 0 / 0.45)",
+        "purpose": "Stop popups."
+      },
+      {
+        "name": "marker",
+        "value": "0 2px 6px oklch(0% 0 0 / 0.25)",
+        "purpose": "Base rings, plates (0.18), beds (0.3), day-trip stamps (0.22)."
+      },
+      {
+        "name": "caption-pill",
+        "value": "0 10px 30px -10px oklch(0% 0 0 / 0.6)",
+        "purpose": "Flyover caption."
+      },
+      {
+        "name": "lifted",
+        "value": "0 1px 2px oklch(0% 0 0 / 0.07), 0 6px 18px -6px oklch(18% 0.015 282 / 0.2)",
+        "valueDark": "0 1px 2px oklch(0% 0 0 / 0.3), 0 8px 24px -8px oklch(0% 0 0 / 0.5)",
+        "purpose": "Preview note (the --shadow token)."
+      },
+      {
+        "name": "station-sign",
+        "value": "0 1px 2px oklch(0% 0 0 / 0.14), 0 10px 24px -12px oklch(0% 0 0 / 0.4)",
+        "purpose": "The one on-card lifted object."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease-out",
+        "value": "cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "The single easing for state transitions, the sheet, the stamp press and view transitions."
+      },
+      {
+        "name": "state",
+        "value": "0.15s-0.2s",
+        "purpose": "Chip, checkbox and tab background/border changes."
+      },
+      {
+        "name": "sheet-snap",
+        "value": "0.34s height",
+        "purpose": "Bottom sheet settling to peek / half / full; drag is 1:1 with no transition."
+      },
+      {
+        "name": "panel-swap",
+        "value": "0.18s root cross-fade",
+        "purpose": "Panel body swap on navigation; the stage persists and never moves."
+      },
+      {
+        "name": "camera-view",
+        "value": "flyTo 2200ms, curve 1.5",
+        "purpose": "Flying to overview, a day or bookings."
+      },
+      {
+        "name": "camera-stop",
+        "value": "flyTo 1800ms to z16 pitch 64",
+        "purpose": "Focusing one stop."
+      },
+      {
+        "name": "cluster-zoom",
+        "value": "easeTo 900ms",
+        "purpose": "Opening a to-do cluster."
+      },
+      {
+        "name": "route-ink",
+        "value": "1600ms, ease-out cubic, after moveend",
+        "purpose": "The day's route inks from first stop to last once the camera arrives."
+      },
+      {
+        "name": "flyover",
+        "value": "7 frames x (3400ms flyTo curve 1.6 + 1600ms hold)",
+        "purpose": "Pre-trip opening flight, once per session, skippable."
+      },
+      {
+        "name": "map-paint",
+        "value": "0ms",
+        "purpose": "Style transition is zero; light steps apply instantly."
+      },
+      {
+        "name": "stamp-ink",
+        "value": "0.3s color, 0.5s transform",
+        "purpose": "A stamp changing state."
+      },
+      {
+        "name": "stamp-press",
+        "value": "0.62s",
+        "purpose": "From scale 1.45, blur 3px, tilt -10deg, through 0.94 to the per-day tilt. Once per day."
+      },
+      {
+        "name": "reduced-motion",
+        "value": "0.01ms / jumpTo",
+        "purpose": "Collapses animation and transitions, disables view transitions, flyover, flights and ink-in."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "sign-place-hidden",
+        "value": "420px"
+      },
+      {
+        "name": "small-stamp",
+        "value": "480px"
+      },
+      {
+        "name": "stage-narrow (container)",
+        "value": "700px"
+      },
+      {
+        "name": "dock",
+        "value": "900px"
+      }
+    ],
+    "mapLight": {
+      "purpose": "Map palette keyframes blended by real solar altitude at the place and minute. Morning variants when sun azimuth < 180.",
+      "thresholds": [
+        {
+          "altitude": "<= -12",
+          "palette": "NIGHT"
+        },
+        {
+          "altitude": "-12..-6",
+          "palette": "NIGHT -> TWILIGHT"
+        },
+        {
+          "altitude": "-6..-3",
+          "palette": "TWILIGHT -> DUSK"
+        },
+        {
+          "altitude": "-3..0",
+          "palette": "DUSK -> SUNSET"
+        },
+        {
+          "altitude": "0..4",
+          "palette": "SUNSET -> GOLDEN"
+        },
+        {
+          "altitude": "4..14",
+          "palette": "GOLDEN -> DAY"
+        },
+        {
+          "altitude": ">= 14",
+          "palette": "DAY"
+        }
+      ],
+      "keyframes": {
+        "night": {
+          "bg": "#15132a",
+          "water": "#0b0a1d",
+          "road": "#2c2853",
+          "sky": "#04040e",
+          "horizon": "#1d1846",
+          "light": "#8c8aff",
+          "intensity": 0.12
+        },
+        "twilight-eve": {
+          "bg": "#2b2550",
+          "water": "#1a1840",
+          "road": "#4b4482",
+          "sky": "#1d1b4f",
+          "horizon": "#d2577a",
+          "light": "#c48cff",
+          "intensity": 0.22
+        },
+        "dusk-eve": {
+          "bg": "#5e3f73",
+          "water": "#33295f",
+          "road": "#9a6f9c",
+          "sky": "#2c2366",
+          "horizon": "#ff5e5b",
+          "light": "#e07ab0",
+          "intensity": 0.28
+        },
+        "sunset-eve": {
+          "bg": "#e8b7a6",
+          "water": "#8f7ec6",
+          "road": "#fde5d6",
+          "sky": "#5b4aa8",
+          "horizon": "#ff6a3d",
+          "light": "#ff8a5c",
+          "intensity": 0.38
+        },
+        "golden-eve": {
+          "bg": "#f2e0d3",
+          "water": "#bab3dc",
+          "road": "#fff4ea",
+          "sky": "#6c5db7",
+          "horizon": "#ff8a4b",
+          "light": "#ffae6b",
+          "intensity": 0.45
+        },
+        "day": {
+          "bg": "#eef0f4",
+          "water": "#c3cdea",
+          "road": "#ffffff",
+          "sky": "#79a2e6",
+          "horizon": "#e6edf8",
+          "light": "#ffffff",
+          "intensity": 0.38
+        }
+      },
+      "inks": {
+        "rule": "ground luminance > 0.3 = light",
+        "light": {
+          "route": "#3a2f8f",
+          "routeHalo": "#ffffff",
+          "label": "#3d3768"
+        },
+        "dark": {
+          "route": "#d8d0ff",
+          "routeHalo": "#100e22",
+          "label": "#e6e2ff"
+        },
+        "stopRing": {
+          "fill": "#ffffff",
+          "text": "#3a2f8f",
+          "activeFill": "#e3411f",
+          "activeStroke": "#ffffff"
+        }
+      },
+      "terrain": {
+        "overview": "terrain 1.1x",
+        "hakoneDay": "terrain 1.25x",
+        "cityDay": "no terrain, hillshade 0.15",
+        "hillshadeDefault": "0.4 @z5, 0.6 @z9, 0.8 @z12",
+        "illumination": "sun azimuth"
+      },
+      "atmosphere": "atmosphere-blend 0.8 @z0, 0.4 @z3, 0 @z5",
+      "engines": {
+        "maplibre": "shipped: OpenFreeMap + Mapterhorn DEM, custom style",
+        "mapbox": "supported, untested: Mapbox Standard when PUBLIC_MAPBOX_TOKEN is set"
+      }
+    },
+    "layout": {
+      "dockWidth": "404px",
+      "dockInset": "12px",
+      "dockRadius": "18px",
+      "sheetRadius": "20px",
+      "sheetSnaps": {
+        "peek": "head height + 10px",
+        "half": "52vh",
+        "full": "100vh - 52px"
+      },
+      "defaultSnap": {
+        "overview": "peek",
+        "day": "half",
+        "bookings": "half",
+        "plain": "full"
+      },
+      "mapPadding": {
+        "desktop": "top 24, right 72, bottom 24, left panel.right + 24",
+        "phone": "top 24, right 56, bottom sheet height + 12, left 24"
+      },
+      "rail": {
+        "desktop": "8x2 grid",
+        "phone": "one scroll-snapping row of 52px cells"
+      }
+    }
+  },
+  "components": [
+    {
+      "name": "Panel Head",
+      "kind": "nav",
+      "refersTo": "panel-dock",
+      "description": "Card-stock panel head: brand, five 40px icon tabs (current tab violet on wash with a vermilion icon), the Now/Next line.",
+      "html": "<header class=\"ds-panel\"><div class=\"ds-brand-row\"><a class=\"ds-brand\" href=\"#\"><span class=\"ds-display\">JAPAN&nbsp;C</span><span class=\"ds-jp\" lang=\"ja\">八人の旅</span></a><nav class=\"ds-nav\"><a href=\"#\" aria-current=\"page\" title=\"Trip\"><svg class=\"ds-ic\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.9\" aria-hidden=\"true\"><circle cx=\"12\" cy=\"12\" r=\"9.5\"/><circle cx=\"12\" cy=\"12\" r=\"6.5\" stroke-width=\"1.2\"/></svg></a><a href=\"#\" title=\"Today\"><svg class=\"ds-ic\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.9\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><polygon points=\"3 11 22 2 13 21 11 13 3 11\"/></svg></a></nav></div><p class=\"ds-nl\"><span class=\"ds-flag\"></span><span class=\"ds-time\">10:30</span> Hakone Open-Air Museum</p><p class=\"ds-nl ds-sub\"><span class=\"ds-time\">12:00</span> Lunch at Gora</p></header>",
+      "css": ".ds-panel { width: 380px; padding: 1rem 1rem 0.7rem; background: var(--paper); color: var(--text); border-radius: 18px; border-bottom: 1.5px solid var(--print-line); box-shadow: 0 1px 2px oklch(0% 0 0 / 0.12), 0 18px 48px -16px oklch(0% 0 0 / 0.5); font-family: var(--f-body); } .ds-brand-row { display: flex; align-items: center; justify-content: space-between; } .ds-brand { display: inline-flex; align-items: baseline; gap: 0.45rem; color: var(--print); text-decoration: none; } .ds-display { font-family: var(--f-display); font-stretch: 125%; font-weight: 850; font-size: 1.15rem; } .ds-jp { font-family: var(--f-ja); font-weight: 900; font-size: 0.8rem; color: var(--text-2); } .ds-nav { display: flex; gap: 0.1rem; } .ds-nav a { display: grid; place-items: center; width: 40px; height: 40px; border-radius: 12px; color: var(--text-2); } .ds-nav a:hover, .ds-nav a[aria-current='page'] { background: var(--print-wash); color: var(--print); } .ds-nav a[aria-current='page'] .ds-ic { color: var(--verm); } .ds-nav a:focus-visible { outline: 2.5px solid var(--verm); outline-offset: 3px; } .ds-ic { width: 20px; height: 20px; } .ds-nl { margin: 0.45rem 0 0; font-size: 0.9rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; } .ds-sub { margin-top: 0.15rem; font-size: 0.84rem; color: var(--text-2); } .ds-time { font-family: var(--f-display); font-stretch: 106%; font-weight: 700; font-variant-numeric: tabular-nums; margin-right: 0.25rem; } .ds-flag { display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: var(--verm); outline: 1.5px solid var(--verm); outline-offset: 2px; margin-right: 0.45rem; }"
+    },
+    {
+      "name": "Chip",
+      "kind": "chip",
+      "refersTo": "chip",
+      "description": "Default action and link chip: paper pill, violet print, hairline stroke.",
+      "html": "<a class=\"ds-chip\" href=\"#\"><svg class=\"ds-icon\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.9\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0\"/><circle cx=\"12\" cy=\"10\" r=\"3\"/></svg>Map</a>",
+      "css": ".ds-chip { display: inline-flex; align-items: center; gap: 0.45em; min-height: 44px; padding: 0.5rem 0.9rem; border-radius: 999px; border: 1.5px solid var(--print-line); background: var(--paper); color: var(--print); font-family: var(--f-body); font-weight: 650; font-size: 0.9375rem; line-height: 1; text-decoration: none; transition: background 0.2s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.2s cubic-bezier(0.16, 1, 0.3, 1); } .ds-chip:hover { background: var(--print-wash); border-color: var(--print-2); } .ds-chip:focus-visible { outline: 2.5px solid var(--verm); outline-offset: 3px; } .ds-icon { width: 16px; height: 16px; }"
+    },
+    {
+      "name": "Primary Chip",
+      "kind": "button",
+      "refersTo": "chip-primary",
+      "description": "Filled violet field chip for the one primary action in a group.",
+      "html": "<a class=\"ds-chip-primary\" href=\"#\">All bookings</a>",
+      "css": ".ds-chip-primary { display: inline-flex; align-items: center; gap: 0.45em; min-height: 44px; padding: 0.5rem 0.9rem; border-radius: 999px; border: 1.5px solid var(--field); background: var(--field); color: var(--on-field); font-family: var(--f-body); font-weight: 650; font-size: 0.9375rem; line-height: 1; text-decoration: none; transition: background 0.2s cubic-bezier(0.16, 1, 0.3, 1); } .ds-chip-primary:hover { background: var(--field-deep); } .ds-chip-primary:focus-visible { outline: 2.5px solid var(--verm); outline-offset: 3px; }"
+    },
+    {
+      "name": "Play Button",
+      "kind": "button",
+      "refersTo": "play-button",
+      "description": "Round violet play control in the day scrubber.",
+      "html": "<button class=\"ds-play\" type=\"button\" aria-label=\"Play the day\"><svg class=\"ds-icon\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.9\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M5 5a2 2 0 0 1 3.008-1.728l11.997 6.998a2 2 0 0 1 .003 3.458l-12 7A2 2 0 0 1 5 19z\"/></svg></button>",
+      "css": ".ds-play { width: 46px; height: 46px; border-radius: 50%; border: 0; display: grid; place-items: center; background: var(--field); color: var(--on-field); cursor: pointer; transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), background 0.2s; } .ds-play:hover { background: var(--field-deep); } .ds-play:active { transform: scale(0.94); } .ds-play:focus-visible { outline: 2.5px solid var(--verm); outline-offset: 3px; } .ds-icon { width: 20px; height: 20px; }"
+    },
+    {
+      "name": "Ring Marks",
+      "kind": "custom",
+      "description": "State drawn by the ring: solid confirmed, open to book, dashed unconfirmed.",
+      "html": "<span class=\"ds-mark ds-confirmed\">Confirmed</span> <span class=\"ds-mark ds-tobook\">To book</span> <span class=\"ds-mark ds-unconfirmed\">Unconfirmed</span>",
+      "css": ".ds-mark { display: inline-flex; align-items: center; gap: 0.4em; margin-right: 1rem; font-family: var(--f-body); font-size: 0.8125rem; font-weight: 600; line-height: 1.2; color: var(--print); white-space: nowrap; } .ds-mark::before { content: ''; width: 0.8em; height: 0.8em; border-radius: 50%; border: 2px solid currentColor; flex: none; } .ds-confirmed::before { background: currentColor; } .ds-tobook { color: var(--verm-text); } .ds-unconfirmed::before { border-style: dashed; }"
+    },
+    {
+      "name": "Ring Checkbox",
+      "kind": "input",
+      "refersTo": "checkbox-checked",
+      "description": "Checkbox as an open ring, inked vermilion when ticked; ticked text strikes through in vermilion.",
+      "html": "<label class=\"ds-check\"><input type=\"checkbox\" checked><span>Door code saved</span></label><label class=\"ds-check\"><input type=\"checkbox\"><span>Van pickup confirmed</span></label>",
+      "css": ".ds-check { display: grid; grid-template-columns: 26px 1fr; gap: 0.6rem; align-items: start; padding: 0.55rem 0; border-bottom: 1px solid var(--print-line); font-family: var(--f-body); color: var(--text); cursor: pointer; } .ds-check input { appearance: none; -webkit-appearance: none; margin: 0; width: 22px; height: 22px; border-radius: 50%; border: 2px solid var(--print-2); background: var(--paper); display: grid; place-content: center; cursor: pointer; transition: background 0.15s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.15s; } .ds-check input::after { content: ''; width: 10px; height: 10px; border-radius: 50%; background: var(--on-verm); transform: scale(0); transition: transform 0.18s cubic-bezier(0.16, 1, 0.3, 1); } .ds-check input:checked { background: var(--verm-fill); border-color: var(--verm-fill); } .ds-check input:checked::after { transform: scale(1); } .ds-check input:checked + span { color: var(--text-2); text-decoration: line-through; text-decoration-color: var(--verm); } .ds-check input:focus-visible { outline: 2.5px solid var(--verm); outline-offset: 3px; }"
+    },
+    {
+      "name": "Station Stamp",
+      "kind": "custom",
+      "description": "Signature type-only kanji stamp in its three states: ahead, today, stamped.",
+      "html": "<svg class=\"ds-stamp\" data-state=\"stamped\" viewBox=\"0 0 120 120\" style=\"--tilt:-3deg\" aria-hidden=\"true\"><defs><path id=\"ds-t-stamped\" d=\"M 19 60 A 41 41 0 0 1 101 60\"/><path id=\"ds-b-stamped\" d=\"M 12 60 A 48 48 0 0 0 108 60\"/></defs><circle class=\"wash\" cx=\"60\" cy=\"60\" r=\"50\"/><circle class=\"outer\" cx=\"60\" cy=\"60\" r=\"56.5\"/><circle class=\"inner\" cx=\"60\" cy=\"60\" r=\"50\"/><text class=\"rim\" font-size=\"9\"><textPath href=\"#ds-t-stamped\" startOffset=\"50%\" text-anchor=\"middle\">HAKONE · GORA</textPath></text><text class=\"rim\" font-size=\"7.6\"><textPath href=\"#ds-b-stamped\" startOffset=\"50%\" text-anchor=\"middle\">DAY 03 · 12.16 WED</textPath></text><text class=\"kanji\" x=\"60\" y=\"61\" text-anchor=\"middle\" dominant-baseline=\"central\" lang=\"ja\">箱</text></svg><svg class=\"ds-stamp\" data-state=\"today\" viewBox=\"0 0 120 120\" style=\"--tilt:6deg\" aria-hidden=\"true\"><defs><path id=\"ds-t-today\" d=\"M 19 60 A 41 41 0 0 1 101 60\"/><path id=\"ds-b-today\" d=\"M 12 60 A 48 48 0 0 0 108 60\"/></defs><circle class=\"wash\" cx=\"60\" cy=\"60\" r=\"50\"/><circle class=\"outer\" cx=\"60\" cy=\"60\" r=\"56.5\"/><circle class=\"inner\" cx=\"60\" cy=\"60\" r=\"50\"/><text class=\"rim\" font-size=\"9\"><textPath href=\"#ds-t-today\" startOffset=\"50%\" text-anchor=\"middle\">HAKONE · GORA</textPath></text><text class=\"rim\" font-size=\"7.6\"><textPath href=\"#ds-b-today\" startOffset=\"50%\" text-anchor=\"middle\">DAY 04 · 12.17 THU</textPath></text><text class=\"kanji\" x=\"60\" y=\"61\" text-anchor=\"middle\" dominant-baseline=\"central\" lang=\"ja\">湯</text></svg><svg class=\"ds-stamp\" data-state=\"ahead\" viewBox=\"0 0 120 120\" style=\"--tilt:-9deg\" aria-hidden=\"true\"><defs><path id=\"ds-t-ahead\" d=\"M 19 60 A 41 41 0 0 1 101 60\"/><path id=\"ds-b-ahead\" d=\"M 12 60 A 48 48 0 0 0 108 60\"/></defs><circle class=\"wash\" cx=\"60\" cy=\"60\" r=\"50\"/><circle class=\"outer\" cx=\"60\" cy=\"60\" r=\"56.5\"/><circle class=\"inner\" cx=\"60\" cy=\"60\" r=\"50\"/><text class=\"rim\" font-size=\"9\"><textPath href=\"#ds-t-ahead\" startOffset=\"50%\" text-anchor=\"middle\">HAKONE · GORA</textPath></text><text class=\"rim\" font-size=\"7.6\"><textPath href=\"#ds-b-ahead\" startOffset=\"50%\" text-anchor=\"middle\">DAY 05 · 12.18 FRI</textPath></text><text class=\"kanji\" x=\"60\" y=\"61\" text-anchor=\"middle\" dominant-baseline=\"central\" lang=\"ja\">京</text></svg>",
+      "css": ".ds-stamp { width: 112px; height: auto; overflow: visible; margin: 0.5rem; color: var(--print); transition: color 0.3s cubic-bezier(0.16, 1, 0.3, 1), transform 0.5s cubic-bezier(0.16, 1, 0.3, 1); } .ds-stamp .outer { fill: none; stroke: currentColor; stroke-width: 2.4; stroke-dasharray: 5.2 5.4; } .ds-stamp .inner { fill: none; stroke: currentColor; stroke-width: 1; opacity: 0; } .ds-stamp .wash { fill: currentColor; opacity: 0; } .ds-stamp .rim { fill: currentColor; font-family: var(--f-display); font-stretch: 112%; font-weight: 700; letter-spacing: 0.08em; opacity: 0.75; } .ds-stamp .kanji { fill: currentColor; font-family: var(--f-ja); font-weight: 900; font-size: 42px; opacity: 0.85; } .ds-stamp[data-state='stamped'], .ds-stamp[data-state='today'] { color: var(--verm); } .ds-stamp[data-state='stamped'] { transform: rotate(var(--tilt)); } .ds-stamp[data-state='stamped'] .outer, .ds-stamp[data-state='today'] .outer { stroke-dasharray: none; stroke-width: 3.6; } .ds-stamp[data-state='stamped'] .inner, .ds-stamp[data-state='today'] .inner, .ds-stamp[data-state='stamped'] .rim, .ds-stamp[data-state='today'] .rim, .ds-stamp[data-state='stamped'] .kanji, .ds-stamp[data-state='today'] .kanji { opacity: 1; } .ds-stamp[data-state='stamped'] .wash { opacity: 0.1; } .ds-stamp[data-state='stamped'] .inner { stroke-width: 1.6; } .ds-stamp[data-state='ahead']:hover { color: var(--print-2); transform: scale(1.05); }"
+    },
+    {
+      "name": "Station Sign",
+      "kind": "nav",
+      "refersTo": "station-sign",
+      "description": "JR-style prev/current/next day board with a violet line-colour band.",
+      "html": "<nav class=\"ds-sign\" aria-label=\"Previous and next day\"><a class=\"ds-side\" href=\"#\"><span class=\"ds-k\" lang=\"ja\">箱</span><span class=\"ds-t\"><span class=\"ds-num\">Day 3</span><span class=\"ds-pl\">Hakone</span></span></a><span class=\"ds-here\" aria-current=\"page\"><span class=\"ds-k\" lang=\"ja\">湯</span><span class=\"ds-badge\">D04</span></span><a class=\"ds-side ds-next\" href=\"#\"><span class=\"ds-t\"><span class=\"ds-num\">Day 5</span><span class=\"ds-pl\">Kyoto</span></span><span class=\"ds-k\" lang=\"ja\">京</span></a></nav>",
+      "css": ".ds-sign { display: grid; grid-template-columns: 1fr auto 1fr; align-items: stretch; position: relative; padding-bottom: 6px; background: var(--paper); color: var(--text); border-radius: 10px; overflow: hidden; box-shadow: var(--shadow); font-family: var(--f-body); } .ds-sign::after { content: ''; position: absolute; inset: auto 0 0 0; height: 6px; background: var(--print); } .ds-side { display: flex; align-items: center; gap: 0.5rem; padding: 0.7rem 0.75rem; min-height: 56px; color: var(--text-2); text-decoration: none; } .ds-side:hover { background: var(--print-wash); color: var(--print); } .ds-side:focus-visible { outline: 2.5px solid var(--verm); outline-offset: -3px; } .ds-next { justify-content: flex-end; text-align: right; } .ds-side .ds-k { font-family: var(--f-ja); font-weight: 900; font-size: 1.35rem; color: var(--print); } .ds-t { display: grid; line-height: 1.15; } .ds-num { font-family: var(--f-display); font-stretch: 112%; font-weight: 750; font-size: 0.8rem; } .ds-pl { font-size: 0.8125rem; } .ds-here { display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 0.35rem 1.1rem; border-inline: 1.5px solid var(--print-line); } .ds-here .ds-k { font-family: var(--f-ja); font-weight: 900; font-size: 1.9rem; line-height: 1; } .ds-badge { margin-top: 0.2rem; font-family: var(--f-display); font-stretch: 112%; font-weight: 800; font-size: 0.7rem; color: var(--paper); background: var(--print); border-radius: 4px; padding: 0.05rem 0.35rem; }"
+    },
+    {
+      "name": "Timetable Stop (now)",
+      "kind": "custom",
+      "refersTo": "now-flag",
+      "description": "Rail timetable row, time above the stop: past dot inked violet, current dot vermilion with Now pill.",
+      "html": "<ol class=\"ds-tt\"><li class=\"ds-stop\" data-state=\"past\"><span class=\"ds-rail\"><span class=\"ds-dot\">1</span></span><span class=\"ds-start\">09:10</span><div><h3>Gora Station</h3></div></li><li class=\"ds-stop\" data-state=\"now\"><span class=\"ds-rail\"><span class=\"ds-dot\">2</span></span><span class=\"ds-start\">10:30</span><div><span class=\"ds-flag\">Now</span><h3>Hakone Open-Air Museum</h3></div></li></ol>",
+      "css": ".ds-tt { list-style: none; padding: 0; margin: 0; font-family: var(--f-body); color: var(--text); } .ds-stop { display: grid; grid-template-columns: 30px 1fr; gap: 0 0.8rem; padding-bottom: 1.6rem; } .ds-rail { grid-row: span 2; position: relative; display: flex; justify-content: center; } .ds-rail::before { content: ''; position: absolute; top: 0; bottom: -1.6rem; width: 3px; border-radius: 2px; background: var(--print-line); } .ds-stop[data-state='past'] .ds-rail::before { background: var(--print); } .ds-stop[data-state='now'] .ds-rail::before { background: linear-gradient(var(--print) 0 50%, var(--print-line) 50%); } .ds-stop:last-child .ds-rail::before { bottom: 50%; } .ds-dot { position: relative; z-index: 1; width: 28px; height: 28px; border-radius: 50%; display: grid; place-items: center; background: var(--paper); border: 2.5px solid var(--print); color: var(--print); font-family: var(--f-display); font-stretch: 106%; font-weight: 800; font-size: 0.78rem; font-variant-numeric: tabular-nums; } .ds-stop[data-state='past'] .ds-dot { background: var(--print); color: var(--paper); } .ds-stop[data-state='now'] .ds-dot { background: var(--verm-fill); border-color: var(--verm-fill); color: var(--on-verm); outline: 2px solid var(--verm-fill); outline-offset: 3px; } .ds-start { font-family: var(--f-display); font-stretch: 106%; font-weight: 650; font-variant-numeric: tabular-nums; font-size: 1.15rem; color: var(--print); line-height: 1.1; padding-top: 0.15rem; } .ds-stop[data-state='now'] .ds-start { color: var(--verm-text); } .ds-stop[data-state='past'] .ds-start, .ds-stop[data-state='past'] h3 { color: var(--text-2); } .ds-stop h3 { margin: 0; font-weight: 700; font-size: 1.04rem; line-height: 1.3; } .ds-flag { display: inline-block; margin-bottom: 0.3rem; padding: 0.15rem 0.55rem; border-radius: 999px; background: var(--verm-fill); color: var(--on-verm); font-size: 0.72rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; } .ds-start, .ds-stop > div { grid-column: 2; }"
+    },
+    {
+      "name": "Base Card",
+      "kind": "card",
+      "refersTo": "base-card",
+      "description": "Flat hairline container with a numbered violet ring and Archivo name.",
+      "html": "<article class=\"ds-base\"><div class=\"ds-base-head\"><span class=\"ds-base-n\">2</span><div><h3>Hot Spring Hakone Villa</h3><p class=\"ds-when\"><span class=\"ds-time\">Dec 19</span> → <span class=\"ds-time\">Dec 21</span> · 2 nights</p></div></div><p class=\"ds-conf\"><span class=\"ds-mark\">Confirmation</span> <code>HMX353JXM9</code></p></article>",
+      "css": ".ds-base { display: grid; gap: 0.5rem; padding: 0.9rem 0.95rem; border: 1.5px solid var(--print-line); border-radius: 14px; background: var(--paper); color: var(--text); font-family: var(--f-body); max-width: 24rem; } .ds-base-head { display: flex; gap: 0.75rem; align-items: center; } .ds-base-n { flex: none; width: 2.2rem; height: 2.2rem; border-radius: 50%; display: grid; place-items: center; border: 2.5px solid var(--print); color: var(--print); font-family: var(--f-display); font-stretch: 112%; font-weight: 800; } .ds-base h3 { margin: 0; font-family: var(--f-display); font-stretch: 112%; font-weight: 800; font-size: 1.02rem; color: var(--print); } .ds-when { margin: 0.1rem 0 0; font-size: 0.8rem; color: var(--text-2); } .ds-time { font-family: var(--f-display); font-stretch: 106%; font-weight: 650; font-variant-numeric: tabular-nums; } .ds-conf { margin: 0; display: flex; align-items: center; gap: 0.5rem; } .ds-mark { display: inline-flex; align-items: center; gap: 0.4em; font-size: 0.8125rem; font-weight: 600; color: var(--print); } .ds-mark::before { content: ''; width: 0.8em; height: 0.8em; border-radius: 50%; border: 2px solid currentColor; background: currentColor; } .ds-conf code { font-family: var(--f-display); font-stretch: 106%; font-weight: 700; letter-spacing: 0.06em; }"
+    },
+    {
+      "name": "Map Markers",
+      "kind": "custom",
+      "refersTo": "stop-ring",
+      "description": "On a lit map ground: merged stop ring, active stop ring, base ring with name plate, bed, day-trip kanji stamp.",
+      "html": "<div class=\"ds-ground\"><span class=\"ds-stop\">4·5</span><span class=\"ds-stop ds-active\">7</span><span class=\"ds-base-mk\"><span class=\"ds-n\">2</span><span class=\"ds-nm\">Hakone</span></span><span class=\"ds-bed\"><svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M2 20v-8a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v8\"/><path d=\"M4 10V6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v4\"/><path d=\"M12 4v6\"/><path d=\"M2 18h20\"/></svg></span><span class=\"ds-trip\" lang=\"ja\">京</span></div>",
+      "css": ".ds-ground { display: flex; align-items: center; gap: 1rem; padding: 1.5rem; background: #eef0f4; border-radius: 12px; } .ds-stop { min-width: 27px; height: 27px; padding: 0 5px; border-radius: 999px; display: grid; place-items: center; background: #fff; border: 2.6px solid #3a2f8f; color: #3a2f8f; font-family: var(--f-display); font-stretch: 106%; font-weight: 700; font-size: 12px; font-variant-numeric: tabular-nums; } .ds-active { min-width: 33px; height: 33px; background: #e3411f; border-color: #fff; color: #fff; } .ds-base-mk { display: inline-flex; align-items: center; gap: 0.35rem; font-family: var(--f-display); font-stretch: 108%; font-weight: 750; font-size: 0.8rem; color: #2a2170; } .ds-n { min-width: 28px; height: 28px; padding: 0 6px; border-radius: 14px; display: grid; place-items: center; background: #fff; border: 2.5px solid #3a2f8f; color: #3a2f8f; font-size: 0.78rem; box-shadow: 0 2px 6px oklch(0% 0 0 / 0.25); } .ds-nm { background: rgb(255 255 255 / 0.94); padding: 0.15rem 0.45rem; border-radius: 5px; box-shadow: 0 2px 6px oklch(0% 0 0 / 0.18); } .ds-bed { width: 28px; height: 28px; border-radius: 50%; display: grid; place-items: center; background: #3a2f8f; color: #fff; border: 2.5px solid #fff; box-shadow: 0 2px 6px oklch(0% 0 0 / 0.3); box-sizing: border-box; } .ds-bed svg { width: 15px; height: 15px; } .ds-trip { width: 32px; height: 32px; border-radius: 50%; display: grid; place-items: center; background: rgb(255 255 255 / 0.95); border: 2px dashed #3a2f8f; color: #3a2f8f; font-family: var(--f-ja); font-weight: 900; font-size: 1rem; box-shadow: 0 2px 6px oklch(0% 0 0 / 0.22); box-sizing: border-box; } .ds-stop:hover, .ds-trip:hover { transform: scale(1.06); }"
+    },
+    {
+      "name": "To-Do Rings",
+      "kind": "custom",
+      "refersTo": "todo-ring-book",
+      "description": "Bookings view: vermilion ring to book, violet to check, labelled by day; clusters count members.",
+      "html": "<div class=\"ds-ground\"><span class=\"ds-todo ds-book\">D7</span><span class=\"ds-todo\">D10</span><span class=\"ds-todo ds-book ds-cluster\">×3</span></div>",
+      "css": ".ds-ground { display: flex; align-items: center; gap: 1rem; padding: 1.5rem; background: #eef0f4; border-radius: 12px; } .ds-todo { width: 28px; height: 28px; border-radius: 50%; display: grid; place-items: center; background: #fff; border: 3px solid #3a2f8f; color: #3a2f8f; font-family: var(--f-display); font-stretch: 106%; font-weight: 700; font-size: 11.5px; font-variant-numeric: tabular-nums; } .ds-book { border-color: #e3411f; } .ds-cluster { width: 30px; height: 30px; cursor: pointer; } .ds-cluster:hover { transform: scale(1.06); }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Eki-Stamp Rally Card",
+    "overview": "The site is one printed rally card, the kind Japanese stations put out for collecting stamps, laid over a living map of Japan. The map is the page. It fills the screen, persists across every navigation and is never reloaded; pages only tell it which view to show, and the camera flies there. Over it sits a single sheet of cool white card stock, the panel, which carries the brand, the five sections, a live Now/Next line, the sixteen-stamp rail and then the page itself. Stamp-pad violet prints the frame: section rules, timetable rails, base rings, the route line, the station-sign band. Vermilion 朱 is ink, and it lands only where something is happening or has happened: now, the active stop, a stamped day, a booking still to make.\n\nThe type comes from station signage. Archivo is set very wide (`wdth` 125) and heavy for display, slightly wide with tabular figures for every time and every marker numeral. Atkinson Hyperlegible Next carries reading text so it stays legible at arm's length outdoors. Zen Kaku Gothic New 900 sets the kanji. The signature object is built from type alone: a circular kanji stamp with the place name on the upper rim and the day and date on the lower rim. On the map the same object returns as the day-trip stamp, and the card's ring marks return as the numbered stop rings.\n\nThe map is lit by the real sun at that place and minute. Its ground, water, roads, sky and hillshade light all derive from six lighting keyframes blended by solar altitude, so a Tokyo evening goes violet, rose and gold in the order it actually does. Density is practical: read with one thumb on a phone in the cold, so the card stays flat, rows are hairline-separated, and the only decoration is a stamp landing or a route inking in.",
+    "keyCharacteristics": [
+      "The map is the page: full-screen, persistent, every navigation a camera move.",
+      "One card-stock panel over the map: a 404px left dock on desktop, a three-snap bottom sheet on phones.",
+      "Two inks: violet prints the frame, vermilion marks now, active, stamped and to-book.",
+      "State is carried by ring marks: solid means done or confirmed, open means still to do, dashed means ahead or unconfirmed.",
+      "Stamps are type only, with no illustration or photography.",
+      "Map light follows the real sun; map inks are picked from the ground's luminance so they always read.",
+      "Expanded Archivo for display, times and marker numerals; Atkinson for reading; Zen Kaku 900 for kanji."
+    ],
+    "rules": [
+      {
+        "name": "The Two Inks Rule",
+        "body": "Violet prints the card and vermilion records events. Vermilion is reserved for now, active, stamped and to-book. If nothing is happening, has happened or is waiting on the group, it is not vermilion.",
+        "section": "colors"
+      },
+      {
+        "name": "The Violet Neutral Rule",
+        "body": "Every neutral, from paper to hairline to secondary text, carries the 282–285 violet hue. A hue-less grey is off-card.",
+        "section": "colors"
+      },
+      {
+        "name": "The Readable Ink Rule",
+        "body": "Route, label and halo inks are chosen from the blended ground's luminance (above 0.3 counts as light): violet route on a white halo by day, pale lavender (`#d8d0ff`) on a near-black halo by night. Stop rings never switch: white with violet numerals in every light, the card's own mark glowing at night.",
+        "section": "colors"
+      },
+      {
+        "name": "The Tabular Time Rule",
+        "body": "Any figure the group compares or acts on (times, dates, deadlines, codes, counts, ring numerals) is set in the time voice with tabular figures.",
+        "section": "typography"
+      },
+      {
+        "name": "The Wide Display Rule",
+        "body": "Display Archivo is always expanded (`wdth` 106–125). Archivo at normal width is not part of the system.",
+        "section": "typography"
+      },
+      {
+        "name": "The Flat Card Rule",
+        "body": "Content on the card is never shadowed. Only objects that sit above it, over the map, may lift; the station sign is the single on-card exception.",
+        "section": "elevation"
+      },
+      {
+        "name": "The Persistent Stage Rule",
+        "body": "The map never reloads, never moves for a panel swap and never sits inside a frame. Navigation changes the panel and flies the camera.",
+        "section": "elevation"
+      },
+      {
+        "name": "The Ring Mark Rule",
+        "body": "Solid fill means done or confirmed. An open ring means still to do. A dashed ring means ahead or unconfirmed. Colour may reinforce the mark but never replaces it.",
+        "section": "shapes"
+      }
+    ],
+    "dos": [
+      "**Do** keep the map full-screen and persistent; change the panel and fly the camera, never reload or frame the map.",
+      "**Do** print structure in violet (`field` for slabs, `print` for type and rules, `print-line` for hairlines) and keep every neutral on the 282–285 hue.",
+      "**Do** reserve vermilion for now, active, stamped and to-book, on the card and on the map alike.",
+      "**Do** draw state as a ring mark (solid / open / dashed) so it reads without colour.",
+      "**Do** derive any new map colour from the sunlight keyframes, and pick map inks from ground luminance, never from a fixed theme.",
+      "**Do** keep stop rings white with violet numerals in every light.",
+      "**Do** merge rings by on-screen overlap and redraw the route through the merged anchors.",
+      "**Do** keep camera padding equal to the part of the screen the panel covers, so every move centres in the open map.",
+      "**Do** set every time, date, deadline, code and ring numeral in expanded Archivo with tabular figures.",
+      "**Do** keep touch targets at least 44px (40px for nav tabs and inside rows) and honour reduced motion, which disables the press, the flyover, camera flights, ink-in and view transitions."
+    ],
+    "donts": [
+      "**Don't** use vermilion for decoration, section accents, list bullets or static emphasis.",
+      "**Don't** add illustration, photography or icon art to a stamp. Stamps are type only.",
+      "**Don't** shadow content sitting on the card. Lift only objects that float over the map.",
+      "**Don't** let a base read as a stop on a day map: show its bed, and only that night's and the previous night's.",
+      "**Don't** drape terrain under city-day routes on MapLibre; use the faint hillshade instead.",
+      "**Don't** add paint transitions or atmosphere at country zoom and closer.",
+      "**Don't** set Archivo at normal width or use a system display face for display text.",
+      "**Don't** show state by hue alone."
+    ]
+  }
+}

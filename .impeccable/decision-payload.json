@@ -1,0 +1,235 @@
+{
+ "title": "Choose the visual world for the Japan Plan C site",
+ "question": "The roll assigned the Eki-Stamp Rally Card. Keep it, take an alternate, or re-roll.",
+ "options": [
+  {
+   "id": "assigned",
+   "kind": "assigned",
+   "label": "Eki-Stamp Rally Card",
+   "kicker": "THE ROLL",
+   "lineage": "Japanese station stamp rallies (eki stamps, since 1931) and JR East's 2026 single-kanji crest stamps",
+   "thesis": "The trip is a 16-stamp rally card: each day a kanji crest, stamped in vermilion as the group lives it.",
+   "palette": [
+    "#3a2f8f",
+    "#e3411f",
+    "#f6f7f9",
+    "#16132b"
+   ],
+   "materials": [
+    "stamp-pad violet print on white card stock",
+    "rubber-stamp vermilion ink with grain"
+   ],
+   "viewport": "Violet masthead with a live 'now / next' line, then the 16-circle stamp card (tap a day), then the route map.",
+   "risk": "Stamps can turn cute if the timetable underneath is not set with real rigor.",
+   "raised": [
+    {
+     "from": "challenger-alphabet",
+     "raise": "Stamps are built from type alone: one kanji per place, name around the rim, no clip-art."
+    },
+    {
+     "from": "challenger-jackfield",
+     "raise": "State is a mark, not a hue: solid ring booked, open ring still to book, dashed ring unconfirmed/TBA."
+    },
+    {
+     "from": "challenger-cutting",
+     "raise": "A 'you are here' flag marks the live stop; the site reopens where the group is right now."
+    },
+    {
+     "from": "challenger-swiss",
+     "raise": "One master grid for every day page; days differ only by their stamp."
+    },
+    {
+     "from": "challenger-artpaul",
+     "raise": "Every day page repeats the same sections in a fixed order: opener, briefing, night-before check, timetable, map."
+    }
+   ],
+   "html": ".impeccable/mocks/decision/assigned.html",
+   "htmlFrame": "390x844",
+   "comp": ".impeccable/mocks/decision/assigned.png"
+  },
+  {
+   "id": "model-pick",
+   "kind": "pick",
+   "label": "JR Timetable Book",
+   "kicker": "IMPECCABLE’S PICK",
+   "lineage": "the monthly JR/JTB 時刻表 timetable book with colored thumb-index tabs",
+   "thesis": "The trip printed as a timetable book: dense time columns, red for the big nights, day tabs down the page edge.",
+   "palette": [
+    "#ecebe7",
+    "#151515",
+    "#d4252f",
+    "#1f6fb2"
+   ],
+   "materials": [
+    "thin newsprint timetable paper",
+    "colored thumb-index edge tabs"
+   ],
+   "viewport": "Thumb tabs for the 16 days on the right edge, today's page open as a dense time table with the current row highlighted.",
+   "risk": "Familiar: departure-board and timetable looks are where many travel sites land.",
+   "html": ".impeccable/mocks/decision/model-pick.html",
+   "htmlFrame": "390x844",
+   "comp": ".impeccable/mocks/decision/model-pick.png"
+  },
+  {
+   "id": "challenger-cyclorama",
+   "kind": "challenger",
+   "catalogId": "stagecraft-theater-lighting-cyclorama-dawn",
+   "label": "Cyclorama Days",
+   "verdict": "competitive",
+   "lineage": "theater cyclorama lighting cues, night to dawn to day",
+   "thesis": "Each day is a lighting cue sheet: stops sit in horizon bands from pre-dawn departures to 3am karaoke.",
+   "palette": [
+    "#07080f",
+    "#1f3fbf",
+    "#e86a92",
+    "#f4f5f7"
+   ],
+   "materials": [
+    "depthless black cyc",
+    "cobalt and rose light bands"
+   ],
+   "viewport": "A day as stacked horizon bands, the current band lit to day-white, sunset time drawn as the rose line.",
+   "case": "Holds clarity: long 6am-to-4am days really do read better by light phase. Loses on identification: it isn't Japan or this group.",
+   "risk": "Black-ground reading at night is great, but it reads theatrical rather than Japanese.",
+   "html": ".impeccable/mocks/decision/challenger-cyclorama.html",
+   "htmlFrame": "390x844",
+   "board": "https://impeccable.style/worlds/cards/stagecraft-theater-lighting-cyclorama-dawn.webp",
+   "comp": ".impeccable/mocks/decision/challenger-cyclorama.png"
+  },
+  {
+   "id": "challenger-alphabet",
+   "kind": "challenger",
+   "catalogId": "dream-surreal-impossible-worlds-alphabet-storm",
+   "label": "Alphabet Storm",
+   "verdict": "declined",
+   "lineage": "surreal letterform weather",
+   "thesis": "Day titles condense into weather over a white field.",
+   "palette": [
+    "#ffffff",
+    "#0d0d0d",
+    "#b8bcc4"
+   ],
+   "materials": [
+    "paper white",
+    "storm-letter black"
+   ],
+   "viewport": "One word-weather event per screen.",
+   "risk": "Performs over the timetable the group needs to read.",
+   "case": "Loses both axes: no link to Japan or the trip, and it fights reading.",
+   "kept": "Type as the only image material: the stamps are pure lettering."
+  },
+  {
+   "id": "challenger-jackfield",
+   "kind": "challenger",
+   "catalogId": "operate-b-normalled-jackfield",
+   "label": "Normalled Jackfield",
+   "verdict": "declined",
+   "lineage": "machine-room patch schedules",
+   "thesis": "Every stop tied to its default by an amber link line.",
+   "palette": [
+    "#0b0b0c",
+    "#ffb000"
+   ],
+   "materials": [
+    "black glass",
+    "amber hairlines"
+   ],
+   "viewport": "Numbered lanes under a fixed legend strip.",
+   "risk": "A control-room costume on a travel guide.",
+   "case": "Loses both: nobody in the group lives in a machine room.",
+   "kept": "State drawn by stroke pattern, never by hue alone."
+  },
+  {
+   "id": "challenger-cutting",
+   "kind": "challenger",
+   "catalogId": "operate-a-cutting-bench-select-rail",
+   "label": "Cutting Bench Rail",
+   "verdict": "declined",
+   "lineage": "film editing bench",
+   "thesis": "Days as frames on a perforated rail, a tape flag where you stopped.",
+   "palette": [
+    "#0a0a0a",
+    "#ff6a13",
+    "#ffffff"
+   ],
+   "materials": [
+    "film grain",
+    "orange tape flag"
+   ],
+   "viewport": "A scrubbing frame strip across every screen.",
+   "risk": "Scrubbing a film strip is slower than tapping a day.",
+   "case": "Loses both: foreign to the audience, slower to find 'what's next'.",
+   "kept": "The persisted 'where you stopped' flag."
+  },
+  {
+   "id": "challenger-swiss",
+   "kind": "challenger",
+   "catalogId": "design-canon-swiss-grid-poster-wall",
+   "label": "Swiss Poster Wall",
+   "verdict": "declined",
+   "lineage": "International Style concert posters",
+   "thesis": "Sixteen day-posters on one modular grid.",
+   "palette": [
+    "#f7f7f5",
+    "#111111",
+    "#e30613"
+   ],
+   "materials": [
+    "poster white",
+    "akzidenz black"
+   ],
+   "viewport": "A wall of day posters, the current one in signal red.",
+   "risk": "Cool and generic for a Japan trip.",
+   "case": "Loses both: disciplined, but says nothing about Japan or these eight.",
+   "kept": "One master grid governs every page."
+  },
+  {
+   "id": "challenger-artpaul",
+   "kind": "challenger",
+   "catalogId": "brand-identity-canon-art-paul-magazine-program",
+   "label": "Mid-century Magazine",
+   "verdict": "declined",
+   "lineage": "1950s magazine identity program",
+   "thesis": "Each day an issue with a hidden mark on its cover.",
+   "palette": [
+    "#ffffff",
+    "#111111",
+    "#c8102e"
+   ],
+   "materials": [
+    "coated stock",
+    "spot color"
+   ],
+   "viewport": "Serif masthead over a two-column grid.",
+   "risk": "Magazine pacing slows the on-trip lookup.",
+   "case": "Loses both: editorial nostalgia, slower lookups.",
+   "kept": "Sections repeat in a fixed order on every day."
+  }
+ ],
+ "reroll": {
+  "registers": [
+   "safer",
+   "bolder"
+  ]
+ },
+ "canon": true,
+ "canonCard": {
+  "label": "The category standard",
+  "thesis": "A trip-planner site done impeccably: photo hero, day-by-day cards, and a map.",
+  "palette": [
+   "#ffffff",
+   "#111827",
+   "#2563eb"
+  ],
+  "materials": [
+   "clean grid",
+   "destination photography"
+  ],
+  "viewport": "Big Japan photo hero with the trip title, then day cards and a map beside them.",
+  "risk": "Looks like Wanderlog or TripIt by design.",
+  "html": ".impeccable/mocks/decision/canon.html",
+  "htmlFrame": "390x844",
+  "comp": ".impeccable/mocks/decision/canon.png"
+ },
+ "steer": true
+}

@@ -1,0 +1,209 @@
+@import '@fontsource-variable/archivo/wdth.css';
+@import './stage.css';
+@import '@fontsource-variable/atkinson-hyperlegible-next/wght.css';
+
+/* Zen Kaku Gothic New (OFL), subset at build time to the ~260 Japanese characters the
+   site actually uses (scripts/subset-fonts.mjs). */
+@font-face { font-family: 'Zen Kaku Gothic New'; font-weight: 500; font-display: swap; src: url('../fonts/zen-kaku-500.woff2') format('woff2'); }
+@font-face { font-family: 'Zen Kaku Gothic New'; font-weight: 700; font-display: swap; src: url('../fonts/zen-kaku-700.woff2') format('woff2'); }
+@font-face { font-family: 'Zen Kaku Gothic New'; font-weight: 900; font-display: swap; src: url('../fonts/zen-kaku-900.woff2') format('woff2'); }
+
+/* ── World: a station-stamp rally card. Violet is the printed card, vermilion is ink. ── */
+:root {
+  color-scheme: light dark;
+  --paper: oklch(97.6% 0.004 285);
+  --paper-2: oklch(94.6% 0.009 285);
+  --paper-3: oklch(91.5% 0.014 285);
+  --field: oklch(36% 0.15 282);          /* violet print fields: masthead, openers */
+  --field-deep: oklch(28.5% 0.125 282);
+  --on-field: oklch(98.5% 0.006 285);
+  --on-field-2: oklch(85% 0.06 285);
+  --print: oklch(36% 0.15 282);          /* violet text and rules on paper */
+  --print-2: oklch(48% 0.12 282);
+  --print-line: oklch(85% 0.045 282);
+  --print-wash: oklch(92.5% 0.028 282);
+  --verm: oklch(60.5% 0.205 35);         /* 朱 stamp ink: stamps, the now flag, focus */
+  --verm-text: oklch(51% 0.19 33);
+  --verm-wash: oklch(94% 0.035 35);
+  --verm-fill: oklch(52% 0.19 33);      /* vermilion fields that carry text */
+  --on-verm: #ffffff;
+  --text: oklch(22% 0.035 282);
+  --text-2: oklch(43% 0.045 282);
+  --shadow: 0 1px 2px oklch(0% 0 0 / 0.07), 0 6px 18px -6px oklch(18% 0.015 282 / 0.2);
+
+  --f-display: 'Archivo Variable', 'Archivo', system-ui, sans-serif;
+  --f-body: 'Atkinson Hyperlegible Next Variable', 'Atkinson Hyperlegible Next', 'Zen Kaku Gothic New', system-ui, sans-serif;
+  --f-ja: 'Zen Kaku Gothic New', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif;
+
+  --gutter: clamp(16px, 4vw, 32px);
+  --measure: 68ch;
+  --radius: 12px;
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --nav-h: 0px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    --paper: oklch(17.5% 0.03 282);
+    --paper-2: oklch(21% 0.036 282);
+    --paper-3: oklch(25% 0.045 282);
+    --field: oklch(30% 0.13 282);
+    --field-deep: oklch(24% 0.11 282);
+    --on-field: oklch(97% 0.01 285);
+    --on-field-2: oklch(82% 0.06 285);
+    --print: oklch(82% 0.085 285);
+    --print-2: oklch(72% 0.09 285);
+    --print-line: oklch(34% 0.06 282);
+    --print-wash: oklch(26% 0.06 282);
+    --verm: oklch(68% 0.19 38);
+    --verm-text: oklch(74% 0.16 40);
+    --verm-wash: oklch(28% 0.07 35);
+    --verm-fill: oklch(70% 0.17 40);
+    --on-verm: oklch(17% 0.03 282);
+    --text: oklch(94% 0.012 285);
+    --text-2: oklch(76% 0.035 285);
+    --shadow: 0 1px 2px oklch(0% 0 0 / 0.3), 0 8px 24px -8px oklch(0% 0 0 / 0.5);
+  }
+}
+:root[data-theme='dark'] {
+  --paper: oklch(17.5% 0.03 282);
+  --paper-2: oklch(21% 0.036 282);
+  --paper-3: oklch(25% 0.045 282);
+  --field: oklch(30% 0.13 282);
+  --field-deep: oklch(24% 0.11 282);
+  --on-field: oklch(97% 0.01 285);
+  --on-field-2: oklch(82% 0.06 285);
+  --print: oklch(82% 0.085 285);
+  --print-2: oklch(72% 0.09 285);
+  --print-line: oklch(34% 0.06 282);
+  --print-wash: oklch(26% 0.06 282);
+  --verm: oklch(68% 0.19 38);
+  --verm-text: oklch(74% 0.16 40);
+  --verm-wash: oklch(28% 0.07 35);
+  --verm-fill: oklch(70% 0.17 40);
+  --on-verm: oklch(17% 0.03 282);
+  --text: oklch(94% 0.012 285);
+  --text-2: oklch(76% 0.035 285);
+  --shadow: 0 1px 2px oklch(0% 0 0 / 0.3), 0 8px 24px -8px oklch(0% 0 0 / 0.5);
+}
+
+/* ── Base ── */
+*, *::before, *::after { box-sizing: border-box; }
+[hidden] { display: none !important; }
+* { margin: 0; }
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  scroll-padding-top: 1rem;
+  scrollbar-color: var(--print-line) var(--paper);
+  hanging-punctuation: first;
+}
+body {
+  min-height: 100dvh;
+  background: var(--paper);
+  color: var(--text);
+  font-family: var(--f-body);
+  font-size: 1.0625rem;
+  line-height: 1.55;
+  font-variant-numeric: lining-nums;
+  -webkit-font-smoothing: antialiased;
+  padding-bottom: calc(var(--nav-h) + env(safe-area-inset-bottom));
+  caret-color: var(--verm);
+  accent-color: var(--verm);
+}
+:lang(ja) { font-family: var(--f-ja); font-weight: inherit; }
+::selection { background: var(--verm-fill); color: var(--on-verm); }
+img, svg { display: block; max-width: 100%; }
+button, input, select, textarea { font: inherit; color: inherit; }
+button { cursor: pointer; }
+a { color: inherit; text-decoration-color: var(--print-line); text-underline-offset: 0.2em; text-decoration-thickness: 1px; }
+a:hover { text-decoration-color: currentColor; }
+:focus-visible { outline: 2.5px solid var(--verm); outline-offset: 3px; border-radius: 4px; }
+strong { font-weight: 650; }
+h1, h2, h3 { text-wrap: balance; line-height: 1.1; }
+p, li { text-wrap: pretty; }
+
+.icon { width: 1.15em; height: 1.15em; flex: none; stroke-width: 1.9; }
+.wrap { width: min(100%, 76rem); margin-inline: auto; padding-inline: var(--gutter); }
+.visually-hidden {
+  position: absolute !important; width: 1px; height: 1px; overflow: hidden;
+  clip: rect(0 0 0 0); clip-path: inset(50%); white-space: nowrap;
+}
+
+/* Display voice: expanded Archivo, the wide lettering of station signage. */
+.display {
+  font-family: var(--f-display);
+  font-stretch: 125%;
+  font-weight: 850;
+  letter-spacing: -0.01em;
+}
+.time {
+  font-family: var(--f-display);
+  font-stretch: 106%;
+  font-weight: 650;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0;
+}
+
+/* Section headings on paper: violet print with a hairline running to the edge. */
+.section-head {
+  display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.25rem 0.75rem;
+  margin: clamp(2.5rem, 7vw, 4rem) 0 1rem;
+  color: var(--print);
+}
+.section-head h2 {
+  font-family: var(--f-display); font-stretch: 118%; font-weight: 800;
+  font-size: clamp(1.25rem, 1.05rem + 1vw, 1.65rem); letter-spacing: -0.01em;
+}
+.section-head::after { content: ''; flex: 1 1 2rem; height: 1px; background: var(--print-line); transform: translateY(-0.3em); }
+.section-head .aside { order: 3; font-size: 0.875rem; color: var(--text-2); }
+html, body { overflow-x: clip; }
+
+/* Ring marks: state is drawn by the ring, never by colour alone. */
+.mark {
+  --c: var(--print);
+  display: inline-flex; align-items: center; gap: 0.4em;
+  font-size: 0.8125rem; font-weight: 600; color: var(--c); white-space: nowrap;
+  line-height: 1.2;
+}
+.mark::before {
+  content: ''; width: 0.8em; height: 0.8em; border-radius: 50%; flex: none;
+  border: 2px solid currentColor;
+}
+.mark[data-mark='confirmed']::before, .mark[data-done='true']::before { background: currentColor; }
+.mark[data-mark='confirmed'], .mark[data-done='true'] { --c: var(--print); }
+.mark[data-mark='tobook']:not([data-done='true']) { --c: var(--verm-text); }
+.mark[data-mark='unconfirmed']::before, .mark[data-mark='tocheck']::before { border-style: dashed; }
+
+/* Checkboxes as ring marks: an open ring, inked solid when ticked. */
+input[type='checkbox'] {
+  appearance: none; -webkit-appearance: none; margin: 0; flex: none; cursor: pointer;
+  width: 22px; height: 22px; border-radius: 50%; border: 2px solid var(--print-2); background: var(--paper);
+  display: grid; place-content: center; transition: background 0.15s var(--ease-out), border-color 0.15s;
+}
+input[type='checkbox']::after { content: ''; width: 10px; height: 10px; border-radius: 50%; background: var(--on-verm); transform: scale(0); transition: transform 0.18s var(--ease-out); }
+input[type='checkbox']:checked { background: var(--verm-fill); border-color: var(--verm-fill); }
+input[type='checkbox']:checked::after { transform: scale(1); }
+
+/* Buttons and link chips in the card's print vocabulary. */
+.chip {
+  display: inline-flex; align-items: center; gap: 0.45em;
+  min-height: 44px; padding: 0.5rem 0.9rem;
+  border-radius: 999px; border: 1.5px solid var(--print-line);
+  background: var(--paper); color: var(--print);
+  font-weight: 650; font-size: 0.9375rem; text-decoration: none; line-height: 1;
+  transition: background 0.2s var(--ease-out), border-color 0.2s var(--ease-out);
+}
+.chip:hover { background: var(--print-wash); border-color: var(--print-2); }
+.chip.primary { background: var(--field); border-color: var(--field); color: var(--on-field); }
+.chip.primary:hover { background: var(--field-deep); }
+
+/* ── Cross-document view transitions: the tapped stamp flies into the day opener. ── */
+@view-transition { navigation: auto; }
+::view-transition-old(root), ::view-transition-new(root) { animation-duration: 0.28s; }
+::view-transition-group(*) { animation-duration: 0.42s; animation-timing-function: var(--ease-out); }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
+  @view-transition { navigation: none; }
+}

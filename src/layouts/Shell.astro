@@ -1,0 +1,129 @@
+---
+// The map is the site: a persistent full-screen stage, and a panel (left dock / bottom sheet)
+// whose body is the page. Navigation swaps the panel and flies the camera; the map never reloads.
+import { ClientRouter } from 'astro:transitions';
+import '../styles/global.css';
+import Stamp from '../components/Stamp.astro';
+import { clientTrip } from '../lib/client';
+import { trip } from '../lib/trip';
+import { icon, type IconName } from '../lib/icons';
+import { url } from '../lib/format';
+
+interface Props {
+  title: string;
+  description?: string;
+  view: { kind: 'overview' | 'day' | 'bookings' | 'plain'; day?: number; redirect?: string };
+  active?: 'trip' | 'today' | 'bookings' | 'budget' | 'info' | null;
+}
+const { title, description = 'Japan Plan C · Dec 14–29 2026 · eight friends, sixteen days, one stamp card over a living map of Japan.', view, active = null } = Astro.props;
+const data = JSON.stringify(clientTrip()).replace(/</g, '\\u003c');
+const t = trip();
+const nav: { key: NonNullable<Props['active']>; href: string; label: string; icon: IconName | 'stamp' }[] = [
+  { key: 'trip', href: url('/'), label: 'Trip', icon: 'stamp' },
+  { key: 'today', href: url('/today/'), label: 'Today', icon: 'navigation' },
+  { key: 'bookings', href: url('/bookings/'), label: 'Bookings', icon: 'checklist' },
+  { key: 'budget', href: url('/budget/'), label: 'Budget', icon: 'wallet' },
+  { key: 'info', href: url('/info/'), label: 'Info', icon: 'info' },
+];
+const searchIcon = icon('search' as IconName);
+const xIcon = icon('x');
+const micIcon = icon('mic' as IconName);
+const stampIcon = '<svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.9"><circle cx="12" cy="12" r="9.5"/><circle cx="12" cy="12" r="6.5" stroke-width="1.2"/></svg>';
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#3a2f8f" />
+    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#241d52" />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="Japan C" />
+    <link rel="manifest" href={url('/manifest.webmanifest')} />
+    <link rel="icon" href={url('/icon.svg')} type="image/svg+xml" />
+    <link rel="apple-touch-icon" href={url('/icon-180.png')} />
+    <link rel="preconnect" href="https://api.mapbox.com" crossorigin />
+    <link rel="preconnect" href="https://tiles.openfreemap.org" crossorigin />
+    <script is:inline type="application/json" id="trip-data" set:html={data} />
+    <ClientRouter fallback="swap" />
+  </head>
+  <body>
+    <a class="skip" href="#main">Skip to the trip panel</a>
+
+    <div id="stage" transition:persist="stage" data-view={view.kind}>
+      <div id="map-canvas" role="region" aria-label="Map of the trip"></div>
+      <p class="fallback">The map needs a connection and WebGL 2. Every stop still has a Google Maps link in the panel.</p>
+      <div class="search" data-search data-open="false">
+        <form class="search-bar" role="search" autocomplete="off">
+          <Fragment set:html={searchIcon} />
+          <input type="search" data-search-input placeholder="Try “ramen near stop 5 open now”" aria-label="Search places" enterkeyhint="search" />
+          <button type="button" class="search-clear" data-search-clear hidden aria-label="Clear search"><Fragment set:html={xIcon} /></button>
+          <button type="button" class="search-clear search-mic" data-search-mic hidden aria-label="Search by voice"><Fragment set:html={micIcon} /></button>
+        </form>
+        <div class="search-chips" data-search-chips aria-label="Explore nearby"></div>
+        <div class="search-results" data-search-results role="listbox" aria-label="Search results" hidden></div>
+        <button type="button" class="search-area" data-search-area hidden>Search this area</button>
+      </div>
+      <div class="flight" data-flight hidden>
+        <p class="flight-caption" data-caption aria-live="polite"></p>
+        <button type="button" class="flight-skip" data-skip-flight>Skip</button>
+      </div>
+    </div>
+
+    <aside class="panel" data-panel aria-label="Trip panel">
+      <header class="panel-head" data-panel-head>
+        <button type="button" class="grab" data-grab aria-label="Resize the panel"><span></span></button>
+        <div class="brand-row">
+          <a class="brand" href={url('/')}><span class="display">JAPAN&nbsp;C</span><span class="jp" lang="ja">八人の旅</span></a>
+          <nav class="nav" aria-label="Sections">
+            {nav.map((item) => (
+              <a href={item.href} aria-current={active === item.key ? 'page' : undefined} title={item.label}>
+                <Fragment set:html={item.icon === 'stamp' ? stampIcon : icon(item.icon)} />
+                <span>{item.label}</span>
+              </a>
+            ))}
+          </nav>
+        </div>
+        <p class="alert" data-alert hidden role="status"></p>
+        <div class="now" data-now-strip data-mode="static">
+          <p class="nl">Mon Dec 14 – Tue Dec 29 2026 · {t.people} people · {t.days.length} days</p>
+        </div>
+        <ol class="rail" data-stamp-card aria-label="The sixteen days">
+          {t.days.map((d) => (
+            <li>
+              <a class="rail-cell" href={url(`/day/${d.n}/`)} data-day-link data-state="ahead"
+                 aria-current={view.kind === 'day' && view.day === d.n ? 'page' : undefined}
+                 aria-label={`Day ${d.n}, ${d.label}: ${d.title}`} title={`Day ${d.n} · ${d.label}`}>
+                <Stamp n={d.n} kanji={d.stamp.kanji} place={d.stamp.place} date={d.date} weekday={d.weekday} variant="rail" class="small" />
+              </a>
+            </li>
+          ))}
+        </ol>
+      </header>
+      <div class="panel-body" id="main" tabindex="-1">
+        <slot />
+      </div>
+    </aside>
+
+    {(['sun', 'cloudSun', 'cloud', 'cloudFog', 'cloudRain', 'cloudSnow', 'alert'] as IconName[]).map((n) => <template data-wx-icon={n} set:html={icon(n)} />)}
+    <div id="view" data-kind={view.kind} data-day={view.day ?? 0} data-redirect={view.redirect} hidden></div>
+    <p class="preview-note" hidden><span></span> <a href="?">Back to real time</a></p>
+
+    <script>
+      import '../scripts/live';
+      import '../scripts/app';
+      import '../scripts/search';
+      import '../scripts/japan';
+      import '../scripts/livetimes';
+      if ('serviceWorker' in navigator && import.meta.env.PROD) {
+        addEventListener('load', () => navigator.serviceWorker.register(`${import.meta.env.BASE_URL}sw.js`));
+      }
+    </script>
+  </body>
+</html>

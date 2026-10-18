@@ -1,0 +1,421 @@
+---
+import Shell from '../../layouts/Shell.astro';
+import Stamp from '../../components/Stamp.astro';
+import StationSign from '../../components/StationSign.astro';
+import { trip, type DayX, type StopX } from '../../lib/trip';
+import { icon } from '../../lib/icons';
+import { directions, esc, inline, ja, price, tel, url } from '../../lib/format';
+import { trending } from '../../lib/client';
+import { existsSync, readFileSync } from 'node:fs';
+
+export function getStaticPaths() {
+  const t = trip();
+  return t.days.map((day, i) => ({
+    params: { n: String(day.n) },
+    props: { day, prev: t.days[i - 1] ?? null, next: t.days[i + 1] ?? null },
+  }));
+}
+
+interface Props { day: DayX; prev: DayX | null; next: DayX | null }
+const { day, prev, next } = Astro.props;
+const t = trip();
+const trends = trending().days[String(day.n)] ?? [];
+const TAG = { rising: 'Rising', december: 'Big in December', popular: 'Popular', pick: 'Researched' } as const;
+// The lines this day rides (scripts/transit.mjs), in their own colours.
+const transitFile = `${process.cwd()}/public/transit.json`;
+const transitData = existsSync(transitFile) ? JSON.parse(readFileSync(transitFile, 'utf8')) as { days: Record<string, { label: string; colour: string; ids: string[] }[]> } : null;
+const trains = transitData?.days[String(day.n)] ?? [];
+// How each hop is travelled (scripts/legs.mjs): shown under the stop it leaves from.
+const legsFile = `${process.cwd()}/public/legs.json`;
+type LegSeg = { m: string; line?: string; colour?: string; on?: string; off?: string };
+const legsData = existsSync(legsFile) ? JSON.parse(readFileSync(legsFile, 'utf8')) as { days: Record<string, { from: string; mode: string; minutes: number; km?: number; segs: LegSeg[] }[]> } : null;
+const legFrom = new Map((legsData?.days[String(day.n)] ?? []).map((l) => [l.from, l]));
+const LEG_ICON: Record<string, string> = { walk: 'footprints', rail: 'transport', ropeway: 'mountain', funicular: 'mountain', bus: 'transport', car: 'navigation', boat: 'navigation' };
+// Typical weather (scripts/climate.mjs); the browser swaps in the real forecast 16 days out (japan.ts).
+const climateFile = `${process.cwd()}/data/climate.json`;
+const climate = existsSync(climateFile) ? (JSON.parse(readFileSync(climateFile, 'utf8')).days?.[String(day.n)] as { hi: number; lo: number; wet: number } | undefined) : undefined;
+// Real timetable for the longer rides (scripts/timetable.mjs, NAVITIME), when a key was set at build.
+const ttFile = `${process.cwd()}/public/timetable.json`;
+type TT = { dep: string; arr: string; minutes: number; fare: number | null; transfers: number; rides: { line: string; colour: string | null; from: string; to: string; dep: string; arr: string }[] };
+const timetable = existsSync(ttFile) ? (JSON.parse(readFileSync(ttFile, 'utf8')).legs ?? {}) as Record<string, TT> : {};
+const hhmm = (iso: string) => iso.slice(11, 16);
+const walk = (km: number) => Math.max(1, Math.round(((km * 1.3) / 4.5) * 60));
+
+const briefing = day.notes.filter((n) => !n.check);
+const checks = day.notes.filter((n) => n.check);
+const KIND: Record<string, string> = { NOTE: '', 'BASE 1': 'Base 1', 'BASE 2': 'Base 2', 'BASE 3': 'Base 3', 'BASE 4': 'Base 4' };
+const kindLabel = (k: string) => (k in KIND ? KIND[k] : k.charAt(0) + k.slice(1).toLowerCase());
+const MARK: Record<string, string> = { confirmed: 'Confirmed', tobook: 'To book', unconfirmed: 'Not confirmed yet', tocheck: 'Check before' };
+const stayFor = (s: StopX) => (s.category === 'stay' ? t.stays.find((x) => s.name.startsWith(x.short)) : undefined);
+
+// The scrubber track is the day's real sky: night → sunrise → day → sunset → night.
+let track = '';
+if (day.sun && day.stops.length) {
+  const lo = Date.parse(day.stops[0].startISO) - 30 * 60000;
+  const hi = Math.max(Date.parse(day.stops.at(-1)!.endISO), day.sun.sunsetMs + 45 * 60000);
+  const at = (x: number) => `${Math.max(0, Math.min(100, ((x - lo) / (hi - lo)) * 100)).toFixed(2)}%`;
+  const m = 60000;
+  track = [
+    `#1d1846 ${at(day.sun.sunriseMs - 45 * m)}`, `#a46fb0 ${at(day.sun.sunriseMs - 12 * m)}`, `#ffb98c ${at(day.sun.sunriseMs + 8 * m)}`,
+    `#9cbcf0 ${at(day.sun.sunriseMs + 70 * m)}`, `#9cbcf0 ${at(day.sun.sunsetMs - 80 * m)}`, `#ff9a5c ${at(day.sun.sunsetMs - 10 * m)}`,
+    `#d2577a ${at(day.sun.sunsetMs + 10 * m)}`, `#3a2f8f ${at(day.sun.sunsetMs + 32 * m)}`, `#15132a ${at(day.sun.sunsetMs + 70 * m)}`,
+  ].join(', ');
+}
+---
+<Shell title={`Day ${day.n} · ${day.label} · ${day.title}`} description={day.title} view={{ kind: 'day', day: day.n }}>
+  <header class="opener">
+    <div class="opener-stamp">
+      <Stamp n={day.n} kanji={day.stamp.kanji} place={day.stamp.place} date={day.date} weekday={day.weekday} variant="opener" />
+    </div>
+    <div>
+      <p class="dayno"><span class="display">Day {day.n}</span><span class="date">{day.label}</span></p>
+      <h1 set:html={ja(esc(day.title))} />
+    </div>
+  </header>
+  <ul class="facts">
+    {day.base && <li><Fragment set:html={icon('bed')} />{day.base.short}</li>}
+    {day.sun && <li><Fragment set:html={icon('sunrise')} /><span class="time">{day.sun.sunrise}</span></li>}
+    {day.sun && <li><Fragment set:html={icon('sunset')} /><span class="time">{day.sun.sunset}</span><span class="where">{day.sun.where}</span></li>}
+    {day.stops.length > 0 && <li><Fragment set:html={icon('clock')} /><span class="time">{day.stops[0].start}–{day.stops.at(-1)!.end}</span></li>}
+    {climate && <li data-weather data-kind="normal" title="Typical for this date, 2016–2025"><Fragment set:html={icon(climate.wet >= 35 ? 'cloudRain' : climate.lo <= 0 ? 'snowflake' : 'cloudSun')} /><span class="time">{climate.hi}° / {climate.lo}°</span><span class="where">typical · {climate.wet}% chance of rain</span></li>}
+  </ul>
+  <StationSign day={day} prev={prev} next={next} />
+
+  {day.sun && day.stops.length > 0 && (
+    <section class="scrubber" data-scrub-root aria-label="Play the day">
+      <button class="play" type="button" data-play aria-pressed="false" aria-label="Play the day">
+        <span class="i-play" set:html={icon('play')} />
+        <span class="i-pause" set:html={icon('pause')} />
+      </button>
+      <div class="readout" aria-live="polite">
+        <span class="clock time" data-clock>{day.stops[0].start}</span>
+        <span class="phase" data-phase-label>Daylight</span>
+        <span class="active" data-active-name>{day.stops[0].index + 1} · {day.stops[0].name}</span>
+      </div>
+      <div class="track" style={`--track: linear-gradient(90deg, ${track})`}>
+        <input type="range" data-scrub aria-label={`Time of day, ${day.label}`} />
+        <span class="tick" data-tick="rise" hidden><Fragment set:html={icon('sunrise')} />{day.sun.sunrise}</span>
+        <span class="tick" data-tick="set" hidden><Fragment set:html={icon('sunset')} />{day.sun.sunset}</span>
+      </div>
+    </section>
+  )}
+
+  {briefing.length > 0 && (
+    <section aria-labelledby="brief-h">
+      <div class="section-head"><h2 id="brief-h">Briefing</h2></div>
+      <div class="notes">
+        {briefing.map((n) => (
+          <p>{kindLabel(n.kind) && <strong class="kind">{kindLabel(n.kind)}{n.qualifier ? ` (${n.qualifier})` : ''}.</strong>} <Fragment set:html={inline(n.text)} /></p>
+        ))}
+      </div>
+    </section>
+  )}
+
+  {checks.map((c, ci) => (
+    <section aria-labelledby={`check-h-${ci}`}>
+      <div class="section-head"><h2 id={`check-h-${ci}`}>Night-before check</h2>{c.qualifier && <span class="aside">{c.qualifier}</span>}</div>
+      <ul class="checks">
+        {c.text.split(' · ').map((item, i) => (
+          <li><label><input type="checkbox" data-check={`d${day.n}-c${ci}-${i}`} /><span set:html={inline(item)} /></label></li>
+        ))}
+      </ul>
+      <p class="hint">Ticks are saved on this phone only.</p>
+    </section>
+  ))}
+
+  {trains.length > 0 && (
+    <section class="trains" aria-labelledby="trains-h">
+      <div class="section-head"><h2 id="trains-h">Trains in today's plan</h2><span class="aside">tap to see the line</span></div>
+      <ul class="train-chips" role="list">
+        {trains.map((l) => (
+          <li><button type="button" class="train-chip" data-focus-line={l.ids.join(',')} style={`--line:${l.colour}`}>
+            <span class="swatch" aria-hidden="true"></span><span class="tn">{l.label}</span>
+          </button></li>
+        ))}
+      </ul>
+    </section>
+  )}
+
+  {trends.length > 0 && (
+    <section class="trending" aria-labelledby="tr-h">
+      <div class="section-head"><h2 id="tr-h">Things to do nearby</h2><span class="aside">researched for your dates · trending on Wikipedia</span></div>
+      <ul class="tcards" role="list">
+        {trends.map((x) => (
+          <li class="tcard" data-trend-card={x.id}>
+            <button type="button" class="tcard-open" data-open-trend={x.id} data-day={day.n} aria-label={`Show ${x.name} on the map`}>
+              {x.photo ? <img src={x.photo} alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer" /> : <span class="glyph" lang="ja" aria-hidden="true">{(x.ja ?? x.name).slice(0, 1)}</span>}
+              <span class="tag" data-tag={x.tag}>{x.tag === 'rising' && <Fragment set:html={icon('trendingUp')} />}{x.tag === 'december' && <Fragment set:html={icon('snowflake')} />}{x.tag === 'pick' && <Fragment set:html={icon('check')} />}{TAG[x.tag]}</span>
+            </button>
+            <p class="tname">{x.name}</p>
+            {x.when && <p class="twhen">{x.when}</p>}
+            <p class="twalk"><Fragment set:html={icon('footprints')} />{walk(x.near.km)} min from stop {x.near.i}</p>
+            <button type="button" class="tadd" data-trend-toggle={x.id} data-day={day.n} aria-pressed="false"><span class="off"><Fragment set:html={icon('plus')} />Add</span><span class="on"><Fragment set:html={icon('check')} />Added</span></button>
+          </li>
+        ))}
+      </ul>
+      <p class="tfoot"><button type="button" class="chip" data-share-adds hidden><Fragment set:html={icon('share')} /><span data-adds-count>Share adds</span></button> Adds are saved on this phone and slot in after the nearest stop.</p>
+    </section>
+  )}
+
+  <section aria-labelledby="tt-h">
+    <div class="section-head"><h2 id="tt-h">Timetable</h2><span class="aside">{day.stops.length ? `${day.stops.length} stops · Japan time` : 'travel day'}</span></div>
+    {day.stops.length === 0 ? (
+      <p class="empty">No scheduled stops. Fly to Japan; the stamp card starts at Haneda tomorrow, Tue Dec 15, 15:00.</p>
+    ) : (
+      <ol class="timetable">
+        {day.stops.map((s) => {
+          const pr = price(s.price);
+          const stay = stayFor(s);
+          const nextDay = s.startISO.slice(0, 10) !== day.date;
+          return (
+            <li class="stop" id={s.id} data-stop={s.id} data-state="ahead">
+              <div class="rail-col" aria-hidden="true"><button type="button" class="dot" data-focus-stop={s.id} tabindex="-1">{s.index + 1}</button></div>
+              <p class="when"><span class="start time">{s.start}</span><span class="end time">–{s.end}</span>{nextDay && <span class="after">after midnight</span>}</p>
+              <div class="what">
+                <span class="now-flag" aria-hidden="true">Now</span>
+                <h3 set:html={ja(esc(s.name))} />
+                <p class="meta">
+                  <span class="cat"><Fragment set:html={icon(s.category)} />{s.categoryLabel}</span>
+                  {pr ? <span class="price"><span class="time">{pr.amount}</span> {pr.unit === 'group' ? 'group total' : 'pp'}</span> : <span class="price">Free</span>}
+                  {s.mark && (
+                    <a class="mark" data-mark={s.mark} data-todo-mark={s.mark === 'tobook' ? s.todoId : undefined}
+                       href={s.todoId ? url(`/bookings/#${s.todoId}`) : undefined}><span data-mark-label>{MARK[s.mark]}</span></a>
+                  )}
+                </p>
+                {s.plan && <p class="plan" set:html={inline(s.plan)} />}
+                {stay && (
+                  <p class="stay"><span class="mark" data-mark="confirmed">Confirmation</span> <code>{stay.confirmation}</code>
+                    <button class="copy" type="button" data-copy={stay.confirmation} aria-label={`Copy confirmation ${stay.confirmation}`}><Fragment set:html={icon('copy')} /><Fragment set:html={icon('check')} /></button></p>
+                )}
+                <div class="actions">
+                  {s.lat != null && <button class="chip primary" type="button" data-focus-stop={s.id}><Fragment set:html={icon('map')} />On the map</button>}
+                  {s.lat != null && <a class="chip" href={directions(s.lat, s.lng!)} target="_blank" rel="noopener"><Fragment set:html={icon('navigation')} />Directions</a>}
+                  {s.website && !/google\.com\/maps/.test(s.website) && <a class="chip" href={s.website} target="_blank" rel="noopener"><Fragment set:html={icon('globe')} />Website</a>}
+                  {s.phone && <a class="chip" href={tel(s.phone)}><Fragment set:html={icon('phone')} />Call</a>}
+                </div>
+                {(s.summary || s.details.length > 0 || s.extra.length > 0 || s.address) && (
+                  <details class="more">
+                    <summary><Fragment set:html={icon('next')} />Hours, tips and address</summary>
+                    <div class="more-body">
+                      {s.summary && <p set:html={inline(s.summary)} />}
+                      {s.details.length > 0 && (
+                        <dl>
+                          {s.details.map((d) => d.label
+                            ? <div class="row"><dt set:html={ja(esc(d.label))} /><dd set:html={inline(d.text)} /></div>
+                            : <div class="row solo"><dd set:html={inline(d.text)} /></div>)}
+                        </dl>
+                      )}
+                      {s.extra.map((e) => <p set:html={inline(e)} />)}
+                      {s.address && (
+                        <p class="addr"><span set:html={ja(esc(s.address))} />
+                          <button class="copy" type="button" data-copy={s.address} aria-label="Copy address"><Fragment set:html={icon('copy')} /><Fragment set:html={icon('check')} /></button></p>
+                      )}
+                      {s.phone && <p class="phone">Phone <a href={tel(s.phone)}>{s.phone}</a></p>}
+                    </div>
+                  </details>
+                )}
+                {legFrom.get(s.id) && (() => {
+                  const l = legFrom.get(s.id)!;
+                  const rides = l.segs.filter((x) => x.line);
+                  return (
+                    <p class="leg" data-mode={l.mode}>
+                      <Fragment set:html={icon((LEG_ICON[l.mode] ?? 'navigation') as never)} />
+                      {rides.length > 0
+                        ? <span>{rides.map((r, k) => <Fragment>{k > 0 && ' → '}<span class="ride" style={`--line:${r.colour}`}>{r.line}</span>{r.on && r.off && <span class="stn"> {r.on}–{r.off}</span>}</Fragment>)}</span>
+                        : <span>{l.mode === 'walk' ? 'Walk' : l.mode === 'boat' ? 'Boat' : l.mode === 'bus' ? 'Bus' : 'By car'}</span>}
+                      <span class="mins">~{l.minutes} min</span>
+                      {timetable[s.id] && (() => {
+                        const tt = timetable[s.id];
+                        return (
+                          <span class="tt">
+                            <span class="tt-head"><Fragment set:html={icon('clock3')} />Timetable: dep <b class="time">{hhmm(tt.dep)}</b> → arr <b class="time">{hhmm(tt.arr)}</b> · {tt.minutes} min{tt.transfers ? ` · ${tt.transfers} change${tt.transfers > 1 ? 's' : ''}` : ''}{tt.fare ? <Fragment> · <span data-yen>¥{tt.fare.toLocaleString('en-US')}</span></Fragment> : ''}</span>
+                            {tt.rides.map((r) => <span class="tt-ride" style={`--line:${r.colour ?? 'var(--print)'}`}><b class="time">{hhmm(r.dep)}</b> {r.line} · {r.from} → {r.to} <b class="time">{hhmm(r.arr)}</b></span>)}
+                          </span>
+                        );
+                      })()}
+                      {(l.km ?? 0) >= 3 && l.mode !== 'walk' && (
+                        <span class="live" data-live={s.id}>
+                          <button type="button" class="chip" data-live-btn={s.id}><Fragment set:html={icon('radio')} />Live times</button>
+                          <span class="live-out" data-live-out aria-live="polite"></span>
+                        </span>
+                      )}
+                    </p>
+                  );
+                })()}
+              </div>
+            </li>
+          );
+        })}
+      </ol>
+    )}
+    {/* Cloned by app.ts for each quick add, so it carries this page's scoped styles. */}
+    <template data-add-row>
+      <li class="stop added-stop" data-state="ahead">
+        <div class="rail-col" aria-hidden="true"><button type="button" class="dot" tabindex="-1" data-add-focus><Fragment set:html={icon('plus')} /></button></div>
+        <p class="when"><span class="added-label">Your add</span></p>
+        <div class="what">
+          <h3 data-add-name></h3>
+          <p class="meta"><span class="cat" data-add-walk></span></p>
+          <div class="actions">
+            <button class="chip primary" type="button" data-add-focus><Fragment set:html={icon('map')} />On the map</button>
+            <a class="chip" data-add-dir target="_blank" rel="noopener"><Fragment set:html={icon('navigation')} />Directions</a>
+            <button class="chip" type="button" data-add-remove><Fragment set:html={icon('x')} />Remove</button>
+          </div>
+        </div>
+      </li>
+    </template>
+    <p class="hint">{legsData ? 'Routes follow the real train lines and streets, from the plan\'s own notes; times are estimates. Use Directions for live times.' : 'Map lines join stops in order; they are not walking or train routes. Use Directions for the real route.'}</p>
+  </section>
+
+  <div class="end-sign"><StationSign day={day} prev={prev} next={next} /></div>
+</Shell>
+
+<style>
+  .leg .tt { flex-basis: 100%; display: grid; gap: 0.2rem; margin-top: 0.15rem; padding: 0.5rem 0.6rem; border-radius: 10px; background: var(--print-wash); color: var(--text); }
+  .leg .tt-head { display: flex; align-items: center; gap: 0.35rem; flex-wrap: wrap; font-weight: 600; }
+  .leg .tt-ride { font-size: 0.8rem; color: var(--text-2); }
+  .leg .tt-ride::before { content: ''; display: inline-block; width: 12px; height: 5px; border-radius: 3px; background: var(--line); margin-right: 0.35rem; vertical-align: 0.12em; }
+  .leg .live { flex-basis: 100%; display: grid; gap: 0.35rem; margin-top: 0.2rem; }
+  .leg .live .chip { justify-self: start; min-height: 36px; font-size: 0.82rem; }
+  .leg .live-out:empty { display: none; }
+  .leg :global(.live-opt) { display: grid; gap: 0.1rem; padding: 0.45rem 0.6rem; border-radius: 10px; background: var(--paper); border: 1.5px solid var(--print-line); color: var(--text); font-size: 0.82rem; }
+  .leg :global(.live-opt b) { font-variant-numeric: tabular-nums; }
+  .leg :global(.live-opt small) { color: var(--text-2); }
+  :global(.usd) { color: var(--text-2); font-weight: 500; }
+  /* The hop to the next stop, under the stop it leaves from. */
+  .leg { margin-top: 0.6rem; display: flex; align-items: center; flex-wrap: wrap; gap: 0.35rem; font-size: 0.82rem; color: var(--text-2); }
+  .leg :global(.icon) { width: 15px; height: 15px; color: var(--print); }
+  .leg .ride { font-weight: 700; color: var(--text); white-space: nowrap; }
+  .leg .ride::before { content: ''; display: inline-block; width: 16px; height: 6px; border-radius: 3px; background: var(--line); margin-right: 0.35rem; vertical-align: 0.12em; }
+  .leg .stn { color: var(--text-2); }
+  .leg .mins { margin-left: auto; font-variant-numeric: tabular-nums; }
+  /* Your trains today: each line in its own colour. */
+  .train-chips { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: 0.45rem; }
+  .train-chip { display: inline-flex; align-items: center; gap: 0.45rem; min-height: 40px; padding: 0 0.85rem 0 0.55rem; border-radius: 999px; border: 1.5px solid var(--print-line); background: var(--paper); color: var(--text); font-weight: 650; font-size: 0.88rem; cursor: pointer; }
+  .train-chip:hover { border-color: var(--line); }
+  .train-chip .swatch { width: 22px; height: 8px; border-radius: 4px; background: var(--line); box-shadow: 0 0 0 1.5px #fff, 0 0 0 2.5px color-mix(in oklab, var(--line) 40%, transparent); }
+  .train-chip .tj { font-family: var(--f-ja); font-weight: 700; font-size: 0.78rem; color: var(--text-2); }
+  /* Trending nearby: photo cards in a sideways strip. */
+  .tcards { list-style: none; padding: 0.1rem 1rem 0.4rem; margin: 0 -1rem; display: flex; gap: 0.65rem; overflow-x: auto; scroll-snap-type: x proximity; scroll-padding-inline: 1rem; scrollbar-width: none; }
+  .tcards::-webkit-scrollbar { display: none; }
+  .tcard { flex: none; width: 168px; scroll-snap-align: start; display: grid; gap: 0.2rem; align-content: start; }
+  .tcard-open { position: relative; display: block; width: 100%; aspect-ratio: 4 / 3; padding: 0; border: 0; border-radius: 12px; overflow: hidden; background: var(--print-wash); cursor: pointer; }
+  .tcard-open img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .tcard-open .glyph { display: grid; place-items: center; height: 100%; font-family: var(--f-ja); font-weight: 900; font-size: 2.6rem; color: var(--print); }
+  .tcard .tag { position: absolute; left: 6px; bottom: 6px; display: inline-flex; align-items: center; gap: 0.25rem; padding: 0.15rem 0.5rem; border-radius: 999px; background: rgb(255 255 255 / 0.94); color: #2a2170; font-size: 0.72rem; font-weight: 750; }
+  .tcard .tag :global(.icon) { width: 13px; height: 13px; }
+  .tcard .tag[data-tag='pick'] { background: var(--print); color: #fff; }
+  .tname { font-weight: 650; font-size: 0.92rem; line-height: 1.25; margin-top: 0.25rem; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+  .twhen { font-size: 0.78rem; color: var(--print); font-weight: 650; line-height: 1.3; }
+  .twalk { display: inline-flex; align-items: center; gap: 0.3rem; font-size: 0.8rem; color: var(--text-2); }
+  .twalk :global(.icon) { width: 14px; height: 14px; }
+  .tadd { justify-self: start; display: inline-flex; align-items: center; min-height: 36px; padding: 0 0.8rem; border-radius: 999px; border: 1.5px solid var(--print); background: none; color: var(--print); font-weight: 700; font-size: 0.85rem; cursor: pointer; margin-top: 0.15rem; }
+  .tadd span { display: inline-flex; align-items: center; gap: 0.3rem; }
+  .tadd :global(.icon) { width: 15px; height: 15px; }
+  .tadd .on, .tadd[aria-pressed='true'] .off { display: none; }
+  .tadd[aria-pressed='true'] .on { display: inline-flex; }
+  .tadd[aria-pressed='true'] { background: var(--print); color: var(--paper); }
+  .tfoot { margin-top: 0.4rem; font-size: 0.8rem; color: var(--text-2); display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem; }
+  .tfoot .chip { min-height: 36px; font-size: 0.85rem; }
+  /* A quick add in the timetable: a dashed rail, a plus for its dot. */
+  :global(.stop.added-stop) .rail-col::before { background: repeating-linear-gradient(var(--print) 0 5px, transparent 5px 9px); opacity: 0.7; }
+  :global(.stop.added-stop) .dot { border-style: dashed; }
+  :global(.stop.added-stop) .dot :global(.icon) { width: 15px; height: 15px; }
+  :global(.stop.added-stop) .added-label { font-size: 0.72rem; font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase; color: var(--print); }
+  .opener { display: grid; grid-template-columns: 76px 1fr; gap: 0.9rem; align-items: center; margin-top: 1rem; }
+  .opener-stamp :global(.stamp[data-state='ahead']) { color: var(--print-2); }
+  .dayno { display: flex; align-items: baseline; gap: 0.6rem; flex-wrap: wrap; }
+  .dayno .display { font-size: 1.9rem; line-height: 0.95; color: var(--print); }
+  .dayno .date { font-weight: 650; color: var(--text-2); font-size: 0.9rem; }
+  h1 { font-family: var(--f-body); font-weight: 650; font-size: 1.02rem; line-height: 1.3; margin-top: 0.3rem; }
+  .facts { list-style: none; padding: 0; margin: 0.75rem 0 0.9rem; display: flex; flex-wrap: wrap; gap: 0.3rem 0.9rem; font-size: 0.85rem; color: var(--text-2); }
+  .facts li { display: inline-flex; align-items: center; gap: 0.3rem; }
+  .facts :global(.icon) { width: 16px; height: 16px; color: var(--print-2); }
+  .facts .time { color: var(--text); }
+
+  /* Play the day */
+  .scrubber {
+    display: grid; grid-template-columns: auto 1fr; gap: 0.3rem 0.75rem; align-items: center;
+    margin-top: 1rem; padding: 0.8rem 0.9rem 1.5rem; border-radius: 14px; background: var(--paper-2); border: 1.5px solid var(--print-line);
+  }
+  .play { grid-row: span 2; width: 46px; height: 46px; border-radius: 50%; border: 0; display: grid; place-items: center; background: var(--field); color: var(--on-field); }
+  .play:hover { background: var(--field-deep); }
+  .play :global(.icon) { width: 20px; height: 20px; }
+  .i-pause { display: none; }
+  .scrubber[data-playing='true'] .i-play { display: none; }
+  .scrubber[data-playing='true'] .i-pause { display: block; }
+  .readout { display: flex; align-items: baseline; gap: 0.55rem; min-width: 0; }
+  .clock { font-size: 1.4rem; color: var(--print); line-height: 1; }
+  .phase { font-size: 0.78rem; font-weight: 700; color: var(--verm-text); white-space: nowrap; }
+  .active { font-size: 0.82rem; color: var(--text-2); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; min-width: 0; }
+  .track { position: relative; height: 26px; }
+  .track input { -webkit-appearance: none; appearance: none; width: 100%; height: 26px; margin: 0; background: transparent; cursor: grab; }
+  .track input::-webkit-slider-runnable-track { height: 10px; border-radius: 99px; background: var(--track); }
+  .track input::-moz-range-track { height: 10px; border-radius: 99px; background: var(--track); }
+  .track input::-webkit-slider-thumb { -webkit-appearance: none; width: 24px; height: 24px; margin-top: -7px; border-radius: 50%; background: var(--paper); border: 3px solid var(--verm); box-shadow: 0 2px 6px oklch(20% 0.1 282 / 0.35); }
+  .track input::-moz-range-thumb { width: 18px; height: 18px; border-radius: 50%; background: var(--paper); border: 3px solid var(--verm); }
+  .tick { position: absolute; top: 26px; transform: translateX(-50%); display: inline-flex; align-items: center; gap: 0.2rem; font-family: var(--f-display); font-stretch: 106%; font-weight: 650; font-size: 0.72rem; color: var(--text-2); font-variant-numeric: tabular-nums; white-space: nowrap; pointer-events: none; }
+  .tick :global(.icon) { width: 13px; height: 13px; color: var(--verm-text); }
+
+  .notes { display: grid; gap: 0.75rem; font-size: 0.96rem; }
+  .kind { color: var(--print); }
+  .checks { list-style: none; padding: 0; }
+  .checks label { display: grid; grid-template-columns: 26px 1fr; gap: 0.6rem; align-items: start; padding: 0.5rem 0; cursor: pointer; border-bottom: 1px solid var(--print-line); font-size: 0.95rem; }
+  .checks input:checked + span { color: var(--text-2); text-decoration: line-through; text-decoration-color: var(--verm); }
+  .hint { font-size: 0.8rem; color: var(--text-2); margin-top: 0.6rem; }
+  .empty { color: var(--text-2); }
+
+  /* Timetable: a rail line with numbered stations; the number flies the map there. */
+  .timetable { list-style: none; padding: 0; }
+  .stop { display: grid; grid-template-columns: 30px 1fr; grid-template-areas: 'rail when' 'rail what'; gap: 0.15rem 0.75rem; padding-bottom: 1.4rem; scroll-margin: 1rem; border-radius: 10px; transition: background 0.4s var(--ease-out); }
+  .stop.picked { background: var(--verm-wash); }
+  .rail-col { grid-area: rail; position: relative; display: flex; justify-content: center; }
+  .rail-col::before { content: ''; position: absolute; top: 0; bottom: -1.4rem; width: 3px; background: var(--print-line); border-radius: 2px; }
+  .stop:last-child .rail-col::before { bottom: 50%; }
+  .dot { position: relative; z-index: 1; width: 28px; height: 28px; border-radius: 50%; display: grid; place-items: center; padding: 0; cursor: pointer;
+    background: var(--paper); border: 2.5px solid var(--print); color: var(--print); font-family: var(--f-display); font-stretch: 106%; font-weight: 800; font-size: 0.78rem; font-variant-numeric: tabular-nums; }
+  .when { grid-area: when; display: flex; align-items: baseline; gap: 0.35rem; padding-top: 0.2rem; }
+  .start { font-size: 1.15rem; color: var(--print); line-height: 1.1; }
+  .end { font-size: 0.82rem; color: var(--text-2); }
+  .after { font-size: 0.72rem; color: var(--text-2); }
+  .after::before { content: '· '; }
+  .what { grid-area: what; min-width: 0; }
+  .what h3 { font-family: var(--f-body); font-weight: 700; font-size: 1.04rem; line-height: 1.3; }
+  .meta { display: flex; flex-wrap: wrap; align-items: center; gap: 0.25rem 0.8rem; margin-top: 0.25rem; font-size: 0.84rem; color: var(--text-2); }
+  .cat { display: inline-flex; align-items: center; gap: 0.3rem; }
+  .cat :global(.icon) { width: 15px; height: 15px; color: var(--print-2); }
+  .meta a.mark { text-decoration: none; }
+  .plan { margin-top: 0.4rem; font-weight: 600; font-size: 0.96rem; }
+  .stay { display: flex; align-items: center; gap: 0.5rem; margin-top: 0.45rem; }
+  code { font-family: var(--f-display); font-stretch: 106%; font-weight: 700; letter-spacing: 0.06em; }
+  .actions { display: flex; flex-wrap: wrap; gap: 0.45rem; margin-top: 0.65rem; }
+  .actions .chip { min-height: 38px; padding: 0.4rem 0.75rem; font-size: 0.85rem; }
+  .actions :global(.icon) { width: 16px; height: 16px; }
+  .more { margin-top: 0.5rem; }
+  .more summary { cursor: pointer; display: inline-flex; align-items: center; gap: 0.35rem; min-height: 38px; color: var(--print); font-weight: 650; font-size: 0.88rem; list-style: none; }
+  .more summary::-webkit-details-marker { display: none; }
+  .more summary :global(.icon) { width: 16px; height: 16px; transition: transform 0.2s var(--ease-out); }
+  .more[open] summary :global(.icon) { transform: rotate(90deg); }
+  .more-body { display: grid; gap: 0.55rem; padding: 0.3rem 0 0.2rem; font-size: 0.94rem; }
+  dl { display: grid; gap: 0.45rem; }
+  .row { display: grid; gap: 0.1rem; }
+  dt { font-weight: 700; color: var(--print); font-size: 0.86rem; }
+  dd { margin: 0; }
+  .addr { display: flex; align-items: center; gap: 0.5rem; color: var(--text-2); }
+  .phone { color: var(--text-2); }
+  .copy { flex: none; width: 38px; height: 38px; display: grid; place-items: center; border-radius: 50%; border: 1.5px solid var(--print-line); background: var(--paper); color: var(--print); }
+  .copy :global(.icon) { width: 16px; height: 16px; grid-area: 1 / 1; }
+  .copy :global(.icon:last-child) { opacity: 0; }
+  .copy[data-copied='true'] :global(.icon:first-child) { opacity: 0; }
+  .copy[data-copied='true'] :global(.icon:last-child) { opacity: 1; color: var(--verm-text); }
+
+  .now-flag { display: none; }
+  .stop[data-state='past'] .dot { background: var(--print); color: var(--paper); }
+  .stop[data-state='past'] .what h3, .stop[data-state='past'] .start { color: var(--text-2); }
+  .stop[data-state='past'] .rail-col::before { background: var(--print); }
+  .stop[data-state='now'] .dot { background: var(--verm-fill); border-color: var(--verm-fill); color: var(--on-verm); outline: 2px solid var(--verm-fill); outline-offset: 3px; }
+  .stop[data-state='now'] .rail-col::before { background: linear-gradient(var(--print) 0 50%, var(--print-line) 50%); }
+  .stop[data-state='now'] .now-flag { display: inline-block; margin-bottom: 0.3rem; padding: 0.12rem 0.5rem; border-radius: 999px; background: var(--verm-fill); color: var(--on-verm); font-size: 0.7rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; }
+  .stop[data-state='now'] .start { color: var(--verm-text); }
+  .end-sign { margin: 1.5rem 0 0.5rem; }
+</style>

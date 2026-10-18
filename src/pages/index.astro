@@ -1,0 +1,114 @@
+---
+import Shell from '../layouts/Shell.astro';
+import { trip } from '../lib/trip';
+import { icon } from '../lib/icons';
+import { esc, ja, url } from '../lib/format';
+
+const t = trip();
+const nights = (a: string, b: string) => Math.round((Date.parse(b) - Date.parse(a)) / 86400000);
+const upcoming = t.todos.filter((x) => x.due).sort((a, b) => a.due!.localeCompare(b.due!));
+const stopCount = t.days.reduce((a, d) => a + d.stops.length, 0);
+---
+<Shell title="Japan Plan C · Dec 14–29 2026" active="trip" view={{ kind: 'overview' }}>
+  <section class="intro" aria-labelledby="trip-h">
+    <h1 id="trip-h" class="display">The route</h1>
+    <p>{t.days.length} days, {stopCount} stops, {t.stays.length} bases: Haneda → Tokyo → Hakone → Kyoto and Osaka, with day trips to Hiroshima and Nara → back to Shinjuku. Tap a stamp to fly to its day.</p>
+    <p class="key">
+      <span class="mark" data-mark="confirmed">Stamped: day done</span>
+      <span class="mark key-today">Today</span>
+      <span class="mark" data-mark="unconfirmed">Ahead</span>
+    </p>
+    <button type="button" class="chip" data-replay-flight><Fragment set:html={icon('play')} />Replay the route</button>
+  </section>
+
+  <section id="bases" aria-labelledby="bases-h">
+    <div class="section-head"><h2 id="bases-h">Four bases</h2><span class="aside">all confirmed</span></div>
+    <ol class="bases">
+      {t.stays.map((s, i) => {
+        const stop = t.days.flatMap((d) => d.stops).find((x) => x.category === 'stay' && x.name.startsWith(s.short));
+        return (
+          <li class="base">
+            <div class="base-head">
+              <span class="base-n">{i + 1}</span>
+              <div>
+                <h3>{s.short}</h3>
+                <p class="when"><span class="time">{s.checkIn}</span> → <span class="time">{s.checkOut}</span> · {nights(s.checkInISO, s.checkOutISO)} nights</p>
+              </div>
+            </div>
+            <p class="addr" set:html={ja(esc(s.address))} />
+            <details class="more"><summary><Fragment set:html={icon('next')} />House notes</summary><p class="notes" set:html={ja(esc(s.notes))} /></details>
+            <div class="base-actions">
+              <span class="conf"><span class="mark" data-mark="confirmed">Confirmation</span> <code>{s.confirmation}</code>
+                <button class="copy" type="button" data-copy={s.confirmation} aria-label={`Copy confirmation ${s.confirmation}`}><Fragment set:html={icon('copy')} /><Fragment set:html={icon('check')} /></button>
+              </span>
+              {stop?.map && <a class="chip" href={stop.map} target="_blank" rel="noopener"><Fragment set:html={icon('pin')} />Map</a>}
+            </div>
+          </li>
+        );
+      })}
+    </ol>
+  </section>
+
+  <section aria-labelledby="next-h" data-pre-trip>
+    <div class="section-head"><h2 id="next-h">Before we fly</h2><a class="aside" href={url('/bookings/')}>All {t.todos.length}</a></div>
+    <ul class="soon">
+      {upcoming.slice(0, 6).map((x) => (
+        <li data-todo-item={x.id}>
+          <span class="due time">{x.dueLabel}</span>
+          <span class="state" data-due={x.due} />
+          <a href={url(`/bookings/#${x.id}`)} set:html={ja(esc(x.text))} />
+        </li>
+      ))}
+    </ul>
+  </section>
+
+  <p class="foot">Built from the TREK export of Oct 12 2026. Times are Japan time (JST). Prices are per person unless marked as a group total.</p>
+</Shell>
+
+<style>
+  .intro { margin-top: 1rem; }
+  h1 { font-size: 1.6rem; color: var(--print); line-height: 1; }
+  .intro p { margin-top: 0.55rem; font-size: 0.95rem; }
+  .key { display: flex; flex-wrap: wrap; gap: 0.35rem 1rem; }
+  .key .mark { color: var(--text-2); }
+  .key .mark[data-mark='confirmed'] { color: var(--verm-text); }
+  .key-today { color: var(--verm-text) !important; }
+  .intro .chip { margin-top: 0.8rem; min-height: 40px; font-size: 0.88rem; }
+  .intro .chip :global(.icon) { width: 16px; height: 16px; }
+
+  .bases { list-style: none; padding: 0; display: grid; gap: 0.75rem; }
+  .base { padding: 0.9rem 0.95rem; border: 1.5px solid var(--print-line); border-radius: 14px; display: grid; gap: 0.5rem; scroll-margin: 1rem; }
+  .base-head { display: flex; gap: 0.75rem; align-items: center; }
+  .base-n { flex: none; width: 2.2rem; height: 2.2rem; border-radius: 50%; display: grid; place-items: center; border: 2.5px solid var(--print); color: var(--print); font-family: var(--f-display); font-stretch: 112%; font-weight: 800; }
+  .base h3 { font-family: var(--f-display); font-stretch: 112%; font-weight: 800; font-size: 1.02rem; color: var(--print); }
+  .when { font-size: 0.8rem; color: var(--text-2); margin-top: 0.1rem; }
+  .addr { font-weight: 600; font-size: 0.92rem; }
+  .notes { font-size: 0.88rem; color: var(--text-2); margin-top: 0.3rem; }
+  .more summary { cursor: pointer; display: inline-flex; align-items: center; gap: 0.3rem; color: var(--print); font-weight: 650; font-size: 0.85rem; list-style: none; min-height: 32px; }
+  .more summary::-webkit-details-marker { display: none; }
+  .more summary :global(.icon) { width: 15px; height: 15px; transition: transform 0.2s var(--ease-out); }
+  .more[open] summary :global(.icon) { transform: rotate(90deg); }
+  .base-actions { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 0.5rem; }
+  .base-actions .chip { min-height: 38px; padding: 0.35rem 0.75rem; font-size: 0.85rem; }
+  .base-actions :global(.icon) { width: 16px; height: 16px; }
+  .conf { display: inline-flex; align-items: center; gap: 0.45rem; }
+  code { font-family: var(--f-display); font-stretch: 106%; font-weight: 700; font-size: 0.92rem; letter-spacing: 0.06em; }
+  .copy { width: 38px; height: 38px; display: grid; place-items: center; border-radius: 50%; border: 1.5px solid var(--print-line); background: var(--paper); color: var(--print); }
+  .copy :global(.icon) { grid-area: 1 / 1; }
+  .copy :global(.icon:last-child) { opacity: 0; }
+  .copy[data-copied='true'] :global(.icon:first-child) { opacity: 0; }
+  .copy[data-copied='true'] :global(.icon:last-child) { opacity: 1; color: var(--verm-text); }
+
+  .soon { list-style: none; padding: 0; border-top: 1.5px solid var(--print-line); }
+  .soon li { display: grid; grid-template-columns: 1fr auto; gap: 0.15rem 0.75rem; padding: 0.65rem 0; border-bottom: 1px solid var(--print-line); }
+  .soon .due { color: var(--print); font-size: 0.88rem; }
+  .soon a { grid-column: 1 / -1; text-decoration: none; font-weight: 600; font-size: 0.92rem; }
+  .soon a:hover { text-decoration: underline; }
+  .state { font-size: 0.78rem; font-weight: 650; color: var(--text-2); white-space: nowrap; display: inline-flex; align-items: center; gap: 0.4em; }
+  .state::before { content: ''; width: 0.75em; height: 0.75em; border-radius: 50%; border: 2px solid var(--print-line); flex: none; }
+  .state[data-state='overdue'] { color: var(--text); }
+  .state[data-state='overdue']::before { border-color: var(--verm); }
+  .state[data-state='soon']::before { border-color: var(--print); }
+  .state[data-state='done']::before { border-color: var(--print); background: var(--print); }
+  .foot { margin-top: 2rem; font-size: 0.8rem; color: var(--text-2); }
+</style>
