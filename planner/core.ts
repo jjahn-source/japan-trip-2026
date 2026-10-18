@@ -75,13 +75,13 @@ export const Plan = z.object({
 export type Plan = z.infer<typeof Plan>;
 
 export const DayGuide = z.object({
-  notes: z.array(z.object({ kind: z.string().describe('NOTE, BRING, MONEY, CHECK, WEATHER, …'), text: z.string() })).describe('The day\'s briefing: 2–5 short, high-value lines'),
+  notes: z.array(z.object({ kind: z.string().describe('NOTE, BRING, MONEY, CHECK, WEATHER, …'), text: z.string() })).describe('The day\'s briefing: at most 3 short lines, only what changes what they do'),
   stops: z.array(z.object({
     index: z.number().describe('0-based stop index'),
-    summary: z.string().describe('One sentence, the hook'),
-    story: z.string().describe('The guidebook story: what it is, why it is special, what it feels like (3–6 sentences, vivid, specific, no fluff)'),
-    how: z.array(z.string()).describe('How to do it properly, step by step (2–5 lines): entrance, what to order/see, where to stand, queue strategy'),
-    tips: z.array(z.string()).describe('Insider tips from the evidence (1–4 lines): cash only, best seat, skip X, Japanese phrase to use'),
+    summary: z.string().describe('The one-line hook shown on the timeline: at most 120 characters, what to do here and why'),
+    story: z.string().describe('The story, shown when tapped: what it is and why it is special, 2–3 vivid, specific sentences'),
+    how: z.array(z.string()).describe('How to do it, 2–4 short steps: entrance, what to order or see, queue strategy'),
+    tips: z.array(z.string()).describe('At most 3 insider tips from the evidence: cash only, best seat, what to skip'),
     cost: z.string().nullable(), booking: z.string().nullable(), hours: z.string().nullable(),
     source_urls: z.array(z.string()).describe('URLs from the evidence that back this spread (most useful first)'),
     wishes: z.array(z.string()).describe('Wish texts this stop honours'),
@@ -183,6 +183,8 @@ export function openAt(periods: S.PlaceFacts['periods'], date: string, m: number
 export const hm = (iso: string) => iso.slice(11, 16);
 export type Leg = S.Travel & { key: string };
 /** Everything a plan must satisfy, checked by code against real data. Returns problems and the real legs. */
+/** A taxi's fare in yen for a ride of so many minutes (flag fall plus about ¥200 a minute in traffic). */
+export const taxiFare = (minutes: number) => 500 + 200 * minutes;
 export async function checkPlan(plan: Plan, brief: Brief, cands: Map<string, Candidate>): Promise<{ issues: string[]; legs: Map<string, Leg> }> {
   const issues: string[] = [];
   const legs = new Map<string, Leg>();
@@ -230,10 +232,10 @@ export async function checkPlan(plan: Plan, brief: Brief, cands: Map<string, Can
       if (!t) continue;
       legs.set(`${day.date}#${i}`, { ...t, key: `${day.date}#${i}` });
       const taxi = /taxi|cab/i.test(s.transport ?? '');
-      if (taxi && t.carMinutes != null) taxiYen += Math.ceil(brief.people / 4) * (730 + t.carMinutes * 420);
+      if (taxi && t.carMinutes != null) taxiYen += Math.ceil(brief.people / 4) * taxiFare(t.carMinutes);
       const need = buffer + (taxi && t.carMinutes != null ? t.carMinutes + 5 : t.minutes);
       if (gap + 3 < need) issues.push(`${day.date}: ${Math.round(gap)} min from "${s.name}" (${s.end}) to "${next.name}" (${next.start}), but it really takes ${need} min${t.mode === 'transit' ? ` (${t.rides?.join(', ')})` : t.mode === 'car' && !taxi ? ' by car (no train route found; a bus takes longer)' : ` by ${taxi ? 'car' : t.mode}`}.`);
-      if (taxi && t.carMinutes != null && t.carMinutes > 20 && t.mode === 'transit' && t.minutes <= t.carMinutes + 15) issues.push(`${day.date}: taxi "${s.name}" → "${next.name}" (~${t.carMinutes} min, roughly ¥${(t.carMinutes * 450).toLocaleString('en-US')} per car) where the train takes ${t.minutes} min (${t.rides?.join(', ')}).`);
+      if (taxi && t.carMinutes != null && t.carMinutes > 20 && t.mode === 'transit' && t.minutes <= t.carMinutes + 15) issues.push(`${day.date}: taxi "${s.name}" → "${next.name}" (~${t.carMinutes} min, roughly ¥${taxiFare(t.carMinutes).toLocaleString('en-US')} per car) where the train takes ${t.minutes} min (${t.rides?.join(', ')}).`);
     }
     // Taxis add up fast for a group: about ¥4,000 a head in a day means the day is routed badly.
     if (taxiYen / brief.people > 4000) issues.push(`${day.date}: about ¥${Math.round(taxiYen / 1000) * 1000} of taxis (~¥${Math.round(taxiYen / brief.people / 100) * 100} pp). Reorder the day to stop going back and forth, or use the trains/buses their passes cover.`);

@@ -193,7 +193,7 @@ export async function findPlace(name: string, near?: LatLng, area = ''): Promise
 // ── Real travel times: NAVITIME for trains and buses (Japan's own timetables), Google for walks and cars ──
 // (Google's Routes API has no transit in Japan; it does walking and driving.)
 export interface Travel { mode: 'walk' | 'transit' | 'car'; minutes: number; dep?: string; arr?: string; fare?: number | null; rides?: string[]; carMinutes?: number }
-async function googleMinutes(a: LatLng, b: LatLng, mode: 'WALK' | 'DRIVE') {
+export async function googleMinutes(a: LatLng, b: LatLng, mode: 'WALK' | 'DRIVE') {
   if (!has.places()) return null;
   return cached('gmroute', [a.lat.toFixed(4), a.lng.toFixed(4), b.lat.toFixed(4), b.lng.toFixed(4), mode], async () => {
     const r = await http<{ routes?: { duration?: string }[] }>('https://routes.googleapis.com/directions/v2:computeRoutes', {
