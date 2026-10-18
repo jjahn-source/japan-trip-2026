@@ -197,7 +197,9 @@ const THEMES: { key: string; brief: string }[] = [
 ];
 
 async function researchLeg(brief: Brief, leg: Brief['legs'][number], theme: (typeof THEMES)[number], extra: string): Promise<{ candidates: Candidate[]; notes: string }> {
-  return cached('research', [MODEL, brief, leg, theme.key, extra, RESEARCH_SYSTEM], async () => {
+  // Which sources were on is part of the key: adding a key later re-runs the research with it.
+  const on = Object.entries(S.has).filter(([, f]) => f()).map(([k]) => k);
+  return cached('research', [MODEL, brief, leg, theme.key, extra, RESEARCH_SYSTEM, on], async () => {
     const found: Candidate[] = [];
     const task = `Trip: ${brief.title}. Group: ${brief.people} people. ${brief.who}
 Pace: ${brief.pace}
