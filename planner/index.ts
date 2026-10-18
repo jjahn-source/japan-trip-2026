@@ -34,14 +34,18 @@ const today = new Date().toISOString().slice(0, 10);
 // $0.20, cache writes $5; web search $10 per 1,000).
 const spend = { in: 0, out: 0, cacheRead: 0, cacheWrite: 0, searches: 0 };
 type Usage = { input_tokens: number; output_tokens: number; cache_read_input_tokens?: number | null; cache_creation_input_tokens?: number | null; server_tool_use?: { web_search_requests?: number | null } | null };
+/** A hard ceiling on what one run may spend (PLAN_BUDGET in .env, default $60). */
+const BUDGET = Number(key('PLAN_BUDGET') ?? 60);
+class OverBudget extends Error {}
 function meter(u: Usage | undefined) {
   if (!u) return;
   spend.in += u.input_tokens; spend.out += u.output_tokens; spend.cacheRead += u.cache_read_input_tokens ?? 0;
   spend.cacheWrite += u.cache_creation_input_tokens ?? 0; spend.searches += u.server_tool_use?.web_search_requests ?? 0;
+  if (dollars() > BUDGET) throw new OverBudget(`Stopped at ~$${dollars().toFixed(2)}: over the $${BUDGET} budget (PLAN_BUDGET). Finished steps are saved; raise it and re-run to continue.`);
 }
 export const dollars = () => (spend.in * 4 + spend.out * 20 + spend.cacheRead * 0.2 + spend.cacheWrite * 5) / 1e6 + spend.searches * 0.01;
 /** Errors that will fail every other request too (bad request, auth, no credit): stop the run. */
-const fatal = (e: unknown) => e instanceof Anthropic.BadRequestError || e instanceof Anthropic.AuthenticationError || e instanceof Anthropic.PermissionDeniedError;
+const fatal = (e: unknown) => e instanceof OverBudget || e instanceof Anthropic.BadRequestError || e instanceof Anthropic.AuthenticationError || e instanceof Anthropic.PermissionDeniedError;
 
 // ── Schemas (nullable rather than optional: structured outputs want every field present) ──
 const Brief = z.object({
