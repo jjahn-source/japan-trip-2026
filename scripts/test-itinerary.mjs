@@ -145,3 +145,10 @@ test('travel estimates: short walks, trains in town, taxis after the last train'
   assert.equal(estimateHop(a, b, 600, { people: 8 }).mode, 'transit');
   assert.equal(estimateHop(a, b, 25 * 60, { people: 8 }).mode, 'taxi');
 });
+
+test('group rules and year-end hours survive only with their quote on the page', () => {
+  const src = [{ url: 'https://izakaya.example/', text: '年末年始 12月29日～1月3日 休業\n7名様以上はお電話にてご予約ください' }];
+  const { sheet } = validate({ ...EMPTY, group: { text: 'Groups of 7+ must phone', quote: '7名様以上はお電話にてご予約ください', url: src[0].url }, closed: [{ dates: ['2026-12-29'], why: 'year-end', what: 'the restaurant', whole_place: true, quote: '年末年始 12月29日～1月3日 休業', url: src[0].url }] }, src);
+  assert.equal(sheet.group?.text, 'Groups of 7+ must phone');
+  assert.match(factProblem(sheet, '2026-12-29', 1140, 1260), /closed on 2026-12-29/);
+});

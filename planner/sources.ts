@@ -79,6 +79,17 @@ export function xSearch(query: string, fromDate?: string) {
   }, 2));
 }
 
+// ── Yahoo! Japan realtime search: what people in Japan are posting on X right now (free, no login) ──
+export function xJapan(query: string) {
+  return soft('Yahoo realtime', () => cached('yahoo-rt', query, async () => {
+    const res = await fetch(`https://search.yahoo.co.jp/realtime/search?p=${encodeURIComponent(query)}`, { headers: { 'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130 Safari/537.36', 'Accept-Language': 'ja' }, signal: AbortSignal.timeout(20000) });
+    const m = (await res.text()).match(/<script id="__NEXT_DATA__" type="application\/json">([\s\S]*?)<\/script>/);
+    const entries = (m ? JSON.parse(m[1])?.props?.pageProps?.pageData?.timeline?.entry : null) as { createdAt?: number; displayText?: string; screenName?: string; id?: string; likesCount?: number; rtCount?: number }[] | null;
+    if (!entries?.length) return 'No recent posts.';
+    return entries.slice(0, 15).map((e) => `- ${e.createdAt ? new Date(e.createdAt * 1000).toISOString().slice(0, 16).replace('T', ' ') : ''} @${e.screenName} (${e.likesCount ?? 0}♥ ${e.rtCount ?? 0}RT): ${(e.displayText ?? '').replace(/\tSTART\t|\tEND\t/g, '').replace(/\s+/g, ' ').slice(0, 280)} https://x.com/${e.screenName}/status/${e.id}`).join('\n');
+  }, 1));
+}
+
 // ── Perplexity Search API (top of the Artificial Analysis search index) ──
 export function webSearch(query: string) {
   return soft('Perplexity search', () => cached('perplexity', query, async () => {

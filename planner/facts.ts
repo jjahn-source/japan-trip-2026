@@ -37,7 +37,7 @@ export const htmlText = (html: string) => html
   .replace(/&#(\d+);/g, (_, n) => String.fromCodePoint(+n)).replace(/[ \t]+/g, ' ').replace(/ ?\n[ \t]*/g, '\n').replace(/\n\s*\n+/g, '\n').trim();
 
 // Words around which the facts live: hours, prices, closures, last entry, booking.
-const NEAR = /営業時間|開館|閉館|料金|入場|入館|大人|円|¥|定休|休業|休館|運休|運行|最終|受付|ラストオーダー|L\.?O|予約|現金|時間|所要|始発|hours?|open|close|admission|price|fee|yen|last (entry|order|admission)|reserv|book|closed|holiday|cash|timetable|departure/i;
+const NEAR = /営業時間|開館|閉館|料金|入場|入館|大人|円|¥|定休|休業|休館|運休|運行|最終|受付|ラストオーダー|L\.?O|予約|現金|時間|所要|始発|年末年始|年末|大晦日|団体|貸切|貸し切り|個室|名様|名以上|hours?|open|close|admission|price|fee|yen|last (entry|order|admission)|reserv|book|closed|holiday|cash|timetable|departure/i;
 /** Only the parts of a page near hours, prices and closures (a few KB instead of a whole site). */
 export function relevant(text: string, max = 7000) {
   const lines = text.split('\n').map((l) => l.trim()).filter(Boolean);
@@ -52,7 +52,7 @@ const SOCIAL = /tiktok|instagram|youtube|youtu\.be|x\.com|twitter|reddit|faceboo
 export interface Source { url: string; text: string }
 /** The pages to read for one place: its own site first, then search results that look like primary sources. */
 export async function sourcesFor(name: string, nameJa: string | null, area: string, website: string | undefined, month: string): Promise<Source[]> {
-  const hits = (await searchRaw(`${nameJa ?? name} ${area} 営業時間 料金 ${month}`)).filter((h) => !SOCIAL.test(h.url));
+  const hits = (await searchRaw(`${nameJa ?? name} ${area} 営業時間 料金 ${month}${/12月/.test(month) ? ' 年末年始' : ''}`)).filter((h) => !SOCIAL.test(h.url));
   const urls = [...new Set([website, ...hits.map((h) => h.url)].filter((u): u is string => !!u && /^https?:/.test(u)))].slice(0, 4);
   const pages = await Promise.all(urls.map(async (url) => ({ url, text: relevant(await pageText(url)) })));
   // A search snippet is text from that page too, so a quote may come from it when the page itself won't load.
@@ -72,13 +72,14 @@ export const FactSheet = z.object({
   prices: z.array(z.object({ what: z.string().describe('e.g. "Adult admission, weekends", "Private bath, 120 min, per room"'), yen: z.number(), ...Cited })),
   fixed_minutes: z.object({ minutes: z.number(), what: z.string(), ...Cited }).nullable().describe('Only for something that cannot be done faster: a crossing, a ride, a show or performance (not a meal or a bath)'),
   time_limit: z.object({ minutes: z.number(), ...Cited }).nullable().describe('A seating time limit or maximum stay (e.g. "2時間制"), if any'),
+  group: z.object({ text: z.string().describe('What a group of this size must know: online booking limit, "call for 7 or more", private rooms, set menu only, deposit'), ...Cited }).nullable(),
   booking: z.object({ text: z.string().describe('How and when to book'), ...Cited }).nullable(),
   notes: z.array(z.object({ text: z.string().describe('Another hard fact a visitor must know: cash only, group size limits, age rules, event dates'), ...Cited })),
 });
 export type FactSheet = z.infer<typeof FactSheet>;
-export const EMPTY: FactSheet = { open: [], closed: [], last_entry: null, prices: [], fixed_minutes: null, time_limit: null, booking: null, notes: [] };
+export const EMPTY: FactSheet = { open: [], closed: [], last_entry: null, prices: [], fixed_minutes: null, time_limit: null, group: null, booking: null, notes: [] };
 
-export const FACTS_SYSTEM = `You extract hard facts about one place from the source texts given, for visitors on specific dates. Use ONLY the texts: never your own knowledge. Every value needs "quote" (the exact words from the source, copied character for character, one short line) and the "url" of the source it came from. Map weekday rules onto the trip dates using the weekdays given (e.g. "火曜定休" means closed on the Tuesday among the trip dates). Prefer the official site over others, and the newest season's information over old pages. Leave a field empty or null when the texts do not say. Prices are per adult in yen. For a closure, say exactly what is closed: a suspended section of a ropeway or a closed annex does not close the whole place. Note any seating time limit (時間制).`;
+export const FACTS_SYSTEM = `You extract hard facts about one place from the source texts given, for visitors on specific dates. Use ONLY the texts: never your own knowledge. Every value needs "quote" (the exact words from the source, copied character for character, one short line) and the "url" of the source it came from. Map weekday rules onto the trip dates using the weekdays given (e.g. "火曜定休" means closed on the Tuesday among the trip dates). Prefer the official site over others, and the newest season's information over old pages. Leave a field empty or null when the texts do not say. Prices are per adult in yen. For a closure, say exactly what is closed: a suspended section of a ropeway or a closed annex does not close the whole place. Note any seating time limit (時間制). Year-end and New Year hours (年末年始, 大晦日) override regular hours on those dates: always look for them when the trip dates include late December. Note group rules (団体, 個室, 貸切, 'X名様以上はお電話').`;
 
 // ── Validation: a fact survives only if its quote is on its page and holds its value ──
 /** Text as compared: NFKC (full-width → half-width), no spaces or commas, lower case. */
@@ -106,6 +107,7 @@ export function validate(sheet: FactSheet, sources: Source[]): { sheet: FactShee
       prices: sheet.prices.filter((p) => ok(`price ¥${p.yen}`, p, flat(p.quote).includes(String(p.yen)) || flat(p.quote).includes(`${p.yen / 10000}万`))),
       fixed_minutes: fm && ok(`${fm.minutes} min`, fm, flat(fm.quote).includes(String(fm.minutes)) || flat(fm.quote).includes(String(fm.minutes / 60))) ? fm : null,
       time_limit: sheet.time_limit && ok(`limit ${sheet.time_limit.minutes} min`, sheet.time_limit, flat(sheet.time_limit.quote).includes(String(sheet.time_limit.minutes)) || flat(sheet.time_limit.quote).includes(String(sheet.time_limit.minutes / 60))) ? sheet.time_limit : null,
+      group: sheet.group && ok('group', sheet.group) ? sheet.group : null,
       booking: sheet.booking && ok('booking', sheet.booking) ? sheet.booking : null,
       notes: sheet.notes.filter((n) => ok('note', n)),
     },
@@ -122,6 +124,7 @@ export function factLines(f: FactSheet): { text: string; url: string }[] {
     ...f.prices.map((p) => ({ text: `${p.what}: ¥${p.yen.toLocaleString('en-US')}`, url: p.url })),
     ...(f.fixed_minutes ? [{ text: `${f.fixed_minutes.what}: ${f.fixed_minutes.minutes} min`, url: f.fixed_minutes.url }] : []),
     ...(f.time_limit ? [{ text: `Time limit: ${f.time_limit.minutes} min`, url: f.time_limit.url }] : []),
+    ...(f.group ? [{ text: `Groups: ${f.group.text}`, url: f.group.url }] : []),
     ...(f.booking ? [{ text: `Booking: ${f.booking.text}`, url: f.booking.url }] : []),
     ...f.notes.map((n) => ({ text: n.text, url: n.url })),
   ];
