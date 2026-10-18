@@ -202,13 +202,15 @@ export async function travel(a: LatLng, b: LatLng, depart: string): Promise<Trav
   // Rounded to 15 minutes so nearby checks share one request (the free plan is 500 a month).
   const t = new Date(`${depart}:00+09:00`); t.setMinutes(Math.floor(t.getMinutes() / 15) * 15);
   const start = new Date(t.getTime() + 9 * 3600e3).toISOString().slice(0, 16);
-  const tr = await cached('navitime', [a.lat.toFixed(3), a.lng.toFixed(3), b.lat.toFixed(3), b.lng.toFixed(3), start], async () => {
+  const tr = await cached('navitime3', [a.lat.toFixed(3), a.lng.toFixed(3), b.lat.toFixed(3), b.lng.toFixed(3), start], async () => {
     const j = await http<{ items?: unknown[] }>(routeUrl([a.lng, a.lat], [b.lng, b.lat], `${start}:00`, 2), { headers: { 'x-rapidapi-key': key('RAPIDAPI_KEY')!, 'x-rapidapi-host': NAVITIME_HOST } });
     const n = j.items?.[0] ? normalize(j.items[0] as Parameters<typeof normalize>[0]) : null;
-    return n ? { dep: n.dep, arr: n.arr, minutes: n.minutes, fare: n.fare, rides: n.rides.map((x) => `${x.line} ${x.dep.slice(11, 16)}→${x.arr.slice(11, 16)}`) } : null;
+    return n ? { dep: n.dep, arr: n.arr, door: n.door ?? n.arr, minutes: n.minutes, fare: n.fare, rides: n.rides.map((x) => `${x.line}${/bus/.test(x.mode ?? '') && !/バス|bus/i.test(x.line) ? ' (bus)' : ''} ${x.from}→${x.to} ${x.dep.slice(11, 16)}→${x.arr.slice(11, 16)}`) } : null;
   }, 60).catch(() => null);
+  // NAVITIME answers "walk" when no train serves the trip: a long walk means no rail route, so time it by car.
+  if (tr && !tr.rides.length) { const walk = Math.round((Date.parse(tr.arr) - Date.parse(tr.dep)) / 60000); if (walk <= 30 || car == null) return { mode: 'walk', minutes: walk }; return { mode: 'car', minutes: car, carMinutes: car }; }
   // Total time from the moment they leave: waiting for the train counts.
-  if (tr) return { mode: 'transit', minutes: Math.round((Date.parse(tr.arr) - Date.parse(`${depart}:00+09:00`)) / 60000), dep: tr.dep, arr: tr.arr, fare: tr.fare, rides: tr.rides, carMinutes: car ?? undefined };
+  if (tr) return { mode: 'transit', minutes: Math.round((Date.parse(tr.door ?? tr.arr) - Date.parse(`${depart}:00+09:00`)) / 60000), dep: tr.dep, arr: tr.arr, fare: tr.fare, rides: tr.rides, carMinutes: car ?? undefined };
   return car != null ? { mode: 'car', minutes: car, carMinutes: car } : null;
 }
 

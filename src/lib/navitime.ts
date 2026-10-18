@@ -1,8 +1,8 @@
 // NAVITIME Route (totalnavi) via RapidAPI: door-to-door transit routes from Japan's real timetables.
 // Shared by the build (scripts/timetable.mjs) and the phone (scripts/livetimes.ts). Names arrive in Japanese; `english()` gives the English station
 // name when the rail data knows it, and operators and train types are translated here.
-export interface Ride { line: string; type: string | null; company: string | null; colour: string | null; from: string; to: string; dep: string; arr: string }
-export interface Route { dep: string; arr: string; minutes: number; fare: number | null; transfers: number; rides: Ride[] }
+export interface Ride { line: string; mode?: string; type: string | null; company: string | null; colour: string | null; from: string; to: string; dep: string; arr: string }
+export interface Route { dep: string; arr: string; door?: string; minutes: number; fare: number | null; transfers: number; rides: Ride[] }
 
 export const NAVITIME_HOST = 'navitime-route-totalnavi.p.rapidapi.com';
 /** JST wall-clock time as NAVITIME wants it: 2026-12-19T10:40:00. */
@@ -80,7 +80,7 @@ export function normalize(item: Item, english: (ja: string) => string = (s) => s
   secs.forEach((s, i) => {
     if (s.type !== 'move' || !s.move || s.move === 'walk') return;
     const ride: Ride = {
-      line: s.line_name ?? s.transport?.name ?? s.move,
+      line: s.line_name ?? s.transport?.name ?? s.move, mode: s.move,
       type: s.transport?.type ? TYPE[s.transport.type] ?? s.transport.type : s.move === 'superexpress_train' ? 'Shinkansen' : null,
       company: s.transport?.company?.name ? COMPANY[s.transport.company.name] ?? s.transport.company.name : null,
       colour: s.transport?.color ?? null, from: english(secs[i - 1]?.name ?? ''), to: english(secs[i + 1]?.name ?? ''), dep: s.from_time ?? '', arr: s.to_time ?? '',
@@ -92,5 +92,5 @@ export function normalize(item: Item, english: (ja: string) => string = (s) => s
   const fare = mv.reference_fare?.lowest_total_ticket ?? mv.fare?.unit_0 ?? null;
   const dep = rides[0]?.dep || mv.from_time;
   const arr = rides.at(-1)?.arr || mv.to_time;
-  return { dep, arr, minutes: Math.round((Date.parse(arr) - Date.parse(dep)) / 60000), fare, transfers: Math.max(0, rides.length - 1), rides };
+  return { dep, arr, door: mv.to_time, minutes: Math.round((Date.parse(arr) - Date.parse(dep)) / 60000), fare, transfers: Math.max(0, rides.length - 1), rides };
 }

@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-18T18:05:44.557Z",
+  "generated": "2026-10-18T18:36:47.612Z",
   "city": "hakone",
   "baseline": {
     "days": 3,
@@ -19,155 +19,87 @@
   },
   "variants": [
     {
-      "tag": "haiku-opus",
+      "tag": "grounded",
       "metrics": {
         "days": 3,
-        "stops": 23,
-        "spreads": 14,
-        "sourcedSpreads": 11,
-        "sourcesPerSpread": 1.64,
-        "verifiedSpreads": 7,
-        "photos": 4,
+        "stops": 27,
+        "spreads": 18,
+        "sourcedSpreads": 18,
+        "sourcesPerSpread": 2.22,
+        "verifiedSpreads": 16,
+        "photos": 6,
         "videos": 1,
-        "concreteTips": 40,
-        "tips": 71,
-        "storyWords": 60,
-        "todos": 13,
-        "warnings": 0,
+        "concreteTips": 56,
+        "tips": 93,
+        "storyWords": 67,
+        "todos": 16,
+        "warnings": 1,
         "wishesCovered": 11
       },
       "judge": {
+        "errorCount": {
+          "baseline": 6,
+          "variant": 6
+        },
+        "average": {
+          "baseline": 6.5,
+          "variant": 7,
+          "judges": "opus"
+        },
+        "gemini": null,
         "scores": {
           "specificity": {
-            "baseline": 8,
-            "variant": 7,
-            "why": "Both give times, transfers, phone numbers and prices. B adds more actionable detail: show dates, cash-only warnings, store-by-store tax-free, ticket-machine queuing and closure dates."
+            "baseline": 7,
+            "variant": 8,
+            "why": "Both name concrete venues, slots and booking steps. B adds more hard detail: Kaden room sizes and prices, the Tokinosumika ticket price, the Glass no Mori last-entry time and the GRAND×TABLE hours caveat. A leaves several prices vague ('priced at booking', 'free/low')."
           },
           "accuracy": {
-            "baseline": 7,
-            "variant": 5,
-            "why": "A routes Sounzan→Owakudani on 19 Dec without noting B's cited 7–24 Dec ropeway suspension. A also calls '01:00 vs 25:00' an hours conflict, though both mean 01:00, and contradicts itself on whether Hana is booked. B is mostly sound, with minor slips: the pirate-ship time, Yuryo slot length, and a 09:00 first ropeway car in winter."
+            "baseline": 6,
+            "variant": 7,
+            "why": "A wrongly calls the Tokinosumika illumination free or low-cost; it is ticketed, at about ¥1,300 or more. A also gives the Togendai→Motohakone ship as ~25 min and the Motohakone pier→shrine walk as ~20 min. B correctly flags Japan's switch to refund-style tax-free from Nov 2026 and prices the illumination properly. B's errors: it sends a 'Hakone Tozan line' (the railway) to Sengokuhara, which only buses reach. It pastes stray JR Gotemba-line timetables that contradict its own taxi plan. It exaggerates Sunday transit times."
           },
           "feasibility": {
-            "baseline": 7,
-            "variant": 5,
-            "why": "A sends the group back down the mountain two nights running and depends on 1–2am taxis costing about ¥42k in total. Day 1 has a tight 90-minute check-in before the bus. B keeps the nights local to Sengokuhara/Gora/Miyanoshita and works around the closure. Its Day 3 is ambitious but sequenced well."
+            "baseline": 6,
+            "variant": 7,
+            "why": "A's Day 1 is a simple Yumoto-then-Sengokuhara flow. A's Day 2 backtracks heavily, though: Gora → Sengokuhara → A Coop → villa → back to Gora → Miyanoshita → villa. B moves the Open-Air Museum and the brewery into Day 1 and gives Day 2 a clean geographic arc. However, B's Day 1 is tight, with the locker pickup squeezed before the 18:15 geisha arrival. B's Day 1 also relies on a mislabeled late bus."
           },
           "fit": {
             "baseline": 8,
             "variant": 7,
-            "why": "Both suit 20-somethings with nightlife and group onsen. B's private baths, geisha drinking games, brewpub, beer hall and villa drinks feel more varied and budget-aware. A gets Dotonbori food in on arrival night, which is nice."
+            "why": "Both suit a drinking-focused group of 20-year-olds: the geisha games, MONTA, the brewery, Funny's and villa onsen nights. A stays budget-friendly and ends Day 3 with a late Round1 night in Osaka. B's ¥8,000–15,000 Nobu lunch is steep for this age group, and B defers the first Osaka night to another plan."
           },
           "sourcing": {
-            "baseline": 7,
-            "variant": 5,
-            "why": "A leans on Xiaohongshu and generic lists, and several items have no source. B cites official notices (the Odakyu closure PDF), official sites and dated reviews."
+            "baseline": 6,
+            "variant": 6,
+            "why": "Both cite similar sources: official sites, Google reviews, Reddit and the Odakyu notice. Both leave the transfer and stay items unsourced, and neither cites the shinkansen or the taxi times."
           },
           "usefulness": {
-            "baseline": 8,
-            "variant": 6,
-            "why": "B flags critical constraints: the ropeway closure, A Coop's 18:00 close, cash-only lunch, luggage arriving the next day, and the geisha schedule. That makes it more reliable to follow on the ground."
+            "baseline": 6,
+            "variant": 7,
+            "why": "B's Day 2 routing is more efficient, and its tax-refund guidance is current and practically important. B also checks the illumination and beer-hall hours more carefully. A is solid and cheaper, but its Day 2 taxi zig-zag and pricing gaps reduce its reliability."
           }
         },
         "errors": {
           "baseline": [
-            "Pirate ship Togendai→Motohakone stated as ~25 min; the direct crossing is closer to ~40 min",
-            "Hakone Ropeway's winter first car is around 09:15, not 09:00",
-            "Yuryo private rooms described as 2-hour slots; the standard slot is shorter (~50 min)",
-            "Taxi from Tokinosumika to Mishima (30–35 min, two cars) is not budgeted",
-            "Motohakone pier→Hakone Shrine walk overstated at ~20 min"
+            "Tokinosumika illumination described as 'free/low'; it requires a paid ticket (~¥1,300+).",
+            "Pirate ship Togendai→Motohakone stated as ~25 min; it is closer to 40 min via Hakone-machi (25 min is only to Hakone-machi).",
+            "Motohakone pier to Hakone Shrine given as ~20 min walk; it is roughly 10 min.",
+            "Romancecar block of 1h45 is longer than the ~85–90 min typical run.",
+            "Day 2 routing backtracks Gora→Sengokuhara→Gora→Miyanoshita→Sengokuhara, burning time and taxi fares.",
+            "Tax-free advice omits the Nov 2026 shift to refund-at-departure."
           ],
           "variant": [
-            "Routes Gora–Sounzan–Owakudani ropeway on 19 Dec, ignoring the reported 7–24 Dec 2026 Sounzan–Owakudani suspension",
-            "Presents Taruya hours '01:00 on Tabelog vs 25:00' as a conflict, but they are the same time",
-            "Geisha Café Bar Hana booking field says 'booked for 8' while the tip says group seating isn't confirmed",
-            "Describes Odawara as 'one stop past Hakone-Yumoto', which is only true on the Romancecar",
-            "Glass Forest 'lights look better after dark' but the light-up is listed as ending 17:30, leaving a thin dark window",
-            "Two late-night return taxis (~¥42k combined) are costly and fragile for the group"
+            "'Hakone Tozan line 19:42→20:17 into Sengokuhara': the Tozan railway does not reach Sengokuhara; it must be a bus, and the ¥460 rail fare is mislabeled.",
+            "Stray timetable snippets (箱根登山線 09:40→10:02 while taking the Yuryo shuttle; JR御殿場線 17:15→17:23 and 18:59→19:13 while using taxis) contradict the plan.",
+            "Open-Air Museum (Chokoku-no-Mori) to Gora given as ~16 min uphill walk; it is closer to 5–10 min.",
+            "Exaggerated transit claims ('Sunday buses and trains take over 2 hours' Motohakone→Gora; bus to Sengokuhara ~1.5 h).",
+            "Luggage is sent to Osaka from Tokyo, yet Day 3 says 'leave suitcase space for the outlets haul' at the villa.",
+            "Nobu teppan lunch for 8 at ¥8,000–15,000 is poor value for a 20-year-old group's budget."
           ]
         },
-        "winner": "baseline",
-        "summary": "B is the stronger guide. It accounts for the reported ropeway closure, keeps evenings near the villa instead of costly late taxi runs, and packs in more distinctive, group-friendly experiences with better sourcing. A is detailed but has a routing problem on Day 1, internal contradictions, and expensive, fragile late-night logistics.",
-        "judgeCost": 0.205
-      }
-    },
-    {
-      "tag": "sonnet",
-      "metrics": {
-        "days": 3,
-        "stops": 21,
-        "spreads": 11,
-        "sourcedSpreads": 9,
-        "sourcesPerSpread": 1.55,
-        "verifiedSpreads": 9,
-        "photos": 5,
-        "videos": 0,
-        "concreteTips": 30,
-        "tips": 59,
-        "storyWords": 56,
-        "todos": 12,
-        "warnings": 0,
-        "wishesCovered": 11
-      },
-      "judge": {
-        "scores": {
-          "specificity": {
-            "baseline": 9,
-            "variant": 6,
-            "why": "A gives phone numbers and times but leaves the Moto-Hakone stroll vague and admits the Namba night is unresearched. B names specific rooms, slots, dishes, ticket systems, side-path torii shots, coupon apps and a concrete Round1 plan."
-          },
-          "accuracy": {
-            "baseline": 7,
-            "variant": 6,
-            "why": "A overstates the Sengokuhara–Yumoto taxi (~45 min/¥8,500) and the Sengokuhara–Togendai bus. It also uses non-winter Gotemba hours and miscasts tax-free as a central counter. B is mostly sound and catches the December outlet hours and store-by-store tax-free, but it understates the pirate ship time and overstates the walk from the pier to the shrine."
-          },
-          "feasibility": {
-            "baseline": 7,
-            "variant": 5,
-            "why": "A's Day 2 doubles back to Yumoto, returns to the villa, then sends two taxis back to Yumoto and home again (~¥34k) for one bar. Lunch is at 14:00 after only eggs. B's Day 2 flows logically from Togendai to Gora to Sengokuhara, but Day 1 stacks soba then a buffet two hours apart, and the Tokinosumika-to-Mishima taxi is tight and uncosted."
-          },
-          "fit": {
-            "baseline": 9,
-            "variant": 6,
-            "why": "B suits 20-year-olds who want to drink: private mixed onsen, nomihodai, geisha drinking games, a brewpub, a late burger bar, a beer hall under illuminations and Round1. A is more generic and its Osaka night is a placeholder."
-          },
-          "sourcing": {
-            "baseline": 8,
-            "variant": 6,
-            "why": "Both cite Google/Tabelog-type sources. B cites official notices, recent reviews and dated posts for most stops and flags unverified items (Round1 hours, geisha show). A has several 'Sources: none' entries plus a self-admitted unresearched stop."
-          },
-          "usefulness": {
-            "baseline": 8,
-            "variant": 5,
-            "why": "B's warnings (ropeway section closure, A Coop closing at 18:00, cash-only lunch, TA-Q-BIN timing to Osaka) are actionable. A's biggest cost and time sink is self-inflicted, and its Osaka night offers little guidance."
-          }
-        },
-        "errors": {
-          "baseline": [
-            "Pirate ship Togendai → Motohakone stated as ~25 min; it is closer to 35–40 min.",
-            "Walk from Motohakone pier to Hakone Shrine given as ~20 min; it is about 10 min.",
-            "Day 1 schedules soba lunch ending 14:05, then an all-you-can-eat buffet at 16:15: back-to-back meals.",
-            "Hatsuhana on Saturday lunchtime described as a 'short to moderate' wait, which is optimistic.",
-            "Tokinosumika → Mishima taxi (two cars, ~30–35 min) is left uncosted and depends on availability before a timed Hikari.",
-            "Refers to 'early December mornings' for Fuji views on a 20 Dec visit.",
-            "Tenseien buffet/nomihodai price is left unstated ('priced at booking')."
-          ],
-          "variant": [
-            "Sengokuhara ↔ Hakone-Yumoto taxi given as ~45 min/¥8,500 per car; realistically ~25–30 min, and the round trip for one bar is a routing blunder.",
-            "Day 2 returns to Yumoto for lunch, goes back up to the villa, then taxis back down to Yumoto at night: redundant backtracking.",
-            "Sengokuhara → Togendai bus listed as ~35 min; it is roughly 15–20 min.",
-            "Lunch at 14:00 after only black eggs since breakfast is impractical for a group.",
-            "Glass Forest described as 'walkable from your villa' yet a taxi is scheduled. MONTA is called 'a short hop' from the villa but needs an 8-min taxi.",
-            "Lake Ashi fireworks 'swap in for Glass Forest' tip makes no sense: the fireworks are evening events at Moto-Hakone, not at 16:15 in Sengokuhara.",
-            "Gotemba Outlets hours given as 10:00–20:00; December hours are typically 10:00–19:00.",
-            "Tax-free described as presenting the passport 'at the counter'; it is handled store by store.",
-            "Kodama Mishima → Shin-Osaka stated as ~2h45; Kodama is closer to 3h. The transport block is mislabelled 16:50–17:10.",
-            "Moto-Hakone stroll skips Hakone Shrine and the Torii of Peace right beside the pier."
-          ]
-        },
-        "winner": "baseline",
-        "summary": "B is the stronger guide. Its Hakone routing is efficient, it is packed with group-appropriate nightlife and onsen experiences, and it gives concrete, well-sourced logistics such as the ropeway closure workaround, A Coop closing time and TA-Q-BIN timing. A is serviceable, but its Day 2 backtracks expensively to Yumoto and its Osaka night is unplanned. B's flaws are smaller: a few timing understatements and an overstuffed Day 1 food schedule.",
-        "judgeCost": 0.244
+        "winner": "variant",
+        "summary": "B has the stronger overall structure: a cleaner Day 2 loop, accurate illumination pricing and current tax-refund rules. Its weaknesses are stray timetable artifacts and a mislabeled Sengokuhara transfer. A is budget-friendlier and ends with an Osaka night out, but it has a wasteful Day 2 zig-zag and a few factual slips, so B is the more useful guide by a modest margin.",
+        "judgeCost": 0.245
       }
     }
   ]

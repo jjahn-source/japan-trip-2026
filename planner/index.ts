@@ -114,6 +114,8 @@ const Plan = z.object({
       plan: z.string().describe('One line: what to do here'),
       price: z.string().nullable().describe('"¥2,900 pp" or "¥24,000 group total" or null when free'),
       lat: z.number().nullable(), lng: z.number().nullable(),
+      end_lat: z.number().nullable().describe('Only for a ride, cruise or transfer that finishes somewhere else (e.g. the pirate ship docking at Motohakone): where it ends. Otherwise null'),
+      end_lng: z.number().nullable(),
       transport: z.string().nullable().describe('How to get to the NEXT stop, naming the line/mode and minutes, e.g. "Yamanote line Harajuku → Shibuya, 3 min"'),
     })),
   })),
@@ -380,14 +382,16 @@ async function checkPlan(plan: Plan, brief: Brief, cands: Map<string, Candidate>
       if (!next) continue;
       const gap = (Date.parse(times[i + 1].startISO) - endMs) / 60000;
       if (gap < 0) issues.push(`${day.date}: "${next.name}" starts before "${s.name}" ends.`);
-      if (s.lat == null || next.lat == null || s.lng == null || next.lng == null) continue;
-      const t = await S.travel({ lat: s.lat, lng: s.lng }, { lat: next.lat, lng: next.lng }, times[i].endISO.slice(0, 16));
+      // A ride or cruise ends somewhere other than where it starts; without its end point there is nothing honest to check.
+      const from = s.end_lat != null && s.end_lng != null ? { lat: s.end_lat, lng: s.end_lng } : s.category === 'transport' ? null : s.lat != null && s.lng != null ? { lat: s.lat, lng: s.lng } : null;
+      if (!from || next.lat == null || next.lng == null) continue;
+      const t = await S.travel(from, { lat: next.lat, lng: next.lng }, times[i].endISO.slice(0, 16));
       if (!t) continue;
       legs.set(`${day.date}#${i}`, { ...t, key: `${day.date}#${i}` });
       const taxi = /taxi|cab/i.test(s.transport ?? '');
       const need = taxi && t.carMinutes != null ? t.carMinutes + 5 : t.minutes;
-      if (gap + 3 < need) issues.push(`${day.date}: ${Math.round(gap)} min from "${s.name}" (${s.end}) to "${next.name}" (${next.start}), but it really takes ${need} min${t.mode === 'transit' ? ` (${t.rides?.join(', ')})` : ` by ${taxi ? 'car' : t.mode}`}.`);
-      if (taxi && t.carMinutes != null && t.carMinutes > 20 && t.mode === 'transit' && t.minutes <= t.carMinutes + 25) issues.push(`${day.date}: taxi "${s.name}" → "${next.name}" (~${t.carMinutes} min, roughly ¥${(t.carMinutes * 450).toLocaleString('en-US')} per car) where the train takes ${t.minutes} min (${t.rides?.join(', ')}).`);
+      if (gap + 3 < need) issues.push(`${day.date}: ${Math.round(gap)} min from "${s.name}" (${s.end}) to "${next.name}" (${next.start}), but it really takes ${need} min${t.mode === 'transit' ? ` (${t.rides?.join(', ')})` : t.mode === 'car' && !taxi ? ' by car (no train route found; a bus takes longer)' : ` by ${taxi ? 'car' : t.mode}`}.`);
+      if (taxi && t.carMinutes != null && t.carMinutes > 20 && t.mode === 'transit' && t.minutes <= t.carMinutes + 15) issues.push(`${day.date}: taxi "${s.name}" → "${next.name}" (~${t.carMinutes} min, roughly ¥${(t.carMinutes * 450).toLocaleString('en-US')} per car) where the train takes ${t.minutes} min (${t.rides?.join(', ')}).`);
     }
   }
   for (const w of brief.wishes) if (!plan.coverage.some((c) => c.wish_id === w.id)) issues.push(`Wish ${w.id} ("${w.text}") is not accounted for in coverage.`);
@@ -402,7 +406,8 @@ Rules:
 - Group neighbourhoods so days flow geographically; put sights at their best hour (crowds, light), meals at real meal times, nightlife late, and end each night near a station or the stay.
 - Honour EVERY wish in the brief and report where in coverage. If one cannot be honoured, say why.
 - Prices in yen, "pp" or "group total". Booking-critical items get a todo with a due date (when bookings open or the latest safe day).
-- Budget: one row per meaningful item or category with group and per-person yen.`;
+- Budget: one row per meaningful item or category with group and per-person yen.
+- A ride or cruise that ends somewhere else (pirate ship, ropeway, a transfer) gives end_lat/end_lng for where it ends.`;
 
 async function makePlan(brief: Brief, cands: Candidate[], stays: AnchorStay[], notes: string[], extra: string, previous?: Plan, fixes: string[] = []): Promise<Plan & { warnings?: string[]; legs: Map<string, Leg> }> {
   const catalogue = cands.map((c) => ({ id: c.id, name: c.name, ja: c.name_ja, city: c.city, area: c.area, kind: c.kind, why: c.why, best_time: c.best_time, dates: c.dates, price: c.price, booking: c.booking, group: c.group_of_8, hours: c.verified?.hours?.join('; ') ?? c.hours, visit_minutes: c.visit_minutes ?? null, first_last: c.first_last ?? null, lat: c.lat, lng: c.lng, wishes: c.wish_ids, confidence: +c.confidence.toFixed(2), status: c.verified?.status ?? null }));
@@ -434,7 +439,7 @@ async function writeDay(brief: Brief, day: Plan['days'][number], n: number, byId
 }
 
 // ── Fact-check: an editor who opens the official pages and checks every hard claim ──
-const FACT_SYSTEM = `You are a meticulous fact-checker for a Japan itinerary. Today is ${today}. For the day given, check every HARD claim against official or primary sources (operator timetables, official sites, recent notices): opening and closing times, first/last departures, ride and crossing durations, walking times, slot/session lengths, prices, event dates, closures. Use web_search and web_fetch; prefer official Japanese pages. Do NOT re-litigate taste or choices. Report only claims you have verified are wrong (with the correct value and the source URL), plus anything impossible (e.g. a meal crammed after another, a venue closed that day). If everything checks out, report nothing. Be economical: about 6–10 tool calls.`;
+const FACT_SYSTEM = `You are a meticulous fact-checker for a Japan itinerary. Today is ${today}. For the day given, check every HARD claim against official or primary sources (operator timetables, official sites, recent notices): opening and closing times, first/last departures, ride and crossing durations, walking times, slot/session lengths, prices, event dates, closures. Use web_search and web_fetch; prefer official Japanese pages. Do NOT re-litigate taste or choices. Report only claims you have verified are wrong (with the correct value and the source URL), plus anything impossible (e.g. a meal crammed after another, a venue closed that day) and anything that contradicts the rest of the day or the trip notes (e.g. luggage forwarded ahead but told to pack it). If everything checks out, report nothing. Be economical: about 6–10 tool calls.`;
 const dayText = (d: ItinDay) => `${d.date} · ${d.title}\n${d.notes.map((n) => `[${n.kind}] ${n.text}`).join('\n')}\n${d.stops.map((s, i) => `#${i} ${s.start}–${s.end} ${s.name}${s.price ? ` (${s.price})` : ''}${s.transport ? ` → next: ${s.transport}` : ''}${s.guide ? `\n   ${s.guide.story}\n   How: ${s.guide.how.join(' / ')}\n   Tips: ${s.guide.tips.join(' / ')}${s.guide.hours ? `\n   Hours: ${s.guide.hours}` : ''}${s.guide.booking ? `\n   Booking: ${s.guide.booking}` : ''}` : ''}`).join('\n')}`;
 async function factCheckDay(d: ItinDay): Promise<string[]> {
   const model = MODELS.plan;
@@ -476,7 +481,8 @@ function assemble(brief: Brief, plan: Plan & { warnings?: string[]; legs?: Map<s
           address: c?.verified?.address ?? null, lat: s.lat, lng: s.lng, website: c?.verified?.website ?? null, phone: c?.verified?.phone ?? null, map: c?.verified?.maps ?? null,
           transport: (() => {
             const l = plan.legs?.get(`${d.date}#${si}`);
-            return l?.mode === 'transit' && l.rides?.length ? `${s.transport ?? ''} · timetable: ${l.rides.join(', ')}${l.fare ? ` · ¥${l.fare.toLocaleString('en-US')}` : ''}`.replace(/^ · /, '') : s.transport;
+            // A timetable only where they actually ride: never under a taxi, shuttle or walk.
+            return l?.mode === 'transit' && l.rides?.length && !/taxi|cab|shuttle|walk|car\b|drive/i.test(s.transport ?? '') ? `${s.transport ?? ''} · timetable: ${l.rides.join(', ')}${l.fare ? ` · ¥${l.fare.toLocaleString('en-US')}` : ''}`.replace(/^ · /, '') : s.transport;
           })(), guide,
         };
       }),
