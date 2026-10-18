@@ -217,6 +217,9 @@ if (day.sun && day.stops.length) {
                         <p class="g-src">Found in: {g.sources.map((x, k) => <Fragment>{k > 0 && ' · '}<a href={x.url} target="_blank" rel="noopener">{x.label}</a></Fragment>)}</p>
                       )}
                       {g.wishes.length > 0 && <p class="g-wish">Because you asked: {g.wishes.join(' · ')}</p>}
+                      {g.facts && g.facts.length > 0 && (
+                        <ul class="g-facts" aria-label="Verified facts">{g.facts.map((f) => <li>{f.text} · <a href={f.url} target="_blank" rel="noopener">{(() => { try { return new URL(f.url).hostname.replace(/^www\./, ''); } catch { return 'source'; } })()}</a></li>)}</ul>
+                      )}
                       {g.verified && <p class="g-ver">{g.verified.status === 'OPERATIONAL' ? 'Checked open' : 'Checked'} on {g.verified.source}</p>}
                     </div>
                   );
@@ -347,7 +350,10 @@ if (day.sun && day.stops.length) {
   .g-vlabel { position: absolute; left: 0; right: 0; bottom: 0; padding: 0.35rem 0.45rem; font-size: 0.7rem; font-weight: 700; text-align: left; background: linear-gradient(transparent, rgb(0 0 0 / 0.65)); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
   :global(.g-frame) { width: 100%; max-width: 340px; aspect-ratio: 9 / 16; border: 0; border-radius: 12px; }
   :global(.g-frame[data-kind='youtube']) { max-width: none; aspect-ratio: 16 / 9; }
-  .g-src, .g-wish, .g-ver { font-size: 0.78rem; color: var(--text-2); }
+  .g-src, .g-wish, .g-ver, .g-facts { font-size: 0.78rem; color: var(--text-2); }
+  .g-facts { list-style: none; padding: 0; margin: 0.4rem 0; display: grid; gap: 0.15rem; }
+  .g-facts li::before { content: '✓ '; color: var(--print); }
+  .g-facts a { color: var(--print); }
   .g-src a { color: var(--print); }
   .g-wish { color: var(--verm-text); font-weight: 650; }
   .leg .tt { flex-basis: 100%; display: grid; gap: 0.2rem; margin-top: 0.15rem; padding: 0.5rem 0.6rem; border-radius: 10px; background: var(--print-wash); color: var(--text); }

@@ -49,3 +49,40 @@ test('a place match needs the place\'s own name, not its neighbourhood or a stat
   assert.equal(nameMatch('Shinjuku Station', 'Shinjuku Station'), true);
   assert.equal(nameMatch('Ichiran', 'Ichiran Shibuya'), true);
 });
+
+import { validate, claims, allowedFrom, unsupported, stripUnsupported, factProblem, htmlText, EMPTY } from '../planner/facts.ts';
+
+const page = [{ url: 'https://www.hakoneyuryo.jp/price/', text: '日帰り温泉 大人 1,700円（土日祝 2,000円）\n営業時間 10:00～20:00（最終受付 19:00）\n毎週火曜日 休館' }];
+test('a fact survives only when its quote is on the page and holds the value', () => {
+  const sheet = { ...EMPTY,
+    prices: [{ what: 'Adult, weekends', yen: 2000, quote: '土日祝 2,000円', url: page[0].url }, { what: 'Adult', yen: 1500, quote: '大人 1,500円', url: page[0].url }, { what: 'Adult', yen: 1800, quote: '大人 1,700円', url: page[0].url }],
+    open: [{ dates: ['2026-12-19'], open: '10:00', close: '20:00', quote: '営業時間 10:00～20:00', url: page[0].url }],
+    last_entry: { time: '19:00', quote: '最終受付 19:00', url: 'https://elsewhere.example/' },
+  };
+  const { sheet: v, dropped } = validate(sheet, page);
+  assert.deepEqual(v.prices.map((p) => p.yen), [2000]); // invented quote and mismatched value both dropped
+  assert.equal(v.open.length, 1);
+  assert.equal(v.last_entry, null); // quote is real but not on the page it cites
+  assert.equal(dropped.length, 3);
+});
+
+test('the audit finds unbacked prices, times and minutes, and allows group totals of backed prices', () => {
+  assert.deepEqual(claims('About ¥2,000 pp, open 10:00, a 16-minute walk, 2 hours').map((c) => [c.kind, c.value]), [['yen', 2000], ['time', 600], ['minutes', 16], ['minutes', 120]]);
+  const a = allowedFrom(['Adult, weekends: ¥2,000', '10:00 12:00', 'walk 9 min'], 8);
+  assert.deepEqual(unsupported('¥16,000 for all eight, from 10:00, 9 minutes on foot, stay 2 hours', a), []);
+  assert.deepEqual(unsupported('Allow 16 minutes and ¥2,900 each.', a).map((c) => c.raw).sort(), ['16 minutes', '¥2,900'].sort());
+  assert.equal(stripUnsupported('Entry is ¥2,000. It takes 25 min to walk. Go early.', a), 'Entry is ¥2,000. Go early.');
+});
+
+test('verified facts catch closures, hours on the date, last entry and fixed ride lengths', () => {
+  const f = { ...EMPTY, closed: [{ dates: ['2026-12-22'], why: 'Tuesdays', quote: 'q', url: 'u' }], open: [{ dates: ['2026-12-19'], open: '10:00', close: '20:00', quote: 'q', url: 'u' }], last_entry: { time: '19:00', quote: 'q', url: 'u' }, fixed_minutes: { minutes: 40, what: 'Togendai → Motohakone', quote: 'q', url: 'u' } };
+  assert.match(factProblem(f, '2026-12-22', 600, 700), /closed/);
+  assert.match(factProblem(f, '2026-12-19', 540, 600), /open only 10:00–20:00/);
+  assert.match(factProblem(f, '2026-12-19', 1150, 1190), /last entry/);
+  assert.match(factProblem(f, '2026-12-19', 660, 685), /takes 40 min/);
+  assert.equal(factProblem(f, '2026-12-19', 660, 705), null);
+});
+
+test('pages become plain text', () => {
+  assert.equal(htmlText('<p>営業時間&nbsp;10:00</p><script>x()</script><td>大人</td><td>&yen;2,000</td>'), '営業時間 10:00\n大人\n¥2,000');
+});
