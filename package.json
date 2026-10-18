@@ -18,7 +18,8 @@
     "places": "astro build && node scripts/places.mjs && astro build",
     "climate": "astro build && node scripts/climate.mjs && astro build",
     "timetable": "astro build && node --env-file-if-exists=.env scripts/timetable.mjs && astro build",
-    "plan": "node planner/index.ts"
+    "plan": "node planner/index.ts",
+    "plan:bench": "node planner/bench.ts"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "0.135.0",

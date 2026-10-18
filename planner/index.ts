@@ -22,7 +22,18 @@ import { parsePlan, type Stay } from '../src/lib/plan.ts';
 import { dayLabel, stopTimes, type Guide, type GuideMedia, type Itinerary, type ItinDay } from '../src/lib/itinerary.ts';
 import { hoursAt, parseHours } from '../src/lib/hours.ts';
 
-const MODEL = 'claude-opus-5-5';
+// The model for each stage. Opus 5.5 by default; PLAN_MODEL (all stages) or PLAN_MODEL_RESEARCH /
+// _PLAN / _WRITE override it, e.g. to benchmark Sonnet 5.5 or Haiku 5.5 against Opus.
+const OPUS = 'claude-opus-5-5';
+const pick = (stage: string) => key(`PLAN_MODEL_${stage}`) ?? key('PLAN_MODEL') ?? OPUS;
+const MODELS = { brief: OPUS, research: pick('RESEARCH'), plan: pick('PLAN'), write: pick('WRITE') };
+const stageModel = (stage: string) => (stage === 'brief' ? MODELS.brief : stage.startsWith('plan') ? MODELS.plan : stage === 'write' ? MODELS.write : MODELS.research);
+const isHaiku = (m: string) => /haiku/.test(m);
+/** Haiku has no server-side refusal fallback and only the basic web tools. */
+const fallbackFor = (m: string) => (isHaiku(m) ? {} : { fallbacks: 'default' as const });
+const webTools = (m: string) => (isHaiku(m)
+  ? [{ type: 'web_search_20250305' as const, name: 'web_search' as const, max_uses: 12 }, { type: 'web_fetch_20250910' as const, name: 'web_fetch' as const, max_uses: 10, max_content_tokens: 6000 }]
+  : [{ type: 'web_search_20260209' as const, name: 'web_search' as const, max_uses: 12 }, { type: 'web_fetch_20260209' as const, name: 'web_fetch' as const, max_uses: 10, max_content_tokens: 6000 }]);
 const BETAS = ['server-side-fallback-2026-07-01', 'context-management-2025-06-27'];
 const STATE = resolve(ROOT, 'data/research/state.json');
 const OUT = resolve(ROOT, 'data/itinerary.json');
@@ -32,18 +43,25 @@ const today = new Date().toISOString().slice(0, 10);
 
 // What this run costs, from the API's own usage reports (Opus 5.5: $4/$20 per M tokens; cache reads
 // $0.20, cache writes $5; web search $10 per 1,000).
+// $ per million tokens: input, output, cache read, cache write.
+const PRICE: Record<string, [number, number, number, number]> = {
+  'claude-opus-5-5': [4, 20, 0.2, 5], 'claude-sonnet-5-5': [2, 10, 0.2, 2.5], 'claude-haiku-5-5': [0.1, 0.5, 0.01, 0.125], 'claude-fable-5-1': [10, 50, 0.25, 12.5],
+};
+let spentTokens = 0;
 const spend = { in: 0, out: 0, cacheRead: 0, cacheWrite: 0, searches: 0 };
 type Usage = { input_tokens: number; output_tokens: number; cache_read_input_tokens?: number | null; cache_creation_input_tokens?: number | null; server_tool_use?: { web_search_requests?: number | null } | null };
 /** A hard ceiling on what one run may spend (PLAN_BUDGET in .env, default $60). */
 const BUDGET = Number(key('PLAN_BUDGET') ?? 60);
 class OverBudget extends Error {}
-function meter(u: Usage | undefined) {
+function meter(u: Usage | undefined, model: string) {
   if (!u) return;
+  const [pi, po, pr, pw] = PRICE[model] ?? PRICE[OPUS];
+  spentTokens += (u.input_tokens * pi + u.output_tokens * po + (u.cache_read_input_tokens ?? 0) * pr + (u.cache_creation_input_tokens ?? 0) * pw) / 1e6;
   spend.in += u.input_tokens; spend.out += u.output_tokens; spend.cacheRead += u.cache_read_input_tokens ?? 0;
   spend.cacheWrite += u.cache_creation_input_tokens ?? 0; spend.searches += u.server_tool_use?.web_search_requests ?? 0;
   if (dollars() > BUDGET) throw new OverBudget(`Stopped at ~$${dollars().toFixed(2)}: over the $${BUDGET} budget (PLAN_BUDGET). Finished steps are saved; raise it and re-run to continue.`);
 }
-export const dollars = () => (spend.in * 4 + spend.out * 20 + spend.cacheRead * 0.2 + spend.cacheWrite * 5) / 1e6 + spend.searches * 0.01;
+export const dollars = () => spentTokens + spend.searches * 0.01;
 /** Errors that will fail every other request too (bad request, auth, no credit): stop the run. */
 const fatal = (e: unknown) => e instanceof OverBudget || e instanceof Anthropic.BadRequestError || e instanceof Anthropic.AuthenticationError || e instanceof Anthropic.PermissionDeniedError;
 
@@ -121,15 +139,16 @@ const DayGuide = z.object({
 type Effort = 'low' | 'medium' | 'high' | 'xhigh' | 'max';
 /** One structured answer, streamed (long outputs), validated, cached by its exact inputs. */
 async function structured<T extends z.ZodType>(stage: string, schema: T, system: string, user: string, effort: Effort = 'high'): Promise<z.infer<T>> {
-  return cached(`claude-${stage}`, [MODEL, system, user, effort], async () => {
+  const model = stageModel(stage);
+  return cached(`claude-${stage}`, [model, system, user, effort], async () => {
     for (let attempt = 0; ; attempt++) {
       const stream = client.beta.messages.stream({
-        model: MODEL, max_tokens: 64000, betas: BETAS, fallbacks: 'default',
+        model, max_tokens: 64000, betas: BETAS, ...fallbackFor(model),
         system: sys(system), messages: [{ role: 'user', content: user }],
         output_config: { effort, format: betaZodOutputFormat(schema) },
       });
       const msg = await stream.finalMessage();
-      meter(msg.usage);
+      meter(msg.usage, model);
       if (msg.stop_reason === 'refusal') throw new Error(`${stage}: the model declined (${msg.stop_details?.category ?? 'no category'})`);
       if (msg.stop_reason === 'max_tokens') throw new Error(`${stage}: output hit max_tokens`);
       const text = msg.content.flatMap((b) => (b.type === 'text' ? [b.text] : [])).join('');
@@ -221,7 +240,8 @@ async function researchLeg(brief: Brief, leg: Brief['legs'][number], theme: (typ
   // Keyed on the group and the leg, not the whole brief, so a one-city preview's research is reused
   // by the full run (and vice versa).
   const group = { people: brief.people, who: brief.who, pace: brief.pace, wishes: brief.wishes };
-  return cached('research', [MODEL, group, leg, theme.key, extra, RESEARCH_SYSTEM, on], async () => {
+  const model = MODELS.research;
+  return cached('research', [model, group, leg, theme.key, extra, RESEARCH_SYSTEM, on], async () => {
     const found: Candidate[] = [];
     const task = `Trip: ${brief.title}. Group: ${brief.people} people. ${brief.who}
 Pace: ${brief.pace}
@@ -231,7 +251,7 @@ ${brief.wishes.map((w) => `- ${w.id}: ${w.text}`).join('\n')}
 This task: ${leg.city}, ${leg.from} to ${leg.to}${leg.base ? `, staying at ${leg.base}` : ''}.
 Theme: ${theme.brief}${extra ? `\n\nAlso: ${extra}` : ''}`;
     const runner = client.beta.messages.toolRunner({
-      model: MODEL, max_tokens: 16000, betas: [...BETAS, 'task-budgets-2026-03-13'], fallbacks: 'default', max_iterations: 40,
+      model, max_tokens: 16000, betas: [...BETAS, 'task-budgets-2026-03-13'], ...fallbackFor(model), max_iterations: 40,
       // Cache the whole conversation, not just the system prompt: every step re-sends everything
       // before it, and cached tokens are read back at 5% of the price.
       cache_control: { type: 'ephemeral' },
@@ -240,12 +260,12 @@ Theme: ${theme.brief}${extra ? `\n\nAlso: ${extra}` : ''}`;
       // Old tool results are cleared early (the candidates are already saved in code): each turn
       // re-reads the whole conversation, so this is most of the cost.
       context_management: { edits: [{ type: 'clear_tool_uses_20250919', trigger: { type: 'input_tokens', value: 30000 }, keep: { type: 'tool_uses', value: 3 }, exclude_tools: ['save_candidates'] }] },
-      tools: [...researchTools(brief, found), { type: 'web_search_20260209', name: 'web_search', max_uses: 12 }, { type: 'web_fetch_20260209', name: 'web_fetch', max_uses: 10, max_content_tokens: 6000 }],
+      tools: [...researchTools(brief, found), ...webTools(model)],
       messages: [{ role: 'user', content: task }],
     });
     let notes = '';
     for await (const m of runner) {
-      meter(m.usage);
+      meter(m.usage, model);
       if (m.stop_reason === 'pause_turn') runner.pushMessages({ role: 'assistant', content: m.content });
       const t = m.content.flatMap((b) => (b.type === 'text' ? [b.text] : [])).join('\n');
       if (t.trim()) notes = t;
@@ -424,6 +444,7 @@ let ONLY: string | null = null; // --only <city>: research, plan and write one c
 async function plan(briefFile: string, extra = '', previous?: State) {
   const briefText = readFileSync(briefFile, 'utf8');
   const stays = anchors();
+  log(`Models: research ${MODELS.research} · plan ${MODELS.plan} · write ${MODELS.write}`);
   log(`Sources on: ${Object.entries(S.has).filter(([, f]) => f()).map(([k]) => k).join(', ') || 'none'} (+ Claude web search, TREK Places, Wikipedia)`);
   const fullBrief = previous?.briefText === briefText ? previous.brief : await structured('brief', Brief, BRIEF_SYSTEM, briefText, 'medium');
   const brief = ONLY ? { ...fullBrief, legs: fullBrief.legs.filter((l) => l.city.toLowerCase() === ONLY!.toLowerCase()) } : fullBrief;
@@ -469,7 +490,8 @@ async function plan(briefFile: string, extra = '', previous?: State) {
     log(`  writing ${d.date} failed: ${(e as Error).message}`); return { notes: [], stops: [] };
   }));
   const it = assemble(brief, p, guides, byId, stays, briefText);
-  const out = ONLY ? resolve(ROOT, `data/research/preview-${ONLY.toLowerCase()}.json`) : OUT;
+  const tag = key('PLAN_TAG');
+  const out = ONLY ? resolve(ROOT, `data/research/preview-${ONLY.toLowerCase()}${tag ? `-${tag}` : ''}.json`) : OUT;
   writeJson(out, it);
   if (ONLY) log(`Preview only: wrote ${out.replace(`${ROOT}/`, '')}; the site's itinerary is unchanged.`);
   log(`Claude cost this run: ~$${dollars().toFixed(2)} (cached steps are free on re-runs).`);
