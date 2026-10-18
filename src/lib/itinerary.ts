@@ -17,6 +17,7 @@ export interface Guide {
   wishes: string[];                    // which wishes from the brief this stop serves
   verified: { source: string; status: string | null } | null;
   facts?: { text: string; url: string }[]; // hard facts, each quoted from the page it links to
+  measured?: string | null;            // the real route to the next stop, from routing data
 }
 export interface ItinStop {
   id: string; start: string; end: string; name: string; nameJa: string | null;

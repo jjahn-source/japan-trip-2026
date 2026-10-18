@@ -67,7 +67,7 @@ export async function sourcesFor(name: string, nameJa: string | null, area: stri
 const Cited = { quote: z.string().describe('The exact words from the source, copied character for character (Japanese as written), one short line'), url: z.string() };
 export const FactSheet = z.object({
   open: z.array(z.object({ dates: z.array(z.string()).describe('Which of the trip dates (YYYY-MM-DD) these hours apply to'), open: z.string().describe('HH:MM'), close: z.string().describe('HH:MM (after midnight: 25:00 style)'), ...Cited })).describe('Opening hours that apply on the trip dates'),
-  closed: z.array(z.object({ dates: z.array(z.string()).describe('Trip dates (YYYY-MM-DD) it is closed or not running'), why: z.string(), ...Cited })).describe('Regular closing days, holidays, suspensions or maintenance that fall on the trip dates'),
+  closed: z.array(z.object({ dates: z.array(z.string()).describe('Trip dates (YYYY-MM-DD) it is closed or not running'), why: z.string(), what: z.string().describe('Exactly what is closed, e.g. "the whole museum" or "only the Owakudani–Sōunzan section (replacement bus)"'), whole_place: z.boolean().describe('True only if the place itself cannot be visited at all; false when only one section, route, facility or service is affected'), ...Cited })).describe('Regular closing days, holidays, suspensions or maintenance that fall on the trip dates'),
   last_entry: z.object({ time: z.string().describe('HH:MM'), ...Cited }).nullable().describe('Last entry, last order or last departure'),
   prices: z.array(z.object({ what: z.string().describe('e.g. "Adult admission, weekends", "Private bath, 120 min, per room"'), yen: z.number(), ...Cited })),
   fixed_minutes: z.object({ minutes: z.number(), what: z.string(), ...Cited }).nullable().describe('Only for something that cannot be done faster: a crossing, a ride, a show or performance (not a meal or a bath)'),
@@ -77,7 +77,7 @@ export const FactSheet = z.object({
 export type FactSheet = z.infer<typeof FactSheet>;
 export const EMPTY: FactSheet = { open: [], closed: [], last_entry: null, prices: [], fixed_minutes: null, booking: null, notes: [] };
 
-export const FACTS_SYSTEM = `You extract hard facts about one place from the source texts given, for visitors on specific dates. Use ONLY the texts: never your own knowledge. Every value needs "quote" (the exact words from the source, copied character for character, one short line) and the "url" of the source it came from. Map weekday rules onto the trip dates using the weekdays given (e.g. "火曜定休" means closed on the Tuesday among the trip dates). Prefer the official site over others, and the newest season's information over old pages. Leave a field empty or null when the texts do not say. Prices are per adult in yen.`;
+export const FACTS_SYSTEM = `You extract hard facts about one place from the source texts given, for visitors on specific dates. Use ONLY the texts: never your own knowledge. Every value needs "quote" (the exact words from the source, copied character for character, one short line) and the "url" of the source it came from. Map weekday rules onto the trip dates using the weekdays given (e.g. "火曜定休" means closed on the Tuesday among the trip dates). Prefer the official site over others, and the newest season's information over old pages. Leave a field empty or null when the texts do not say. Prices are per adult in yen. For a closure, say exactly what is closed: a suspended section of a ropeway or a closed annex does not close the whole place.`;
 
 // ── Validation: a fact survives only if its quote is on its page and holds its value ──
 /** Text as compared: NFKC (full-width → half-width), no spaces or commas, lower case. */
@@ -115,7 +115,7 @@ export function validate(sheet: FactSheet, sources: Source[]): { sheet: FactShee
 export function factLines(f: FactSheet): { text: string; url: string }[] {
   return [
     ...f.open.map((o) => ({ text: `Open ${o.open}–${o.close} on ${o.dates.join(', ')}`, url: o.url })),
-    ...f.closed.map((c) => ({ text: `Closed ${c.dates.join(', ')} (${c.why})`, url: c.url })),
+    ...f.closed.map((c) => ({ text: c.whole_place ? `Closed ${c.dates.join(', ')} (${c.why})` : `Partly closed ${c.dates.join(', ')}: ${c.what} (${c.why})`, url: c.url })),
     ...(f.last_entry ? [{ text: `Last entry ${f.last_entry.time}`, url: f.last_entry.url }] : []),
     ...f.prices.map((p) => ({ text: `${p.what}: ¥${p.yen.toLocaleString('en-US')}`, url: p.url })),
     ...(f.fixed_minutes ? [{ text: `${f.fixed_minutes.what}: ${f.fixed_minutes.minutes} min`, url: f.fixed_minutes.url }] : []),
@@ -174,7 +174,7 @@ export function stripUnsupported(text: string, a: Allowed) {
 /** Open for the visit on `date` per the verified facts: a reason when it isn't, null when fine or unknown. */
 export function factProblem(f: FactSheet | undefined, date: string, startMin: number, endMin: number): string | null {
   if (!f) return null;
-  const closed = f.closed.find((c) => c.dates.includes(date));
+  const closed = f.closed.find((c) => c.whole_place && c.dates.includes(date));
   if (closed) return `closed on ${date} (${closed.why}; ${closed.url})`;
   const toMin = (t: string) => +t.slice(0, 2) * 60 + +t.slice(3, 5);
   const ranges = f.open.filter((o) => o.dates.includes(date));

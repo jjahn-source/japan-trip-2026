@@ -75,7 +75,7 @@ test('the audit finds unbacked prices, times and minutes, and allows group total
 });
 
 test('verified facts catch closures, hours on the date, last entry and fixed ride lengths', () => {
-  const f = { ...EMPTY, closed: [{ dates: ['2026-12-22'], why: 'Tuesdays', quote: 'q', url: 'u' }], open: [{ dates: ['2026-12-19'], open: '10:00', close: '20:00', quote: 'q', url: 'u' }], last_entry: { time: '19:00', quote: 'q', url: 'u' }, fixed_minutes: { minutes: 40, what: 'Togendai → Motohakone', quote: 'q', url: 'u' } };
+  const f = { ...EMPTY, closed: [{ dates: ['2026-12-22'], why: 'Tuesdays', what: 'the museum', whole_place: true, quote: 'q', url: 'u' }, { dates: ['2026-12-19'], why: 'maintenance', what: 'only the upper section', whole_place: false, quote: 'q', url: 'u' }], open: [{ dates: ['2026-12-19'], open: '10:00', close: '20:00', quote: 'q', url: 'u' }], last_entry: { time: '19:00', quote: 'q', url: 'u' }, fixed_minutes: { minutes: 40, what: 'Togendai → Motohakone', quote: 'q', url: 'u' } };
   assert.match(factProblem(f, '2026-12-22', 600, 700), /closed/);
   assert.match(factProblem(f, '2026-12-19', 540, 600), /open only 10:00–20:00/);
   assert.match(factProblem(f, '2026-12-19', 1150, 1190), /last entry/);

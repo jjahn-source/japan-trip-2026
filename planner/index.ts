@@ -491,6 +491,16 @@ async function makePlan(brief: Brief, cands: Candidate[], stays: AnchorStay[], n
   return Object.assign(repaired, { warnings: after.issues, legs: after.legs });
 }
 
+/** The minutes in "transport" come from routing data, not the planner's guess: walk and taxi times are swapped for Google's. */
+function measuredTransport(p: Plan, legs: Legs) {
+  for (const d of p.days) d.stops.forEach((s, i) => {
+    const l = legs.get(`${d.date}#${i}`);
+    if (!s.transport || !l) return;
+    const real = /taxi|cab|\bcar\b|drive/i.test(s.transport) && l.carMinutes != null ? l.carMinutes : l.mode === 'walk' && /walk/i.test(s.transport) && !/train|bus|line|ropeway|ship|boat/i.test(s.transport) ? l.minutes : null;
+    if (real != null) s.transport = s.transport.replace(/(?:about |~)?\s?\d+(?:\s?[–-]\s?\d+)?\s?(?:min(?:ute)?s?)\b/i, `${real} min`);
+  });
+}
+
 const WRITE_SYSTEM = `You write the guidebook for a trip that has already been planned and verified: each stop gets a spread worth reading on the train. Voice: a well-travelled friend, specific and vivid, never generic, never padded. Never copy Tabelog scores, reviews or photos: you may say "highly rated on Tabelog" and link the page. Tips should be the things only someone who has been would know.
 HARD NUMBERS RULE: every price, clock time, duration and distance you write must appear in that stop's verified_facts, research, plan times, price, or travel_next (the real route to the next stop). Never estimate or recall one yourself: no "about 15 minutes' walk" unless travel_next says so. If you do not have the number, describe it without one. Code checks every number and deletes sentences that break this rule.
 Stay consistent with the whole day and the trip notes (e.g. if luggage is forwarded, do not tell them to pack it).`;
@@ -561,11 +571,11 @@ async function writeChecked(brief: Brief, day: Plan['days'][number], n: number, 
 
 // ── Fact-check: an editor who opens the official pages and checks every hard claim ──
 const FACT_SYSTEM = `You are a meticulous fact-checker for a Japan itinerary. Today is ${today}. Lines marked VERIFIED were already quoted from official pages: do not re-check them. Check the remaining HARD claims against official or primary sources (operator timetables, official sites, recent notices): routes and which line goes where, opening times, first/last departures, durations, prices, event dates, closures, rules. Use web_search and web_fetch; prefer official Japanese pages. Do NOT re-litigate taste or choices. Report only claims you have verified are wrong, plus anything impossible or self-contradictory within the day (e.g. luggage forwarded ahead but told to pack it). For each: "claim" is the exact wrong sentence copied from the text, "fix" a corrected sentence to put in its place, and "schedule" true only if the timetable of the day itself must change. If everything checks out, report nothing. Be economical: about 4–8 tool calls.`;
-const dayText = (d: ItinDay) => `${d.date} · ${d.title}\n${d.notes.map((n) => `[${n.kind}] ${n.text}`).join('\n')}\n${d.stops.map((s, i) => `#${i} ${s.start}–${s.end} ${s.name}${s.price ? ` (${s.price})` : ''}${s.transport ? ` → next: ${s.transport}` : ''}${s.guide ? `\n   ${s.guide.story}\n   How: ${s.guide.how.join(' / ')}\n   Tips: ${s.guide.tips.join(' / ')}${s.guide.hours ? `\n   Hours: ${s.guide.hours}` : ''}${s.guide.booking ? `\n   Booking: ${s.guide.booking}` : ''}${s.guide.facts?.length ? `\n   VERIFIED: ${s.guide.facts.map((f) => f.text).join(' / ')}` : ''}` : ''}`).join('\n')}`;
+const dayText = (d: ItinDay) => `${d.date} · ${d.title}\n${d.notes.map((n) => `[${n.kind}] ${n.text}`).join('\n')}\n${d.stops.map((s, i) => `#${i} ${s.start}–${s.end} ${s.name}${s.price ? ` (${s.price})` : ''}${s.transport ? ` → next: ${s.transport}` : ''}${s.guide?.measured ? `\n   MEASURED (routing data, do not dispute): ${s.guide.measured}` : ''}${s.guide ? `\n   ${s.guide.story}\n   How: ${s.guide.how.join(' / ')}\n   Tips: ${s.guide.tips.join(' / ')}${s.guide.hours ? `\n   Hours: ${s.guide.hours}` : ''}${s.guide.booking ? `\n   Booking: ${s.guide.booking}` : ''}${s.guide.facts?.length ? `\n   VERIFIED: ${s.guide.facts.map((f) => f.text).join(' / ')}` : ''}` : ''}`).join('\n')}`;
 type FactError = { stop: number; claim: string; fix: string; source_url: string; schedule: boolean };
 async function factCheckDay(d: ItinDay): Promise<FactError[]> {
   const model = MODELS.check;
-  return cached('factcheck2', [model, FACT_SYSTEM, dayText(d)], async () => {
+  return cached('factcheck3', [model, FACT_SYSTEM, dayText(d)], async () => {
     const errors: FactError[] = [];
     const report = betaZodTool({
       name: 'report_errors', description: 'Report the verified errors for this day (call once at the end; an empty list if all checks out).',
@@ -579,14 +589,30 @@ async function factCheckDay(d: ItinDay): Promise<FactError[]> {
       tools: [report, ...webTools(model).map((t) => ({ ...t, max_uses: 6 }))],
       messages: [{ role: 'user', content: dayText(d) }],
     });
-    for await (const m of runner) { meter(m.usage, model, 'check'); if (m.stop_reason === 'pause_turn') runner.pushMessages({ role: 'assistant', content: m.content }); }
-    return errors;
+    // Every URL the checker actually saw (search results and fetched pages): a correction must cite one of them.
+    const seen = new Set<string>();
+    for await (const m of runner) {
+      meter(m.usage, model, 'check');
+      for (const b of m.content) if (/tool_result/.test(b.type)) for (const u of JSON.stringify(b).match(/https?:\/\/[^"\\\s]+/g) ?? []) seen.add(u.replace(/[#?].*$/, '').replace(/\/$/, ''));
+      if (m.stop_reason === 'pause_turn') runner.pushMessages({ role: 'assistant', content: m.content });
+    }
+    const cited = errors.filter((e) => seen.has(e.source_url.replace(/[#?].*$/, '').replace(/\/$/, '')));
+    if (cited.length < errors.length) log(`  ${d.date}: ${errors.length - cited.length} correction(s) dropped: they cite a page the checker never opened`);
+    return cited;
   }, 30);
 }
 
 /** Put each correction in place of the wrong sentence (no rewrite, so nothing new and unchecked creeps in). */
-function patchDay(d: ItinDay, errors: FactError[]): string[] {
+function patchDay(d: ItinDay, errors: FactError[], measured: F.Allowed[]): string[] {
   const left: string[] = [];
+  // A correction may not overrule a number measured by routing data or quoted from an official page.
+  errors = errors.filter((e) => {
+    const m = measured[e.stop];
+    const backed = m && F.claims(e.claim).length > 0 && F.unsupported(e.claim, m).length === 0;
+    const changes = backed && F.claims(e.fix).some((c) => F.unsupported(c.raw, m!).length > 0);
+    if (changes) log(`  kept "${e.claim.slice(0, 70)}": it matches measured or verified data`);
+    return !changes;
+  });
   const swap = (t: string, e: FactError) => (t.includes(e.claim) ? t.replace(e.claim, e.fix) : null);
   for (const e of errors) {
     const src = (() => { try { return new URL(e.source_url).hostname.replace(/^www\./, ''); } catch { return 'source'; } })();
@@ -617,7 +643,7 @@ function assemble(brief: Brief, plan: Plan & { warnings?: string[]; legs?: Map<s
         const urls = w?.source_urls ?? [];
         const sources = urls.map((u) => ({ url: u, label: c?.evidence.find((e) => e.url === u)?.source ?? new URL(u).hostname.replace(/^www\./, '') })).filter((x) => /^https?:/.test(x.url));
         const media = (c?.media ?? []).filter((m) => m.kind === 'image' || urls.includes(m.url) || (c?.media ?? []).length <= 2);
-        const guide: Guide | null = w ? { story: w.story, how: w.how, tips: w.tips, cost: w.cost, booking: w.booking, hours: w.hours ?? (c?.facts?.open.length ? null : c?.hours) ?? null, sources, media, wishes: w.wishes, verified: c?.verified ? { source: c.verified.source, status: c.verified.status ?? null } : null, facts: c?.facts ? F.factLines(c.facts) : [] } : null;
+        const guide: Guide | null = w ? { story: w.story, how: w.how, tips: w.tips, cost: w.cost, booking: w.booking, hours: w.hours ?? (c?.facts?.open.length ? null : c?.hours) ?? null, sources, media, wishes: w.wishes, verified: c?.verified ? { source: c.verified.source, status: c.verified.status ?? null } : null, facts: c?.facts ? F.factLines(c.facts) : [], measured: legText(plan.legs?.get(`${d.date}#${si}`)) } : null;
         return {
           id: `d${String(di + 1).padStart(2, '0')}-s${String(si + 1).padStart(2, '0')}`, start: s.start, end: s.end, name: s.name, nameJa: c?.name_ja ?? null,
           category: s.category, categoryLabel: s.category_label, price: s.price, summary: w?.summary ?? null, plan: s.plan,
@@ -698,6 +724,7 @@ async function plan(briefFile: string, extra = '', previous?: State) {
   }
   log('Planning the days…');
   const p = await makePlan(brief, candidates, ONLY ? stays.filter((s) => s.city.toLowerCase() === ONLY!.toLowerCase()) : stays, notes, extra, previous?.plan);
+  measuredTransport(p, p.legs);
   if (!ONLY) writeJson(STATE, { briefText, brief, candidates, notes, plan: p } satisfies State);
   log('Writing the guidebook…');
   const byId = new Map(candidates.map((c) => [c.id!, c]));
@@ -712,7 +739,8 @@ async function plan(briefFile: string, extra = '', previous?: State) {
   log('Fact-checking every day against official sources…');
   const errs = await pool(it.days, 8, (d) => factCheckDay(d).catch((e) => { if (fatal(e)) throw e; log(`  fact-check ${d.date} failed: ${(e as Error).message}`); return [] as FactError[]; }));
   const total = errs.reduce((n, e) => n + e.length, 0);
-  const left = it.days.flatMap((d, i) => patchDay(d, errs[i]));
+  const measured = p.days.map((d) => d.stops.map((s, i) => { const c = s.candidate_id ? byId.get(s.candidate_id) : undefined; return F.allowedFrom([legText(p.legs.get(`${d.date}#${i}`)), ...(c?.facts ? F.factLines(c.facts).map((f) => f.text) : [])], brief.people); }));
+  const left = it.days.flatMap((d, i) => patchDay(d, errs[i], measured[i]));
   if (total) {
     log(`  ${total} correction(s) patched in${left.length ? `; ${left.length} need a schedule change (kept as warnings):\n    ${left.join('\n    ')}` : ''}`);
     it.sources.push(`fact-checked: ${total} correction(s) applied`);

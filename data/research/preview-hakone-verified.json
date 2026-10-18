@@ -1,0 +1,2502 @@
+{
+  "version": 1,
+  "generated": "2026-10-18T19:19:50.437Z",
+  "title": "Japan, Dec 2026 · 8 friends",
+  "dates": "Sat Dec 19 – Mon Dec 21 2026",
+  "people": 8,
+  "brief": "# Trip brief\n\nI will be in Tokyo 15–19 Dec, Hakone 19–21, Osaka 21–26 (Osaka base, but during the day we will\ncommute to Kyoto/Nara as needed, ending the night/nightlife in Osaka; if there are cool nightlife\nthings to do in the neighbouring cities as well, include them), then Tokyo again 26–29 Dec 2026.\n\nWe land at Haneda Terminal 3 on Tue 15 Dec around 15:00 and fly home from Haneda Terminal 3 on\nTue 29 Dec at 17:20.\n\nWe are a group of 8, all around 20 years old, all Asian. We love to drink, and we want to maximise\nall the time we've got in the country. Think about things like Round1, shopping, and so on; we love\nto do it all. No go-karts. Look for money we can save by booking early or buying passes.\n\nStays (already booked): Ninja House in Toshima (Tokyo), Hot Spring Hakone Villa in Sengokuhara,\nKujō House in Nishi-ku (Osaka), Garfield House in Shinjuku (Tokyo).\n",
+  "stays": [
+    {
+      "name": "Ninja House (Airbnb) — Toshima",
+      "short": "Ninja House",
+      "address": "3-28-11 Minaminagasaki, Toshima City, Tokyo 171-0052",
+      "checkIn": "Tue Dec 15 16:00",
+      "checkOut": "Sat Dec 19 10:00",
+      "checkInISO": "2026-12-15T16:00:00+09:00",
+      "checkOutISO": "2026-12-19T10:00:00+09:00",
+      "confirmation": "HM83DQDAA3",
+      "notes": "Ninja House｜2 bathrooms｜near Ikebukuro｜10 guests. Host: Yoko. Keypad self check-in. 9 min walk from Ochiai-minami-nagasaki (Toei Ōedo line) — direct to Shinjuku, Roppongi, Tsukijishijo, Ueno-okachimachi. Free cancellation before Nov 15 4PM."
+    },
+    {
+      "name": "Hot Spring Hakone Villa (Airbnb) — Sengokuhara",
+      "short": "Hot Spring Hakone Villa",
+      "address": "1246-438 Sengokuhara, Hakone, Kanagawa 250-0631",
+      "checkIn": "Sat Dec 19 15:00",
+      "checkOut": "Mon Dec 21 10:00",
+      "checkInISO": "2026-12-19T15:00:00+09:00",
+      "checkOutISO": "2026-12-21T10:00:00+09:00",
+      "confirmation": "HMX353JXM9",
+      "notes": "Hot Spring Hakone Villa, Easy Access, Piano. Host: Eika. Lockbox self check-in. Access guide was sent in Airbnb messages. Private onsen. Free cancellation before Dec 14 3PM."
+    },
+    {
+      "name": "Kujō House (Airbnb) — Nishi-ku, Osaka",
+      "short": "Kujō House",
+      "address": "4-1-8 Kujominami, Nishi Ward, Osaka 550-0025",
+      "checkIn": "Mon Dec 21 16:00",
+      "checkOut": "Sat Dec 26 10:00",
+      "checkInISO": "2026-12-21T16:00:00+09:00",
+      "checkOutISO": "2026-12-26T10:00:00+09:00",
+      "confirmation": "HMQZPRTDA3",
+      "notes": "(ちよ)桜と過ごすお部屋 — 4 bedrooms, 2 baths, 4 toilets. Host: Tatsu. Lockbox. Kujō stn (Chūō line + Hanshin Namba line): Namba 6 min, direct trains to Kintetsu-Nara & Kobe-Sannomiya. JR Nishikujō → USJ 10 min. Free cancellation before Nov 21 4PM."
+    },
+    {
+      "name": "Garfield House (Airbnb) — Shinjuku 6-chōme",
+      "short": "Garfield House",
+      "address": "6-6-5 Shinjuku, Shinjuku City, Tokyo 160-0022",
+      "checkIn": "Sat Dec 26 16:00",
+      "checkOut": "Tue Dec 29 10:00",
+      "checkInISO": "2026-12-26T16:00:00+09:00",
+      "checkOutISO": "2026-12-29T10:00:00+09:00",
+      "confirmation": "HM8MMA395T",
+      "notes": "Garfield home whole build — 10 min walk to Shinjuku-sanchōme. Host: Bibo. Lockbox. Max 8 guests. Walk to Golden Gai / Kabukichō / Ni-chōme. Free cancellation before Nov 26 4PM."
+    }
+  ],
+  "days": [
+    {
+      "n": 1,
+      "date": "2026-12-19",
+      "city": "Hakone",
+      "title": "Romancecar in · private open-air onsen · soba & souvenirs · sculpture park · geisha drinking games · MONTA izakaya",
+      "stamp": {
+        "kanji": "湯",
+        "reading": "yu · hot water",
+        "place": "HAKONE-YUMOTO · SENGOKUHARA"
+      },
+      "notes": [
+        {
+          "kind": "MONEY",
+          "text": "Everyone buys the 3-day Hakone Freepass on EMot before today (¥7,500 from Shinjuku). It covers the Tozan train both ways to the sculpture park. The Romancecar seat is a separate ticket, so reserve all 8 together as soon as sales open."
+        },
+        {
+          "kind": "BOOK",
+          "text": "Three bookings make or break today: the two Yuryo private rooms (book up to 15:00 the day before), MONTA for 8 (0460-83-9797) and two taxis from Yumoto after the geisha night."
+        },
+        {
+          "kind": "BRING",
+          "text": "Bring yen cash. Older souvenir shops in Yumoto are cash only, and you'll want small notes for geisha-bar drinks and taxis."
+        },
+        {
+          "kind": "NOTE",
+          "text": "The geisha night only happens because today is the 3rd Saturday. The Kenban and MONTA are both closed tomorrow and Monday, so tonight is Hakone's one big night out."
+        },
+        {
+          "kind": "CHECK",
+          "text": "Bags are forwarded from Hakone-Yumoto station to the villa. Keep only a day bag, a towel and your phone, and leave room in the day bag for the evening's booze run."
+        }
+      ],
+      "stops": [
+        {
+          "id": "d01-s01",
+          "start": "08:00",
+          "end": "08:20",
+          "name": "Check out of Ninja House, Toshima",
+          "nameJa": null,
+          "category": "stay",
+          "categoryLabel": "Stay",
+          "price": null,
+          "summary": "Quiet goodbye to the Ninja House, then out the door with onigiri in hand.",
+          "plan": "Pack the night before. Grab konbini onigiri and coffee on the way.",
+          "address": null,
+          "lat": null,
+          "lng": null,
+          "website": null,
+          "phone": null,
+          "map": null,
+          "transport": "JR Yamanote/Saikyo line Ikebukuro → Shinjuku, ~10 min, then walk to the Odakyu Romancecar platforms",
+          "guide": {
+            "story": "This is the unglamorous start to a very big day. Everything was packed last night, so all that's left is a final sweep of the room and handing back the keys. The konbini on the way to the station is your breakfast: tuna-mayo onigiri, a hot can of coffee from the warmer shelf, maybe a karaage stick for whoever's still hungover. Eat on the train. There won't be another proper sit-down until soba at lunch.",
+            "how": [
+              "Do a phone-charger and passport sweep of every room before you leave.",
+              "Split the konbini run: two people grab food for all 8 while the rest head to the platform.",
+              "Ride JR to Shinjuku, then follow the Odakyu signs to the Romancecar platforms."
+            ],
+            "tips": [
+              "Make sure every phone has the EMot Freepass and Romancecar ticket loaded before you lose Wi-Fi.",
+              "Konbini hot drinks sit in the heated cabinet by the till. Grab them last so they're still warm."
+            ],
+            "cost": null,
+            "booking": null,
+            "hours": "Out by 08:20",
+            "sources": [],
+            "media": [],
+            "wishes": [
+              "Stays already booked: Ninja House in Toshima (Tokyo), Hot Spring Hakone Villa in Sengokuhara, Kujō House in Nishi-ku (Osaka), Garfield House in Shinjuku (Tokyo)",
+              "We want to maximise all the time we've got in the country"
+            ],
+            "verified": null,
+            "facts": []
+          }
+        },
+        {
+          "id": "d01-s02",
+          "start": "09:00",
+          "end": "10:28",
+          "name": "Romancecar Shinjuku → Hakone-Yumoto on the 3-day Hakone Freepass",
+          "nameJa": "箱根フリーパス",
+          "category": "transport",
+          "categoryLabel": "Transport",
+          "price": "¥7,500 pp Freepass + ~¥1,200 pp Romancecar seat",
+          "summary": "Eight seats in a row on the Romancecar, with the city melting into mountains outside.",
+          "plan": "Sit together in the 8 reserved seats. The Freepass (EMot e-ticket) starts today and covers 19–21 Dec.",
+          "address": null,
+          "lat": 35.2564,
+          "lng": 139.1553,
+          "website": null,
+          "phone": null,
+          "map": null,
+          "transport": "Send bags on with luggage delivery at Yumoto station, then take the Yuryo free shuttle, ~10 min",
+          "guide": {
+            "story": "The Romancecar is Odakyu's showpiece limited express: wide windows, reclining seats and a smooth run from Shinjuku's towers to the river valley at Hakone-Yumoto. Today it's also the first ride on your 3-day Freepass, which then covers the Tozan train, cable car, ropeway, pirate ship and the Sengokuhara buses through Monday. The Odakyu leg itself counts once each way, so this is your one 'in'. Crack open a konbini coffee, put a playlist on and watch for the first hills after Odawara.",
+            "how": [
+              "Show the Freepass plus your Romancecar seat ticket at the Odakyu gates.",
+              "Sit together in the 8 reserved seats. Swap rows halfway so everyone gets window time.",
+              "At Hakone-Yumoto, drop the big bags at the luggage delivery counter for the villa before you do anything else."
+            ],
+            "tips": [
+              "Freepass from Shinjuku is ¥7,500 for 3 days, against ¥7,100 for 2. The extra day pays off over the ropeway and pirate ship loop later.",
+              "Station ticket machines only sell passes valid from the same day, so the e-ticket bought in advance saves a queue.",
+              "Regular Tozan-area sightseeing buses don't accept the pass. Check which bus you're boarding later in the trip."
+            ],
+            "cost": "¥7,500 pp Freepass + ~¥1,200 pp Romancecar seat",
+            "booking": "Freepass on Odakyu EMot before the 19th; Romancecar seats as soon as they open, 1 month ahead (Saturdays in December sell out)",
+            "hours": "09:00–10:28",
+            "sources": [
+              {
+                "url": "https://www.odakyu-global.com/blog/10998/",
+                "label": "Odakyu official blog"
+              },
+              {
+                "url": "https://selfguidejapan.com/blog/hakone",
+                "label": "selfguidejapan blog"
+              }
+            ],
+            "media": [],
+            "wishes": [
+              "Look for money we can save by booking early or buying passes",
+              "We want to maximise all the time we've got in the country"
+            ],
+            "verified": null,
+            "facts": [
+              {
+                "text": "Adult, 2-day pass, from Shinjuku: ¥7,100",
+                "url": "https://www.hakonenavi.jp/feature/7010"
+              },
+              {
+                "text": "Adult, 3-day pass, from Shinjuku: ¥7,500",
+                "url": "https://www.hakonenavi.jp/feature/7010"
+              },
+              {
+                "text": "Adult, 2-day pass, from Odawara/Hakone-Yumoto/Gotemba/Mishima: ¥6,000",
+                "url": "https://www.odakyu-freepass.jp/hakone/buy.html"
+              },
+              {
+                "text": "Adult, 3-day pass, from Odawara/Hakone-Yumoto/Gotemba/Mishima: ¥6,400",
+                "url": "https://www.odakyu-freepass.jp/hakone/buy.html"
+              },
+              {
+                "text": "Booking: Buy at Odakyu stations or travel agencies from one month before the ride date; automatic ticket machines sell only passes valid from the same day.",
+                "url": "https://www.odakyu-freepass.jp/hakone/buy.html"
+              },
+              {
+                "text": "Romancecar limited express requires a separate ticket and fee.",
+                "url": "https://www.hakonenavi.jp/lp/hakone-freepass/"
+              },
+              {
+                "text": "Odakyu section (departure station to Odawara) may be ridden only once round trip; unlimited rides within the designated area.",
+                "url": "https://www.odakyu-freepass.jp/hakone/buy.html"
+              },
+              {
+                "text": "Regular Tozan-area sightseeing buses cannot be boarded with the pass.",
+                "url": "https://www.odakyu-freepass.jp/hakone/buy.html"
+              },
+              {
+                "text": "Third-party listing shows the Hakone Freepass sales period covering the trip dates (2026/10/01 to 2026/12/31).",
+                "url": "https://7ticket.jp/g/001756"
+              }
+            ]
+          }
+        },
+        {
+          "id": "d01-s03",
+          "start": "10:45",
+          "end": "13:00",
+          "name": "Hakone Yuryo – 2 private open-air bath rooms",
+          "nameJa": "箱根湯寮",
+          "category": "activity",
+          "categoryLabel": "Onsen",
+          "price": "From ¥10,400 per room (Sat) ×2 ≈ ¥20,800 group total; main bath ¥2,000 pp extra if wanted",
+          "summary": "Two private open-air baths in the forest: the whole crew soaks together, tattoos welcome.",
+          "plan": "Two booked 120-min private rooms from 11:00 to 13:00 let the group soak together. Tattoos are OK. Have a sake at the irori lounge on the way out.",
+          "address": "神奈川県足柄下郡箱根町塔之澤４",
+          "lat": 35.23395347595215,
+          "lng": 139.0957794189453,
+          "website": "https://www.hakoneyuryo.jp",
+          "phone": "+81460858411",
+          "map": null,
+          "transport": "Yuryo free shuttle back to Yumoto station, ~10 min, then a 3-min walk",
+          "guide": {
+            "story": "Hakone Yuryo is a day onsen tucked into the trees above Yumoto. The secret weapon is its bookable private open-air rooms: your own stone tub, steam curling into cold December air, and no strangers. With two rooms booked for 120 minutes each, the 8 of you can split however you like and swap halfway. Tattoos have been fine here since 2025, which is rare in Hakone. On the way out, the irori lounge, built around a sunken hearth, is the place for your first sake of the day.",
+            "how": [
+              "From Yumoto station take Yuryo's free shuttle, or walk (19 min).",
+              "Check in at reception for the 11:00 private rooms and collect towels.",
+              "Soak until just before 13:00, then regroup at the irori lounge for a quick sake.",
+              "If anyone wants the big communal bath too, it's ¥2,000 extra on weekends."
+            ],
+            "tips": [
+              "The main bath gets crowded. Your private rooms are the reason you came, so use the full slot.",
+              "Drink water between dips if you're starting on the sake early. It's a long night ahead.",
+              "Say 'kanpai' quietly in the lounge. It's a calm space, not a party room."
+            ],
+            "cost": "From ¥10,400 per room (Sat) ×2 ≈ ¥20,800 group total; main bath ¥2,000 pp extra",
+            "booking": "Private rooms: from 1 month before until 15:00 the day before",
+            "hours": "10:00–21:00 today; last entry 20:00 on Sat/Sun",
+            "sources": [
+              {
+                "url": "https://www.hakoneyuryo.jp/",
+                "label": "Official"
+              },
+              {
+                "url": "https://maps.google.com/?cid=12357299807494625188",
+                "label": "Google Maps (ja) reviews 2026"
+              }
+            ],
+            "media": [],
+            "wishes": [
+              "We love to drink",
+              "We love to do it all"
+            ],
+            "verified": {
+              "source": "TREK Places",
+              "status": null
+            },
+            "facts": [
+              {
+                "text": "Open 10:00–21:00 on 2026-12-19, 2026-12-20",
+                "url": "https://www.hakone.or.jp/674?gana=member"
+              },
+              {
+                "text": "Open 10:00–20:00 on 2026-12-21",
+                "url": "https://www.hakone.or.jp/674?gana=member"
+              },
+              {
+                "text": "Adult (junior high and up), bath, weekday: ¥1,700",
+                "url": "https://www.hakone.or.jp/674?gana=member"
+              },
+              {
+                "text": "Adult (junior high and up), bath, Sat/Sun: ¥2,000",
+                "url": "https://www.hakone.or.jp/674?gana=member"
+              },
+              {
+                "text": "Child (elementary), bath, all days: ¥1,000",
+                "url": "https://www.hakone.or.jp/674?gana=member"
+              },
+              {
+                "text": "Private open-air room, 120 min per room, weekday from: ¥9,400",
+                "url": "https://www.hakone.or.jp/674?gana=member"
+              },
+              {
+                "text": "Private open-air room, 120 min per room, Sat/Sun from: ¥10,400",
+                "url": "https://www.hakone.or.jp/674?gana=member"
+              },
+              {
+                "text": "Booking: Private rooms: book from 1 month before until 15:00 the day before the visit",
+                "url": "https://www.tablecheck.com/ja/shops/hakoneyuryo/reserve"
+              },
+              {
+                "text": "Last entry is 19:00 on weekdays and 20:00 on Sat/Sun (Mon 12/21 is weekday)",
+                "url": "https://www.hakone.or.jp/674?gana=member"
+              },
+              {
+                "text": "Children under elementary school age cannot use the main bath building; use a private room instead",
+                "url": "https://www.hakone.or.jp/674?gana=member"
+              }
+            ]
+          }
+        },
+        {
+          "id": "d01-s04",
+          "start": "13:15",
+          "end": "13:55",
+          "name": "Hatsuhana Soba (annex)",
+          "nameJa": "はつ花そば 新館",
+          "category": "restaurant",
+          "categoryLabel": "Restaurant",
+          "price": "¥1,000–1,300 pp",
+          "summary": "Yumoto's classic soba house, famous for silky yam-tororo soba.",
+          "plan": "Lunch on the classic yam-tororo soba (teijo soba). Tables turn over fast, even for 8.",
+          "address": "635-635 Yumoto, 箱根町 Hakone, Ashigarashimo District, Kanagawa 250-0311",
+          "lat": 35.2311286,
+          "lng": 139.1001959,
+          "website": "http://www.hatsuhana.co.jp/",
+          "phone": "0460-85-8287",
+          "map": "https://maps.google.com/?cid=7711115973816081580&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+          "transport": "Walk to the station street, 5 min",
+          "guide": {
+            "story": "Hatsuhana is the soba shop everyone in Yumoto points you to, and the annex has the same menu as the main shop. The dish to order is teijo soba: buckwheat noodles under a thick, almost mousse-like grated yam mixed with egg. It's a little strange, deeply comforting and perfect after a hot bath. It's highly rated by locals and a fast, cheap lunch that keeps the day moving.",
+            "how": [
+              "Walk down from Yuryo (13 min) and join the queue. Tables turn fast even for 8.",
+              "Order teijo soba (¥1,000), or seiro (¥1,200) if you want plain cold noodles, or tempura soba (¥1,300) for the hungriest.",
+              "Slurp loudly. That's the correct way to eat soba."
+            ],
+            "tips": [
+              "Point at '貞女そば' on the menu if you don't want to try the pronunciation.",
+              "The annex is closed Thursdays, but that doesn't affect today."
+            ],
+            "cost": "¥1,000–1,300 pp",
+            "booking": "No bookings; short to moderate waits",
+            "hours": "10:00–19:00",
+            "sources": [
+              {
+                "url": "http://www.hatsuhana.co.jp",
+                "label": "Official site"
+              },
+              {
+                "url": "https://www.google.com/search?q=はつ花そば+箱根湯本",
+                "label": "Google search (ja)"
+              }
+            ],
+            "media": [],
+            "wishes": [
+              "We want to maximise all the time we've got in the country"
+            ],
+            "verified": {
+              "source": "Google Places",
+              "status": "OPERATIONAL"
+            },
+            "facts": [
+              {
+                "text": "Open 10:00–19:00 on 2026-12-19, 2026-12-20, 2026-12-21",
+                "url": "https://hatsuhana.co.jp/access/"
+              },
+              {
+                "text": "せいろそば: ¥1,200",
+                "url": "https://www.hakone.or.jp/468?gana=member"
+              },
+              {
+                "text": "貞女そば: ¥1,000",
+                "url": "https://www.hakone.or.jp/468?gana=member"
+              },
+              {
+                "text": "天ぷらそば: ¥1,300",
+                "url": "https://www.hakone.or.jp/468?gana=member"
+              },
+              {
+                "text": "The annex is closed every Thursday; if a holiday falls on Thursday it is shifted to the day before or after.",
+                "url": "https://hatsuhana.co.jp/access/"
+              },
+              {
+                "text": "The menu at the annex is the same as at the main restaurant.",
+                "url": "https://hatsuhana.co.jp/"
+              }
+            ]
+          }
+        },
+        {
+          "id": "d01-s05",
+          "start": "14:00",
+          "end": "14:45",
+          "name": "Hakone-Yumoto station shopping street",
+          "nameJa": "箱根湯本駅前商店街",
+          "category": "shopping",
+          "categoryLabel": "Shopping",
+          "price": "¥500–3,000 souvenirs",
+          "summary": "Souvenir sprint and the evening booze run before Yumoto's shops go dark.",
+          "plan": "Pick up souvenirs: onsen manju, yumochi, yosegi boxes. Buy beer and sake for tonight's villa session now, because shops shut around 18:00. Bring cash.",
+          "address": "706-17 Yumoto, Hakone, Ashigarashimo District, Kanagawa 250-0311",
+          "lat": 35.2329912,
+          "lng": 139.1036766,
+          "website": "https://www.kanagawa-kankou.or.jp/spot/1459",
+          "phone": null,
+          "map": "https://maps.google.com/?cid=1984481942515282533&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+          "transport": "Hakone Tozan train Hakone-Yumoto → Chokoku-no-Mori, ~40 min (Freepass) · timetable: 箱根登山線 箱根湯本→彫刻の森 14:54→15:29 · ¥460",
+          "guide": {
+            "story": "The station street is Hakone's only proper souvenir strip: steaming manju trays, marquetry yosegi puzzle boxes and sake shops with local bottles. Kikukawa Shoten's little kasutera-style manju come off the machine warm from ¥80 a piece. Chimoto's soft yumochi start at ¥250, and Piccot's curry bread is ¥350 if lunch didn't fill you. This is also where you stock the villa: beer, sake and snacks, because most shops here close around 18:00 and you won't be back before then.",
+            "how": [
+              "Split up: half buy souvenirs, half do the drinks run for tonight's villa session.",
+              "Hit a yosegi shop for the trick boxes. Ask 'akete mite ii desu ka?' (may I try opening it?).",
+              "Meet back at the station and take the Tozan train at 14:54 (covered by the Freepass)."
+            ],
+            "tips": [
+              "Some older shops are cash only. Carry coins and small notes.",
+              "Sake is heavy, so buy it last on your way to the platform.",
+              "Warm manju is the snack. Eat one on the spot rather than boxing them all."
+            ],
+            "cost": "¥500–3,000 souvenirs",
+            "booking": null,
+            "hours": "Most shops close around 18:00",
+            "sources": [
+              {
+                "url": "https://x.com/search?q=%E7%AE%B1%E6%A0%B9%E6%B9%AF%E6%9C%AC",
+                "label": "X 2026"
+              },
+              {
+                "url": "https://maps.google.com/?cid=12357299807494625188",
+                "label": "Google Maps (ja) Yuryo review Sep 2026"
+              }
+            ],
+            "media": [
+              {
+                "kind": "image",
+                "url": "https://www.kanagawa-kankou.or.jp/storage/post_picture/20240214104227_3-2_pixta_68151881_M.jpg",
+                "credit": "kanagawa-kankou.or.jp"
+              }
+            ],
+            "wishes": [
+              "Shopping",
+              "We love to drink"
+            ],
+            "verified": {
+              "source": "Google Places",
+              "status": "OPERATIONAL"
+            },
+            "facts": [
+              {
+                "text": "Kikukawa Shoten Kasutera-yaki Hakone manju, from (per piece): ¥80",
+                "url": "https://www.seibushokudo.com/yumoto-tabearuki-map/"
+              },
+              {
+                "text": "Chimoto Yumochi, from (per piece): ¥250",
+                "url": "https://www.seibushokudo.com/yumoto-tabearuki-map/"
+              },
+              {
+                "text": "Piccot Classic Curry Bread, from: ¥350",
+                "url": "https://www.seibushokudo.com/yumoto-tabearuki-map/"
+              },
+              {
+                "text": "Most shops in the arcade close around 18:00; hours vary by shop.",
+                "url": "https://www.tour.ne.jp/j_spot/1324510/"
+              },
+              {
+                "text": "Some shops are closed on Wednesdays and Thursdays; check ahead. Kikukawa Shoten is closed Thursday; Kagoya Seijiro and Hakone Terramisu are closed Wednesday.",
+                "url": "https://www.seibushokudo.com/yumoto-tabearuki-map/"
+              },
+              {
+                "text": "Some older shops accept cash only, so carry some yen notes and coins.",
+                "url": "https://www.seibushokudo.com/yumoto-tabearuki-map/"
+              },
+              {
+                "text": "The Hakone Yumoto Tourist Association phone line is closed on Saturdays, Sundays and holidays.",
+                "url": "https://www.tour.ne.jp/j_spot/1324510/"
+              }
+            ]
+          }
+        },
+        {
+          "id": "d01-s06",
+          "start": "15:30",
+          "end": "16:55",
+          "name": "Hakone Open-Air Museum",
+          "nameJa": "彫刻の森美術館",
+          "category": "attraction",
+          "categoryLabel": "Attraction",
+          "price": "¥1,800 pp (web ticket)",
+          "summary": "Giant sculptures on misty lawns, a stained-glass tower and a Picasso hall at golden hour.",
+          "plan": "Go in the quiet late-afternoon window: sculpture lawns, the stained-glass Symphonic Sculpture tower, the Picasso pavilion and the footbath. Last entry is 16:30.",
+          "address": "1121 Ninotaira, Hakone, Ashigarashimo District, Kanagawa 250-0493",
+          "lat": 35.2451601,
+          "lng": 139.0507271,
+          "website": "https://www.hakone-oam.or.jp/",
+          "phone": "0460-82-1161",
+          "map": "https://maps.google.com/?cid=6381101115362667615&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+          "transport": "Hakone Tozan train Chokoku-no-Mori → Hakone-Yumoto, ~40 min, then a 5-min walk to the Kenban",
+          "guide": {
+            "story": "The Hakone Open-Air Museum is wildly photogenic: huge bronze and abstract figures scattered across hillside lawns with the mountains behind. The Symphonic Sculpture is a tower you climb inside, lit by kaleidoscopic stained glass. The Picasso pavilion holds a surprisingly deep collection, and there's a free footbath to thaw cold toes. The late slot is the smart one: the grounds are big enough that it rarely feels crowded, and in winter the light goes soft and golden.",
+            "how": [
+              "Ride the Tozan train from Yumoto (14:54→15:29). The museum is right by Chokoku-no-Mori station.",
+              "Scan web tickets (¥1,800, against ¥2,000 at the counter) to skip the ticket desk.",
+              "Do the Symphonic Sculpture tower first, then the Picasso pavilion, then finish at the footbath.",
+              "Last entry is 16:30. Head out in time for the 16:55 train back to Yumoto."
+            ],
+            "tips": [
+              "Bring a small towel for the footbath. Your onsen towel from earlier works.",
+              "Group shots look best looking down from the top of the stained-glass tower.",
+              "Weather closures are posted on the official website or SNS, so check if it snows."
+            ],
+            "cost": "¥1,800 pp (web ticket)",
+            "booking": "Buy WEB tickets in advance to skip the counter",
+            "hours": "09:00–17:00, last entry 16:30",
+            "sources": [
+              {
+                "url": "https://maps.google.com/?q=35.2448,139.0516",
+                "label": "Google Maps (ja) reviews"
+              },
+              {
+                "url": "https://www.reddit.com/r/JapanTravel/",
+                "label": "Reddit r/JapanTravel"
+              }
+            ],
+            "media": [
+              {
+                "kind": "image",
+                "url": "https://www.hakone-oam.or.jp/mod/homes/ogpphoto.jpg",
+                "credit": "hakone-oam.or.jp"
+              }
+            ],
+            "wishes": [
+              "We love to do it all",
+              "We want to maximise all the time we've got in the country"
+            ],
+            "verified": {
+              "source": "Google Places",
+              "status": "OPERATIONAL"
+            },
+            "facts": [
+              {
+                "text": "Open 09:00–17:00 on 2026-12-19, 2026-12-20, 2026-12-21",
+                "url": "https://www.hakone-oam.or.jp/info/"
+              },
+              {
+                "text": "Last entry 16:30",
+                "url": "https://www.hakone-oam.or.jp/contact/"
+              },
+              {
+                "text": "Adult admission, at the counter: ¥2,000",
+                "url": "https://www.hakone-oam.or.jp/info/"
+              },
+              {
+                "text": "Adult admission, WEB ticket: ¥1,800",
+                "url": "https://www.hakone-oam.or.jp/info/"
+              },
+              {
+                "text": "University and high school students, at the counter: ¥1,600",
+                "url": "https://www.hakone-oam.or.jp/contact/"
+              },
+              {
+                "text": "Booking: WEB tickets are sold online; buying them lets you skip the ticket counter. Groups of 15 or more need a group booking.",
+                "url": "https://www.hakone-oam.or.jp/contact/"
+              },
+              {
+                "text": "Preschool children are free admission.",
+                "url": "https://www.hakone-oam.or.jp/contact/"
+              },
+              {
+                "text": "Groups of 15 or more need a group booking.",
+                "url": "https://www.hakone-oam.or.jp/contact/"
+              },
+              {
+                "text": "Every Saturday is a Family Discount Day (non-official source): up to 5 elementary or middle school students per adult are free. Trip date 2026-12-19 is a Saturday.",
+                "url": "https://www.gltjp.com/en/directory/item/11037/"
+              },
+              {
+                "text": "Parking exit does not apply the museum discount; pay at the automatic machine inside the museum before leaving.",
+                "url": "https://www.hakone-oam.or.jp/contact/"
+              },
+              {
+                "text": "Closures for typhoon or heavy snow are announced on the official website or SNS.",
+                "url": "https://www.hakone-oam.or.jp/contact/"
+              }
+            ]
+          }
+        },
+        {
+          "id": "d01-s07",
+          "start": "18:00",
+          "end": "19:40",
+          "name": "Hakone Yumoto Kenban – Furatto Geisha night + Geisha Cafe Bar Hana",
+          "nameJa": "箱根湯本見番「ふらっと芸者」／芸者カフェバーはな",
+          "category": "bar",
+          "categoryLabel": "Nightlife",
+          "price": "¥3,000 pp incl. 1 drink; extra drinks ~¥700",
+          "summary": "Geisha dance for you, then teach you ozashiki drinking games. Only on the 3rd Saturday.",
+          "plan": "Entry opens at 18:00, so arrive then to sit together. At 18:30 three geisha dance, then you play ozashiki drinking games with them. Finish with one more drink at the geisha-run bar Hana.",
+          "address": null,
+          "lat": 35.23148,
+          "lng": 139.10221,
+          "website": null,
+          "phone": null,
+          "map": null,
+          "transport": "2 pre-booked taxis Yumoto → MONTA, Sengokuhara, ~35 min",
+          "guide": {
+            "story": "The Kenban is Yumoto's geisha union house, still home to working geisha, and twice a month it throws its doors open for 'Furatto Geisha'. Three geisha perform a dance, then switch into hostess mode and lead the old teahouse drinking games: think rock-paper-scissors with forfeits and quick-reflex games where the loser drinks. You get a drink in hand, photos and real laughs for 40 minutes. Afterwards slide into Hana, the geisha-run cafe bar, for one more before the taxis come.",
+            "how": [
+              "Arrive right at 18:00 when entry opens so the 8 of you get seats together. It's a small hall.",
+              "The show starts at 18:30 and runs 40 minutes. Your ¥3,000 includes one drink.",
+              "Move to Geisha Cafe Bar Hana for another round (around ¥700 a drink).",
+              "Be outside at 19:40 for the two pre-booked taxis (about 35 min to MONTA, arriving around 20:15)."
+            ],
+            "tips": [
+              "Volunteer for the games. The geisha go easy on first-timers and it makes the best video of the trip.",
+              "Ask before filming the dance, and say 'shashin ii desu ka?' for photos.",
+              "The schedule can change without notice, so glance at the official site in the morning."
+            ],
+            "cost": "¥3,000 pp incl. 1 drink; extra drinks ~¥700",
+            "booking": "Walk-in; no booking needed",
+            "hours": "Entry from 18:00, show 18:30",
+            "sources": [
+              {
+                "url": "https://geisha.co.jp/",
+                "label": "Official Hakone Yumoto geisha union"
+              },
+              {
+                "url": "https://blog.fmyokohama.jp/machikado/2026/07/post-a21b.html",
+                "label": "FM Yokohama blog, Jul 2026"
+              },
+              {
+                "url": "https://www.instagram.com/reel/DIQwzI-yFUO/",
+                "label": "Instagram reel"
+              },
+              {
+                "url": "https://www.tokyo-np.co.jp/article/378183",
+                "label": "Tokyo Shimbun"
+              },
+              {
+                "url": "",
+                "label": "source"
+              }
+            ],
+            "media": [
+              {
+                "kind": "instagram",
+                "url": "https://www.instagram.com/reel/DIQwzI-yFUO/",
+                "embed": "https://www.instagram.com/reel/DIQwzI-yFUO/embed"
+              }
+            ],
+            "wishes": [
+              "If there are cool nightlife things to do in the neighbouring cities as well, include them",
+              "We love to drink",
+              "We love to do it all"
+            ],
+            "verified": null,
+            "facts": [
+              {
+                "text": "Open 18:00–24:00 on 2026-12-19",
+                "url": "https://www.tabiulala.com/feature/special1024/"
+              },
+              {
+                "text": "Closed 2026-12-20, 2026-12-21 (Regular closing days (Sunday and Monday))",
+                "url": "https://tabelog.com/kanagawa/A1410/A141001/14097968/"
+              },
+              {
+                "text": "Last entry 23:30",
+                "url": "https://www.tabiulala.com/feature/special1024/"
+              },
+              {
+                "text": "Furatto Geisha, adult (16+), one drink included: ¥3,000",
+                "url": "https://yukieda.com/information/furatto_geisha/"
+              },
+              {
+                "text": "Geisha standard rate, private, per hour: ¥25,000",
+                "url": "https://www.mlit.go.jp/tagengo-db/en/R1-01110.html"
+              },
+              {
+                "text": "Furatto Geisha performance session (18:30 and 20:00 on 1st and 3rd Saturdays; 2026-12-19 is the 3rd Saturday): 40 min",
+                "url": "https://yukieda.com/information/furatto_geisha/"
+              },
+              {
+                "text": "Furatto Geisha is held on the 1st and 3rd Saturdays, two sessions a day, 18:30 (entry from 18:00) and 20:00 (entry from 19:30)",
+                "url": "https://yukieda.com/information/furatto_geisha/"
+              },
+              {
+                "text": "Event schedule may change or be cancelled without notice",
+                "url": "https://yukieda.com/information/furatto_geisha/"
+              },
+              {
+                "text": "Be outside at 19:40 for the two pre-booked taxis (about 35 min to MONTA, arriving around 20:15).",
+                "url": ""
+              }
+            ]
+          }
+        },
+        {
+          "id": "d01-s08",
+          "start": "20:15",
+          "end": "22:15",
+          "name": "Ochanoma Shubo MONTA",
+          "nameJa": "お茶の間酒房 MONTA",
+          "category": "bar",
+          "categoryLabel": "Izakaya-bar",
+          "price": "~¥4,500 pp with drinks",
+          "summary": "The one late izakaya near the villa: homestyle food, a long drinks list and your Saturday night out.",
+          "plan": "Dinner and a big drinking session at the only late izakaya near the villa. December seating is limited to 2 hours, so order fast.",
+          "address": "17-1 Sengokuhara, Hakone, Ashigarashimo District, Kanagawa 250-0631",
+          "lat": 35.2713504,
+          "lng": 139.0122262,
+          "website": "http://hakone-monta.com/",
+          "phone": "0460-83-9797",
+          "map": "https://maps.google.com/?cid=3190648208960891600&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+          "transport": "Taxi to the villa (ask MONTA to call one or about their pickup/drop), ~5 min",
+          "guide": {
+            "story": "MONTA is a cosy 'living-room' izakaya in Sengokuhara and the only real late-night spot near the villa. It's highly rated by locals and visitors alike for home-cooked plates and a drinks list long enough to work through. Groups of 8 book here regularly, and it has a warm, chatty feel rather than a chain buzz. In December seating is capped at 2 hours, so this is a sprint, not a marathon.",
+            "how": [
+              "Order a first round of drinks plus a spread of shared plates the moment you sit down.",
+              "Say 'nomihoudai arimasu ka?' to ask if there's an all-you-can-drink option tonight.",
+              "Put in a last food order well before your 2 hours are up.",
+              "Ask staff to call a taxi for the short ride to the villa (car 6 min)."
+            ],
+            "tips": [
+              "It's completely non-smoking inside.",
+              "Reviews mention a pickup service for nearby guests, so ask about it when you book.",
+              "It's closed Sunday and Monday, so tonight is your only shot."
+            ],
+            "cost": "~¥4,500 pp with drinks",
+            "booking": "Book online or call 0460-83-9797 for 8",
+            "hours": "17:00–24:00, last entry 23:00",
+            "sources": [
+              {
+                "url": "https://maps.google.com/?q=お茶の間酒房MONTA+仙石原",
+                "label": "Google Maps (ja) reviews"
+              },
+              {
+                "url": "https://www.google.com/search?q=お茶の間酒房+MONTA+仙石原",
+                "label": "Google search (ja) / find_place"
+              }
+            ],
+            "media": [],
+            "wishes": [
+              "We love to drink",
+              "We want to maximise all the time we've got in the country"
+            ],
+            "verified": {
+              "source": "Google Places",
+              "status": "OPERATIONAL"
+            },
+            "facts": [
+              {
+                "text": "Open 17:00–24:00 on 2026-12-19",
+                "url": "http://hakone-monta.com/"
+              },
+              {
+                "text": "Last entry 23:00",
+                "url": "http://hakone-monta.com/"
+              },
+              {
+                "text": "Booking: ネットでご予約、または電話 0460-83-9797で予約・問い合わせ",
+                "url": "http://hakone-monta.com/"
+              },
+              {
+                "text": "繁忙期(8月.12月.1月)は原則お席は2時間までの利用",
+                "url": "https://edisone.jp/363372/"
+              },
+              {
+                "text": "完全禁煙の店内",
+                "url": "http://hakone-monta.com/"
+              }
+            ]
+          }
+        },
+        {
+          "id": "d01-s09",
+          "start": "22:30",
+          "end": "01:00",
+          "name": "Check in · Hot Spring Hakone Villa, Sengokuhara",
+          "nameJa": null,
+          "category": "stay",
+          "categoryLabel": "Stay",
+          "price": null,
+          "summary": "Bags waiting, your own hot spring and the cheapest round of the night.",
+          "plan": "Collect the delivered bags and check in. Drink your own supplies in the villa's hot spring, the cheapest round of the night.",
+          "address": null,
+          "lat": 35.255865,
+          "lng": 138.998921,
+          "website": null,
+          "phone": null,
+          "map": null,
+          "transport": null,
+          "guide": {
+            "story": "Your forwarded bags should be waiting at Hot Spring Hakone Villa, so check-in is just keys and collapse, or not. The real move is the villa's own hot spring: steaming water, freezing mountain air and the beer and sake you carried from Yumoto. It's the cheapest round of the night by far and the most memorable. Keep it relaxed. Sengokuhara is a quiet residential area and sound carries at night.",
+            "how": [
+              "Collect the delivered bags and check that all 8 have arrived.",
+              "Put the drinks in the fridge, then take a couple into the bath.",
+              "Rotate turns in the hot spring if it can't fit everyone at once."
+            ],
+            "tips": [
+              "Alternate a glass of water with every drink in the hot water. Alcohol and heat hit harder together.",
+              "Keep voices low outside. Quiet neighbours are part of the deal in Sengokuhara."
+            ],
+            "cost": null,
+            "booking": null,
+            "hours": "22:30–01:00",
+            "sources": [],
+            "media": [],
+            "wishes": [
+              "Stays already booked: Ninja House in Toshima (Tokyo), Hot Spring Hakone Villa in Sengokuhara, Kujō House in Nishi-ku (Osaka), Garfield House in Shinjuku (Tokyo)",
+              "We love to drink"
+            ],
+            "verified": null,
+            "facts": []
+          }
+        }
+      ]
+    },
+    {
+      "n": 2,
+      "date": "2026-12-20",
+      "city": "Hakone",
+      "title": "Morning pirate ship · lakeside torii · tofu katsu in Gora · craft beer · crystal lights · sushi · Funny's late",
+      "stamp": {
+        "kanji": "湖",
+        "reading": "mizuumi · lake",
+        "place": "LAKE ASHI · MOTOHAKONE · GORA"
+      },
+      "notes": [
+        {
+          "kind": "BOOK",
+          "text": "Three calls to make before today: Gora Brewery & Grill (table for 8), Hakone Sushi (tatami room, phone only) and Funny's (its booking request closes the day before). Also pre-book both taxi pairs for the late run to Miyanoshita and back. Hakone cabs vanish after dark."
+        },
+        {
+          "kind": "MONEY",
+          "text": "The Hakone Free Pass carries the day: pirate ship, Tozan buses and the Tozan train, plus a discount at Glass no Mori. Anyone with a student ID should flash it there for the cheaper student rate."
+        },
+        {
+          "kind": "CHECK",
+          "text": "The Hakone Ropeway and Owakudani are listed as closed on these dates, so don't try to loop up to the steaming valley. The pirate ship is today's lake crossing."
+        },
+        {
+          "kind": "BRING",
+          "text": "Cash or PayPay for Tamura Ginkatsutei, shopping bags for the A Coop drinks run, and warm layers. The open deck and the lakeside are cold in December, and it gets dark early."
+        },
+        {
+          "kind": "NOTE",
+          "text": "Last night in Hakone. Pack before the final soak so check-out isn't a hungover scramble."
+        }
+      ],
+      "stops": [
+        {
+          "id": "d02-s01",
+          "start": "07:45",
+          "end": "08:40",
+          "name": "Villa breakfast + morning soak",
+          "nameJa": null,
+          "category": "stay",
+          "categoryLabel": "Stay",
+          "price": null,
+          "summary": "A slow-start fix: leftover snacks, coffee and a scalding outdoor soak before the mountain day.",
+          "plan": "Eat a quick breakfast from last night's supplies and take a 10-min soak to cure the hangover.",
+          "address": null,
+          "lat": 35.255865,
+          "lng": 138.998921,
+          "website": null,
+          "phone": null,
+          "map": null,
+          "transport": "Hakone Tozan bus Sengokuhara → Togendai, ~20 min (Freepass), or 2 taxis, ~10 min",
+          "guide": {
+            "story": "After last night, the villa's own hot-spring bath is the best hangover cure in Japan. Sengokuhara mornings in December are crisp and quiet, with steam curling off the water. Raid last night's supplies for breakfast, get everyone in and out of the bath in shifts, and roll out together. Today runs on a tight chain of connections.",
+            "how": [
+              "Assign bath shifts so 8 people aren't queuing for one tub.",
+              "Eat whatever survived last night: onigiri, bread, konbini coffee.",
+              "Dress in layers for the lake deck, and keep your Free Pass handy.",
+              "Head for Togendai pier: it's a ~10 min car ride, or take the Tozan bus on the Free Pass (~20 min)."
+            ],
+            "tips": [
+              "Drink a big glass of water before soaking. Hot spring plus hangover can make you light-headed.",
+              "Book the taxis the night before if you're not taking the bus. Two cars fit 8."
+            ],
+            "cost": null,
+            "booking": null,
+            "hours": "07:45–08:40",
+            "sources": [
+              {
+                "url": "https://www.hakonesushi.com/",
+                "label": "hakonesushi.com"
+              }
+            ],
+            "media": [],
+            "wishes": [
+              "w5",
+              "w11"
+            ],
+            "verified": null,
+            "facts": [
+              {
+                "text": "Head for Togendai pier: it's a ~10 min car ride, or take the Tozan bus on the Free Pass (~20 min).",
+                "url": "https://www.hakonesushi.com/"
+              }
+            ]
+          }
+        },
+        {
+          "id": "d02-s02",
+          "start": "09:30",
+          "end": "10:10",
+          "name": "Lake Ashi pirate ship Togendai → Motohakone",
+          "nameJa": "箱根海賊船",
+          "category": "activity",
+          "categoryLabel": "Cruise",
+          "price": null,
+          "summary": "First sailing of the day across Lake Ashi on a mock galleon, Fuji hopefully peeking over the ridge.",
+          "plan": "Queue early on a Sunday and take the first sailing. Ride the open top deck across the lake for morning Fuji views. The Hakone Ropeway/Owakudani is listed as closed on these dates, so the ship replaces it.",
+          "address": "箱根町元箱根164桃源台港",
+          "lat": 35.2373104095459,
+          "lng": 138.99469757080078,
+          "website": "http://www.hakone-kankosen.co.jp/",
+          "phone": "+81460848618",
+          "map": null,
+          "transport": "Lakeside walk to Hakone Shrine, ~10 min",
+          "guide": {
+            "story": "The Hakone pirate ships are gloriously over the top: gilded sterns, fake cannons and full-rigged masts, all gliding across a volcanic crater lake. The crossing from Togendai to Motohakone takes 25 minutes. Winter mornings give you the clearest air, which is your best shot at Mt Fuji behind the hills. With the ropeway listed as closed, this is the big set piece of the morning, and it drops you right next to the shrine.",
+            "how": [
+              "Be at Togendai pier well before the 09:30 opening. Sunday queues build early.",
+              "Scan or show your Hakone Free Pass, which covers the base fare.",
+              "Head straight to the open top deck, port side, for the best lake-and-mountain views.",
+              "At Motohakone, walk about 10 min towards the shrine and its lakeside torii."
+            ],
+            "tips": [
+              "The first-class deck upgrade is extra and not worth it for a short morning hop. The open deck is the fun part.",
+              "Tour buses arrive later in the morning, so the first boat is the calmest one.",
+              "Bring gloves: the wind on the deck bites in December."
+            ],
+            "cost": "Covered by the Hakone Free Pass (otherwise ¥3,000 adult round trip)",
+            "booking": "None, just queue early",
+            "hours": "09:30–16:40",
+            "sources": [
+              {
+                "url": "https://maps.google.com/?cid=15717914079410072592",
+                "label": "Google Places"
+              },
+              {
+                "url": "https://www.reddit.com/r/JapanTravel/",
+                "label": "Reddit r/JapanTravel threads"
+              },
+              {
+                "url": "https://www.hakonesushi.com/",
+                "label": "hakonesushi.com"
+              }
+            ],
+            "media": [],
+            "wishes": [
+              "w5",
+              "w8",
+              "w10"
+            ],
+            "verified": {
+              "source": "TREK Places",
+              "status": null
+            },
+            "facts": [
+              {
+                "text": "Open 09:30–16:40 on 2026-12-19, 2026-12-20, 2026-12-21",
+                "url": "https://www.hakonenavi.jp/spot/11167"
+              },
+              {
+                "text": "Adult round trip, pirate ship: ¥3,000",
+                "url": "https://www.hey-japan.com/place/hakone-sightseeing-cruise"
+              },
+              {
+                "text": "Hakone Free Pass includes the pirate ship base fare",
+                "url": "https://tabi-maru.com/spot/hakone/lake-ashi"
+              },
+              {
+                "text": "Weekends and holidays: arrive at the pier early because queues build up before departure",
+                "url": "https://todolist-japan.com/zh/hakone-lake-ashi-guide/"
+              },
+              {
+                "text": "At Motohakone, walk about 10 min towards the shrine and its lakeside torii.",
+                "url": "https://www.hakonesushi.com/"
+              }
+            ]
+          }
+        },
+        {
+          "id": "d02-s03",
+          "start": "10:20",
+          "end": "11:20",
+          "name": "Hakone Shrine & Torii of Peace",
+          "nameJa": "箱根神社 平和の鳥居",
+          "category": "attraction",
+          "categoryLabel": "Attraction",
+          "price": null,
+          "summary": "Hakone's most famous photo: a vermilion torii standing in the lake, reached by a cedar-shaded climb.",
+          "plan": "Walk the cedar approach. The photo queue is still short this early; if it's long, shoot the lake torii from the side path.",
+          "address": "80-1 Motohakone, Hakone, Ashigarashimo District, Kanagawa 250-0522",
+          "lat": 35.202783,
+          "lng": 139.02574189999999,
+          "website": "http://hakonejinja.or.jp/",
+          "phone": "0460-83-7123",
+          "map": "https://maps.google.com/?cid=8019591696458570810&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+          "transport": "Hakone Tozan bus Motohakone-ko → Miyanoshita, ~30 min, then Tozan train → Gora, ~10 min (Freepass)",
+          "guide": {
+            "story": "Hakone Shrine sits in a forest of towering old cedars, with mossy stone steps leading up to the main hall. Below, the Torii of Peace stands right in the water of Lake Ashi. Get there straight off the boat and the line for the classic shot is still manageable. The approach itself is free and quietly atmospheric, a nice reset after the noisy boat deck.",
+            "how": [
+              "Walk the cedar-lined approach up to the main hall first, then drop down to the lakeside torii.",
+              "Check the photo queue. If it's long, shoot the torii from the side path instead.",
+              "Take group shots in rotation: one person holds the spot while the others pose in pairs, then do the big 8-person shot.",
+              "The treasure hall is optional if anyone wants history."
+            ],
+            "tips": [
+              "The lakeside stones get slippery, so watch your footing in sneakers.",
+              "Holiday and long-weekend photo queues can hit 30 minutes or more. Early is everything.",
+              "Nominate one person as the queue holder while the rest explore the shrine."
+            ],
+            "cost": "Free; treasure hall ¥500",
+            "booking": null,
+            "hours": "09:00–16:30 (last entry 16:00)",
+            "sources": [
+              {
+                "url": "https://hakonejinja.or.jp/",
+                "label": "Official"
+              },
+              {
+                "url": "https://www.reddit.com/r/JapanTravel/",
+                "label": "Reddit r/JapanTravel"
+              }
+            ],
+            "media": [],
+            "wishes": [
+              "w5",
+              "w8"
+            ],
+            "verified": {
+              "source": "Google Places",
+              "status": "OPERATIONAL"
+            },
+            "facts": [
+              {
+                "text": "Open 09:00–16:30 on 2026-12-19, 2026-12-20, 2026-12-21",
+                "url": "https://tokyo.letsgojp.com/archives/882325/"
+              },
+              {
+                "text": "Last entry 16:00",
+                "url": "https://tokyo.letsgojp.com/archives/882325/"
+              },
+              {
+                "text": "Treasure hall admission, junior high and up (宝物殿拝観料): ¥500",
+                "url": "https://www.jalan.net/kankou/spt_14382ag2130013396/"
+              },
+              {
+                "text": "Torii photo spot often has queues of 30 minutes or more on holidays and long weekends; going early morning or late afternoon helps avoid crowds. The lakeside stones can be slippery.",
+                "url": "https://tokyo.letsgojp.com/archives/882325/"
+              }
+            ]
+          }
+        },
+        {
+          "id": "d02-s04",
+          "start": "12:10",
+          "end": "13:20",
+          "name": "Tamura Ginkatsutei",
+          "nameJa": "田むら銀かつ亭",
+          "category": "restaurant",
+          "categoryLabel": "Restaurant",
+          "price": "¥1,330–2,050 pp",
+          "summary": "Hakone's signature lunch: tofu stuffed with minced pork, fried, then simmered in a bubbling egg broth.",
+          "plan": "Lunch on Hakone's signature tofu katsu-ni. Take a numbered ticket on arrival; if the wait is long, try the old building across the road. Cash or PayPay.",
+          "address": "1300-739 Gōra, Hakone, Ashigarashimo District, Kanagawa 250-0408",
+          "lat": 35.2506021,
+          "lng": 139.0492807,
+          "website": "http://www.ginkatsutei.jp/",
+          "phone": "0460-82-1440",
+          "map": "https://maps.google.com/?cid=4081079901005252473&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+          "transport": "Walk to Gora Brewery & Grill, ~5 min",
+          "guide": {
+            "story": "Tofu katsu-ni sounds odd until it arrives sizzling in an iron pot. You get thick slabs of local tofu sandwiching seasoned pork, breaded and fried, then drowned in sweet dashi and soft egg. Ginkatsutei is the place everyone in Gora queues for, and it's highly rated. It's a must-eat on Chinese food guides too. Weekend waits run 30–60 minutes, but the numbered-ticket system means you can wander off instead of standing in line.",
+            "how": [
+              "Grab a numbered ticket as soon as you arrive, then stroll Gora while you wait.",
+              "Order the tofu katsu-ni set at ¥1,330, or the bigger gozen at ¥2,050 if you're starving.",
+              "The rosu katsu gozen at ¥2,460 is for anyone who wants straight pork cutlet.",
+              "If the wait looks brutal, check the old building across the road. It only serves tofu katsu and often moves faster."
+            ],
+            "tips": [
+              "Cash or PayPay only, with no bookings at all.",
+              "The new building is big, so 8 can usually sit together.",
+              "Eat it while it's still bubbling: the broth thickens fast."
+            ],
+            "cost": "¥1,330–2,050 pp",
+            "booking": "No reservations; numbered ticket in person",
+            "hours": "11:00–14:30",
+            "sources": [
+              {
+                "url": "https://maps.google.com/?q=田むら銀かつ亭",
+                "label": "Google Maps (ja) reviews"
+              },
+              {
+                "url": "https://www.xiaohongshu.com/search_result?keyword=箱根%20银かつ亭",
+                "label": "Xiaohongshu Hakone food guides"
+              }
+            ],
+            "media": [],
+            "wishes": [
+              "w5",
+              "w8"
+            ],
+            "verified": {
+              "source": "Google Places",
+              "status": "OPERATIONAL"
+            },
+            "facts": [
+              {
+                "text": "Open 11:00–14:30 on 2026-12-19, 2026-12-20, 2026-12-21",
+                "url": "http://www.ginkatsutei.jp/"
+              },
+              {
+                "text": "Last entry 19:00",
+                "url": "http://www.ginkatsutei.jp/"
+              },
+              {
+                "text": "豆腐かつ煮定食 (reference price): ¥1,330",
+                "url": "https://www.hakone.or.jp/498"
+              },
+              {
+                "text": "豆腐かつ煮御膳 (reference price): ¥2,050",
+                "url": "https://www.hakone.or.jp/498"
+              },
+              {
+                "text": "ロースかつ御膳 (reference price): ¥2,460",
+                "url": "https://www.hakone.or.jp/498"
+              },
+              {
+                "text": "Booking: ご予約は承っておりません。",
+                "url": "http://www.ginkatsutei.jp/"
+              }
+            ]
+          }
+        },
+        {
+          "id": "d02-s05",
+          "start": "13:30",
+          "end": "15:15",
+          "name": "Gora Brewery & Grill",
+          "nameJa": "GORA BREWERY & GRILL",
+          "category": "bar",
+          "categoryLabel": "Brewpub",
+          "price": "~¥4,000 pp incl. ¥500 table charge",
+          "summary": "Afternoon session at Hakone's best craft brewpub: house-brewed pints and wood-fired plates at a big table.",
+          "plan": "House-brewed beers and snacks (try the NOBU sashimi tacos) at a booked table for 8.",
+          "address": "1300-72 Gōra, Hakone, Ashigarakami District, Kanagawa 250-0408",
+          "lat": 35.2475519,
+          "lng": 139.04642769999998,
+          "website": "http://itoh-dining.co.jp/gorabrewery/",
+          "phone": "0460-83-8107",
+          "map": "https://maps.google.com/?cid=17875169781698013411&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+          "transport": "Hakone Tozan bus Gora → Sengokuhara (Glass no Mori stop), ~25 min (Freepass)",
+          "guide": {
+            "story": "Gora Brewery & Grill brews its own beer on site and runs a serious grill, which makes it the best drinking room in Hakone. It's a big, warm space with large tables that actually suit a group of 8. Settle in, work through the house taps and order the NOBU sashimi tacos, a little nod to the chef behind them. It's the right place to turn a mountain day into a proper beer afternoon.",
+            "how": [
+              "It's about a 5 min walk from Ginkatsutei, and your table for 8 should be booked.",
+              "Start with a flight-style round of the house beers and share around the table.",
+              "Order the NOBU sashimi tacos at ¥1,200 for the table. Save the ¥8,400 lava-grilled lamb chops for a splurge.",
+              "Leave on time for Glass no Mori: it's a 11 min car ride."
+            ],
+            "tips": [
+              "Same-day bookings are phone only: 0460-83-8107. Walk-ins can get turned away when it's busy.",
+              "There's a ¥500 per person table charge, so factor it in.",
+              "Cards are accepted, so save your cash for Ginkatsutei and Funny's."
+            ],
+            "cost": "~¥4,000 pp incl. ¥500 table charge",
+            "booking": "Book online or by phone. Same-day is phone only (0460-83-8107).",
+            "hours": "Around 13:00–21:00, no regular closing day",
+            "sources": [
+              {
+                "url": "https://maps.google.com/?q=GORA+BREWERY+%26+GRILL",
+                "label": "Google Maps (ja) reviews"
+              },
+              {
+                "url": "https://www.google.com/search?q=Gora+Brewery+%26+Grill",
+                "label": "Web search"
+              },
+              {
+                "url": "https://www.hakonesushi.com/",
+                "label": "hakonesushi.com"
+              }
+            ],
+            "media": [],
+            "wishes": [
+              "w4",
+              "w8",
+              "w10"
+            ],
+            "verified": {
+              "source": "Google Places",
+              "status": "OPERATIONAL"
+            },
+            "facts": [
+              {
+                "text": "Table charge, per person: ¥500",
+                "url": "https://tabelog.com/kanagawa/A1410/A141001/14067843/dtlrvwlst/?type=0"
+              },
+              {
+                "text": "Sashimi, NOBU sashimi tacos: ¥1,200",
+                "url": "https://dishnote.com/en/restaurants/33869"
+              },
+              {
+                "text": "Lamb chop steak, 溶岩焼きラムチョップステーキ: ¥8,400",
+                "url": "https://www.hakonenavi.jp/feature/7010"
+              },
+              {
+                "text": "Booking: 電話予約・ネット予約。当日のご予約はお電話のみ承っております。混雑時はご予約のないお客様をご案内できない場合がございます。",
+                "url": "http://itoh-dining.co.jp/gorabrewery/"
+              },
+              {
+                "text": "定休日なし (no regular closing day)",
+                "url": "http://itoh-dining.co.jp/gorabrewery/"
+              },
+              {
+                "text": "Phone 0460-83-8107; cash not stated, credit cards accepted",
+                "url": "https://dishnote.com/en/restaurants/33869"
+              },
+              {
+                "text": "Beer drink menu from ¥300 and food menu from ¥400 (per listing)",
+                "url": "https://hakone-japan.com/things-to-do/foods-shops/italian-french-western-japanse/gora-brewerygrill/"
+              },
+              {
+                "text": "It's about a 5 min walk from Ginkatsutei, and your table for 8 should be booked.",
+                "url": "https://www.hakonesushi.com/"
+              }
+            ]
+          }
+        },
+        {
+          "id": "d02-s06",
+          "start": "16:00",
+          "end": "17:15",
+          "name": "Hakone Glass no Mori – Christmas crystal illumination",
+          "nameJa": "箱根ガラスの森美術館 クリスタルイルミネーション",
+          "category": "attraction",
+          "categoryLabel": "Illumination",
+          "price": "¥1,800 pp (show the Freepass for a discount)",
+          "summary": "A Venetian-glass garden that turns into a field of crystal arches and a glittering glass Christmas tree at dusk.",
+          "plan": "Arrive for golden hour, then watch the crystal arches and the glass tree light up. Candles run until 25 Dec. Last entry is 17:00.",
+          "address": "箱根町仙石原940-48",
+          "lat": 35.26625633239746,
+          "lng": 139.0177230834961,
+          "website": "http://www.ciao3.com",
+          "phone": "+81460863111",
+          "map": null,
+          "transport": "Walk to A Coop, ~10 min",
+          "guide": {
+            "story": "Glass no Mori is a little slice of Venice in the Sengokuhara hills. In December the garden is strung with crystal arches that catch the last light, then sparkle as the illumination takes over. These dates fall inside the candle season, 1–25 Dec, so you get flickering candles on top of the crystals. Arrive around golden hour and you'll see the switch from sunset to sparkle, the best photo stretch of the whole day.",
+            "how": [
+              "Get in before last entry at 17:00. Aim for 16:00 to catch golden hour.",
+              "Show the Hakone Free Pass at the ticket desk for the discount.",
+              "Walk the crystal arches first, then save the big glass Christmas tree for once the lights are fully on.",
+              "Leave by closing and walk 12 min to A Coop."
+            ],
+            "tips": [
+              "University students pay ¥1,300 instead of ¥1,800. Bring your student ID.",
+              "Re-entry is allowed the same day. Ask at reception and keep your stub.",
+              "Christmas-season hours can shift, so check on the day if the weather turns."
+            ],
+            "cost": "¥1,800 pp general (students ¥1,300; Free Pass discount)",
+            "booking": "None",
+            "hours": "10:00–17:30 (last entry 17:00)",
+            "sources": [
+              {
+                "url": "https://www.hakone-garasunomori.jp/garden/christmas/",
+                "label": "Official site"
+              },
+              {
+                "url": "https://www.jalan.net/event/evt_347401/",
+                "label": "Jalan event page"
+              },
+              {
+                "url": "https://maps.google.com/?cid=839950920752152752",
+                "label": "Google Places"
+              }
+            ],
+            "media": [],
+            "wishes": [
+              "w5",
+              "w8",
+              "w10"
+            ],
+            "verified": {
+              "source": "TREK Places",
+              "status": null
+            },
+            "facts": [
+              {
+                "text": "Open 10:00–17:30 on 2026-12-19, 2026-12-20, 2026-12-21",
+                "url": "https://www.hakone-garasunomori.jp/entrance/"
+              },
+              {
+                "text": "Last entry 17:00",
+                "url": "https://www.hakone-garasunomori.jp/entrance/"
+              },
+              {
+                "text": "Adult admission, general: ¥1,800",
+                "url": "https://www.hakone-garasunomori.jp/entrance/"
+              },
+              {
+                "text": "Adult admission, group of 15 or more: ¥1,600",
+                "url": "https://www.hakone-garasunomori.jp/entrance/"
+              },
+              {
+                "text": "Senior admission, 65 and over (cannot combine with other discounts): ¥1,700",
+                "url": "https://www.hakone-garasunomori.jp/entrance/"
+              },
+              {
+                "text": "Senior high and university student admission: ¥1,300",
+                "url": "https://www.hakone-garasunomori.jp/entrance/"
+              },
+              {
+                "text": "Junior high and elementary student admission: ¥600",
+                "url": "https://www.hakone-garasunomori.jp/entrance/"
+              },
+              {
+                "text": "Same-day re-entry is allowed; ask at the reception before leaving and keep the ticket stub.",
+                "url": "https://www.hakone-garasunomori.jp/entrance/"
+              },
+              {
+                "text": "Pets are not allowed to enter the museum.",
+                "url": "https://www.hakone-garasunomori.jp/entrance/"
+              },
+              {
+                "text": "Hours may change or the museum may close due to weather or traffic conditions.",
+                "url": "https://www.hakone-garasunomori.jp/entrance/"
+              },
+              {
+                "text": "Christmas and year-end hours are irregular.",
+                "url": "https://gotemba.jp/information/1153/"
+              }
+            ]
+          }
+        },
+        {
+          "id": "d02-s07",
+          "start": "17:25",
+          "end": "17:45",
+          "name": "A Coop Sengokuhara – drinks run",
+          "nameJa": "Aコープ 仙石原店",
+          "category": "shopping",
+          "categoryLabel": "Supermarket",
+          "price": "~¥2,000 pp",
+          "summary": "The last supermarket run before Sengokuhara goes dark: beer, chu-hi, sake and snacks for the villa.",
+          "plan": "Stock up on beer, chu-hi, sake and snacks for tonight's villa session. It closes at 18:00.",
+          "address": "箱根町仙石原39-1",
+          "lat": 35.27201271057129,
+          "lng": 139.0123062133789,
+          "website": "https://www.cocokarafine.co.jp/searchstore/CSsStoreDetail.jsp?storeNo=700027&utm_source=google&utm_medium=gmb",
+          "phone": "+81460848281",
+          "map": null,
+          "transport": "Walk to Hakone Sushi, ~10 min",
+          "guide": {
+            "story": "Once A Coop shuts, the only drinks left in Sengokuhara are konbini prices and slim pickings, so this quick sweep matters. Fill baskets with cans of beer, strong chu-hi, a bottle of local sake and salty snacks for the onsen pre-game and the late nightcap. Local villa guests all shop here for exactly the same reason.",
+            "how": [
+              "Split up: two people on beer and chu-hi, two on sake, the rest on snacks and ice.",
+              "Get to the till before 18:00 closing.",
+              "Pack into shopping bags, because you'll carry them on the 13 min walk to dinner."
+            ],
+            "tips": [
+              "Grab hangover helpers too: sports drinks and instant miso soup for tomorrow's early start.",
+              "Keep it to what you can carry. The sushi restaurant isn't a storage room.",
+              "If you're running late from Glass no Mori, call Hakone Sushi to warn them."
+            ],
+            "cost": "~¥2,000 pp",
+            "booking": null,
+            "hours": "09:30–18:00",
+            "sources": [
+              {
+                "url": "https://maps.google.com/?cid=11117888337264960485",
+                "label": "Google Places"
+              },
+              {
+                "url": "https://note.com/koti_hakone/n/n007bd5d95cca",
+                "label": "note.com Hakone villa shopping guide"
+              },
+              {
+                "url": "https://ameblo.jp/travel-life2/entry-12975353128.html",
+                "label": "Ameblo 2026-08 Hakone big-group cottage post"
+              }
+            ],
+            "media": [],
+            "wishes": [
+              "w4",
+              "w7",
+              "w10"
+            ],
+            "verified": {
+              "source": "TREK Places",
+              "status": null
+            },
+            "facts": [
+              {
+                "text": "Open 09:30–18:00 on 2026-12-19, 2026-12-20, 2026-12-21",
+                "url": "https://www.acoop-east-t.jp/store/index.html"
+              },
+              {
+                "text": "Regular holiday: none (定休日：無休)",
+                "url": "https://hatagoya.co.jp/hakonesengokuhara/"
+              }
+            ]
+          }
+        },
+        {
+          "id": "d02-s08",
+          "start": "18:00",
+          "end": "19:30",
+          "name": "Hakone Sushi (tatami room)",
+          "nameJa": "はこねずし",
+          "category": "restaurant",
+          "categoryLabel": "Restaurant",
+          "price": "~¥4,500 pp (dishes ¥2,200–4,200 + tax, plus drinks)",
+          "summary": "The neighbourhood sushi house locals swear by, with a tatami room for 8 and winter golden-eye shabu-shabu.",
+          "plan": "Dinner: tokujo chirashi, anago sushi and the winter kinmedai shabu-shabu. Last order is 20:00.",
+          "address": "817 Sengokuhara, Hakone, Ashigarashimo District, Kanagawa 250-0631",
+          "lat": 35.2660506,
+          "lng": 139.0102172,
+          "website": "http://hakone-sushi.com/",
+          "phone": "0460-84-7890",
+          "map": "https://maps.google.com/?cid=500385195589258175&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+          "transport": "2 taxis → villa, ~28 min",
+          "guide": {
+            "story": "Ask anyone in Sengokuhara where to eat sushi and they point here. It's a small, warm family place that's full most nights and highly rated. The tokujo chirashi is a bowl piled with glistening cuts, and the anago sushi is soft and sweet. In winter there's kinmedai shabu-shabu: you swish slices of buttery red golden-eye snapper through hot broth. Sitting on tatami as a group of 8 feels like a proper Japanese family dinner.",
+            "how": [
+              "Call 0460-84-7890 to book the tatami room. It's phone only, with no DMs.",
+              "Order tokujo chirashi at ¥3,500 and anago sushi at ¥2,600, and share a few portions of kinmedai shabu-shabu at ¥2,700 each.",
+              "If you're on a budget, the jo sushi at ¥2,200 is a good-value plate.",
+              "Last order is 20:00. From here it's a short taxi ride (about 28 min per the day's timetable); it's too far and too cold to walk, so book the taxis."
+            ],
+            "tips": [
+              "Menu prices are before tax, so add a bit on top.",
+              "Credit cards are accepted.",
+              "Ask for the 'kinmedai shabu' by name: it's winter-only and easy to miss."
+            ],
+            "cost": "~¥4,500 pp (dishes ¥2,200–4,200 before tax, plus drinks)",
+            "booking": "Phone only: 0460-84-7890",
+            "hours": "17:00–21:00 (last order 20:00)",
+            "sources": [
+              {
+                "url": "https://maps.google.com/?q=はこねずし+仙石原",
+                "label": "Google Maps (ja) reviews"
+              },
+              {
+                "url": "https://tabelog.com/kanagawa/A1410/A141002/",
+                "label": "Tabelog"
+              },
+              {
+                "url": "https://www.hakonesushi.com/",
+                "label": "hakonesushi.com"
+              }
+            ],
+            "media": [],
+            "wishes": [
+              "w4",
+              "w8"
+            ],
+            "verified": {
+              "source": "Google Places",
+              "status": "OPERATIONAL"
+            },
+            "facts": [
+              {
+                "text": "Open 11:30–15:00 on 2026-12-19, 2026-12-20",
+                "url": "http://hakone-sushi.com/"
+              },
+              {
+                "text": "Open 17:00–21:00 on 2026-12-19, 2026-12-20",
+                "url": "http://hakone-sushi.com/"
+              },
+              {
+                "text": "Closed 2026-12-21 (Regular closing day (Monday))",
+                "url": "http://hakone-sushi.com/"
+              },
+              {
+                "text": "Last entry 20:00",
+                "url": "http://hakone-sushi.com/"
+              },
+              {
+                "text": "穴子寿司 (before tax): ¥2,600",
+                "url": "http://hakone-sushi.com/menu"
+              },
+              {
+                "text": "鯖(さば)寿司 (before tax): ¥2,200",
+                "url": "http://hakone-sushi.com/menu"
+              },
+              {
+                "text": "上寿司 (before tax): ¥2,200",
+                "url": "http://hakone-sushi.com/menu"
+              },
+              {
+                "text": "特上寿司 (before tax): ¥3,200",
+                "url": "http://hakone-sushi.com/menu"
+              },
+              {
+                "text": "はこねにぎり (before tax): ¥4,200",
+                "url": "http://hakone-sushi.com/menu"
+              },
+              {
+                "text": "上ちらし (before tax): ¥2,500",
+                "url": "http://hakone-sushi.com/menu"
+              },
+              {
+                "text": "特上ちらし (before tax): ¥3,500",
+                "url": "http://hakone-sushi.com/menu"
+              },
+              {
+                "text": "Winter limited kinmedai shabu-shabu, per portion (before tax): ¥2,700",
+                "url": "http://hakone-sushi.com/menu"
+              },
+              {
+                "text": "Booking: Reservations and orders by phone only: DM and comments are not accepted; call 0460-84-7890 directly",
+                "url": "http://hakone-sushi.com/"
+              },
+              {
+                "text": "Credit cards accepted",
+                "url": "http://hakone-sushi.com/"
+              },
+              {
+                "text": "Jalan lists only Tuesday as closed, conflicting with the official site (Monday and Tuesday); official site preferred",
+                "url": "https://www.jalan.net/gourmet/grm_foomoojH000253838/"
+              },
+              {
+                "text": "From here it's a short taxi ride (about 28 min per the day's timetable); it's too far and too cold to walk, so book the taxis.",
+                "url": "https://www.hakonesushi.com/"
+              }
+            ]
+          }
+        },
+        {
+          "id": "d02-s09",
+          "start": "20:00",
+          "end": "20:40",
+          "name": "Villa onsen pre-game",
+          "nameJa": null,
+          "category": "stay",
+          "categoryLabel": "Stay",
+          "price": null,
+          "summary": "Cans open, steam rising: a hot-spring pre-game before the late run to Miyanoshita.",
+          "plan": "Hot-spring soak with the A Coop drinks before the late bar.",
+          "address": null,
+          "lat": 35.255865,
+          "lng": 138.998921,
+          "website": null,
+          "phone": null,
+          "map": null,
+          "transport": "2 pre-booked taxis villa → Miyanoshita, ~20 min",
+          "guide": {
+            "story": "This is the most Hakone hour of the day. You're in your own villa's hot spring under a cold December sky, with an A Coop can in hand, while the forest goes silent around you. It's cheap, private and exactly what a group of friends came to Hakone for. Keep it short and warm-up level, because the real night is still ahead.",
+            "how": [
+              "Chill the cans in the fridge or an ice-filled bucket the moment you get back.",
+              "Soak in shifts, with drinks on the side, never in the bath.",
+              "Dry off and dress warm. The taxis to Funny's are about a 20 min car ride."
+            ],
+            "tips": [
+              "Pace it: hot water plus alcohol hits faster than you expect.",
+              "Confirm the two pre-booked taxis before getting in the bath."
+            ],
+            "cost": null,
+            "booking": null,
+            "hours": "20:00–20:40",
+            "sources": [
+              {
+                "url": "https://www.hakonesushi.com/",
+                "label": "hakonesushi.com"
+              }
+            ],
+            "media": [],
+            "wishes": [
+              "w4",
+              "w5",
+              "w11"
+            ],
+            "verified": null,
+            "facts": [
+              {
+                "text": "The taxis to Funny's are about a 20 min car ride.",
+                "url": "https://www.hakonesushi.com/"
+              }
+            ]
+          }
+        },
+        {
+          "id": "d02-s10",
+          "start": "21:00",
+          "end": "23:40",
+          "name": "American Diner & Bar Funny's",
+          "nameJa": "アメリカンダイナー&バー ファニーズ",
+          "category": "bar",
+          "categoryLabel": "Bar",
+          "price": "~¥3,800 pp incl. ¥300 seat reservation",
+          "summary": "Hakone's rare late-night bar: an American diner pouring rounds and serving monster burgers until midnight.",
+          "plan": "Late-night burgers (LA Burger) and rounds until close. It's Hakone's only real late bar on a Sunday.",
+          "address": "184 Miyanoshita, Hakone, Ashigarashimo District, Kanagawa 250-0404",
+          "lat": 35.244625899999996,
+          "lng": 139.0594721,
+          "website": "https://funnys.jp/",
+          "phone": "0460-83-9200",
+          "map": "https://maps.google.com/?cid=14598672520794064938&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+          "transport": "2 pre-booked taxis Miyanoshita → villa, ~20 min",
+          "guide": {
+            "story": "In a town that goes to bed early, Funny's is the lifeline: a cosy American diner and bar in Miyanoshita that's open late, with burgers recent reviewers call among the best in Japan. The LA Burger is the one to order. Pair it with a round of beers and you have the closest thing Hakone has to a night out. The staff are friendly and the room is small, so 8 of you will basically take it over.",
+            "how": [
+              "Book ahead: requests close at 17:00 the day before, and there's a ¥300 per person seat charge.",
+              "Order the LOS ANGELES BURGER at ¥1,870, or the loco moco at ¥1,650, and share fries.",
+              "Settle in for rounds until close at 24:00.",
+              "Pre-book the taxis home, which is a 14 min car ride."
+            ],
+            "tips": [
+              "It's a small room, so ask for two tables side by side if a single table for 8 isn't possible.",
+              "There's no fallback bar nearby on a Sunday, so don't skip the booking.",
+              "Sort out the bill as a group: easier on the staff and quicker for your taxi."
+            ],
+            "cost": "~¥3,800 pp incl. ¥300 seat reservation",
+            "booking": "Request by 17:00 the day before; seat reservation ¥300 pp",
+            "hours": "17:00–24:00",
+            "sources": [
+              {
+                "url": "https://maps.google.com/?q=American+Diner+Funny's+Hakone",
+                "label": "Google Maps reviews"
+              },
+              {
+                "url": "https://www.google.com/search?q=Funny's+Hakone+diner+bar",
+                "label": "Web search (Hakone nightlife)"
+              }
+            ],
+            "media": [
+              {
+                "kind": "image",
+                "url": "https://cdn.peraichi.com/userData/c6b716bd-39d9-4ff4-8c98-b8140752287f/ogp/2460193.png",
+                "credit": "funnys.jp"
+              }
+            ],
+            "wishes": [
+              "w3",
+              "w4",
+              "w5",
+              "w8"
+            ],
+            "verified": {
+              "source": "Google Places",
+              "status": "OPERATIONAL"
+            },
+            "facts": [
+              {
+                "text": "Open 17:00–24:00 on 2026-12-19, 2026-12-20",
+                "url": "https://funnys.jp/"
+              },
+              {
+                "text": "Closed 2026-12-21 (Regular closing day (Monday))",
+                "url": "https://funnys.jp/"
+              },
+              {
+                "text": "LOS ANGELES BURGER: ¥1,870",
+                "url": "https://funnys.jp/"
+              },
+              {
+                "text": "ロコモコ (Locomoco): ¥1,650",
+                "url": "https://funnys.jp/"
+              },
+              {
+                "text": "Booking: Request booking accepted until 17:00 on the day before the visit",
+                "url": "https://www.hotpepper.jp/strJ001264531/"
+              },
+              {
+                "text": "Seat-only reservation: 300 yen per person charged from 0:00 on the visit day",
+                "url": "https://www.hotpepper.jp/strJ001264531/"
+              }
+            ]
+          }
+        },
+        {
+          "id": "d02-s11",
+          "start": "00:00",
+          "end": "01:00",
+          "name": "Back at Hot Spring Hakone Villa",
+          "nameJa": null,
+          "category": "stay",
+          "categoryLabel": "Stay",
+          "price": null,
+          "summary": "A last midnight soak and nightcap, then pack before bed.",
+          "plan": "Last soak and nightcap. Pack tonight, because check-out is 10:00.",
+          "address": null,
+          "lat": 35.255865,
+          "lng": 138.998921,
+          "website": null,
+          "phone": null,
+          "map": null,
+          "transport": null,
+          "guide": {
+            "story": "Back at the villa, finish the A Coop sake in the hot spring and say goodbye to Hakone properly, under the stars with the steam rising. It's the quiet bookend to a packed day. Before anyone passes out, get the bags packed. Check-out is at 10:00 and tomorrow you're back on the move.",
+            "how": [
+              "Quick soak, last drinks, and leave the bottles for morning recycling.",
+              "Pack everything tonight so you can leave by check-out at 10:00.",
+              "Set two alarms and put a designated waker-upper in charge."
+            ],
+            "tips": [
+              "Sort the trash and recycling tonight. Japanese villas take it seriously.",
+              "Leave the sports drinks and miso soup out for the morning."
+            ],
+            "cost": null,
+            "booking": null,
+            "hours": "00:00–01:00",
+            "sources": [],
+            "media": [],
+            "wishes": [
+              "w4",
+              "w5",
+              "w11"
+            ],
+            "verified": null,
+            "facts": []
+          }
+        }
+      ]
+    },
+    {
+      "n": 3,
+      "date": "2026-12-21",
+      "city": "Gotemba → Osaka",
+      "title": "Gotemba outlets haul · Tokinosumika lights & brewery · shinkansen to Osaka · first Namba night",
+      "stamp": {
+        "kanji": "買",
+        "reading": "kau · to shop",
+        "place": "GOTEMBA · MISHIMA · OSAKA"
+      },
+      "notes": [
+        {
+          "kind": "NOTE",
+          "text": "Long travel day with all your luggage in tow: outlets, lights and beer near Fuji, then the shinkansen west and a late first night in Namba. Keep everyone on the same clock at each handover."
+        },
+        {
+          "kind": "BRING",
+          "text": "Every passport goes into the outlets. Since 1 Nov 2026, you pay full price in store and the tax is refunded at the airport on departure. Each store records your purchase against your passport, so no passport means no refund."
+        },
+        {
+          "kind": "MONEY",
+          "text": "Book the jumbo taxi and both taxi legs ahead, and reserve the shinkansen seats as a block of eight in advance. Booking ahead keeps the group together and avoids the evening scramble at Mishima."
+        },
+        {
+          "kind": "CHECK",
+          "text": "Before you leave the villa, download the Premium Outlets Shopping Navi app on every phone for the coupons."
+        }
+      ],
+      "stops": [
+        {
+          "id": "d03-s01",
+          "start": "08:00",
+          "end": "09:45",
+          "name": "Check out · Hot Spring Hakone Villa",
+          "nameJa": null,
+          "category": "stay",
+          "categoryLabel": "Stay",
+          "price": null,
+          "summary": "One last onsen soak in Sengokuhara before the road trip to Fuji's shopping mecca.",
+          "plan": "Morning soak, leftover snacks for breakfast, and out before the 10:00 check-out.",
+          "address": null,
+          "lat": 35.255865,
+          "lng": 138.998921,
+          "website": null,
+          "phone": null,
+          "map": null,
+          "transport": "Pre-booked jumbo taxi or 2 taxis with bags → Gotemba Premium Outlets, ~30 min (budget option: Tozan bus from Sengoku, ~¥1,120 pp)",
+          "guide": {
+            "story": "This is your final morning in the Hakone hills, so take the slow soak while the air is cold and the steam is thick. Breakfast is whatever survived last night: crisps, onigiri, the last cans. It is a relaxed exit, but the clock matters because the outlets open at 10:00 and so does check-out. Leave on time and you walk into the shops while they are still quiet.",
+            "how": [
+              "Soak first thing, then pack straight after so nobody is rummaging for chargers at the last minute.",
+              "Do a sweep of the fridge, bathrooms and onsen area for forgotten items before the 10:00 check-out.",
+              "Load the pre-booked jumbo taxi, or two taxis if your bags won't fit one. The drive to the outlets is about 25 min."
+            ],
+            "tips": [
+              "A single jumbo taxi keeps all eight of you and the bags together, which beats wrangling suitcases onto a bus.",
+              "The budget fallback is the Tozan bus from Sengoku at about ¥1,120 pp, but with full luggage the taxi is worth it."
+            ],
+            "cost": "Taxi split by the group; Tozan bus about ¥1,120 pp if you go budget",
+            "booking": "Pre-book the jumbo taxi the day before",
+            "hours": "Check-out by 10:00",
+            "sources": [],
+            "media": [],
+            "wishes": [
+              "w11",
+              "w5",
+              "w10"
+            ],
+            "verified": null,
+            "facts": []
+          }
+        },
+        {
+          "id": "d03-s02",
+          "start": "10:20",
+          "end": "16:00",
+          "name": "Gotemba Premium Outlets",
+          "nameJa": "御殿場プレミアム・アウトレット",
+          "category": "shopping",
+          "categoryLabel": "Shopping",
+          "price": "Food court lunch ~¥1,500 pp; shopping your call",
+          "summary": "About 290 outlet stores with Mount Fuji in the background, and you get it on a quiet Monday.",
+          "plan": "Put bags in lockers first; weekday crowds are lighter. Split up with the coupon app and passports, and meet at the food court for lunch around 13:00.",
+          "address": "1312 Fukasawa, Gotemba, Shizuoka 412-0023",
+          "lat": 35.307271,
+          "lng": 138.9656467,
+          "website": "https://www.premiumoutlets.co.jp/gotemba/",
+          "phone": "050-1721-1028",
+          "map": "https://maps.google.com/?cid=5814346422745768836&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+          "transport": "Bus Outlets → Tokinosumika, ~20 min (check the day's timetable), or taxis",
+          "guide": {
+            "story": "Gotemba Premium Outlets is Japan's heavyweight outlet village, with about 290 stores including Nike, Adidas, New Balance, Beams, United Arrows and Coach. On a clear day the snow cone of Fuji sits right over the rooftops. A weekday morning in December is the sweet spot because the weekend crowds are gone. With passports and the coupon app, a group of eight can clear a serious haul by mid-afternoon.",
+            "how": [
+              "First thing: stash suitcases in the lockers so you shop with free hands.",
+              "Split into pairs by brand priority (sneakers, streetwear, luxury) and open the Shopping Navi app for each store's coupon before you pay.",
+              "Show your passport at the till in every store so the purchase is recorded digitally. You pay the full price including tax, then claim the refund at the airport before departure.",
+              "Regroup at the food court around 13:00 for lunch, then run a second lap."
+            ],
+            "tips": [
+              "Hit the sneaker stores at opening, before sizes get picked over.",
+              "Wrap up by 16:00 and take taxis to Tokinosumika, which is 18 min by car. The train and bus option is 126 min door to door, so skip it.",
+              "Since 1 Nov 2026 Japan uses a refund system: you pay the full tax-inclusive price, and the tax is refunded when you scan your passport at the airport before you leave. Sealed bags are abolished. Don't use up consumables in Japan, because they won't be refunded."
+            ],
+            "cost": "Food court lunch ~¥1,500 pp; shopping is your call",
+            "booking": "No booking. Download the official Shopping Navi app for coupons (no membership needed)",
+            "hours": "Dec–Feb 10:00–19:00",
+            "sources": [
+              {
+                "url": "https://watabi.org/en/articles/gotemba-premium-outlet-guide",
+                "label": "watabi 2026 guide"
+              },
+              {
+                "url": "https://www.premiumoutlets.co.jp/en/gotemba/access/detail20.html",
+                "label": "Premium Outlets official"
+              },
+              {
+                "url": "https://tokyocheapo.com/shopping-2/japan-tax-free-shopping-change/",
+                "label": "tokyocheapo.com"
+              },
+              {
+                "url": "https://tokyocheapo.com/shopping-2/japan-tax-free-shopping-change/",
+                "label": "tokyocheapo.com"
+              }
+            ],
+            "media": [
+              {
+                "kind": "image",
+                "url": "https://upload.wikimedia.org/wikipedia/commons/4/4a/Gotemba_premium_outlets1.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+                "credit": "Wikipedia · Gotemba Premium Outlets"
+              }
+            ],
+            "wishes": [
+              "w7",
+              "w5",
+              "w8",
+              "w10"
+            ],
+            "verified": {
+              "source": "Google Places",
+              "status": "OPERATIONAL"
+            },
+            "facts": [
+              {
+                "text": "Since 1 Nov 2026 Japan uses a refund system: you pay the full tax-inclusive price, and the tax is refunded when you scan your passport at the airport before you leave. Sealed bags are abolished. Don't use up consumables in Japan, because they won't be refunded.",
+                "url": "https://tokyocheapo.com/shopping-2/japan-tax-free-shopping-change/"
+              },
+              {
+                "text": "Show your passport at the till in every store so the purchase is recorded digitally. You pay the full price including tax, then claim the refund at the airport before departure.",
+                "url": "https://tokyocheapo.com/shopping-2/japan-tax-free-shopping-change/"
+              }
+            ]
+          }
+        },
+        {
+          "id": "d03-s03",
+          "start": "16:25",
+          "end": "18:20",
+          "name": "Gotemba Kogen Tokinosumika illumination + brewery",
+          "nameJa": "時之栖イルミネーション",
+          "category": "bar",
+          "categoryLabel": "Illumination & beer",
+          "price": "Lights free/low cost; beer ~¥700+",
+          "summary": "A light tunnel, a fountain show and a craft beer hall on the same hillside at dusk.",
+          "plan": "Arrive at dusk for the light tunnel and the fountain show, then drink Gotemba Kogen Beer in the beer hall.",
+          "address": "719 Kōyama, Gotemba, Shizuoka 412-0033",
+          "lat": 35.2357896,
+          "lng": 138.9250904,
+          "website": "http://www.tokinosumika.com/",
+          "phone": null,
+          "map": "https://maps.google.com/?cid=5916658180400625997&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+          "transport": "2 pre-booked taxis → JR Mishima Station, ~40 min",
+          "guide": {
+            "story": "Tokinosumika puts on one of the region's biggest winter illuminations, running 9 Oct 2026 – 7 Mar 2027. It has a glowing light tunnel and a fountain that dances to a light show. The trick is the on-site brewery: Gotemba Kogen Beer pours its own craft beer in a big beer hall that fits a group of eight easily. You arrive just as the sky turns blue and the lights flicker on, so you see both the sunset glow and the full display.",
+            "how": [
+              "Arrive around 16:30 as the lights come on and walk the light tunnel first, while it is less crowded.",
+              "Catch the fountain light show, then head to the beer hall to warm up.",
+              "Order a round of the house Gotemba Kogen Beer and try different styles across the table.",
+              "Be at the taxi pickup by 18:20 for the run to Mishima."
+            ],
+            "tips": [
+              "The light tunnel is the group-photo spot, so shoot it before you drink.",
+              "It gets properly cold on the plateau after dark, so dig a layer out of the shopping bags.",
+              "Stick with the house brews you can only get here and save the generic lagers for the shinkansen."
+            ],
+            "cost": "Illumination free/low cost; beer ~¥700+",
+            "booking": "None",
+            "hours": "Illumination from dusk to about 21:30–22:00",
+            "sources": [
+              {
+                "url": "http://www.tokinosumika.com/9964/",
+                "label": "Tokinosumika official"
+              },
+              {
+                "url": "https://www.walkerplus.com/event/ar0622e17579/",
+                "label": "Walkerplus"
+              },
+              {
+                "url": "https://www.premiumoutlets.co.jp/en/gotemba/access/detail48.html",
+                "label": "Premium Outlets bus page"
+              }
+            ],
+            "media": [
+              {
+                "kind": "image",
+                "url": "https://www.tokinosumika.com/wp-content/uploads/2023/01/ogp.png",
+                "credit": "tokinosumika.com"
+              }
+            ],
+            "wishes": [
+              "w4",
+              "w8",
+              "w5"
+            ],
+            "verified": {
+              "source": "Google Places",
+              "status": "OPERATIONAL"
+            },
+            "facts": []
+          }
+        },
+        {
+          "id": "d03-s04",
+          "start": "18:25",
+          "end": "19:05",
+          "name": "Taxi transfer Tokinosumika → Mishima Station",
+          "nameJa": null,
+          "category": "transport",
+          "categoryLabel": "Transport",
+          "price": "~¥12,000 group total",
+          "summary": "Two taxis, a mountain of shopping bags, and a quick station-snack raid at Mishima.",
+          "plan": "Load bags and shopping into the taxis, then buy station snacks for the train.",
+          "address": null,
+          "lat": 35.2358,
+          "lng": 138.9251,
+          "website": null,
+          "phone": null,
+          "map": null,
+          "transport": "Tokaido Shinkansen Mishima → Shin-Osaka, ~2 h 10 min (Hikari, or Kodama + Nozomi at Nagoya)",
+          "guide": {
+            "story": "This is the logistics leg: suitcases and outlet bags go into two taxis for the drive down to Mishima, about 40 min. At the station, stock up for the train with konbini cans, ekiben and snacks, because the ride to Shin-Osaka is about 2 h 10 min. Mishima is a Kodama/Hikari stop, so check which train you are booked on and find the platform early.",
+            "how": [
+              "Pre-book both taxis and give the drivers 'Mishima-eki' as the destination.",
+              "At the station, send two people to buy drinks and food while the rest guard the bags.",
+              "Head through the shinkansen gates with time to spare to find your car's boarding position on the platform."
+            ],
+            "tips": [
+              "Grab extra cans now. Station shops are your last easy chance before Osaka.",
+              "Split the group taxi fare in one go with a payment app so nobody chases yen later."
+            ],
+            "cost": "~¥12,000 group total for taxis",
+            "booking": "Pre-book both taxis",
+            "hours": null,
+            "sources": [],
+            "media": [],
+            "wishes": [
+              "w10",
+              "w5"
+            ],
+            "verified": null,
+            "facts": []
+          }
+        },
+        {
+          "id": "d03-s05",
+          "start": "19:20",
+          "end": "21:30",
+          "name": "Tokaido Shinkansen Mishima → Shin-Osaka",
+          "nameJa": null,
+          "category": "transport",
+          "categoryLabel": "Transport",
+          "price": "~¥12,000 pp",
+          "summary": "Your rolling pre-game: eight reserved seats, cans cracked, Tokyo-side Japan sliding into Kansai.",
+          "plan": "Sit together in 8 reserved seats and drink cans on board.",
+          "address": null,
+          "lat": 35.1264,
+          "lng": 138.9108,
+          "website": null,
+          "phone": null,
+          "map": null,
+          "transport": "Midosuji line Shin-Osaka → Hommachi, then Chuo line → Kujo, ~25 min",
+          "guide": {
+            "story": "Drinking on the shinkansen is completely normal, so this is the warm-up for Osaka. You will be sitting together in a block of reserved seats, with outlet hauls overhead and ekiben on the trays. If you are on a Kodama-plus-Nozomi combo, the change at Nagoya is a quick platform hop. By the time you pull into Shin-Osaka, the night is already started.",
+            "how": [
+              "Book 8 reserved seats together in advance. Two facing rows of three plus a pair works if you turn the seats around.",
+              "Put big suitcases in the oversized-baggage area or behind the last row as allowed, and keep valuables with you.",
+              "If you change at Nagoya, move as one group and keep an eye on tax-free bags."
+            ],
+            "tips": [
+              "Keep the volume friendly. Japanese trains are quiet, even with a beer in hand.",
+              "Take your empties to the bins at the car ends before you get off."
+            ],
+            "cost": "~¥12,000 pp",
+            "booking": "Reserve seats in advance so all eight sit together",
+            "hours": "19:20–21:30",
+            "sources": [],
+            "media": [],
+            "wishes": [
+              "w4",
+              "w5",
+              "w1"
+            ],
+            "verified": null,
+            "facts": []
+          }
+        },
+        {
+          "id": "d03-s06",
+          "start": "22:00",
+          "end": "22:30",
+          "name": "Check in · Kujō House, Nishi-ku (Osaka)",
+          "nameJa": null,
+          "category": "stay",
+          "categoryLabel": "Stay",
+          "price": null,
+          "summary": "Drop the hauls at your Osaka base and head straight back out.",
+          "plan": "Drop bags and hauls, freshen up and head straight out.",
+          "address": null,
+          "lat": null,
+          "lng": null,
+          "website": null,
+          "phone": null,
+          "map": null,
+          "transport": "Hanshin Namba line Kujo → Osaka-Namba, ~5 min",
+          "guide": {
+            "story": "Kujō House in Nishi-ku is your Osaka base for the Kyoto and Nara day trips to come. It sits in a local neighbourhood that is only a few stops from the neon. Tonight it is just a pit stop: dump the bags, shower off the travel day and change into going-out clothes.",
+            "how": [
+              "From Shin-Osaka, take the Midosuji line to Hommachi and change to the Chuo line for Kujo, about 25 min.",
+              "Drop everything, freshen up, and be out the door by 22:30.",
+              "Walk back to the station for the Hanshin Namba line to Osaka-Namba, about 5 min."
+            ],
+            "tips": [
+              "Leave the outlet purchases tucked away in the house, and keep the receipts and passport records for the airport refund. Don't carry them out drinking."
+            ],
+            "cost": null,
+            "booking": "Already booked",
+            "hours": null,
+            "sources": [
+              {
+                "url": "https://tokyocheapo.com/shopping-2/japan-tax-free-shopping-change/",
+                "label": "tokyocheapo.com"
+              }
+            ],
+            "media": [],
+            "wishes": [
+              "w11",
+              "w1"
+            ],
+            "verified": null,
+            "facts": [
+              {
+                "text": "Leave the outlet purchases tucked away in the house, and keep the receipts and passport records for the airport refund. Don't carry them out drinking.",
+                "url": "https://tokyocheapo.com/shopping-2/japan-tax-free-shopping-change/"
+              }
+            ]
+          }
+        },
+        {
+          "id": "d03-s07",
+          "start": "22:45",
+          "end": "01:30",
+          "name": "First Osaka night out – Namba / Dotonbori",
+          "nameJa": null,
+          "category": "bar",
+          "categoryLabel": "Nightlife",
+          "price": "~¥4,000 pp",
+          "summary": "Osaka's welcome party: neon, izakaya and bar-hopping around Dotonbori until late.",
+          "plan": "Izakaya and bar crawl under the neon to open the Osaka leg. Specific venues are in the Osaka plan.",
+          "address": null,
+          "lat": 34.6687,
+          "lng": 135.5013,
+          "website": null,
+          "phone": null,
+          "map": null,
+          "transport": "Taxi Namba → Kujō House, ~10 min",
+          "guide": {
+            "story": "Dotonbori at night is Osaka at full volume: the canal reflecting giant signs, takoyaki smoke, and touts and crowds on the bridges. Start with an izakaya for skewers and highballs, then drift through the side streets of Namba into small bars stacked floor upon floor. The city's motto is to eat and drink until you drop, so lean in. The specific venues are in the Osaka plan.",
+            "how": [
+              "Take the classic group photo at Ebisu Bridge under the neon to open the night.",
+              "Start at an izakaya to line your stomachs, then move bar to bar around Namba.",
+              "When you're done, grab a taxi back to Kujō House, about 10 min."
+            ],
+            "tips": [
+              "Many small bars charge a seating fee, so ask first if you're on a budget.",
+              "Save energy for tomorrow. This is night one of the Osaka leg, and Round1 and more are still to come."
+            ],
+            "cost": "~¥4,000 pp",
+            "booking": null,
+            "hours": "22:45–01:30",
+            "sources": [],
+            "media": [],
+            "wishes": [
+              "w2",
+              "w4",
+              "w5",
+              "w8"
+            ],
+            "verified": null,
+            "facts": []
+          }
+        }
+      ]
+    }
+  ],
+  "todos": [
+    {
+      "due": "2026-11-19",
+      "text": "Book 8 Romancecar seats together, Shinjuku 09:00 → Hakone-Yumoto, Sat 19 Dec",
+      "detail": "Seats go on sale one month ahead, and December Saturdays sell out. Book on the Odakyu EMot app or website.",
+      "stops": [
+        "d01-s02"
+      ]
+    },
+    {
+      "due": "2026-11-19",
+      "text": "Reserve 2 private open-air bath rooms at Hakone Yuryo, Sat 19 Dec 11:00–13:00",
+      "detail": "Booking opens one month before. Rooms cost from ¥10,400 per 120-min slot on Saturdays. Pick the larger sizes so 4 fit in each.",
+      "stops": [
+        "d01-s03"
+      ]
+    },
+    {
+      "due": "2026-11-20",
+      "text": "Reserve the Hakone Sushi tatami room for 8, Sun 20 Dec 18:00",
+      "detail": "Phone only: 0460-84-7890 (no DMs). It's full even on weekdays.",
+      "stops": [
+        "d02-s08"
+      ]
+    },
+    {
+      "due": "2026-11-21",
+      "text": "Book Tokaido Shinkansen Mishima → Shin-Osaka, Mon 21 Dec ~19:20, 8 seats",
+      "detail": "Reserved seats open one month ahead. To save, check smartEX early-booking (Hayatoku) fares and JR Tokai Tours' Platt Kodama.",
+      "stops": [
+        "d03-s05"
+      ]
+    },
+    {
+      "due": "2026-12-05",
+      "text": "Reserve MONTA for 8, Sat 19 Dec 20:15",
+      "detail": "Phone 0460-83-9797 or book online. December visits are limited to 2 hours and last entry is 23:00. Ask about their pickup/drop.",
+      "stops": [
+        "d01-s08"
+      ]
+    },
+    {
+      "due": "2026-12-06",
+      "text": "Book a table for 8 at Gora Brewery & Grill, Sun 20 Dec 13:30",
+      "detail": "Book online or call 0460-83-8107. Same-day bookings are phone only.",
+      "stops": [
+        "d02-s05"
+      ]
+    },
+    {
+      "due": "2026-12-10",
+      "text": "Reserve Funny's for 8 (or 2 tables of 4), Sun 20 Dec 21:00",
+      "detail": "Requests close at 17:00 the day before, but it's small, so book early. Seat reservation is ¥300 pp.",
+      "stops": [
+        "d02-s10"
+      ]
+    },
+    {
+      "due": "2026-12-12",
+      "text": "Book taxis: Yumoto→MONTA (Sat 19:40), sushi→villa (Sun 19:30), villa↔Funny's (Sun 20:40 / 23:40), jumbo taxi villa→Gotemba outlets (Mon 09:45), Tokinosumika→Mishima (Mon 18:20)",
+      "detail": "Night buses into Sengokuhara stop early, and you need 2 cars or one jumbo taxi each time.",
+      "stops": [
+        "d01-s07",
+        "d02-s08",
+        "d02-s09",
+        "d02-s10",
+        "d03-s01",
+        "d03-s04"
+      ]
+    },
+    {
+      "due": "2026-12-12",
+      "text": "Check that Furatto Geisha is running Sat 19 Dec",
+      "detail": "It runs 1st and 3rd Saturdays at 18:30 and 20:00, with entry from 18:00. The schedule can change without notice.",
+      "stops": [
+        "d01-s07"
+      ]
+    },
+    {
+      "due": "2026-12-12",
+      "text": "Check luggage delivery from Hakone-Yumoto station to the villa for 19 Dec",
+      "detail": "Confirm the villa accepts same-day bag delivery. Lockers won't work because you don't come back through Yumoto, so if delivery isn't possible, pack light.",
+      "stops": [
+        "d01-s02"
+      ]
+    },
+    {
+      "due": "2026-12-18",
+      "text": "Buy the 3-day Hakone Freepass (Shinjuku version) on EMot for each person",
+      "detail": "¥7,500 pp, on sale from one month before. Station machines sell only passes valid from the same day.",
+      "stops": [
+        "d01-s02"
+      ]
+    },
+    {
+      "due": "2026-12-18",
+      "text": "Buy Hakone Open-Air Museum web tickets",
+      "detail": "¥1,800 online vs ¥2,000 at the gate.",
+      "stops": [
+        "d01-s06"
+      ]
+    },
+    {
+      "due": "2026-12-18",
+      "text": "Check the outlets plan: download the Gotemba Premium Outlets app, bring passports, keep receipts",
+      "detail": "Under the new refund system you pay tax in-store and claim it back at Haneda, so keep the goods unopened.",
+      "stops": [
+        "d03-s02"
+      ]
+    },
+    {
+      "due": "2026-12-18",
+      "text": "Check whether the Hakone Ropeway Togendai–Owakudani runs on 20 Dec",
+      "detail": "Official info lists the ropeway as closed 7–24 Dec for maintenance, so the plan skips Owakudani. If Togendai–Owakudani turns out to be running, add it before the 09:30 ship.",
+      "stops": [
+        "d02-s02"
+      ]
+    }
+  ],
+  "budget": [
+    {
+      "category": "Transport",
+      "item": "Hakone Freepass 3-day (from Shinjuku)",
+      "group": "¥60,000",
+      "perPerson": "¥7,500",
+      "note": "Covers the Odakyu ride in, Tozan train, buses and the pirate ship (¥3,000 round trip alone)"
+    },
+    {
+      "category": "Transport",
+      "item": "Romancecar seat surcharge Shinjuku → Yumoto",
+      "group": "≈¥9,600",
+      "perPerson": "≈¥1,200",
+      "note": "Not covered by the Freepass"
+    },
+    {
+      "category": "Transport",
+      "item": "Hakone taxis (Yumoto→MONTA, MONTA→villa, sushi→villa, villa↔Funny's)",
+      "group": "≈¥40,000",
+      "perPerson": "≈¥5,000",
+      "note": "2 cars each time"
+    },
+    {
+      "category": "Transport",
+      "item": "Taxi villa → Gotemba outlets with bags",
+      "group": "≈¥14,000",
+      "perPerson": "≈¥1,750",
+      "note": "The bus instead is ~¥1,120 pp"
+    },
+    {
+      "category": "Transport",
+      "item": "Taxi Tokinosumika → Mishima Station",
+      "group": "≈¥12,000",
+      "perPerson": "≈¥1,500",
+      "note": "2 cars"
+    },
+    {
+      "category": "Transport",
+      "item": "Shinkansen Mishima → Shin-Osaka",
+      "group": "≈¥96,000",
+      "perPerson": "≈¥12,000",
+      "note": "Check smartEX early-booking fares or Platt Kodama"
+    },
+    {
+      "category": "Transport",
+      "item": "Osaka Metro Shin-Osaka → Kujo",
+      "group": "≈¥2,320",
+      "perPerson": "≈¥290",
+      "note": "IC card"
+    },
+    {
+      "category": "Onsen",
+      "item": "Hakone Yuryo, 2 private open-air rooms (120 min, Sat)",
+      "group": "≈¥20,800",
+      "perPerson": "≈¥2,600",
+      "note": "From ¥10,400 per room"
+    },
+    {
+      "category": "Sights",
+      "item": "Hakone Open-Air Museum (web ticket)",
+      "group": "¥14,400",
+      "perPerson": "¥1,800",
+      "note": "¥200 pp saved vs the gate"
+    },
+    {
+      "category": "Sights",
+      "item": "Hakone Glass no Mori illumination",
+      "group": "¥14,400",
+      "perPerson": "¥1,800",
+      "note": "Show the Freepass for a discount"
+    },
+    {
+      "category": "Nightlife",
+      "item": "Furatto Geisha + extra drink at Bar Hana",
+      "group": "≈¥29,600",
+      "perPerson": "≈¥3,700",
+      "note": "¥3,000 includes 1 drink"
+    },
+    {
+      "category": "Nightlife",
+      "item": "MONTA dinner & drinks",
+      "group": "≈¥36,000",
+      "perPerson": "≈¥4,500",
+      "note": "2-hour limit in December"
+    },
+    {
+      "category": "Nightlife",
+      "item": "Funny's late burgers & drinks",
+      "group": "≈¥30,400",
+      "perPerson": "≈¥3,800",
+      "note": "Includes the ¥300 seat reservation"
+    },
+    {
+      "category": "Nightlife",
+      "item": "Tokinosumika brewery beers",
+      "group": "≈¥12,000",
+      "perPerson": "≈¥1,500",
+      "note": "~2 beers each"
+    },
+    {
+      "category": "Nightlife",
+      "item": "First Osaka night, Namba",
+      "group": "≈¥32,000",
+      "perPerson": "≈¥4,000",
+      "note": "Rough estimate"
+    },
+    {
+      "category": "Food",
+      "item": "Hatsuhana Soba lunch",
+      "group": "≈¥9,600",
+      "perPerson": "≈¥1,200",
+      "note": ""
+    },
+    {
+      "category": "Food",
+      "item": "Tamura Ginkatsutei lunch",
+      "group": "≈¥14,400",
+      "perPerson": "≈¥1,800",
+      "note": "Cash or PayPay"
+    },
+    {
+      "category": "Food",
+      "item": "Gora Brewery & Grill beers & snacks",
+      "group": "≈¥32,000",
+      "perPerson": "≈¥4,000",
+      "note": "Includes the ¥500 pp table charge"
+    },
+    {
+      "category": "Food",
+      "item": "Hakone Sushi dinner",
+      "group": "≈¥36,000",
+      "perPerson": "≈¥4,500",
+      "note": "Tokujo chirashi is ¥3,500 + tax"
+    },
+    {
+      "category": "Food",
+      "item": "Outlets food court lunch",
+      "group": "≈¥12,000",
+      "perPerson": "≈¥1,500",
+      "note": ""
+    },
+    {
+      "category": "Drinks",
+      "item": "Villa drinks & snacks (Yumoto shops + A Coop)",
+      "group": "≈¥16,000",
+      "perPerson": "≈¥2,000",
+      "note": "The cheapest drinking of the leg"
+    },
+    {
+      "category": "Shopping",
+      "item": "Yumoto souvenirs + Gotemba outlets",
+      "group": "—",
+      "perPerson": "your call",
+      "note": "Tax-free with a passport; keep receipts"
+    },
+    {
+      "category": "Total",
+      "item": "Hakone leg 19–21 Dec, excluding shopping and stays",
+      "group": "≈¥543,500",
+      "perPerson": "≈¥67,900",
+      "note": "Stays are already booked"
+    }
+  ],
+  "budgetTotals": [
+    {
+      "category": "Transport",
+      "perPerson": "¥29,240"
+    },
+    {
+      "category": "Onsen",
+      "perPerson": "¥2,600"
+    },
+    {
+      "category": "Sights",
+      "perPerson": "¥3,600"
+    },
+    {
+      "category": "Nightlife",
+      "perPerson": "¥17,500"
+    },
+    {
+      "category": "Food",
+      "perPerson": "¥13,000"
+    },
+    {
+      "category": "Drinks",
+      "perPerson": "¥2,000"
+    },
+    {
+      "category": "Shopping",
+      "perPerson": "¥0"
+    },
+    {
+      "category": "Total",
+      "perPerson": "¥67,900"
+    }
+  ],
+  "coverage": [
+    {
+      "wish": "Osaka base, but during the day we will commute to Kyoto/Nara as needed",
+      "how": "This plan covers the Hakone leg and ends by moving you to the Osaka base: shinkansen Mishima → Shin-Osaka on 21 Dec, then check-in at Kujō House. Kyoto/Nara day trips belong to the Osaka leg, which isn't scheduled here."
+    },
+    {
+      "wish": "Ending the night/nightlife in Osaka",
+      "how": "21 Dec ends with a late night out in Namba/Dotonbori and a taxi back to Kujō House. On the Hakone nights you sleep in Hakone, so those nights end at MONTA (19th) and Funny's (20th), then villa onsen drinks."
+    },
+    {
+      "wish": "If there are cool nightlife things to do in the neighbouring cities as well, include them",
+      "how": "Neighbouring-town nightlife is included: Furatto Geisha drinking games and Bar Hana in Yumoto (19th), MONTA (19th), Gora Brewery and Funny's (20th), and the Tokinosumika brewery (21st)."
+    },
+    {
+      "wish": "We love to drink",
+      "how": "Drinks run all day: sake at Yuryo, geisha drinking games, MONTA, Gora craft beer, Funny's, two villa onsen drinking sessions, the Tokinosumika beer hall, cans on the shinkansen and a Namba night."
+    },
+    {
+      "wish": "We want to maximise all the time we've got in the country",
+      "how": "Every day runs from 08:00 to past midnight: the 09:00 Romancecar, the first pirate ship on the 20th, late museum and light slots, and an evening move to Osaka so the night still happens."
+    },
+    {
+      "wish": "Round1",
+      "how": "There's no Round1 in Hakone or Odawara; the nearest is Hiratsuka, over an hour away. Round1 goes in the Osaka/Tokyo legs."
+    },
+    {
+      "wish": "Shopping",
+      "how": "19 Dec: Hakone-Yumoto station street. 21 Dec: Gotemba Premium Outlets, 10:20–16:00 on a quiet weekday."
+    },
+    {
+      "wish": "We love to do it all",
+      "how": "Onsen, sculpture museum, geisha night, pirate ship, shrine torii, illuminations, tofu katsu, sushi, craft beer, outlets, and the start of Osaka nightlife. Owakudani/ropeway is dropped because it is listed as closed 7–24 Dec (a todo checks whether it reopens)."
+    },
+    {
+      "wish": "No go-karts",
+      "how": "There are no go-karts anywhere in the plan."
+    },
+    {
+      "wish": "Look for money we can save by booking early or buying passes",
+      "how": "Savings: the 3-day Hakone Freepass covers the train, buses and ship; web museum tickets; two shared private onsen rooms; supermarket drinks for the villa; the outlets coupon app plus tax-free shopping; early shinkansen fares (smartEX Hayatoku or Platt Kodama); and the bus option instead of a taxi to the outlets."
+    },
+    {
+      "wish": "Stays already booked: Ninja House in Toshima (Tokyo), Hot Spring Hakone Villa in Sengokuhara, Kujō House in Nishi-ku (Osaka), Garfield House in Shinjuku (Tokyo)",
+      "how": "Ninja House: check-out on the morning of 19 Dec. Hot Spring Hakone Villa: 19–21 Dec, within the 15:00 check-in and 10:00 check-out. Kujō House: check-in on 21 Dec. Garfield House belongs to a later Tokyo leg."
+    }
+  ],
+  "sources": [
+    "tikhub",
+    "grok",
+    "perplexity",
+    "serpapi",
+    "places",
+    "gemini",
+    "claude web search",
+    "TREK Places",
+    "Wikipedia",
+    "fact-checked: 10 correction(s) applied"
+  ],
+  "warnings": []
+}
