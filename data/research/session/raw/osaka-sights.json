@@ -319,7 +319,306 @@
         }
       ],
       "confidence": 0.9
+    },
+    {
+      "name": "Midosuji Illumination 2026",
+      "name_ja": "御堂筋イルミネーション2026",
+      "city": "Osaka",
+      "area": "Osaka – Midosuji (Umeda–Namba)",
+      "kind": "event",
+      "why": "About 4 km of lit ginkgo trees along Midosuji, from Umeda to Namba. It's free and lit until 01:00, so it fits naturally on the walk from Nakanoshima or Umeda down to Shinsaibashi and Dotonbori for the night out. It's Osaka's main Christmas-week backdrop.",
+      "best_time": "After dark, 17:30–23:00",
+      "dates": "3 Nov–31 Dec 2026 (all of 21–26 Dec)",
+      "price": "Free",
+      "booking": "None",
+      "group_of_8": "Fine",
+      "hours": "About 17:00–25:00",
+      "visit_minutes": 45,
+      "first_last": "17:00–01:00",
+      "lat": 34.670335,
+      "lng": 135.5003465,
+      "wish_ids": [
+        "w2",
+        "w5",
+        "w8"
+      ],
+      "evidence": [
+        {
+          "source": "Osaka Prefecture press release",
+          "url": "https://www.pref.osaka.lg.jp/hodo/fumin/o070080/prs_51220.html",
+          "note": "3 Nov–31 Dec 2026, about 17:00 to 25:00, Hanshin-mae to Namba Nishiguchi"
+        },
+        {
+          "source": "Happyell event page",
+          "url": "https://happyell.co.jp/event/osaka-hikari2026",
+          "note": "Festival of the Lights 2026 listing incl. Midosuji"
+        }
+      ],
+      "confidence": 0.9
+    },
+    {
+      "name": "Umeda Sky Building – Kuchu Teien + Christmas 2026",
+      "name_ja": "梅田スカイビル 空中庭園展望台・UMEDA SKY BUILDING Christmas 2026",
+      "city": "Osaka",
+      "area": "Osaka – Umeda",
+      "kind": "sight",
+      "why": "The best skyline deck in Osaka, an open-air rooftop ring 173 m up. Its 2026 Christmas event, 'THE STARLIGHT TOWN', runs 13 Nov–25 Dec, with the 1F Wonder Square market and decorations up on the 40F observatory. Trap: the Osaka Amazing Pass gives free entry only until 15:00; after that it's 10% off. So either come before 15:00 on a pass day or pay for sunset and night. The old German Christmas Market here was cancelled from 2022.",
+      "best_time": "Sunset (about 16:50) to 19:00, or before 15:00 with the Amazing Pass",
+      "dates": "Christmas event 13 Nov–25 Dec 2026",
+      "price": "Free with Osaka Amazing Pass before 15:00; otherwise paid (about ¥2,000, verify)",
+      "booking": "None; evening queue for the lift on 24–25 Dec",
+      "group_of_8": "Fine",
+      "hours": "09:30–22:30 (Amazing Pass page); Google lists to 22:00",
+      "visit_minutes": 60,
+      "first_last": null,
+      "lat": 34.7052872,
+      "lng": 135.4896527,
+      "wish_ids": [
+        "w5",
+        "w8",
+        "w10"
+      ],
+      "evidence": [
+        {
+          "source": "PR TIMES via koubo.jp",
+          "url": "https://koubo.jp/press-release/prtimes/c63228_r215",
+          "note": "UMEDA SKY BUILDING Christmas 2026 'THE STARLIGHT TOWN' confirmed"
+        },
+        {
+          "source": "Jorudan illumination news",
+          "url": "https://sp.jorudan.co.jp/illumi/news/jrd_260925_4.html",
+          "note": "13 Nov–25 Dec 2026, 1F Wonder Square and 40F Kuchu Teien"
+        },
+        {
+          "source": "Osaka Amazing Pass participating list",
+          "url": "https://osaka-amazing-pass.com/en/service_free.html",
+          "note": "Pass admission applies until 15:00, 10% off after"
+        }
+      ],
+      "confidence": 0.85
+    },
+    {
+      "name": "Osaka Castle Main Tower",
+      "name_ja": "大阪城天守閣",
+      "city": "Osaka",
+      "area": "Osaka – Osakajo Park",
+      "kind": "sight",
+      "why": "The inside is a modern museum. The worth-it part is the grounds, the moats and the rooftop view, and those are free. Do it on an Osaka Amazing Pass day: the main tower and the Gozabune moat boat (10:00–16:30) are both included. Closed 28 Dec–1 Jan, which doesn't matter for 21–26 Dec.",
+      "best_time": "09:00–11:00",
+      "dates": "Open 21–26 Dec; closed 28 Dec–1 Jan",
+      "price": "Free with Osaka Amazing Pass (else about ¥1,200, verify)",
+      "booking": "None",
+      "group_of_8": "Fine",
+      "hours": "09:00–18:00 (last entry 17:30)",
+      "visit_minutes": 90,
+      "first_last": "Last entry 17:30",
+      "lat": 34.6869075,
+      "lng": 135.5258306,
+      "wish_ids": [
+        "w8",
+        "w10"
+      ],
+      "evidence": [
+        {
+          "source": "Osaka Amazing Pass participating list",
+          "url": "https://osaka-amazing-pass.com/en/service_free.html",
+          "note": "Main tower included, 9:00–18:00, closed Dec 28–Jan 1; Gozabune 10:00–16:30"
+        },
+        {
+          "source": "Google Places (Osaka Castle Park)",
+          "url": "https://maps.google.com/?cid=7491349504525130123",
+          "note": "4.4 from 52k reviews"
+        }
+      ],
+      "confidence": 0.85
+    },
+    {
+      "name": "Spa World",
+      "name_ja": "スパワールド 世界の大温泉",
+      "city": "Osaka",
+      "area": "Osaka – Shinsekai",
+      "kind": "onsen",
+      "why": "Osaka's cheap and cheerful onsen theme park, with themed European and Asian bath floors (they swap men and women monthly) and a swimsuit pool with slides that the whole group can use together. It's the classic post-Shinsekai soak. Strict no-tattoo rule, which covers temporary tattoos and stickers. Staying past midnight adds a ¥1,300 surcharge plus bath tax, so leave before 24:00 or treat it as a cheap crash spot. Don't go in drunk.",
+      "best_time": "Evening 18:00–23:30",
+      "dates": "Open daily",
+      "price": "¥2,000 weekdays, ¥2,700 Sat/Sun/holidays (incl. pool); bath-only ¥1,500; +¥1,300 late-night fee and ¥150 bath tax between 24:00 and 05:00",
+      "booking": "None",
+      "group_of_8": "Good: the pool zone is mixed so the whole group can be together",
+      "hours": "Long hours (open into early morning); check the official hours page",
+      "visit_minutes": 150,
+      "first_last": null,
+      "lat": 34.6498479,
+      "lng": 135.5055826,
+      "wish_ids": [
+        "w4",
+        "w5",
+        "w8"
+      ],
+      "evidence": [
+        {
+          "source": "Spa World official price page",
+          "url": "https://www.spaworld.co.jp/info/ryokin/",
+          "note": "¥2,000 weekday / ¥2,700 weekend; late-night +¥1,300 and ¥150 tax 24–5; tattoos refused"
+        },
+        {
+          "source": "Osaka Convention & Tourism Bureau (Cool Osaka)",
+          "url": "https://osaka-info.jp/special/coolosaka/cool-spot/404/",
+          "note": "Onsen theme park in Naniwa-ku; extended overnight hours"
+        },
+        {
+          "source": "Google Places",
+          "url": "https://maps.google.com/?cid=14023248384873681322",
+          "note": "4.0 from 7.9k reviews"
+        }
+      ],
+      "confidence": 0.85
+    },
+    {
+      "name": "Solaniwa Onsen OSAKA BAY TOWER",
+      "name_ja": "空庭温泉 OSAKA BAY TOWER",
+      "city": "Osaka",
+      "area": "Osaka – Bentencho",
+      "kind": "onsen",
+      "why": "An Edo-style natural hot spring in a 'town' setting with yukata included. It's one Chuo Line stop from Kujo, so it's the easiest soak from the base and very photogenic for a group (everyone in yukata in the garden). The evening rate from 17:00 cuts the price. Check the tattoo policy before going.",
+      "best_time": "17:00–22:00 (evening rate)",
+      "dates": "Open daily",
+      "price": "Adult ¥2,310–3,630 by date tier (+¥150 bath tax). Evening rate from 17:00 ¥1,980 (tiers A–B) / ¥2,420 (C); none on tiers D–E",
+      "booking": "None; check the ticket-type calendar for your date",
+      "group_of_8": "Good; yukata areas are mixed",
+      "hours": "11:00–23:00 (last entry 22:00; big baths close 22:30)",
+      "visit_minutes": 150,
+      "first_last": "Last entry 22:00",
+      "lat": 34.6703579,
+      "lng": 135.4595476,
+      "wish_ids": [
+        "w5",
+        "w8"
+      ],
+      "evidence": [
+        {
+          "source": "Solaniwa official price page",
+          "url": "https://solaniwa.com/price/",
+          "note": "A–E price tiers; evening rate from 17:00; yukata included; 11:00–23:00"
+        },
+        {
+          "source": "All About (JP) station-close super sento picks",
+          "url": "https://news.allabout.co.jp/articles/o/115151/",
+          "note": "Listed among Osaka's popular station-adjacent onsen"
+        },
+        {
+          "source": "Google Places",
+          "url": "https://maps.google.com/?cid=1467265949762250308",
+          "note": "3.9 from 5.2k reviews; 11:00–23:00"
+        }
+      ],
+      "confidence": 0.8
+    },
+    {
+      "name": "Osaka Aquarium Kaiyukan + Tempozan Ferris Wheel",
+      "name_ja": "海遊館・天保山大観覧車",
+      "city": "Osaka",
+      "area": "Osaka – Tempozan",
+      "kind": "sight",
+      "why": "One of Japan's best aquariums, with whale sharks in a central tank you spiral around. It's only 3 Chuo Line stops from Kujo (Osakako) and makes a good rain-day option. The Tempozan Giant Ferris Wheel next door is free with the Amazing Pass, and a night ride gives harbour views.",
+      "best_time": "Weekday 10:30, or after 16:00",
+      "dates": "Open daily",
+      "price": "Aquarium paid; buy online for your date (verify price). Ferris wheel free with Osaka Amazing Pass",
+      "booking": "Online date ticket recommended",
+      "group_of_8": "Fine; gondolas take 4–6, so split into 2",
+      "hours": "Kaiyukan 10:30–20:00 weekdays, 09:30 Sat/Sun; Ferris wheel 10:00–21:00 weekdays, 22:00 weekends",
+      "visit_minutes": 150,
+      "first_last": null,
+      "lat": 34.6545182,
+      "lng": 135.4289645,
+      "wish_ids": [
+        "w8",
+        "w10"
+      ],
+      "evidence": [
+        {
+          "source": "Google Places",
+          "url": "https://maps.google.com/?cid=8035482904308493516",
+          "note": "4.5 from 62k reviews; hours"
+        },
+        {
+          "source": "Osaka Amazing Pass participating list",
+          "url": "https://osaka-amazing-pass.com/en/service_free.html",
+          "note": "Tempozan Giant Ferris Wheel included, weekday to 21:00, weekend to 22:00"
+        }
+      ],
+      "confidence": 0.75
+    },
+    {
+      "name": "Tombori River Cruise",
+      "name_ja": "とんぼりリバークルーズ",
+      "city": "Osaka",
+      "area": "Osaka – Dotonbori",
+      "kind": "experience",
+      "why": "A 20-min boat under the Glico sign and the Dotonbori neon. It's free with the Osaka Amazing Pass, and that's the only way it's good value. Take the last departures (about 20:00–21:00) to see Dotonbori lit up before the night starts. Exchange the pass for a time slot at the Tazaemon-bashi desk early in the evening, because Christmas-week slots fill.",
+      "best_time": "19:00–21:00",
+      "dates": "Daily",
+      "price": "Free with Osaka Amazing Pass",
+      "booking": "Get time-slot tickets at the desk (on the day)",
+      "group_of_8": "Fine; book all 8 in the same slot",
+      "hours": "Every 30 min, 11:00–21:00",
+      "visit_minutes": 20,
+      "first_last": "Last departure 21:00",
+      "lat": 34.6691406,
+      "lng": 135.5027077,
+      "wish_ids": [
+        "w2",
+        "w8",
+        "w10"
+      ],
+      "evidence": [
+        {
+          "source": "Osaka Amazing Pass participating list",
+          "url": "https://osaka-amazing-pass.com/en/service_free.html",
+          "note": "Included; every half hour 11:00–21:00; exchange for a time slot at reception"
+        },
+        {
+          "source": "Google Places",
+          "url": "https://maps.google.com/?cid=11944000788392540382",
+          "note": "4.3 from 2.6k reviews"
+        }
+      ],
+      "confidence": 0.8
+    },
+    {
+      "name": "Tsutenkaku & Shinsekai",
+      "name_ja": "通天閣・新世界",
+      "city": "Osaka",
+      "area": "Osaka – Shinsekai",
+      "kind": "sight",
+      "why": "Retro Showa-era Osaka with a neon tower. The deck is free with the Amazing Pass, open to 21:45, and you need a timed slot from the desk. It's next door to Spa World, so pair them: tower, then a soak. Honestly the street is the draw and the deck is fine but not essential. Kushikatsu is for the food researcher.",
+      "best_time": "17:00–20:00 (neon)",
+      "dates": "Daily",
+      "price": "Free with Osaka Amazing Pass",
+      "booking": "Timed slot at the facility",
+      "group_of_8": "Fine",
+      "hours": "09:00–21:45 (last entry 21:15)",
+      "visit_minutes": 60,
+      "first_last": "Last entry 21:15",
+      "lat": 34.6524992,
+      "lng": 135.5063058,
+      "wish_ids": [
+        "w8",
+        "w10"
+      ],
+      "evidence": [
+        {
+          "source": "Osaka Amazing Pass participating list",
+          "url": "https://osaka-amazing-pass.com/en/service_free.html",
+          "note": "Included; 9:00–21:45, last entry 21:15; book time slot at facility"
+        },
+        {
+          "source": "Google Places",
+          "url": "https://maps.google.com/?cid=16558556426972448087",
+          "note": "4.1 from 44k reviews"
+        }
+      ],
+      "confidence": 0.75
     }
   ],
-  "notes": ""
+  "notes": "Osaka · sights: AREA LOGIC (Osaka base, Kujo; 21 Dec Mon to 26 Dec Sat 2026). Kujo is on both the Osaka Metro Chuo Line and the Hanshin Namba Line, which is unusually well connected for day trips: Hanshin through-trains run to Kintetsu-Nara with no change; 1 stop to Nishikujo then JR Yumesaki Line for USJ; 1 stop to Bentencho (Solaniwa onsen); 3 to Osakako (Kaiyukan). Suggested pairing: (1) USJ on Mon 21 or Tue 22; avoid 24–25 Dec, which are crowded and pricier, with school holidays starting. (2) Kyoto east day: Fushimi Inari at 06:30–07:00, then Keihan to Kiyomizu and Higashiyama by 08:30–09:00, Gion at midday. Keihan Kyoto-Osaka pass ¥1,650 vs ¥490 single from Yodoyabashi, so it only pays with 4+ rides. (3) Kyoto west day: Hankyu 1-Day ¥1,300 to Arashiyama by 07:30, then Kinkaku-ji at 09:00. Alternatively combine Arashiyama with Nara. (4) Nara half-day by Hanshin/Kintetsu: deer and Todai-ji 08:30–13:00, back for an Osaka evening. (5) Osaka Amazing Pass day (¥3,500 1-day / ¥5,000 2-day): Osaka Castle and Gozabune in the morning, Umeda Sky before 15:00 (pass entry cutoff), Tsutenkaku, then the Tombori cruise at night. It pays for itself with 3 or more paid sights. Christmas lights: Hikari Renaissance (Nakanoshima, 11–25 Dec, so it ends Christmas night) plus Midosuji Illumination (to 31 Dec, lit until 01:00) make one free evening walk from Yodoyabashi to Namba that ends in Dotonbori for nightlife (w2). Umeda Sky Christmas runs to 25 Dec. KOBE LUMINARIE is NOT on in December: since 2024 it moved to late Jan/early Feb (2026 edition was 30 Jan–8 Feb), so skip Kobe for lights. Arashiyama Hanatouro ended in 2021, and the Osaka Castle Illuminage 2026–27 dates are not yet announced (2025–26 ran 1 Nov–1 Feb, ¥2,000). PASSES: the JR paper Kansai Area Pass stopped selling on 30 Sep 2026. The WEST QR version is sold only by agencies outside Japan, so buy before flying if you want it, though it's rarely worth it from Kujo, which is a private-railway base. The KANSAI RAILWAY PASS (2-day ¥5,600, non-consecutive days) usually does NOT beat ICOCA for one Kyoto day plus one Nara day from Kujo. Default to ICOCA plus single-company day passes (Hankyu ¥1,300, Kintetsu 1-day ¥1,900 only if you do Nara and Kyoto on Kintetsu the same day). Onsen: Spa World and many sento refuse tattoos, including stickers. Spa World adds ¥1,300 after midnight. Year-end: Osaka Castle closes 28 Dec, which is after this leg, so not a problem."
 }

@@ -3,11 +3,11 @@
 //   keyed:   TikHub · Grok X Search · Perplexity Search · SerpApi · Google Places · Hot Pepper · Gemini
 //   keyless: TREK Places (Overture + OSM) and Photon for finding places · oEmbed · Wikipedia photos
 import { execFile } from 'node:child_process';
-import { mkdtempSync, readFileSync, rmSync, statSync, readdirSync } from 'node:fs';
+import { mkdirSync, mkdtempSync, readFileSync, rmSync, statSync, readdirSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { promisify } from 'node:util';
-import { cached, digest, http, key, km } from './lib.ts';
+import { CACHE_DIR, cached, digest, http, key, km } from './lib.ts';
 import { NAVITIME_HOST, normalize, routeUrl } from '../src/lib/navitime.ts';
 
 const run = promisify(execFile);
@@ -204,6 +204,11 @@ export async function googleMinutes(a: LatLng, b: LatLng, mode: 'WALK' | 'DRIVE'
     return d ? Math.round(parseInt(d, 10) / 60) : null;
   }, 60).catch(() => null);
 }
+// NAVITIME's remaining monthly calls, as its last reply reported them.
+const QUOTA = join(CACHE_DIR, 'navitime-quota.json');
+const readQuota = () => { try { const q = JSON.parse(readFileSync(QUOTA, 'utf8')) as { left: number; at: number }; return Date.now() - q.at < 31 * 864e5 ? q.left : null; } catch { return null; } };
+const writeQuota = (left: number) => { try { mkdirSync(CACHE_DIR, { recursive: true }); writeFileSync(QUOTA, JSON.stringify({ left, at: Date.now() })); } catch { /* best effort */ } };
+export const navitimeLeft = readQuota;
 /** How long A → B really takes when leaving at `depart` (Japan time, "YYYY-MM-DDTHH:MM"). */
 export async function travel(a: LatLng, b: LatLng, depart: string): Promise<Travel | null> {
   const d = km(a, b);
@@ -215,7 +220,14 @@ export async function travel(a: LatLng, b: LatLng, depart: string): Promise<Trav
   const t = new Date(`${depart}:00+09:00`); t.setMinutes(Math.ceil(t.getMinutes() / 10) * 10);
   const start = new Date(t.getTime() + 9 * 3600e3).toISOString().slice(0, 16);
   const tr = await cached('navitime4', [a.lat.toFixed(3), a.lng.toFixed(3), b.lat.toFixed(3), b.lng.toFixed(3), start], async () => {
-    const j = await http<{ items?: unknown[] }>(routeUrl([a.lng, a.lat], [b.lng, b.lat], `${start}:00`, 2), { headers: { 'x-rapidapi-key': key('RAPIDAPI_KEY')!, 'x-rapidapi-host': NAVITIME_HOST } });
+    // The free plan has a hard monthly limit: keep the last 40 calls in reserve and estimate instead.
+    const q = readQuota();
+    if (q != null && q < 40) throw new Error('NAVITIME quota nearly used up');
+    const res = await fetch(routeUrl([a.lng, a.lat], [b.lng, b.lat], `${start}:00`, 2), { headers: { 'x-rapidapi-key': key('RAPIDAPI_KEY')!, 'x-rapidapi-host': NAVITIME_HOST }, signal: AbortSignal.timeout(30000) });
+    const left = Number(res.headers.get('x-ratelimit-requests-remaining'));
+    if (Number.isFinite(left)) writeQuota(left);
+    if (!res.ok) throw new Error(`NAVITIME ${res.status}`);
+    const j = await res.json() as { items?: unknown[] };
     const n = j.items?.[0] ? normalize(j.items[0] as Parameters<typeof normalize>[0]) : null;
     return n ? { dep: n.dep, arr: n.arr, door: n.door ?? n.arr, minutes: n.minutes, fare: n.fare, rides: n.rides.map((x) => `${x.line}${/bus/.test(x.mode ?? '') && !/バス|bus/i.test(x.line) ? ' (bus)' : ''} ${x.from}→${x.to} ${x.dep.slice(11, 16)}→${x.arr.slice(11, 16)}`) } : null;
   }, 60).catch(() => null);
