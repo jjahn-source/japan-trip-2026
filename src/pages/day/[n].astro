@@ -218,7 +218,9 @@ if (day.sun && day.stops.length) {
                       )}
                       {g.wishes.length > 0 && <p class="g-wish">Because you asked: {g.wishes.join(' · ')}</p>}
                       {g.facts && g.facts.length > 0 && (
-                        <ul class="g-facts" aria-label="Verified facts">{g.facts.map((f) => <li>{f.text} · <a href={f.url} target="_blank" rel="noopener">{(() => { try { return new URL(f.url).hostname.replace(/^www\./, ''); } catch { return 'source'; } })()}</a></li>)}</ul>
+                        <details class="g-checked"><summary>Checked facts ({g.facts.length})</summary>
+                          <ul class="g-facts" aria-label="Verified facts">{g.facts.map((f) => <li>{f.text} · <a href={f.url} target="_blank" rel="noopener">{(() => { try { return new URL(f.url).hostname.replace(/^www\./, ''); } catch { return 'source'; } })()}</a></li>)}</ul>
+                        </details>
                       )}
                       {g.verified && <p class="g-ver">{g.verified.status === 'OPERATIONAL' ? 'Checked open' : 'Checked'} on {g.verified.source}</p>}
                     </div>
@@ -354,6 +356,8 @@ if (day.sun && day.stops.length) {
   .g-facts { list-style: none; padding: 0; margin: 0.4rem 0; display: grid; gap: 0.15rem; }
   .g-facts li::before { content: '✓ '; color: var(--print); }
   .g-facts a { color: var(--print); }
+  .g-checked summary { cursor: pointer; font-size: 0.78rem; color: var(--text-2); padding: 0.35rem 0; min-height: 44px; display: flex; align-items: center; }
+  .g-checked summary::before { content: '✓'; color: var(--print); margin-right: 0.35rem; }
   .g-src a { color: var(--print); }
   .g-wish { color: var(--verm-text); font-weight: 650; }
   .leg .tt { flex-basis: 100%; display: grid; gap: 0.2rem; margin-top: 0.15rem; padding: 0.5rem 0.6rem; border-radius: 10px; background: var(--print-wash); color: var(--text); }

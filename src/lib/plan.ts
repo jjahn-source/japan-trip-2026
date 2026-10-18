@@ -308,10 +308,11 @@ export function parsePlan(md: string): Trip {
 }
 
 let cached: Trip | null = null;
-/** The itinerary agent's plan when there is one (unless TRIP_SOURCE=trek), else the TREK export. */
+/** The itinerary agent's plan when there is one (unless TRIP_SOURCE=trek), else the TREK export.
+ *  TRIP_FILE shows another plan instead, e.g. a one-city preview: TRIP_FILE=data/research/preview-hakone-verified.json */
 export function getTrip(): Trip {
   if (!cached) {
-    const itin = resolve(process.cwd(), 'data/itinerary.json');
+    const itin = resolve(process.cwd(), process.env.TRIP_FILE ?? 'data/itinerary.json');
     if (existsSync(itin) && process.env.TRIP_SOURCE !== 'trek') {
       cached = itineraryToTrip(JSON.parse(readFileSync(itin, 'utf8')) as Itinerary);
     } else {
