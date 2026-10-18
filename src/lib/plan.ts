@@ -1,6 +1,7 @@
 // Parses the TREK markdown export (data/japan-plan-c.md) into typed trip data.
 // Runs at build time only; nothing here ships to the browser.
-import { readFileSync } from 'node:fs';
+import { existsSync, readFileSync } from 'node:fs';
+import { itineraryToTrip, type Guide, type Itinerary } from './itinerary.ts';
 import { resolve } from 'node:path';
 
 export type Category =
@@ -32,6 +33,10 @@ export interface Stop {
   address: string | null;
   lat: number | null;
   lng: number | null;
+  /** The itinerary agent's guidebook spread (data/itinerary.json only). */
+  guide?: Guide | null;
+  /** How to get to the next stop, in the agent's words. */
+  transport?: string | null;
 }
 
 export interface Note { kind: string; qualifier: string | null; text: string; check: boolean }
@@ -44,6 +49,8 @@ export interface Day {
   title: string;
   notes: Note[];
   stops: Stop[];
+  /** The day's stamp, when the itinerary agent chose it. */
+  stamp?: { kanji: string; reading: string; place: string };
 }
 
 export interface Stay {
@@ -58,7 +65,7 @@ export interface Stay {
   notes: string;
 }
 
-export interface Todo { due: string | null; dueLabel: string | null; text: string; detail: string | null }
+export interface Todo { due: string | null; dueLabel: string | null; text: string; detail: string | null; /** Stop ids, when the source links them. */ stops?: string[] }
 export interface BudgetRow { category: string; item: string; group: string; perPerson: string; note: string }
 export interface Trip {
   title: string;
@@ -301,10 +308,15 @@ export function parsePlan(md: string): Trip {
 }
 
 let cached: Trip | null = null;
+/** The itinerary agent's plan when there is one (unless TRIP_SOURCE=trek), else the TREK export. */
 export function getTrip(): Trip {
   if (!cached) {
-    const md = readFileSync(resolve(process.cwd(), 'data/japan-plan-c.md'), 'utf8');
-    cached = parsePlan(md);
+    const itin = resolve(process.cwd(), 'data/itinerary.json');
+    if (existsSync(itin) && process.env.TRIP_SOURCE !== 'trek') {
+      cached = itineraryToTrip(JSON.parse(readFileSync(itin, 'utf8')) as Itinerary);
+    } else {
+      cached = parsePlan(readFileSync(resolve(process.cwd(), 'data/japan-plan-c.md'), 'utf8'));
+    }
   }
   return cached;
 }

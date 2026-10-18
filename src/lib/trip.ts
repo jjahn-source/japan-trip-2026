@@ -129,10 +129,12 @@ export function trip(): TripX {
   const todos: TodoX[] = raw.todos.map((t, i) => ({ ...t, id: `todo-${String(i + 1).padStart(2, '0')}`, kind: todoKind(t.text), stops: [] }));
   const allStops = raw.days.flatMap((d) => d.stops);
   const stopTodo = new Map<string, TodoX>();
-  for (const todo of todos) {
-    const link = TODO_LINKS.find(([re]) => re.test(todo.text));
-    if (!link) continue;
-    for (const s of allStops.filter((s) => link[1].test(s.name))) {
+  for (const [ti, todo] of todos.entries()) {
+    // The itinerary agent links its to-dos to stops itself; the TREK export is matched by name.
+    const linked = raw.todos[ti].stops;
+    const link = linked ? null : TODO_LINKS.find(([re]) => re.test(todo.text));
+    if (!linked && !link) continue;
+    for (const s of allStops.filter((s) => (linked ? linked.includes(s.id) : link![1].test(s.name)))) {
       todo.stops.push(s.id);
       // A booking outranks a check when both point at one stop (e.g. Harumiya).
       const prev = stopTodo.get(s.id);
@@ -159,7 +161,7 @@ export function trip(): TripX {
     const dusk = located.filter((s) => s.start <= '16:30' && s.startISO.startsWith(day.date)).at(-1) ?? located[0];
     return {
       ...day,
-      stamp: STAMPS[day.n],
+      stamp: day.stamp ?? STAMPS[day.n] ?? { kanji: '旅', reading: 'tabi · journey', place: day.title.toUpperCase().slice(0, 24) },
       stops,
       base,
       sun: dusk ? (() => {

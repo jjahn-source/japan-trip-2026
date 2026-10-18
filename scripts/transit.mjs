@@ -159,8 +159,14 @@ const plan = await readFile(new URL('../data/japan-plan-c.md', import.meta.url),
 const html = await readFile(new URL('../dist/index.html', import.meta.url), 'utf8');
 const trip = JSON.parse(html.match(/<script type="application\/json" id="trip-data">(.*?)<\/script>/s)[1]);
 const sections = {};
-const parts = plan.split(/^## Day (\d+)\b/m);
-for (let i = 1; i < parts.length; i += 2) sections[parts[i]] = parts[i + 1];
+// The itinerary agent's plan (data/itinerary.json), when there is one, is what the site shows.
+const itinerary = await readFile(new URL('../data/itinerary.json', import.meta.url), 'utf8').then(JSON.parse).catch(() => null);
+if (itinerary && process.env.TRIP_SOURCE !== 'trek') {
+  for (const d of itinerary.days) sections[d.n] = [...d.notes.map((x) => x.text), ...d.stops.flatMap((x) => [x.name, x.plan ?? '', x.transport ?? ''])].join('\n');
+} else {
+  const parts = plan.split(/^## Day (\d+)\b/m);
+  for (let i = 1; i < parts.length; i += 2) sections[parts[i]] = parts[i + 1];
+}
 // [what the plan says, which OSM lines it means, the chip label, official colour]
 const MENTIONS = [
   [/[ŌO]edo\b/, /大江戸線|^[ŌO]edo Line/i, 'Toei Ōedo Line', '#b6007a'],

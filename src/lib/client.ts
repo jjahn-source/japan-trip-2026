@@ -34,7 +34,21 @@ export function trending(): { generated: string | null; days: Record<string, Cli
   const pf = new URL(`${process.cwd()}/data/picks.json`, 'file://');
   const picks: Record<string, ClientTrend[]> = existsSync(pf) ? JSON.parse(readFileSync(pf, 'utf8')).days ?? {} : {};
   const days: Record<string, ClientTrend[]> = {};
-  for (const d of new Set([...Object.keys(j.days ?? {}), ...Object.keys(picks)])) days[d] = [...(picks[d] ?? []), ...(j.days?.[d] ?? [])];
+  // Picks and trends were researched for a plan's days; after a re-plan, keep only those still within a
+  // walk of that day's stops (and point them at the nearest one), so nothing lands on the wrong day.
+  const t = trip();
+  const km = (a: { lat: number; lng: number }, b: { lat: number; lng: number }) => {
+    const r = Math.PI / 180, x = Math.sin(((b.lat - a.lat) * r) / 2) ** 2 + Math.cos(a.lat * r) * Math.cos(b.lat * r) * Math.sin(((b.lng - a.lng) * r) / 2) ** 2;
+    return 12742 * Math.asin(Math.sqrt(x));
+  };
+  for (const d of new Set([...Object.keys(j.days ?? {}), ...Object.keys(picks)])) {
+    const stops = (t.days.find((x) => String(x.n) === d)?.stops ?? []).filter((s) => s.lat != null);
+    days[d] = [...(picks[d] ?? []), ...(j.days?.[d] ?? [])].flatMap((x: ClientTrend) => {
+      const near = stops.map((s) => ({ s, k: km(x, { lat: s.lat!, lng: s.lng! }) })).sort((a, b) => a.k - b.k)[0];
+      if (!near || near.k > 1.5) return [];
+      return [{ ...x, near: { stop: near.s.id, i: near.s.index + 1, km: +near.k.toFixed(2) } }];
+    });
+  }
   return { generated: j.generated ?? null, days };
 }
 

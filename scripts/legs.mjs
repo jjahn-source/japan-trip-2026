@@ -26,10 +26,15 @@ const html = await readFile(new URL('../dist/index.html', import.meta.url), 'utf
 const trip = JSON.parse(html.match(/<script type="application\/json" id="trip-data">(.*?)<\/script>/s)[1]);
 const transit = JSON.parse(await readFile(new URL('../public/transit.json', import.meta.url), 'utf8'));
 const plan = await readFile(new URL('../data/japan-plan-c.md', import.meta.url), 'utf8');
+// The itinerary agent's plan (data/itinerary.json), when there is one, is what the site shows: read its
+// own words about each hop instead of the TREK export's.
+const itinerary = await readFile(new URL('../data/itinerary.json', import.meta.url), 'utf8').then(JSON.parse).catch(() => null);
 
 // ── The plan's words about each stop, by stop id (blocks are "### HH:MM–HH:MM · Name").
 const blocks = {};
-{
+if (itinerary && process.env.TRIP_SOURCE !== 'trek') {
+  for (const d of itinerary.days) for (const s of d.stops) blocks[s.id] = `**Plan:** ${s.plan ?? ''}\n**Then:** ${s.transport ?? ''}\n`;
+} else {
   const parts = plan.split(/^## Day (\d+)\b/m);
   for (let i = 1; i < parts.length; i += 2) {
     const d = +parts[i];
@@ -37,7 +42,9 @@ const blocks = {};
   }
 }
 const briefing = {};
-{
+if (itinerary && process.env.TRIP_SOURCE !== 'trek') {
+  for (const d of itinerary.days) briefing[d.n] = d.notes.map((x) => x.text).join(' ');
+} else {
   const parts = plan.split(/^## Day (\d+)\b/m);
   for (let i = 1; i < parts.length; i += 2) briefing[+parts[i]] = parts[i + 1].split(/^### /m)[0].split('\n').filter((l) => l.startsWith('>')).join(' ');
 }

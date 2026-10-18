@@ -66,6 +66,43 @@ OpenStreetMap).
   skipped automatically. They lead the *Things to do nearby* strip, ahead of the Wikipedia trends.
 - **3D**: the orbit button circles the view; right-drag (or two-finger twist on a phone) tilts and turns.
 
+## The itinerary agent
+
+`npm run plan` turns a plain-language brief (`planner/brief.md`) into the whole trip: it researches
+what people post (TikTok, Instagram incl. posts tagged at a place, Lemon8, Xiaohongshu, Reddit,
+Threads, X, YouTube), what Japanese locals rate (Japanese Google, every Japanese Google Maps review,
+Tabelog read-only) and the web; watches the best videos; verifies every place; plans each day hour
+by hour around the booked stays; checks the plan (opening hours, travel time between stops, every
+wish in the brief accounted for) and repairs what fails; then writes a guidebook spread per stop:
+photo or the original video, the story, how to do it, tips, cost, booking, and where it came from.
+The result is `data/itinerary.json`; when it exists the site builds from it instead of the TREK
+export, and the map, routes, search and bookings follow. `TRIP_SOURCE=trek` switches back.
+
+```sh
+npm run plan                                   # plan from planner/brief.md
+npm run plan -- edit "swap day 3's izakaya for somewhere louder"
+npm run plan -- add https://www.tiktok.com/@…/video/… "this looks fun"
+npm run plan -- status                         # which sources are on
+```
+
+Each run re-derives the rail lines, routes and search place pack (`--no-site` skips that). Every
+outside call is cached in `planner/.cache/`, so re-runs and edits only pay for what changed. The
+agent decides by itself; you edit afterwards in plain words.
+
+| Source | What for | `.env` key |
+|---|---|---|
+| Claude Opus 5.5 | Planner, researcher and writer (required) | `ANTHROPIC_API_KEY` |
+| [TikHub](https://tikhub.io) | TikTok, Instagram (+ by location), Lemon8, Xiaohongshu, Reddit, Threads, YouTube | `TIKHUB_API_KEY` |
+| [xAI](https://console.x.ai) Grok 4.7 X Search | X (Twitter), Japanese and English | `XAI_API_KEY` |
+| [Perplexity Search API](https://www.perplexity.ai/api-platform) | Web search | `PERPLEXITY_API_KEY` |
+| [SerpApi](https://serpapi.com) | Google as seen in Japan; every Google Maps review | `SERPAPI_API_KEY` |
+| [Google Maps Platform](https://console.cloud.google.com/google/maps-apis) (Places API New) | Real, open, hours, address | `GOOGLE_MAPS_API_KEY` |
+| [Hot Pepper](https://webservice.recruit.co.jp/) | Restaurants with seats for the group | `HOTPEPPER_API_KEY` |
+| [Gemini API](https://aistudio.google.com/apikey) (3.8 Flash) | Watching reels and TikToks | `GEMINI_API_KEY` |
+
+Without the optional keys it still works on Claude's own web search plus TREK Places, OpenStreetMap
+and Wikipedia. Design: `docs/superpowers/specs/2026-10-17-itinerary-agent-design.md`.
+
 ## Search and live Japan data
 
 **How search works** (`src/scripts/search.ts`). Every keystroke is answered on the phone, in a few

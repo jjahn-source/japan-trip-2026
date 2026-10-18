@@ -1,8 +1,11 @@
-node_modules/
-dist/
 .astro/
 .env
-data/.trending-candidates.json
-.playwright-mcp/
-data/.places-cache.json
 .impeccable/review/
+.playwright-mcp/
+.superpowers/
+data/.places-cache.json
+data/.trending-candidates.json
+dist/
+node_modules/
+planner/.cache/
+planner/logs/
