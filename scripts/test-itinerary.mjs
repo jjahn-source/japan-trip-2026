@@ -81,6 +81,8 @@ test('verified facts catch closures, hours on the date, last entry and fixed rid
   assert.match(factProblem(f, '2026-12-19', 1150, 1190), /last entry/);
   assert.match(factProblem(f, '2026-12-19', 660, 685), /takes 40 min/);
   assert.equal(factProblem(f, '2026-12-19', 660, 705), null);
+  assert.match(factProblem({ ...EMPTY, time_limit: { minutes: 120, quote: 'q', url: 'u' } }, '2026-12-19', 1285, 1410), /120-min time limit/);
+  assert.equal(factProblem({ ...EMPTY, closed: [{ dates: ['2026-12-20'], why: 'maintenance', what: 'only one section', whole_place: false, quote: 'q', url: 'u' }] }, '2026-12-20', 540, 600), null);
 });
 
 test('pages become plain text', () => {

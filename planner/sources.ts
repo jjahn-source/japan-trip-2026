@@ -199,10 +199,11 @@ export async function travel(a: LatLng, b: LatLng, depart: string): Promise<Trav
   if (d < 1.0) { const w = await googleMinutes(a, b, 'WALK'); return { mode: 'walk', minutes: w ?? Math.max(1, Math.round((d * 1.3 / 4.5) * 60)) }; }
   const car = await googleMinutes(a, b, 'DRIVE');
   if (!key('RAPIDAPI_KEY')) return car != null ? { mode: 'car', minutes: car, carMinutes: car } : null;
-  // Rounded to 15 minutes so nearby checks share one request (the free plan is 500 a month).
-  const t = new Date(`${depart}:00+09:00`); t.setMinutes(Math.floor(t.getMinutes() / 15) * 15);
+  // Rounded UP to 10 minutes so nearby checks share one request (the free plan is 500 a month) and no
+  // route ever leaves before they do.
+  const t = new Date(`${depart}:00+09:00`); t.setMinutes(Math.ceil(t.getMinutes() / 10) * 10);
   const start = new Date(t.getTime() + 9 * 3600e3).toISOString().slice(0, 16);
-  const tr = await cached('navitime3', [a.lat.toFixed(3), a.lng.toFixed(3), b.lat.toFixed(3), b.lng.toFixed(3), start], async () => {
+  const tr = await cached('navitime4', [a.lat.toFixed(3), a.lng.toFixed(3), b.lat.toFixed(3), b.lng.toFixed(3), start], async () => {
     const j = await http<{ items?: unknown[] }>(routeUrl([a.lng, a.lat], [b.lng, b.lat], `${start}:00`, 2), { headers: { 'x-rapidapi-key': key('RAPIDAPI_KEY')!, 'x-rapidapi-host': NAVITIME_HOST } });
     const n = j.items?.[0] ? normalize(j.items[0] as Parameters<typeof normalize>[0]) : null;
     return n ? { dep: n.dep, arr: n.arr, door: n.door ?? n.arr, minutes: n.minutes, fare: n.fare, rides: n.rides.map((x) => `${x.line}${/bus/.test(x.mode ?? '') && !/バス|bus/i.test(x.line) ? ' (bus)' : ''} ${x.from}→${x.to} ${x.dep.slice(11, 16)}→${x.arr.slice(11, 16)}`) } : null;

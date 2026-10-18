@@ -135,6 +135,7 @@ const Plan = z.object({
   todos: z.array(z.object({ due: z.string().nullable().describe('YYYY-MM-DD to do it by'), text: z.string().describe('Start with Book / Buy / Reserve / Check'), detail: z.string().nullable(), stop_names: z.array(z.string()) })),
   budget: z.array(z.object({ category: z.string(), item: z.string(), group: z.string().describe('Group total, e.g. "¥48,000" or "—"'), per_person: z.string(), note: z.string() })),
   coverage: z.array(z.object({ wish_id: z.string(), how: z.string().describe('Where and how this wish is honoured (day, stop), or why it could not be') })),
+  logistics: z.array(z.string()).describe('Trip-wide arrangements every day must agree with, one per line: where the luggage is each day (forwarded when, from where to where), passes held and what they cover, money and tax-free rules, transfers between cities'),
 });
 type Plan = z.infer<typeof Plan>;
 
@@ -417,7 +418,7 @@ async function checkPlan(plan: Plan, brief: Brief, cands: Map<string, Candidate>
   for (const d of want) if (!plan.days.some((x) => x.date === d)) issues.push(`Missing day ${d}.`);
   for (const day of plan.days) {
     const times = stopTimes(day.date, day.stops);
-    let lastMeal: number | null = null;
+    let lastMeal: number | null = null, taxiYen = 0;
     for (const [i, s] of day.stops.entries()) {
       if (!/^\d{2}:\d{2}$/.test(s.start) || !/^\d{2}:\d{2}$/.test(s.end)) issues.push(`${day.date} "${s.name}": times must be HH:MM.`);
       if (s.candidate_id && !cands.has(s.candidate_id)) issues.push(`${day.date} "${s.name}": unknown candidate_id ${s.candidate_id}.`);
@@ -449,14 +450,20 @@ async function checkPlan(plan: Plan, brief: Brief, cands: Map<string, Candidate>
       // A ride or cruise ends somewhere other than where it starts; without its end point there is nothing honest to check.
       const from = s.end_lat != null && s.end_lng != null ? { lat: s.end_lat, lng: s.end_lng } : s.category === 'transport' ? null : s.lat != null && s.lng != null ? { lat: s.lat, lng: s.lng } : null;
       if (!from || next.lat == null || next.lng == null) continue;
-      const t = await S.travel(from, { lat: next.lat, lng: next.lng }, times[i].endISO.slice(0, 16));
+      // A group needs time to get moving: longer off a train or plane (gates, bags, finding each other).
+      const buffer = (brief.people >= 6 ? 3 : 0) + (s.category === 'transport' ? 10 : 0);
+      const leave = new Date(endMs + buffer * 60000 + 9 * 3600e3).toISOString().slice(0, 16);
+      const t = await S.travel(from, { lat: next.lat, lng: next.lng }, leave);
       if (!t) continue;
       legs.set(`${day.date}#${i}`, { ...t, key: `${day.date}#${i}` });
       const taxi = /taxi|cab/i.test(s.transport ?? '');
-      const need = taxi && t.carMinutes != null ? t.carMinutes + 5 : t.minutes;
+      if (taxi && t.carMinutes != null) taxiYen += Math.ceil(brief.people / 4) * (730 + t.carMinutes * 420);
+      const need = buffer + (taxi && t.carMinutes != null ? t.carMinutes + 5 : t.minutes);
       if (gap + 3 < need) issues.push(`${day.date}: ${Math.round(gap)} min from "${s.name}" (${s.end}) to "${next.name}" (${next.start}), but it really takes ${need} min${t.mode === 'transit' ? ` (${t.rides?.join(', ')})` : t.mode === 'car' && !taxi ? ' by car (no train route found; a bus takes longer)' : ` by ${taxi ? 'car' : t.mode}`}.`);
       if (taxi && t.carMinutes != null && t.carMinutes > 20 && t.mode === 'transit' && t.minutes <= t.carMinutes + 15) issues.push(`${day.date}: taxi "${s.name}" → "${next.name}" (~${t.carMinutes} min, roughly ¥${(t.carMinutes * 450).toLocaleString('en-US')} per car) where the train takes ${t.minutes} min (${t.rides?.join(', ')}).`);
     }
+    // Taxis add up fast for a group: about ¥4,000 a head in a day means the day is routed badly.
+    if (taxiYen / brief.people > 4000) issues.push(`${day.date}: about ¥${Math.round(taxiYen / 1000) * 1000} of taxis (~¥${Math.round(taxiYen / brief.people / 100) * 100} pp). Reorder the day to stop going back and forth, or use the trains/buses their passes cover.`);
   }
   for (const w of brief.wishes) if (!plan.coverage.some((c) => c.wish_id === w.id)) issues.push(`Wish ${w.id} ("${w.text}") is not accounted for in coverage.`);
   return { issues, legs };
@@ -472,7 +479,10 @@ Rules:
 - Honour EVERY wish in the brief and report where in coverage. If one cannot be honoured, say why.
 - Prices in yen, "pp" or "group total". Booking-critical items get a todo with a due date (when bookings open or the latest safe day).
 - Budget: one row per meaningful item or category with group and per-person yen.
-- A ride or cruise that ends somewhere else (pirate ship, ropeway, a transfer) gives end_lat/end_lng for where it ends.`;
+- A ride or cruise that ends somewhere else (pirate ship, ropeway, a transfer) gives end_lat/end_lng for where it ends.
+- A group of 8 needs about 10 minutes to get off a train or plane and onto the next thing; never plan a tighter connection.
+- Route each day as one sweep through an area: no going back and forth by taxi. Use what their passes cover first.
+- logistics: decide once where the luggage is each day and what each pass covers; every day must agree with it.`;
 
 async function makePlan(brief: Brief, cands: Candidate[], stays: AnchorStay[], notes: string[], extra: string, previous?: Plan): Promise<Plan & { warnings?: string[]; legs: Map<string, Leg> }> {
   const catalogue = cands.map((c) => ({ id: c.id, name: c.name, ja: c.name_ja, city: c.city, area: c.area, kind: c.kind, why: c.why, best_time: c.best_time, dates: c.dates, price: c.price, booking: c.booking, group: c.group_of_8, hours: c.verified?.hours?.join('; ') ?? c.hours, visit_minutes: c.visit_minutes ?? null, first_last: c.first_last ?? null, verified_facts: c.facts ? F.factLines(c.facts).map((f) => f.text) : [], lat: c.lat, lng: c.lng, wishes: c.wish_ids, confidence: +c.confidence.toFixed(2), status: c.verified?.status ?? null }));
@@ -504,7 +514,8 @@ function measuredTransport(p: Plan, legs: Legs) {
 
 const WRITE_SYSTEM = `You write the guidebook for a trip that has already been planned and verified: each stop gets a spread worth reading on the train. Voice: a well-travelled friend, specific and vivid, never generic, never padded. Never copy Tabelog scores, reviews or photos: you may say "highly rated on Tabelog" and link the page. Tips should be the things only someone who has been would know.
 HARD NUMBERS RULE: every price, clock time, duration and distance you write must appear in that stop's verified_facts, research, plan times, price, or travel_next (the real route to the next stop). Never estimate or recall one yourself: no "about 15 minutes' walk" unless travel_next says so. If you do not have the number, describe it without one. Code checks every number and deletes sentences that break this rule.
-Stay consistent with the whole day and the trip notes (e.g. if luggage is forwarded, do not tell them to pack it).`;
+Stay consistent with TRIP LOGISTICS (where the luggage is, which passes they hold and what those cover, tax-free rules): never contradict it.
+Describe what they will really see on that date: the season, the weather, when it gets dark. No green fields or blossoms in December.`;
 
 type Legs = Map<string, Leg>;
 const legText = (l: Leg | undefined) => (l ? `${l.mode === 'transit' ? `train/bus ${l.minutes} min door to door${l.rides?.length ? ` (${l.rides.join(', ')})` : ''}${l.fare ? `, ¥${l.fare}` : ''}` : `${l.mode} ${l.minutes} min`}${l.carMinutes != null && l.mode !== 'car' ? `; by taxi ${l.carMinutes} min` : ''}` : null);
@@ -514,8 +525,9 @@ function dossierFor(day: Plan['days'][number], byId: Map<string, Candidate>, leg
     return { index: i, time: `${s.start}–${s.end}`, name: s.name, plan: s.plan, price: s.price, transport_next: s.transport, travel_next: legText(legs.get(`${day.date}#${i}`)), verified_facts: c?.facts ? F.factLines(c.facts).map((f) => f.text) : [], research: c ? { why: c.why, best_time: c.best_time, dates: c.dates, price: c.price, booking: c.booking, group: c.group_of_8, hours: c.facts?.open.length ? null : c.hours, visit_minutes: c.visit_minutes, first_last: c.first_last, rating: c.verified ? { status: c.verified.status, rating: c.verified.rating, ratings: c.verified.ratings, source: c.verified.source } : null, evidence: c.evidence } : null };
   });
 }
+let LOGISTICS: string[] = [];
 async function writeDay(brief: Brief, day: Plan['days'][number], n: number, byId: Map<string, Candidate>, legs: Legs) {
-  const user = `Group: ${brief.people} people. ${brief.who}\nDay ${n}: ${day.date}, ${day.city}: ${day.title}\nWishes: ${brief.wishes.map((w) => `${w.id}: ${w.text}`).join(' · ')}\n\nSTOPS\n${JSON.stringify(dossierFor(day, byId, legs))}`;
+  const user = `Group: ${brief.people} people. ${brief.who}\nTRIP LOGISTICS\n${LOGISTICS.map((l) => `- ${l}`).join('\n')}\nDay ${n}: ${day.date} (${weekday(day.date)}), ${day.city}: ${day.title}\nWishes: ${brief.wishes.map((w) => `${w.id}: ${w.text}`).join(' · ')}\n\nSTOPS\n${JSON.stringify(dossierFor(day, byId, legs))}`;
   return structured('write', DayGuide, WRITE_SYSTEM, user, 'medium');
 }
 
@@ -563,7 +575,7 @@ async function writeChecked(brief: Brief, day: Plan['days'][number], n: number, 
   let bad = auditDay(g, allowed);
   const first = bad.length;
   if (bad.length) {
-    const user = `Group: ${brief.people} people. ${brief.who}\nDay ${n}: ${day.date}, ${day.city}: ${day.title}\n\nSTOPS\n${JSON.stringify(dossierFor(day, byId, legs))}\n\nYOUR DRAFT\n${JSON.stringify(g)}\n\nTHESE NUMBERS ARE NOT BACKED BY THE STOP'S DATA: rewrite those sentences without them (or with the backed value). Change nothing else.\n${bad.map((x) => `- ${x}`).join('\n')}`;
+    const user = `Group: ${brief.people} people. ${brief.who}\nTRIP LOGISTICS\n${LOGISTICS.map((l) => `- ${l}`).join('\n')}\nDay ${n}: ${day.date} (${weekday(day.date)}), ${day.city}: ${day.title}\n\nSTOPS\n${JSON.stringify(dossierFor(day, byId, legs))}\n\nYOUR DRAFT\n${JSON.stringify(g)}\n\nTHESE NUMBERS ARE NOT BACKED BY THE STOP'S DATA: rewrite those sentences without them (or with the backed value). Change nothing else.\n${bad.map((x) => `- ${x}`).join('\n')}`;
     g = await structured('write-fix', DayGuide, WRITE_SYSTEM, user, 'low');
     bad = auditDay(g, allowed);
   }
@@ -572,7 +584,7 @@ async function writeChecked(brief: Brief, day: Plan['days'][number], n: number, 
 
 // ── Fact-check: an editor who opens the official pages and checks every hard claim ──
 const FACT_SYSTEM = `You are a meticulous fact-checker for a Japan itinerary. Today is ${today}. Lines marked VERIFIED were already quoted from official pages: do not re-check them. Check the remaining HARD claims against official or primary sources (operator timetables, official sites, recent notices): routes and which line goes where, opening times, first/last departures, durations, prices, event dates, closures, rules. Use web_search and web_fetch; prefer official Japanese pages. Do NOT re-litigate taste or choices. Report only claims you have verified are wrong, plus anything impossible or self-contradictory within the day (e.g. luggage forwarded ahead but told to pack it). For each: "claim" is the exact wrong sentence copied from the text, "fix" a corrected sentence to put in its place, and "schedule" true only if the timetable of the day itself must change. If everything checks out, report nothing. Be economical: about 4–8 tool calls.`;
-const dayText = (d: ItinDay) => `${d.date} · ${d.title}\n${d.notes.map((n) => `[${n.kind}] ${n.text}`).join('\n')}\n${d.stops.map((s, i) => `#${i} ${s.start}–${s.end} ${s.name}${s.price ? ` (${s.price})` : ''}${s.transport ? ` → next: ${s.transport}` : ''}${s.guide?.measured ? `\n   MEASURED (routing data, do not dispute): ${s.guide.measured}` : ''}${s.guide ? `\n   ${s.guide.story}\n   How: ${s.guide.how.join(' / ')}\n   Tips: ${s.guide.tips.join(' / ')}${s.guide.hours ? `\n   Hours: ${s.guide.hours}` : ''}${s.guide.booking ? `\n   Booking: ${s.guide.booking}` : ''}${s.guide.facts?.length ? `\n   VERIFIED: ${s.guide.facts.map((f) => f.text).join(' / ')}` : ''}` : ''}`).join('\n')}`;
+const dayText = (d: ItinDay) => `TRIP LOGISTICS: ${LOGISTICS.join(' / ')}\n${d.date} · ${d.title}\n${d.notes.map((n) => `[${n.kind}] ${n.text}`).join('\n')}\n${d.stops.map((s, i) => `#${i} ${s.start}–${s.end} ${s.name}${s.price ? ` (${s.price})` : ''}${s.transport ? ` → next: ${s.transport}` : ''}${s.guide?.measured ? `\n   MEASURED (routing data, do not dispute): ${s.guide.measured}` : ''}${s.guide ? `\n   ${s.guide.story}\n   How: ${s.guide.how.join(' / ')}\n   Tips: ${s.guide.tips.join(' / ')}${s.guide.hours ? `\n   Hours: ${s.guide.hours}` : ''}${s.guide.booking ? `\n   Booking: ${s.guide.booking}` : ''}${s.guide.facts?.length ? `\n   VERIFIED: ${s.guide.facts.map((f) => f.text).join(' / ')}` : ''}` : ''}`).join('\n')}`;
 type FactError = { stop: number; claim: string; fix: string; source_url: string; schedule: boolean };
 async function factCheckDay(d: ItinDay): Promise<FactError[]> {
   const model = MODELS.check;
@@ -620,7 +632,7 @@ function patchDay(d: ItinDay, errors: FactError[], measured: F.Allowed[]): strin
     let done = false;
     if (e.stop < 0) {
       d.notes = d.notes.map((n) => { const r = done ? null : swap(n.text, e); if (r) done = true; return r ? { ...n, text: r } : n; });
-      if (!done) { d.notes.push({ kind: 'CHECK', text: e.fix }); done = true; }
+      if (!done) { log(`  skipped a note correction whose sentence isn't in the text: "${e.claim.slice(0, 60)}"`); done = true; }
     }
     const g = d.stops[e.stop]?.guide;
     if (g && !done) {
@@ -729,6 +741,7 @@ async function plan(briefFile: string, extra = '', previous?: State) {
   log('Planning the days…');
   const p = await makePlan(brief, candidates, ONLY ? stays.filter((s) => s.city.toLowerCase() === ONLY!.toLowerCase()) : stays, notes, extra, previous?.plan);
   measuredTransport(p, p.legs);
+  LOGISTICS = p.logistics ?? [];
   if (!ONLY) writeJson(STATE, { briefText, brief, candidates, notes, plan: p } satisfies State);
   log('Writing the guidebook…');
   const byId = new Map(candidates.map((c) => [c.id!, c]));
