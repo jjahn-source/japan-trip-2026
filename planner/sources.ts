@@ -8,6 +8,7 @@ import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { promisify } from 'node:util';
 import { cached, digest, http, key, km } from './lib.ts';
+import { NAVITIME_HOST, normalize, routeUrl } from '../src/lib/navitime.ts';
 
 const run = promisify(execFile);
 export type LatLng = { lat: number; lng: number };
@@ -117,14 +118,16 @@ export function mapsReviews(name: string, at: LatLng, topic?: string) {
 export interface PlaceFacts {
   name: string; address?: string; lat: number; lng: number; status?: string; rating?: number; ratings?: number;
   hours?: string[]; website?: string; maps?: string; phone?: string; price?: string; placeId?: string; source: string;
+  /** Machine-readable weekly hours (Google): day 0 = Sunday, times as HHMM. */
+  periods?: { open: { day: number; hour: number; minute: number }; close?: { day: number; hour: number; minute: number } }[];
 }
 export async function placesLookup(query: string, near?: LatLng): Promise<PlaceFacts | null> {
-  return cached('places', [query, near && [near.lat.toFixed(3), near.lng.toFixed(3)]], async () => {
-    const r = await http<{ places?: { id: string; displayName?: { text: string }; formattedAddress?: string; location?: { latitude: number; longitude: number }; rating?: number; userRatingCount?: number; businessStatus?: string; regularOpeningHours?: { weekdayDescriptions?: string[] }; websiteUri?: string; googleMapsUri?: string; nationalPhoneNumber?: string; priceLevel?: string }[] }>('https://places.googleapis.com/v1/places:searchText', {
+  return cached('places2', [query, near && [near.lat.toFixed(3), near.lng.toFixed(3)]], async () => {
+    const r = await http<{ places?: { id: string; displayName?: { text: string }; formattedAddress?: string; location?: { latitude: number; longitude: number }; rating?: number; userRatingCount?: number; businessStatus?: string; regularOpeningHours?: { weekdayDescriptions?: string[]; periods?: PlaceFacts['periods'] }; websiteUri?: string; googleMapsUri?: string; nationalPhoneNumber?: string; priceLevel?: string }[] }>('https://places.googleapis.com/v1/places:searchText', {
       method: 'POST',
       headers: {
         'X-Goog-Api-Key': key('GOOGLE_MAPS_API_KEY')!, 'Content-Type': 'application/json',
-        'X-Goog-FieldMask': 'places.id,places.displayName,places.formattedAddress,places.location,places.rating,places.userRatingCount,places.businessStatus,places.regularOpeningHours.weekdayDescriptions,places.websiteUri,places.googleMapsUri,places.nationalPhoneNumber,places.priceLevel',
+        'X-Goog-FieldMask': 'places.id,places.displayName,places.formattedAddress,places.location,places.rating,places.userRatingCount,places.businessStatus,places.regularOpeningHours.weekdayDescriptions,places.regularOpeningHours.periods,places.websiteUri,places.googleMapsUri,places.nationalPhoneNumber,places.priceLevel',
       },
       body: JSON.stringify({ textQuery: query, languageCode: 'en', regionCode: 'JP', ...(near ? { locationBias: { circle: { center: { latitude: near.lat, longitude: near.lng }, radius: 20000 } } } : {}) }),
     });
@@ -133,7 +136,7 @@ export async function placesLookup(query: string, near?: LatLng): Promise<PlaceF
     return {
       name: p.displayName?.text ?? query, address: p.formattedAddress, lat: p.location.latitude, lng: p.location.longitude, status: p.businessStatus,
       rating: p.rating, ratings: p.userRatingCount, hours: p.regularOpeningHours?.weekdayDescriptions, website: p.websiteUri, maps: p.googleMapsUri,
-      phone: p.nationalPhoneNumber, price: p.priceLevel, placeId: p.id, source: 'Google Places',
+      phone: p.nationalPhoneNumber, price: p.priceLevel, placeId: p.id, source: 'Google Places', periods: p.regularOpeningHours?.periods,
     };
   }, 14).catch(() => null);
 }
@@ -174,6 +177,39 @@ export async function findPlace(name: string, near?: LatLng, area = ''): Promise
     } catch { /* nothing found */ }
     return null;
   }, 14);
+}
+
+// ── Real travel times: NAVITIME for trains and buses (Japan's own timetables), Google for walks and cars ──
+// (Google's Routes API has no transit in Japan; it does walking and driving.)
+export interface Travel { mode: 'walk' | 'transit' | 'car'; minutes: number; dep?: string; arr?: string; fare?: number | null; rides?: string[]; carMinutes?: number }
+async function googleMinutes(a: LatLng, b: LatLng, mode: 'WALK' | 'DRIVE') {
+  if (!has.places()) return null;
+  return cached('gmroute', [a.lat.toFixed(4), a.lng.toFixed(4), b.lat.toFixed(4), b.lng.toFixed(4), mode], async () => {
+    const r = await http<{ routes?: { duration?: string }[] }>('https://routes.googleapis.com/directions/v2:computeRoutes', {
+      method: 'POST', headers: { 'X-Goog-Api-Key': key('GOOGLE_MAPS_API_KEY')!, 'Content-Type': 'application/json', 'X-Goog-FieldMask': 'routes.duration' },
+      body: JSON.stringify({ origin: { location: { latLng: { latitude: a.lat, longitude: a.lng } } }, destination: { location: { latLng: { latitude: b.lat, longitude: b.lng } } }, travelMode: mode }),
+    });
+    const d = r.routes?.[0]?.duration;
+    return d ? Math.round(parseInt(d, 10) / 60) : null;
+  }, 60).catch(() => null);
+}
+/** How long A → B really takes when leaving at `depart` (Japan time, "YYYY-MM-DDTHH:MM"). */
+export async function travel(a: LatLng, b: LatLng, depart: string): Promise<Travel | null> {
+  const d = km(a, b);
+  if (d < 1.0) { const w = await googleMinutes(a, b, 'WALK'); return { mode: 'walk', minutes: w ?? Math.max(1, Math.round((d * 1.3 / 4.5) * 60)) }; }
+  const car = await googleMinutes(a, b, 'DRIVE');
+  if (!key('RAPIDAPI_KEY')) return car != null ? { mode: 'car', minutes: car, carMinutes: car } : null;
+  // Rounded to 15 minutes so nearby checks share one request (the free plan is 500 a month).
+  const t = new Date(`${depart}:00+09:00`); t.setMinutes(Math.floor(t.getMinutes() / 15) * 15);
+  const start = new Date(t.getTime() + 9 * 3600e3).toISOString().slice(0, 16);
+  const tr = await cached('navitime', [a.lat.toFixed(3), a.lng.toFixed(3), b.lat.toFixed(3), b.lng.toFixed(3), start], async () => {
+    const j = await http<{ items?: unknown[] }>(routeUrl([a.lng, a.lat], [b.lng, b.lat], `${start}:00`, 2), { headers: { 'x-rapidapi-key': key('RAPIDAPI_KEY')!, 'x-rapidapi-host': NAVITIME_HOST } });
+    const n = j.items?.[0] ? normalize(j.items[0] as Parameters<typeof normalize>[0]) : null;
+    return n ? { dep: n.dep, arr: n.arr, minutes: n.minutes, fare: n.fare, rides: n.rides.map((x) => `${x.line} ${x.dep.slice(11, 16)}→${x.arr.slice(11, 16)}`) } : null;
+  }, 60).catch(() => null);
+  // Total time from the moment they leave: waiting for the train counts.
+  if (tr) return { mode: 'transit', minutes: Math.round((Date.parse(tr.arr) - Date.parse(`${depart}:00+09:00`)) / 60000), dep: tr.dep, arr: tr.arr, fare: tr.fare, rides: tr.rides, carMinutes: car ?? undefined };
+  return car != null ? { mode: 'car', minutes: car, carMinutes: car } : null;
 }
 
 // ── Hot Pepper (official): restaurants with room for the whole group ──

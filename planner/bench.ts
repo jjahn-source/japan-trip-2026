@@ -1,12 +1,13 @@
 // Benchmark one city's preview itineraries (planner previews made with different models) against a
-// baseline: objective metrics, plus a blind side-by-side judgement by Claude Opus 5.5 on a fixed rubric.
+// baseline: objective metrics, plus blind side-by-side judgements by Claude Opus 5.5 and Gemini 4 Argon
+// on an anchored rubric. The primary number is how many concrete errors the judges can name.
 //   npm run plan:bench -- hakone            baseline = preview-hakone.json (Opus), variants = preview-hakone-*.json
 import Anthropic from '@anthropic-ai/sdk';
 import { betaZodOutputFormat } from '@anthropic-ai/sdk/helpers/beta/zod';
 import { z } from 'zod';
 import { readdirSync } from 'node:fs';
 import { resolve } from 'node:path';
-import { log, readJson, ROOT, writeJson } from './lib.ts';
+import { http, key, log, readJson, ROOT, writeJson } from './lib.ts';
 import type { Itinerary } from '../src/lib/itinerary.ts';
 
 const city = (process.argv[2] ?? 'hakone').toLowerCase();
@@ -52,21 +53,43 @@ const Verdict = z.object({
 });
 
 const client = new Anthropic({ maxRetries: 5 });
+const SYSTEM = 'You are a meticulous travel editor who knows Japan intimately. Compare two itineraries for the same trip leg, written for a group of 8 friends around 20 years old. Score each criterion 1–10 for A and for B independently. Anchors: 10 = no errors you can find, every hard fact (times, durations, prices, hours) correct and sourced, routing optimal, deeply specific; 8 = excellent with one or two minor slips; 6 = useful but several errors or weak spots; 4 = unreliable. List concrete errors you can identify, then pick the better guide overall. Judge substance, not length.';
+/** A second judge from another company (Gemini 4 Argon), so one model family's taste can't decide alone. */
+async function geminiJudge(A: Itinerary, B: Itinerary): Promise<z.infer<typeof Verdict> | null> {
+  if (!key('GEMINI_API_KEY')) return null;
+  const r = await http<{ candidates?: { content?: { parts?: { text?: string }[] } }[] }>('https://generativelanguage.googleapis.com/v1beta/models/gemini-4-argon:generateContent', {
+    method: 'POST', timeoutMs: 300000, headers: { 'x-goog-api-key': key('GEMINI_API_KEY')!, 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      systemInstruction: { parts: [{ text: SYSTEM }] },
+      contents: [{ parts: [{ text: `ITINERARY A\n${asText(A)}\n\n=====\n\nITINERARY B\n${asText(B)}\n\nReply with JSON only: {"specificity":{"a":n,"b":n,"why":""},"accuracy":{...},"feasibility":{...},"fit":{...},"sourcing":{...},"usefulness":{...},"errors_a":[""],"errors_b":[""],"overall":"A"|"B"|"tie","summary":""}` }] }],
+      generationConfig: { responseMimeType: 'application/json' },
+    }),
+  });
+  const t = r.candidates?.[0]?.content?.parts?.map((p) => p.text ?? '').join('') ?? '';
+  const v = Verdict.safeParse(JSON.parse(t.replace(/^```json|```$/g, '')));
+  return v.success ? v.data : null;
+}
 async function judge(base: Itinerary, other: Itinerary) {
   const flip = Math.random() < 0.5; // blind and order-randomised: the judge never knows which is the baseline
   const [A, B] = flip ? [other, base] : [base, other];
   const stream = client.beta.messages.stream({
     model: 'claude-opus-5-5', max_tokens: 32000, betas: ['server-side-fallback-2026-07-01'], fallbacks: 'default',
     output_config: { effort: 'high', format: betaZodOutputFormat(Verdict) },
-    system: 'You are a meticulous travel editor who knows Japan intimately. Compare two itineraries for the same trip leg, written for a group of 8 friends around 20 years old. Score each criterion 1–10 for A and for B independently, list concrete errors you can identify, then pick the better guide overall. Judge substance, not length.',
+    system: SYSTEM,
     messages: [{ role: 'user', content: `ITINERARY A\n${asText(A)}\n\n=====\n\nITINERARY B\n${asText(B)}` }],
   });
   const msg = await stream.finalMessage();
   const v = Verdict.parse(JSON.parse(msg.content.flatMap((b) => (b.type === 'text' ? [b.text] : [])).join('')));
+  const gv = await geminiJudge(A, B).catch(() => null);
   // Map A/B back to baseline/variant.
   const side = (c: { a: number; b: number; why: string }) => (flip ? { baseline: c.b, variant: c.a, why: c.why } : { baseline: c.a, variant: c.b, why: c.why });
   const crits = ['specificity', 'accuracy', 'feasibility', 'fit', 'sourcing', 'usefulness'] as const;
+  const mean = (k: (typeof crits)[number], who: 'baseline' | 'variant') => { const xs = [side(v[k])[who], ...(gv ? [side(gv[k])[who]] : [])]; return +(xs.reduce((a, b) => a + b, 0) / xs.length).toFixed(1); };
   return {
+    // Primary metric: errors either judge could name (a 10 means zero).
+    errorCount: { baseline: (flip ? v.errors_b : v.errors_a).length + (gv ? (flip ? gv.errors_b : gv.errors_a).length : 0), variant: (flip ? v.errors_a : v.errors_b).length + (gv ? (flip ? gv.errors_a : gv.errors_b).length : 0) },
+    average: { baseline: +(crits.reduce((n, k) => n + mean(k, 'baseline'), 0) / crits.length).toFixed(2), variant: +(crits.reduce((n, k) => n + mean(k, 'variant'), 0) / crits.length).toFixed(2), judges: gv ? 'opus + gemini' : 'opus' },
+    gemini: gv ? { winner: gv.overall === 'tie' ? 'tie' : (gv.overall === 'A') !== flip ? 'baseline' : 'variant', errors: { baseline: flip ? gv.errors_b : gv.errors_a, variant: flip ? gv.errors_a : gv.errors_b }, summary: gv.summary } : null,
     scores: Object.fromEntries(crits.map((k) => [k, side(v[k])])),
     errors: { baseline: flip ? v.errors_b : v.errors_a, variant: flip ? v.errors_a : v.errors_b },
     winner: v.overall === 'tie' ? 'tie' : (v.overall === 'A') !== flip ? 'baseline' : 'variant',

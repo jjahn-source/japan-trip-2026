@@ -91,6 +91,8 @@ const Candidate = z.object({
   booking: z.string().nullable().describe('If it needs booking: how, where, when it opens, how far ahead'),
   group_of_8: z.string().nullable().describe('Whether it works for the whole group, and how'),
   hours: z.string().nullable().describe('Opening hours if found'),
+  visit_minutes: z.number().nullable().describe('How long it really takes (a bath slot, a show, a ride, a meal), from the source'),
+  first_last: z.string().nullable().describe('For rides, shows and attractions: first and last departure / entry, and any date-specific closure'),
   lat: z.number().nullable(), lng: z.number().nullable(),
   wish_ids: z.array(z.string()).describe('Which brief wishes (w1…) this serves'),
   evidence: z.array(z.object({ source: z.string().describe('e.g. TikTok @user, Reddit r/JapanTravel, Tabelog, Google Maps (ja), X, blog'), url: z.string(), note: z.string().describe('What this source says, concretely, incl. date if known') })),
@@ -329,34 +331,67 @@ function anchors(): AnchorStay[] {
 }
 
 // ── Checks: what a plan must satisfy before it is written up ──
-function checkPlan(plan: Plan, brief: Brief, cands: Map<string, Candidate>): string[] {
+/** Open at minute-of-day `m` (Japan time) on `date`, per Google's weekly periods; null when unknown. */
+function openAt(periods: S.PlaceFacts['periods'], date: string, m: number): boolean | null {
+  if (!periods?.length) return null;
+  const dow = new Date(`${date}T12:00:00+09:00`).getUTCDay();
+  const t = dow * 1440 + m, W = 7 * 1440;
+  return periods.some((p) => {
+    if (!p.close) return true; // open 24 hours
+    const o = p.open.day * 1440 + p.open.hour * 60 + p.open.minute;
+    let c = p.close.day * 1440 + p.close.hour * 60 + p.close.minute;
+    if (c <= o) c += W;
+    return (t >= o && t < c) || (t + W >= o && t + W < c);
+  });
+}
+const hm = (iso: string) => iso.slice(11, 16);
+type Leg = S.Travel & { key: string };
+/** Everything a plan must satisfy, checked by code against real data. Returns problems and the real legs. */
+async function checkPlan(plan: Plan, brief: Brief, cands: Map<string, Candidate>): Promise<{ issues: string[]; legs: Map<string, Leg> }> {
   const issues: string[] = [];
+  const legs = new Map<string, Leg>();
   const want = new Set<string>();
   for (const l of brief.legs) for (let d = new Date(`${l.from}T00:00:00Z`); d <= new Date(`${l.to}T00:00:00Z`); d.setUTCDate(d.getUTCDate() + 1)) want.add(d.toISOString().slice(0, 10));
   for (const d of want) if (!plan.days.some((x) => x.date === d)) issues.push(`Missing day ${d}.`);
   for (const day of plan.days) {
     const times = stopTimes(day.date, day.stops);
-    day.stops.forEach((s, i) => {
+    let lastMeal: number | null = null;
+    for (const [i, s] of day.stops.entries()) {
       if (!/^\d{2}:\d{2}$/.test(s.start) || !/^\d{2}:\d{2}$/.test(s.end)) issues.push(`${day.date} "${s.name}": times must be HH:MM.`);
       if (s.candidate_id && !cands.has(s.candidate_id)) issues.push(`${day.date} "${s.name}": unknown candidate_id ${s.candidate_id}.`);
       const c = s.candidate_id ? cands.get(s.candidate_id) : undefined;
-      // Open when they arrive (only for hours in OSM syntax, the form we can read exactly).
-      const h = parseHours(c?.hours && /\d{2}:\d{2}-\d{2}:\d{2}/.test(c.hours) && /^(Mo|Tu|We|Th|Fr|Sa|Su|\d)/.test(c.hours) ? c.hours : null);
-      const at = hoursAt(h, Date.parse(times[i].startISO) + 10 * 60000);
-      if (at && !at.open) issues.push(`${day.date} "${s.name}" at ${s.start}: closed then (${c?.hours}).`);
-      const next = day.stops[i + 1];
-      if (!next) return;
-      const gap = (Date.parse(times[i + 1].startISO) - Date.parse(times[i].endISO)) / 60000;
-      if (gap < 0) issues.push(`${day.date}: "${next.name}" starts before "${s.name}" ends.`);
-      if (s.lat != null && next.lat != null && s.lng != null && next.lng != null) {
-        const d = km({ lat: s.lat, lng: s.lng }, { lat: next.lat, lng: next.lng });
-        const need = d < 1.2 ? (d * 1.3 / 4.5) * 60 : d > 60 ? 45 + d / 3 : 12 + d * 2.2;
-        if (gap < need * 0.6 - 3) issues.push(`${day.date}: only ${Math.round(gap)} min from "${s.name}" to "${next.name}" (${d.toFixed(1)} km, needs ~${Math.round(need)} min).`);
+      const startMs = Date.parse(times[i].startISO), endMs = Date.parse(times[i].endISO);
+      // Open for the whole visit, per Google's weekly hours (else the OSM hours we can read).
+      const sDate = times[i].startISO.slice(0, 10), sMin = +hm(times[i].startISO).slice(0, 2) * 60 + +hm(times[i].startISO).slice(3);
+      const g = openAt(c?.verified?.periods, sDate, sMin + 5), gEnd = openAt(c?.verified?.periods, sDate, Math.max(sMin + 5, sMin + (endMs - startMs) / 60000 - 10));
+      if (g === false) issues.push(`${day.date} "${s.name}" at ${s.start}: closed then (${c?.verified?.hours?.join('; ')}).`);
+      else if (g && gEnd === false) issues.push(`${day.date} "${s.name}": closes before ${s.end} (${c?.verified?.hours?.join('; ')}).`);
+      else if (g === null) {
+        const h = parseHours(c?.hours && /\d{2}:\d{2}-\d{2}:\d{2}/.test(c.hours) && /^(Mo|Tu|We|Th|Fr|Sa|Su|\d)/.test(c.hours) ? c.hours : null);
+        const at = hoursAt(h, startMs + 10 * 60000);
+        if (at && !at.open) issues.push(`${day.date} "${s.name}" at ${s.start}: closed then (${c?.hours}).`);
       }
-    });
+      // Meals: no second sit-down meal within 2½ hours of the last.
+      if (s.category === 'restaurant') {
+        if (lastMeal != null && startMs - lastMeal < 150 * 60000) issues.push(`${day.date} "${s.name}" at ${s.start}: a sit-down meal only ${Math.round((startMs - lastMeal) / 60000)} min after the previous one ended.`);
+        lastMeal = endMs;
+      }
+      const next = day.stops[i + 1];
+      if (!next) continue;
+      const gap = (Date.parse(times[i + 1].startISO) - endMs) / 60000;
+      if (gap < 0) issues.push(`${day.date}: "${next.name}" starts before "${s.name}" ends.`);
+      if (s.lat == null || next.lat == null || s.lng == null || next.lng == null) continue;
+      const t = await S.travel({ lat: s.lat, lng: s.lng }, { lat: next.lat, lng: next.lng }, times[i].endISO.slice(0, 16));
+      if (!t) continue;
+      legs.set(`${day.date}#${i}`, { ...t, key: `${day.date}#${i}` });
+      const taxi = /taxi|cab/i.test(s.transport ?? '');
+      const need = taxi && t.carMinutes != null ? t.carMinutes + 5 : t.minutes;
+      if (gap + 3 < need) issues.push(`${day.date}: ${Math.round(gap)} min from "${s.name}" (${s.end}) to "${next.name}" (${next.start}), but it really takes ${need} min${t.mode === 'transit' ? ` (${t.rides?.join(', ')})` : ` by ${taxi ? 'car' : t.mode}`}.`);
+      if (taxi && t.carMinutes != null && t.carMinutes > 20 && t.mode === 'transit' && t.minutes <= t.carMinutes + 25) issues.push(`${day.date}: taxi "${s.name}" → "${next.name}" (~${t.carMinutes} min, roughly ¥${(t.carMinutes * 450).toLocaleString('en-US')} per car) where the train takes ${t.minutes} min (${t.rides?.join(', ')}).`);
+    }
   }
   for (const w of brief.wishes) if (!plan.coverage.some((c) => c.wish_id === w.id)) issues.push(`Wish ${w.id} ("${w.text}") is not accounted for in coverage.`);
-  return issues;
+  return { issues, legs };
 }
 
 const PLAN_SYSTEM = `You are planning a trip the way the best fixer in Japan would: decisive, realistic, and fun. Today is ${today}.
@@ -369,21 +404,22 @@ Rules:
 - Prices in yen, "pp" or "group total". Booking-critical items get a todo with a due date (when bookings open or the latest safe day).
 - Budget: one row per meaningful item or category with group and per-person yen.`;
 
-async function makePlan(brief: Brief, cands: Candidate[], stays: AnchorStay[], notes: string[], extra: string, previous?: Plan): Promise<Plan> {
-  const catalogue = cands.map((c) => ({ id: c.id, name: c.name, ja: c.name_ja, city: c.city, area: c.area, kind: c.kind, why: c.why, best_time: c.best_time, dates: c.dates, price: c.price, booking: c.booking, group: c.group_of_8, hours: c.hours, lat: c.lat, lng: c.lng, wishes: c.wish_ids, confidence: +c.confidence.toFixed(2), status: c.verified?.status ?? null }));
-  const user = `BRIEF\n${JSON.stringify(brief, null, 1)}\n\nSTAYS (fixed)\n${stays.map((s) => `- ${s.stay.short} (${s.city}): in ${s.stay.checkInISO}, out ${s.stay.checkOutISO}, at ${s.at.lat},${s.at.lng}`).join('\n')}\n\nAREA NOTES FROM RESEARCH\n${notes.join('\n\n').slice(0, 30000)}\n\nCANDIDATES\n${JSON.stringify(catalogue)}${previous ? `\n\nCURRENT PLAN (keep everything the change does not affect)\n${JSON.stringify(previous)}` : ''}${extra ? `\n\nINSTRUCTIONS\n${extra}` : ''}`;
+async function makePlan(brief: Brief, cands: Candidate[], stays: AnchorStay[], notes: string[], extra: string, previous?: Plan, fixes: string[] = []): Promise<Plan & { warnings?: string[]; legs: Map<string, Leg> }> {
+  const catalogue = cands.map((c) => ({ id: c.id, name: c.name, ja: c.name_ja, city: c.city, area: c.area, kind: c.kind, why: c.why, best_time: c.best_time, dates: c.dates, price: c.price, booking: c.booking, group: c.group_of_8, hours: c.verified?.hours?.join('; ') ?? c.hours, visit_minutes: c.visit_minutes ?? null, first_last: c.first_last ?? null, lat: c.lat, lng: c.lng, wishes: c.wish_ids, confidence: +c.confidence.toFixed(2), status: c.verified?.status ?? null }));
+  const user = `BRIEF\n${JSON.stringify(brief, null, 1)}\n\nSTAYS (fixed)\n${stays.map((s) => `- ${s.stay.short} (${s.city}): in ${s.stay.checkInISO}, out ${s.stay.checkOutISO}, at ${s.at.lat},${s.at.lng}`).join('\n')}\n\nAREA NOTES FROM RESEARCH\n${notes.join('\n\n').slice(0, 30000)}\n\nCANDIDATES\n${JSON.stringify(catalogue)}${previous ? `\n\nCURRENT PLAN (keep everything the change does not affect)\n${JSON.stringify(previous)}` : ''}${extra ? `\n\nINSTRUCTIONS\n${extra}` : ''}${fixes.length ? `\n\nVERIFIED CORRECTIONS (a fact-checker confirmed these against official sources: apply every one, and re-time the day around them)\n${fixes.map((x) => `- ${x}`).join('\n')}` : ''}`;
   let plan = await structured('plan', Plan, PLAN_SYSTEM, user, 'high');
   const byId = new Map(cands.map((c) => [c.id!, c]));
   // Coordinates come from verified research, not from the model's memory.
   const pin = (p: Plan) => { for (const d of p.days) for (const s of d.stops) { const c = s.candidate_id ? byId.get(s.candidate_id) : undefined; if (c?.lat != null) { s.lat = c.lat; s.lng = c.lng; } } return p; };
   plan = pin(plan);
-  const issues = checkPlan(plan, brief, byId);
-  if (!issues.length) return plan;
+  const first = await checkPlan(plan, brief, byId);
+  const issues = first.issues;
+  if (!issues.length) return Object.assign(plan, { legs: first.legs });
   log(`  ${issues.length} problem(s) found; repairing:\n    ${issues.slice(0, 12).join('\n    ')}`);
   const repaired = pin(await structured('plan-repair', Plan, PLAN_SYSTEM, `${user}\n\nYOUR PREVIOUS PLAN\n${JSON.stringify(plan)}\n\nFIX THESE PROBLEMS (change only what is needed)\n${issues.map((x) => `- ${x}`).join('\n')}`, 'high'));
-  const left = checkPlan(repaired, brief, byId);
-  if (left.length) log(`  ${left.length} problem(s) remain after repair; they are listed in the itinerary's warnings.`);
-  return Object.assign(repaired, { warnings: left });
+  const after = await checkPlan(repaired, brief, byId);
+  if (after.issues.length) log(`  ${after.issues.length} problem(s) remain after repair:\n    ${after.issues.slice(0, 8).join('\n    ')}`);
+  return Object.assign(repaired, { warnings: after.issues, legs: after.legs });
 }
 
 const WRITE_SYSTEM = `You write the guidebook for a trip that has already been planned and verified: each stop gets a spread worth reading on the train. Voice: a well-travelled friend, specific and vivid, never generic, never padded. Every claim comes from the evidence given (quote prices, hours and tips from it); if the evidence does not say, leave it out. Never copy Tabelog scores, reviews or photos: you may say "highly rated on Tabelog" and link the page. Tips should be the things only someone who has been would know.`;
@@ -397,8 +433,32 @@ async function writeDay(brief: Brief, day: Plan['days'][number], n: number, byId
   return structured('write', DayGuide, WRITE_SYSTEM, user, 'medium');
 }
 
+// ── Fact-check: an editor who opens the official pages and checks every hard claim ──
+const FACT_SYSTEM = `You are a meticulous fact-checker for a Japan itinerary. Today is ${today}. For the day given, check every HARD claim against official or primary sources (operator timetables, official sites, recent notices): opening and closing times, first/last departures, ride and crossing durations, walking times, slot/session lengths, prices, event dates, closures. Use web_search and web_fetch; prefer official Japanese pages. Do NOT re-litigate taste or choices. Report only claims you have verified are wrong (with the correct value and the source URL), plus anything impossible (e.g. a meal crammed after another, a venue closed that day). If everything checks out, report nothing. Be economical: about 6–10 tool calls.`;
+const dayText = (d: ItinDay) => `${d.date} · ${d.title}\n${d.notes.map((n) => `[${n.kind}] ${n.text}`).join('\n')}\n${d.stops.map((s, i) => `#${i} ${s.start}–${s.end} ${s.name}${s.price ? ` (${s.price})` : ''}${s.transport ? ` → next: ${s.transport}` : ''}${s.guide ? `\n   ${s.guide.story}\n   How: ${s.guide.how.join(' / ')}\n   Tips: ${s.guide.tips.join(' / ')}${s.guide.hours ? `\n   Hours: ${s.guide.hours}` : ''}${s.guide.booking ? `\n   Booking: ${s.guide.booking}` : ''}` : ''}`).join('\n')}`;
+async function factCheckDay(d: ItinDay): Promise<string[]> {
+  const model = MODELS.plan;
+  return cached('factcheck', [model, FACT_SYSTEM, dayText(d)], async () => {
+    const errors: string[] = [];
+    const report = betaZodTool({
+      name: 'report_errors', description: 'Report the verified errors for this day (call once at the end; an empty list if all checks out).',
+      inputSchema: z.object({ errors: z.array(z.object({ stop: z.number().describe('Stop # as given'), claim: z.string(), correct: z.string(), source_url: z.string() })) }),
+      run: async ({ errors: e }) => { errors.push(...e.map((x) => `${d.date} stop #${x.stop} "${d.stops[x.stop]?.name ?? '?'}": "${x.claim}" is wrong; correct: ${x.correct} (source: ${x.source_url})`)); return 'Recorded.'; },
+    });
+    const runner = client.beta.messages.toolRunner({
+      model, max_tokens: 16000, betas: [...BETAS, 'task-budgets-2026-03-13'], ...fallbackFor(model), max_iterations: 20, cache_control: { type: 'ephemeral' },
+      system: sys(FACT_SYSTEM), output_config: { effort: 'medium', task_budget: { type: 'tokens', total: 60000 } },
+      context_management: { edits: [{ type: 'clear_tool_uses_20250919', trigger: { type: 'input_tokens', value: 30000 }, keep: { type: 'tool_uses', value: 3 }, exclude_tools: ['report_errors'] }] },
+      tools: [report, ...webTools(model)],
+      messages: [{ role: 'user', content: dayText(d) }],
+    });
+    for await (const m of runner) { meter(m.usage, model); if (m.stop_reason === 'pause_turn') runner.pushMessages({ role: 'assistant', content: m.content }); }
+    return errors;
+  }, 30);
+}
+
 // ── Assemble the site's itinerary ──
-function assemble(brief: Brief, plan: Plan & { warnings?: string[] }, guides: z.infer<typeof DayGuide>[], byId: Map<string, Candidate>, stays: AnchorStay[], briefText: string): Itinerary {
+function assemble(brief: Brief, plan: Plan & { warnings?: string[]; legs?: Map<string, Leg> }, guides: z.infer<typeof DayGuide>[], byId: Map<string, Candidate>, stays: AnchorStay[], briefText: string): Itinerary {
   const days: ItinDay[] = plan.days.slice().sort((a, b) => a.date.localeCompare(b.date)).map((d, di) => {
     const g = guides[plan.days.indexOf(d)];
     return {
@@ -414,7 +474,10 @@ function assemble(brief: Brief, plan: Plan & { warnings?: string[] }, guides: z.
           id: `d${String(di + 1).padStart(2, '0')}-s${String(si + 1).padStart(2, '0')}`, start: s.start, end: s.end, name: s.name, nameJa: c?.name_ja ?? null,
           category: s.category, categoryLabel: s.category_label, price: s.price, summary: w?.summary ?? null, plan: s.plan,
           address: c?.verified?.address ?? null, lat: s.lat, lng: s.lng, website: c?.verified?.website ?? null, phone: c?.verified?.phone ?? null, map: c?.verified?.maps ?? null,
-          transport: s.transport, guide,
+          transport: (() => {
+            const l = plan.legs?.get(`${d.date}#${si}`);
+            return l?.mode === 'transit' && l.rides?.length ? `${s.transport ?? ''} · timetable: ${l.rides.join(', ')}${l.fare ? ` · ¥${l.fare.toLocaleString('en-US')}` : ''}`.replace(/^ · /, '') : s.transport;
+          })(), guide,
         };
       }),
     };
@@ -489,7 +552,17 @@ async function plan(briefFile: string, extra = '', previous?: State) {
     if (fatal(e)) throw e;
     log(`  writing ${d.date} failed: ${(e as Error).message}`); return { notes: [], stops: [] };
   }));
-  const it = assemble(brief, p, guides, byId, stays, briefText);
+  let it = assemble(brief, p, guides, byId, stays, briefText);
+  // An independent fact-check of every day against official sources; one correction round.
+  log('Fact-checking every day against official sources…');
+  const errs = (await pool(it.days, 4, (d) => factCheckDay(d).catch((e) => { if (fatal(e)) throw e; log(`  fact-check ${d.date} failed: ${(e as Error).message}`); return [] as string[]; }))).flat();
+  if (errs.length) {
+    log(`  ${errs.length} verified error(s); correcting:\n    ${errs.slice(0, 10).join('\n    ')}`);
+    const p2 = await makePlan(brief, candidates, ONLY ? stays.filter((x) => x.city.toLowerCase() === ONLY!.toLowerCase()) : stays, notes, extra, p, errs);
+    const guides2 = await pool(p2.days, 5, (d, i) => writeDay(brief, d, i + 1, byId).catch((e) => { if (fatal(e)) throw e; return { notes: [], stops: [] }; }));
+    it = assemble(brief, p2, guides2, byId, stays, briefText);
+    it.sources.push(`fact-checked: ${errs.length} correction(s) applied`);
+  } else log('  no errors found.');
   const tag = key('PLAN_TAG');
   const out = ONLY ? resolve(ROOT, `data/research/preview-${ONLY.toLowerCase()}${tag ? `-${tag}` : ''}.json`) : OUT;
   writeJson(out, it);
