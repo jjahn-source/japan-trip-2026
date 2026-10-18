@@ -1,0 +1,325 @@
+{
+  "candidates": [
+    {
+      "name": "Fushimi Inari Taisha",
+      "name_ja": "伏見稲荷大社",
+      "city": "Osaka",
+      "area": "Kyoto – Fushimi",
+      "kind": "sight",
+      "why": "The one Kyoto sight that is still worth it, but only early. It's free and open 24h. Arrive by about 07:00 (sunrise is about 07:00 in late Dec) and walk the torii tunnels up to the Yotsutsuji viewpoint, about 45 min up, before the 10:00–16:00 crush. The full loop of the mountain is about 4 km and takes 2h+. For 8 friends, Yotsutsuji is the sensible turnaround.",
+      "best_time": "06:30–09:00",
+      "dates": "Open every day incl. 21–26 Dec",
+      "price": "Free",
+      "booking": "None",
+      "group_of_8": "Fine. Paths get single-file at peak, so go early.",
+      "hours": "24 hours",
+      "visit_minutes": 120,
+      "first_last": "24h",
+      "lat": 34.9676945,
+      "lng": 135.7791876,
+      "wish_ids": [
+        "w1",
+        "w5",
+        "w8"
+      ],
+      "evidence": [
+        {
+          "source": "Google Places",
+          "url": "https://maps.google.com/?cid=8870624639634301673",
+          "note": "4.6 from 92k reviews, open 24 hours"
+        },
+        {
+          "source": "banzokubiology.com (JP crowd guide)",
+          "url": "https://banzokubiology.com/fushimiinari-konzatsu/",
+          "note": "Quietest 6–9am. Peak is 10–16 on weekends. Mountain loop about 4 km, 2h+"
+        },
+        {
+          "source": "magical-trip.com early-morning Kyoto guide",
+          "url": "https://www.magical-trip.com/media/early-morning-travel-in-kyoto-alleviate-congestion-and-enjoy-kyoto/",
+          "note": "Climb in the dark for sunrise at the summit; quiet early"
+        }
+      ],
+      "confidence": 0.92
+    },
+    {
+      "name": "Kiyomizu-dera & Sannenzaka/Ninenzaka",
+      "name_ja": "清水寺・三年坂・二年坂",
+      "city": "Osaka",
+      "area": "Kyoto – Higashiyama",
+      "kind": "sight",
+      "why": "The classic Kyoto view from the wooden stage. Gates open at 06:00, so go first thing, then walk down the Sannenzaka and Ninenzaka slopes before the shops open and the crowds arrive. By 10:00 it's a tourist trap, so treat it as an early stop only. It pairs with Fushimi Inari: Keihan from Fushimi-Inari to Kiyomizu-Gojo or Gion-Shijo is about 10 min.",
+      "best_time": "06:00–08:30 (or after 16:00)",
+      "dates": "Open daily 21–26 Dec",
+      "price": "¥400–500 adult (sources disagree; check official)",
+      "booking": "None",
+      "group_of_8": "Fine",
+      "hours": "06:00–18:00",
+      "visit_minutes": 75,
+      "first_last": "Opens 06:00",
+      "lat": 34.9946662,
+      "lng": 135.784661,
+      "wish_ids": [
+        "w1",
+        "w5",
+        "w8"
+      ],
+      "evidence": [
+        {
+          "source": "Kiyomizu-dera official visitor guide",
+          "url": "https://kiyomizudera.or.jp/en/location",
+          "note": "Opens 6:00; closing time varies by season"
+        },
+        {
+          "source": "Google Places",
+          "url": "https://maps.google.com/?cid=7111013964196361402",
+          "note": "4.6 from 73k reviews; hours 6:00–18:00"
+        }
+      ],
+      "confidence": 0.88
+    },
+    {
+      "name": "Arashiyama Bamboo Grove & Togetsukyo",
+      "name_ja": "嵐山 竹林の小径・渡月橋",
+      "city": "Osaka",
+      "area": "Kyoto – Arashiyama",
+      "kind": "sight",
+      "why": "Stunning at 07:30 and a shoulder-to-shoulder selfie queue by 10:00. The path is public and open 24h. Do Togetsukyo Bridge at about 08:00, then the bamboo, then Tenryu-ji or Okochi Sanso if you want more. From Kujo: Hanshin or the Metro to Umeda, then Hankyu to Arashiyama (Hankyu 1-Day Pass ¥1,300 covers Umeda–Arashiyama–Kawaramachi). Note that the Arashiyama Hanatouro light-up ended in 2021 and its successor, Tsukitouro, runs in autumn, so there is no December night event.",
+      "best_time": "07:30–09:30",
+      "dates": "Open daily",
+      "price": "Free",
+      "booking": "None",
+      "group_of_8": "Fine; go early or it's a crawl",
+      "hours": "24 hours",
+      "visit_minutes": 90,
+      "first_last": "24h",
+      "lat": 35.0168187,
+      "lng": 135.6713013,
+      "wish_ids": [
+        "w1",
+        "w5",
+        "w10"
+      ],
+      "evidence": [
+        {
+          "source": "Google Places",
+          "url": "https://maps.google.com/?cid=18131488233213033693",
+          "note": "4.3 from 25k reviews; open 24 hours"
+        },
+        {
+          "source": "magical-trip.com early-morning Kyoto guide",
+          "url": "https://www.magical-trip.com/media/early-morning-travel-in-kyoto-alleviate-congestion-and-enjoy-kyoto/",
+          "note": "Less crowded in the morning; Togetsukyo first around 8:00"
+        },
+        {
+          "source": "Explore Osaka rail-pass guide (Oct 2026)",
+          "url": "https://explore.osaka/kansai-rail-passes/",
+          "note": "Hankyu One-Day Pass ¥1,300 covers Umeda to Arashiyama and Kawaramachi"
+        }
+      ],
+      "confidence": 0.85
+    },
+    {
+      "name": "Kinkaku-ji (Golden Pavilion)",
+      "name_ja": "金閣寺（鹿苑寺）",
+      "city": "Osaka",
+      "area": "Kyoto – Kitayama",
+      "kind": "sight",
+      "why": "A 30–40 min photo stop: postcard-perfect, but you only walk one loop. It doesn't open until 09:00, so it can't be a dawn stop. Do it right after Arashiyama (about 25 min by bus or taxi; a taxi split four ways is cheap for 8) and skip it if the day runs late.",
+      "best_time": "09:00 sharp",
+      "dates": "Open daily",
+      "price": "¥500",
+      "booking": "None",
+      "group_of_8": "Fine",
+      "hours": "09:00–17:00",
+      "visit_minutes": 40,
+      "first_last": "09:00–17:00",
+      "lat": 35.0391218,
+      "lng": 135.7293191,
+      "wish_ids": [
+        "w1",
+        "w8"
+      ],
+      "evidence": [
+        {
+          "source": "magical-trip.com early-morning Kyoto guide",
+          "url": "https://www.magical-trip.com/media/early-morning-travel-in-kyoto-alleviate-congestion-and-enjoy-kyoto/",
+          "note": "Opens 9:00 (¥500); arrive at opening for fewer people"
+        },
+        {
+          "source": "Google Places",
+          "url": "https://maps.google.com/?cid=322235278217531600",
+          "note": "Hours 9:00–17:00"
+        }
+      ],
+      "confidence": 0.75
+    },
+    {
+      "name": "Nara Park (deer)",
+      "name_ja": "奈良公園",
+      "city": "Osaka",
+      "area": "Nara – Nara Park",
+      "kind": "sight",
+      "why": "The deer are the highlight, and travellers who thought Nara was skippable say they were wrong. Buy shika senbei (deer crackers) and bow to the deer; they bow back and also headbutt. Get there by about 08:30, before the tour buses. Big win for a Kujo base: the Hanshin Namba Line from Kujo runs through to Kintetsu-Nara with no change (about 50 min). Kintetsu-Nara is the closer station to the park.",
+      "best_time": "08:00–11:00",
+      "dates": "Open daily",
+      "price": "Free (deer crackers about ¥200)",
+      "booking": "None",
+      "group_of_8": "Great group activity",
+      "hours": "24 hours",
+      "visit_minutes": 90,
+      "first_last": "24h",
+      "lat": 34.685047,
+      "lng": 135.843012,
+      "wish_ids": [
+        "w1",
+        "w5",
+        "w8"
+      ],
+      "evidence": [
+        {
+          "source": "Google Places",
+          "url": "https://maps.google.com/?cid=17972930374069941334",
+          "note": "4.6 from 77k reviews"
+        },
+        {
+          "source": "Reddit r/ExploreJapanDaily",
+          "url": "https://www.reddit.com/r/ExploreJapanDaily/comments/1wdenbb/i_thought_nara_might_be_skippable_i_was_wrong/",
+          "note": "Recent trip report: Nara was worth it"
+        },
+        {
+          "source": "Explore Osaka rail-pass guide",
+          "url": "https://explore.osaka/kansai-rail-passes/",
+          "note": "Kintetsu line ends at Kintetsu-Nara (closer to the park) vs JR Nara; Kintetsu Rail Pass 1-day ¥1,900"
+        }
+      ],
+      "confidence": 0.9
+    },
+    {
+      "name": "Todai-ji (Great Buddha Hall)",
+      "name_ja": "東大寺 大仏殿",
+      "city": "Osaka",
+      "area": "Nara – Nara Park",
+      "kind": "sight",
+      "why": "The one paid sight in Nara you shouldn't skip: a 15 m bronze Buddha in one of the world's largest wooden halls. Crawling through the pillar hole is a group dare. Pair it with the deer and Nigatsu-do, a free hillside hall with a sunset view, then head back to Osaka by mid-afternoon. Kasuga Taisha is optional.",
+      "best_time": "08:00–10:00",
+      "dates": "Open daily",
+      "price": "About ¥800 (verify)",
+      "booking": "None",
+      "group_of_8": "Fine",
+      "hours": "Winter hours roughly 08:00–17:00 (verify)",
+      "visit_minutes": 60,
+      "first_last": null,
+      "lat": 34.6874989,
+      "lng": 135.839814,
+      "wish_ids": [
+        "w1",
+        "w8"
+      ],
+      "evidence": [
+        {
+          "source": "OpenStreetMap / find_place",
+          "url": "https://www.openstreetmap.org/search?query=Todai-ji",
+          "note": "Location confirmed"
+        },
+        {
+          "source": "Reddit Nara trip reports",
+          "url": "https://www.reddit.com/r/JapanTravelTips/comments/1ucyuws/choosing_a_day_trip_to_nara_from_kyoto_or_osaka/",
+          "note": "Todai-ji plus the deer is the standard half-day core"
+        }
+      ],
+      "confidence": 0.7
+    },
+    {
+      "name": "Universal Studios Japan – Universal Holiday Wonders (25th anniversary)",
+      "name_ja": "ユニバーサル・スタジオ・ジャパン（ユニバーサル・ホリデー・ワンダーズ）",
+      "city": "Osaka",
+      "area": "Osaka – Konohana (Universal City)",
+      "kind": "experience",
+      "why": "It's the 25th-anniversary winter season (13 Nov 2026–17 Jan 2027). There's a new night show, 'Light Up the Night ~Christmas Celebration~' in Gramercy Park (25 Nov–11 Jan, usually 17:30 and 19:30, about 30 min), plus the returning 'Joy of Lights' and the park's biggest-ever Universal Food Festival. It's only 1 stop from Kujo to Nishikujo on Hanshin, then the JR Yumesaki Line to Universal City (about 15 min door to door). Go Mon 21 or Tue 22 Dec. Christmas Eve and Day are forecast to be crowded, school holidays start, and last year's ticket price rose about ¥1,000 from 24 Dec.",
+      "best_time": "Mon 21 or Tue 22 Dec, at the gate 45 min before opening",
+      "dates": "Winter event 13 Nov 2026–17 Jan 2027; night show 25 Nov–11 Jan",
+      "price": "1-Day Studio Pass dynamic, about ¥8,600–11,900 (Dec 2025 range: ¥9,900 weekday, ¥10,900 from 24 Dec). Express Pass 4 from about ¥14,800, Pass 5 from about ¥16,800, Pass 7 from about ¥21,800 per person (June 2026 floors; Dec dates higher). Show viewing area from ¥1,700.",
+      "booking": "Buy dated tickets now on the official USJ web store. Express Passes are inventory-based and sell out; buy as soon as dates are fixed. Only Pass 5 and Pass 7 include Mario Kart. Without Express, Super Nintendo World needs a free timed-entry ticket from the app on the day, so go to the area first thing.",
+      "group_of_8": "Buy all 8 in one order so the Express Pass ride times match",
+      "hours": "Varies by day (check calendar)",
+      "visit_minutes": 660,
+      "first_last": null,
+      "lat": 34.6656768,
+      "lng": 135.4323185,
+      "wish_ids": [
+        "w5",
+        "w8",
+        "w10"
+      ],
+      "evidence": [
+        {
+          "source": "USJ official – Light Up the Night",
+          "url": "https://www.usj.co.jp/web/ja/jp/events/christmas-2026/universal-holiday-wonders/light-up-the-night",
+          "note": "25 Nov 2026–11 Jan 2027, Gramercy Park, 17:30 and 19:30, no show 31 Dec"
+        },
+        {
+          "source": "BestCalendar press summary",
+          "url": "https://bestcalendar.jp/press/152774",
+          "note": "Universal Holiday Wonders runs 13 Nov 2026 to 17 Jan 2027; Joy of Lights returns after 9 years"
+        },
+        {
+          "source": "X @RITOVO1 (Rakuten Travel Guide)",
+          "url": "https://x.com/RITOVO1/status/2108802991344271835",
+          "note": "Winter event opens 13 Nov; Universal Food Festival + Light Up the Night"
+        },
+        {
+          "source": "Happyell Express Pass guide (Jul 2026)",
+          "url": "https://happyell.co.jp/world/expresspass/",
+          "note": "Pass 7 from US$136, Pass 5 from $105, Pass 4 from $92.50; Mario Kart only in 7 and 5; sold until sold out"
+        },
+        {
+          "source": "Castel Dec crowd forecast (2025)",
+          "url": "https://castel.jp/p/10287",
+          "note": "Dec 24–25 crowded; price up ¥1,000 from 24 Dec"
+        }
+      ],
+      "confidence": 0.85
+    },
+    {
+      "name": "OSAKA Hikari Renaissance (Nakanoshima)",
+      "name_ja": "OSAKA光のルネサンス2026（中之島）",
+      "city": "Osaka",
+      "area": "Osaka – Nakanoshima",
+      "kind": "event",
+      "why": "Osaka's flagship Christmas light show runs 11–25 Dec 2026, so Christmas Eve and Christmas night are its final nights. The centrepiece is projection mapping on the 1918 Central Public Hall. It's free and walkable from Yodoyabashi or Kitahama, and it continues straight onto the Midosuji Illumination. Expect big crowds on 24–25 Dec, so go 21–23 Dec if you want space.",
+      "best_time": "18:00–21:00",
+      "dates": "11–25 Dec 2026 (not 26 Dec). Nakanoshima Illumination Street and City Hall facade until 31 Dec",
+      "price": "Free",
+      "booking": "None",
+      "group_of_8": "Fine; pick a meeting point, crowds peak 24–25 Dec",
+      "hours": "Times vary by programme; City Hall facade and Illumination Street 17:00–25:00",
+      "visit_minutes": 60,
+      "first_last": null,
+      "lat": 34.6935485,
+      "lng": 135.5039123,
+      "wish_ids": [
+        "w5",
+        "w8"
+      ],
+      "evidence": [
+        {
+          "source": "Osaka Prefecture press release",
+          "url": "https://www.pref.osaka.lg.jp/hodo/fumin/o070080/prs_51220.html",
+          "note": "Hikari Renaissance 11–25 Dec 2026; Nakanoshima Illumination Street 3 Nov–31 Dec, 17:00–25:00"
+        },
+        {
+          "source": "Osaka City document",
+          "url": "https://www.city.osaka.lg.jp/hodoshiryo/cmsfiles/contents/0000687/687506/rune.pdf",
+          "note": "Chuo Kokaido projection mapping 11–25 Dec, 15 days"
+        },
+        {
+          "source": "Happyell event page",
+          "url": "https://happyell.co.jp/event/osaka-hikari2026",
+          "note": "Festival of the Lights 2026 listing"
+        }
+      ],
+      "confidence": 0.9
+    }
+  ],
+  "notes": ""
+}

@@ -212,4 +212,6 @@ document.addEventListener('search:open', () => { if (!wide.matches && panel()?.d
 document.addEventListener('stage:day', (e) => { navigate(`${base}/day/${(e as CustomEvent<{ day: number }>).detail.day}/${location.search}`); });
 
 document.addEventListener('astro:page-load', () => { void onPage(); renderAdds(); });
-void boot();
+// The words paint first; the map engine (the heaviest download) starts once the page is up.
+const start = () => { void boot(); };
+if ('requestIdleCallback' in window) requestIdleCallback(start, { timeout: 1200 }); else setTimeout(start, 300);

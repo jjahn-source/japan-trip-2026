@@ -132,9 +132,9 @@ function paintNow() {
       + `<p class="nl sub">${overdue ? `<a href="${base}/bookings/#overdue" class="warn"><i class="ring"></i>${overdue} booking${overdue > 1 ? 's' : ''} overdue</a>` : ''}`
       + `${upcoming ? `${overdue ? ' · ' : ''}<a href="${base}/bookings/#${upcoming.id}">Next: <b class="time">${upcoming.due!.slice(5).replace('-', '.')}</b> ${esc(upcoming.text.split(' — ')[0])}</a>` : ''}</p>`;
   } else if (phase === 'flight') {
-    html = `<p class="nl"><b class="display">Flight day</b> · land at Haneda ${until(ms(first.s), t)}</p><p class="nl sub"><a href="${base}/day/2/">Day 2 night-before list</a></p>`;
+    html = `<p class="nl"><b class="display">Flight day</b> · land at Haneda ${until(ms(first.s), t)}</p><p class="nl sub"><a href="${base}/day/${first.d}/">Day ${first.d} night-before list</a></p>`;
   } else if (phase === 'after') {
-    html = `<p class="nl"><b class="display">Okaeri</b> · 16 of 16 stamped</p><p class="nl sub" lang="ja">お帰り</p>`;
+    html = `<p class="nl"><b class="display">Okaeri</b> · ${trip.days.length} of ${trip.days.length} stamped</p><p class="nl sub" lang="ja">お帰り</p>`;
   } else {
     const { cur, next } = current(t);
     const today = trip.days.find((d) => d.date === tripDate(t));

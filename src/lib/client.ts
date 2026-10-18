@@ -9,7 +9,7 @@ export interface ClientStop {
   lat: number | null; lng: number | null; mark: string | null; todo: string | null; map: string | null;
 }
 export interface ClientDay {
-  n: number; date: string; label: string; title: string; kanji: string;
+  n: number; date: string; label: string; title: string; kanji: string; place: string;
   first: string | null; last: string | null;
   sun: { rise: number; set: number; lat: number; lng: number } | null;
 }
@@ -23,7 +23,7 @@ export interface ClientTrend {
   /** Researched picks only (scripts/picks.mjs). */
   why?: string; when?: string; check?: boolean; source?: string; sourceName?: string;
 }
-export interface ClientTrip { days: ClientDay[]; stops: ClientStop[]; todos: ClientTodo[]; stays: ClientStay[]; trending: Record<string, ClientTrend[]>; trendingAt: string | null }
+export interface ClientTrip { days: ClientDay[]; stops: ClientStop[]; todos: ClientTodo[]; stays: ClientStay[]; trending: Record<string, ClientTrend[]>; trendingAt: string | null; routes: boolean }
 
 /** Trending data, if `npm run trending` has been run; the site works without it. */
 export function trending(): { generated: string | null; days: Record<string, ClientTrend[]> } {
@@ -58,7 +58,7 @@ export function clientTrip(): ClientTrip {
   const tr = trending();
   return {
     days: t.days.map((d) => ({
-      n: d.n, date: d.date, label: d.label, title: d.title, kanji: d.stamp.kanji,
+      n: d.n, date: d.date, label: d.label, title: d.title, kanji: d.stamp.kanji, place: d.stamp.place,
       first: d.firstStart, last: d.lastEnd,
       sun: d.sun ? { rise: d.sun.sunriseMs, set: d.sun.sunsetMs, lat: d.sun.lat, lng: d.sun.lng } : null,
     })),
@@ -73,6 +73,8 @@ export function clientTrip(): ClientTrip {
       return { name: s.short, in: s.checkInISO, out: s.checkOutISO, lat: stop?.lat ?? null, lng: stop?.lng ?? null };
     }),
     trending: tr.days,
+    // Route files (legs, transit, timetable) belong to the live itinerary, not to a TRIP_FILE preview.
+    routes: !process.env.TRIP_FILE,
     trendingAt: tr.generated,
   };
 }

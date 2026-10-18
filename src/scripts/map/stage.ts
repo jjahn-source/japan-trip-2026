@@ -80,15 +80,31 @@ const cityEn = (lng: number) => (lng > 139.5 ? 'Tokyo' : lng > 138.8 ? 'Hakone' 
 
 /* ── Opening flight: the whole route in one pass, before the trip ──
  * Each stop of the flight shows those days' routes and rings, lit as they will be at that moment. */
-const FLIGHT = [
-  { center: [139.79, 35.55], zoom: 10.6, pitch: 58, bearing: 24, days: [2], at: '2026-12-15T16:05', caption: 'Day 2 · Land at Haneda' },
-  { center: [139.70, 35.69], zoom: 12.4, pitch: 64, bearing: -18, days: [3, 4, 5], at: '2026-12-16T16:40', caption: 'Days 3–5 · Tokyo' },
-  { center: [139.02, 35.24], zoom: 11.2, pitch: 70, bearing: -48, days: [6, 7], at: '2026-12-20T10:30', caption: 'Days 6–7 · Hakone' },
-  { center: [135.77, 35.0], zoom: 12.2, pitch: 62, bearing: 18, days: [9], at: '2026-12-22T16:20', caption: 'Day 9 · Kyoto' },
-  { center: [135.50, 34.67], zoom: 12.0, pitch: 62, bearing: -22, days: [8, 11, 12], at: '2026-12-21T20:00', caption: 'Days 8–12 · Osaka' },
-  { center: [132.32, 34.30], zoom: 12.0, pitch: 64, bearing: 30, days: [10], at: '2026-12-23T11:30', caption: 'Day 10 · Miyajima' },
-  { center: [139.71, 35.69], zoom: 12.6, pitch: 66, bearing: -30, days: [13, 14, 15, 16], at: '2026-12-26T21:30', caption: 'Days 13–16 · Shinjuku' },
-] as const;
+/** The opening flight, built from the plan itself: one stop per place the trip stays (consecutive days
+ *  within 25 km share one), in date order, so it always matches the itinerary. */
+function buildFlight() {
+  const med = (xs: number[]) => xs.slice().sort((a, b) => a - b)[Math.floor(xs.length / 2)];
+  const days = trip.days.map((d) => {
+    const ss = stops.filter((s) => s.d === d.n);
+    return ss.length ? { n: d.n, place: d.place, lat: med(ss.map((s) => s.lat)), lng: med(ss.map((s) => s.lng)) } : null;
+  }).filter((d): d is NonNullable<typeof d> => !!d);
+  const groups: { days: number[]; place: string; lat: number; lng: number }[] = [];
+  for (const d of days) {
+    const g = groups.at(-1);
+    if (g && kmBetween(g, d) < 25) { g.days.push(d.n); continue; }
+    groups.push({ days: [d.n], place: d.place, lat: d.lat, lng: d.lng });
+  }
+  const title = (p: string) => (p.split('·')[0] ?? p).trim().toLowerCase().replace(/(^|[\s-])\S/g, (c) => c.toUpperCase());
+  return groups.slice(0, 7).map((g, i) => ({
+    center: [g.lng, g.lat] as [number, number], zoom: 11.6, pitch: 60, bearing: i % 2 ? -24 : 24, days: g.days,
+    caption: `${g.days.length > 1 ? `Days ${g.days[0]}–${g.days.at(-1)}` : `Day ${g.days[0]}`} · ${title(g.place)}`,
+  }));
+}
+const kmBetween = (a: { lat: number; lng: number }, b: { lat: number; lng: number }) => {
+  const r = Math.PI / 180, dLat = (b.lat - a.lat) * r, dLng = (b.lng - a.lng) * r;
+  const h = Math.sin(dLat / 2) ** 2 + Math.cos(a.lat * r) * Math.cos(b.lat * r) * Math.sin(dLng / 2) ** 2;
+  return 12742 * Math.asin(Math.sqrt(h));
+};
 
 /* ── State ── */
 type AnyMap = import('maplibre-gl').Map;
@@ -109,8 +125,10 @@ let pad = { top: 0, right: 0, bottom: 0, left: 0 };
 const offset = (): [number, number] => [(pad.left - pad.right) / 2, (pad.top - pad.bottom) / 2];
 const stage = () => document.getElementById('stage')!;
 
+/** Phones and data-saver get the lighter MapLibre map (about half the download); ?mapbox=1 forces Mapbox. */
+const lite = () => !new URLSearchParams(location.search).has('mapbox') && (matchMedia('(max-width: 899px)').matches || (navigator as Navigator & { connection?: { saveData?: boolean } }).connection?.saveData === true);
 async function loadEngine() {
-  if (TOKEN) {
+  if (TOKEN && !lite()) {
     const [{ default: mapboxgl }] = await Promise.all([import('mapbox-gl'), import('mapbox-gl/dist/mapbox-gl.css')]);
     mapboxgl.accessToken = TOKEN;
     kind = 'mapbox';
@@ -626,6 +644,7 @@ interface LegSeg { m: string; line?: string; colour?: string; coords: [number, n
 interface Leg { from: string; to: string; mode: string; minutes: number; lines: string[]; text: string; segs: LegSeg[] }
 let legs: { days: Record<string, Leg[]> } | null = null;
 async function loadLegs() {
+  if (!trip.routes) return;
   try {
     const res = await fetch(`${base}/legs.json`);
     if (!res.ok) return;
@@ -653,6 +672,7 @@ const zwidth = (stops: [number, number][], mult: unknown = 1) => ['interpolate',
 const WIDTH = { shinkansen: 1.7, jr: 1.15, subway: 1, rail: 1, monorail: 0.9, tram: 0.8, funicular: 0.9, ropeway: 0.9 } as Record<string, number>;
 
 async function loadTransit(m: AnyMap) {
+  if (!trip.routes) return;
   try {
     const res = await fetch(`${base}/transit.json`);
     if (!res.ok) return;
@@ -1103,18 +1123,17 @@ export async function flight() {
   // Several days share each frame and their numbers would collide: fly over lines and stop dots only.
   for (const id of ['day-stops', 'day-stop-numbers']) setVisible(id, false);
   setVisible('dots', true);
-  for (const k of FLIGHT) {
+  // One light for the whole flight: changing it mid-flight made the map flash between day and night.
+  for (const k of buildFlight()) {
     if (aborted) break;
     if (caption) caption.textContent = k.caption; // where we're heading
     await new Promise<void>((resolve) => {
       m.once('moveend', () => resolve());
-      m.flyTo({ center: [k.center[0], k.center[1]], zoom: k.zoom, pitch: k.pitch, bearing: k.bearing, offset: offset(), duration: 3400, curve: 1.6, essential: true });
+      m.flyTo({ center: k.center, zoom: k.zoom, pitch: k.pitch, bearing: k.bearing, offset: offset(), duration: 2200, curve: 1.4, essential: true });
     });
     if (aborted) break;
-    // On arrival: that place's days, in the light they'll have at that moment of the trip.
     showDays([...k.days]);
-    setTime(new Date(`${k.at}:00+09:00`).getTime(), { lat: k.center[1], lng: k.center[0] });
-    await new Promise((r) => setTimeout(r, 1600));
+    await new Promise((r) => setTimeout(r, 700));
   }
   flying = false;
   delete stage().dataset.flying;

@@ -1,0 +1,582 @@
+{
+  "candidates": [
+    {
+      "name": "ZEROTOKYO",
+      "name_ja": "ゼロトウキョウ",
+      "city": "Tokyo",
+      "area": "Kabukicho, Shinjuku (Tokyu Kabukicho Tower)",
+      "kind": "nightlife",
+      "why": "Tokyo's biggest new superclub, in Kabukicho Tower, a 5-minute walk from Garfield House. On the December calendar: Fri 18 Dec 'THE ONE presents Steve Angello' (house/progressive) and Sat 26 Dec 'NEON STARS' (bass/open format/techno). This is the headline club night for both Tokyo legs.",
+      "best_time": "Doors 23:00, peak 00:30–03:30; go after dinner at Kabuki Hall downstairs",
+      "dates": "Event nights from the official schedule: Fri 18 Dec (Steve Angello), Sat 19 Dec (ESSENCE, they are in Hakone), Sat 26 Dec (NEON STARS), plus a 12.29 TUE ESSENCE listing (check whether it means the night of Mon 28). No event is listed for Sun 27 or Mon 28.",
+      "price": "Not on the site. Advance tickets are on zaiko.io / livepocket.jp per event; guides put Tokyo club covers at about ¥2,000–5,000. Buy advance for Steve Angello.",
+      "booking": "Buy advance tickets on zaiko/livepocket from the event page once on sale. VIP tables can be booked on the site (Book VIP), and a table could suit 8 if split.",
+      "group_of_8": "Yes, a huge venue. Everyone needs their own original passport at the door.",
+      "hours": "Google: Thu–Sun 23:00–04:30, closed Mon–Wed (event nights may differ)",
+      "visit_minutes": 240,
+      "first_last": "Last trains leave around 00:00–00:30, so either stay until the first trains (about 05:00) or take taxis. From Garfield House it is a walk home.",
+      "lat": 35.6957837,
+      "lng": 139.7005074,
+      "wish_ids": [
+        "w4",
+        "w5",
+        "w8",
+        "w11"
+      ],
+      "evidence": [
+        {
+          "source": "ZEROTOKYO official schedule",
+          "url": "https://www.zerotokyo.jp/",
+          "note": "December lineup: 12.18 FRI THE ONE Presents Steve Angello; 12.19 SAT ESSENCE; 12.26 SAT NEON STARS; 12.29 TUE ESSENCE; tickets via zaiko/livepocket"
+        },
+        {
+          "source": "ZEROTOKYO system page",
+          "url": "https://www.zerotokyo.jp/system/",
+          "note": "Entry is 20+ only, with an ID check for everyone: passport, driver's licence or residence card. No photos, copies or expired IDs. Tank tops, sleeveless tops and sandals may be refused, and very drunk guests are turned away."
+        },
+        {
+          "source": "Google Maps",
+          "url": "https://maps.google.com/?cid=18294562039779609304",
+          "note": "4.5 from 1,493 ratings, operational, Thu–Sun 23:00–04:30"
+        },
+        {
+          "source": "nightlifetokyo.com guide (Apr 2026)",
+          "url": "https://nightlifetokyo.com/en/tokyo-nightlife-guide",
+          "note": "Calls it the Kabukicho club known for sheer scale; clubs strictly enforce 20+ and want a passport"
+        }
+      ],
+      "confidence": 0.85
+    },
+    {
+      "name": "Shinjuku Kabuki Hall / Kabuki Yokocho",
+      "name_ja": "新宿カブキhall～歌舞伎横丁",
+      "city": "Tokyo",
+      "area": "Kabukicho, Shinjuku (Tokyu Kabukicho Tower 2F)",
+      "kind": "bar",
+      "why": "A loud, neon food-festival hall with 10 stalls from around Japan and Korea, plus nightly music and video shows. It is the easiest place to sit 8 people together at short notice, and it is right below ZEROTOKYO, so it works as the pre-game before the club.",
+      "best_time": "20:00–23:00 before the club, or 03:00+ as a refuel",
+      "dates": "Open daily; no year-end notice on the site",
+      "price": "Pay per stall; the Kabukicho Tower BBQ beer garden plan (¥6,600 with free-flow drinks) is for groups of 50+ only, so ignore it",
+      "booking": "Walk in. The hall takes reservations for groups of 10 or more, so 8 can just turn up.",
+      "group_of_8": "Yes, the best walk-in option in Shinjuku for 8",
+      "hours": "Google: 24 hours; TimeOut lists 06:00–05:00",
+      "visit_minutes": 120,
+      "first_last": "Open through the first trains",
+      "lat": 35.6958971,
+      "lng": 139.7006492,
+      "wish_ids": [
+        "w4",
+        "w5",
+        "w8",
+        "w11"
+      ],
+      "evidence": [
+        {
+          "source": "Official site",
+          "url": "https://kabukihall.com/",
+          "note": "10 stalls in 1,000 m² on 2F, nightly performances, groups of 10 to 1,000 accepted, smaller groups welcome"
+        },
+        {
+          "source": "TimeOut Tokyo (JA)",
+          "url": "https://www.timeout.jp/tokyo/ja/レストラン/shinjyuku-kabukihall",
+          "note": "Hours listed 6:00–翌5:00, open until the first train"
+        },
+        {
+          "source": "Google Maps",
+          "url": "https://maps.google.com/?cid=5696081029885541586",
+          "note": "4.4 from 1,808 ratings, listed as open 24h"
+        }
+      ],
+      "confidence": 0.85
+    },
+    {
+      "name": "Shinjuku Golden Gai",
+      "name_ja": "新宿ゴールデン街",
+      "city": "Tokyo",
+      "area": "Kabukicho, Shinjuku",
+      "kind": "bar",
+      "why": "About 200 micro-bars across six alleys, the classic Tokyo bar crawl. Most bars seat only 6–8 people, so split into two groups of 4 and hop. Pick bars that post English prices outside and walk past ones marked 'regulars only'.",
+      "best_time": "21:00–01:00, between dinner and the club; Sun 27 or Mon 28 are calmer",
+      "dates": "Most bars are open nightly; some small bars close for the holidays from about 29–31 Dec, so go before 29 Dec",
+      "price": "Seat charge usually ¥500–1,500 per person (sometimes it includes the first drink), and drinks about ¥700–1,000. Mostly cash only.",
+      "booking": "No booking. Walk in, and move on if the bar is full.",
+      "group_of_8": "Only if you split into groups of 3–4 across neighbouring bars",
+      "hours": "Bar by bar, roughly 19:00–05:00",
+      "visit_minutes": 120,
+      "first_last": "5 minutes from Garfield House on foot",
+      "lat": 35.6941118,
+      "lng": 139.7047611,
+      "wish_ids": [
+        "w4",
+        "w5",
+        "w8"
+      ],
+      "evidence": [
+        {
+          "source": "nightlifetokyo.com Golden Gai guide",
+          "url": "https://nightlifetokyo.com/en/tokyo/guides/golden-gai-guide",
+          "note": "Expect ¥500–¥1,500 per person, often including the first drink; keep groups small"
+        },
+        {
+          "source": "Metropolis Japan",
+          "url": "https://metropolisjapan.com/golden-gai/",
+          "note": "Cover charges, signs reading 'regulars only' or 'no foreigners', and the advice to look for bars with English menus"
+        },
+        {
+          "source": "Google Maps",
+          "url": "https://maps.google.com/?cid=8189163570396404367",
+          "note": "4.3 from 13,231 ratings"
+        }
+      ],
+      "confidence": 0.8
+    },
+    {
+      "name": "Omoide Yokocho",
+      "name_ja": "思い出横丁",
+      "city": "Tokyo",
+      "area": "Nishi-Shinjuku",
+      "kind": "bar",
+      "why": "A smoky Showa-era alley of yakitori and beer stalls by Shinjuku Station West Exit. Good for a first drink and skewers (yakitori) at the start of a Shinjuku night. The stalls hold 6–10 people, so the 8 will likely split across two neighbouring stalls.",
+      "best_time": "17:30–20:00, before the stalls fill with after-work drinkers",
+      "dates": "Busy with year-end office parties (bōnenkai) in mid-December; some stalls close from about 29–31 Dec",
+      "price": "Budget: skewers about ¥200–400, beer about ¥600–700 (typical; not verified for each stall)",
+      "booking": "Walk in",
+      "group_of_8": "Only if you split across two stalls",
+      "hours": "Stall by stall, mostly late afternoon to about midnight",
+      "visit_minutes": 75,
+      "first_last": "Next to JR Shinjuku West Exit",
+      "lat": 35.6927037,
+      "lng": 139.6995778,
+      "wish_ids": [
+        "w4",
+        "w8"
+      ],
+      "evidence": [
+        {
+          "source": "nightlifetokyo.com guide (Apr 2026)",
+          "url": "https://nightlifetokyo.com/en/tokyo-nightlife-guide",
+          "note": "Calls Omoide Yokocho the yakitori alley of old Tokyo, one of three Shinjuku scenes within walking distance of each other"
+        },
+        {
+          "source": "Google Maps",
+          "url": "https://maps.google.com/?cid=10416638554535967955",
+          "note": "4.2 from 15,721 ratings; official site shinjuku-omoide.com"
+        }
+      ],
+      "confidence": 0.7
+    },
+    {
+      "name": "Umaimono-dokoro Umi no Ie Shinjuku Higashiguchi",
+      "name_ja": "うまいもの処 海の家 新宿東口店",
+      "city": "Tokyo",
+      "area": "Kabukicho, Shinjuku",
+      "kind": "bar",
+      "why": "The budget pick for 8 heavy drinkers. Its headline deal is an unlimited free-flow drinks plan (nomihodai) for ¥1,480 that adds free-flow gyoza and oden, as long as each person orders 2 dishes. It is open until 05:00 and close to Garfield House.",
+      "best_time": "21:00 onward; use it as the cheap base on Sun 27 or Mon 28",
+      "dates": "Open year-round per a 2026 TikTok post; check year-end hours",
+      "price": "Unlimited nomihodai ¥1,480 (2 dishes per person required); a Sun–Thu course with free-flow gyoza and oden is ¥3,980; about ¥4,000 per head in all",
+      "booking": "Hotpepper (hotpepper.jp/strJ000005812); book for 8 on weekend nights",
+      "group_of_8": "Yes, a 7F izakaya",
+      "hours": "Google: Mon–Fri 17:00–05:00, Sat–Sun 14:00–05:00",
+      "visit_minutes": 150,
+      "first_last": "5 minutes from Shinjuku East Exit",
+      "lat": 35.6940872,
+      "lng": 139.7014483,
+      "wish_ids": [
+        "w4",
+        "w10",
+        "w11"
+      ],
+      "evidence": [
+        {
+          "source": "TikTok @sassy_gourmet_cat (2026)",
+          "url": "https://www.tiktok.com/@sassy_gourmet_cat/video/7665180520375979271",
+          "note": "Unlimited nomihodai ¥1,480 with free-flow gyoza and oden, a plan of up to 7 hours, 2 dishes per person, open until morning"
+        },
+        {
+          "source": "TikTok @lunch_trip_wine (2026, promo)",
+          "url": "https://www.tiktok.com/@lunch_trip_wine/video/7693128982757149959",
+          "note": "¥3,980 unlimited-drinks course (Sun–Thu only), open year-round, about ¥4,000 per person"
+        },
+        {
+          "source": "Google Maps",
+          "url": "https://maps.google.com/?cid=15983407868044937438",
+          "note": "3.5 from 439 ratings, 17:00–05:00"
+        }
+      ],
+      "confidence": 0.7
+    },
+    {
+      "name": "Karaokekan Kabukicho Honten",
+      "name_ja": "カラオケ館 歌舞伎町本店",
+      "city": "Tokyo",
+      "area": "Kabukicho, Shinjuku",
+      "kind": "nightlife",
+      "why": "All-night karaoke in central Kabukicho, open until 06:00. After about 23:00 the late-night free-time rate (deep-night flat rate until morning) plus a free-flow drinks add-on usually beats hourly pricing for 8. A good place to end the night if the club is not on.",
+      "best_time": "Midnight to 05:00 on the late-night flat rate",
+      "dates": "Chains like this run through the year-end",
+      "price": "Check the store page for the late-night free-time and free-flow drink prices (not verified)",
+      "booking": "Reserve a large room for 8 on Fri and Sat via karaokekan.jp",
+      "group_of_8": "Yes; ask for a party room",
+      "hours": "Google: daily 11:00–06:00",
+      "visit_minutes": 180,
+      "first_last": "Open until after the first train",
+      "lat": 35.6943517,
+      "lng": 139.7016243,
+      "wish_ids": [
+        "w4",
+        "w8",
+        "w10"
+      ],
+      "evidence": [
+        {
+          "source": "Google Maps",
+          "url": "https://maps.google.com/?cid=17144439067794512100",
+          "note": "4.0 from 458 ratings, 11:00–06:00 daily"
+        },
+        {
+          "source": "Mapple Shinjuku karaoke guide",
+          "url": "https://www.mapple.net/original/371134/",
+          "note": "Karaoke-kan named as a late-night value chain in Shinjuku; at night, free-time is often cheaper even for short stays"
+        }
+      ],
+      "confidence": 0.65
+    },
+    {
+      "name": "Sugoi Niboshi Ramen Nagi Golden Gai Honkan",
+      "name_ja": "すごい煮干ラーメン凪 新宿ゴールデン街店本館",
+      "city": "Tokyo",
+      "area": "Golden Gai, Shinjuku",
+      "kind": "food",
+      "why": "The classic 24-hour bowl after a night out, up a staircase inside Golden Gai: intense dried-sardine (niboshi) ramen. Small counter seating, so the 8 eat in turns.",
+      "best_time": "02:00–05:00 after the bars or the club",
+      "dates": "Listed as open 24h",
+      "price": "About ¥1,000–1,500 a bowl (typical; check the ticket machine)",
+      "booking": "No booking; queue on the stairs",
+      "group_of_8": "Only in two shifts",
+      "hours": "Google: 24 hours",
+      "visit_minutes": 40,
+      "first_last": "5 minutes from Garfield House",
+      "lat": 35.6937008,
+      "lng": 139.7045023,
+      "wish_ids": [
+        "w4",
+        "w5"
+      ],
+      "evidence": [
+        {
+          "source": "Google Maps",
+          "url": "https://maps.google.com/?cid=9832644939543904579",
+          "note": "4.3 from 7,390 ratings, open 24h"
+        },
+        {
+          "source": "Nagi official shop page",
+          "url": "https://n-nagi.com/",
+          "note": "Official Golden Gai Honkan shop page"
+        }
+      ],
+      "confidence": 0.7
+    },
+    {
+      "name": "Round1 Ikebukuro",
+      "name_ja": "ラウンドワン 池袋店",
+      "city": "Tokyo",
+      "area": "Higashi-Ikebukuro",
+      "kind": "nightlife",
+      "why": "The Round1 wish (w6), close to Ninja House. Bowling, karaoke, billiards, darts, table tennis and a big arcade, all open 24 hours. It suits the arrival night (Tue 15 Dec) or any midweek night after the trains stop, and they can walk home.",
+      "best_time": "22:00–04:00 any weeknight (Tue 15, Wed 16, Thu 17)",
+      "dates": "Open 24 hours year-round per Google; no year-end notice on the shop page",
+      "price": "Price table on the shop site (not captured). Late-night packs vary by store, so ask at the counter.",
+      "booking": "Walk in; bowling lanes can be reserved on the Round1 site",
+      "group_of_8": "Yes, 2 lanes of 4 or a big karaoke room",
+      "hours": "24 hours (Google; the store manager's note on the shop page says bowling, karaoke, billiards, darts and table tennis run '毎日24時間'). The medal corner closes at :55.",
+      "visit_minutes": 180,
+      "first_last": "About 15 minutes' walk from Ninja House area / Ikebukuro East Exit",
+      "lat": 35.7300652,
+      "lng": 139.7151731,
+      "wish_ids": [
+        "w6",
+        "w8",
+        "w5",
+        "w11"
+      ],
+      "evidence": [
+        {
+          "source": "Round1 official shop page",
+          "url": "https://www.round1.co.jp/shop/tenpo/tokyo-ikebukuro.html",
+          "note": "Address 東池袋1-14-1 池袋スクエア; manager note says bowling, karaoke, billiards, darts and table tennis are open 24 hours daily"
+        },
+        {
+          "source": "Google Maps",
+          "url": "https://maps.google.com/?cid=5244696194787840894",
+          "note": "3.5 from 3,047 ratings, open 24h every day"
+        }
+      ],
+      "confidence": 0.85
+    },
+    {
+      "name": "Daitokai",
+      "name_ja": "大都会",
+      "city": "Tokyo",
+      "area": "Nishi-Ikebukuro",
+      "kind": "bar",
+      "why": "Ikebukuro's famous 24-hour, year-round izakaya, in the basement 30 seconds from the North Exit. You order with meal tickets from a machine, much of it is self-service, beer is about ¥250 and snacks are about ¥180–450. It is cheaper than a convenience store and great for a first night or an early-hours refuel near Ninja House.",
+      "best_time": "Any time; 10:00–18:00 has time-service discounts",
+      "dates": "Open 24h with no fixed holidays",
+      "price": "Draft beer about ¥200–250, dishes about ¥180–450",
+      "booking": "No reservations",
+      "group_of_8": "Possible off-peak; it is a busy basement, so expect to split tables on Fri nights",
+      "hours": "24 hours, year-round",
+      "visit_minutes": 90,
+      "first_last": "30 seconds from Ikebukuro North Exit (20a)",
+      "lat": 35.7316999,
+      "lng": 139.7111071,
+      "wish_ids": [
+        "w4",
+        "w10",
+        "w11"
+      ],
+      "evidence": [
+        {
+          "source": "TikTok @oreno.gourmet (2026)",
+          "url": "https://www.tiktok.com/@oreno.gourmet/video/7666325565128985877",
+          "note": "Open 24h, mostly self-service, beer ¥250 by ticket, snacks ¥180–450; 43k views"
+        },
+        {
+          "source": "LIVE JAPAN Ikebukuro izakaya roundup",
+          "url": "https://livejapan.com/ja/in-tokyo/in-pref-tokyo/in-ikebukuro/article-a0001239/",
+          "note": "Basement of Hotel Sun City, 30 seconds from the North Exit, open 24h year-round, meal tickets, no reservations"
+        },
+        {
+          "source": "Tabelog page (read to judge, not copied)",
+          "url": "https://tabelog.com/tokyo/A1305/A130501/13085560",
+          "note": "Listing exists"
+        },
+        {
+          "source": "Google Maps",
+          "url": "https://maps.google.com/?cid=11877621779127975984",
+          "note": "3.8 from 1,462 ratings, 24h"
+        }
+      ],
+      "confidence": 0.8
+    },
+    {
+      "name": "Wakadaisho",
+      "name_ja": "若大将",
+      "city": "Tokyo",
+      "area": "Nishi-Ikebukuro",
+      "kind": "bar",
+      "why": "A Showa-style cheap izakaya near Ikebukuro West Exit, open until morning. Every plate is ¥420 and the stewed offal (nikomi) is famous. A local salaryman haunt for a cheap second round.",
+      "best_time": "22:00 onward",
+      "dates": "Open late nightly (check the year-end holiday)",
+      "price": "Plates ¥420 each",
+      "booking": "Phone +81-3-5951-0170",
+      "group_of_8": "Probably split; small Showa-style shop",
+      "hours": "Open until morning per TikTok (not verified on Google)",
+      "visit_minutes": 90,
+      "first_last": "3 minutes from Ikebukuro West Exit",
+      "lat": 35.7315426,
+      "lng": 139.7105331,
+      "wish_ids": [
+        "w4",
+        "w10"
+      ],
+      "evidence": [
+        {
+          "source": "TikTok @hakkutsu_gourmet97 (2026)",
+          "url": "https://www.tiktok.com/@hakkutsu_gourmet97/video/7649002461289663762",
+          "note": "Open until morning, every plate ¥420, famous nikomi; 57k views"
+        },
+        {
+          "source": "TREK Places listing",
+          "url": "https://maps.google.com/?q=若大将+西池袋1-26-5",
+          "note": "Listed at 西池袋1-26-5 with phone +81359510170"
+        }
+      ],
+      "confidence": 0.55
+    },
+    {
+      "name": "Big Echo Ikebukuro Nishiguchi Ekimae",
+      "name_ja": "ビッグエコー 池袋西口駅前店",
+      "city": "Tokyo",
+      "area": "Nishi-Ikebukuro",
+      "kind": "nightlife",
+      "why": "Karaoke with good rooms and DAM machines, next to Daitokai and Wakadaisho, open until 06:00 on Fri and Sat. The Friday 18 Dec fallback near Ninja House if they don't go to Shinjuku.",
+      "best_time": "Midnight to 05:00 on the late-night free-time rate",
+      "dates": "Normal hours expected through mid-December",
+      "price": "Pricier than other chains (check the store page)",
+      "booking": "Reserve a large room online for Fri 18",
+      "group_of_8": "Yes",
+      "hours": "Google: 09:00–05:00, Fri and Sat to 06:00",
+      "visit_minutes": 180,
+      "first_last": "Steps from Ikebukuro West Exit",
+      "lat": 35.7317781,
+      "lng": 139.7092699,
+      "wish_ids": [
+        "w4",
+        "w8",
+        "w11"
+      ],
+      "evidence": [
+        {
+          "source": "Google Maps",
+          "url": "https://maps.google.com/?cid=11194344274043032063",
+          "note": "4.1 from 741 ratings; Fri and Sat until 06:00"
+        },
+        {
+          "source": "Mapple Shinjuku karaoke guide",
+          "url": "https://www.mapple.net/original/371134/",
+          "note": "Big Echo is run directly by Daiichikosho with the latest DAM machines; high standard but pricier; no outside food or drink"
+        }
+      ],
+      "confidence": 0.6
+    },
+    {
+      "name": "ATOM SHIBUYA",
+      "name_ja": "アトム渋谷",
+      "city": "Tokyo",
+      "area": "Maruyamacho, Shibuya",
+      "kind": "nightlife",
+      "why": "The young mainstream club in Shibuya, three floors and open every night, so it is the club for Sun 27 and Mon 28 when ZEROTOKYO and WOMB are dark. Cheap early entry: men ¥900 before 23:30 on Sun–Thu.",
+      "best_time": "Arrive before 23:30 (Sun–Thu) or 23:00 (Fri/Sat) for the early price",
+      "dates": "Nightly, including Sun 27 and Mon 28 Dec (special nights are priced separately)",
+      "price": "Sun–Thu: men ¥900 before 23:30, ¥2,900 after; women ¥400 before 23:30, ¥900 after. Fri, Sat and pre-holidays: men ¥1,900 before 23:00, ¥4,900 after; women ¥900. All include 1 drink (checked 30 Sep 2026).",
+      "booking": "Walk in; arrive early for the cheap rate",
+      "group_of_8": "Yes (capacity 800)",
+      "hours": "Nightly 22:00–04:30",
+      "visit_minutes": 210,
+      "first_last": "Last Yamanote around 00:30; first trains around 05:00 from Shibuya. A taxi to Shinjuku is short.",
+      "lat": 35.6583059,
+      "lng": 139.6954048,
+      "wish_ids": [
+        "w4",
+        "w8",
+        "w10"
+      ],
+      "evidence": [
+        {
+          "source": "Techno Airlines club page (checked 30 Sep 2026)",
+          "url": "https://www.technoairlines.com/club/atom-tokyo",
+          "note": "Full price grid, 20+ with government photo ID, no jerseys or sandals, no visible tattoos, 22:00–04:30"
+        },
+        {
+          "source": "Google Maps",
+          "url": "https://maps.google.com/?cid=5936297947178422482",
+          "note": "3.2 from 1,106 ratings, open nightly 22:00–04:30; site atomshibuya.com"
+        }
+      ],
+      "confidence": 0.75
+    },
+    {
+      "name": "WOMB",
+      "name_ja": "ウーム",
+      "city": "Tokyo",
+      "area": "Maruyamacho, Shibuya",
+      "kind": "nightlife",
+      "why": "Tokyo's most respected techno and house club, with four floors and a Funktion-One sound system. It is the more serious-music alternative to ZEROTOKYO for Fri 18 Dec.",
+      "best_time": "Midnight to 04:00",
+      "dates": "Tue–Sat. Closed Sun and Mon, so no WOMB on 27–28 Dec. The December lineup is not posted yet (only October events are up).",
+      "price": "About ¥3,000–4,000 at the door, usually with a drink ticket (guide figure; check the event page)",
+      "booking": "Advance tickets per event on womb.co.jp",
+      "group_of_8": "Yes",
+      "hours": "Google: Tue–Sat 23:00–04:30",
+      "visit_minutes": 210,
+      "first_last": "Shibuya, 5 minutes from the station",
+      "lat": 35.658389,
+      "lng": 139.6949767,
+      "wish_ids": [
+        "w4",
+        "w8"
+      ],
+      "evidence": [
+        {
+          "source": "WOMB official",
+          "url": "https://www.womb.co.jp/",
+          "note": "Events run 23:00–4:30; address 2-16 Maruyama-cho"
+        },
+        {
+          "source": "nightlifetokyo.com guide (Apr 2026)",
+          "url": "https://nightlifetokyo.com/en/tokyo-nightlife-guide",
+          "note": "Calls it Tokyo's most respected techno and house club, with a Funktion-One sound system and four floors; entry about ¥3,000–4,000 with a drink; 20+ strictly enforced"
+        },
+        {
+          "source": "Google Maps",
+          "url": "https://maps.google.com/?cid=5161171707981268291",
+          "note": "3.9 from 1,281 ratings"
+        }
+      ],
+      "confidence": 0.7
+    },
+    {
+      "name": "Shibuya Yokocho",
+      "name_ja": "渋谷横丁",
+      "city": "Tokyo",
+      "area": "Shibuya (MIYASHITA PARK)",
+      "kind": "bar",
+      "why": "A 19-shop food alley under MIYASHITA PARK with regional food from all over Japan and festival-style shared tables. It is lively, loud and easy for 8 to walk into, the right pre-club stop before ATOM or WOMB, and a 10-minute walk from both.",
+      "best_time": "20:00–23:00 before the club",
+      "dates": "Hours vary by shop; no year-end notice found",
+      "price": "Shop by shop; budget-friendly",
+      "booking": "Walk in",
+      "group_of_8": "Yes",
+      "hours": "Hours vary by shop; check the official access page",
+      "visit_minutes": 120,
+      "first_last": "5 minutes from Shibuya Station",
+      "lat": 35.6607767,
+      "lng": 139.7017855,
+      "wish_ids": [
+        "w4",
+        "w8"
+      ],
+      "evidence": [
+        {
+          "source": "Official site",
+          "url": "https://www.shibuya-yokocho.com/",
+          "note": "19 shops plus Yokocho Hiroba and SHIBUYA Bar at RAYARD MIYASHITA PARK"
+        },
+        {
+          "source": "GO TOKYO",
+          "url": "https://www.gotokyo.org/jp/spot/1844/index.html",
+          "note": "Official tourism listing for MIYASHITA PARK; hours vary by shop"
+        }
+      ],
+      "confidence": 0.65
+    },
+    {
+      "name": "Ebisu Yokocho",
+      "name_ja": "恵比寿横丁",
+      "city": "Tokyo",
+      "area": "Ebisu",
+      "kind": "bar",
+      "why": "A packed, sociable covered alley of about 20 small izakaya where strangers end up talking across the counters. Open until 05:00 and more local than Shibuya. Weekends are packed, so go on a weeknight.",
+      "best_time": "21:00–01:00 on a weeknight (Wed 16 or Thu 17)",
+      "dates": "Open daily; bōnenkai season makes Fri 18 very full",
+      "price": "Mid-range; about ¥3,000–4,000 a head with drinks (estimate)",
+      "booking": "Book one shop for 8 if you go on a weekend",
+      "group_of_8": "Possible at one of the bigger stalls, or split across two",
+      "hours": "Google: daily 17:00–05:00",
+      "visit_minutes": 120,
+      "first_last": "JR Ebisu, about 1 stop from Shibuya",
+      "lat": 35.6482178,
+      "lng": 139.7106409,
+      "wish_ids": [
+        "w4",
+        "w8"
+      ],
+      "evidence": [
+        {
+          "source": "Google Maps",
+          "url": "https://maps.google.com/?cid=9513230481716724681",
+          "note": "3.8 from 1,675 ratings, 17:00–05:00 daily"
+        },
+        {
+          "source": "Official site",
+          "url": "http://www.ebisu-yokocho.com/",
+          "note": "Official site of the alley"
+        }
+      ],
+      "confidence": 0.6
+    }
+  ],
+  "notes": "Tokyo · night: Two bases set the night logic. NIGHTS 15–18 DEC (Ninja House, Toshima): stay local on Tue 15 (arrival) and Wed 16. Daitokai (24h, beer about ¥250) and Wakadaisho by the West and North Exits, then Round1 Ikebukuro (24h bowling, karaoke and arcade) or Big Echo West Exit (until 06:00 on Fri and Sat); all within walking distance of the stay. Thu 17: Shibuya or Ebisu (Ebisu Yokocho, Shibuya Yokocho). FRI 18 DEC is the big night and peak year-end office party (bōnenkai) season, so izakaya fill early: book any sit-down for 8. Headline: ZEROTOKYO Steve Angello (buy advance tickets). Take taxis or wait for the first trains back to Toshima, and keep the 19 Dec Hakone departure in mind. NIGHTS 26–28 DEC (Garfield House, Shinjuku): everything is walkable. Sat 26: Omoide Yokocho, then Kabuki Hall (seats 8 walk-in), then ZEROTOKYO NEON STARS, then Nagi ramen (24h). Sun 27 and Mon 28: ZEROTOKYO (Mon–Wed per Google) and WOMB (Sun/Mon) are closed, so do Umi no Ie unlimited nomihodai (¥1,480) and Golden Gai in groups of 4, then ATOM Shibuya (open nightly, men ¥900 before 23:30) or Karaokekan Kabukicho (until 06:00). YEAR-END: chains, clubs, karaoke and Round1 run normally through 28 Dec; small Golden Gai and Omoide stalls may start closing from about 29 Dec. Mon 28 is the last safe night. The flight is 17:20 on 29 Dec, so leave Shinjuku by about 14:00. ID: every club is strictly 20+ and wants the ORIGINAL passport (no photos or copies); no sandals, tank tops or sports pants. Last trains run about 00:00–00:30, so plan to party until the first train (about 05:00) or split taxis."
+}

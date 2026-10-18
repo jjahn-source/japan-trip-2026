@@ -1,0 +1,595 @@
+{
+  "candidates": [
+    {
+      "name": "Yaekatsu",
+      "name_ja": "八重勝",
+      "city": "Osaka",
+      "area": "Shinsekai – Jan Jan Yokocho",
+      "kind": "food",
+      "why": "The locals' kushikatsu in Shinsekai: lighter, potato-softened batter, cheap sticks and lager in a loud old-Osaka counter room. Better than queuing for the tourist branches.",
+      "best_time": "Weekday 10:30–12:00 or 15:00–17:00 to dodge the queue; pair with Shinsekai/Tsutenkaku and Chitose nearby",
+      "dates": "Closed Thursdays (so not Thu 24 Dec); open Tue 22, Wed 23, Fri 25",
+      "price": "Roughly ¥2,000–3,000 a head with beer; cash",
+      "booking": "No reservations; queue",
+      "group_of_8": "Counter only: 8 will be split into 2–3 groups or wait for adjacent seats; queue moves fast",
+      "hours": "10:30–20:30, closed Thu",
+      "visit_minutes": 60,
+      "first_last": "Last orders shortly before 20:30",
+      "lat": 34.6496971,
+      "lng": 135.5060154,
+      "wish_ids": [
+        "w4",
+        "w8"
+      ],
+      "evidence": [
+        {
+          "source": "Tabelog page (read to judge)",
+          "url": "http://r.tabelog.com/osaka/A2702/A270206/27000443/",
+          "note": "Long-running Shinsekai kushikatsu, consistently ranked among Osaka's best"
+        },
+        {
+          "source": "Google Maps",
+          "url": "https://www.google.com/maps/search/?api=1&query=34.6496971,135.5060154",
+          "note": "~3,900 ratings; hours 10:30–20:30, Thursday closed"
+        },
+        {
+          "source": "Inside Osaka / Fun Japan guides",
+          "url": "https://insideosaka.com/best-kushikatsu-in-osaka",
+          "note": "Called a local favourite with queues; batter softened with potato (Fun Japan https://www.fun-japan.jp/en/articles/1525)"
+        }
+      ],
+      "confidence": 0.85
+    },
+    {
+      "name": "Kushikatsu Daruma Shinsekai Honten",
+      "name_ja": "串かつだるま 新世界総本店",
+      "city": "Osaka",
+      "area": "Shinsekai",
+      "kind": "food",
+      "why": "The original 1929 kushikatsu shop with the angry-chef mascot and the 'no double dipping' rule. The classic photo stop; food is good, not the best.",
+      "best_time": "Late afternoon before the Shinsekai neon comes on",
+      "dates": "Open daily",
+      "price": "Sets about ¥1,500–3,000; sticks from ~¥150",
+      "booking": "No reservations at honten",
+      "group_of_8": "Honten is a tiny counter; for 8 use one of Daruma's larger Shinsekai/Dotonbori branches, which have tables",
+      "hours": "11:00–22:30 (Sat–Sun from 10:30)",
+      "visit_minutes": 60,
+      "first_last": "Last order ~22:00",
+      "lat": 34.6515704,
+      "lng": 135.5062032,
+      "wish_ids": [
+        "w4",
+        "w8"
+      ],
+      "evidence": [
+        {
+          "source": "Official site",
+          "url": "http://www.kushikatu-daruma.com/",
+          "note": "Founding shop, branch list incl. bigger Dotonbori/Namba shops"
+        },
+        {
+          "source": "Inside Osaka",
+          "url": "https://insideosaka.com/kushikatsu-daruma/",
+          "note": "The best-known chain; Shinsekai flagship"
+        },
+        {
+          "source": "Google Maps",
+          "url": "https://www.google.com/maps/search/?api=1&query=34.6515704,135.5062032",
+          "note": "~2,170 ratings; 11:00–22:30 daily"
+        }
+      ],
+      "confidence": 0.8
+    },
+    {
+      "name": "Chitose (okonomiyaki & nikusui)",
+      "name_ja": "千とせ 本店",
+      "city": "Osaka",
+      "area": "Nishinari – Taishi (by Shinsekai)",
+      "kind": "food",
+      "why": "Birthplace of nikusui (beef-broth hangover soup) and a beloved neighbourhood okonomiyaki/yakisoba spot, 5 min walk from Shinsekai. Real Osaka, cheap, great the morning after.",
+      "best_time": "Lunch around 11:30 on Thu 24 or Fri 25, then walk to Shinsekai",
+      "dates": "Closed Tue and Wed (so not 22–23 Dec); open Mon, Thu, Fri, Sat",
+      "price": "About ¥800–1,500 a head",
+      "booking": "No reservations; expect a line at lunch",
+      "group_of_8": "Small dining room; 8 may be seated in two goes",
+      "hours": "Mon/Fri 11:30–14:30 & 17:00–20:00; Thu 11:30–16:30 & 17:00–20:00; Sat 11:30–14:30 & 17:00–24:00; Tue–Wed closed (Google)",
+      "visit_minutes": 50,
+      "first_last": null,
+      "lat": 34.647525,
+      "lng": 135.5046657,
+      "wish_ids": [
+        "w5",
+        "w8"
+      ],
+      "evidence": [
+        {
+          "source": "Official page",
+          "url": "http://www.bunjin.com/chitose",
+          "note": "Shop page for the nikusui originator"
+        },
+        {
+          "source": "Google Maps",
+          "url": "https://www.google.com/maps/search/?api=1&query=34.647525,135.5046657",
+          "note": "4.7 from ~1,840 ratings; closed Tue/Wed"
+        }
+      ],
+      "confidence": 0.75
+    },
+    {
+      "name": "Takoyaki Wanaka Sennichimae Honten",
+      "name_ja": "たこ焼道楽 わなか 千日前本店",
+      "city": "Osaka",
+      "area": "Namba – Sennichimae",
+      "kind": "food",
+      "why": "The safest great takoyaki in Minami: crisp-outside, molten inside, with the 'osenbei' rice-cracker sandwich option. Quick stand-up snack between Namba stops.",
+      "best_time": "Any time; good pre-drinks snack",
+      "dates": "Open daily",
+      "price": "About ¥600–800 for 8–12 pieces",
+      "booking": "No; takeaway window plus some seats",
+      "group_of_8": "Takeaway works for any group size",
+      "hours": "10:30–21:00",
+      "visit_minutes": 20,
+      "first_last": null,
+      "lat": 34.6652167,
+      "lng": 135.5033629,
+      "wish_ids": [
+        "w8"
+      ],
+      "evidence": [
+        {
+          "source": "Official site",
+          "url": "http://takoyaki-wanaka.com/",
+          "note": "Flagship Sennichimae shop"
+        },
+        {
+          "source": "Google Maps",
+          "url": "https://www.google.com/maps/search/?api=1&query=34.6652167,135.5033629",
+          "note": "4.3; 10:30–21:00 daily"
+        }
+      ],
+      "confidence": 0.75
+    },
+    {
+      "name": "Yakiniku Sora Tsuruhashi Honten",
+      "name_ja": "焼肉 空 鶴橋本店",
+      "city": "Osaka",
+      "area": "Tsuruhashi",
+      "kind": "food",
+      "why": "Tsuruhashi's horumon-and-yakiniku queue shop: small cheap plates so 8 people can order everything. Smoky, loud, exactly the Tsuruhashi experience.",
+      "best_time": "Open at 11:00 or go before 17:00; pair with Korea Town street food",
+      "dates": "Open daily",
+      "price": "Horumon plates ~¥500–850; budget ~¥3,000–4,000 a head with drinks",
+      "booking": "Queue; check the official site for reservations",
+      "group_of_8": "Tables of 4: split into 2 tables",
+      "hours": "11:00–22:00 (Google)",
+      "visit_minutes": 90,
+      "first_last": null,
+      "lat": 34.6656608,
+      "lng": 135.5293722,
+      "wish_ids": [
+        "w4",
+        "w8"
+      ],
+      "evidence": [
+        {
+          "source": "Official site",
+          "url": "http://www.yakinikusora.jp/",
+          "note": "Main branch by Tsuruhashi station"
+        },
+        {
+          "source": "Retty theme (Tsuruhashi horumon)",
+          "url": "https://retty.me/theme/200245268/",
+          "note": "Described as a constant-queue shop with small, cheap portions; horumon ~¥500–850 a plate"
+        },
+        {
+          "source": "Google Maps",
+          "url": "https://www.google.com/maps/search/?api=1&query=34.6656608,135.5293722",
+          "note": "4.1; 11:00–22:00"
+        }
+      ],
+      "confidence": 0.75
+    },
+    {
+      "name": "Osaka Ikuno Korea Town (Tsuruhashi)",
+      "name_ja": "大阪生野コリアタウン",
+      "city": "Osaka",
+      "area": "Tsuruhashi – Momodani",
+      "kind": "food",
+      "why": "Japan's biggest Korea Town: hotteok, tteokbokki, Korean fried chicken and cheese dogs at street prices. Locals' alternative to over-priced Dotonbori snacks.",
+      "best_time": "Daytime 11:00–17:00 (most stalls close early evening); combine with Sora for horumon",
+      "dates": "Street always open; individual shops vary, many quiet one weekday",
+      "price": "¥300–800 per snack",
+      "booking": null,
+      "group_of_8": "Street food: fine for 8",
+      "hours": "Shops roughly 10:00–18:00",
+      "visit_minutes": 90,
+      "first_last": null,
+      "lat": 34.6606139,
+      "lng": 135.5378838,
+      "wish_ids": [
+        "w8",
+        "w5"
+      ],
+      "evidence": [
+        {
+          "source": "TikTok @japantravelinsider (2026)",
+          "url": "https://www.tiktok.com/@japantravelinsider/video/7691668678303059221",
+          "note": "'Dotonbori is overpriced' – Korea Town as the locals' street-food alternative, 8 min from Namba"
+        },
+        {
+          "source": "Google Maps",
+          "url": "https://www.google.com/maps/search/?api=1&query=34.6606139,135.5378838",
+          "note": "~8,570 ratings"
+        }
+      ],
+      "confidence": 0.7
+    },
+    {
+      "name": "Kuromon Market",
+      "name_ja": "黒門市場",
+      "city": "Osaka",
+      "area": "Nipponbashi – Kuromon",
+      "kind": "food",
+      "why": "Osaka's kitchen: grilled scallops, tuna, wagyu skewers, strawberries. Fun to graze, but now tourist-priced; skip the crab and eat small things.",
+      "best_time": "9:00–11:00 as a grazing breakfast, before the crowds",
+      "dates": "Open 21–26 Dec; some stalls close Sundays",
+      "price": "¥500–2,000 per item; set a budget",
+      "booking": null,
+      "group_of_8": "Walk-and-graze; eat at the stalls' seating",
+      "hours": "About 9:00–17:00 (stalls vary)",
+      "visit_minutes": 75,
+      "first_last": null,
+      "lat": 34.6653511,
+      "lng": 135.5062417,
+      "wish_ids": [
+        "w8"
+      ],
+      "evidence": [
+        {
+          "source": "Official site",
+          "url": "https://kuromon.com/jp/",
+          "note": "Market association"
+        },
+        {
+          "source": "TikTok @koyamas_travel (490k plays)",
+          "url": "https://www.tiktok.com/@koyamas_travel/video/7677575128233970965",
+          "note": "'Don't go to Kuromon Market for crab' – points to better-value crab elsewhere"
+        },
+        {
+          "source": "Google Maps",
+          "url": "https://www.google.com/maps/search/?api=1&query=34.6653511,135.5062417",
+          "note": "4.1; 9:00–17:00"
+        }
+      ],
+      "confidence": 0.7
+    },
+    {
+      "name": "Harukoma Sushi (main store)",
+      "name_ja": "春駒 本店",
+      "city": "Osaka",
+      "area": "Tenma – Tenjinbashisuji",
+      "kind": "food",
+      "why": "Big, fresh nigiri at local prices in Japan's longest shopping arcade. The best-value sushi of the stay; then crawl the Tenma izakaya alleys.",
+      "best_time": "Weekday 15:00–17:00 (gap between lunch and dinner queues)",
+      "dates": "Check weekly closing day (often Tuesday)",
+      "price": "About ¥2,000–3,500 a head",
+      "booking": "No reservations; queue",
+      "group_of_8": "Counter: you'll be seated in smaller groups",
+      "hours": "11:00–21:30 (Google)",
+      "visit_minutes": 60,
+      "first_last": null,
+      "lat": 34.707734,
+      "lng": 135.5116005,
+      "wish_ids": [
+        "w5",
+        "w8"
+      ],
+      "evidence": [
+        {
+          "source": "TikTok @japan_tourism.1 (2026)",
+          "url": "https://www.tiktok.com/@japan_tourism.1/video/7692668287729011989",
+          "note": "#1 of '5 local food spots': fresh, generous sushi at reasonable prices"
+        },
+        {
+          "source": "Official Instagram",
+          "url": "https://www.instagram.com/harukoma_5tenjinbashi/",
+          "note": "Shop account"
+        },
+        {
+          "source": "Google Maps",
+          "url": "https://www.google.com/maps/search/?api=1&query=34.707734,135.5116005",
+          "note": "4.2; 11:00–21:30"
+        }
+      ],
+      "confidence": 0.75
+    },
+    {
+      "name": "Robatayaki Homuraya",
+      "name_ja": "炉ばた焼 焔家",
+      "city": "Osaka",
+      "area": "Fukushima",
+      "kind": "food",
+      "why": "Fukushima's viral robata: scallops in butter, whole squid, prawns and skewers grilled in front of you, almost everything ¥300 including drinks. Perfect budget start to a Fukushima crawl.",
+      "best_time": "Open at 17:00, then hop the Fukushima back-alleys",
+      "dates": "Open daily per Google",
+      "price": "Most food and drinks ~¥300; ~¥3,000 a head with drinks",
+      "booking": "Check official site / phone; book a table for 8",
+      "group_of_8": "Counter plus tables; reserve for 8",
+      "hours": "17:00–23:00",
+      "visit_minutes": 90,
+      "first_last": null,
+      "lat": 34.6963641,
+      "lng": 135.4866932,
+      "wish_ids": [
+        "w4",
+        "w8"
+      ],
+      "evidence": [
+        {
+          "source": "TikTok (2026, 364k plays)",
+          "url": "https://www.tiktok.com/@homuraya2024",
+          "note": "'Everything ¥300 is a bug' – scallop butter, squid, prawns, turban shell all ¥300, steps from JR Fukushima"
+        },
+        {
+          "source": "Official site",
+          "url": "https://homuraya-2024.com/",
+          "note": "Shop site"
+        },
+        {
+          "source": "Google Maps",
+          "url": "https://maps.google.com/?cid=15716096532616207767",
+          "note": "4.5 (57); 17:00–23:00 daily"
+        }
+      ],
+      "confidence": 0.7
+    },
+    {
+      "name": "Jizakana Yatai Tottsuan Fukushima",
+      "name_ja": "地魚屋台 とっつぁん 福島店",
+      "city": "Osaka",
+      "area": "Fukushima – under the JR tracks",
+      "kind": "food",
+      "why": "Rowdy under-the-tracks fish izakaya: ¥109 sushi and tempura, sashimi platters, good for a big table. Cheap, takes groups, open to midnight.",
+      "best_time": "18:00–21:00",
+      "dates": "Open daily",
+      "price": "Sushi/tempura from ¥109; ~¥3,000 a head",
+      "booking": "Reservable via usual Japanese sites; book for 8",
+      "group_of_8": "Tables can be joined; book",
+      "hours": "Mon–Sat 16:00–24:00; Sun 15:00–23:00",
+      "visit_minutes": 90,
+      "first_last": "Food LO 23:00, drinks 23:30 (Sun 22:30)",
+      "lat": 34.6968878,
+      "lng": 135.4860726,
+      "wish_ids": [
+        "w4"
+      ],
+      "evidence": [
+        {
+          "source": "TikTok (2026, 85k plays)",
+          "url": "https://www.tiktok.com/search?q=%E5%9C%B0%E9%AD%9A%E5%B1%8B%E5%8F%B0%E3%81%A8%E3%81%A3%E3%81%A4%E3%81%81%E3%82%93%20%E7%A6%8F%E5%B3%B6",
+          "note": "Address OK2番街 under JR Fukushima; ¥109 sushi/tempura; 5-kind sashimi ¥1,628; hours"
+        },
+        {
+          "source": "Google Maps",
+          "url": "https://www.google.com/maps/search/?api=1&query=34.6968878,135.4860726",
+          "note": "265 ratings; 16:00–24:00"
+        }
+      ],
+      "confidence": 0.65
+    },
+    {
+      "name": "Sakanaya Juggler Tenma",
+      "name_ja": "魚屋 ジャグラー 天満",
+      "city": "Osaka",
+      "area": "Tenma – Tenjinbashi 5",
+      "kind": "food",
+      "why": "Cheap fish izakaya open to 3am and takes reservations: the Tenma stop that works for 8 and late.",
+      "best_time": "21:00 onwards as a late dinner after Tenma standing bars",
+      "dates": "No fixed closing day",
+      "price": "About ¥3,000 a head",
+      "booking": "Reservations accepted (06-6948-8662)",
+      "group_of_8": "Reservable; ask for a table for 8",
+      "hours": "Mon–Fri 18:00–03:00; Sat–Sun 15:00–03:00",
+      "visit_minutes": 90,
+      "first_last": null,
+      "lat": 34.7087098,
+      "lng": 135.5119278,
+      "wish_ids": [
+        "w4",
+        "w2"
+      ],
+      "evidence": [
+        {
+          "source": "TikTok (2026, 33k plays)",
+          "url": "https://www.tiktok.com/search?q=%E9%AD%9A%E5%B1%8B%20%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BC%20%E5%A4%A9%E6%BA%80",
+          "note": "'Prices so cheap you look five times'; budget ¥3,000; reservations OK; 18:00–03:00, no closing day"
+        },
+        {
+          "source": "Google Maps",
+          "url": "https://www.google.com/maps/search/?api=1&query=34.7087098,135.5119278",
+          "note": "40 ratings; hours to 3:00"
+        }
+      ],
+      "confidence": 0.55
+    },
+    {
+      "name": "Yakiniku Rikimaru Umeda Ohatsutenjin",
+      "name_ja": "焼肉 力丸 梅田お初天神店",
+      "city": "Osaka",
+      "area": "Umeda – Ohatsutenjin",
+      "kind": "food",
+      "why": "Budget all-you-can-eat yakiniku with all-you-can-drink add-on: the easy, cheap yakiniku night for 8 hungry 20-year-olds, open to midnight.",
+      "best_time": "19:00–21:00 before going out",
+      "dates": "Open daily",
+      "price": "All-you-can-eat from about ¥3,300 (90 min, 2023 price); drinks plan extra",
+      "booking": "Book online (Hot Pepper/Gurunavi); coupons for groups",
+      "group_of_8": "Group tables; book",
+      "hours": "Mon 16:00–24:00; Tue–Sun 11:30–24:00",
+      "visit_minutes": 120,
+      "first_last": null,
+      "lat": 34.6996825,
+      "lng": 135.500852,
+      "wish_ids": [
+        "w4",
+        "w10"
+      ],
+      "evidence": [
+        {
+          "source": "LIVE JAPAN article",
+          "url": "https://livejapan.com/ja/in-kansai/in-pref-osaka/in-nanba_dotonbori_shinsaibashi/article-a2000563/",
+          "note": "82 kinds of yakiniku AYCE ¥3,278 (90 min) at the chain"
+        },
+        {
+          "source": "Gurunavi (Umeda Higashidori branch)",
+          "url": "https://r.gnavi.co.jp/p79n4xgg0000/",
+          "note": "Three AYCE courses, 90 or 120 minutes"
+        },
+        {
+          "source": "Google Maps",
+          "url": "https://www.google.com/maps/search/?api=1&query=34.6996825,135.500852",
+          "note": "~5,000 ratings; to midnight"
+        }
+      ],
+      "confidence": 0.7
+    },
+    {
+      "name": "Kinryu Ramen Dotonbori",
+      "name_ja": "金龍ラーメン 道頓堀店",
+      "city": "Osaka",
+      "area": "Dotonbori",
+      "kind": "food",
+      "why": "24-hour dragon-sign ramen with free kimchi and rice: not the best ramen, but the place to end the night in Minami at 3am.",
+      "best_time": "After midnight",
+      "dates": "Open 24h",
+      "price": "About ¥1,000 a bowl",
+      "booking": "Ticket machine; no reservation",
+      "group_of_8": "Open-air stools; 8 fine",
+      "hours": "24 hours",
+      "visit_minutes": 25,
+      "first_last": null,
+      "lat": 34.6686694,
+      "lng": 135.5030523,
+      "wish_ids": [
+        "w2",
+        "w4"
+      ],
+      "evidence": [
+        {
+          "source": "Official site",
+          "url": "https://kinryuramen.com/",
+          "note": "Dotonbori shops"
+        },
+        {
+          "source": "Google Maps",
+          "url": "https://www.google.com/maps/search/?api=1&query=34.6686694,135.5030523",
+          "note": "3.8; open 24 hours"
+        }
+      ],
+      "confidence": 0.7
+    },
+    {
+      "name": "Endo Sushi (Central Market)",
+      "name_ja": "ゑんどう寿司 中央市場店",
+      "city": "Osaka",
+      "area": "Fukushima – Noda (Central Wholesale Market)",
+      "kind": "food",
+      "why": "Market-fresh sushi breakfast from 6:15 inside Osaka's central fish market, 10 minutes by taxi from Kujō. The best breakfast in the city.",
+      "best_time": "7:00–9:00 on a weekday (Tue 22 or Wed 23)",
+      "dates": "Mon–Sat; closed Sundays and market holidays — check the market calendar",
+      "price": "Omakase plate of 5 ~¥1,400–2,000",
+      "booking": "No",
+      "group_of_8": "Small counter/tables; may seat in 2 groups",
+      "hours": "6:15–14:00, closed Sun",
+      "visit_minutes": 45,
+      "first_last": null,
+      "lat": 34.6842148,
+      "lng": 135.4795332,
+      "wish_ids": [
+        "w5"
+      ],
+      "evidence": [
+        {
+          "source": "Official site",
+          "url": "http://www.endo-sushi.com/",
+          "note": "Central market branch plus Kyobashi branch"
+        },
+        {
+          "source": "Google Maps reviews (Oct 2026)",
+          "url": "https://www.google.com/maps/search/?api=1&query=34.6842148,135.4795332",
+          "note": "4.4 from 2,362; recent reviewers mention ¥1,400–1,980 per plate and uncertainty over open days"
+        }
+      ],
+      "confidence": 0.75
+    },
+    {
+      "name": "Marufuku Coffee Sennichimae Honten",
+      "name_ja": "丸福珈琲店 千日前本店",
+      "city": "Osaka",
+      "area": "Namba – Sennichimae",
+      "kind": "cafe",
+      "why": "1934 kissaten for a retro coffee, thick toast and pancakes before Kuromon or Namba shopping.",
+      "best_time": "8:00–10:00",
+      "dates": "Open daily",
+      "price": "About ¥1,000–1,500",
+      "booking": "No",
+      "group_of_8": "Spacious, tables; fine for 8 off-peak",
+      "hours": "From morning to evening (verify)",
+      "visit_minutes": 45,
+      "first_last": null,
+      "lat": 34.6675396,
+      "lng": 135.5041275,
+      "wish_ids": [
+        "w5"
+      ],
+      "evidence": [
+        {
+          "source": "Official site",
+          "url": "http://www.marufukucoffeeten.com/",
+          "note": "Flagship since 1934"
+        },
+        {
+          "source": "Google Maps",
+          "url": "https://www.google.com/maps/search/?api=1&query=34.6675396,135.5041275",
+          "note": "Listed, Sennichimae 1-9-1"
+        }
+      ],
+      "confidence": 0.6
+    },
+    {
+      "name": "Nishiki Market",
+      "name_ja": "錦市場",
+      "city": "Osaka",
+      "area": "Kyoto – Nishiki",
+      "kind": "food",
+      "why": "Kyoto's 400m food street: tamagoyaki, soy-milk donuts, tako tamago, pickles. The one Kyoto food stop worth building a Kyoto day around.",
+      "best_time": "10:00–14:00 (many stalls shut by 17:00)",
+      "dates": "Some stalls close Wed/Sun",
+      "price": "¥300–800 per bite",
+      "booking": null,
+      "group_of_8": "Walk-and-graze; eat at the stall (no eating while walking)",
+      "hours": "About 10:00–17:00 (stalls vary)",
+      "visit_minutes": 75,
+      "first_last": null,
+      "lat": 35.0050258,
+      "lng": 135.764723,
+      "wish_ids": [
+        "w1",
+        "w8"
+      ],
+      "evidence": [
+        {
+          "source": "Official site",
+          "url": "https://www.kyoto-nishiki.or.jp/",
+          "note": "Market association"
+        },
+        {
+          "source": "Google Maps",
+          "url": "https://www.google.com/maps/search/?api=1&query=35.0050258,135.764723",
+          "note": "4.3"
+        }
+      ],
+      "confidence": 0.7
+    }
+  ],
+  "notes": "Osaka · food: Pair by area: Shinsekai + Chitose (Nishinari) + Tsutenkaku for a day. Chitose is shut Tue/Wed and Yaekatsu is shut Thu 24 Dec, so do it Fri 25. Tsuruhashi (Sora + Korea Town) is a daytime pairing; Korea Town stalls close by ~18:00. Minami: Marufuku/Kuromon morning, Wanaka snack, Kinryu as the 24h closer (w2). Fukushima (Homuraya ¥300 robata, Tottsuan) is the nearest izakaya strip to Kujō: Hanshin one stop to Nishikujō, then JR loop two stops. Tenma (Harukoma, Juggler to 3am) is the other crawl, also on the JR loop. Breakfast near base: Endo Sushi in the Central Wholesale Market (Noda) from 6:15, closed Sun and on market holidays, so check the 休市日 calendar for Tue 22/Wed 23. Christmas Eve/Day are normal business days in Japan; only date-night restaurants book out, izakaya and yakiniku are fine, but book Rikimaru/Tottsuan/Homuraya for 8 on the 24th and 25th. No year-end closures before the 26th. Counter shops (Yaekatsu, Harukoma, Daruma honten, Chitose) will split 8 into twos and threes; use Rikimaru, Tottsuan, Juggler and Homuraya to sit together. Transport: Hanshin Namba line runs from Kujō to Namba directly; an Osaka Metro 1-day Enjoy Eco Card pays off on Shinsekai/Tsuruhashi/Namba days."
+}

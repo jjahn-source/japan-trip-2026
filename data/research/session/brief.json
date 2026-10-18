@@ -1,0 +1,80 @@
+{
+  "title": "Japan, Dec 2026 · 8 friends",
+  "people": 8,
+  "who": "A group of 8, all around 20 years old, all Asian; they love to drink, want to maximise every moment, and love to do it all — Round1, shopping and more.",
+  "legs": [
+    {
+      "city": "Tokyo",
+      "from": "2026-12-15",
+      "to": "2026-12-19",
+      "base": "Ninja House, Toshima"
+    },
+    {
+      "city": "Hakone",
+      "from": "2026-12-19",
+      "to": "2026-12-21",
+      "base": "Hot Spring Hakone Villa, Sengokuhara"
+    },
+    {
+      "city": "Osaka",
+      "from": "2026-12-21",
+      "to": "2026-12-26",
+      "base": "Kujō House, Nishi-ku"
+    },
+    {
+      "city": "Tokyo",
+      "from": "2026-12-26",
+      "to": "2026-12-29",
+      "base": "Garfield House, Shinjuku"
+    }
+  ],
+  "arrival": "2026-12-15 15:00 Haneda T3",
+  "departure": "2026-12-29 17:20 Haneda T3",
+  "wishes": [
+    {
+      "id": "w1",
+      "text": "Osaka base, but during the day we will commute to Kyoto/Nara as needed"
+    },
+    {
+      "id": "w2",
+      "text": "Ending the night/nightlife in Osaka"
+    },
+    {
+      "id": "w3",
+      "text": "If there are cool nightlife things to do in the neighbouring cities as well, include them"
+    },
+    {
+      "id": "w4",
+      "text": "We love to drink"
+    },
+    {
+      "id": "w5",
+      "text": "We want to maximise all the time we've got in the country"
+    },
+    {
+      "id": "w6",
+      "text": "Round1"
+    },
+    {
+      "id": "w7",
+      "text": "Shopping"
+    },
+    {
+      "id": "w8",
+      "text": "We love to do it all"
+    },
+    {
+      "id": "w9",
+      "text": "No go-karts"
+    },
+    {
+      "id": "w10",
+      "text": "Look for money we can save by booking early or buying passes"
+    },
+    {
+      "id": "w11",
+      "text": "Stays already booked: Ninja House in Toshima (Tokyo), Hot Spring Hakone Villa in Sengokuhara, Kujō House in Nishi-ku (Osaka), Garfield House in Shinjuku (Tokyo)"
+    }
+  ],
+  "pace": "Packed — maximise every day, including late nights out drinking"
+}
