@@ -83,6 +83,25 @@ for (const size of ['phone', 'desktop']) {
     await ctx.close();
   });
 
+  test(`${size}: the details step through the day, playing the ride forward`, async () => {
+    const { page, ctx, errors } = await open(size, '/day/9/');
+    await page.locator('.stop .hit').nth(1).click();
+    await page.locator('dialog.sheet').waitFor({ state: 'visible' });
+    assert.match(await page.locator('#sheet-title').innerText(), /Fushimi/);
+    assert.match(await page.locator('.nx').innerText(), /Next: .*Kiyomizu/);
+    await page.getByRole('button', { name: /^Next stop/ }).click();
+    await page.waitForURL(/#d09-s03$/);
+    await page.locator('.play[aria-pressed="true"]').first().waitFor(); // the ride plays
+    await page.getByRole('button', { name: /^Previous stop/ }).click();
+    await page.waitForURL(/#d09-s02$/);
+    // Folded: the card keeps the name, the next hop and Go; the map gets the room.
+    await page.getByRole('button', { name: 'Show the map' }).click();
+    await page.locator('.panel.peek').waitFor();
+    assert.ok(await page.locator('.panel.peek .go').isVisible());
+    assert.deepEqual(errors, []);
+    await ctx.close();
+  });
+
   test(`${size}: a deep link opens the day with its stop`, async () => {
     const { page, ctx, errors } = await open(size, '/day/3/#d03-s02');
     await page.locator('dialog.sheet').waitFor({ state: 'visible' });

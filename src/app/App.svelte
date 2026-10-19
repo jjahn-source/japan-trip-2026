@@ -101,16 +101,24 @@
   let pinKey = '';
   $effect(() => { const k = mapKey; if (pinKey && k !== pinKey) untrack(() => (app.pin = null)); pinKey = k; });
   $effect(() => { const s = app.selected; if (mapReady) untrack(() => map?.highlight(s)); });
+  // On a laptop the details panel covers the map's right edge: tell the map, so stops, routes and a
+  // ride's moving dot all centre in the part still showing (none of that when it's folded to a card).
+  $effect(() => {
+    const covered = !!app.sheet && app.sheetSize !== 'peek';
+    if (!mapReady) return;
+    untrack(() => map?.setInset(covered && innerWidth >= 900 ? Math.min(460, innerWidth * 0.38) : 0));
+  });
   $effect(() => {
     const id = app.sheet, size = app.sheetSize;
     if (!mapReady || !id) return;
+    if (untrack(() => skipFocus === id)) { skipFocus = null; return; } // stepping forward plays the ride instead
     // The sheet paints first; the camera moves after (the map stays in view beside or above it).
     untrack(() => {
       const f = stopOf(id);
       if (!f || app.view.kind !== 'day' || app.view.n !== f.day.n) return;
       // Folded, nothing covers the map (the laptop card sits in a corner; the phone map grows), so the
       // stop goes in the middle; with the panel open on a laptop it goes in the part left showing.
-      requestAnimationFrame(() => setTimeout(() => { if (app.sheet === id) map?.focus(f.stop, false, size !== 'peek'); }, size === 'peek' ? 120 : 60));
+      requestAnimationFrame(() => setTimeout(() => { if (app.sheet === id) map?.focus(f.stop); }, size === 'peek' ? 120 : 60));
     });
   });
   $effect(() => { const p = app.pin; if (mapReady) untrack(() => map?.showPin(p)); });
@@ -176,6 +184,19 @@
   // Leaving the day, or any reset of `playing`, ends playback and clears the trail.
   $effect(() => { if (!app.playing) untrack(() => { playRun++; playMinute = null; map?.stop(); }); });
 
+  // Stepping through the day from the details: forward plays the ride to the next stop while the
+  // details move on to it; back just flies there.
+  let skipFocus: string | null = null;
+  function step(dir: 1 | -1) {
+    const f = app.sheet ? stopOf(app.sheet) : null;
+    if (!f) return;
+    const i = f.day.stops.findIndex((s) => s.id === f.stop.id);
+    const to = f.day.stops[i + dir];
+    if (!to) return;
+    const ride = dir === 1 && f.day.legs[f.stop.id] && app.view.kind === 'day' && app.view.n === f.day.n;
+    if (ride) { skipFocus = to.id; openSheet(to.id); if (app.playing !== f.stop.id || app.progress >= 1) play(f.stop.id); }
+    else openSheet(to.id);
+  }
   const pickPlace = (lat: number, lng: number, name: string) => { app.pin = { lat, lng, name }; };
   const directions = (p: { lat: number; lng: number }) => `https://www.google.com/maps/dir/?api=1&destination=${p.lat},${p.lng}&travelmode=transit`;
   const quiet = $derived(app.view.kind === 'bookings' || app.view.kind === 'budget');
@@ -254,7 +275,7 @@
     </main>
   </div>
 
-  {#if sheet}<StopSheet stop={sheet.stop} day={sheet.day} />{/if}
+  {#if sheet}<StopSheet stop={sheet.stop} day={sheet.day} onstep={step} />{/if}
   <Search />
 </div>
 {/if}

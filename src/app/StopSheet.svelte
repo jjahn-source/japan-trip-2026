@@ -8,7 +8,20 @@
   import { app, BASE, closeSheet } from './state.svelte';
   import type { AppDay, AppStop } from './types';
 
-  let { stop, day }: { stop: AppStop; day: AppDay } = $props();
+  let { stop, day, onstep }: { stop: AppStop; day: AppDay; onstep?: (dir: 1 | -1) => void } = $props();
+  // The stops either side, and the hop to the next one ("Next: Gion · 15 min walk").
+  const at = $derived(day.stops.findIndex((s) => s.id === stop.id));
+  const prevStop = $derived(day.stops[at - 1] ?? null);
+  const nextStop = $derived(day.stops[at + 1] ?? null);
+  const hop = $derived.by(() => {
+    const leg = day.legs[stop.id];
+    if (!nextStop) return null;
+    if (!leg) return `at ${nextStop.start}`;
+    const rides = leg.segs.filter((x) => x.m !== 'walk' && x.coords.length > 1);
+    if (!rides.length) return `${leg.minutes} min walk`;
+    const first = rides[0];
+    return `${leg.minutes} min by ${first.line ?? ({ car: 'taxi', bus: 'bus', boat: 'boat', ropeway: 'ropeway', funicular: 'cable car' } as Record<string, string>)[first.m] ?? 'train'}${rides.length > 1 ? ` +${rides.length - 1}` : ''}`;
+  });
   let dlg = $state<HTMLDialogElement>();
   let body = $state<HTMLElement>();
   let copied = $state('');
@@ -76,20 +89,33 @@
     dy = Math.max(0, d);
   };
   const up = () => { if (startY) release(dy, 90); startY = 0; dragging = false; }; // closing keeps the offset, so it slides on from there
-  let touchY = 0, tracking = false;
-  const tStart = (e: TouchEvent) => { tracking = innerWidth < 900 && (body?.scrollTop ?? 0) <= 0; touchY = e.touches[0].clientY; };
+  // A sideways swipe steps to the stop before or after (phone).
+  let touchY = 0, touchX = 0, lastX = 0, sideways = false, tracking = false;
+  const tStart = (e: TouchEvent) => { tracking = innerWidth < 900 && (body?.scrollTop ?? 0) <= 0; touchY = e.touches[0].clientY; touchX = lastX = e.touches[0].clientX; sideways = false; };
   const tMove = (e: TouchEvent) => {
-    if (!tracking) return;
+    lastX = e.touches[0].clientX;
+    const dx = lastX - touchX, dyy = e.touches[0].clientY - touchY;
+    if (!sideways && Math.abs(dx) > 14 && Math.abs(dx) > Math.abs(dyy) * 1.4) { sideways = true; tracking = false; dy = 0; dragging = false; }
+    if (sideways || !tracking) return;
     const d = e.touches[0].clientY - touchY;
     if (d < 0) { tracking = false; dy = 0; dragging = false; return; } // scrolling up into the sheet
     dragging = true; dy = d;
   };
-  const tEnd = () => { if (tracking) release(dy, 100); else dy = 0; tracking = false; dragging = false; };
+  const tEnd = () => {
+    if (sideways && Math.abs(lastX - touchX) > 64) onstep?.(lastX < touchX ? 1 : -1);
+    else if (tracking) release(dy, 100); else dy = 0;
+    tracking = false; dragging = false; sideways = false;
+  };
   // Leaving slides the sheet away (down on a phone, right on a laptop) instead of cutting it.
   const exit = (node: Element) => fly(node, innerWidth < 900 ? { y: Math.max(240, (node as HTMLElement).offsetHeight * 0.6), duration: 200, easing: cubicIn, opacity: 1 } : { x: 160, duration: 180, easing: cubicIn, opacity: 0 });
 </script>
 
-<svelte:window onkeydown={(e) => { if (e.key === 'Escape' && !app.search) { e.preventDefault(); closeSheet(); } }} />
+<svelte:window onkeydown={(e) => {
+  if (app.search || (e.target as HTMLElement | null)?.closest?.('input, textarea, select')) return;
+  if (e.key === 'Escape') { e.preventDefault(); closeSheet(); }
+  else if (e.key === 'ArrowRight' && nextStop) { e.preventDefault(); onstep?.(1); }
+  else if (e.key === 'ArrowLeft' && prevStop) { e.preventDefault(); onstep?.(-1); }
+}} />
 
 <dialog bind:this={dlg} class="sheet" class:peek={size === 'peek'} aria-labelledby="sheet-title" style:--drag="{dy}px">
   <div class="panel" class:dragging class:full={size === 'full'} class:peek={size === 'peek'} out:exit|global>
@@ -97,6 +123,11 @@
          whole bar is a handle for the swipe down. -->
     <div class="bar" onpointerdown={down} onpointermove={move} onpointerup={up} onpointercancel={up}>
       <span class="grip" aria-hidden="true"></span>
+      <span class="steps">
+        <button type="button" onclick={() => onstep?.(-1)} onpointerdown={(e) => e.stopPropagation()} disabled={!prevStop} aria-label={prevStop ? `Previous stop: ${prevStop.name}` : 'No earlier stop today'}>{@html icon('prev')}</button>
+        <span class="pos num" aria-hidden="true">{at + 1}/{day.stops.length}</span>
+        <button type="button" onclick={() => onstep?.(1)} onpointerdown={(e) => e.stopPropagation()} disabled={!nextStop} aria-label={nextStop ? `Next stop: ${nextStop.name}${day.legs[stop.id] ? ', playing the ride' : ''}` : 'Last stop today'}>{@html icon('next')}</button>
+      </span>
       <button class="fold" type="button" onclick={toggle} onpointerdown={(e) => e.stopPropagation()} aria-expanded={size !== 'peek'} aria-label={size === 'peek' ? 'Show the details' : 'Show the map'}>{@html icon('next')}</button>
       <button class="close" type="button" onclick={closeSheet} onpointerdown={(e) => e.stopPropagation()} aria-label="Close">{@html icon('x')}</button>
     </div>
@@ -115,6 +146,12 @@
           {#if stop.mark === 'tobook'}<span class="book">To book</span>{:else if stop.mark === 'tocheck'}<span class="check">Check before</span>{/if}
         </p>
         {#if stop.hook ?? stop.plan}<p class="hook">{stop.hook ?? stop.plan}</p>{/if}
+        {#if nextStop || stop.lat != null}
+          <p class="next">
+            {#if nextStop}<span class="nx">Next: <b>{nextStop.name}</b>{#if hop}{' · '}{hop}{/if}</span>{:else}<span class="nx">Last stop of the day</span>{/if}
+            {#if stop.lat != null}<a class="go" href={directions(stop)} target="_blank" rel="noopener" onclick={(e) => e.stopPropagation()}>{@html icon('navigation')}<span>Go</span></a>{/if}
+          </p>
+        {/if}
       </header>
 
       <div class="actions">
@@ -174,7 +211,20 @@
   /* Peek: the bar and the name and time; the map takes the rest. Tap it or swipe up for more. */
   .panel.peek { max-height: calc(var(--peek-h) + env(safe-area-inset-bottom, 0px)); cursor: pointer; }
   .panel.peek .scroll { overflow: hidden; }
-  .panel.peek .scroll > :not(.top), .panel.peek .top > :not(.when):not(h2) { display: none; }
+  .panel.peek .scroll > :not(.top), .panel.peek .top > :not(.when):not(h2):not(.next) { display: none; }
+  .panel.peek h2 { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-size: 1.2rem; }
+  /* The bar: previous and next stop on the left, fold and close on the right. */
+  .steps { position: absolute; top: 6px; left: 10px; display: flex; align-items: center; gap: 2px; }
+  .steps button { width: 40px; height: 40px; display: grid; place-items: center; border-radius: 50%; border: 1px solid var(--rule); background: oklch(23.5% 0.058 278 / 0.9); color: var(--washi); cursor: pointer; }
+  .steps button:disabled { opacity: 0.35; cursor: default; }
+  .steps button :global(svg) { width: 18px; height: 18px; }
+  .pos { min-width: 38px; text-align: center; font-size: 0.74rem; font-weight: 700; color: var(--washi-3); }
+  /* Next hop and Go: on the full sheet and on the folded card. */
+  .next { display: flex; align-items: center; gap: 10px; margin-top: 6px; padding: 8px 8px 8px 12px; border-radius: var(--r-m); background: var(--night-3); font-size: 0.84rem; color: var(--washi-2); }
+  .nx { flex: 1; min-width: 0; overflow: hidden; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; line-height: 1.35; }
+  .nx b { color: var(--washi); font-weight: 700; }
+  .go { flex: none; display: inline-flex; align-items: center; gap: 5px; height: 34px; padding: 0 14px; border-radius: 99px; background: var(--lantern); color: oklch(20% 0.05 276); font-weight: 700; font-size: 0.84rem; text-decoration: none; }
+  .go :global(svg) { width: 15px; height: 15px; }
   .fold { position: absolute; z-index: 2; top: 6px; right: 58px; width: 40px; height: 40px; display: grid; place-items: center; border-radius: 50%; border: 1px solid var(--rule); background: oklch(23.5% 0.058 278 / 0.9); color: var(--washi); cursor: pointer; }
   .fold :global(svg) { width: 18px; height: 18px; rotate: 90deg; transition: rotate var(--t-med) var(--ease); }
   .fold[aria-expanded='false'] :global(svg) { rotate: -90deg; }
@@ -185,11 +235,11 @@
   .grip { width: 42px; height: 5px; border-radius: 99px; background: var(--night-4); }
   .close { position: absolute; z-index: 2; top: 6px; right: 10px; width: 40px; height: 40px; display: grid; place-items: center; border-radius: 50%; border: 1px solid var(--rule); background: oklch(23.5% 0.058 278 / 0.9); color: var(--washi); cursor: pointer; }
   .close :global(svg) { width: 18px; height: 18px; }
-  .scroll { overflow-y: auto; overscroll-behavior: contain; padding: 0 max(18px, env(safe-area-inset-right, 0px)) calc(28px + env(safe-area-inset-bottom, 0px)) max(18px, env(safe-area-inset-left, 0px)); display: grid; gap: 16px; align-content: start; }
+  .scroll { overflow-y: auto; overscroll-behavior: contain; padding: 0 max(18px, env(safe-area-inset-right, 0px)) calc(28px + env(safe-area-inset-bottom, 0px)) max(18px, env(safe-area-inset-left, 0px)); display: grid; grid-template-columns: minmax(0, 1fr); gap: 16px; align-content: start; }
   .hero { margin: 0 calc(-1 * max(18px, env(safe-area-inset-left, 0px))); }
   .hero img { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; }
   .hero figcaption { font-size: 0.72rem; color: var(--washi-3); padding: 4px 18px 0; }
-  .top { display: grid; gap: 5px; }
+  .top { display: grid; grid-template-columns: minmax(0, 1fr); gap: 5px; min-width: 0; }
   .when { font-size: 0.82rem; color: var(--washi-2); }
   .when b { color: var(--lantern); font-weight: 700; font-size: 0.95rem; }
   h2 { font-size: 1.4rem; line-height: 1.22; font-weight: 700; }
@@ -244,8 +294,7 @@
     .sheet.peek { bottom: auto; top: calc(var(--bar-h) + 14px); right: 14px; width: min(400px, 34vw); }
     .sheet.peek .panel { height: auto; max-height: none; border: 1px solid oklch(83% 0.145 76 / 0.35); border-radius: var(--r-l); box-shadow: 0 18px 50px -12px oklch(10% 0.05 276 / 0.85); }
     .sheet.peek .bar { position: absolute; inset: 0 0 auto 0; }
-    .sheet.peek .scroll { padding-top: 16px; padding-bottom: 16px; }
-    .sheet.peek .top { padding-right: 96px; }
+    .sheet.peek .scroll { padding-top: 54px; padding-bottom: 14px; }
     .panel { border-radius: 0; border-top: 0; border-left: 1px solid oklch(83% 0.145 76 / 0.35); animation-name: side; }
     @keyframes side { from { transform: translateX(30%); opacity: 0.4; } }
     .grip { display: none; }

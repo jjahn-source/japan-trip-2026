@@ -24,6 +24,16 @@ const cityNear = ([lng, lat]: LngLat) => {
   for (const [name, x, y] of CITIES) { const d = Math.hypot((x - lng) * 0.82, y - lat); if (d < bd) { bd = d; best = name; } }
   return best;
 };
+// The city in the app's own night palette: indigo land, deep water, muted parks, slate roads with
+// lantern-warm motorways, pale labels. The light still follows the hour (day is brighter than night),
+// but daytime no longer turns the map stark white next to the dark app.
+const PALETTE = {
+  colorLand: 'hsl(234, 26%, 27%)', colorWater: 'hsl(219, 46%, 19%)', colorGreenspace: 'hsl(152, 20%, 27%)',
+  colorCommercial: 'hsl(248, 20%, 31%)', colorEducation: 'hsl(240, 18%, 31%)', colorMedical: 'hsl(250, 18%, 32%)', colorIndustrial: 'hsl(232, 16%, 29%)',
+  colorRoads: 'hsl(232, 18%, 43%)', colorHdRoads: 'hsl(232, 18%, 43%)', colorTrunks: 'hsl(232, 20%, 50%)', colorMotorways: 'hsl(36, 32%, 52%)',
+  colorBuildings: 'hsl(238, 18%, 40%)', colorBuildingHighlight: 'hsl(238, 20%, 48%)',
+  colorPlaceLabels: 'hsl(40, 30%, 92%)', colorRoadLabels: 'hsl(230, 20%, 82%)', colorAdminBoundaries: 'hsl(262, 30%, 62%)',
+};
 const reduce = () => matchMedia('(prefers-reduced-motion: reduce)').matches;
 const esc = (s: string) => s.replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]!);
 
@@ -39,6 +49,7 @@ export class TripMap {
   private styled = false;
   private pinMarker: Marker | null = null;
   private dot: Marker | null = null;
+  private inset = 0;
   private stopAnim: (() => void) | null = null;
   ready: Promise<void>;
   failed = false;
@@ -66,7 +77,7 @@ export class TripMap {
         // work for the GPU, which is what keeps flights and rides smooth on a phone.
         pixelRatio: Math.min(devicePixelRatio || 1, 2),
         performanceMetricsCollection: false,
-        config: { basemap: { lightPreset: this.wantPhase, show3dObjects: true, showPointOfInterestLabels: false, showTransitLabels: true, showRoadLabels: false, showPlaceLabels: true } },
+        config: { basemap: { lightPreset: this.wantPhase, show3dObjects: true, showPointOfInterestLabels: false, showTransitLabels: true, showRoadLabels: false, showPlaceLabels: true, ...PALETTE } },
       } as never);
       map.addControl(new mb.AttributionControl({ compact: true }), 'bottom-right');
       this.map = map;
@@ -114,7 +125,11 @@ export class TripMap {
   private fit(points: LngLat[], opts: { pad?: number; pitch?: number; bearing?: number; max?: number; duration?: number } = {}) {
     if (!this.map || !points.length) return;
     const xs = points.map((p) => p[0]), ys = points.map((p) => p[1]);
-    const cam = this.map.cameraForBounds([[Math.min(...xs), Math.min(...ys)], [Math.max(...xs), Math.max(...ys)]], { padding: opts.pad ?? 56, maxZoom: opts.max ?? 15.5, pitch: opts.pitch ?? 0, bearing: opts.bearing ?? 0 } as never);
+    // Per-side padding with the covered right edge added: a plain number would replace the map's
+    // padding, and the panel would lose its place.
+    const p = opts.pad ?? 56;
+    const padding = { top: p, bottom: p, left: p, right: p + this.inset };
+    const cam = this.map.cameraForBounds([[Math.min(...xs), Math.min(...ys)], [Math.max(...xs), Math.max(...ys)]], { padding, maxZoom: opts.max ?? 15.5, pitch: opts.pitch ?? 0, bearing: opts.bearing ?? 0 } as never);
     if (cam) this.map.flyTo({ ...cam, pitch: opts.pitch ?? 0, bearing: opts.bearing ?? 0, duration: reduce() ? 0 : opts.duration ?? 1400, curve: 1.3, essential: true } as never);
   }
   private dayFeatures(day: AppDay) {
@@ -192,13 +207,16 @@ export class TripMap {
   highlight(id: string | null) {
     for (const m of this.markers) { const el = m.getElement(); el.classList.toggle('is-selected', !!id && (el.dataset.ids ?? '').split(' ').includes(id)); }
   }
-  focus(s: AppStop, instant = false, besidePanel = true) {
+  /** How much of the map's right edge is covered (the laptop details panel); centring uses the rest. */
+  /** The camera moves that follow (a stop, a ride, a day) carry it as padding, so the panel and the
+   *  flight animate together instead of one interrupting the other. */
+  setInset(right: number) { this.inset = right; }
+  focus(s: AppStop, instant = false) {
     if (!this.map || s.lat == null) return;
     this.highlight(s.id);
     // On desktop the stop's panel covers the right of the map: centre the stop in what's left.
-    const panel = besidePanel && innerWidth >= 900 ? Math.min(460, innerWidth * 0.38) : 0;
-    // Close enough to see the place, far enough to see where it sits.
-    this.map.flyTo({ center: [s.lng!, s.lat], offset: [-panel / 2, 0], zoom: Math.min(16, Math.max(this.map.getZoom(), 15)), pitch: 45, bearing: -18, duration: reduce() || instant ? 0 : 1200, essential: true } as never);
+    // Close enough to see the place, far enough to see where it sits (any panel is in the padding).
+    this.map.flyTo({ center: [s.lng!, s.lat], padding: { top: 0, bottom: 0, left: 0, right: this.inset }, zoom: Math.min(16, Math.max(this.map.getZoom(), 15)), pitch: 45, bearing: -18, duration: reduce() || instant ? 0 : 1200, essential: true } as never);
   }
 
   /** The signature move: the leg lights up along its real path, segment by segment, in its own colours. */
