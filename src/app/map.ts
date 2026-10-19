@@ -25,8 +25,9 @@ const cityNear = ([lng, lat]: LngLat) => {
   return best;
 };
 // The city in the app's own night palette: indigo land, deep water, muted parks, slate roads with
-// lantern-warm motorways, pale labels. The light still follows the hour (day is brighter than night),
-// but daytime no longer turns the map stark white next to the dark app.
+// lantern-warm motorways, pale labels. The light still follows the hour (day is brighter than night).
+// On top, a colour grade (MAP_THEME, scripts/map-theme.mjs) brings in everything these settings don't
+// reach (airports, the detailed 3D landmark models, saturated water) so nothing turns stark white.
 const PALETTE = {
   colorLand: 'hsl(234, 26%, 27%)', colorWater: 'hsl(219, 46%, 19%)', colorGreenspace: 'hsl(152, 20%, 27%)',
   colorCommercial: 'hsl(248, 20%, 31%)', colorEducation: 'hsl(240, 18%, 31%)', colorMedical: 'hsl(250, 18%, 32%)', colorIndustrial: 'hsl(232, 16%, 29%)',
@@ -66,7 +67,8 @@ export class TripMap {
         document.head.append(link);
         await new Promise((r) => { link.onload = link.onerror = r; });
       }
-      const { default: mb } = await import('mapbox-gl');
+      // The engine and the colour grade load together, after the page is up.
+      const [{ default: mb }, { MAP_THEME }] = await Promise.all([import('mapbox-gl'), import('./map-theme')]);
       if (!this.token) throw new Error('no map token');
       mb.accessToken = this.token;
       this.mb = mb;
@@ -77,7 +79,7 @@ export class TripMap {
         // work for the GPU, which is what keeps flights and rides smooth on a phone.
         pixelRatio: Math.min(devicePixelRatio || 1, 2),
         performanceMetricsCollection: false,
-        config: { basemap: { lightPreset: this.wantPhase, show3dObjects: true, showPointOfInterestLabels: false, showTransitLabels: true, showRoadLabels: false, showPlaceLabels: true, ...PALETTE } },
+        config: { basemap: { lightPreset: this.wantPhase, show3dObjects: true, showPointOfInterestLabels: false, showTransitLabels: true, showRoadLabels: false, showPlaceLabels: true, ...PALETTE, theme: 'custom', 'theme-data': MAP_THEME } },
       } as never);
       map.addControl(new mb.AttributionControl({ compact: true }), 'bottom-right');
       this.map = map;

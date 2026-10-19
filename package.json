@@ -27,7 +27,8 @@
     "thumbs": "astro build && node scripts/thumbs.mjs && astro build",
     "perf": "node scripts/perf.mjs",
     "sweep": "node scripts/sweep.mjs",
-    "frames": "node scripts/frames.mjs"
+    "frames": "node scripts/frames.mjs",
+    "map-theme": "node scripts/map-theme.mjs"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "0.135.0",
