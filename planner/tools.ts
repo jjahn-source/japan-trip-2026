@@ -47,7 +47,8 @@ const days = () => list('days').map((f) => read<PlanDay>(`days/${f}`, null as ne
 const extras = (): Extras => read<Extras>('extras.json', { todos: [], budget: [], coverage: [], logistics: [] });
 const stays = (b: z.infer<typeof Brief>): AnchorStay[] => { const cities = new Set(b.legs.map((l) => l.city.toLowerCase())); return anchors().filter((s) => cities.has(s.city.toLowerCase())); };
 /** "HH:MM" → minutes; with `after`, a time more than 6 hours before it counts as after midnight. */
-const toMin = (t: string, after?: number) => { const v = +t.slice(0, 2) * 60 + +t.slice(3, 5); return after != null && v < after - 360 ? v + 1440 : v; };
+/** HH:MM as minutes; with `after` (the day's start), a time before it is after midnight when it's in the small hours or over 6 h earlier. */
+const toMin = (t: string, after?: number) => { const v = +t.slice(0, 2) * 60 + +t.slice(3, 5); return after != null && v < after && (v < 360 || v < after - 360) ? v + 1440 : v; };
 const weekday = (d: string, style: 'short' | 'long' = 'short') => new Date(`${d}T12:00:00+09:00`).toLocaleDateString('en-US', { weekday: style, timeZone: 'Asia/Tokyo' });
 
 // ── Tool registry ──
