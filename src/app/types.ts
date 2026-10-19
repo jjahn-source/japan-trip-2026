@@ -21,7 +21,6 @@ export interface AppLeg { from: string; to: string; mode: string; minutes: numbe
 export interface AppPick { id: string; name: string; ja: string | null; kind: string; lat: number; lng: number; near: string; km: number; why: string | null; when: string | null; photo: string | null; photoSmall?: string; tag: string }
 export interface AppDay {
   n: number; date: string; label: string; weekday: string; title: string; city: string;
-  kanji: string; reading: string; place: string;
   notes: { kind: string; text: string; check: boolean }[];
   base: { short: string; address: string; confirmation: string; checkIn: string; checkOut: string } | null;
   sun: { sunrise: string; sunset: string; lat: number; lng: number } | null;

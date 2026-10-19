@@ -21,6 +21,7 @@ npm test           # unit tests (search parsing, money, line colours, the map's 
 npm run e2e        # the built app in Chromium at phone and desktop sizes (Playwright)
 npm run sweep      # with serve running: opens every stop, plays every ride, searches; prints anything wrong
 npm run perf       # with serve running: tap-to-paint times on a 4x-slowed phone, and scroll smoothness
+npm run frames     # with serve running: frame times while rides play, the camera flies and sheets open
 ```
 
 Node 22.12+ required (Astro 7).

@@ -77,19 +77,22 @@
   .grp[data-k='late'] h2 { color: var(--noren); }
   .grp ul { list-style: none; padding: 0; display: grid; gap: 6px; }
   .grp li { border-radius: var(--r-m); background: var(--night-2); padding: 4px 6px 6px; }
-  .row { position: relative; display: grid; grid-template-columns: 30px 5.2rem 1fr; gap: 6px 10px; align-items: start; padding: 8px 6px 4px; cursor: pointer; }
+  .row { position: relative; display: grid; grid-template-columns: 30px 1fr; gap: 2px 10px; align-items: start; padding: 10px 6px 4px; cursor: pointer; }
+  /* The due date sits above the to-do, so the text gets the full width of a phone. */
+  .row .box { grid-row: 1 / span 2; margin-top: 1px; }
+  .row .due, .row .txt { grid-column: 2; }
   .row input { position: absolute; opacity: 0; width: 1px; height: 1px; }
   .box { grid-row: 1; width: 24px; height: 24px; display: grid; place-items: center; border-radius: 8px; border: 1.5px solid var(--rule-strong); color: transparent; transition: background var(--t-fast), border-color var(--t-fast), color var(--t-fast); }
   .box :global(svg) { width: 15px; height: 15px; }
   .row input:checked + .box { background: var(--ok); border-color: var(--ok); color: oklch(20% 0.05 276); }
   .row input:focus-visible + .box { outline: 2px solid var(--lantern); outline-offset: 2px; }
-  .due { font-size: 0.8rem; font-weight: 700; color: var(--lantern); padding-top: 2px; }
+  .due { font-size: 0.76rem; font-weight: 700; color: var(--lantern); line-height: 1.4; }
   .grp[data-k='late'] .due { color: var(--noren); }
   .txt { display: grid; gap: 3px; font-size: 0.92rem; }
   .txt small { color: var(--washi-3); font-size: 0.8rem; line-height: 1.45; }
   .done .txt { color: var(--washi-3); text-decoration: line-through; text-decoration-color: var(--rule-strong); }
   .links { display: flex; flex-wrap: wrap; gap: 6px; padding: 2px 6px 4px 46px; }
-  .links button { display: inline-flex; align-items: center; gap: 4px; min-height: 32px; padding: 0 10px; border-radius: 99px; border: 1px solid var(--rule); background: none; color: var(--lantern); font-size: 0.78rem; font-weight: 600; cursor: pointer; }
+  .links button { display: inline-flex; align-items: center; gap: 4px; text-align: left; min-height: 32px; padding: 0 10px; border-radius: 99px; border: 1px solid var(--rule); background: none; color: var(--lantern); font-size: 0.78rem; font-weight: 600; cursor: pointer; }
   .links :global(svg) { width: 13px; height: 13px; }
   .bars { list-style: none; padding: 0; display: grid; gap: 12px; }
   .bars li { display: grid; grid-template-columns: 1fr auto; gap: 4px 10px; font-size: 0.88rem; }

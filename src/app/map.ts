@@ -12,6 +12,18 @@ type Marker = import('mapbox-gl').Marker;
 type Popup = import('mapbox-gl').Popup;
 type LngLat = [number, number];
 
+// The places the trip goes, to name a marker by where its days actually are (a day trip to Kyoto
+// sleeps in Osaka).
+const CITIES: [string, number, number][] = [
+  ['Tokyo', 139.74, 35.68], ['Yokohama', 139.64, 35.45], ['Kamakura', 139.55, 35.32], ['Hakone', 139.05, 35.23],
+  ['Osaka', 135.5, 34.69], ['Kyoto', 135.76, 35.01], ['Nara', 135.83, 34.69], ['Kobe', 135.19, 34.69],
+  ['Hiroshima', 132.46, 34.39], ['Nikko', 139.6, 36.75], ['Fuji', 138.75, 35.45],
+];
+const cityNear = ([lng, lat]: LngLat) => {
+  let best: string | null = null, bd = 0.35; // ~35 km
+  for (const [name, x, y] of CITIES) { const d = Math.hypot((x - lng) * 0.82, y - lat); if (d < bd) { bd = d; best = name; } }
+  return best;
+};
 const reduce = () => matchMedia('(prefers-reduced-motion: reduce)').matches;
 const esc = (s: string) => s.replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]!);
 
@@ -26,6 +38,7 @@ export class TripMap {
   private run = 0;
   private styled = false;
   private pinMarker: Marker | null = null;
+  private dot: Marker | null = null;
   private stopAnim: (() => void) | null = null;
   ready: Promise<void>;
   failed = false;
@@ -49,6 +62,10 @@ export class TripMap {
       const map = new mb.Map({
         container: this.el, style: 'mapbox://styles/mapbox/standard', center: [137.2, 35.3], zoom: 5.4, pitch: 0,
         attributionControl: false, maxPitch: 75,
+        // A phone's 3× screen would draw 9 pixels per point; 2× is still sharp and less than half the
+        // work for the GPU, which is what keeps flights and rides smooth on a phone.
+        pixelRatio: Math.min(devicePixelRatio || 1, 2),
+        performanceMetricsCollection: false,
         config: { basemap: { lightPreset: this.wantPhase, show3dObjects: true, showPointOfInterestLabels: false, showTransitLabels: true, showRoadLabels: false, showPlaceLabels: true } },
       } as never);
       map.addControl(new mb.AttributionControl({ compact: true }), 'bottom-right');
@@ -57,14 +74,12 @@ export class TripMap {
       await new Promise<void>((r) => map.on('load', () => r()));
       this.styled = true;
       const empty = { type: 'FeatureCollection', features: [] };
-      for (const id of ['trip', 'day', 'play', 'dot']) map.addSource(id, { type: 'geojson', data: empty as never });
+      for (const id of ['trip', 'day', 'play']) map.addSource(id, { type: 'geojson', data: empty as never });
       map.addLayer({ id: 'trip', type: 'line', source: 'trip', slot: 'top', layout: { 'line-cap': 'round', 'line-join': 'round' }, paint: { 'line-color': LANTERN, 'line-width': 2.4, 'line-opacity': 0.85, 'line-dasharray': [1.2, 1.6], 'line-emissive-strength': 1 } } as never);
       map.addLayer({ id: 'day-glow', type: 'line', source: 'day', slot: 'top', filter: ['!=', ['get', 'm'], 'walk'], layout: { 'line-cap': 'round', 'line-join': 'round' }, paint: { 'line-color': ['get', 'colour'], 'line-width': 9, 'line-opacity': 0.16, 'line-blur': 4, 'line-emissive-strength': 1 } } as never);
       map.addLayer({ id: 'day', type: 'line', source: 'day', slot: 'top', layout: { 'line-cap': 'round', 'line-join': 'round' }, paint: { 'line-color': ['get', 'colour'], 'line-width': ['case', ['==', ['get', 'm'], 'walk'], 2.2, 3.6], 'line-opacity': 0.9, 'line-dasharray': ['case', ['==', ['get', 'm'], 'walk'], ['literal', [0.6, 1.4]], ['literal', [1, 0]]], 'line-emissive-strength': 1 } } as never);
       map.addLayer({ id: 'play-glow', type: 'line', source: 'play', slot: 'top', layout: { 'line-cap': 'round', 'line-join': 'round' }, paint: { 'line-color': ['get', 'colour'], 'line-width': 16, 'line-opacity': 0.35, 'line-blur': 7, 'line-emissive-strength': 1 } } as never);
       map.addLayer({ id: 'play', type: 'line', source: 'play', slot: 'top', layout: { 'line-cap': 'round', 'line-join': 'round' }, paint: { 'line-color': ['get', 'colour'], 'line-width': 5.5, 'line-emissive-strength': 1 } } as never);
-      map.addLayer({ id: 'dot-halo', type: 'circle', source: 'dot', slot: 'top', paint: { 'circle-radius': 18, 'circle-color': ['get', 'colour'], 'circle-opacity': 0.28, 'circle-blur': 0.8, 'circle-emissive-strength': 1 } } as never);
-      map.addLayer({ id: 'dot', type: 'circle', source: 'dot', slot: 'top', paint: { 'circle-radius': 7, 'circle-color': '#fff8ea', 'circle-stroke-width': 3, 'circle-stroke-color': ['get', 'colour'], 'circle-emissive-strength': 1 } } as never);
       // Light changes only when the camera rests, never mid-flight.
       map.on('idle', () => this.applyPhase());
       map.on('mousedown', () => this.stop());
@@ -131,12 +146,16 @@ export class TripMap {
       const el = document.createElement('button');
       el.className = 'mk-place';
       const first = p.runs[0][0];
-      el.innerHTML = `<span class="mk-kanji" aria-hidden="true">${esc(first.kanji)}</span><span class="mk-days num"><span class="sr-only">${esc(first.city)}, days </span>${p.runs.map(span).join(' · ')}</span>`;
+      el.innerHTML = `<span class="mk-city">${esc(cityNear(p.at) ?? first.city)}</span><span class="mk-days num"><span class="sr-only">, days </span>${p.runs.map(span).join(' · ')}</span>`;
       if (p.runs.flat().some((d) => d.n === todayN)) el.classList.add('is-today');
       // Opens the stay happening now or next, else the first.
       const pick = p.runs.flat().find((d) => todayN != null && d.n >= todayN) ?? first;
       el.addEventListener('click', (e) => { e.stopPropagation(); this.onDay(pick.n); });
-      this.markers.push(new this.mb.Marker({ element: el, anchor: 'center' }).setLngLat(p.at).addTo(this.map));
+      // Two places close together (Osaka and Kyoto at country zoom): the northern label sits above, the
+      // southern one below, so neither covers the other.
+      const near = places.find((o) => o !== p && Math.hypot((o.at[0] - p.at[0]) * 0.82, o.at[1] - p.at[1]) < 0.9);
+      const offset: [number, number] = near ? [0, p.at[1] > near.at[1] ? -24 : 24] : [0, 0];
+      this.markers.push(new this.mb.Marker({ element: el, anchor: 'center', offset }).setLngLat(p.at).addTo(this.map));
       el.setAttribute('role', 'button'); el.removeAttribute('aria-label'); // Mapbox labels markers as images called "Map marker"; these are buttons named by their text
     }
     this.fit(groups.map((g) => g.at), { pad: 48, max: 8 });
@@ -211,23 +230,35 @@ export class TripMap {
       el.textContent = text;
       this.tags.push(new this.mb.Popup({ closeButton: false, closeOnClick: false, anchor: 'bottom', offset: 14, className: 'tag-pop' }).setLngLat(at).setDOMContent(el).addTo(map));
     };
+    // Per frame only the cursor moves forward and an HTML dot is placed; the trail (map data, parsed
+    // off the main thread) is redrawn about 20 times a second from pieces prepared once.
+    const segPts = leg.segs.map((_, si) => pts.filter((x) => x.seg === si).map((x) => x.c));
+    const segStart = leg.segs.map((_, si) => pts.findIndex((x) => x.seg === si));
+    const colours = leg.segs.map((s) => colourOf(s.m, s.colour));
+    const dotEl = document.createElement('div');
+    dotEl.className = 'mk-dot';
+    this.dot = new this.mb!.Marker({ element: dotEl, anchor: 'center' }).setLngLat(pts[0].c).addTo(map);
+    let cursor = 1, frame = 0, lastSeg = -1;
     const draw = (p: number) => {
       const t = p * total;
-      let i = pts.findIndex((x) => x.d >= t); if (i < 1) i = 1;
-      const a = pts[i - 1], b = pts[i];
-      const f = b.d === a.d ? 1 : (t - a.d) / (b.d - a.d);
+      while (cursor < pts.length - 1 && pts[cursor].d < t) cursor++;
+      const a = pts[cursor - 1], b = pts[cursor];
+      const f = b.d === a.d ? 1 : Math.min(1, Math.max(0, (t - a.d) / (b.d - a.d)));
       const head: LngLat = [a.c[0] + f * (b.c[0] - a.c[0]), a.c[1] + f * (b.c[1] - a.c[1])];
-      const features = leg.segs.map((s, si) => {
-        const mine = pts.filter((x, k) => x.seg === si && k < i).map((x) => x.c);
-        if (si === b.seg) mine.push(head);
-        return { type: 'Feature', properties: { colour: colourOf(s.m, s.colour) }, geometry: { type: 'LineString', coordinates: mine } };
-      }).filter((x) => x.geometry.coordinates.length > 1);
-      this.set('play', { type: 'FeatureCollection', features });
-      const seg = leg.segs[b.seg];
-      this.set('dot', { type: 'Feature', properties: { colour: colourOf(seg.m, seg.colour) }, geometry: { type: 'Point', coordinates: head } });
+      this.dot?.setLngLat(head);
+      if (b.seg !== lastSeg) { dotEl.style.setProperty('--line', colours[b.seg]); lastSeg = b.seg; }
+      if (frame++ % 3 === 0 || p >= 1) {
+        const features = [];
+        for (let si = 0; si <= b.seg; si++) {
+          const coords = si < b.seg ? segPts[si] : [...segPts[si].slice(0, Math.max(1, cursor - segStart[si])), head];
+          if (coords.length > 1) features.push({ type: 'Feature', properties: { colour: colours[si] }, geometry: { type: 'LineString', coordinates: coords } });
+        }
+        this.set('play', { type: 'FeatureCollection', features });
+      }
       // Station names pop in as the dot reaches them.
-      if (seg.on && seg.line) tag(seg.coords[0], `${seg.on} · ${seg.line}`, colourOf(seg.m, seg.colour));
-      if (p >= 1 && seg.off) tag(seg.coords.at(-1)!, seg.off, colourOf(seg.m, seg.colour));
+      const seg = leg.segs[b.seg];
+      if (seg.on && seg.line) tag(seg.coords[0], `${seg.on} · ${seg.line}`, colours[b.seg]);
+      if (p >= 1 && seg.off) tag(seg.coords.at(-1)!, seg.off, colours[b.seg]);
       return head;
     };
     if (reduce()) { draw(1); onTick(1, clock(1)); return true; }
@@ -260,7 +291,7 @@ export class TripMap {
     for (const t of this.tags) t.remove();
     this.tags = [];
     this.set('play', { type: 'FeatureCollection', features: [] });
-    this.set('dot', { type: 'FeatureCollection', features: [] });
+    this.dot?.remove(); this.dot = null;
   }
   resize() { this.map?.resize(); }
 

@@ -52,13 +52,12 @@
   <nav class="days" aria-label="Days" bind:this={strip}>
     {#each days as d (d.n)}
       <a href={`/day/${d.n}/`} class="chip" class:today={d.n === today} aria-current={d.n === day.n ? 'page' : undefined} onclick={(e) => go({ kind: 'day', n: d.n }, e)}>
-        <span class="k">{d.kanji}</span><span class="n num">{d.n}</span>
+        <span class="n num">{d.n}</span><span class="dt num">{d.weekday} {Number(d.date.slice(8))}</span>
       </a>
     {/each}
   </nav>
 
   <header class="head">
-    <span class="kanji" data-k={day.kanji} aria-hidden="true"></span>
     <p class="numeral display num" aria-hidden="true">{String(day.n).padStart(2, '0')}</p>
     <div class="meta">
       <p class="date">Day {day.n} · {day.label} · {day.city}</p>
@@ -135,18 +134,16 @@
 
 <style>
   .day { padding: 0 max(16px, env(safe-area-inset-right, 0px)) 40px var(--gutter); }
-  .days { display: flex; gap: 6px; overflow-x: auto; scrollbar-width: none; margin: 0 calc(-1 * var(--gutter)); padding: 12px var(--gutter) 6px; scroll-snap-type: x proximity; }
+  .days { mask-image: linear-gradient(90deg, transparent, #000 18px, #000 calc(100% - 18px), transparent); display: flex; gap: 6px; overflow-x: auto; scrollbar-width: none; margin: 0 calc(-1 * var(--gutter)); padding: 12px var(--gutter) 6px; scroll-snap-type: x proximity; }
   .days::-webkit-scrollbar { display: none; }
-  .chip { flex: none; scroll-snap-align: center; display: grid; justify-items: center; gap: 1px; width: 46px; padding: 6px 0 5px; border-radius: var(--r-m); border: 1px solid var(--rule); color: var(--washi-2); text-decoration: none; transition: background var(--t-fast), color var(--t-fast), border-color var(--t-fast); }
-  .chip .k { font-family: var(--f-display); font-size: 1.1rem; line-height: 1.1; }
-  .chip .n { font-size: 0.7rem; }
+  .chip { position: relative; flex: none; scroll-snap-align: center; display: grid; justify-items: center; gap: 1px; min-width: 54px; padding: 6px 6px 5px; border-radius: var(--r-m); border: 1px solid var(--rule); color: var(--washi-2); text-decoration: none; transition: background var(--t-fast), color var(--t-fast), border-color var(--t-fast); }
+  .chip .n { font-family: var(--f-display); font-size: 1.15rem; line-height: 1.1; }
+  .chip .dt { font-size: 0.66rem; font-weight: 700; letter-spacing: 0.01em; white-space: nowrap; }
   @media (hover: hover) { .chip:hover { border-color: var(--rule-strong); color: var(--washi); } }
   .chip[aria-current='page'] { background: var(--lantern); border-color: var(--lantern); color: oklch(20% 0.05 276); box-shadow: 0 4px 18px -4px oklch(83% 0.145 76 / 0.6); }
   .chip.today:not([aria-current]) { border-color: var(--noren); color: var(--washi); }
 
   .head { position: relative; display: grid; grid-template-columns: auto 1fr; gap: 4px 16px; align-items: end; padding: 18px 0 14px; isolation: isolate; }
-  .kanji { position: absolute; z-index: -1; right: -6px; top: -4px; font-family: var(--f-display); font-size: 9rem; line-height: 1; color: transparent; -webkit-text-stroke: 1px oklch(83% 0.145 76 / 0.11); pointer-events: none; }
-  .kanji::after { content: attr(data-k); }
   .numeral { font-size: clamp(3.6rem, 16vw, 5.4rem); line-height: 0.82; color: var(--lantern); text-shadow: 0 0 34px oklch(83% 0.145 76 / 0.35); }
   .meta { display: contents; }
   .date { align-self: end; padding-bottom: 4px; font-size: 0.86rem; font-weight: 500; color: var(--washi-2); }

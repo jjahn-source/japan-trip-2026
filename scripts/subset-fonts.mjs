@@ -15,8 +15,8 @@ const out = join(root, 'src/fonts');
 const GF = 'https://raw.githubusercontent.com/google/fonts/main/ofl';
 // Japanese is set in the regular weight (names, readings), in its own file that loads only where
 // Japanese shows; the heavier weights carry Latin only and
-// leave the odd bold kanji to the system font; the display face draws numerals, the days' kanji
-// and the trip mark.
+// leave the odd bold kanji to the system font; the display face draws numerals and the trip
+// mark.
 const FACES = [
   { file: 'zen-kaku-400', src: `${GF}/zenkakugothicnew/ZenKakuGothicNew-Regular.ttf`, set: 'latin' },
   { file: 'zen-kaku-400-ja', src: `${GF}/zenkakugothicnew/ZenKakuGothicNew-Regular.ttf`, set: 'ja' },
@@ -43,7 +43,7 @@ for (const c of ' 0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz
 const LATIN = /[\p{Script=Latin}\p{N}\p{P}\p{Sm}\p{Sc}\p{Sk}\p{Zs}°→←↑↓↗⇄]/u;
 const latin = [...used].filter((c) => LATIN.test(c) && !/[\u3000-\u303f\uff00-\uffef]/.test(c)).join('');
 const trip = JSON.parse(readFileSync(data, 'utf8'));
-const display = ' 0123456789:–-·¥,.%' + trip.days.map((d) => d.kanji).join('') + '八人の旅' + 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+const display = ' 0123456789:–-·¥,.%' + '八人の旅' + 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 const ja = [...used].filter((c) => !latin.includes(c)).join('');
 const SETS = { latin, ja, display };
 

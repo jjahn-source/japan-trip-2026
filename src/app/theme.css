@@ -82,7 +82,7 @@ ul, ol { margin: 0; }
   box-shadow: 0 0 22px -4px oklch(83% 0.145 76 / 0.55); transition: transform var(--t-fast) var(--ease), box-shadow var(--t-fast);
 }
 @media (hover: hover) { .mk-place:hover { transform: translateY(-2px); box-shadow: 0 0 28px -2px oklch(83% 0.145 76 / 0.7); } }
-.mk-kanji { font-family: var(--f-display); font-size: 1.15rem; line-height: 1; }
+.mk-city { font-weight: 700; font-size: 0.82rem; line-height: 1.1; color: var(--washi); }
 .mk-days { font-size: 0.66rem; font-weight: 700; color: var(--washi-2); }
 .mk-place.is-today { border-color: var(--noren); box-shadow: 0 0 0 3px var(--noren-wash), 0 0 24px -4px var(--noren); }
 .mk-stop {
@@ -101,6 +101,7 @@ ul, ol { margin: 0; }
   box-shadow: 0 0 18px -4px var(--line, var(--lantern)); animation: tag-in var(--t-med) var(--ease);
 }
 @keyframes tag-in { from { opacity: 0; transform: translateY(6px) scale(0.92); } }
+.mk-dot { width: 14px; height: 14px; border-radius: 50%; background: #fff8ea; border: 3px solid var(--line, var(--lantern)); box-shadow: 0 0 0 6px color-mix(in srgb, var(--line, var(--lantern)) 30%, transparent), 0 0 18px 4px var(--line, var(--lantern)); pointer-events: none; }
 .mk-pin { display: grid; justify-items: center; gap: 4px; pointer-events: none; animation: tag-in var(--t-med) var(--ease); }
 .mk-pin-name { max-width: 180px; padding: 3px 9px 4px; border-radius: 99px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font: 700 0.74rem/1.2 var(--f-body); background: var(--noren); color: var(--on-noren); }
 .mk-pin-dot { width: 14px; height: 14px; border-radius: 50%; background: var(--noren); border: 3px solid var(--washi); box-shadow: 0 0 0 6px var(--noren-wash); }

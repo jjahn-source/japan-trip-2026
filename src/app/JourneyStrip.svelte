@@ -25,17 +25,24 @@
   const parts = $derived.by(() => {
     if (!leg) return [] as { seg: AppSeg; min: number }[];
     const segs = leg.segs.filter((s) => s.coords.length > 1);
-    const walkMin = (s: AppSeg) => Math.max(1, Math.round((km(s.coords) * 1.25) / 4.5 * 60));
-    const walk = segs.filter((s) => s.m === 'walk').reduce((n, s) => n + walkMin(s), 0);
-    const rideKm = segs.filter((s) => s.m !== 'walk').reduce((n, s) => n + km(s.coords), 0) || 1;
-    const rideMin = Math.max(segs.some((s) => s.m !== 'walk') ? 2 : 0, leg.minutes - walk);
-    return segs.map((seg) => ({ seg, min: seg.m === 'walk' ? walkMin(seg) : Math.max(1, Math.round((km(seg.coords) / rideKm) * rideMin)) }));
+    const rides = segs.filter((s) => s.m !== 'walk');
+    // Walks at a group's pace, then scaled so the parts always add up to the hop's own time (a
+    // walk-only hop is exactly its minutes); rides share what's left by distance.
+    const pace = segs.map((s) => (s.m === 'walk' ? (km(s.coords) * 1.25) / 4.5 * 60 : 0));
+    const walkTotal = pace.reduce((n, x) => n + x, 0) || 1;
+    const walkBudget = rides.length ? Math.min(walkTotal, Math.max(0, leg.minutes - 2 * rides.length)) : leg.minutes;
+    const rideKm = rides.reduce((n, s) => n + km(s.coords), 0) || 1;
+    const walkMins = segs.map((s, i) => (s.m === 'walk' ? Math.max(1, Math.round((pace[i] / walkTotal) * walkBudget)) : 0));
+    const rideMin = Math.max(rides.length * 2, leg.minutes - walkMins.reduce((n, x) => n + x, 0));
+    return segs.map((seg, i) => ({ seg, min: seg.m === 'walk' ? walkMins[i] : Math.max(1, Math.round((km(seg.coords) / rideKm) * rideMin)) }));
   });
   const total = $derived(parts.reduce((n, p) => n + p.min, 0) || leg?.minutes || 0);
   const running = $derived(active && progress < 1);
   const rides = $derived(parts.filter((p) => p.seg.m !== 'walk'));
   const MODE: Record<string, string> = { walk: 'Walk', rail: 'Train', bus: 'Bus', car: 'Taxi', ropeway: 'Ropeway', funicular: 'Cable car', boat: 'Boat' };
   const ICON = { walk: 'footprints', rail: 'transport', bus: 'bus', car: 'car', ropeway: 'mountain', funicular: 'mountain', boat: 'ship' } as const;
+  // Stops the route data had to make up a name for ("Hakone Ropeway stop") aren't worth showing.
+  const generic = (name: string) => / stop$/i.test(name);
   const fare = $derived(from.transport?.match(/¥\s?[\d,]+/)?.[0] ?? null);
 </script>
 
@@ -63,7 +70,7 @@
         {:else}
           <li class="ride" style:--c={colourOf(p.seg.m, p.seg.colour)} style:--ink={inkOn(colourOf(p.seg.m, p.seg.colour))}>
             <span class="ic">{@html icon(ICON[p.seg.m] ?? 'transport')}</span>
-            <span class="what"><span class="pill">{p.seg.line ?? MODE[p.seg.m]}</span>{#if p.seg.on && p.seg.off} <span class="stations">{p.seg.on} <span class="arrow">→</span> {p.seg.off}</span>{/if}</span>
+            <span class="what"><span class="pill">{p.seg.line ?? MODE[p.seg.m]}</span>{#if p.seg.on && p.seg.off && !generic(p.seg.on) && !generic(p.seg.off)} <span class="stations">{p.seg.on} <span class="arrow">→</span> {p.seg.off}</span>{/if}</span>
             <span class="mins num">{p.min} min</span>
           </li>
         {/if}

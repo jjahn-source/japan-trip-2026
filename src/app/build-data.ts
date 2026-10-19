@@ -41,7 +41,6 @@ export function appData(): AppData {
     const picks = (trends[String(d.n)] ?? []).map((x) => ({ id: x.id, name: x.name, ja: x.ja, kind: x.kind, lat: x.lat, lng: x.lng, near: x.near.stop, km: x.near.km, why: x.why ?? null, when: x.when ?? null, photo: x.photo, photoSmall: x.photo ? THUMBS[x.photo]?.s : undefined, tag: x.tag }));
     return {
       n: d.n, date: d.date, label: d.label, weekday: d.weekday, title: d.title, city: it.days?.find((x) => x.date === d.date)?.city ?? '',
-      kanji: d.stamp.kanji, reading: d.stamp.reading, place: d.stamp.place,
       notes: d.notes.map((n) => ({ kind: n.kind, text: n.text, check: n.check })),
       base: d.base ? { short: d.base.short, address: d.base.address, confirmation: d.base.confirmation, checkIn: d.base.checkIn, checkOut: d.base.checkOut } : null,
       sun: d.sun ? { sunrise: d.sun.sunrise, sunset: d.sun.sunset, lat: d.sun.lat, lng: d.sun.lng } : null,

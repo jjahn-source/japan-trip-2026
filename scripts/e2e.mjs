@@ -174,11 +174,14 @@ test('phone: the page reads before any script runs', async () => {
   await ctx.close();
 });
 
-test('phone: nothing scrolls sideways', async () => {
-  for (const path of ['/', '/day/3/', '/day/8/', '/bookings/', '/budget/']) {
+test('phone: nothing scrolls sideways or zooms the page out', async () => {
+  for (const path of ['/', '/day/3/', '/day/8/', '/day/12/', '/bookings/', '/budget/']) {
     const { page, ctx } = await open('phone', path);
-    const over = await page.evaluate(() => document.documentElement.scrollWidth - innerWidth);
-    assert.ok(over <= 0, `${path} overflows by ${over}px`);
+    // On a phone, anything wider than the screen widens the layout viewport (the page zooms out), so
+    // check against the device width, not against innerWidth.
+    const w = await page.evaluate(() => ({ inner: innerWidth, scroll: document.documentElement.scrollWidth }));
+    assert.equal(w.inner, 390, `${path}: layout viewport is ${w.inner}px wide`);
+    assert.ok(w.scroll <= 390, `${path} overflows to ${w.scroll}px`);
     await ctx.close();
   }
 });

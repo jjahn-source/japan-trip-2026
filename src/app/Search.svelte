@@ -120,6 +120,7 @@
             <span class="nm">{x.r[0]}<small>{Math.round(x.d * 1000)} m{x.open ? ` · ${x.open.label}` : ''}{x.r[5] ? ` · ${x.r[5]}` : ''}</small></span>
           </button>
         {/each}
+        {#if total && !places.length && cats.length}<p class="note">No {cats.map(({ c }) => c.label.toLowerCase()).join(' or ')} within 3 km of day {dayN}'s stops{wantsOpen ? ' open now' : ''}.</p>{/if}
         {#if !total}<p class="empty">Nothing matches “{q}” in the trip or near day {dayN}. Try a kind of place, like ramen, karaoke or konbini.</p>{/if}
       </div>
     {:else}
@@ -149,6 +150,7 @@
   .badge :global(svg) { width: 15px; height: 15px; }
   .nm { display: grid; gap: 1px; min-width: 0; font-weight: 600; font-size: 0.94rem; }
   .nm small { color: var(--washi-3); font-weight: 400; font-size: 0.78rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .note { padding: 8px 10px 6px; color: var(--washi-3); font-size: 0.8rem; }
   .empty, .hint { padding: 16px; color: var(--washi-2); font-size: 0.88rem; line-height: 1.5; }
   .hint b { color: var(--lantern); font-weight: 600; }
 </style>

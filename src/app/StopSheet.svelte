@@ -24,6 +24,14 @@
   const g = $derived(stop.guide);
   const photo = $derived(g?.media.find((m) => m.kind === 'image') ?? null);
   const videos = $derived(g?.media.filter((m) => m.kind !== 'image' && m.embed) ?? []);
+  // "2026-12-19, 2026-12-20, 2026-12-21" reads as "Dec 19–21".
+  const MON = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+  const niceDates = (t: string) => t
+    .replace(/\b\d{4}-(\d{2})-(\d{2})\b/g, (_, m, d) => `${MON[+m - 1]} ${+d}`)
+    .replace(/\b([A-Z][a-z]{2}) (\d{1,2})(?:, \1 \d{1,2})+/g, (all, mon) => {
+      const ds = [...all.matchAll(/\b\d{1,2}\b/g)].map((x) => +x[0]);
+      return ds.every((v, i) => !i || v === ds[i - 1] + 1) ? `${mon} ${ds[0]}–${ds.at(-1)}` : `${mon} ${ds.join(', ')}`;
+    });
   const host = (u: string) => { try { return new URL(u).hostname.replace(/^www\./, ''); } catch { return 'source'; } };
   const directions = (s: AppStop) => `https://www.google.com/maps/dir/?api=1&destination=${s.lat},${s.lng}&travelmode=transit`;
 
@@ -63,8 +71,12 @@
 
 <dialog bind:this={dlg} class="sheet" aria-labelledby="sheet-title" oncancel={(e) => { e.preventDefault(); closeSheet(); }} onclick={(e) => { if (e.target === dlg) closeSheet(); }} style:--drag="{dy}px">
   <div class="panel" class:dragging out:exit|global>
-    <div class="grip" onpointerdown={down} onpointermove={move} onpointerup={up} onpointercancel={up} aria-hidden="true"><span></span></div>
-    <button class="close" type="button" onclick={closeSheet} aria-label="Close">{@html icon('x')}</button>
+    <!-- Its own bar above the scrolling content, so nothing ever runs under the close button. The
+         whole bar is a handle for the swipe down. -->
+    <div class="bar" onpointerdown={down} onpointermove={move} onpointerup={up} onpointercancel={up}>
+      <span class="grip" aria-hidden="true"></span>
+      <button class="close" type="button" onclick={closeSheet} onpointerdown={(e) => e.stopPropagation()} aria-label="Close">{@html icon('x')}</button>
+    </div>
     <div class="scroll" bind:this={body} ontouchstart={tStart} ontouchmove={tMove} ontouchend={tEnd} ontouchcancel={tEnd}>
       {#if photo}
         <figure class="hero"><img src={photo.large ? BASE + photo.large : photo.url} alt="" decoding="async" referrerpolicy="no-referrer" onerror={(e) => (e.currentTarget as HTMLElement).closest('figure')?.remove()} />{#if photo.credit}<figcaption>{photo.credit}</figcaption>{/if}</figure>
@@ -75,7 +87,7 @@
         {#if stop.ja}<p class="ja" lang="ja">{stop.ja}</p>{/if}
         <p class="tags">
           <span>{stop.catLabel}</span>
-          {#if stop.price}<span class="num">{stop.price}{#if usd(stop.price)} <small>≈ ${usd(stop.price)}</small>{/if}</span>{/if}
+          {#if stop.price}<span class="num">{stop.price}{#if usd(stop.price)}&nbsp;<small>≈&nbsp;${usd(stop.price)}</small>{/if}</span>{/if}
           {#if stop.mark === 'tobook'}<span class="book">To book</span>{:else if stop.mark === 'tocheck'}<span class="check">Check before</span>{/if}
         </p>
         {#if stop.hook ?? stop.plan}<p class="hook">{stop.hook ?? stop.plan}</p>{/if}
@@ -111,7 +123,7 @@
           </div></section>
         {/if}
         {#if g.facts.length}
-          <section><h3>Checked facts</h3><ul class="facts">{#each g.facts as f}<li>{f.text} <a href={f.url} target="_blank" rel="noopener">{host(f.url)}</a></li>{/each}</ul></section>
+          <section><h3>Checked facts</h3><ul class="facts">{#each g.facts as f}<li>{niceDates(f.text)} <a href={f.url} target="_blank" rel="noopener">{host(f.url)}</a></li>{/each}</ul></section>
         {/if}
         {#if g.wishes.length}<p class="wish">Because you asked: {g.wishes.join(' · ')}</p>{/if}
         {#if g.sources.length}<p class="src">Found in {#each g.sources as x, k}{k ? ' · ' : ''}<a href={x.url} target="_blank" rel="noopener">{x.label}</a>{/each}</p>{/if}
@@ -136,15 +148,15 @@
   .panel.dragging { transition: none; }
   @keyframes up { from { transform: translateY(40%); opacity: 0.4; } }
   @keyframes fade { from { opacity: 0; } }
-  .grip { flex: none; height: 26px; display: grid; place-items: center; cursor: grab; touch-action: none; }
-  .grip span { width: 42px; height: 5px; border-radius: 99px; background: var(--night-4); }
-  .close { position: absolute; z-index: 2; top: 12px; right: 12px; width: 40px; height: 40px; display: grid; place-items: center; border-radius: 50%; border: 1px solid var(--rule); background: oklch(23.5% 0.058 278 / 0.9); color: var(--washi); cursor: pointer; }
+  .bar { flex: none; position: relative; height: 52px; display: grid; place-items: center; cursor: grab; touch-action: none; border-bottom: 1px solid transparent; }
+  .grip { width: 42px; height: 5px; border-radius: 99px; background: var(--night-4); }
+  .close { position: absolute; z-index: 2; top: 6px; right: 10px; width: 40px; height: 40px; display: grid; place-items: center; border-radius: 50%; border: 1px solid var(--rule); background: oklch(23.5% 0.058 278 / 0.9); color: var(--washi); cursor: pointer; }
   .close :global(svg) { width: 18px; height: 18px; }
   .scroll { overflow-y: auto; overscroll-behavior: contain; padding: 0 max(18px, env(safe-area-inset-right, 0px)) calc(28px + env(safe-area-inset-bottom, 0px)) max(18px, env(safe-area-inset-left, 0px)); display: grid; gap: 16px; align-content: start; }
   .hero { margin: 0 calc(-1 * max(18px, env(safe-area-inset-left, 0px))); }
   .hero img { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; }
   .hero figcaption { font-size: 0.72rem; color: var(--washi-3); padding: 4px 18px 0; }
-  .top { display: grid; gap: 5px; padding-right: 44px; }
+  .top { display: grid; gap: 5px; }
   .when { font-size: 0.82rem; color: var(--washi-2); }
   .when b { color: var(--lantern); font-weight: 700; font-size: 0.95rem; }
   h2 { font-size: 1.4rem; line-height: 1.22; font-weight: 700; }
@@ -186,7 +198,7 @@
   .facts { list-style: none; padding: 0; display: grid; gap: 5px; font-size: 0.84rem; color: var(--washi-2); }
   .facts li::before { content: '✓  '; color: var(--ok); }
   .facts a, .src a { color: var(--lantern); }
-  .wish { font-size: 0.82rem; color: oklch(82% 0.11 35); font-weight: 600; }
+  .wish { font-size: 0.82rem; color: var(--washi-2); font-weight: 600; }
   .src, .extra { font-size: 0.8rem; color: var(--washi-3); }
 
   @media (min-width: 900px) {
@@ -195,7 +207,6 @@
     .panel { border-radius: 0; border-top: 0; border-left: 1px solid oklch(83% 0.145 76 / 0.35); animation-name: side; }
     @keyframes side { from { transform: translateX(30%); opacity: 0.4; } }
     .grip { display: none; }
-    .scroll { padding-top: 16px; }
-    .hero { margin-top: -16px; }
+    .bar { cursor: default; }
   }
 </style>
