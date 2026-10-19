@@ -4,8 +4,8 @@
 // (16 days out) takes over in the browser. Run: npm run climate
 import { readFile, writeFile } from 'node:fs/promises';
 
-const html = await readFile(new URL('../dist/index.html', import.meta.url), 'utf8');
-const trip = JSON.parse(html.match(/<script type="application\/json" id="trip-data">(.*?)<\/script>/s)[1]);
+// The trip as the build wrote it (src/pages/trip-data.json.ts), so build first.
+const trip = JSON.parse(await readFile(new URL('../dist/trip-data.json', import.meta.url), 'utf8'));
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 const out = { generated: new Date().toISOString(), source: 'Open-Meteo historical weather (ERA5), 2016–2025', days: {} };
 const byPlace = new Map();

@@ -22,8 +22,8 @@ const TREK = 'https://places.liketrek.com';
 // The TREK categories worth asking for by name: where Overture knows far more than OSM in Japan.
 const TREK_ASK = ['restaurant', 'japanese_restaurant', 'ramen_restaurant', 'sushi_restaurant', 'coffee_shop', 'bar', 'sake_bar', 'cocktail_bar', 'karaoke', 'dance_club', 'arcade', 'dessert_shop'];
 
-const html = await readFile(new URL('../dist/index.html', import.meta.url), 'utf8');
-const trip = JSON.parse(html.match(/<script type="application\/json" id="trip-data">(.*?)<\/script>/s)[1]);
+// The trip as the build wrote it (src/pages/trip-data.json.ts), so build first.
+const trip = JSON.parse(await readFile(new URL('../dist/trip-data.json', import.meta.url), 'utf8'));
 const stops = trip.stops.filter((s) => s.lat != null);
 
 const km = (a, b) => {

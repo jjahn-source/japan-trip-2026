@@ -22,8 +22,8 @@ const dist = (a, b) => { // metres between [lng, lat] points
   return 2 * R * Math.asin(Math.sqrt(h));
 };
 
-const html = await readFile(new URL('../dist/index.html', import.meta.url), 'utf8');
-const trip = JSON.parse(html.match(/<script type="application\/json" id="trip-data">(.*?)<\/script>/s)[1]);
+// The trip as the build wrote it (src/pages/trip-data.json.ts), so build first.
+const trip = JSON.parse(await readFile(new URL('../dist/trip-data.json', import.meta.url), 'utf8'));
 const transit = JSON.parse(await readFile(new URL('../public/transit.json', import.meta.url), 'utf8'));
 const plan = await readFile(new URL('../data/japan-plan-c.md', import.meta.url), 'utf8');
 // The itinerary agent's plan (data/itinerary.json), when there is one, is what the site shows: read its
@@ -91,10 +91,30 @@ const NAMED = [
   [/Loop line/i, /大阪環状線|Osaka Loop/i], [/Yumesaki/i, /ゆめ咲|桜島線|Yumesaki|Sakurajima/i], [/S[oō]bu/i, /総武|S[oō]bu/i],
   [/Hankyu/i, /阪急|Hankyu/i], [/Yamanote/i, /山手線|Yamanote/i], [/tram|streetcar|Hiroden/i, /広島電鉄|広電|Hiroden/i],
   [/Nara line/i, /奈良線|Nara Line/i], [/Keihan/i, /京阪|Keihan/i], [/Sagano|San-?in/i, /嵯峨野|山陰|Sagano/i],
+  [/Hanz[oō]mon/i, /半蔵門|Hanz[oō]mon/i], [/Den-?en-?toshi/i, /田園都市|Den-?en-?toshi/i], [/Marunouchi/i, /丸ノ内|Marunouchi/i],
+  [/Inokashira/i, /井の頭|Inokashira/i], [/Keio (line|railway|new line)/i, /京王線|京王新線|Keio Line|Keio New Line/i],
+  [/Seibu Ikebukuro/i, /西武鉄道池袋線|Seibu Ikebukuro/i], [/Seibu Shinjuku/i, /西武新宿線|Seibu Shinjuku/i],
+  [/Saiky[oō]/i, /埼京|Saiky[oō]/i], [/Yotsubashi/i, /四つ橋|Yotsubashi/i], [/Sakaisuji/i, /堺筋|Sakaisuji/i],
+  [/T[oō]zai/i, /東西線|T[oō]zai/i], [/T[oō]yoko/i, /東横|T[oō]yoko/i], [/Nankai/i, /南海|Nankai/i],
+  [/Namboku/i, /南北線|Namboku/i], [/Nagahori/i, /長堀|Nagahori/i], [/JR Kyoto|Kyoto line/i, /JR東海道本線|^JR Kyoto/i],
 ];
+// Stations the plan names for a hop ("walk to Yoyogi", "Momodani"): boarding and getting off there
+// wins over a slightly closer station it doesn't mention.
+const fold = (x) => x.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/[^a-z0-9]/g, '');
+const namedStations = (text) => {
+  const t = fold(text);
+  const out = new Set();
+  transit.stations.forEach((st, i) => {
+    const names = [st.name, ...(st.name.match(/['"(（]([^'")）]+)['")）]/g) ?? []).map((m) => m.slice(1, -1)), st.name.split(/\s+['"(]/)[0]];
+    if (names.some((n) => { const f = fold(n); return f.length >= 4 && t.includes(f); })) out.add(i);
+  });
+  return out;
+};
 const namedLines = (text) => {
   const ids = new Set();
-  for (const [said, name] of NAMED) if (said.test(text)) for (const L of transit.lines) if (name.test(`${L.name} ${L.ja}`)) ids.add(L.id);
+  // Everyday lines only: a through-service relation ("Denentoshi bypass line") would win over the two
+  // lines the plan names and hide the change between them.
+  for (const [said, name] of NAMED) if (said.test(text)) for (const L of transit.lines) if (name.test(`${L.name} ${L.ja}`) && !/bypass|直通/i.test(`${L.name} ${L.ja}`)) ids.add(L.id);
   return ids;
 };
 
@@ -135,24 +155,46 @@ for (const L of transit.lines) {
     transit.stations.push({ name: near && near.d < 600 ? near.st.name : `${L.name} stop`, ja: '', lng: p[0], lat: p[1] });
   }
 }
-// Insertions: for each station, the nearest spot on each passing line within 220 m.
+// Insertions: for each station, the nearest spot on each passing line within 220 m. Some lines come
+// as one path that runs out to the terminus and back (OSM's two directions chained, e.g. the Tōkyū
+// Setagaya Line), others as one path per track (the Ginza Line). With one stop per line, a ride
+// between two stations that landed on different tracks ran to the terminus and back, so the station
+// also goes on the line's other passes when they're about as close (the other track).
 const inserts = new Map(); // `${li}:${pi}` → [{ k, t, q, s, d }]
 transit.stations.forEach((st, si) => {
   const p = [st.lng, st.lat];
   const best = new Map(); // li → { d, pi, k, t, q }
+  const near = new Map(); // `${li}:${pi}` → [{ d, k, t, q }]
   const [cx, cy] = [Math.floor(st.lng / CELL), Math.floor(st.lat / CELL)];
   for (let x = cx - 1; x <= cx + 1; x++) for (let y = cy - 1; y <= cy + 1; y++) {
     for (const [li, pi, k] of segGrid.get(`${x},${y}`) ?? []) {
       const path = transit.lines[li].paths[pi];
       const { t, q } = project(p, path[k - 1], path[k]);
       const d = dist(p, q);
-      if (d <= 220 && (!best.has(li) || d < best.get(li).d)) best.set(li, { d, pi, k, t, q });
+      if (d > 220) continue;
+      if (!best.has(li) || d < best.get(li).d) best.set(li, { d, pi, k, t, q });
+      const key = `${li}:${pi}`;
+      if (!near.has(key)) near.set(key, []);
+      near.get(key).push({ d, k, t, q });
     }
   }
   for (const [li, b] of best) {
-    const key = `${li}:${b.pi}`;
-    if (!inserts.has(key)) inserts.set(key, []);
-    inserts.get(key).push({ k: b.k, t: b.t, q: b.q, s: si, d: b.d });
+    for (const [key, list] of near) {
+      if (!key.startsWith(`${li}:`)) continue;
+      // Each pass of the track near the station (a run of segments along the path), at its nearest
+      // spot; on the best path, the best spot itself is one of them.
+      const pi = Number(key.slice(key.indexOf(':') + 1));
+      const segs = [...list].sort((a, c) => a.k - c.k);
+      const passes = [];
+      for (const x of segs) { const last = passes.at(-1); if (last && x.k - last.at(-1).k <= 2) last.push(x); else passes.push([x]); }
+      for (const pass of passes) {
+        const o = pass.reduce((m, x) => (x.d < m.d ? x : m));
+        const isBest = pi === b.pi && pass.some((x) => x.k === b.k);
+        if (!isBest && o.d > b.d + 60) continue;
+        if (!inserts.has(key)) inserts.set(key, []);
+        inserts.get(key).push(isBest ? { k: b.k, t: b.t, q: b.q, s: si, d: b.d } : { k: o.k, t: o.t, q: o.q, s: si, d: o.d });
+      }
+    }
   }
 });
 // Station hubs.
@@ -220,14 +262,16 @@ const SERVICE = /Limited Express|特急|急行|Bypass|service|Direct|Train\b|Rak
 const isLine = (L) => !SERVICE.test(L.name) && (/Line|線|Shinkansen|Yurikamome|Ropeway|Cable|Monorail/i.test(`${L.name} ${L.ja}`));
 const nearStations = (p, max = 1300, k = 8) => transit.stations.map((st, i) => ({ i, d: dist(p, [st.lng, st.lat]) }))
   .filter((x) => x.d <= max).sort((a, b) => a.d - b.d).slice(0, k);
-function railRoute(from, to, prefer, daily) {
+const DEBUG_BAN = process.env.DEBUG_BAN ? new RegExp(process.env.DEBUG_BAN, 'i') : null;
+function railRoute(from, to, prefer, daily, named = new Set()) {
   const starts = nearStations(from).length ? nearStations(from) : nearStations(from, 4000, 4);
   const endList = nearStations(to).length ? nearStations(to) : nearStations(to, 4000, 4); // an island: the last stretch is the ferry
-  const ends = new Map(endList.map((x) => [hub[x.i], x.d]));
+  const ends = new Map(endList.map((x) => [hub[x.i], named.has(x.i) ? x.d * 0.6 : x.d]));
   if (!starts.length || !ends.size) return null;
+  const namedNames = new Set([...named].map((i) => transit.stations[i].name));
   const cost = new Float64Array(nodes.length).fill(Infinity), prev = new Int32Array(nodes.length).fill(-1);
   const h = new Heap();
-  for (const s of starts) { cost[hub[s.i]] = (s.d * 1.25) / WALK; h.push([cost[hub[s.i]], hub[s.i]]); }
+  for (const s of starts) { cost[hub[s.i]] = ((named.has(s.i) ? s.d * 0.6 : s.d) * 1.25) / WALK; h.push([cost[hub[s.i]], hub[s.i]]); }
   let best = Infinity, bestEnd = -1;
   while (h.size) {
     const [c, u] = h.pop();
@@ -240,8 +284,12 @@ function railRoute(from, to, prefer, daily) {
         w *= prefer.has(L.id) ? 0.2 : daily.has(L.id) ? 0.75 : 1; // the plan named it: take it
         if ((L.kind === 'shinkansen' || /新幹線|Shinkansen|Hitachi|ひたち|Tokiwa/i.test(`${L.name} ${L.ja}`)) && !prefer.has(L.id)) w *= 6; // only when the plan says so (it's a separate ticket)
         if (SERVICE.test(L.name)) w *= 1.15; // on shared track, name the everyday line, not an express service
+        if (DEBUG_BAN && DEBUG_BAN.test(L.name)) w *= 50; // DEBUG_BAN=Odakyu: compare against the route without a line
       }
       if (kind === 'board' && nodes[u].station != null) w += 2; // waiting for the train
+      if (kind === 'board' && nodes[v].line != null && prefer.has(transit.lines[nodes[v].line].id)) w *= 0.5; // a change the plan tells you to make
+      else if (kind === 'board' && nodes[v].line != null && prefer.size) w += 6; // the plan named its lines: leave them only for a clear gain
+      if (kind === 'board' && (namedNames.has(nodes[u].station) || namedNames.has(nodes[v].station))) w *= 0.7; // change where the plan says (Gotokuji, not Yamashita next door)
       const nc = c + w;
       if (nc < cost[v]) { cost[v] = nc; prev[v] = u; h.push([nc, v]); }
     }
@@ -261,7 +309,19 @@ function railRoute(from, to, prefer, daily) {
     const next = nodes[chain[i + 1]];
     if (next?.station != null) rides.at(-1).off = next.station;
   }
-  return { minutes: best, startStation: nodes[chain[0]], endStation: nodes[chain.at(-1)], rides: rides.filter((r) => r.coords.length > 1) };
+  // The real time along the chosen path (the search cost above is weighted towards the plan's lines
+  // and stations, so it isn't a duration): rides and transfers as timed, a wait at each boarding,
+  // and the walks at both ends.
+  let minutes = 0;
+  for (let i = 1; i < chain.length; i++) {
+    const e = adj[chain[i - 1]].find(([v]) => v === chain[i]);
+    if (!e) continue;
+    minutes += e[1];
+    if (e[2] === 'board' && nodes[chain[i - 1]].station != null) minutes += 2;
+  }
+  const walkOn = starts.find((x) => hub[x.i] === chain[0])?.d ?? 0, walkOff = endList.find((x) => hub[x.i] === chain.at(-1))?.d ?? 0;
+  minutes += ((walkOn + walkOff) * 1.25) / WALK;
+  return { cost: best, minutes, startStation: nodes[chain[0]], endStation: nodes[chain.at(-1)], rides: rides.filter((r) => r.coords.length > 1) };
 }
 
 // A ride booked on an express service's relation gets the name of the everyday line on the same
@@ -369,10 +429,11 @@ for (const d of [...new Set(stops.map((s) => s.d))].sort((a, b) => a - b)) {
     const segs = [];
     let minutes = 0, lines = [], text = '';
     if (mode === 'rail') {
-      const r = railRoute(a, b, prefer, daily);
+      const r = railRoute(a, b, prefer, daily, namedStations(said));
+      if (process.env.DEBUG_LEG === A.id && r) console.log('ROUTE cost', r.cost.toFixed(1), 'minutes', r.minutes.toFixed(1), r.rides.map((x) => `${transit.lines[x.line].name} ${x.on}→${x.off}`).join(' | '));
       const walkMin = (gap * 1.3) / WALK;
-      if (!r) mode = gap < 2500 ? 'walk' : /ferry|boat/i.test(said) ? 'boat' : 'car';
-      else if (r.minutes > walkMin * 0.95 && gap < 2500) mode = 'walk';
+      if (!r || !r.rides.length) mode = gap < 2500 ? 'walk' : /ferry|boat/i.test(said) ? 'boat' : 'car'; // no ride in it: it's a walk
+      else if (r.cost > walkMin * 0.95 && gap < 2500) mode = 'walk';
       else {
         const w1 = await street('foot', a, r.startStation.p);
         segs.push({ m: 'walk', coords: simplify(w1.coords) });

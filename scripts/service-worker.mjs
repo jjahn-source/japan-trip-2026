@@ -19,7 +19,7 @@ async function walk(dir) {
 // The place pack (~2 MB gzipped) is not forced onto a phone at install: each day is fetched when it's
 // needed (or on Wi-Fi), then kept by the PLACES cache below. A stop's large photo is cached the first
 // time its sheet opens; the small list thumbnails are precached.
-const SKIP = /(vietnamese.*\.woff2$|\.woff$|\.map$|^sw\.js$|\.DS_Store$|^places\/day-\d+\.json$|^thumbs\/.*-l\.webp$)/;
+const SKIP = /(vietnamese.*\.woff2$|\.woff$|\.map$|^sw\.js$|\.DS_Store$|^places\/day-\d+\.json$|^thumbs\/.*-l\.webp$|^trip-data\.json$)/;
 
 export function serviceWorker() {
   let base = '/';

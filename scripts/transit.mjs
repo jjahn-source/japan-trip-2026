@@ -156,8 +156,8 @@ for (const [name, [s, w, n, e]] of Object.entries(REGIONS)) {
 
 // 5. Lines named in each day of the plan.
 const plan = await readFile(new URL('../data/japan-plan-c.md', import.meta.url), 'utf8');
-const html = await readFile(new URL('../dist/index.html', import.meta.url), 'utf8');
-const trip = JSON.parse(html.match(/<script type="application\/json" id="trip-data">(.*?)<\/script>/s)[1]);
+// The trip as the build wrote it (src/pages/trip-data.json.ts), so build first.
+const trip = JSON.parse(await readFile(new URL('../dist/trip-data.json', import.meta.url), 'utf8'));
 const sections = {};
 // The itinerary agent's plan (data/itinerary.json), when there is one, is what the site shows.
 const itinerary = await readFile(new URL('../data/itinerary.json', import.meta.url), 'utf8').then(JSON.parse).catch(() => null);

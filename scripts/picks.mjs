@@ -53,8 +53,8 @@ const PICKS = [
   },
 ];
 
-const html = await readFile(new URL('../dist/index.html', import.meta.url), 'utf8');
-const trip = JSON.parse(html.match(/<script type="application\/json" id="trip-data">(.*?)<\/script>/s)[1]);
+// The trip as the build wrote it (src/pages/trip-data.json.ts), so build first.
+const trip = JSON.parse(await readFile(new URL('../dist/trip-data.json', import.meta.url), 'utf8'));
 const km = (a, b) => {
   const R = 6371, r = Math.PI / 180;
   const dLat = (b[1] - a[1]) * r, dLng = (b[0] - a[0]) * r;

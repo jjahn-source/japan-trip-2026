@@ -15,8 +15,8 @@ const UA = 'japan-plan-c-trip-site/1.0 (private trip planner)';
 const RADIUS = 1000; // metres: about a 12-minute walk
 const PER_DAY = 8;
 
-const html = await readFile(new URL('../dist/index.html', import.meta.url), 'utf8');
-const trip = JSON.parse(html.match(/<script type="application\/json" id="trip-data">(.*?)<\/script>/s)[1]);
+// The trip as the build wrote it (src/pages/trip-data.json.ts), so build first.
+const trip = JSON.parse(await readFile(new URL('../dist/trip-data.json', import.meta.url), 'utf8'));
 const stops = trip.stops.filter((s) => s.lat != null);
 
 const km = (a, b) => {
