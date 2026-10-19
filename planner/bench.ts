@@ -34,7 +34,7 @@ function metrics(it: Itinerary) {
   };
 }
 /** The plan as compact text, the way a reader meets it (no ids, no metadata). */
-const asText = (it: Itinerary) => it.days.map((d) => `DAY ${d.date} · ${d.title}\n${d.notes.map((n) => `  [${n.kind}] ${n.text}`).join('\n')}\n${d.stops.map((s) => {
+export const asText = (it: Itinerary) => it.days.map((d) => `DAY ${d.date} · ${d.title}\n${d.notes.map((n) => `  [${n.kind}] ${n.text}`).join('\n')}\n${d.stops.map((s) => {
   const g = s.guide;
   return `  ${s.start}–${s.end} ${s.name} (${s.categoryLabel}${s.price ? `, ${s.price}` : ''})${s.transport ? ` → next: ${s.transport}` : ''}${g ? `\n    ${g.story}\n    How: ${g.how.join(' / ')}\n    Tips: ${g.tips.join(' / ')}${g.booking ? `\n    Booking: ${g.booking}` : ''}\n    Sources: ${g.sources.map((x) => x.label).join(', ') || 'none'}${g.verified ? ` · verified on ${g.verified.source}` : ''}` : ''}`;
 }).join('\n')}`).join('\n\n') + `\n\nTO-DOS: ${it.todos.map((t) => `${t.due}: ${t.text}`).join(' | ')}`;
@@ -89,11 +89,11 @@ async function judge(base: Itinerary, other: Itinerary) {
   // Map A/B back to baseline/variant.
   const side = (c: { a: number; b: number; why: string }) => (flip ? { baseline: c.b, variant: c.a, why: c.why } : { baseline: c.a, variant: c.b, why: c.why });
   const crits = ['specificity', 'accuracy', 'feasibility', 'fit', 'sourcing', 'usefulness'] as const;
-  const mean = (k: (typeof crits)[number], who: 'baseline' | 'variant') => { const xs = [side(v[k])[who], ...(gv ? [side(gv[k])[who]] : [])]; return +(xs.reduce((a, b) => a + b, 0) / xs.length).toFixed(1); };
+  const mean = (k: (typeof crits)[number], who: 'baseline' | 'variant') => { const xs = [side(v[k])[who], ...(gv && !free ? [side(gv[k])[who]] : [])]; return +(xs.reduce((a, b) => a + b, 0) / xs.length).toFixed(1); };
   return {
     // Primary metric: errors either judge could name (a 10 means zero).
-    errorCount: { baseline: (flip ? v.errors_b : v.errors_a).length + (gv ? (flip ? gv.errors_b : gv.errors_a).length : 0), variant: (flip ? v.errors_a : v.errors_b).length + (gv ? (flip ? gv.errors_a : gv.errors_b).length : 0) },
-    average: { baseline: +(crits.reduce((n, k) => n + mean(k, 'baseline'), 0) / crits.length).toFixed(2), variant: +(crits.reduce((n, k) => n + mean(k, 'variant'), 0) / crits.length).toFixed(2), judges: gv ? `opus + ${gv.model}` : 'opus' },
+    errorCount: { baseline: (flip ? v.errors_b : v.errors_a).length + (gv && !free ? (flip ? gv.errors_b : gv.errors_a).length : 0), variant: (flip ? v.errors_a : v.errors_b).length + (gv && !free ? (flip ? gv.errors_a : gv.errors_b).length : 0) },
+    average: { baseline: +(crits.reduce((n, k) => n + mean(k, 'baseline'), 0) / crits.length).toFixed(2), variant: +(crits.reduce((n, k) => n + mean(k, 'variant'), 0) / crits.length).toFixed(2), judges: free ? gv!.model : gv ? `opus + ${gv.model}` : 'opus' },
     gemini: gv ? { winner: gv.overall === 'tie' ? 'tie' : (gv.overall === 'A') !== flip ? 'baseline' : 'variant', errors: { baseline: flip ? gv.errors_b : gv.errors_a, variant: flip ? gv.errors_a : gv.errors_b }, summary: gv.summary } : null,
     scores: Object.fromEntries(crits.map((k) => [k, side(v[k])])),
     errors: { baseline: flip ? v.errors_b : v.errors_a, variant: flip ? v.errors_a : v.errors_b },
