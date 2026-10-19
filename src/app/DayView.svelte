@@ -37,7 +37,15 @@
   });
 
   let strip = $state<HTMLElement>();
-  $effect(() => { void day.n; strip?.querySelector('[aria-current="page"]')?.scrollIntoView({ inline: 'center', block: 'nearest' }); });
+  // Centre today's chip in the strip after the day has painted (it needs layout).
+  $effect(() => {
+    void day.n;
+    const raf = requestAnimationFrame(() => {
+      const el = strip?.querySelector<HTMLElement>('[aria-current="page"]');
+      if (el && strip) strip.scrollLeft = el.offsetLeft - strip.clientWidth / 2 + el.offsetWidth / 2;
+    });
+    return () => cancelAnimationFrame(raf);
+  });
 </script>
 
 <section class="day" aria-labelledby="day-title">
@@ -96,7 +104,7 @@
       </li>
       {#if day.stops[i + 1]}
         <li class="hop">
-          <JourneyStrip leg={day.legs[s.id]} from={s} to={day.stops[i + 1]} active={app.playing === s.id} progress={app.playing === s.id ? app.progress : 0} clock={app.playing === s.id ? app.clock : ''} onplay={day.legs[s.id] ? () => onplay(s.id) : undefined} />
+          <JourneyStrip leg={day.legs[s.id]} from={s} to={day.stops[i + 1]} date={day.date} active={app.playing === s.id} progress={app.playing === s.id ? app.progress : 0} clock={app.playing === s.id ? app.clock : ''} onplay={day.legs[s.id] ? () => onplay(s.id) : undefined} />
         </li>
       {/if}
     {/each}
@@ -132,7 +140,7 @@
   .chip { flex: none; scroll-snap-align: center; display: grid; justify-items: center; gap: 1px; width: 46px; padding: 6px 0 5px; border-radius: var(--r-m); border: 1px solid var(--rule); color: var(--washi-2); text-decoration: none; transition: background var(--t-fast), color var(--t-fast), border-color var(--t-fast); }
   .chip .k { font-family: var(--f-display); font-size: 1.1rem; line-height: 1.1; }
   .chip .n { font-size: 0.7rem; }
-  .chip:hover { border-color: var(--rule-strong); color: var(--washi); }
+  @media (hover: hover) { .chip:hover { border-color: var(--rule-strong); color: var(--washi); } }
   .chip[aria-current='page'] { background: var(--lantern); border-color: var(--lantern); color: oklch(20% 0.05 276); box-shadow: 0 4px 18px -4px oklch(83% 0.145 76 / 0.6); }
   .chip.today:not([aria-current]) { border-color: var(--noren); color: var(--washi); }
 
@@ -153,10 +161,12 @@
   .timeline { list-style: none; padding: 0; position: relative; }
   .timeline::before { content: ''; position: absolute; left: 75px; top: 14px; bottom: 14px; width: 1px; background: linear-gradient(var(--rule-strong), var(--rule) 30%, var(--rule)); }
   .stop { position: relative; }
-  :global(.enter) .stop { animation: rise var(--t-slow) var(--ease) both; animation-delay: calc(min(var(--i), 10) * 28ms); }
+  /* Rows below the fold are laid out when they scroll near, not when the day opens. */
+  .stop, .hop { content-visibility: auto; contain-intrinsic-size: auto 104px; }
+  :global(.enter) .stop { animation: rise var(--t-slow) var(--ease) both; animation-delay: calc(min(var(--i), 8) * 16ms); }
   @keyframes rise { from { opacity: 0; transform: translateY(10px); } }
   .hit { width: 100%; display: grid; grid-template-columns: 58px 22px 1fr auto; align-items: start; gap: 0 12px; padding: 12px 6px 12px 0; border: 0; border-radius: var(--r-m); background: none; text-align: left; cursor: pointer; transition: background var(--t-fast); }
-  .hit:hover { background: oklch(29% 0.066 280 / 0.45); }
+  @media (hover: hover) { .hit:hover { background: oklch(29% 0.066 280 / 0.45); } }
   .time { display: grid; justify-items: end; line-height: 1.15; padding-top: 2px; }
   .time b { font-size: 1.02rem; color: var(--lantern); font-weight: 700; }
   .time small { font-size: 0.72rem; color: var(--washi-3); }
@@ -187,6 +197,6 @@
 
   .pager { display: flex; justify-content: space-between; margin-top: 30px; }
   .pager a { display: inline-flex; align-items: center; gap: 6px; min-height: 44px; padding: 0 14px; border-radius: 99px; border: 1px solid var(--rule); color: var(--washi); text-decoration: none; font-weight: 600; font-size: 0.9rem; }
-  .pager a:hover { border-color: var(--lantern); }
+  @media (hover: hover) { .pager a:hover { border-color: var(--lantern); } }
   .pager :global(svg) { width: 16px; height: 16px; }
 </style>

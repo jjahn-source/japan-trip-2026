@@ -26,9 +26,9 @@
   --f-body: 'Zen Kaku Gothic New', system-ui, -apple-system, 'Hiragino Sans', sans-serif;
   --ease: cubic-bezier(0.16, 1, 0.3, 1);
   --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
-  --t-fast: 160ms;
-  --t-med: 320ms;
-  --t-slow: 560ms;
+  --t-fast: 120ms;
+  --t-med: 240ms;
+  --t-slow: 380ms;
   --bar-h: 56px;
   --r-s: 8px;
   --r-m: 14px;
@@ -48,6 +48,16 @@ body {
 :focus-visible { outline: 2px solid var(--lantern); outline-offset: 2px; border-radius: 6px; }
 a { color: var(--lantern); text-underline-offset: 0.18em; text-decoration-thickness: 1px; }
 button { font: inherit; color: inherit; }
+/* Taps answer at once: no double-tap-zoom wait, no grey flash, and a pressed state on everything you
+   can tap (hover styles only exist where there is a mouse, so nothing stays lit after a tap). */
+a, button, [role='button'], label, summary { touch-action: manipulation; -webkit-tap-highlight-color: transparent; }
+.hit:active, .res:active, .nowrow:active { background: var(--night-3) !important; }
+.days a:active, .chip:active, .tabs a:active, .find:active, .grow:active, .mark:active, .pager a:active,
+.links button:active, .act:active, .picks button:active, .pincard a:active, .pincard button:active,
+.close:active, .retry:active, .box button:active { transform: scale(0.96); }
+.days a, .chip, .tabs a, .find, .grow, .mark, .pager a, .links button, .act, .picks button, .pincard a, .pincard button, .close, .box button {
+  transition: transform var(--t-fast) var(--ease), background-color var(--t-fast), border-color var(--t-fast), color var(--t-fast);
+}
 img { max-width: 100%; display: block; }
 h1, h2, h3, h4 { margin: 0; text-wrap: balance; }
 p { margin: 0; }
@@ -71,7 +81,7 @@ ul, ol { margin: 0; }
   border: 1px solid oklch(83% 0.145 76 / 0.55); background: oklch(19% 0.05 276 / 0.88); color: var(--lantern);
   box-shadow: 0 0 22px -4px oklch(83% 0.145 76 / 0.55); transition: transform var(--t-fast) var(--ease), box-shadow var(--t-fast);
 }
-.mk-place:hover { transform: translateY(-2px); box-shadow: 0 0 28px -2px oklch(83% 0.145 76 / 0.7); }
+@media (hover: hover) { .mk-place:hover { transform: translateY(-2px); box-shadow: 0 0 28px -2px oklch(83% 0.145 76 / 0.7); } }
 .mk-kanji { font-family: var(--f-display); font-size: 1.15rem; line-height: 1; }
 .mk-days { font-size: 0.66rem; font-weight: 700; color: var(--washi-2); }
 .mk-place.is-today { border-color: var(--noren); box-shadow: 0 0 0 3px var(--noren-wash), 0 0 24px -4px var(--noren); }
@@ -81,7 +91,7 @@ ul, ol { margin: 0; }
   box-shadow: 0 0 16px -3px oklch(83% 0.145 76 / 0.6); transition: transform var(--t-fast) var(--ease), background var(--t-fast), color var(--t-fast);
 }
 .mk-stop.is-stay { border-color: var(--washi-2); color: var(--washi); }
-.mk-stop:hover { transform: scale(1.12); }
+@media (hover: hover) { .mk-stop:hover { transform: scale(1.12); } }
 .mk-stop.is-selected { z-index: 2; transform: scale(1.3); background: var(--lantern); color: var(--night); box-shadow: 0 0 0 5px oklch(83% 0.145 76 / 0.25), 0 0 30px oklch(83% 0.145 76 / 0.8); }
 .tag-pop .mapboxgl-popup-content { padding: 0; background: none; box-shadow: none; }
 .tag-pop .mapboxgl-popup-tip { display: none; }

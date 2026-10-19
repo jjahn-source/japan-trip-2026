@@ -3,11 +3,14 @@
   // its line's own colour, sized by how long it takes. Tap ▶ and the map plays it.
   import { icon } from '../lib/icons';
   import { colourOf, inkOn } from './lines';
-  import type { AppLeg, AppSeg, AppStop } from './types';
+  import { hhmm, legTimes, type AppLeg, type AppSeg, type AppStop } from './types';
 
-  let { leg, from, to, active = false, progress = 0, clock = '', onplay }: {
-    leg: AppLeg | undefined; from: AppStop; to: AppStop; active?: boolean; progress?: number; clock?: string; onplay?: () => void;
+  let { leg, from, to, date, active = false, progress = 0, clock = '', onplay }: {
+    leg: AppLeg | undefined; from: AppStop; to: AppStop; date: string; active?: boolean; progress?: number; clock?: string; onplay?: () => void;
   } = $props();
+  // Leave and arrive times: the same ones the playback clock runs between.
+  const times = $derived(leg ? legTimes(from, to, leg, date) : null);
+  let barW = $state(0);
 
   const km = (c: [number, number][]) => {
     let d = 0;
@@ -39,14 +42,14 @@
 {#if leg && parts.length}
   <div class="strip" class:active>
     <div class="row">
-      <span class="when num">{from.end}</span>
-      <div class="bar" aria-hidden="true">
+      <span class="when num">{times ? hhmm(times.depart) : from.end}</span>
+      <div class="bar" aria-hidden="true" bind:clientWidth={barW}>
         {#each parts as p}
           <span class="seg" data-m={p.seg.m} style:flex-grow={Math.max(p.min, total * 0.08)} style:--c={colourOf(p.seg.m, p.seg.colour)}></span>
         {/each}
-        {#if active}<span class="sweep" style:inset-inline-start="{progress * 100}%"></span>{/if}
+        {#if active}<span class="sweep" style:transform="translateX({progress * barW}px)"></span>{/if}
       </div>
-      <span class="when num">{active && clock ? clock : to.start}</span>
+      <span class="when num">{active && clock ? clock : times ? hhmm(times.arrive) : to.start}</span>
       {#if onplay}
         <button class="play" type="button" onclick={onplay} aria-label={running ? 'Stop the route' : `Play the route from ${from.name} to ${to.name} on the map`} aria-pressed={running}>
           {@html icon(running ? 'pause' : 'play')}
@@ -82,10 +85,11 @@
   .bar { position: relative; flex: 1; display: flex; gap: 3px; height: 8px; min-width: 0; }
   .seg { flex-basis: 0; border-radius: 99px; background: var(--c); box-shadow: 0 0 10px -2px var(--c); }
   .seg[data-m='walk'] { background: radial-gradient(circle, var(--c) 1.4px, transparent 1.6px) 0 50% / 7px 8px repeat-x; box-shadow: none; opacity: 0.85; }
-  .sweep { position: absolute; top: -4px; width: 16px; height: 16px; margin-inline-start: -8px; border-radius: 50%; background: oklch(98% 0.01 85); box-shadow: 0 0 0 3px var(--lantern), 0 0 16px 2px var(--lantern); transition: inset-inline-start 80ms linear; }
+  /* The dot moves by transform only (the bar's width is measured once): no layout per frame. */
+  .sweep { will-change: transform; position: absolute; left: 0; top: -4px; width: 16px; height: 16px; margin-inline-start: -8px; border-radius: 50%; background: oklch(98% 0.01 85); box-shadow: 0 0 0 3px var(--lantern), 0 0 16px 2px var(--lantern); }
   .play { flex: none; width: 36px; height: 36px; display: grid; place-items: center; border-radius: 50%; border: 1px solid color-mix(in oklch, var(--lantern) 55%, transparent); background: var(--lantern-wash); color: var(--lantern); cursor: pointer; transition: transform var(--t-fast) var(--ease), background var(--t-fast); }
   .play :global(svg) { width: 16px; height: 16px; }
-  .play:hover { background: color-mix(in oklch, var(--lantern) 26%, transparent); }
+  @media (hover: hover) { .play:hover { background: color-mix(in oklch, var(--lantern) 26%, transparent); } }
   .play:active { transform: scale(0.94); }
   .legs { list-style: none; padding: 0; display: grid; gap: 5px; }
   .legs li { display: flex; align-items: center; gap: 7px; font-size: 0.82rem; color: var(--washi-2); min-width: 0; }

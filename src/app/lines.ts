@@ -12,6 +12,16 @@ export function inkOn(hex: string) {
   const L = 0.2126 * r + 0.7152 * g + 0.0722 * b;
   return (L + 0.05) / 0.05 >= 1.05 / (L + 0.05) ? '#14122a' : '#ffffff';
 }
+/** How high the sun is (1 at midday, 0 at sunrise and sunset, down to -1 an hour and a half after
+ *  dark), from that day's own sunrise and sunset. */
+export function sunHeight(minute: number, sun: { sunrise: string; sunset: string } | null): number {
+  const m = ((minute % 1440) + 1440) % 1440;
+  const rise = sun ? +sun.sunrise.slice(0, 2) * 60 + +sun.sunrise.slice(3, 5) : 400;
+  const set = sun ? +sun.sunset.slice(0, 2) * 60 + +sun.sunset.slice(3, 5) : 1000;
+  if (m >= rise && m <= set) return Math.sin((Math.PI * (m - rise)) / (set - rise));
+  const dark = m > set ? m - set : rise - m;
+  return -Math.min(1, dark / 90);
+}
 /** The light for a moment of the day, from that day's own sunrise and sunset. */
 export function phaseAt(minute: number, sun: { sunrise: string; sunset: string } | null): Phase {
   const m = ((minute % 1440) + 1440) % 1440;

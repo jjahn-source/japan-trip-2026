@@ -3,24 +3,37 @@
   // ("ramen", "izakaya open now", "Don Quijote"). Keyboard: / or ⌘K opens it, arrows move, Enter opens.
   import { icon } from '../lib/icons';
   import { CATS } from '../lib/categories';
-  import { hoursAt, parseHours } from '../lib/hours';
-  import { keys, scorer } from '../lib/textmatch';
+  import { hoursAt, parseHours, type Hours } from '../lib/hours';
+  import { keys, scorer, type Keys } from '../lib/textmatch';
   import { app, BASE, go, now, openSheet, todayN } from './state.svelte';
 
   let dlg = $state<HTMLDialogElement>();
   let q = $state('');
   let active = $state(0);
   type Row = [string, string, number, number, number[], string, string, number, string, string, string, string, string];
-  let rows = $state<Row[]>([]);
+  /** A place from the day's pack, with everything a keystroke needs worked out once at load. */
+  type Place = { r: Row; at: { lat: number; lng: number }; keys: Keys; near: number; hours?: Hours | null };
+  let places0 = $state.raw<Place[]>([]);
   let loadedDay = 0;
 
+  const km = (a: { lat: number; lng: number }, b: { lat: number; lng: number }) => Math.hypot((b.lng - a.lng) * Math.cos((a.lat * Math.PI) / 180), b.lat - a.lat) * 111.2;
   const dayN = $derived(app.view.kind === 'day' ? app.view.n : todayN() ?? 1);
+  const dayStops = $derived((app.data?.days.find((d) => d.n === dayN)?.stops ?? []).filter((s) => s.lat != null));
   $effect(() => {
     if (!app.search) return;
-    const n = dayN;
+    const n = dayN, stopsHere = dayStops;
     if (n === loadedDay) return;
     loadedDay = n;
-    fetch(`${BASE}/places/day-${n}.json`).then((r) => (r.ok ? r.json() : { rows: [] })).then((j) => { if (loadedDay === n) rows = j.rows ?? []; }).catch(() => { rows = []; });
+    fetch(`${BASE}/places/day-${n}.json`).then((r) => (r.ok ? r.json() : { rows: [] })).then((j) => {
+      if (loadedDay !== n) return;
+      // Distance to the nearest stop of the day, not to the day's centre: a travel day spans two cities.
+      places0 = (j.rows ?? []).map((r: Row) => {
+        const at = { lat: r[2] / 1e5, lng: r[3] / 1e5 };
+        let near = Infinity;
+        for (const s of stopsHere) near = Math.min(near, km(at, { lat: s.lat!, lng: s.lng! }));
+        return { r, at, keys: keys(r[0], ...r[1].split('|'), r[12]), near };
+      });
+    }).catch(() => { places0 = []; });
   });
   $effect(() => {
     const d = dlg;
@@ -29,37 +42,39 @@
     if (!app.search && d.open) d.close();
   });
 
-  const centre = $derived.by(() => {
-    const day = app.data?.days.find((d) => d.n === dayN);
-    const sel = day?.stops.find((s) => s.id === app.selected && s.lat != null);
-    const pts = (sel ? [sel] : day?.stops ?? []).filter((s) => s.lat != null);
-    if (!pts.length) return null;
-    return { lat: pts.reduce((n, s) => n + s.lat!, 0) / pts.length, lng: pts.reduce((n, s) => n + s.lng!, 0) / pts.length };
-  });
-  const km = (a: { lat: number; lng: number }, b: { lat: number; lng: number }) => Math.hypot((b.lng - a.lng) * Math.cos((a.lat * Math.PI) / 180), b.lat - a.lat) * 111.2;
   const wantsOpen = $derived(/\bopen( now)?\b|営業中/i.test(q));
   const cats = $derived(CATS.map((c, i) => ({ c, i })).filter(({ c }) => c.words.test(q.toLowerCase())));
   const text = $derived(q.replace(/\bopen( now)?\b|\bnear(by| me)?\b|営業中/gi, '').replace(new RegExp(cats.map(({ c }) => c.words.source).join('|') || '$^', 'gi'), '').trim());
 
+  // The trip's stops, keyed once.
+  const stopIndex = $derived((app.data?.days ?? []).flatMap((d) => d.stops.map((st) => ({ d, st, keys: keys(st.name, st.ja, st.catLabel) }))));
   const stops = $derived.by(() => {
-    if (q.trim().length < 2 || !app.data) return [];
+    if (q.trim().length < 2) return [];
     const s = scorer(q.trim());
-    return app.data.days.flatMap((d) => d.stops.map((st) => ({ d, st, score: s(keys(st.name, st.ja, st.catLabel)) })))
-      .filter((x) => x.score > 0).sort((a, b) => b.score - a.score).slice(0, 6);
+    const out: ((typeof stopIndex)[number] & { score: number })[] = [];
+    for (const x of stopIndex) { const score = s(x.keys); if (score > 0) out.push({ ...x, score }); }
+    return out.sort((a, b) => b.score - a.score).slice(0, 6);
   });
   const places = $derived.by(() => {
-    if (q.trim().length < 2 || !centre) return [];
+    if (q.trim().length < 2 || !places0.length) return [];
     const s = text.length >= 2 ? scorer(text) : null;
     if (!s && !cats.length && !wantsOpen) return [];
+    // Near the stop you picked when there is one, else near any stop of the day.
+    const sel = dayStops.find((x) => x.id === app.selected);
     const t = now();
-    const c = centre;
-    return rows.map((r) => {
-      const at = { lat: r[2] / 1e5, lng: r[3] / 1e5 };
-      const catOk = !cats.length || cats.some(({ i }) => r[4].includes(i));
-      const score = !catOk ? 0 : s ? s(keys(r[0], ...r[1].split('|'), r[12])) : 1;
-      const open = r[6] ? hoursAt(parseHours(r[6]), t) : null;
-      return { r, at, d: km(c, at), score, open };
-    }).filter((x) => x.score > 0 && x.d < 3 && (!wantsOpen || x.open?.open)).sort((a, b) => (s ? b.score - a.score || a.d - b.d : a.d - b.d)).slice(0, 12);
+    const out: { r: Row; at: Place['at']; d: number; score: number; open: { open: boolean; label: string } | null }[] = [];
+    for (const x of places0) {
+      if (cats.length && !cats.some(({ i }) => x.r[4].includes(i))) continue;
+      const d = sel ? km(x.at, { lat: sel.lat!, lng: sel.lng! }) : x.near;
+      if (d >= 3) continue;
+      const score = s ? s(x.keys) : 1;
+      if (score <= 0) continue;
+      if (x.hours === undefined) x.hours = x.r[6] ? parseHours(x.r[6]) : null;
+      const open = x.hours ? hoursAt(x.hours, t) : null;
+      if (wantsOpen && !open?.open) continue;
+      out.push({ r: x.r, at: x.at, d, score, open });
+    }
+    return out.sort((a, b) => (s ? b.score - a.score || a.d - b.d : a.d - b.d)).slice(0, 12);
   });
   const total = $derived(stops.length + places.length);
 
@@ -70,6 +85,7 @@
     app.pin = { lat: x.at.lat, lng: x.at.lng, name: x.r[0], sub: [x.r[1].split('|')[0], x.open?.label, `${Math.round(x.d * 1000)} m away`].filter(Boolean).join(' · '), web: x.r[8] || undefined, hours: x.r[6] || undefined };
   }
   function key(e: KeyboardEvent) {
+    if (e.key === 'Escape') { e.preventDefault(); app.search = false; return; } // a search field's own Escape only clears the text
     if (e.key === 'ArrowDown') { e.preventDefault(); active = Math.min(total - 1, active + 1); }
     else if (e.key === 'ArrowUp') { e.preventDefault(); active = Math.max(0, active - 1); }
     else if (e.key === 'Enter' && total) { e.preventDefault(); if (active < stops.length) pickStop(active); else pickPlace(active - stops.length); }

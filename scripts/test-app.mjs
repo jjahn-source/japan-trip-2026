@@ -1,8 +1,8 @@
 // npm test: the app's pure pieces (money, line colours, the map's light).
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { budgetOf, minutesOf, splitJa, yen } from '../src/app/types.ts';
-import { colourOf, inkOn, phaseAt } from '../src/app/lines.ts';
+import { budgetOf, hhmm, legTimes, minutesOf, splitJa, yen } from '../src/app/types.ts';
+import { colourOf, inkOn, phaseAt, sunHeight } from '../src/app/lines.ts';
 
 test('the budget uses the sheet total and drops empty categories', () => {
   const b = budgetOf([
@@ -44,4 +44,22 @@ test('the light follows the day’s own sunrise and sunset', () => {
   assert.equal(phaseAt(16 * 60 + 30, sun), 'dusk');
   assert.equal(phaseAt(19 * 60, sun), 'night');
   assert.equal(phaseAt(25 * 60, sun), 'night'); // 01:00 the next morning
+});
+
+test('a ride leaves its length before the next stop, never before the last one ends', () => {
+  const at = (t) => ({ startISO: `2026-12-17T${t}:00+09:00`, endISO: `2026-12-17T${t}:00+09:00` });
+  const from = { ...at('06:50'), endISO: '2026-12-17T06:50:00+09:00' }, to = at('08:00');
+  assert.deepEqual(legTimes(from, to, { minutes: 25 }, '2026-12-17'), { depart: 455, arrive: 480 });
+  assert.equal(hhmm(455), '07:35');
+  // A tight hop: the ride takes longer than the gap, so it leaves when the stop ends.
+  assert.deepEqual(legTimes(at('07:50'), to, { minutes: 25 }, '2026-12-17'), { depart: 470, arrive: 480 });
+  assert.equal(hhmm(1510), '01:10'); // after midnight
+});
+
+test('the sun sinks through the horizon at sunset', () => {
+  const sun = { sunrise: '06:45', sunset: '16:30' };
+  assert.ok(sunHeight(11 * 60 + 37, sun) > 0.99); // solar noon of the day
+  assert.ok(Math.abs(sunHeight(16 * 60 + 30, sun)) < 0.01);
+  assert.ok(sunHeight(16 * 60, sun) > 0 && sunHeight(17 * 60, sun) < 0);
+  assert.equal(sunHeight(20 * 60, sun), -1);
 });

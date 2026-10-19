@@ -55,3 +55,13 @@ export function budgetOf(rows: { category: string; perPerson: string }[]) {
   const cats = rows.filter((r) => r !== totalRow).map((r) => ({ category: r.category, v: yen(r.perPerson) ?? 0 })).filter((r) => r.v > 0).sort((a, b) => b.v - a.v);
   return { cats, total: (totalRow && yen(totalRow.perPerson)) || cats.reduce((n, r) => n + r.v, 0) };
 }
+
+/** "HH:MM" for minutes since the trip day's midnight (after midnight keeps counting, shown as clock time). */
+export const hhmm = (m: number) => `${String(Math.floor(m / 60) % 24).padStart(2, '0')}:${String(((Math.round(m) % 60) + 60) % 60).padStart(2, '0')}`;
+/** When a ride actually leaves and arrives: it arrives for the next stop's start, and leaves the
+ *  ride's length before that (never before the previous stop ends). */
+export function legTimes(from: AppStop, to: AppStop, leg: AppLeg, date: string) {
+  const arrive = minutesOf(to.startISO, date);
+  const depart = Math.min(arrive, Math.max(minutesOf(from.endISO, date), arrive - leg.minutes));
+  return { depart, arrive };
+}

@@ -24,7 +24,9 @@
     "tool": "node planner/tools.ts",
     "mcp": "node planner/mcp.ts",
     "serve": "node scripts/serve.mjs",
-    "thumbs": "astro build && node scripts/thumbs.mjs && astro build"
+    "thumbs": "astro build && node scripts/thumbs.mjs && astro build",
+    "perf": "node scripts/perf.mjs",
+    "sweep": "node scripts/sweep.mjs"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "0.135.0",

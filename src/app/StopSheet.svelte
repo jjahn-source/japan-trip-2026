@@ -1,6 +1,8 @@
 <script lang="ts">
   // Everything about one stop, in a native dialog: Back, Escape, the backdrop, the close button and a
   // swipe down all close it, and nothing can leave it half open.
+  import { fly } from 'svelte/transition';
+  import { cubicIn } from 'svelte/easing';
   import { icon } from '../lib/icons';
   import { BASE, closeSheet } from './state.svelte';
   import type { AppDay, AppStop } from './types';
@@ -39,19 +41,31 @@
   async function copy(text: string, what: string) {
     try { await navigator.clipboard.writeText(text); copied = what; setTimeout(() => (copied = ''), 1600); } catch { /* the text is on screen to select */ }
   }
-  // Swipe down on the handle to close.
+  // Swipe down to close: on the handle, or anywhere on the sheet once it's scrolled to the top (phone).
   let startY = 0;
   let dy = $state(0);
-  const down = (e: PointerEvent) => { startY = e.clientY; (e.currentTarget as HTMLElement).setPointerCapture(e.pointerId); };
+  let dragging = $state(false);
+  const down = (e: PointerEvent) => { startY = e.clientY; dragging = true; (e.currentTarget as HTMLElement).setPointerCapture(e.pointerId); };
   const move = (e: PointerEvent) => { if (startY) dy = Math.max(0, e.clientY - startY); };
-  const up = () => { if (dy > 90) closeSheet(); startY = 0; dy = 0; };
+  const up = () => { if (dy > 90) closeSheet(); else dy = 0; startY = 0; dragging = false; }; // closing keeps the offset, so it slides on from there
+  let touchY = 0, tracking = false;
+  const tStart = (e: TouchEvent) => { tracking = innerWidth < 900 && (body?.scrollTop ?? 0) <= 0; touchY = e.touches[0].clientY; };
+  const tMove = (e: TouchEvent) => {
+    if (!tracking) return;
+    const d = e.touches[0].clientY - touchY;
+    if (d < 0) { tracking = false; dy = 0; dragging = false; return; } // scrolling up into the sheet
+    dragging = true; dy = d;
+  };
+  const tEnd = () => { if (tracking && dy > 110) closeSheet(); else dy = 0; tracking = false; dragging = false; };
+  // Leaving slides the sheet away (down on a phone, right on a laptop) instead of cutting it.
+  const exit = (node: Element) => fly(node, innerWidth < 900 ? { y: Math.max(240, (node as HTMLElement).offsetHeight * 0.6), duration: 200, easing: cubicIn, opacity: 1 } : { x: 160, duration: 180, easing: cubicIn, opacity: 0 });
 </script>
 
 <dialog bind:this={dlg} class="sheet" aria-labelledby="sheet-title" oncancel={(e) => { e.preventDefault(); closeSheet(); }} onclick={(e) => { if (e.target === dlg) closeSheet(); }} style:--drag="{dy}px">
-  <div class="panel">
+  <div class="panel" class:dragging out:exit|global>
     <div class="grip" onpointerdown={down} onpointermove={move} onpointerup={up} onpointercancel={up} aria-hidden="true"><span></span></div>
     <button class="close" type="button" onclick={closeSheet} aria-label="Close">{@html icon('x')}</button>
-    <div class="scroll" bind:this={body}>
+    <div class="scroll" bind:this={body} ontouchstart={tStart} ontouchmove={tMove} ontouchend={tEnd} ontouchcancel={tEnd}>
       {#if photo}
         <figure class="hero"><img src={photo.large ? BASE + photo.large : photo.url} alt="" decoding="async" referrerpolicy="no-referrer" onerror={(e) => (e.currentTarget as HTMLElement).closest('figure')?.remove()} />{#if photo.credit}<figcaption>{photo.credit}</figcaption>{/if}</figure>
       {/if}
@@ -118,7 +132,8 @@
 <style>
   .sheet { position: fixed; inset: auto 0 0 0; margin: 0; width: 100%; max-width: 100%; max-height: 92svh; height: auto; padding: 0; border: 0; background: transparent; color: var(--washi); overflow: visible; }
   .sheet::backdrop { background: oklch(12% 0.04 276 / 0.55); animation: fade var(--t-med) var(--ease); }
-  .panel { position: relative; height: auto; max-height: 92svh; display: flex; flex-direction: column; background: var(--night-2); border-radius: var(--r-l) var(--r-l) 0 0; border-top: 1px solid oklch(83% 0.145 76 / 0.5); box-shadow: 0 -18px 50px -12px oklch(10% 0.05 276 / 0.8); transform: translateY(var(--drag, 0)); animation: up var(--t-slow) var(--ease); }
+  .panel { position: relative; height: auto; max-height: 92svh; display: flex; flex-direction: column; background: var(--night-2); border-radius: var(--r-l) var(--r-l) 0 0; border-top: 1px solid oklch(83% 0.145 76 / 0.5); box-shadow: 0 -18px 50px -12px oklch(10% 0.05 276 / 0.8); transform: translateY(var(--drag, 0)); animation: up var(--t-slow) var(--ease); transition: transform var(--t-fast) var(--ease); }
+  .panel.dragging { transition: none; }
   @keyframes up { from { transform: translateY(40%); opacity: 0.4; } }
   @keyframes fade { from { opacity: 0; } }
   .grip { flex: none; height: 26px; display: grid; place-items: center; cursor: grab; touch-action: none; }

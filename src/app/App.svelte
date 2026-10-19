@@ -5,8 +5,9 @@
   import { onMount, tick, untrack } from 'svelte';
   import { icon } from '../lib/icons';
   import { app, bindHistory, dayOf, go, href, load, now, openSheet, stopOf, ticks, todayN, type View } from './state.svelte';
-  import { minutesOf } from './types';
+  import { hhmm, legTimes, minutesOf } from './types';
   import { TripMap, phaseAt } from './map';
+  import { sunHeight } from './lines';
   import { alerts, type Alert } from './alerts';
   import TripHome from './TripHome.svelte';
   import DayView from './DayView.svelte';
@@ -51,9 +52,24 @@
     const idle = (window as { requestIdleCallback?: (f: () => void, o?: { timeout: number }) => number }).requestIdleCallback;
     const later = () => (idle ? idle(start, { timeout: 500 }) : setTimeout(start, 1));
     Promise.race([loaded.catch(() => null), new Promise((r) => setTimeout(r, 2000))]).then(() => requestAnimationFrame(later));
-    const ro = new ResizeObserver(() => map?.resize());
-    if (mapEl) ro.observe(mapEl);
-    return () => { cancelled = true; unbind(); ro.disconnect(); map?.stop(); map?.map?.remove(); map = null; };
+    return () => { cancelled = true; unbind(); map?.stop(); map?.map?.remove(); map = null; };
+  });
+  // The map redraws whenever its box changes (the bigger-map pill, rotation, a desktop resize). The box
+  // only exists once the live app has drawn, so watch it from then on.
+  $effect(() => {
+    const el = mapEl;
+    if (!el) return;
+    let raf = 0, w = 0, h = 0;
+    // Only a real change of size: a hidden map (Bookings and Budget on a phone) reports 0 × 0, and
+    // coming back at the same size needs no rebuild of the canvas.
+    const ro = new ResizeObserver(([e]) => {
+      const { width, height } = e.contentRect;
+      if (!width || !height || (Math.round(width) === w && Math.round(height) === h)) return;
+      w = Math.round(width); h = Math.round(height);
+      cancelAnimationFrame(raf); raf = requestAnimationFrame(() => map?.resize());
+    });
+    ro.observe(el);
+    return () => { cancelAnimationFrame(raf); ro.disconnect(); };
   });
 
   const day = $derived(app.view.kind === 'day' ? dayOf(app.view.n) ?? null : null);
@@ -72,10 +88,14 @@
   $effect(() => {
     const key = mapKey, data = app.data;
     if (!mapReady || !data || !map) return;
-    untrack(() => {
-      if (key === 'trip') map!.showTrip(data.days, todayN());
-      else { const d = dayOf(Number(key.slice(4))); if (d) map!.showDay(d, app.selected); }
+    // The new view paints first; the map follows a frame later (markers, routes, the camera).
+    let raf = requestAnimationFrame(() => {
+      raf = requestAnimationFrame(() => untrack(() => {
+        if (key === 'trip') map!.showTrip(data.days, todayN());
+        else { const d = dayOf(Number(key.slice(4))); if (d) map!.showDay(d, app.selected); }
+      }));
     });
+    return () => cancelAnimationFrame(raf);
   });
   // A pin belongs to the view it was dropped in (not to the map arriving late).
   let pinKey = '';
@@ -84,28 +104,32 @@
   $effect(() => {
     const id = app.sheet;
     if (!mapReady || !id) return;
-    // The sheet paints first; the camera moves after (on a phone the sheet covers the map, so it jumps).
+    // The sheet paints first; the camera moves after. On a phone the sheet covers the map, so the
+    // camera waits for it to close rather than doing work nobody can see.
     untrack(() => {
       const f = stopOf(id);
-      if (!f || app.view.kind !== 'day' || app.view.n !== f.day.n) return;
-      requestAnimationFrame(() => setTimeout(() => { if (app.sheet === id) map?.focus(f.stop, innerWidth < 900); }, 60));
+      if (!f || app.view.kind !== 'day' || app.view.n !== f.day.n || !wide()) return;
+      requestAnimationFrame(() => setTimeout(() => { if (app.sheet === id) map?.focus(f.stop); }, 60));
     });
   });
   $effect(() => { const p = app.pin; if (mapReady) untrack(() => map?.showPin(p)); });
 
-  // The light: the hour of the leg playing or the stop open, else the hour it is on the day itself.
+  // The light: the hour of the leg playing (it changes with the ride's clock, so a ride across sunset
+  // gets dark as it goes) or of the stop open, else the hour it is on the day itself.
   let playMinute = $state<number | null>(null);
+  const wide = () => typeof innerWidth === 'number' && innerWidth >= 900;
   const phase = $derived.by(() => {
     if (!day) return 'dusk' as const;
-    const open = day.stops.find((s) => s.id === app.sheet);
+    const open = wide() ? day.stops.find((s) => s.id === app.sheet) : null; // on a phone the sheet hides the map
     const m = playMinute ?? (open ? minutesOf(open.startISO, day.date) : today === day.n ? minutesOf(new Date(now()).toISOString(), day.date) : null);
     return m == null ? ('dusk' as const) : phaseAt(m, day.sun);
   });
-  $effect(() => { const p = phase; if (mapReady) untrack(() => map?.setPhase(p)); });
+  $effect(() => { const p = phase; if (mapReady) untrack(() => map?.setPhase(p, app.playing != null)); });
+  // The sun in the playback clock: it sinks below the horizon as a ride's clock passes sunset.
+  const sky = $derived(day?.sun && playMinute != null ? sunHeight(playMinute, day.sun) : null);
 
   // ── Leg playback: the strip and the map run on one clock ──
   let playRun = 0;
-  const hhmm = (m: number) => `${String(Math.floor(m / 60) % 24).padStart(2, '0')}:${String(((m % 60) + 60) % 60).padStart(2, '0')}`;
   async function play(fromId: string) {
     const d = day;
     const leg = d?.legs[fromId];
@@ -113,12 +137,15 @@
     if (!d || !leg || i < 0 || !d.stops[i + 1]) return;
     // The button stops a leg that is playing; once it has arrived, it plays it again.
     if (app.playing === fromId && app.progress < 1) { app.playing = null; app.progress = 0; app.clock = ''; return; }
-    const from = d.stops[i], to = d.stops[i + 1];
-    const arrive = minutesOf(to.startISO, d.date);
-    const depart = Math.min(arrive, Math.max(minutesOf(from.endISO, d.date), arrive - leg.minutes));
+    const { depart, arrive } = legTimes(d.stops[i], d.stops[i + 1], leg, d.date);
     const my = ++playRun;
     app.playing = fromId; app.progress = 0; app.clock = hhmm(depart); playMinute = depart;
-    const tickFn = (p: number, c: string) => { if (my === playRun) { app.progress = p; app.clock = c; } };
+    const tickFn = (p: number, c: string) => {
+      if (my !== playRun) return;
+      app.progress = p; app.clock = c;
+      const m = Math.round(depart + (arrive - depart) * p);
+      if (m !== playMinute) playMinute = m; // the light follows the clock
+    };
     const done = map && mapReady && leg.segs.some((s) => s.coords.length > 1)
       ? await map.playLeg(leg, depart, arrive, tickFn)
       : await stripOnly(my, depart, arrive, tickFn);
@@ -173,7 +200,10 @@
         <div class="maploading" aria-hidden="true"></div>
       {/if}
       {#if app.playing && app.clock}
-        <p class="clock display num">{app.clock}</p>
+        <p class="clock display num">
+          {#if sky != null}<span class="sky" class:night={sky < -0.15} style:--h={sky} aria-hidden="true"><span class="sun"></span></span>{/if}
+          {app.clock}
+        </p>
       {/if}
       {#if app.pin}
         <div class="pincard" role="status">
@@ -233,7 +263,7 @@
   .tabs { display: flex; gap: 2px; flex: 1; min-width: 0; }
   .tabs a { position: relative; display: inline-flex; align-items: center; gap: 6px; height: 40px; padding: 0 11px; border-radius: 12px; color: var(--washi-2); text-decoration: none; font-size: 0.86rem; font-weight: 700; transition: color var(--t-fast), background var(--t-fast); }
   .tabs a :global(svg) { width: 17px; height: 17px; flex: none; }
-  .tabs a:hover { color: var(--washi); }
+  @media (hover: hover) { .tabs a:hover { color: var(--washi); } }
   .tabs a[aria-current='page'] { color: var(--lantern); background: var(--lantern-wash); }
   .badge { min-width: 18px; height: 18px; padding: 0 5px; display: grid; place-items: center; border-radius: 99px; background: var(--noren); color: var(--on-noren); font-size: 0.68rem; font-weight: 700; }
   .find { display: inline-flex; align-items: center; gap: 8px; height: 40px; padding: 0 10px; border-radius: 12px; border: 1px solid var(--rule); background: var(--night-2); color: var(--washi); cursor: pointer; }
@@ -241,14 +271,22 @@
   .kbd { display: none; padding: 0 6px; border-radius: 6px; border: 1px solid var(--rule); color: var(--washi-3); font-size: 0.72rem; }
   @media (max-width: 400px) { .tabs a > :global(svg) { display: none; } .tabs a { padding: 0 10px; } }
 
-  .stage { position: sticky; top: calc(var(--bar-h) + env(safe-area-inset-top, 0px)); z-index: 30; height: 40svh; background: var(--night-2); transition: height var(--t-med) var(--ease); border-bottom: 1px solid var(--rule); overflow: hidden; }
+  .stage { position: sticky; top: calc(var(--bar-h) + env(safe-area-inset-top, 0px)); z-index: 30; height: 40svh; background: var(--night-2); border-bottom: 1px solid var(--rule); overflow: hidden; }
   .stage.big { height: 70svh; }
   .stage.quiet { display: none; }
   .map { position: absolute; inset: 0; }
   .maploading { position: absolute; inset: 0; background: radial-gradient(60% 50% at 50% 60%, oklch(83% 0.145 76 / 0.12), transparent 70%), var(--night-2); animation: breathe 1.8s var(--ease-in-out) infinite alternate; }
   @keyframes breathe { to { opacity: 0.55; } }
   .nomap { position: absolute; inset: 0; display: grid; place-items: center; padding: 24px; text-align: center; color: var(--washi-2); font-size: 0.88rem; }
-  .clock { position: absolute; top: 10px; left: 12px; padding: 2px 12px 4px; border-radius: 12px; background: oklch(19% 0.05 276 / 0.82); color: var(--lantern); font-size: 1.7rem; line-height: 1.1; text-shadow: 0 0 18px oklch(83% 0.145 76 / 0.55); pointer-events: none; }
+  .clock { display: flex; align-items: center; gap: 10px; position: absolute; top: 10px; left: 12px; padding: 2px 12px 4px; border-radius: 12px; background: oklch(19% 0.05 276 / 0.82); color: var(--lantern); font-size: 1.7rem; line-height: 1.1; text-shadow: 0 0 18px oklch(83% 0.145 76 / 0.55); pointer-events: none; }
+  /* A 26 px window on the sky: the sun rides up and down with the ride's clock; under the horizon it
+     goes; after dark the window shows a crescent moon. */
+  .sky { position: relative; width: 26px; height: 22px; overflow: hidden; border-bottom: 1.5px solid oklch(83% 0.145 76 / 0.55); }
+  .sun { position: absolute; left: 6px; top: 0; width: 14px; height: 14px; border-radius: 50%;
+    background: radial-gradient(circle at 40% 40%, oklch(95% 0.09 90), var(--lantern) 60%, var(--lantern-2));
+    box-shadow: 0 0 10px 2px oklch(83% 0.145 76 / 0.6);
+    transform: translateY(calc((1 - var(--h)) * 9px)); transition: transform 120ms linear, background 600ms, box-shadow 600ms; }
+  .sky.night .sun { transform: translateY(4px); background: transparent; box-shadow: inset -4px 3px 0 0 oklch(92% 0.03 260); }
   .grow { position: absolute; bottom: 10px; left: 50%; translate: -50% 0; width: 44px; height: 26px; display: grid; place-items: center; border-radius: 99px; border: 1px solid var(--rule); background: oklch(19% 0.05 276 / 0.85); color: var(--washi-2); cursor: pointer; }
   .grow :global(svg) { width: 16px; height: 16px; rotate: 90deg; transition: rotate var(--t-med) var(--ease); }
   .grow[aria-pressed='true'] :global(svg) { rotate: -90deg; }
@@ -262,7 +300,7 @@
   .pincard :global(svg) { width: 15px; height: 15px; }
 
   .pane { position: relative; z-index: 1; min-width: 0; }
-  .enter { animation: enter var(--t-slow) var(--ease); }
+  .enter { animation: enter var(--t-med) var(--ease); }
   @keyframes enter { from { opacity: 0; transform: translateY(6px); } }
   .alerts { display: flex; gap: 10px; align-items: flex-start; margin: 12px max(16px, env(safe-area-inset-right, 0px)) 0 var(--gutter); padding: 10px 12px; border-radius: var(--r-m); background: var(--lantern-wash); color: var(--washi); font-size: 0.86rem; }
   .alerts[data-level='severe'] { background: var(--noren-wash); border: 1px solid var(--noren); }

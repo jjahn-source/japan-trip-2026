@@ -19,6 +19,8 @@ npm run build      # static site in dist/
 npm run serve      # serve dist/ compressed and cached like a real host, on :4326
 npm test           # unit tests (search parsing, money, line colours, the map's light)
 npm run e2e        # the built app in Chromium at phone and desktop sizes (Playwright)
+npm run sweep      # with serve running: opens every stop, plays every ride, searches; prints anything wrong
+npm run perf       # with serve running: tap-to-paint times on a 4x-slowed phone, and scroll smoothness
 ```
 
 Node 22.12+ required (Astro 7).

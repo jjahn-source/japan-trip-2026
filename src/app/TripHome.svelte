@@ -123,7 +123,7 @@
   :global(.enter) .days li { animation: rise var(--t-slow) var(--ease) both; animation-delay: calc(var(--i) * 22ms); }
   @keyframes rise { from { opacity: 0; transform: translateY(8px); } }
   .days a { position: relative; display: grid; grid-template-columns: 3.1rem 1fr; align-items: center; gap: 12px; padding: 10px 12px; border-radius: var(--r-m); text-decoration: none; color: var(--washi); overflow: hidden; transition: background var(--t-fast); }
-  .days a:hover { background: var(--night-2); }
+  @media (hover: hover) { .days a:hover { background: var(--night-2); } }
   .days a.today { background: var(--night-2); box-shadow: inset 0 0 0 1px var(--noren); }
   .n { font-size: 1.9rem; line-height: 1; color: var(--lantern); }
   .k { position: absolute; right: 10px; top: 50%; translate: 0 -50%; font-size: 2.6rem; color: oklch(83% 0.145 76 / 0.08); pointer-events: none; }

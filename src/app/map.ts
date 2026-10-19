@@ -24,6 +24,7 @@ export class TripMap {
   private wantPhase: Phase = 'dusk';
   private anim = 0;
   private run = 0;
+  private styled = false;
   private pinMarker: Marker | null = null;
   private stopAnim: (() => void) | null = null;
   ready: Promise<void>;
@@ -54,6 +55,7 @@ export class TripMap {
       this.map = map;
       this.phase = this.wantPhase;
       await new Promise<void>((r) => map.on('load', () => r()));
+      this.styled = true;
       const empty = { type: 'FeatureCollection', features: [] };
       for (const id of ['trip', 'day', 'play', 'dot']) map.addSource(id, { type: 'geojson', data: empty as never });
       map.addLayer({ id: 'trip', type: 'line', source: 'trip', slot: 'top', layout: { 'line-cap': 'round', 'line-join': 'round' }, paint: { 'line-color': LANTERN, 'line-width': 2.4, 'line-opacity': 0.85, 'line-dasharray': [1.2, 1.6], 'line-emissive-strength': 1 } } as never);
@@ -73,12 +75,24 @@ export class TripMap {
     }
   }
 
-  private applyPhase() {
-    if (!this.map || this.anim || this.phase === this.wantPhase) return;
+  /** Changes the light. At rest it waits for the camera to stop; during a ride (`live`) it changes at
+   *  once with a long fade, so the city darkens as the ride's clock passes sunset. */
+  private applyPhase(live = false) {
+    if (!this.map || (this.anim && !live) || this.phase === this.wantPhase) return;
     this.phase = this.wantPhase;
-    (this.map as unknown as { setConfigProperty: (a: string, b: string, c: string) => void }).setConfigProperty('basemap', 'lightPreset', this.wantPhase);
+    const m = this.map as unknown as { style?: { setTransition?: (t: { duration: number; delay: number }) => void }; setConfigProperty: (a: string, b: string, c: string) => void };
+    m.style?.setTransition?.({ duration: reduce() ? 0 : live ? 1800 : 600, delay: 0 });
+    m.setConfigProperty('basemap', 'lightPreset', this.wantPhase);
   }
-  setPhase(p: Phase) { this.wantPhase = p; if (this.map?.loaded() && !this.map.isMoving()) this.applyPhase(); }
+  setPhase(p: Phase, live = false) {
+    this.wantPhase = p;
+    // Our own "style is in" flag: Mapbox's loaded() and isStyleLoaded() both turn false while tiles and
+    // resources are coming in, which is always the case while the camera flies, so the light would
+    // never change mid-ride.
+    if (!this.styled) return;
+    if (live) this.applyPhase(true);
+    else if (!this.map!.isMoving()) this.applyPhase();
+  }
 
   private clearMarkers() { for (const m of this.markers) m.remove(); this.markers = []; }
   private set(id: string, data: unknown) { (this.map?.getSource(id) as unknown as { setData: (d: unknown) => void } | undefined)?.setData(data); }
