@@ -16,7 +16,7 @@ import * as S from './sources.ts';
 import * as F from './facts.ts';
 import {
   anchors, assemble, auditDay, allowedForDay, Brief, Candidate, checkPlan, DayGuide, dayText, dossierFor, legText, measuredTransport, patchDay, Plan,
-  PLAN_SYSTEM, RESEARCH_SYSTEM, resolveAll, stripDay, taxiFare, THEMES, today, tripDates, WRITE_SYSTEM, FACT_SYSTEM,
+  PLAN_SYSTEM, RESEARCH_SYSTEM, resolveAll, stripDay, taxiFare, THEMES, today, tripDates, windowsOn, WRITE_SYSTEM, FACT_SYSTEM,
   type AnchorStay, type FactError, type Leg,
 } from './core.ts';
 import { estimateHop, hhmm, solveDay, describeHop, type Hop, type SolveStop } from './solver.ts';
@@ -165,7 +165,7 @@ tool('solve_day', 'Order and time a day. Give the options with priority (1–10)
       const fo = f?.open.filter((o) => o.dates.includes(date)) ?? [];
       if (fo.length) windows = fo.map((o) => { const a = toMin(o.open), z2 = toMin(o.close); return { open: a, close: z2 <= a ? z2 + 1440 : z2 }; });
       else if (c?.verified?.periods?.length) {
-        windows = c.verified.periods.filter((p) => p.open.day === dow).map((p) => { const a = p.open.hour * 60 + p.open.minute; const z2 = p.close ? p.close.hour * 60 + p.close.minute + (p.close.day !== p.open.day ? 1440 : 0) : a + 1440; return { open: a, close: z2 <= a ? z2 + 1440 : z2 }; });
+        windows = windowsOn(c.verified.periods, date)!;
         if (!windows.length) { excluded.push(`${c.name}: closed on ${weekday(date, 'long')}s (Google hours)`); continue; }
       }
       let minutes = s.minutes;

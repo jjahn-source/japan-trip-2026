@@ -180,6 +180,18 @@ export function openAt(periods: S.PlaceFacts['periods'], date: string, m: number
     return (t >= o && t < c) || (t + W >= o && t + W < c);
   });
 }
+/** Opening windows on `date` (minutes from that midnight; a close after midnight runs past 1440) per Google's weekly periods.
+ *  null when unknown, [] when closed all day. A period with no close is Google's "open 24 hours". */
+export function windowsOn(periods: S.PlaceFacts['periods'], date: string): { open: number; close: number }[] | null {
+  if (!periods?.length) return null;
+  if (periods.some((p) => !p.close)) return [{ open: 0, close: 2880 }];
+  const dow = new Date(`${date}T12:00:00+09:00`).getUTCDay();
+  return periods.filter((p) => p.open.day === dow).map((p) => {
+    const a = p.open.hour * 60 + p.open.minute;
+    const z = p.close!.hour * 60 + p.close!.minute + (p.close!.day !== p.open.day ? 1440 : 0);
+    return { open: a, close: z <= a ? z + 1440 : z };
+  });
+}
 export const hm = (iso: string) => iso.slice(11, 16);
 export type Leg = S.Travel & { key: string };
 /** Everything a plan must satisfy, checked by code against real data. Returns problems and the real legs. */

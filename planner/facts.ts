@@ -182,6 +182,12 @@ export function stripUnsupported(text: string, a: Allowed) {
 /** Open for the visit on `date` per the verified facts: a reason when it isn't, null when fine or unknown. */
 export function factProblem(f: FactSheet | undefined, date: string, startMin: number, endMin: number): string | null {
   if (!f) return null;
+  // A visit in the small hours can belong to the night before (ramen open 10:30–04:00, a bar open till 05:00).
+  if (startMin < 360) {
+    const d = new Date(`${date}T12:00:00Z`); d.setUTCDate(d.getUTCDate() - 1);
+    const prev = d.toISOString().slice(0, 10);
+    if (f.open.some((o) => o.dates.includes(prev)) && factProblem(f, prev, startMin + 1440, endMin + 1440) === null) return null;
+  }
   const closed = f.closed.find((c) => c.whole_place && c.dates.includes(date));
   if (closed) return `closed on ${date} (${closed.why}; ${closed.url})`;
   const toMin = (t: string) => +t.slice(0, 2) * 60 + +t.slice(3, 5);

@@ -93,11 +93,27 @@ test('verified facts catch closures, hours on the date, last entry and fixed rid
   assert.equal(factProblem({ ...EMPTY, closed: [{ dates: ['2026-12-20'], why: 'maintenance', what: 'only one section', whole_place: false, quote: 'q', url: 'u' }] }, '2026-12-20', 540, 600), null);
 });
 
+test('a small-hours visit counts against the night before, when the place opens past midnight', () => {
+  const ramen = { ...EMPTY, open: [{ dates: ['2026-12-15', '2026-12-16'], open: '10:30', close: '04:00', quote: 'q', url: 'u' }] };
+  assert.equal(factProblem(ramen, '2026-12-16', 30, 70), null); // 00:30 on the 16th is still the 15th's opening
+  assert.match(factProblem(ramen, '2026-12-16', 270, 300), /open only/); // 04:30 is past closing
+  assert.match(factProblem({ ...ramen, last_entry: { time: '22:00', quote: 'q', url: 'u' } }, '2026-12-16', 30, 70), /open only|last entry/);
+});
+
+test('Google hours: open 24 hours is open every day; a weekly period gives that day\'s window', () => {
+  assert.deepEqual(windowsOn([{ open: { day: 0, hour: 0, minute: 0 } }], '2026-12-19'), [{ open: 0, close: 2880 }]);
+  const bar = [{ open: { day: 5, hour: 18, minute: 0 }, close: { day: 6, hour: 2, minute: 0 } }];
+  assert.deepEqual(windowsOn(bar, '2026-12-18'), [{ open: 1080, close: 1560 }]); // Friday 18:00 to Saturday 02:00
+  assert.deepEqual(windowsOn(bar, '2026-12-19'), []); // closed on the Saturday
+  assert.equal(windowsOn(undefined, '2026-12-19'), null);
+});
+
 test('pages become plain text', () => {
   assert.equal(htmlText('<p>営業時間&nbsp;10:00</p><script>x()</script><td>大人</td><td>&yen;2,000</td>'), '営業時間 10:00\n大人\n¥2,000');
 });
 
 import { solveDay, estimateHop, hhmm } from '../planner/solver.ts';
+import { windowsOn } from '../planner/core.ts';
 
 // A straight street: stop k sits k km east of the start. Fixed hops: 10 min per km, walking.
 const at = (k) => ({ lat: 35.0, lng: 139.0 + k * 0.011 });
