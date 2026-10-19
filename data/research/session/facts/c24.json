@@ -1,0 +1,37 @@
+{
+  "open": [
+    {
+      "dates": [
+        "2026-12-21",
+        "2026-12-22",
+        "2026-12-23",
+        "2026-12-24",
+        "2026-12-25",
+        "2026-12-26"
+      ],
+      "open": "22:00",
+      "close": "28:00",
+      "quote": "クラブの営業時間は22:00から翌4:00までです。",
+      "url": "https://www.waug.com/ja/activities/162252"
+    }
+  ],
+  "closed": [],
+  "last_entry": null,
+  "prices": [],
+  "fixed_minutes": null,
+  "time_limit": null,
+  "group": null,
+  "booking": null,
+  "notes": [
+    {
+      "text": "Official site shows an unlabeled 12:30-17:30 block; it does not state nightclub hours",
+      "quote": "12:30-17:30",
+      "url": "https://giraffe-japan.com/?utm_source=google&utm_medium=maps"
+    },
+    {
+      "text": "Night show produced by EBIKEN",
+      "quote": "夜は世界的なパフォーマー・EBIKENがプロデュースするショーを楽しめ",
+      "url": "https://giraffe-japan.com/?utm_source=google&utm_medium=maps"
+    }
+  ]
+}

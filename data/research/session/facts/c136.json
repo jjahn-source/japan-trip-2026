@@ -1,0 +1,43 @@
+{
+  "open": [
+    {
+      "dates": [
+        "2026-12-15",
+        "2026-12-16",
+        "2026-12-17",
+        "2026-12-18",
+        "2026-12-28",
+        "2026-12-29"
+      ],
+      "open": "11:00",
+      "close": "19:30",
+      "quote": "11am-7.30pm, Sat & Sun 10am-7.30pm",
+      "url": "https://www.timeout.com/tokyo/shopping/mita-sneakers"
+    },
+    {
+      "dates": [
+        "2026-12-19",
+        "2026-12-26",
+        "2026-12-27"
+      ],
+      "open": "10:00",
+      "close": "19:30",
+      "quote": "11am-7.30pm, Sat & Sun 10am-7.30pm",
+      "url": "https://www.timeout.com/tokyo/shopping/mita-sneakers"
+    }
+  ],
+  "closed": [],
+  "last_entry": null,
+  "prices": [],
+  "fixed_minutes": null,
+  "time_limit": null,
+  "group": null,
+  "booking": null,
+  "notes": [
+    {
+      "text": "Hours come from an English Time Out Tokyo listing, not the shop's own page; year-end hours not found",
+      "quote": "Opening hours:",
+      "url": "https://www.timeout.com/tokyo/shopping/mita-sneakers"
+    }
+  ]
+}

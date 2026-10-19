@@ -1,0 +1,25 @@
+{
+  "open": [],
+  "closed": [],
+  "last_entry": null,
+  "prices": [],
+  "fixed_minutes": null,
+  "time_limit": null,
+  "group": {
+    "text": "Large orders (200 or 300 pieces) accepted for events; book in advance",
+    "quote": "200個、300個と大口のご予約承ります。",
+    "url": "https://www.onigiribongo.info/"
+  },
+  "booking": {
+    "text": "Phone reservations first-come; internet orders not accepted",
+    "quote": "お電話の ご予約は先着順になっておりますので、お早めにご連絡ください。",
+    "url": "https://www.onigiribongo.info/"
+  },
+  "notes": [
+    {
+      "text": "Regular set menu is Mon-Fri only (lunch set 9:00-14:00); no opening hours on page",
+      "quote": "通常のセットメニューは月曜日から金曜日の時間帯限定のサービスです。",
+      "url": "https://www.onigiribongo.info/"
+    }
+  ]
+}

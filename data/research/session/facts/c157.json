@@ -1,0 +1,69 @@
+{
+  "open": [
+    {
+      "dates": [
+        "2026-12-28"
+      ],
+      "open": "09:00",
+      "close": "29:00",
+      "quote": "月曜日 9:00～5:00",
+      "url": "https://big-echo.jp/?p=5274"
+    },
+    {
+      "dates": [
+        "2026-12-15",
+        "2026-12-29"
+      ],
+      "open": "09:00",
+      "close": "29:00",
+      "quote": "火曜日 9:00～5:00",
+      "url": "https://big-echo.jp/?p=5274"
+    },
+    {
+      "dates": [
+        "2026-12-27"
+      ],
+      "open": "09:00",
+      "close": "29:00",
+      "quote": "日曜・祝祭日 9:00～5:00",
+      "url": "https://big-echo.jp/?p=5274"
+    }
+  ],
+  "closed": [],
+  "last_entry": null,
+  "prices": [],
+  "fixed_minutes": null,
+  "time_limit": {
+    "minutes": 180,
+    "quote": "【３時間パック】OPEN〜21：00※18：00受付終了",
+    "url": "https://big-echo.jp/?p=5274"
+  },
+  "group": null,
+  "booking": {
+    "text": "Web booking available (カンタンWeb予約)",
+    "quote": "カンタンWeb予約",
+    "url": "https://big-echo.jp/?p=5274"
+  },
+  "notes": [
+    {
+      "text": "Special periods including year-end may have different prices; no year-end hours are stated",
+      "quote": "※ゴールデンウィーク・お盆・年末年始などの特別期間は料金が異なる場合がございます。",
+      "url": "https://big-echo.jp/?p=5274"
+    },
+    {
+      "text": "Coupon valid until end of December 2026",
+      "quote": "有効期限： 2026年12月末日",
+      "url": "https://big-echo.jp/?p=5274"
+    },
+    {
+      "text": "No alcohol or smoking for under-20s",
+      "quote": "※20歳未満への酒類提供および喫煙は固くお断りさせていただきます。",
+      "url": "https://big-echo.jp/?p=5274"
+    },
+    {
+      "text": "Page gives hours only for Mon, Tue and Sun/holidays; close written as 5:00 and recorded as 29:00 (next morning)",
+      "quote": "火曜日 9:00～5:00",
+      "url": "https://big-echo.jp/?p=5274"
+    }
+  ]
+}

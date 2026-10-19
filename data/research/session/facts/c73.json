@@ -1,0 +1,52 @@
+{
+  "open": [
+    {
+      "dates": [
+        "2026-12-16",
+        "2026-12-17",
+        "2026-12-18",
+        "2026-12-19",
+        "2026-12-26",
+        "2026-12-27",
+        "2026-12-28"
+      ],
+      "open": "11:00",
+      "close": "21:30",
+      "quote": "11:00～21:30（ネタがなくなり次第閉店）",
+      "url": "https://www.mapple.net/original/404833/"
+    }
+  ],
+  "closed": [
+    {
+      "dates": [
+        "2026-12-15",
+        "2026-12-29"
+      ],
+      "why": "Tuesday closing day",
+      "what": "the whole shop",
+      "whole_place": true,
+      "quote": "火曜、連休もあり（GW・盆時期は振替休あり、12月31日～翌1月4日休）",
+      "url": "https://www.mapple.net/original/404833/"
+    }
+  ],
+  "last_entry": null,
+  "prices": [
+    {
+      "what": "にぎり (1 plate) from",
+      "yen": 165,
+      "quote": "にぎり（一皿）＝165円～／中トロ（一皿）＝605円",
+      "url": "https://www.mapple.net/original/404833/"
+    }
+  ],
+  "fixed_minutes": null,
+  "time_limit": null,
+  "group": null,
+  "booking": null,
+  "notes": [
+    {
+      "text": "Closed 12/31 to 1/4 (outside the trip dates); further consecutive closures possible",
+      "quote": "12月31日～翌1月4日休",
+      "url": "https://www.mapple.net/original/404833/"
+    }
+  ]
+}

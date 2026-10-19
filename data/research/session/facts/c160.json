@@ -1,0 +1,48 @@
+{
+  "open": [
+    {
+      "dates": [
+        "2026-12-15",
+        "2026-12-16",
+        "2026-12-17",
+        "2026-12-18",
+        "2026-12-19",
+        "2026-12-26",
+        "2026-12-27",
+        "2026-12-28",
+        "2026-12-29"
+      ],
+      "open": "11:00",
+      "close": "24:00",
+      "quote": "ランチ・ディナー　11:00～24:00",
+      "url": "https://r.gnavi.co.jp/gg9j304/"
+    }
+  ],
+  "closed": [],
+  "last_entry": {
+    "time": "23:30",
+    "quote": "（L.O.23:30、ドリンクL.O.23:30）",
+    "url": "https://r.gnavi.co.jp/gg9j304/"
+  },
+  "prices": [],
+  "fixed_minutes": null,
+  "time_limit": null,
+  "group": null,
+  "booking": {
+    "text": "Online booking via gnavi",
+    "quote": "ネット予約はこちらから",
+    "url": "https://r.gnavi.co.jp/gg9j304/"
+  },
+  "notes": [
+    {
+      "text": "Irregular closing days exist; the dates are not given",
+      "quote": "不定休日あり",
+      "url": "https://r.gnavi.co.jp/gg9j304/"
+    },
+    {
+      "text": "Listing says it is 3 minutes from Ikebukuro East exit; no street address in the fetched text, so confirm the branch",
+      "quote": "池袋駅東口3分♪歓送迎会におすすめ！",
+      "url": "https://r.gnavi.co.jp/gg9j304/"
+    }
+  ]
+}

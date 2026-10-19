@@ -1,0 +1,64 @@
+{
+  "open": [
+    {
+      "dates": [
+        "2026-12-21",
+        "2026-12-22",
+        "2026-12-23",
+        "2026-12-24",
+        "2026-12-25",
+        "2026-12-26"
+      ],
+      "open": "00:00",
+      "close": "24:00",
+      "quote": "24時間営業",
+      "url": "https://jankara.ne.jp/shop/109/"
+    }
+  ],
+  "closed": [],
+  "last_entry": null,
+  "prices": [
+    {
+      "what": "BAL UTAO bar lounge, per 30 min, member rate",
+      "yen": 500,
+      "quote": "会員500円 / 一般1,000円（BAL UTAO）",
+      "url": "https://jankara.ne.jp/open/109/"
+    },
+    {
+      "what": "BAL UTAO bar lounge, per 30 min, general rate",
+      "yen": 1000,
+      "quote": "会員500円 / 一般1,000円（BAL UTAO）",
+      "url": "https://jankara.ne.jp/open/109/"
+    },
+    {
+      "what": "Karaoke room 207, 19:00 to 8:00, per 30 min (rooms differ; see room list)",
+      "yen": 200,
+      "quote": "19時～8時　30分毎＋200円/フリータイム＋1,200円",
+      "url": "https://jankara.ne.jp/shop/109/"
+    }
+  ],
+  "fixed_minutes": null,
+  "time_limit": null,
+  "group": {
+    "text": "Karaoke rooms by capacity, e.g. 4 to 14 people, 2 to 10, 1 to 3; a single-person booking pays an extra fee in some hours.",
+    "quote": "1名様のご利用に限り、追加料金が発生する時間帯がございます。",
+    "url": "https://jankara.ne.jp/shop/109/"
+  },
+  "booking": {
+    "text": "Web reservation for rooms via the すぐカラ service.",
+    "quote": "便利なWEB予約 すぐカラ はこちら",
+    "url": "https://jankara.ne.jp/shop/109/"
+  },
+  "notes": [
+    {
+      "text": "Address: Dotonbori 1-7-23, B1 to 5F; reception is on 1F.",
+      "quote": "大阪府大阪市中央区道頓堀1-7-23 B1〜5F",
+      "url": "https://jankara.ne.jp/shop/109/"
+    },
+    {
+      "text": "BAL UTAO after 24:00: alcohol-only service is restricted and one food order per person is required.",
+      "quote": "※BAL UTAOでは、24時以降はお酒のみの提供は控えさせていただいており、お1人様1フードオーダー制となります。",
+      "url": "https://jankara.ne.jp/open/109/"
+    }
+  ]
+}

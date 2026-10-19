@@ -1,0 +1,37 @@
+{
+  "open": [
+    {
+      "dates": [
+        "2026-12-21",
+        "2026-12-22",
+        "2026-12-23",
+        "2026-12-24",
+        "2026-12-25",
+        "2026-12-26"
+      ],
+      "open": "17:00",
+      "close": "25:00",
+      "quote": "開催時間：17時頃から25時まで",
+      "url": "https://www.city.osaka.lg.jp/hodoshiryo/keizaisenryaku/0000687506.html"
+    }
+  ],
+  "closed": [],
+  "last_entry": null,
+  "prices": [],
+  "fixed_minutes": null,
+  "time_limit": null,
+  "group": null,
+  "booking": null,
+  "notes": [
+    {
+      "text": "Venue: Midosuji from Hanshin-mae intersection to Namba Nishiguchi intersection",
+      "quote": "開催場所：御堂筋（阪神前交差点から難波西口交差点まで）",
+      "url": "https://www.city.osaka.lg.jp/hodoshiryo/keizaisenryaku/0000687506.html"
+    },
+    {
+      "text": "Programme period 3 Nov to 31 Dec 2026",
+      "quote": "開催日程：令和8年11月3日（火曜日・祝日）から12月31日（木曜日）まで",
+      "url": "https://www.city.osaka.lg.jp/hodoshiryo/keizaisenryaku/0000687506.html"
+    }
+  ]
+}

@@ -1,0 +1,52 @@
+{
+  "open": [
+    {
+      "dates": [
+        "2026-12-15",
+        "2026-12-16",
+        "2026-12-17",
+        "2026-12-18",
+        "2026-12-19",
+        "2026-12-26",
+        "2026-12-27",
+        "2026-12-28",
+        "2026-12-29"
+      ],
+      "open": "11:45",
+      "close": "30:00",
+      "quote": "11:45 am - 6:00 am",
+      "url": "https://savorjapan.com/0002154070"
+    }
+  ],
+  "closed": [],
+  "last_entry": null,
+  "prices": [
+    {
+      "what": "average price (listing)",
+      "yen": 750,
+      "quote": "750 JPY",
+      "url": "https://savorjapan.com/0002154070"
+    }
+  ],
+  "fixed_minutes": null,
+  "time_limit": null,
+  "group": null,
+  "booking": null,
+  "notes": [
+    {
+      "text": "Lunch hours listed as 11:45 am - 5:00 pm",
+      "quote": "Lunch 11:45 am - 5:00 pm",
+      "url": "https://savorjapan.com/0002154070"
+    },
+    {
+      "text": "Open until 6:00 am; ramen as the last stop after drinking",
+      "quote": "深夜6:00まで営業しているので、遅くまで飲んでしまっても〆のラーメンが食べられますよ♪",
+      "url": "https://aumo.jp/articles/17469"
+    },
+    {
+      "text": "Savor Japan lists no closing day; third-party listing only, no official site found",
+      "quote": "Closed none",
+      "url": "https://savorjapan.com/0002154070"
+    }
+  ]
+}

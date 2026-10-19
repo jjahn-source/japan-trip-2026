@@ -1,0 +1,35 @@
+{
+  "open": [
+    {
+      "dates": [
+        "2026-12-15",
+        "2026-12-16",
+        "2026-12-17",
+        "2026-12-18",
+        "2026-12-19",
+        "2026-12-26",
+        "2026-12-27",
+        "2026-12-28",
+        "2026-12-29"
+      ],
+      "open": "07:00",
+      "close": "23:00",
+      "quote": "7:00～23:00 / 定休日なし",
+      "url": "https://www.shinpachi-shokudo.com/"
+    }
+  ],
+  "closed": [],
+  "last_entry": null,
+  "prices": [],
+  "fixed_minutes": null,
+  "time_limit": null,
+  "group": null,
+  "booking": null,
+  "notes": [
+    {
+      "text": "Nishi-Shinjuku store address",
+      "quote": "東京都新宿区西新宿1-15-9　KCビル1階",
+      "url": "https://www.shinpachi-shokudo.com/"
+    }
+  ]
+}

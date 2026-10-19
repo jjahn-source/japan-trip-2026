@@ -1,0 +1,27 @@
+{
+  "open": [],
+  "closed": [],
+  "last_entry": null,
+  "prices": [],
+  "fixed_minutes": null,
+  "time_limit": null,
+  "group": null,
+  "booking": null,
+  "notes": [
+    {
+      "text": "Third-party listing (gltjp) hours: 10:30 to 21:00 (Sat/holiday 9:30 to 21:00), no closing day",
+      "quote": "10:30〜21:00（土・祝日9:30～21:00）",
+      "url": "https://www.gltjp.com/ja/directory/item/13393"
+    },
+    {
+      "text": "Third-party listing (gurunavi) hours conflict: Mon to Fri 10:00 to 23:00, Sat/Sun/holiday 8:30 to 23:00; no official site found; confirm by phone",
+      "quote": "月～金 10:00～23:00",
+      "url": "https://gurunavi.com/ja/kd4g900/rev/rst/"
+    },
+    {
+      "text": "Phone number for the shop",
+      "quote": "06-6631-0127",
+      "url": "https://www.gltjp.com/ja/directory/item/13393"
+    }
+  ]
+}

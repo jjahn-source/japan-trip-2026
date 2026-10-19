@@ -1,0 +1,17 @@
+{
+  "open": [],
+  "closed": [],
+  "last_entry": null,
+  "prices": [],
+  "fixed_minutes": null,
+  "time_limit": null,
+  "group": null,
+  "booking": null,
+  "notes": [
+    {
+      "text": "Hours are per shop and can change without notice; the official shop list gives no hours for the trip dates",
+      "quote": "こちら営業時間は、予告無しに変更される場合もございます。各店舗のページも参照下さい。",
+      "url": "http://www.ebisu-yokocho.com/shop/"
+    }
+  ]
+}

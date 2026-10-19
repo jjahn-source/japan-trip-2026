@@ -1,0 +1,39 @@
+{
+  "open": [
+    {
+      "dates": [
+        "2026-12-19",
+        "2026-12-21"
+      ],
+      "open": "10:00",
+      "close": "15:00",
+      "quote": "営業時間( 小売部門) 10：00～15：00頃",
+      "url": "https://www.hakone-yamakawaya.net/"
+    }
+  ],
+  "closed": [
+    {
+      "dates": [
+        "2026-12-20"
+      ],
+      "why": "Regular closing day (毎週 水曜・日曜)",
+      "what": "the whole shop (retail)",
+      "whole_place": true,
+      "quote": "定休日　毎週　水曜・日曜",
+      "url": "https://www.hakone-yamakawaya.net/"
+    }
+  ],
+  "last_entry": null,
+  "prices": [],
+  "fixed_minutes": null,
+  "time_limit": null,
+  "group": null,
+  "booking": null,
+  "notes": [
+    {
+      "text": "Temporary closures possible",
+      "quote": "※臨時休業あり",
+      "url": "https://www.hakone-yamakawaya.net/"
+    }
+  ]
+}

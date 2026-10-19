@@ -1,0 +1,37 @@
+{
+  "open": [
+    {
+      "dates": [
+        "2026-12-19",
+        "2026-12-20",
+        "2026-12-21"
+      ],
+      "open": "10:00",
+      "close": "17:30",
+      "quote": "開館時間：午前10時から午後5時30分（ご入館は5時まで）",
+      "url": "http://www.ciao3.com"
+    }
+  ],
+  "closed": [],
+  "last_entry": {
+    "time": "17:00",
+    "quote": "開館時間：午前10時から午後5時30分（ご入館は5時まで）",
+    "url": "http://www.ciao3.com"
+  },
+  "prices": [],
+  "fixed_minutes": null,
+  "time_limit": null,
+  "group": null,
+  "booking": {
+    "text": "Advance tickets and fusing workshop reservations online",
+    "quote": "お得な前売り券、サンドブラスト・フュージング体験工房のご予約はこちら",
+    "url": "http://www.ciao3.com"
+  },
+  "notes": [
+    {
+      "text": "Special exhibition runs to 2027-01-11; open every day of the run",
+      "quote": "会期：2026年7月18日（土）から2027年1月11日（祝・月）まで(会期中無休)",
+      "url": "http://www.ciao3.com"
+    }
+  ]
+}

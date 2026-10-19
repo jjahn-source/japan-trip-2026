@@ -1,0 +1,42 @@
+{
+  "open": [
+    {
+      "dates": [
+        "2026-12-21",
+        "2026-12-22",
+        "2026-12-23",
+        "2026-12-25",
+        "2026-12-26"
+      ],
+      "open": "10:30",
+      "close": "21:30",
+      "quote": "営業時間： 午前 10 時 30 分～午後 9 時 30 分",
+      "url": "https://www.nippon.com/ja/guide-to-japan/gu900022/"
+    }
+  ],
+  "closed": [
+    {
+      "dates": [
+        "2026-12-24"
+      ],
+      "why": "Regular closing day (木曜日)",
+      "what": "the whole restaurant",
+      "whole_place": true,
+      "quote": "定休日： 木曜日、第 3 水曜日",
+      "url": "https://www.nippon.com/ja/guide-to-japan/gu900022/"
+    }
+  ],
+  "last_entry": null,
+  "prices": [],
+  "fixed_minutes": null,
+  "time_limit": null,
+  "group": null,
+  "booking": null,
+  "notes": [
+    {
+      "text": "Takeaway available for 5 or more skewers; no year-end hours found on the source",
+      "quote": "持ち帰りは5本以上から",
+      "url": "https://www.nippon.com/ja/guide-to-japan/gu900022/"
+    }
+  ]
+}

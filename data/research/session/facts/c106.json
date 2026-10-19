@@ -1,0 +1,63 @@
+{
+  "open": [
+    {
+      "dates": [
+        "2026-12-21"
+      ],
+      "open": "16:00",
+      "close": "24:00",
+      "quote": "16:00～24:00",
+      "url": "https://livejapan.com/ja/in-kansai/in-pref-osaka/in-umeda_osaka-station_kitashinchi/spot-lj0057765/"
+    },
+    {
+      "dates": [
+        "2026-12-22",
+        "2026-12-23",
+        "2026-12-24",
+        "2026-12-25",
+        "2026-12-26"
+      ],
+      "open": "11:30",
+      "close": "24:00",
+      "quote": "11:30～24:00",
+      "url": "https://livejapan.com/ja/in-kansai/in-pref-osaka/in-umeda_osaka-station_kitashinchi/spot-lj0057765/"
+    }
+  ],
+  "closed": [],
+  "last_entry": {
+    "time": "23:30",
+    "quote": "（L.O.23:30、ドリンクL.O.23:30）",
+    "url": "https://livejapan.com/ja/in-kansai/in-pref-osaka/in-umeda_osaka-station_kitashinchi/spot-lj0057765/"
+  },
+  "prices": [],
+  "fixed_minutes": null,
+  "time_limit": null,
+  "group": null,
+  "booking": {
+    "text": "Online reservation via SAVOR JAPAN; phone 06-6361-3619",
+    "quote": "Book Now",
+    "url": "https://savorjapan.com/0031557218/menus"
+  },
+  "notes": [
+    {
+      "text": "Year-end and New Year notice exists on the listing, but its text was not readable",
+      "quote": "年末年始のお知らせ",
+      "url": "https://livejapan.com/ja/in-kansai/in-pref-osaka/in-umeda_osaka-station_kitashinchi/spot-lj0057765/"
+    },
+    {
+      "text": "Regular closing: none (year-round open per LiveJapan)",
+      "quote": "年中無休",
+      "url": "https://livejapan.com/ja/in-kansai/in-pref-osaka/in-umeda_osaka-station_kitashinchi/spot-lj0057765/"
+    },
+    {
+      "text": "All-you-can-eat courses are timed at 90 or 120 minutes (SAVOR JAPAN Ohatsutenjin branch)",
+      "quote": "90 minutes: 3498 yen; 120 minutes: 3828 yen",
+      "url": "https://savorjapan.com/0031557218/menus"
+    },
+    {
+      "text": "Average budget 3,000 yen (LiveJapan)",
+      "quote": "通常予算: 3,000 円",
+      "url": "https://livejapan.com/ja/in-kansai/in-pref-osaka/in-umeda_osaka-station_kitashinchi/spot-lj0057765/"
+    }
+  ]
+}

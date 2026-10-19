@@ -1,0 +1,35 @@
+{
+  "open": [
+    {
+      "dates": [
+        "2026-12-15",
+        "2026-12-16",
+        "2026-12-17",
+        "2026-12-18",
+        "2026-12-19",
+        "2026-12-26",
+        "2026-12-27",
+        "2026-12-28",
+        "2026-12-29"
+      ],
+      "open": "00:00",
+      "close": "24:00",
+      "quote": "24時間営業で年中無休",
+      "url": "https://www.tv-tokyo.co.jp/adomachi/backnumber/20230826/144164.html"
+    }
+  ],
+  "closed": [],
+  "last_entry": null,
+  "prices": [],
+  "fixed_minutes": null,
+  "time_limit": null,
+  "group": null,
+  "booking": null,
+  "notes": [
+    {
+      "text": "Source is a 2023 TV Tokyo feature; current hours not confirmed",
+      "quote": "24時間営業で年中無休",
+      "url": "https://www.tv-tokyo.co.jp/adomachi/backnumber/20230826/144164.html"
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "open": [
+    {
+      "dates": [
+        "2026-12-21",
+        "2026-12-22",
+        "2026-12-23",
+        "2026-12-24",
+        "2026-12-25",
+        "2026-12-26"
+      ],
+      "open": "00:00",
+      "close": "24:00",
+      "quote": "24時間開放",
+      "url": "https://banzokubiology.com/?p=22312"
+    }
+  ],
+  "closed": [],
+  "last_entry": null,
+  "prices": [],
+  "fixed_minutes": null,
+  "time_limit": null,
+  "group": null,
+  "booking": null,
+  "notes": [
+    {
+      "text": "Bamboo grove stays open 24 hours over the New Year period (blog source, no official page read)",
+      "quote": "京都・嵐山の竹林の小径は年末年始も24時間散策可能。",
+      "url": "https://banzokubiology.com/?p=22312"
+    }
+  ]
+}

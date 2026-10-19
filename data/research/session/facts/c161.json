@@ -1,0 +1,42 @@
+{
+  "open": [
+    {
+      "dates": [
+        "2026-12-15",
+        "2026-12-16",
+        "2026-12-17",
+        "2026-12-18",
+        "2026-12-19",
+        "2026-12-26",
+        "2026-12-27",
+        "2026-12-28",
+        "2026-12-29"
+      ],
+      "open": "00:00",
+      "close": "24:00",
+      "quote": "営業時間:24時間営業",
+      "url": "https://www.enjoytokyo.jp/article/108469/"
+    }
+  ],
+  "closed": [],
+  "last_entry": null,
+  "prices": [
+    {
+      "what": "every item, per item (listing, 2 years old possibly)",
+      "yen": 335,
+      "quote": "なんと「全品335円」というすごいお店！",
+      "url": "https://www.enjoytokyo.jp/article/108469/"
+    }
+  ],
+  "fixed_minutes": null,
+  "time_limit": null,
+  "group": null,
+  "booking": null,
+  "notes": [
+    {
+      "text": "Listed as 若大将 まつしま, 西池袋1-26-5; name match with the trip entry not confirmed on an official page",
+      "quote": "住所:東京都豊島区西池袋1-26-5",
+      "url": "https://www.enjoytokyo.jp/article/108469/"
+    }
+  ]
+}

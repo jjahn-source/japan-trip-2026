@@ -1,0 +1,53 @@
+{
+  "open": [
+    {
+      "dates": [
+        "2026-12-15",
+        "2026-12-16",
+        "2026-12-18",
+        "2026-12-28",
+        "2026-12-29"
+      ],
+      "open": "14:00",
+      "close": "25:30",
+      "quote": "14時〜25時30分（土・日曜は8時〜25時30分）／入場は閉館の15分前まで／定休日は木曜",
+      "url": "https://www.timeout.jp/tokyo/ja/things-to-do/kosugiyu"
+    },
+    {
+      "dates": [
+        "2026-12-19",
+        "2026-12-26",
+        "2026-12-27"
+      ],
+      "open": "08:00",
+      "close": "25:30",
+      "quote": "14時〜25時30分（土・日曜は8時〜25時30分）／入場は閉館の15分前まで／定休日は木曜",
+      "url": "https://www.timeout.jp/tokyo/ja/things-to-do/kosugiyu"
+    }
+  ],
+  "closed": [
+    {
+      "dates": [
+        "2026-12-17"
+      ],
+      "why": "Regular closing day (木曜)",
+      "what": "the whole bath house",
+      "whole_place": true,
+      "quote": "定休日は木曜",
+      "url": "https://www.timeout.jp/tokyo/ja/things-to-do/kosugiyu"
+    }
+  ],
+  "last_entry": null,
+  "prices": [],
+  "fixed_minutes": null,
+  "time_limit": null,
+  "group": null,
+  "booking": null,
+  "notes": [
+    {
+      "text": "Entry until 15 minutes before closing",
+      "quote": "入場は閉館の15分前まで",
+      "url": "https://www.timeout.jp/tokyo/ja/things-to-do/kosugiyu"
+    }
+  ]
+}

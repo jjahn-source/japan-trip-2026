@@ -1,0 +1,63 @@
+{
+  "open": [
+    {
+      "dates": [
+        "2026-12-15",
+        "2026-12-16",
+        "2026-12-17",
+        "2026-12-18",
+        "2026-12-28",
+        "2026-12-29"
+      ],
+      "open": "17:00",
+      "close": "29:00",
+      "quote": "月～金、祝前日: 17:00～翌5:00",
+      "url": "https://www.hotpepper.jp/strJ000005812/"
+    },
+    {
+      "dates": [
+        "2026-12-19",
+        "2026-12-26",
+        "2026-12-27"
+      ],
+      "open": "12:00",
+      "close": "29:00",
+      "quote": "土、日、祝日: 12:00～翌5:00",
+      "url": "https://www.hotpepper.jp/strJ000005812/"
+    }
+  ],
+  "closed": [],
+  "last_entry": null,
+  "prices": [
+    {
+      "what": "Unlimited all-you-can-drink plan (coupon price)",
+      "yen": 1480,
+      "quote": "無制限飲み放題1480円！",
+      "url": "https://www.hotpepper.jp/strJ000005812/"
+    }
+  ],
+  "fixed_minutes": null,
+  "time_limit": null,
+  "group": {
+    "text": "Phone booking for 8 or more; 1 person free (not for online booking)",
+    "quote": "8名様以上の電話でのご予約は1名様無料！（ネット予約は対象外）",
+    "url": "https://www.hotpepper.jp/strJ000005812/"
+  },
+  "booking": {
+    "text": "Online booking accepted",
+    "quote": "海の家 新宿東口店(新宿東口/居酒屋)＜ネット予約可＞ | ホットペッパーグルメ",
+    "url": "https://www.hotpepper.jp/strJ000005812/"
+  },
+  "notes": [
+    {
+      "text": "Listing says year-round opening",
+      "quote": "定休日： 年中無休！！土日祝日は昼飲みやってます！",
+      "url": "https://www.hotpepper.jp/strJ000005812/"
+    },
+    {
+      "text": "HotPepper caveat: older price info may be outdated, confirm with the store",
+      "quote": "※更新日が2021/3/31以前の情報は、当時の価格及び税率に基づく情報となります。価格につきましては直接店舗へお問い合わせください。",
+      "url": "https://www.hotpepper.jp/strJ000005812/"
+    }
+  ]
+}

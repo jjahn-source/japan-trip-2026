@@ -1,0 +1,102 @@
+{
+  "date": "2026-12-22",
+  "city": "Osaka",
+  "title": "USJ Holiday Wonders rope-drop to evening lights · takoyaki · Hozenji lanterns · Jankara nomihodai karaoke",
+  "stamp": {
+    "kanji": "夢",
+    "reading": "yume · dream",
+    "place": "USJ · DOTONBORI · HOZENJI"
+  },
+  "stops": [
+    {
+      "start": "07:00",
+      "end": "07:00",
+      "candidate_id": null,
+      "name": "Kujō House",
+      "category": "stay",
+      "category_label": "Stay",
+      "plan": "Out the door by 07:00 with passports, phones charged and the USJ app logged in; grab konbini onigiri and coffee on the way.",
+      "price": null,
+      "lat": 34.676585,
+      "lng": 135.468633,
+      "end_lat": null,
+      "end_lng": null,
+      "transport": "Hanshin Namba line Kujō → Nishikujō (1 stop), then JR Yumesaki line → Universal City, about 35 min door to door"
+    },
+    {
+      "start": "07:40",
+      "end": "19:00",
+      "candidate_id": "c30",
+      "name": "Universal Studios Japan – Universal Holiday Wonders",
+      "category": "attraction",
+      "category_label": "Theme park",
+      "plan": "At the gate well before opening (official hours for 22 Dec are not confirmed yet, so check the USJ calendar the week before); go straight to Super Nintendo World (get the free timed-entry ticket in the app if you have no Express), use Express Pass slots for Mario Kart/Harry Potter, lunch and an early dinner at the Universal Food Festival, then catch the early Christmas night show and Joy of Lights before leaving.",
+      "price": "Studio Pass ~¥9,900–11,900 pp (dynamic, buy dated) + Express Pass from ~¥14,800 pp",
+      "lat": 34.6656768,
+      "lng": 135.4323185,
+      "end_lat": null,
+      "end_lng": null,
+      "transport": "JR Yumesaki line Universal City → Nishikujō, JR Loop line → Noda, walk to Tamagawa, Metro Sennichimae line → Namba, then walk; about 55 min"
+    },
+    {
+      "start": "19:55",
+      "end": "20:10",
+      "candidate_id": "c71",
+      "name": "Takoyaki Wanaka Sennichimae Honten",
+      "category": "restaurant",
+      "category_label": "Street food",
+      "plan": "Takoyaki and the osenbei rice-cracker sandwich to share as the first Osaka bite of the night (it may close around 21:00, so come straight here).",
+      "price": "¥600–800 per box",
+      "lat": 34.665216699999995,
+      "lng": 135.50336289999998,
+      "end_lat": null,
+      "end_lng": null,
+      "transport": "Walk north up Sennichimae to Hozenji, 6 min"
+    },
+    {
+      "start": "20:20",
+      "end": "21:30",
+      "candidate_id": "c75",
+      "name": "Hozenji Yokocho",
+      "category": "bar",
+      "category_label": "Bar alley",
+      "plan": "Splash the moss-covered Fudo statue, then first drinks in the lantern-lit stone lane, split into twos and fours across the tiny bars; regroup at the statue.",
+      "price": "¥700–1,200 per drink (+¥300–500 seat charge)",
+      "lat": 34.6681187,
+      "lng": 135.50261039999998,
+      "end_lat": null,
+      "end_lng": null,
+      "transport": "Walk to Jankara on Dotonbori, 1 min"
+    },
+    {
+      "start": "21:35",
+      "end": "23:05",
+      "candidate_id": "c44",
+      "name": "Jankara Dotonbori (BAL UTAO)",
+      "category": "bar",
+      "category_label": "Karaoke bar",
+      "plan": "All-you-can-drink karaoke lounge or one big room for 8 to close the night, then straight home: tomorrow is the Kyoto day.",
+      "price": "¥500 per 30 min with the free Jankara app (¥1,000 without) + 1 food item each",
+      "lat": 34.6685446,
+      "lng": 135.5027984,
+      "end_lat": null,
+      "end_lng": null,
+      "transport": "Walk to Osaka-Namba, Hanshin Namba line → Kujō (2 stops), about 35 min door to door"
+    },
+    {
+      "start": "23:45",
+      "end": "23:45",
+      "candidate_id": null,
+      "name": "Kujō House",
+      "category": "stay",
+      "category_label": "Stay",
+      "plan": "Bed: out at 06:30 for Kyoto.",
+      "price": null,
+      "lat": 34.676585,
+      "lng": 135.468633,
+      "end_lat": null,
+      "end_lng": null,
+      "transport": null
+    }
+  ]
+}

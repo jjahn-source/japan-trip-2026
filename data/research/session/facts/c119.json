@@ -1,0 +1,21 @@
+{
+  "open": [],
+  "closed": [],
+  "last_entry": null,
+  "prices": [],
+  "fixed_minutes": null,
+  "time_limit": null,
+  "group": null,
+  "booking": {
+    "text": "Course menus need booking the day before (chain page, not store-specific)",
+    "quote": "※前日迄の予約が必要となります。",
+    "url": "https://isomaru.jp/"
+  },
+  "notes": [
+    {
+      "text": "Chain page: 22:00-05:00 bookings and use carry a 10% late-night surcharge",
+      "quote": "22:00 ～翌 5:00 の時間帯にかかるご宴会・ご利用につきましては、深夜料金としてお会計総額の10％を頂戴しております。",
+      "url": "https://isomaru.jp/"
+    }
+  ]
+}

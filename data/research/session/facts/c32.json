@@ -1,0 +1,68 @@
+{
+  "open": [
+    {
+      "dates": [
+        "2026-12-21",
+        "2026-12-22",
+        "2026-12-23",
+        "2026-12-24",
+        "2026-12-25",
+        "2026-12-26"
+      ],
+      "open": "09:00",
+      "close": "18:00",
+      "quote": "9:00～18:00（入館は17:30まで）",
+      "url": "https://www.osakacastle.net/guide/"
+    }
+  ],
+  "closed": [],
+  "last_entry": {
+    "time": "17:30",
+    "quote": "9:00～18:00（入館は17:30まで）",
+    "url": "https://www.osakacastle.net/guide/"
+  },
+  "prices": [
+    {
+      "what": "Adult",
+      "yen": 1200,
+      "quote": "1,200円",
+      "url": "https://www.osakacastle.net/guide/"
+    },
+    {
+      "what": "University / high school student (ID required)",
+      "yen": 600,
+      "quote": "600円",
+      "url": "https://www.osakacastle.net/guide/"
+    },
+    {
+      "what": "Adult, group of 15 or more",
+      "yen": 1080,
+      "quote": "1,080円",
+      "url": "https://www.osakacastle.net/guide/"
+    }
+  ],
+  "fixed_minutes": null,
+  "time_limit": null,
+  "group": {
+    "text": "Groups of 15+ get group rates; groups must arrange the visit by phone (06-6941-3044)",
+    "quote": "予定が決まりましたら電話にてご連絡くださいますようお願いします",
+    "url": "https://www.osakacastle.net/guide/"
+  },
+  "booking": {
+    "text": "No entry reservations taken",
+    "quote": "大阪城天守閣では入館予約を承っておりませんので、ご連絡は予約にはなりません。",
+    "url": "https://www.osakacastle.net/guide/"
+  },
+  "notes": [
+    {
+      "text": "Online WEB tickets available",
+      "quote": "WEBチケットの購入はこちら",
+      "url": "https://www.osakacastle.net/guide/"
+    },
+    {
+      "text": "Closed 12/28 to 1/1 (outside trip dates)",
+      "quote": "12月28日～1月1日",
+      "url": "https://www.osakacastle.net/guide/"
+    }
+  ]
+}

@@ -1,0 +1,52 @@
+{
+  "open": [
+    {
+      "dates": [
+        "2026-12-15",
+        "2026-12-16",
+        "2026-12-17",
+        "2026-12-18",
+        "2026-12-19",
+        "2026-12-26",
+        "2026-12-27",
+        "2026-12-28",
+        "2026-12-29"
+      ],
+      "open": "11:00",
+      "close": "21:00",
+      "quote": "物販・サービス 11:00～21:00",
+      "url": "https://www.walkerplus.com/spot/ar0313s376307/data.html"
+    },
+    {
+      "dates": [
+        "2026-12-15",
+        "2026-12-16",
+        "2026-12-17",
+        "2026-12-18",
+        "2026-12-19",
+        "2026-12-26",
+        "2026-12-27",
+        "2026-12-28",
+        "2026-12-29"
+      ],
+      "open": "11:30",
+      "close": "23:00",
+      "quote": "飲食 11:30～23:00",
+      "url": "https://www.walkerplus.com/spot/ar0313s376307/data.html"
+    }
+  ],
+  "closed": [],
+  "last_entry": null,
+  "prices": [],
+  "fixed_minutes": null,
+  "time_limit": null,
+  "group": null,
+  "booking": null,
+  "notes": [
+    {
+      "text": "Hours differ by shop; check the official site (listing is dated Jan 2026, third-party)",
+      "quote": "詳細は公式サイト等をご確認ください",
+      "url": "https://www.walkerplus.com/spot/ar0313s376307/data.html"
+    }
+  ]
+}

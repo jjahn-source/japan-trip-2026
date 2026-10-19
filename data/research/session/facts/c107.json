@@ -1,0 +1,45 @@
+{
+  "open": [
+    {
+      "dates": [
+        "2026-12-21",
+        "2026-12-22",
+        "2026-12-23",
+        "2026-12-24",
+        "2026-12-25",
+        "2026-12-26"
+      ],
+      "open": "00:00",
+      "close": "24:00",
+      "quote": "24時間",
+      "url": "https://www.mapple.net/original/487995/"
+    }
+  ],
+  "closed": [],
+  "last_entry": null,
+  "prices": [
+    {
+      "what": "Kinryu Ramen",
+      "yen": 600,
+      "quote": "金龍ラーメン＝600円／チャーシューメン＝900円／",
+      "url": "https://www.mapple.net/original/487995/"
+    },
+    {
+      "what": "Chashu Men",
+      "yen": 900,
+      "quote": "金龍ラーメン＝600円／チャーシューメン＝900円／",
+      "url": "https://www.mapple.net/original/487995/"
+    }
+  ],
+  "fixed_minutes": null,
+  "time_limit": null,
+  "group": null,
+  "booking": null,
+  "notes": [
+    {
+      "text": "Official site kinryuramen.com shows no hours; hours come from the Mapple listing",
+      "quote": "Kinryu Ramen Dotombori",
+      "url": "https://kinryuramen.com/"
+    }
+  ]
+}

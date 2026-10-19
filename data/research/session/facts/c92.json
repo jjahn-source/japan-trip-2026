@@ -1,0 +1,72 @@
+{
+  "open": [
+    {
+      "dates": [
+        "2026-12-15",
+        "2026-12-16",
+        "2026-12-17",
+        "2026-12-18",
+        "2026-12-19"
+      ],
+      "open": "11:00",
+      "close": "22:00",
+      "quote": "それ以外は11:00〜22:00（最終入場21:00、ラストオーダー21:30）",
+      "url": "https://report.iko-yo.net/articles/33678"
+    }
+  ],
+  "closed": [
+    {
+      "dates": [
+        "2026-12-26",
+        "2026-12-27",
+        "2026-12-28",
+        "2026-12-29"
+      ],
+      "why": "event period ends 25 Dec",
+      "what": "the whole market (the event runs 4-25 Dec)",
+      "whole_place": true,
+      "quote": "会期は2026年12月4日（金）〜12月25日（金）の22日間。",
+      "url": "https://report.iko-yo.net/articles/33678"
+    }
+  ],
+  "last_entry": {
+    "time": "21:00",
+    "quote": "最終入場21:00",
+    "url": "https://report.iko-yo.net/articles/33678"
+  },
+  "prices": [
+    {
+      "what": "Adult (junior high and up), weekdays, Dec 4-23",
+      "yen": 1000,
+      "quote": "大人(中学生以上):平日:1,000円",
+      "url": "https://san-tatsu.jp/pressrelease/558555/"
+    },
+    {
+      "what": "Adult, Sat/Sun, Dec 4-23",
+      "yen": 1500,
+      "quote": "1,500円",
+      "url": "https://san-tatsu.jp/pressrelease/558555/"
+    },
+    {
+      "what": "Adult, Dec 24-25",
+      "yen": 2000,
+      "quote": "大人(中学生以上)2,000円",
+      "url": "https://san-tatsu.jp/pressrelease/558555/"
+    }
+  ],
+  "fixed_minutes": null,
+  "time_limit": null,
+  "group": null,
+  "booking": {
+    "text": "Advance tickets on sale from 1 Oct 2026 18:00; same-day entry may be limited when crowded",
+    "quote": "混雑時には当日受付の入場を制限する場合があるため",
+    "url": "https://san-tatsu.jp/pressrelease/558555/"
+  },
+  "notes": [
+    {
+      "text": "Venue is Shiba Park (Onarimon station, exit A6)",
+      "quote": "都営三田線「御成門駅」A6出口より徒歩1分",
+      "url": "https://san-tatsu.jp/pressrelease/558555/"
+    }
+  ]
+}

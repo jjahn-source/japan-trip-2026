@@ -1,0 +1,21 @@
+{
+  "open": [],
+  "closed": [],
+  "last_entry": null,
+  "prices": [],
+  "fixed_minutes": null,
+  "time_limit": null,
+  "group": {
+    "text": "Group bus reservations are accepted by fax only (phone on the day only, when the car park is full it may be refused).",
+    "quote": "FAXでの受付のみとなりますので",
+    "url": "https://www.toyosu-senkyakubanrai.jp/"
+  },
+  "booking": null,
+  "notes": [
+    {
+      "text": "The official page only shows special hours for 10/24 (a fireworks day), not the regular hours or year-end schedule.",
+      "quote": "10月24日（土）営業時間・施設利用のご案内",
+      "url": "https://www.toyosu-senkyakubanrai.jp/"
+    }
+  ]
+}
