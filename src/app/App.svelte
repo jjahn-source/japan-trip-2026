@@ -104,11 +104,10 @@
   $effect(() => {
     const id = app.sheet;
     if (!mapReady || !id) return;
-    // The sheet paints first; the camera moves after. On a phone the sheet covers the map, so the
-    // camera waits for it to close rather than doing work nobody can see.
+    // The sheet paints first; the camera moves after (the map stays in view beside or above it).
     untrack(() => {
       const f = stopOf(id);
-      if (!f || app.view.kind !== 'day' || app.view.n !== f.day.n || !wide()) return;
+      if (!f || app.view.kind !== 'day' || app.view.n !== f.day.n) return;
       requestAnimationFrame(() => setTimeout(() => { if (app.sheet === id) map?.focus(f.stop); }, 60));
     });
   });
@@ -117,14 +116,21 @@
   // The light: the hour of the leg playing (it changes with the ride's clock, so a ride across sunset
   // gets dark as it goes) or of the stop open, else the hour it is on the day itself.
   let playMinute = $state<number | null>(null);
-  const wide = () => typeof innerWidth === 'number' && innerWidth >= 900;
   const phase = $derived.by(() => {
     if (!day) return 'dusk' as const;
-    const open = wide() ? day.stops.find((s) => s.id === app.sheet) : null; // on a phone the sheet hides the map
+    const open = day.stops.find((s) => s.id === app.sheet);
     const m = playMinute ?? (open ? minutesOf(open.startISO, day.date) : today === day.n ? minutesOf(new Date(now()).toISOString(), day.date) : null);
     return m == null ? ('dusk' as const) : phaseAt(m, day.sun);
   });
-  $effect(() => { const p = phase; if (mapReady) untrack(() => map?.setPhase(p, app.playing != null)); });
+  $effect(() => {
+    const p = phase;
+    if (!mapReady) return;
+    // During a ride the light changes with the clock; otherwise (opening a stop, changing day) it waits
+    // until the sheet or view has settled, and the map applies it when its camera comes to rest.
+    if (untrack(() => app.playing != null)) { untrack(() => map?.setPhase(p, true)); return; }
+    const t = setTimeout(() => map?.setPhase(p), 450);
+    return () => clearTimeout(t);
+  });
   // The sun in the playback clock: it sinks below the horizon as a ride's clock passes sunset.
   const sky = $derived(day?.sun && playMinute != null ? sunHeight(playMinute, day.sun) : null);
 

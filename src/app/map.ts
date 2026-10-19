@@ -196,8 +196,9 @@ export class TripMap {
     if (!this.map || s.lat == null) return;
     this.highlight(s.id);
     // On desktop the stop's panel covers the right of the map: centre the stop in what's left.
-    const panel = innerWidth >= 900 ? Math.min(480, innerWidth * 0.42) : 0;
-    this.map.flyTo({ center: [s.lng!, s.lat], offset: [-panel / 2, 0], zoom: Math.max(this.map.getZoom(), 15.4), pitch: 52, bearing: -18, duration: reduce() || instant ? 0 : 1200, essential: true } as never);
+    const panel = innerWidth >= 900 ? Math.min(460, innerWidth * 0.38) : 0;
+    // Close enough to see the place, far enough to see where it sits.
+    this.map.flyTo({ center: [s.lng!, s.lat], offset: [-panel / 2, 0], zoom: Math.min(16, Math.max(this.map.getZoom(), 15)), pitch: 45, bearing: -18, duration: reduce() || instant ? 0 : 1200, essential: true } as never);
   }
 
   /** The signature move: the leg lights up along its real path, segment by segment, in its own colours. */

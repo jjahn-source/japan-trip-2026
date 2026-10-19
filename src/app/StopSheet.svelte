@@ -1,10 +1,11 @@
 <script lang="ts">
-  // Everything about one stop, in a native dialog: Back, Escape, the backdrop, the close button and a
-  // swipe down all close it, and nothing can leave it half open.
+  // Everything about one stop, in a dialog that leaves the map in view and in reach: a panel beside it
+  // on a laptop, a half-height sheet under it on a phone (scroll or swipe up for the whole sheet).
+  // Back, Escape, the close button and a swipe down all close it.
   import { fly } from 'svelte/transition';
   import { cubicIn } from 'svelte/easing';
   import { icon } from '../lib/icons';
-  import { BASE, closeSheet } from './state.svelte';
+  import { app, BASE, closeSheet } from './state.svelte';
   import type { AppDay, AppStop } from './types';
 
   let { stop, day }: { stop: AppStop; day: AppDay } = $props();
@@ -16,10 +17,20 @@
   $effect(() => {
     const d = dlg;
     if (!d) return;
-    if (!d.open) d.showModal();
+    // Not modal: the map stays lit and you can pan it, tap its pins or pick another stop.
+    if (!d.open) d.show();
     return () => { if (d.open) d.close(); };
   });
-  $effect(() => { void stop.id; body?.scrollTo({ top: 0 }); playing = null; });
+  $effect(() => { void stop.id; body?.scrollTo({ top: 0 }); playing = null; expanded = false; });
+  // Phone: half height first, so the map above shows where the stop is; scrolling the details or
+  // swiping the bar up opens it to full height, and pulling down goes back to half, then closes.
+  let expanded = $state(false);
+  const phone = () => innerWidth < 900;
+  const onScroll = () => { if (!expanded && phone() && (body?.scrollTop ?? 0) > 16) expanded = true; };
+  const release = (d: number, closeAt: number) => {
+    if (d > closeAt) { if (expanded && phone()) { expanded = false; dy = 0; } else closeSheet(); }
+    else dy = 0;
+  };
 
   const g = $derived(stop.guide);
   const photo = $derived(g?.media.find((m) => m.kind === 'image') ?? null);
@@ -54,8 +65,13 @@
   let dy = $state(0);
   let dragging = $state(false);
   const down = (e: PointerEvent) => { startY = e.clientY; dragging = true; (e.currentTarget as HTMLElement).setPointerCapture(e.pointerId); };
-  const move = (e: PointerEvent) => { if (startY) dy = Math.max(0, e.clientY - startY); };
-  const up = () => { if (dy > 90) closeSheet(); else dy = 0; startY = 0; dragging = false; }; // closing keeps the offset, so it slides on from there
+  const move = (e: PointerEvent) => {
+    if (!startY) return;
+    const d = e.clientY - startY;
+    if (d < -40 && !expanded && phone()) { expanded = true; startY = 0; dragging = false; dy = 0; return; }
+    dy = Math.max(0, d);
+  };
+  const up = () => { if (startY) release(dy, 90); startY = 0; dragging = false; }; // closing keeps the offset, so it slides on from there
   let touchY = 0, tracking = false;
   const tStart = (e: TouchEvent) => { tracking = innerWidth < 900 && (body?.scrollTop ?? 0) <= 0; touchY = e.touches[0].clientY; };
   const tMove = (e: TouchEvent) => {
@@ -64,20 +80,22 @@
     if (d < 0) { tracking = false; dy = 0; dragging = false; return; } // scrolling up into the sheet
     dragging = true; dy = d;
   };
-  const tEnd = () => { if (tracking && dy > 110) closeSheet(); else dy = 0; tracking = false; dragging = false; };
+  const tEnd = () => { if (tracking) release(dy, 100); else dy = 0; tracking = false; dragging = false; };
   // Leaving slides the sheet away (down on a phone, right on a laptop) instead of cutting it.
   const exit = (node: Element) => fly(node, innerWidth < 900 ? { y: Math.max(240, (node as HTMLElement).offsetHeight * 0.6), duration: 200, easing: cubicIn, opacity: 1 } : { x: 160, duration: 180, easing: cubicIn, opacity: 0 });
 </script>
 
-<dialog bind:this={dlg} class="sheet" aria-labelledby="sheet-title" oncancel={(e) => { e.preventDefault(); closeSheet(); }} onclick={(e) => { if (e.target === dlg) closeSheet(); }} style:--drag="{dy}px">
-  <div class="panel" class:dragging out:exit|global>
+<svelte:window onkeydown={(e) => { if (e.key === 'Escape' && !app.search) { e.preventDefault(); closeSheet(); } }} />
+
+<dialog bind:this={dlg} class="sheet" aria-labelledby="sheet-title" style:--drag="{dy}px">
+  <div class="panel" class:dragging class:expanded out:exit|global>
     <!-- Its own bar above the scrolling content, so nothing ever runs under the close button. The
          whole bar is a handle for the swipe down. -->
     <div class="bar" onpointerdown={down} onpointermove={move} onpointerup={up} onpointercancel={up}>
       <span class="grip" aria-hidden="true"></span>
       <button class="close" type="button" onclick={closeSheet} onpointerdown={(e) => e.stopPropagation()} aria-label="Close">{@html icon('x')}</button>
     </div>
-    <div class="scroll" bind:this={body} ontouchstart={tStart} ontouchmove={tMove} ontouchend={tEnd} ontouchcancel={tEnd}>
+    <div class="scroll" bind:this={body} onscroll={onScroll} ontouchstart={tStart} ontouchmove={tMove} ontouchend={tEnd} ontouchcancel={tEnd}>
       {#if photo}
         <figure class="hero"><img src={photo.large ? BASE + photo.large : photo.url} alt="" decoding="async" referrerpolicy="no-referrer" onerror={(e) => (e.currentTarget as HTMLElement).closest('figure')?.remove()} />{#if photo.credit}<figcaption>{photo.credit}</figcaption>{/if}</figure>
       {/if}
@@ -142,9 +160,11 @@
 </dialog>
 
 <style>
-  .sheet { position: fixed; inset: auto 0 0 0; margin: 0; width: 100%; max-width: 100%; max-height: 92svh; height: auto; padding: 0; border: 0; background: transparent; color: var(--washi); overflow: visible; }
-  .sheet::backdrop { background: oklch(12% 0.04 276 / 0.55); animation: fade var(--t-med) var(--ease); }
-  .panel { position: relative; height: auto; max-height: 92svh; display: flex; flex-direction: column; background: var(--night-2); border-radius: var(--r-l) var(--r-l) 0 0; border-top: 1px solid oklch(83% 0.145 76 / 0.5); box-shadow: 0 -18px 50px -12px oklch(10% 0.05 276 / 0.8); transform: translateY(var(--drag, 0)); animation: up var(--t-slow) var(--ease); transition: transform var(--t-fast) var(--ease); }
+  .sheet { position: fixed; z-index: 50; inset: auto 0 0 0; margin: 0; width: 100%; max-width: 100%; max-height: 92svh; height: auto; padding: 0; border: 0; background: transparent; color: var(--washi); overflow: visible;
+    /* Half height: from just under the map to the bottom of the screen. */
+    --half: max(44svh, calc(100svh - var(--bar-h) - env(safe-area-inset-top, 0px) - 40svh - 6px)); }
+  .panel { position: relative; height: auto; max-height: var(--half); display: flex; flex-direction: column; background: var(--night-2); border-radius: var(--r-l) var(--r-l) 0 0; border-top: 1px solid oklch(83% 0.145 76 / 0.5); box-shadow: 0 -18px 50px -12px oklch(10% 0.05 276 / 0.8); transform: translateY(var(--drag, 0)); animation: up var(--t-slow) var(--ease); transition: transform var(--t-fast) var(--ease), max-height var(--t-med) var(--ease); }
+  .panel.expanded { max-height: 92svh; }
   .panel.dragging { transition: none; }
   @keyframes up { from { transform: translateY(40%); opacity: 0.4; } }
   @keyframes fade { from { opacity: 0; } }
@@ -201,9 +221,12 @@
   .wish { font-size: 0.82rem; color: var(--washi-2); font-weight: 600; }
   .src, .extra { font-size: 0.8rem; color: var(--washi-3); }
 
+  /* Phone: the half sheet leads with what and when (name, tags, Directions); the photo follows. */
+  @media (max-width: 899px) { .hero { order: 1; margin-top: 4px; } .story, .scroll > section, .scroll > .box, .scroll > p, .scroll > dl { order: 2; } }
   @media (min-width: 900px) {
-    .sheet { inset: 0 0 0 auto; width: min(480px, 42vw); height: 100%; max-height: 100%; }
-    .panel { height: 100%; max-height: none; }
+    /* Beside the map, under the top bar (search stays in reach). */
+    .sheet { inset: var(--bar-h) 0 0 auto; width: min(460px, 38vw); height: auto; max-height: none; }
+    .panel, .panel.expanded { height: 100%; max-height: none; }
     .panel { border-radius: 0; border-top: 0; border-left: 1px solid oklch(83% 0.145 76 / 0.35); animation-name: side; }
     @keyframes side { from { transform: translateX(30%); opacity: 0.4; } }
     .grip { display: none; }
