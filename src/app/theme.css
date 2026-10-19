@@ -1,0 +1,66 @@
+/* Lantern night city: deep indigo ground, one warm lantern light, vermilion only where something needs
+   doing, and the railways' own line colours. Single theme by choice: the trip is used at night, in
+   trains and on the street, so the page is the night. */
+@import '@fontsource/zen-kaku-gothic-new/400.css';
+@import '@fontsource/zen-kaku-gothic-new/500.css';
+@import '@fontsource/zen-kaku-gothic-new/700.css';
+@import '@fontsource/dela-gothic-one/400.css';
+
+:root {
+  color-scheme: dark;
+  --night: oklch(19% 0.05 276);
+  --night-2: oklch(23.5% 0.058 278);
+  --night-3: oklch(29% 0.066 280);
+  --night-4: oklch(35% 0.07 282);
+  --rule: oklch(42% 0.05 280 / 0.55);
+  --rule-strong: oklch(55% 0.06 280 / 0.7);
+  --washi: oklch(95.5% 0.012 85);
+  --washi-2: oklch(80% 0.035 280);
+  --washi-3: oklch(68% 0.04 280);
+  --lantern: oklch(83% 0.145 76);
+  --lantern-2: oklch(74% 0.155 66);
+  --lantern-wash: oklch(83% 0.145 76 / 0.13);
+  --lantern-halo: 0 0 0 1px oklch(83% 0.145 76 / 0.55), 0 6px 22px -4px oklch(83% 0.145 76 / 0.38);
+  --noren: oklch(64% 0.2 31);
+  --noren-wash: oklch(64% 0.2 31 / 0.16);
+  --on-noren: oklch(98% 0.01 85);
+  --ok: oklch(79% 0.13 155);
+  --f-display: 'Dela Gothic One', 'Zen Kaku Gothic New', system-ui, sans-serif;
+  --f-body: 'Zen Kaku Gothic New', system-ui, -apple-system, 'Hiragino Sans', sans-serif;
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --t-fast: 160ms;
+  --t-med: 320ms;
+  --t-slow: 560ms;
+  --bar-h: 56px;
+  --r-s: 8px;
+  --r-m: 14px;
+  --r-l: 22px;
+  --gutter: max(16px, env(safe-area-inset-left, 0px));
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; background: var(--night); }
+body {
+  margin: 0; background: var(--night); color: var(--washi);
+  font: 400 1rem/1.55 var(--f-body);
+  -webkit-font-smoothing: antialiased; overscroll-behavior-y: none;
+}
+::selection { background: oklch(83% 0.145 76 / 0.35); color: var(--washi); }
+:focus-visible { outline: 2px solid var(--lantern); outline-offset: 2px; border-radius: 6px; }
+a { color: var(--lantern); text-underline-offset: 0.18em; text-decoration-thickness: 1px; }
+button { font: inherit; color: inherit; }
+img { max-width: 100%; display: block; }
+h1, h2, h3, h4 { margin: 0; text-wrap: balance; }
+p { margin: 0; }
+ul, ol { margin: 0; }
+.num { font-variant-numeric: tabular-nums; font-feature-settings: 'tnum' 1; }
+.display { font-family: var(--f-display); font-weight: 400; letter-spacing: -0.01em; }
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+* { scrollbar-width: thin; scrollbar-color: var(--night-4) transparent; }
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-thumb { background: var(--night-4); border-radius: 8px; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 1ms !important; animation-iteration-count: 1 !important; transition-duration: 1ms !important; scroll-behavior: auto !important; }
+}

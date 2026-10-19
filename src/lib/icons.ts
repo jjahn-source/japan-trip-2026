@@ -1,5 +1,8 @@
 // Lucide icons, inlined at build time. One stroke family across the site.
 import trainFront from 'lucide-static/icons/train-front.svg?raw';
+import carTaxiFront from 'lucide-static/icons/car-taxi-front.svg?raw';
+import bus from 'lucide-static/icons/bus.svg?raw';
+import ship from 'lucide-static/icons/ship.svg?raw';
 import house from 'lucide-static/icons/house.svg?raw';
 import utensils from 'lucide-static/icons/utensils.svg?raw';
 import landmark from 'lucide-static/icons/landmark.svg?raw';
@@ -54,6 +57,7 @@ const RAW = {
   checklist: listChecks, wallet, info, plane, bed, copy, check, map, moon, clock, play, pause,
   rotate3d, trendingUp, plus, share, x, snowflake, mountain, footprints,
   search, sun, cloud, cloudSun, cloudRain, cloudSnow, cloudFog, alert, clock3, radio, mic,
+  car: carTaxiFront, bus, ship,
 } as const;
 
 export type IconName = keyof typeof RAW;
