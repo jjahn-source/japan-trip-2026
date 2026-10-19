@@ -40,7 +40,9 @@ async function open(size, path) {
   const errors = [];
   page.on('pageerror', (e) => errors.push(e.message));
   await page.goto(base + path);
-  await page.locator('.enter').first().waitFor();
+  // The pre-rendered copy is replaced by the live app once the trip data is in.
+  await page.locator('#boot').waitFor({ state: 'detached' });
+  await page.locator('.shell').waitFor();
   return { page, ctx, errors };
 }
 
@@ -158,6 +160,17 @@ test('phone: the budget shows the plan’s own total', async () => {
   assert.match(await page.locator('.total').innerText(), /¥209,000/);
   assert.equal(await page.locator('.bars li', { hasText: 'Total' }).count(), 0);
   assert.deepEqual(errors, []);
+  await ctx.close();
+});
+
+test('phone: the page reads before any script runs', async () => {
+  const ctx = await browser.newContext({ viewport: { width: 390, height: 844 }, javaScriptEnabled: false });
+  const page = await ctx.newPage();
+  await page.goto(base + '/day/3/');
+  assert.match(await page.locator('#day-title').innerText(), /teamLab/);
+  assert.ok(await page.locator('.stop').count() > 5);
+  await page.locator('nav.days a[href="/day/4/"]').click();
+  await page.waitForURL('**/day/4/');
   await ctx.close();
 });
 

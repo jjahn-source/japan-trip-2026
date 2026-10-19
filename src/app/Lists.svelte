@@ -94,7 +94,8 @@
   .bars { list-style: none; padding: 0; display: grid; gap: 12px; }
   .bars li { display: grid; grid-template-columns: 1fr auto; gap: 4px 10px; font-size: 0.88rem; }
   .bars .v { color: var(--lantern); font-weight: 700; }
-  .bar { grid-column: 1 / -1; height: 8px; border-radius: 99px; background: linear-gradient(90deg, var(--lantern-2), var(--lantern)) 0 0 / var(--w) 100% no-repeat, var(--night-3); box-shadow: 0 0 14px -4px oklch(83% 0.145 76 / 0.5); animation: grow var(--t-slow) var(--ease) both; animation-delay: calc(var(--i) * 40ms); }
+  .bar { grid-column: 1 / -1; height: 8px; border-radius: 99px; background: linear-gradient(90deg, var(--lantern-2), var(--lantern)) 0 0 / var(--w) 100% no-repeat, var(--night-3); box-shadow: 0 0 14px -4px oklch(83% 0.145 76 / 0.5); }
+  :global(.enter) .bar { animation: grow var(--t-slow) var(--ease) both; animation-delay: calc(var(--i) * 40ms); }
   @keyframes grow { from { background-size: 0 100%, auto; } }
   .sh { margin-top: 6px; }
   .items { list-style: none; padding: 0; display: grid; }

@@ -2,7 +2,7 @@
   // Everything about one stop, in a native dialog: Back, Escape, the backdrop, the close button and a
   // swipe down all close it, and nothing can leave it half open.
   import { icon } from '../lib/icons';
-  import { closeSheet } from './state.svelte';
+  import { BASE, closeSheet } from './state.svelte';
   import type { AppDay, AppStop } from './types';
 
   let { stop, day }: { stop: AppStop; day: AppDay } = $props();
@@ -53,7 +53,7 @@
     <button class="close" type="button" onclick={closeSheet} aria-label="Close">{@html icon('x')}</button>
     <div class="scroll" bind:this={body}>
       {#if photo}
-        <figure class="hero"><img src={photo.url} alt="" referrerpolicy="no-referrer" onerror={(e) => (e.currentTarget as HTMLElement).closest('figure')?.remove()} />{#if photo.credit}<figcaption>{photo.credit}</figcaption>{/if}</figure>
+        <figure class="hero"><img src={photo.large ? BASE + photo.large : photo.url} alt="" decoding="async" referrerpolicy="no-referrer" onerror={(e) => (e.currentTarget as HTMLElement).closest('figure')?.remove()} />{#if photo.credit}<figcaption>{photo.credit}</figcaption>{/if}</figure>
       {/if}
       <header class="top">
         <p class="when num"><b>{stop.start}</b>–{stop.end} · Day {day.n} · stop {stop.i}</p>

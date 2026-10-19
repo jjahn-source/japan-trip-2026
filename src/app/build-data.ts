@@ -8,6 +8,8 @@ import type { AppData, AppDay, AppLeg, AppMedia, AppStop } from './types';
 import { splitJa } from './types';
 
 const read = <T>(p: string, fallback: T): T => { const f = resolve(process.cwd(), p); return existsSync(f) ? (JSON.parse(readFileSync(f, 'utf8')) as T) : fallback; };
+const THUMBS = read<Record<string, { s: string; l: string }>>('data/thumbs.json', {});
+const withCopies = (m: AppMedia): AppMedia => (m.kind === 'image' && THUMBS[m.url] ? { ...m, small: THUMBS[m.url].s, large: THUMBS[m.url].l } : m);
 
 let cached: AppData | null = null;
 export function appData(): AppData {
@@ -26,7 +28,7 @@ export function appData(): AppData {
         id: s.id, i: i + 1, start: s.start, end: s.end, startISO: s.startISO, endISO: s.endISO, name, ja, cat: s.category, catLabel: s.categoryLabel, price: s.price,
         hook: s.summary ?? null, plan: s.plan, lat: s.lat, lng: s.lng, address: s.address, website: s.website, phone: s.phone, map: s.map,
         mark: s.mark, todoId: s.todoId, transport: s.transport ?? null,
-        guide: g ? { story: g.story, how: g.how, tips: g.tips, cost: g.cost, booking: g.booking, hours: g.hours, facts: g.facts ?? [], sources: g.sources, media: g.media as AppMedia[], wishes: g.wishes } : null,
+        guide: g ? { story: g.story, how: g.how, tips: g.tips, cost: g.cost, booking: g.booking, hours: g.hours, facts: g.facts ?? [], sources: g.sources, media: (g.media as AppMedia[]).map(withCopies), wishes: g.wishes } : null,
         details: s.details, extra: s.extra, confirmation: stay?.confirmation ?? null,
       };
     });
@@ -36,7 +38,7 @@ export function appData(): AppData {
       const a = stops.findIndex((s) => s.id === l.from);
       if (a >= 0 && stops[a + 1]?.id === l.to) legs[l.from] = { from: l.from, to: l.to, mode: l.mode, minutes: l.minutes, km: l.km, text: l.text, segs: l.segs };
     }
-    const picks = (trends[String(d.n)] ?? []).map((x) => ({ id: x.id, name: x.name, ja: x.ja, kind: x.kind, lat: x.lat, lng: x.lng, near: x.near.stop, km: x.near.km, why: x.why ?? null, when: x.when ?? null, photo: x.photo, tag: x.tag }));
+    const picks = (trends[String(d.n)] ?? []).map((x) => ({ id: x.id, name: x.name, ja: x.ja, kind: x.kind, lat: x.lat, lng: x.lng, near: x.near.stop, km: x.near.km, why: x.why ?? null, when: x.when ?? null, photo: x.photo, photoSmall: x.photo ? THUMBS[x.photo]?.s : undefined, tag: x.tag }));
     return {
       n: d.n, date: d.date, label: d.label, weekday: d.weekday, title: d.title, city: it.days?.find((x) => x.date === d.date)?.city ?? '',
       kanji: d.stamp.kanji, reading: d.stamp.reading, place: d.stamp.place,

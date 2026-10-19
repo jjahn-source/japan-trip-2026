@@ -2,6 +2,7 @@
 import { defineConfig } from 'astro/config';
 import svelte from '@astrojs/svelte';
 import { serviceWorker } from './scripts/service-worker.mjs';
+import { dedupeCss } from './scripts/dedupe-css.mjs';
 
 // BASE lets the site live under a sub-path (e.g. GitHub Pages: BASE=/japan-plan-c/).
 const base = process.env.BASE ?? '/';
@@ -12,5 +13,5 @@ export default defineConfig({
   trailingSlash: 'always',
   build: { format: 'directory', inlineStylesheets: 'auto' },
   prefetch: { prefetchAll: true, defaultStrategy: "hover" },
-  integrations: [svelte(), serviceWorker()],
+  integrations: [svelte(), dedupeCss(), serviceWorker()],
 });

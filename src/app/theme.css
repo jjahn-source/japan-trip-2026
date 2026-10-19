@@ -1,10 +1,7 @@
 /* Lantern night city: deep indigo ground, one warm lantern light, vermilion only where something needs
    doing, and the railways' own line colours. Single theme by choice: the trip is used at night, in
    trains and on the street, so the page is the night. */
-@import '@fontsource/zen-kaku-gothic-new/400.css';
-@import '@fontsource/zen-kaku-gothic-new/500.css';
-@import '@fontsource/zen-kaku-gothic-new/700.css';
-@import '@fontsource/dela-gothic-one/400.css';
+@import './fonts.css';
 
 :root {
   color-scheme: dark;

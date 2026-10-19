@@ -59,7 +59,7 @@
         <li style:--i={d.n}>
           <a href={`/day/${d.n}/`} class:today={d.n === today} onclick={(e) => go({ kind: 'day', n: d.n }, e)}>
             <span class="n display num">{String(d.n).padStart(2, '0')}</span>
-            <span class="k display" aria-hidden="true">{d.kanji}</span>
+            <span class="k display" data-k={d.kanji} aria-hidden="true"></span>
             <span class="txt"><span class="dl">{d.label} · {d.city}</span><span class="dt">{d.title}</span></span>
           </a>
         </li>
@@ -120,13 +120,14 @@
   .late .due { color: var(--noren); }
   .sh { margin-bottom: 8px; }
   .days { list-style: none; padding: 0; display: grid; gap: 4px; }
-  .days li { animation: rise var(--t-slow) var(--ease) both; animation-delay: calc(var(--i) * 22ms); }
+  :global(.enter) .days li { animation: rise var(--t-slow) var(--ease) both; animation-delay: calc(var(--i) * 22ms); }
   @keyframes rise { from { opacity: 0; transform: translateY(8px); } }
   .days a { position: relative; display: grid; grid-template-columns: 3.1rem 1fr; align-items: center; gap: 12px; padding: 10px 12px; border-radius: var(--r-m); text-decoration: none; color: var(--washi); overflow: hidden; transition: background var(--t-fast); }
   .days a:hover { background: var(--night-2); }
   .days a.today { background: var(--night-2); box-shadow: inset 0 0 0 1px var(--noren); }
   .n { font-size: 1.9rem; line-height: 1; color: var(--lantern); }
   .k { position: absolute; right: 10px; top: 50%; translate: 0 -50%; font-size: 2.6rem; color: oklch(83% 0.145 76 / 0.08); pointer-events: none; }
+  .k::after { content: attr(data-k); }
   .txt { display: grid; gap: 2px; min-width: 0; }
   .dl { font-size: 0.76rem; color: var(--washi-3); }
   .dt { font-size: 0.92rem; font-weight: 600; line-height: 1.35; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }

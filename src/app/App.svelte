@@ -2,7 +2,7 @@
   // The whole app: a top bar, the 3D map (top of the phone, right of the desktop), and one pane that
   // is the trip, a day, the bookings or the budget. Every interaction goes through the store, so the
   // URL, the back button, the map and the pane always agree.
-  import { onMount, untrack } from 'svelte';
+  import { onMount, tick, untrack } from 'svelte';
   import { icon } from '../lib/icons';
   import { app, bindHistory, dayOf, go, href, load, now, openSheet, stopOf, ticks, todayN, type View } from './state.svelte';
   import { minutesOf } from './types';
@@ -16,6 +16,13 @@
 
   let { initial }: { initial: View } = $props();
   app.view = untrack(() => initial);
+  // The page arrives pre-rendered (#boot, see layouts/App.astro). The live app stays empty until the
+  // trip data is in, then takes its place in the same frame.
+  const booted = typeof document !== 'undefined' && !!document.getElementById('boot');
+  $effect(() => { if (app.data) tick().then(() => document.getElementById('boot')?.remove()); });
+  // Views animate in when you move between them, not on first load (nothing to animate from).
+  let navigated = false;
+  $effect(() => { if (app.data) requestAnimationFrame(() => (navigated = true)); });
 
   let loadError = $state(false);
   let mapEl = $state<HTMLElement>();
@@ -30,16 +37,19 @@
 
   onMount(() => {
     const unbind = bindHistory();
-    load().then((d) => alerts(d, todayN()).then((a) => (alertList = a))).catch(() => (loadError = true));
+    const loaded = load();
+    loaded.then((d) => alerts(d, todayN()).then((a) => (alertList = a))).catch(() => (loadError = true));
     let cancelled = false;
-    // The map loads after first paint, so the day's text is readable before the 3D city arrives.
+    // The map starts once the trip is on screen (or after 2 s), so the day's text is readable before
+    // the 3D city's 1.8 MB engine competes for the phone's processor.
     const start = () => {
       if (cancelled || !mapEl) return;
       map = new TripMap(mapEl, import.meta.env.PUBLIC_MAPBOX_TOKEN, (id) => openSheet(id), (n) => go({ kind: 'day', n }));
       map.ready.then(() => { if (!cancelled) mapReady = true; }, (e) => { console.warn('Map unavailable:', e); if (!cancelled) mapFailed = true; });
     };
     const idle = (window as { requestIdleCallback?: (f: () => void, o?: { timeout: number }) => number }).requestIdleCallback;
-    if (idle) idle(start, { timeout: 700 }); else setTimeout(start, 1);
+    const later = () => (idle ? idle(start, { timeout: 500 }) : setTimeout(start, 1));
+    Promise.race([loaded.catch(() => null), new Promise((r) => setTimeout(r, 2000))]).then(() => requestAnimationFrame(later));
     const ro = new ResizeObserver(() => map?.resize());
     if (mapEl) ro.observe(mapEl);
     return () => { cancelled = true; unbind(); ro.disconnect(); map?.stop(); map?.map?.remove(); map = null; };
@@ -135,6 +145,7 @@
   const quiet = $derived(app.view.kind === 'bookings' || app.view.kind === 'budget');
 </script>
 
+{#if app.data || !booted}
 <div class="shell">
   <header class="bar">
     <a class="mark" href={href({ kind: 'trip' })} onclick={(e) => go({ kind: 'trip' }, e)} aria-current={app.view.kind === 'trip' ? 'page' : undefined}>
@@ -183,7 +194,7 @@
       {/if}
       {#if app.data}
         {#key app.view.kind === 'day' ? `d${app.view.n}` : app.view.kind}
-          <div class="enter">
+          <div class={navigated ? 'enter' : 'view'}>
             {#if app.view.kind === 'trip'}<TripHome />
             {:else if app.view.kind === 'day'}
               {#if day}<DayView {day} onplay={play} onpick={pickPlace} />
@@ -207,6 +218,7 @@
   {#if sheet}<StopSheet stop={sheet.stop} day={sheet.day} />{/if}
   <Search />
 </div>
+{/if}
 
 <style>
   .shell { min-height: 100svh; }

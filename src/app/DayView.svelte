@@ -2,7 +2,7 @@
   // One day: who, where and when at a glance. The timeline runs down a lantern-lit hour rail; every
   // stop keeps the same furniture in the same places; the hop to the next stop sits between them.
   import { icon } from '../lib/icons';
-  import { app, go, openSheet, todayN, now } from './state.svelte';
+  import { app, BASE, go, openSheet, todayN, now } from './state.svelte';
   import JourneyStrip from './JourneyStrip.svelte';
   import type { AppDay, AppStop } from './types';
 
@@ -11,7 +11,8 @@
   const days = $derived(app.data?.days ?? []);
   const today = $derived(todayN());
   const cash = (s: AppStop) => !!s.guide && [...s.guide.tips, ...s.guide.facts.map((f) => f.text), s.guide.cost ?? ''].some((x) => /cash only|cash-only|現金のみ/i.test(x));
-  const photo = (s: AppStop) => s.guide?.media.find((m) => m.kind === 'image')?.url ?? null;
+  // The local 160 px copy when there is one (scripts/thumbs.mjs), else the original.
+  const photo = (s: AppStop) => { const m = s.guide?.media.find((x) => x.kind === 'image'); return m ? (m.small ? BASE + m.small : m.url) : null; };
   const NOTE: Record<string, string> = { BRING: 'Bring', MONEY: 'Money', CHECK: 'Check', WEATHER: 'Weather', NOTE: 'Note', BOOK: 'Book' };
   const kind = (k: string) => NOTE[k.toUpperCase()] ?? k.charAt(0) + k.slice(1).toLowerCase();
 
@@ -49,7 +50,7 @@
   </nav>
 
   <header class="head">
-    <span class="kanji" aria-hidden="true">{day.kanji}</span>
+    <span class="kanji" data-k={day.kanji} aria-hidden="true"></span>
     <p class="numeral display num" aria-hidden="true">{String(day.n).padStart(2, '0')}</p>
     <div class="meta">
       <p class="date">Day {day.n} · {day.label} · {day.city}</p>
@@ -71,10 +72,11 @@
     </ul>
   {/if}
 
+  <p id="open-hint" class="sr-only">Opens the stop's details</p>
   <ol class="timeline">
     {#each day.stops as s, i (s.id)}
       <li class="stop" class:sel={app.selected === s.id} class:now={nowId === s.id} data-id={s.id} style:--i={i}>
-        <button class="hit" type="button" onclick={() => openSheet(s.id)} onmouseenter={() => (app.selected = s.id)} aria-label={`${s.start} ${s.name}: open details`}>
+        <button class="hit" type="button" onclick={() => openSheet(s.id)} onmouseenter={() => (app.selected = s.id)} aria-describedby="open-hint">
           <span class="time num"><b>{s.start}</b><small>{s.end}</small></span>
           <span class="no num" aria-hidden="true">{s.i}</span>
           <span class="body">
@@ -107,7 +109,7 @@
         {#each day.picks.slice(0, 8) as p (p.id)}
           <li>
             <button type="button" onclick={() => onpick(p.lat, p.lng, p.name)}>
-              {#if p.photo}<img src={p.photo} alt="" loading="lazy" referrerpolicy="no-referrer" onerror={(e) => (e.currentTarget as HTMLElement).remove()} />{:else}<span class="glyph" lang="ja">{(p.ja ?? p.name).slice(0, 1)}</span>{/if}
+              {#if p.photo}<img src={p.photoSmall ? BASE + p.photoSmall : p.photo} alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer" onerror={(e) => (e.currentTarget as HTMLElement).remove()} />{:else}<span class="glyph" lang="ja">{(p.ja ?? p.name).slice(0, 1)}</span>{/if}
               <span class="pn">{p.name}</span>
               <span class="pw">{p.why ?? p.when ?? `${Math.round(p.km * 1000)} m from stop ${day.stops.find((x) => x.id === p.near)?.i ?? ''}`}</span>
             </button>
@@ -136,6 +138,7 @@
 
   .head { position: relative; display: grid; grid-template-columns: auto 1fr; gap: 4px 16px; align-items: end; padding: 18px 0 14px; isolation: isolate; }
   .kanji { position: absolute; z-index: -1; right: -6px; top: -4px; font-family: var(--f-display); font-size: 9rem; line-height: 1; color: transparent; -webkit-text-stroke: 1px oklch(83% 0.145 76 / 0.11); pointer-events: none; }
+  .kanji::after { content: attr(data-k); }
   .numeral { font-size: clamp(3.6rem, 16vw, 5.4rem); line-height: 0.82; color: var(--lantern); text-shadow: 0 0 34px oklch(83% 0.145 76 / 0.35); }
   .meta { display: contents; }
   .date { align-self: end; padding-bottom: 4px; font-size: 0.86rem; font-weight: 500; color: var(--washi-2); }
@@ -149,7 +152,8 @@
 
   .timeline { list-style: none; padding: 0; position: relative; }
   .timeline::before { content: ''; position: absolute; left: 75px; top: 14px; bottom: 14px; width: 1px; background: linear-gradient(var(--rule-strong), var(--rule) 30%, var(--rule)); }
-  .stop { position: relative; animation: rise var(--t-slow) var(--ease) both; animation-delay: calc(min(var(--i), 10) * 28ms); }
+  .stop { position: relative; }
+  :global(.enter) .stop { animation: rise var(--t-slow) var(--ease) both; animation-delay: calc(min(var(--i), 10) * 28ms); }
   @keyframes rise { from { opacity: 0; transform: translateY(10px); } }
   .hit { width: 100%; display: grid; grid-template-columns: 58px 22px 1fr auto; align-items: start; gap: 0 12px; padding: 12px 6px 12px 0; border: 0; border-radius: var(--r-m); background: none; text-align: left; cursor: pointer; transition: background var(--t-fast); }
   .hit:hover { background: oklch(29% 0.066 280 / 0.45); }

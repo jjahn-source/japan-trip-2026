@@ -11,7 +11,7 @@
     "check": "astro check",
     "test": "node --test scripts/test-search.mjs scripts/test-itinerary.mjs scripts/test-app.mjs",
     "e2e": "node --test scripts/e2e.mjs",
-    "fonts": "node scripts/subset-fonts.mjs",
+    "fonts": "astro build && node scripts/subset-fonts.mjs && astro build",
     "trending": "astro build && node scripts/trending.mjs && astro build",
     "transit": "astro build && node scripts/transit.mjs && astro build",
     "legs": "astro build && node scripts/legs.mjs && astro build",
@@ -22,13 +22,13 @@
     "plan": "node planner/index.ts",
     "plan:bench": "node planner/bench.ts",
     "tool": "node planner/tools.ts",
-    "mcp": "node planner/mcp.ts"
+    "mcp": "node planner/mcp.ts",
+    "serve": "node scripts/serve.mjs",
+    "thumbs": "astro build && node scripts/thumbs.mjs && astro build"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "0.135.0",
     "@astrojs/svelte": "9.0.1",
-    "@fontsource/dela-gothic-one": "5.3.0",
-    "@fontsource/zen-kaku-gothic-new": "5.3.0",
     "@modelcontextprotocol/sdk": "1.32.0",
     "astro": "7.3.5",
     "lucide-static": "1.48.0",

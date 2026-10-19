@@ -1,6 +1,6 @@
 // The app's data, as the build writes it to /app-data.json and as every component reads it.
 export interface AppFact { text: string; url: string }
-export interface AppMedia { kind: 'image' | 'tiktok' | 'instagram' | 'youtube'; url: string; embed?: string; thumb?: string; credit?: string }
+export interface AppMedia { kind: 'image' | 'tiktok' | 'instagram' | 'youtube'; url: string; embed?: string; thumb?: string; credit?: string; /** Local copies (scripts/thumbs.mjs): 160 px square, 960 px wide. */ small?: string; large?: string }
 export interface AppGuide {
   story: string; how: string[]; tips: string[]; cost: string | null; booking: string | null; hours: string | null;
   facts: AppFact[]; sources: { label: string; url: string }[]; media: AppMedia[]; wishes: string[];
@@ -18,7 +18,7 @@ export interface AppStop {
 export type SegMode = 'walk' | 'rail' | 'bus' | 'car' | 'ropeway' | 'funicular' | 'boat';
 export interface AppSeg { m: SegMode; line?: string; colour?: string; on?: string; off?: string; coords: [number, number][] }
 export interface AppLeg { from: string; to: string; mode: string; minutes: number; km: number; text: string; segs: AppSeg[] }
-export interface AppPick { id: string; name: string; ja: string | null; kind: string; lat: number; lng: number; near: string; km: number; why: string | null; when: string | null; photo: string | null; tag: string }
+export interface AppPick { id: string; name: string; ja: string | null; kind: string; lat: number; lng: number; near: string; km: number; why: string | null; when: string | null; photo: string | null; photoSmall?: string; tag: string }
 export interface AppDay {
   n: number; date: string; label: string; weekday: string; title: string; city: string;
   kanji: string; reading: string; place: string;

@@ -1,7 +1,8 @@
 // The 3D map: the trip's route, a day's route in its railways' colours, numbered stop pins, and the
 // signature move, a leg playing out along its real path. One instance for the app's whole life.
 import type { AppDay, AppLeg, AppStop } from './types';
-import 'mapbox-gl/dist/mapbox-gl.css';
+// The map's own stylesheet loads with the map, not before the page's first paint.
+import mapboxCss from 'mapbox-gl/dist/mapbox-gl.css?url';
 import { LANTERN, colourOf, type Phase } from './lines';
 export { colourOf, inkOn, phaseAt } from './lines';
 
@@ -34,6 +35,12 @@ export class TripMap {
 
   private async init() {
     try {
+      if (!document.querySelector('link[data-mapbox-css]')) {
+        const link = Object.assign(document.createElement('link'), { rel: 'stylesheet', href: mapboxCss });
+        link.dataset.mapboxCss = '';
+        document.head.append(link);
+        await new Promise((r) => { link.onload = link.onerror = r; });
+      }
       const { default: mb } = await import('mapbox-gl');
       if (!this.token) throw new Error('no map token');
       mb.accessToken = this.token;
@@ -110,14 +117,13 @@ export class TripMap {
       const el = document.createElement('button');
       el.className = 'mk-place';
       const first = p.runs[0][0];
-      el.setAttribute('aria-label', `${first.city}, day ${p.runs.map(span).join(' and day ')}`);
-      el.innerHTML = `<span class="mk-kanji">${esc(first.kanji)}</span><span class="mk-days num">${p.runs.map(span).join(' · ')}</span>`;
+      el.innerHTML = `<span class="mk-kanji" aria-hidden="true">${esc(first.kanji)}</span><span class="mk-days num"><span class="sr-only">${esc(first.city)}, days </span>${p.runs.map(span).join(' · ')}</span>`;
       if (p.runs.flat().some((d) => d.n === todayN)) el.classList.add('is-today');
       // Opens the stay happening now or next, else the first.
       const pick = p.runs.flat().find((d) => todayN != null && d.n >= todayN) ?? first;
       el.addEventListener('click', (e) => { e.stopPropagation(); this.onDay(pick.n); });
       this.markers.push(new this.mb.Marker({ element: el, anchor: 'center' }).setLngLat(p.at).addTo(this.map));
-      el.setAttribute('role', 'button'); // Mapbox marks markers as images; these are buttons
+      el.setAttribute('role', 'button'); el.removeAttribute('aria-label'); // Mapbox labels markers as images called "Map marker"; these are buttons named by their text
     }
     this.fit(groups.map((g) => g.at), { pad: 48, max: 8 });
   }
@@ -139,11 +145,10 @@ export class TripMap {
       const el = document.createElement('button');
       el.className = `mk-stop${g.stops.some((s) => s.cat === 'stay') ? ' is-stay' : ''}`;
       el.dataset.ids = g.stops.map((s) => s.id).join(' ');
-      el.setAttribute('aria-label', g.stops.map((s) => `${s.i}. ${s.name}`).join(', '));
-      el.innerHTML = `<span class="num">${g.stops.map((s) => s.i).join('·')}</span>`;
+      el.innerHTML = `<span class="num">${g.stops.map((s) => s.i).join('·')}</span><span class="sr-only"> ${g.stops.map((s) => esc(s.name)).join(', ')}</span>`;
       el.addEventListener('click', (e) => { e.stopPropagation(); this.onPick(g.stops[0].id); });
       this.markers.push(new this.mb.Marker({ element: el, anchor: 'center' }).setLngLat(g.at).addTo(this.map));
-      el.setAttribute('role', 'button'); // Mapbox marks markers as images; these are buttons
+      el.setAttribute('role', 'button'); el.removeAttribute('aria-label'); // Mapbox labels markers as images called "Map marker"; these are buttons named by their text
     }
     this.highlight(selected);
     const sel = located.find((s) => s.id === selected);

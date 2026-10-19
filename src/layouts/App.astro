@@ -1,13 +1,18 @@
 ---
-// Every page is the same app opened at a different view; the server renders the frame and the view's
-// loading state, the app fetches the trip (precached for offline) and takes over.
+// Every page is the same app opened at a different view. The build renders that view with the real
+// trip into #boot, so the page reads (and its links work) at first paint, even without JavaScript;
+// the live app fetches the trip (precached for offline) and replaces #boot in the same frame.
 import '../app/theme.css';
 import App from '../app/App.svelte';
-import type { View } from '../app/state.svelte';
+import { app, type View } from '../app/state.svelte';
+import { appData } from '../app/build-data';
 import { url } from '../lib/format';
+import bodyFont from '../fonts/zen-kaku-400.woff2?url';
+import displayFont from '../fonts/dela-gothic-one-400.woff2?url';
 
 interface Props { title: string; view: View; description?: string }
 const { title, view, description = 'The Japan trip for eight: every day hour by hour on a 3D map, with each train ride played out along its real route.' } = Astro.props;
+app.data ??= appData();
 ---
 <!doctype html>
 <html lang="en">
@@ -27,12 +32,14 @@ const { title, view, description = 'The Japan trip for eight: every day hour by 
     <link rel="icon" href={url('/icon.svg')} type="image/svg+xml" />
     <link rel="apple-touch-icon" href={url('/icon-180.png')} />
     <link rel="preload" href={url('/app-data.json')} as="fetch" crossorigin="anonymous" />
+    <link rel="preload" href={bodyFont} as="font" type="font/woff2" crossorigin="anonymous" />
+    <link rel="preload" href={displayFont} as="font" type="font/woff2" crossorigin="anonymous" />
     <link rel="preconnect" href="https://api.mapbox.com" crossorigin />
     <slot name="head" />
   </head>
   <body>
-    <App client:load initial={view} />
-    <noscript><p style="padding:16px">The trip app needs JavaScript turned on.</p></noscript>
+    <div id="boot"><App initial={view} /></div>
+    <App client:only="svelte" initial={view} />
     <script>
       if ('serviceWorker' in navigator && import.meta.env.PROD) {
         addEventListener('load', () => navigator.serviceWorker.register(`${import.meta.env.BASE_URL}sw.js`));
