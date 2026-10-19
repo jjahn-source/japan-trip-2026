@@ -1,0 +1,10 @@
+[
+  {
+    "stop": 4,
+    "claim": "Walk to Osaka-Namba, Hanshin Namba line → Kujō (2 stops), about 35 min door to door",
+    "fix": "Walk to Osaka-Namba, Hanshin Namba line → Kujō (3 stops: Sakuragawa, Dome-mae, Kujō), about 35 min door to door",
+    "source_url": "https://ja.wikipedia.org/wiki/阪神なんば線",
+    "source_quote": "新設された九条・ドーム前・桜川・大阪難波の各駅",
+    "schedule": false
+  }
+]

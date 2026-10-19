@@ -232,6 +232,8 @@ export async function travel(a: LatLng, b: LatLng, depart: string): Promise<Trav
     return n ? { dep: n.dep, arr: n.arr, door: n.door ?? n.arr, minutes: n.minutes, fare: n.fare, rides: n.rides.map((x) => `${x.line}${/bus/.test(x.mode ?? '') && !/バス|bus/i.test(x.line) ? ' (bus)' : ''} ${x.from}→${x.to} ${x.dep.slice(11, 16)}→${x.arr.slice(11, 16)}`) } : null;
   }, 60).catch(() => null);
   // NAVITIME answers "walk" when no train serves the trip: a long walk means no rail route, so time it by car.
+  // No regular trains run between about 00:45 and 04:45: a ride timed then is not real, so it's a taxi.
+  if (tr && tr.rides.some((r) => { const m = r.match(/ (\d\d):(\d\d)→/); const v = m ? +m[1] * 60 + +m[2] : -1; return v >= 45 && v < 285; })) return car != null ? { mode: 'car', minutes: car, carMinutes: car } : null;
   if (tr && !tr.rides.length) { const walk = Math.round((Date.parse(tr.arr) - Date.parse(tr.dep)) / 60000); if (walk <= 30 || car == null) return { mode: 'walk', minutes: walk }; return { mode: 'car', minutes: car, carMinutes: car }; }
   // Total time from the moment they leave: waiting for the train counts.
   if (tr) return { mode: 'transit', minutes: Math.round((Date.parse(tr.door ?? tr.arr) - Date.parse(`${depart}:00+09:00`)) / 60000), dep: tr.dep, arr: tr.arr, fare: tr.fare, rides: tr.rides, carMinutes: car ?? undefined };

@@ -1,0 +1,291 @@
+{
+  "notes": [
+    {
+      "kind": "BRING",
+      "text": "Original passports for everyone (Circus and Round1 check at night), cash for Shinsekai, and only an overnight bag once the suitcases are sent this morning."
+    },
+    {
+      "kind": "WEATHER",
+      "text": "Cold, clear-sky December day; it is dark by the time you leave Umeda Sky, so layer up for the open-air deck and the night out."
+    },
+    {
+      "kind": "NOTE",
+      "text": "Christmas Day is the last day for the Christmas lights and markets; Ura-Namba will be packed with year-end parties."
+    }
+  ],
+  "stops": [
+    {
+      "index": 0,
+      "summary": "Ship the big suitcases to Garfield House in Shinjuku so you travel light all day and on tomorrow's Shinkansen.",
+      "story": "Today the suitcases go ahead of you to Tokyo by Yamato, so you can do Osaka with nothing heavier than a day bag. Tax-free shopping and an overnight bag stay with you.",
+      "how": [
+        "Ask for Sat 26 evening delivery to Garfield House (Shinjuku) at the front desk or nearest konbini; confirm the host can receive them.",
+        "Keep tax-free goods with their receipts, unused, in your carry-on.",
+        "Then train JR Osaka Loop line Nishikujō → Shin-Imamiya, 09:35→09:45, ¥200."
+      ],
+      "tips": [
+        "Fill in one slip per suitcase; the fee depends on size.",
+        "Snap a photo of each tracking slip in the group chat."
+      ],
+      "cost": "Yamato rate per suitcase, by size",
+      "booking": null,
+      "hours": null,
+      "source_urls": [],
+      "wishes": [
+        "We want to maximise all the time we've got in the country"
+      ]
+    },
+    {
+      "index": 1,
+      "summary": "Morning at Osaka's retro neon tower: rub the Billiken's feet up top, then loop Shinsekai's Showa-era streets.",
+      "story": "Shinsekai is old Osaka frozen in the Showa era, with giant pufferfish lanterns, kushikatsu signs and Tsutenkaku rising over it all. Up on the deck the Billiken, the grinning god of things as they ought to be, waits for you to rub his soles for luck. The street is the real draw, so keep the tower quick and save time for the walk.",
+      "how": [
+        "Buy deck tickets at the gate (check the price there); you may be given a timed slot.",
+        "Rub the Billiken's feet, take the view, come down.",
+        "Walk a quick loop of the streets under the tower, then head for Jan Jan Yokocho."
+      ],
+      "tips": [
+        "The neon is at its best after dark; in the morning come for the view and the quiet streets.",
+        "Spa World is next door if anyone wants to come back for a soak another day."
+      ],
+      "cost": "Tower deck ticket, priced at the gate",
+      "booking": "Timed slot at the facility",
+      "hours": "09:00–22:00, last entry 21:30",
+      "source_urls": [
+        "https://maps.google.com/?cid=16558556426972448087"
+      ],
+      "wishes": [
+        "We love to do it all"
+      ]
+    },
+    {
+      "index": 2,
+      "summary": "The locals' kushikatsu counter: be in at the 10:30 opening for a round of skewers before the queue builds.",
+      "story": "Yaekatsu is the Shinsekai kushikatsu counter Osakans actually queue for, with a lighter batter softened with potato and cheap sticks fried in front of you. It's loud, old-school and counter-only, which is exactly the point.",
+      "how": [
+        "Be at the door for the 10:30 opening.",
+        "Split into 2–3 groups along the counter; the queue moves fast.",
+        "Order a few skewers each and keep it light: okonomiyaki is next."
+      ],
+      "tips": [
+        "Cash only.",
+        "No double-dipping in the shared sauce; use the cabbage to scoop more.",
+        "Takeaway works if you order 5 or more skewers."
+      ],
+      "cost": "about ¥1,000 pp for a few skewers",
+      "booking": "No reservations; queue",
+      "hours": "10:30–21:30",
+      "source_urls": [
+        "http://r.tabelog.com/osaka/A2702/A270206/27000443/",
+        "https://insideosaka.com/best-kushikatsu-in-osaka",
+        "https://www.fun-japan.jp/en/articles/1525"
+      ],
+      "wishes": [
+        "We love to do it all"
+      ]
+    },
+    {
+      "index": 3,
+      "summary": "Okonomiyaki and nikusui, the beef-broth hangover soup, at the neighbourhood shop that invented it.",
+      "story": "Chitose is where nikusui was born: beef and tofu in a deep broth, the soup Osaka drinkers swear by the morning after. It's a small, beloved neighbourhood room that also turns out excellent okonomiyaki and yakisoba at local prices. Highly rated on Tabelog, but this is real Osaka, not a show.",
+      "how": [
+        "Walk over from Yaekatsu (5 min) and be in line before the 11:30 lunch opening.",
+        "Expect to be seated in two goes for 8.",
+        "Share okonomiyaki and get at least one nikusui for the table."
+      ],
+      "tips": [
+        "It can sell out, so arrive early rather than late.",
+        "Check today's hours on Google Maps before you go."
+      ],
+      "cost": "about ¥800–1,500 pp",
+      "booking": "No reservations; expect a line at lunch",
+      "hours": "Fri 11:30–14:30",
+      "source_urls": [
+        "http://www.bunjin.com/chitose",
+        "https://www.google.com/maps/search/?api=1&query=34.647525,135.5046657"
+      ],
+      "wishes": [
+        "We love to do it all"
+      ]
+    },
+    {
+      "index": 4,
+      "summary": "Japan's biggest Korea Town: graze hotteok, tteokbokki and cheese dogs at street prices.",
+      "story": "Tsuruhashi's Korea Town is a long, narrow strip of kimchi shops, hotteok griddles and Korean fried chicken counters. It's the locals' answer to over-priced Dotonbori snacks, and it smells of sesame oil and sweet syrup from end to end.",
+      "how": [
+        "JR Osaka Loop line Shin-Imamiya → Momodani, 12:38→12:44, ¥180.",
+        "Walk the main street and graze: hotteok, tteokbokki, a cheese dog.",
+        "Leave room: dinner is later, but you'll want a hotteok for the road."
+      ],
+      "tips": [
+        "Each shop sets its own hours and closing days; many stalls wind down by early evening.",
+        "Hot, fresh hotteok is the one thing not to skip on a cold day."
+      ],
+      "cost": "¥300–800 per snack",
+      "booking": null,
+      "hours": "Shops roughly 10:00–18:00, varies by shop",
+      "source_urls": [
+        "https://www.tiktok.com/@japantravelinsider/video/7691668678303059221",
+        "https://www.google.com/maps/search/?api=1&query=34.6606139,135.5378838"
+      ],
+      "wishes": [
+        "We love to do it all",
+        "Shopping"
+      ]
+    },
+    {
+      "index": 5,
+      "summary": "Climb Osaka Castle's main tower for the rooftop view over the moats in the low winter light.",
+      "story": "Inside, the tower is a modern museum; the real reward is the top deck, looking down over stone walls, wide moats and bare winter trees. The grounds and moats are free to wander, so walk them on the way in.",
+      "how": [
+        "JR Osaka Loop line Momodani → Morinomiya, 14:19→14:24, ¥150, then walk through the park.",
+        "Take the lift up and go straight to the top deck, then the museum floors on the way down if there's time.",
+        "Last entry is 17:30, but don't linger: you want to be at Umeda for sunset."
+      ],
+      "tips": [
+        "The grounds and moat walls are the best part, and they're free.",
+        "No entry reservations; buy at the gate or online."
+      ],
+      "cost": "¥1,200 pp",
+      "booking": "No reservations; online WEB tickets available",
+      "hours": "09:00–18:00, last entry 17:30",
+      "source_urls": [
+        "https://maps.google.com/?cid=7491349504525130123",
+        "https://osaka-amazing-pass.com/en/service_free.html"
+      ],
+      "wishes": [
+        "We love to do it all"
+      ]
+    },
+    {
+      "index": 6,
+      "summary": "Osaka's best skyline from the open-air Floating Garden at sunset, plus the last night of its Christmas lights.",
+      "story": "The Kuchu Teien is an open-air rooftop ring 173 m up, joining the two towers, with the whole city turning to lights below you as the sun drops at about 16:50. The 2026 Christmas event, THE STARLIGHT TOWN, ends today, with a market in the 1F Wonder Square and decorations up on the observatory.",
+      "how": [
+        "Metro Chuo line Morinomiya → Hommachi (16:08→16:13), Midosuji line → Umeda (16:19→16:23), ¥240.",
+        "Use the dedicated observatory entrance, not the tower east/west lifts; buy tickets at 39F.",
+        "Do the rooftop ring, then come down for the Wonder Square market."
+      ],
+      "tips": [
+        "Expect a lift queue on Christmas Day; buying web tickets in advance saves the ticket line.",
+        "It's windy and cold on the open deck: hats and gloves on.",
+        "Forget any German Christmas market you read about; the 2026 event is THE STARLIGHT TOWN."
+      ],
+      "cost": "¥2,000 pp",
+      "booking": "Advance WEB tickets or same-day at 39F",
+      "hours": "09:30–22:30, last entry 22:00",
+      "source_urls": [
+        "https://koubo.jp/press-release/prtimes/c63228_r215",
+        "https://sp.jorudan.co.jp/illumi/news/jrd_260925_4.html"
+      ],
+      "wishes": [
+        "We love to do it all",
+        "We want to maximise all the time we've got in the country"
+      ]
+    },
+    {
+      "index": 7,
+      "summary": "Viral Fukushima robata where scallops in butter, squid and drinks are almost all ¥300: book the 18:15 table now.",
+      "story": "Homuraya grills scallops in butter, whole squid, prawns and turban shells in front of you, and almost everything on the menu, drinks included, is ¥300. It's the cheapest good feast of the trip and a perfect warm-up for a long Christmas night.",
+      "how": [
+        "Walk south from Umeda Sky to Fukushima (18 min).",
+        "Book the Christmas Day table for 8 at 18:15 on the website in advance.",
+        "Order scallop butter and squid for the table, then keep the ¥300 drinks coming."
+      ],
+      "tips": [
+        "It's steps from JR Fukushima, which makes the getaway easy.",
+        "Leave by 19:45 to catch the 19:55 train toward Namba."
+      ],
+      "cost": "about ¥3,000 pp with drinks",
+      "booking": "Reservations through the website (homuraya-2024.com)",
+      "hours": "17:00–23:00",
+      "source_urls": [
+        "https://homuraya-2024.com/",
+        "https://www.tiktok.com/@homuraya2024",
+        "https://maps.google.com/?cid=15716096532616207767"
+      ],
+      "wishes": [
+        "We love to drink",
+        "Look for money we can save by booking early or buying passes"
+      ]
+    },
+    {
+      "index": 8,
+      "summary": "Where young Osakans really drink: a grid of standing bars and horumon counters behind Namba.",
+      "story": "Ura-Namba is a tight grid of standing bars, yakiton and horumon counters between Sennichimae-dori and Nansan-dori, credited to the Osaka Yakiton Center that started the boom. Drinks are cheap and the bars are shoulder to shoulder, made for hopping, and on Christmas night with year-end parties it will be roaring.",
+      "how": [
+        "JR Fukushima → Osaka (19:55→19:57), Midosuji line Umeda → Namba (20:05→20:13), ¥390.",
+        "Split into two groups of 4 and have 1–2 drinks per stop.",
+        "Try Ankeraso (all horumon ¥330) and Uo-ya Hidezo's standing bar."
+      ],
+      "tips": [
+        "If a bar is full, keep moving: there's another one next door.",
+        "Standing-bar drinks run ¥400–600."
+      ],
+      "cost": "¥2,000–3,500 pp across 3 stops",
+      "booking": "Walk in",
+      "hours": "Most 17:00–24:00; several to 03:00",
+      "source_urls": [
+        "https://tabelog.com/matome/5600/",
+        "https://kinarino.jp/cat8/36212",
+        "https://maps.google.com/?q=Yusei+ura-Namba"
+      ],
+      "wishes": [
+        "We love to drink",
+        "Ending the night/nightlife in Osaka"
+      ]
+    },
+    {
+      "index": 9,
+      "summary": "Osaka's real underground club for a Christmas-night party: small room, serious sound, locals not tourists.",
+      "story": "Circus is a small, serious Ame-mura club built around its sound system, playing house and techno to a local crowd. It's called the best place for electronic music in Osaka, and on Christmas night it's the opposite of a tourist party.",
+      "how": [
+        "Midosuji line Namba → Shinsaibashi, 22:41→22:43, ¥190, then walk into Ame-mura.",
+        "Check the event on circus-osaka.com and buy advance tickets if offered.",
+        "Have original passports ready at the door: photo ID is required and it's 20+ only at night."
+      ],
+      "tips": [
+        "Door prices usually include 1 drink.",
+        "It runs to 05:00 on Fridays, so you can stay longer and skip Round1 if the night is good."
+      ],
+      "cost": "¥2,000–3,500 pp door with 1 drink",
+      "booking": "Check the event schedule on circus-osaka.com; some events have cheaper advance tickets",
+      "hours": "Fri 23:00–05:00",
+      "source_urls": [
+        "https://maps.google.com/?cid=1331041981845503181",
+        "https://www.fun-japan.jp/en/articles/11672"
+      ],
+      "wishes": [
+        "Ending the night/nightlife in Osaka",
+        "We love to drink"
+      ]
+    },
+    {
+      "index": 10,
+      "summary": "Karaoke rooms at Round1 to sing out the night until the first train home.",
+      "story": "Round1 Sennichimae never closes, and its midnight-to-morning karaoke is made for the gap between the club and the first train. Two rooms of 4, a drink bar and a Christmas-night setlist is how you finish Osaka.",
+      "how": [
+        "Walk to Sennichimae (15 min).",
+        "Show original passports and the Round1 app for member prices; take two rooms of 4 or one big room.",
+        "Leave for Osaka-Namba for the Hanshin Namba line to Kujō, 05:11→05:18, ¥220."
+      ],
+      "tips": [
+        "Add the drink bar for ¥390.",
+        "The arcade and medal corner are closed by the time you arrive, so go straight to karaoke.",
+        "If anyone is fading, a taxi to Kujō is 13 min: 2 cars for 8."
+      ],
+      "cost": "Karaoke from ¥440 one-order minimum pp, plus room charge",
+      "booking": "Reservations through the site's ご予約はコチラ link",
+      "hours": "Open 24 hours",
+      "source_urls": [
+        "https://www.round1.co.jp/shop/ryokin/osaka-sennichimae.html",
+        "https://www.walkerplus.com/spot/ar0727s76077/data.html"
+      ],
+      "wishes": [
+        "Round1",
+        "Ending the night/nightlife in Osaka",
+        "We want to maximise all the time we've got in the country"
+      ]
+    }
+  ]
+}
