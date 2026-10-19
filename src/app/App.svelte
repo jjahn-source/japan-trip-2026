@@ -45,6 +45,7 @@
     const start = () => {
       if (cancelled || !mapEl) return;
       map = new TripMap(mapEl, import.meta.env.PUBLIC_MAPBOX_TOKEN, (id) => openSheet(id), (n) => go({ kind: 'day', n }));
+      if (new URLSearchParams(location.search).has('debug')) (window as unknown as { __map: TripMap }).__map = map; // ?debug: the map in the console
       map.ready.then(() => { if (!cancelled) mapReady = true; }, (e) => { console.warn('Map unavailable:', e); if (!cancelled) mapFailed = true; });
     };
     const idle = (window as { requestIdleCallback?: (f: () => void, o?: { timeout: number }) => number }).requestIdleCallback;

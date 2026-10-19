@@ -135,6 +135,7 @@ the map works (each stop's Directions button still opens Google Maps).
 
 Add `?now=` (Japan time) to any URL: `/?now=2026-12-20T16:36` shows the app as it will be on
 Day 6 at sunset (now/next, today's day, the map's light). Remove it to go back to real time.
+Add `?debug` to reach the map controller as `window.__map` in the console.
 
 ## Maps
 
