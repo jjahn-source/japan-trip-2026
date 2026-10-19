@@ -135,7 +135,7 @@
   .chip.today:not([aria-current]) { border-color: var(--noren); color: var(--washi); }
 
   .head { position: relative; display: grid; grid-template-columns: auto 1fr; gap: 4px 16px; align-items: end; padding: 18px 0 14px; isolation: isolate; }
-  .kanji { position: absolute; z-index: -1; right: -6px; top: -4px; font-family: var(--f-display); font-size: 9rem; line-height: 1; color: transparent; -webkit-text-stroke: 1.2px oklch(83% 0.145 76 / 0.2); pointer-events: none; }
+  .kanji { position: absolute; z-index: -1; right: -6px; top: -4px; font-family: var(--f-display); font-size: 9rem; line-height: 1; color: transparent; -webkit-text-stroke: 1px oklch(83% 0.145 76 / 0.11); pointer-events: none; }
   .numeral { font-size: clamp(3.6rem, 16vw, 5.4rem); line-height: 0.82; color: var(--lantern); text-shadow: 0 0 34px oklch(83% 0.145 76 / 0.35); }
   .meta { display: contents; }
   .date { align-self: end; padding-bottom: 4px; font-size: 0.86rem; font-weight: 500; color: var(--washi-2); }

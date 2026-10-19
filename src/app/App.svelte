@@ -62,16 +62,23 @@
     const key = mapKey, data = app.data;
     if (!mapReady || !data || !map) return;
     untrack(() => {
-      app.pin = null;
       if (key === 'trip') map!.showTrip(data.days, todayN());
       else { const d = dayOf(Number(key.slice(4))); if (d) map!.showDay(d, app.selected); }
     });
   });
+  // A pin belongs to the view it was dropped in (not to the map arriving late).
+  let pinKey = '';
+  $effect(() => { const k = mapKey; if (pinKey && k !== pinKey) untrack(() => (app.pin = null)); pinKey = k; });
   $effect(() => { const s = app.selected; if (mapReady) untrack(() => map?.highlight(s)); });
   $effect(() => {
     const id = app.sheet;
     if (!mapReady || !id) return;
-    untrack(() => { const f = stopOf(id); if (f && app.view.kind === 'day' && app.view.n === f.day.n) map?.focus(f.stop); });
+    // The sheet paints first; the camera moves after (on a phone the sheet covers the map, so it jumps).
+    untrack(() => {
+      const f = stopOf(id);
+      if (!f || app.view.kind !== 'day' || app.view.n !== f.day.n) return;
+      requestAnimationFrame(() => setTimeout(() => { if (app.sheet === id) map?.focus(f.stop, innerWidth < 900); }, 60));
+    });
   });
   $effect(() => { const p = app.pin; if (mapReady) untrack(() => map?.showPin(p)); });
 

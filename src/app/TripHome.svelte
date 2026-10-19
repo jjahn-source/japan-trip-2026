@@ -3,7 +3,7 @@
   // day as one line, the money, and the logistics that hold the days together.
   import { icon } from '../lib/icons';
   import { app, go, now, openSheet, ticks, todayN } from './state.svelte';
-  import { yen } from './types';
+  import { budgetOf } from './types';
 
   const data = $derived(app.data!);
   const today = $derived(todayN());
@@ -17,7 +17,7 @@
   const next = $derived(allStops.find(({ s }) => Date.parse(s.startISO) > t) ?? null);
   const open = $derived(data.todos.filter((x) => x.due && !ticks[x.id]).sort((a, b) => a.due!.localeCompare(b.due!)));
   const overdue = $derived(open.filter((x) => Date.parse(`${x.due}T23:59:59+09:00`) < t));
-  const perPerson = $derived(data.budgetTotals.reduce((n, b) => n + (yen(b.perPerson) ?? 0), 0));
+  const perPerson = $derived(budgetOf(data.budgetTotals).total);
   const until = (iso: string) => { const m = Math.round((Date.parse(iso) - t) / 60000); return m < 60 ? `in ${m} min` : m < 1440 ? `in ${Math.floor(m / 60)} h ${m % 60} min` : `in ${Math.round(m / 1440)} days`; };
   const openStop = (n: number, id: string) => { go({ kind: 'day', n }); openSheet(id); };
 </script>

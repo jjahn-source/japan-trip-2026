@@ -47,3 +47,11 @@ export function splitJa(name: string): { name: string; ja: string | null } {
 /** Minutes since midnight of the trip day (after midnight keeps counting). */
 export const minutesOf = (iso: string, date: string) => Math.round((Date.parse(iso) - Date.parse(`${date}T00:00:00+09:00`)) / 60000);
 export const yen = (s: string | null) => { const m = s?.match(/¥\s?([\d,]+)/); return m ? Number(m[1].replace(/,/g, '')) : null; };
+
+/** The budget's categories (empty ones left out) and the per-person total: the sheet's own Total row
+ *  when it has one, else the sum. */
+export function budgetOf(rows: { category: string; perPerson: string }[]) {
+  const totalRow = rows.find((r) => /^total$/i.test(r.category.trim()));
+  const cats = rows.filter((r) => r !== totalRow).map((r) => ({ category: r.category, v: yen(r.perPerson) ?? 0 })).filter((r) => r.v > 0).sort((a, b) => b.v - a.v);
+  return { cats, total: (totalRow && yen(totalRow.perPerson)) || cats.reduce((n, r) => n + r.v, 0) };
+}

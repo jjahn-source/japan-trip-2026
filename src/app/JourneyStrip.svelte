@@ -2,7 +2,7 @@
   // The hop between two stops, drawn as what it is: walking dots, then each train or bus as a bar in
   // its line's own colour, sized by how long it takes. Tap ▶ and the map plays it.
   import { icon } from '../lib/icons';
-  import { colourOf, inkOn } from './map';
+  import { colourOf, inkOn } from './lines';
   import type { AppLeg, AppSeg, AppStop } from './types';
 
   let { leg, from, to, active = false, progress = 0, clock = '', onplay }: {

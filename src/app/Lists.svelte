@@ -2,7 +2,7 @@
   // Bookings (what to do by when, ticked on this phone) and the budget (per person, by category).
   import { icon } from '../lib/icons';
   import { app, go, now, openSheet, stopOf, tick, ticks } from './state.svelte';
-  import { yen } from './types';
+  import { budgetOf, yen } from './types';
 
   let { mode }: { mode: 'bookings' | 'budget' } = $props();
   const data = $derived(app.data!);
@@ -19,9 +19,10 @@
     ].filter((g) => g.items.length);
   });
   const rows = $derived(data.budget.map((b) => ({ ...b, pp: yen(b.perPerson) ?? 0 })));
-  const totals = $derived(data.budgetTotals.map((b) => ({ ...b, v: yen(b.perPerson) ?? 0 })).sort((a, b) => b.v - a.v));
+  const budget = $derived(budgetOf(data.budgetTotals));
+  const totals = $derived(budget.cats);
   const max = $derived(Math.max(1, ...totals.map((x) => x.v)));
-  const sum = $derived(totals.reduce((n, x) => n + x.v, 0));
+  const sum = $derived(budget.total);
   const openStop = (id: string) => { const f = stopOf(id); if (!f) return; go({ kind: 'day', n: f.day.n }); openSheet(id); };
 </script>
 

@@ -2,37 +2,17 @@
 // signature move, a leg playing out along its real path. One instance for the app's whole life.
 import type { AppDay, AppLeg, AppStop } from './types';
 import 'mapbox-gl/dist/mapbox-gl.css';
+import { LANTERN, colourOf, type Phase } from './lines';
+export { colourOf, inkOn, phaseAt } from './lines';
 
 type MB = typeof import('mapbox-gl').default;
 type MbMap = import('mapbox-gl').Map;
 type Marker = import('mapbox-gl').Marker;
 type Popup = import('mapbox-gl').Popup;
 type LngLat = [number, number];
-type Phase = 'dawn' | 'day' | 'dusk' | 'night';
 
-const LANTERN = '#f2c46d';
-export const colourOf = (m: string, c?: string) => c ?? (m === 'bus' ? '#7fc8a9' : m === 'boat' ? '#79b8ff' : LANTERN);
-/** Dark or light text, whichever reads on a line's colour (WCAG relative luminance). */
-export function inkOn(hex: string) {
-  const m = hex.match(/^#?([0-9a-f]{2})([0-9a-f]{2})([0-9a-f]{2})$/i);
-  if (!m) return '#14122a';
-  const [r, g, b] = m.slice(1).map((x) => { const c = parseInt(x, 16) / 255; return c <= 0.04045 ? c / 12.92 : ((c + 0.055) / 1.055) ** 2.4; });
-  const L = 0.2126 * r + 0.7152 * g + 0.0722 * b;
-  return (L + 0.05) / 0.05 >= 1.05 / (L + 0.05) ? '#14122a' : '#ffffff';
-}
 const reduce = () => matchMedia('(prefers-reduced-motion: reduce)').matches;
 const esc = (s: string) => s.replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]!);
-
-/** The light for a moment of the day, from that day's own sunrise and sunset. */
-export function phaseAt(minute: number, sun: { sunrise: string; sunset: string } | null): Phase {
-  const m = ((minute % 1440) + 1440) % 1440;
-  const rise = sun ? +sun.sunrise.slice(0, 2) * 60 + +sun.sunrise.slice(3, 5) : 400;
-  const set = sun ? +sun.sunset.slice(0, 2) * 60 + +sun.sunset.slice(3, 5) : 1000;
-  if (m < rise - 40 || m > set + 50) return 'night';
-  if (m < rise + 40) return 'dawn';
-  if (m > set - 50) return 'dusk';
-  return 'day';
-}
 
 export class TripMap {
   map: MbMap | null = null;
@@ -119,15 +99,24 @@ export class TripMap {
       if (g && Math.hypot(g.at[0] - at[0], g.at[1] - at[1]) < 0.3) g.days.push(d); else groups.push({ days: [d], at });
     }
     this.set('trip', { type: 'Feature', properties: {}, geometry: { type: 'LineString', coordinates: groups.map((g) => g.at) } });
+    // A city the trip comes back to gets one marker listing both stays ("1–4 · 12–15").
+    const places: { at: LngLat; runs: AppDay[][] }[] = [];
     for (const g of groups) {
+      const p = places.find((x) => Math.hypot(x.at[0] - g.at[0], x.at[1] - g.at[1]) < 0.3);
+      if (p) p.runs.push(g.days); else places.push({ at: g.at, runs: [g.days] });
+    }
+    const span = (r: AppDay[]) => `${r[0].n}${r.length > 1 ? `–${r.at(-1)!.n}` : ''}`;
+    for (const p of places) {
       const el = document.createElement('button');
       el.className = 'mk-place';
-      const first = g.days[0], last = g.days.at(-1)!;
-      el.setAttribute('aria-label', `${first.city}, day ${first.n}${last !== first ? ` to ${last.n}` : ''}`);
-      el.innerHTML = `<span class="mk-kanji">${esc(first.kanji)}</span><span class="mk-days num">${first.n}${last !== first ? `–${last.n}` : ''}</span>`;
-      if (g.days.some((d) => d.n === todayN)) el.classList.add('is-today');
-      el.addEventListener('click', (e) => { e.stopPropagation(); this.onDay(first.n); });
-      this.markers.push(new this.mb.Marker({ element: el, anchor: 'center' }).setLngLat(g.at).addTo(this.map));
+      const first = p.runs[0][0];
+      el.setAttribute('aria-label', `${first.city}, day ${p.runs.map(span).join(' and day ')}`);
+      el.innerHTML = `<span class="mk-kanji">${esc(first.kanji)}</span><span class="mk-days num">${p.runs.map(span).join(' · ')}</span>`;
+      if (p.runs.flat().some((d) => d.n === todayN)) el.classList.add('is-today');
+      // Opens the stay happening now or next, else the first.
+      const pick = p.runs.flat().find((d) => todayN != null && d.n >= todayN) ?? first;
+      el.addEventListener('click', (e) => { e.stopPropagation(); this.onDay(pick.n); });
+      this.markers.push(new this.mb.Marker({ element: el, anchor: 'center' }).setLngLat(p.at).addTo(this.map));
       el.setAttribute('role', 'button'); // Mapbox marks markers as images; these are buttons
     }
     this.fit(groups.map((g) => g.at), { pad: 48, max: 8 });
@@ -165,10 +154,12 @@ export class TripMap {
   highlight(id: string | null) {
     for (const m of this.markers) { const el = m.getElement(); el.classList.toggle('is-selected', !!id && (el.dataset.ids ?? '').split(' ').includes(id)); }
   }
-  focus(s: AppStop) {
+  focus(s: AppStop, instant = false) {
     if (!this.map || s.lat == null) return;
     this.highlight(s.id);
-    this.map.flyTo({ center: [s.lng!, s.lat], zoom: Math.max(this.map.getZoom(), 15.4), pitch: 52, bearing: -18, duration: reduce() ? 0 : 1200, essential: true });
+    // On desktop the stop's panel covers the right of the map: centre the stop in what's left.
+    const panel = innerWidth >= 900 ? Math.min(480, innerWidth * 0.42) : 0;
+    this.map.flyTo({ center: [s.lng!, s.lat], offset: [-panel / 2, 0], zoom: Math.max(this.map.getZoom(), 15.4), pitch: 52, bearing: -18, duration: reduce() || instant ? 0 : 1200, essential: true } as never);
   }
 
   /** The signature move: the leg lights up along its real path, segment by segment, in its own colours. */
