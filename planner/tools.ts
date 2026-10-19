@@ -261,7 +261,7 @@ tool('day_text', 'One day as the fact-checker reads it (verified facts and measu
 tool('verify_citation', 'Fetch a page and confirm a quote is really on it (spaces, character width and commas ignored).', { url: z.string(), quote: z.string() }, async ({ url, quote }) => {
   const text = await F.pageText(url);
   if (!text) return { found: false, why: 'page could not be read' };
-  return { found: F.flat(text).includes(F.flat(quote)), chars: text.length };
+  return { found: F.quoteOn(text, quote), chars: text.length };
 });
 tool('save_corrections', 'Save the fact-checker\'s corrections for a day. Each must quote its source word for word; code fetches the source and keeps only corrections whose quote is really there.',
   { date: z.string(), errors: z.array(z.object({ stop: z.number().describe('Stop # (-1 for the day notes)'), claim: z.string().describe('The wrong sentence, copied exactly'), fix: z.string().describe('The corrected sentence'), source_url: z.string(), source_quote: z.string().describe('Words copied exactly from the source that prove the fix'), schedule: z.boolean() })) },
@@ -269,7 +269,7 @@ tool('save_corrections', 'Save the fact-checker\'s corrections for a day. Each m
     const kept: FactError[] = [], dropped: string[] = [];
     for (const e of errors) {
       const t = await F.pageText(e.source_url);
-      if (t && F.flat(e.source_quote).length >= 6 && F.flat(t).includes(F.flat(e.source_quote))) kept.push(e); else dropped.push(`"${e.claim.slice(0, 60)}": quote not found at ${e.source_url}`);
+      if (t && F.quoteOn(t, e.source_quote)) kept.push(e); else dropped.push(`"${e.claim.slice(0, 60)}": quote not found at ${e.source_url}`);
     }
     save(`corrections/${date}.json`, kept);
     return { kept: kept.length, dropped };
@@ -338,7 +338,9 @@ if (import.meta.url === `file://${process.argv[1]}`) {
   if (!name || name === 'list') {
     for (const t of tools) console.log(`${t.name}: ${t.description}`);
   } else {
-    const raw = arg ? (arg.startsWith('@') ? readFileSync(arg.slice(1), 'utf8') : arg) : readFileSync(0, 'utf8');
+    // Tools without inputs never wait on stdin; others take the JSON as an argument, @file, or a heredoc.
+    const empty = !Object.keys(tools.find((t) => t.name === name)?.input.shape ?? {}).length;
+    const raw = arg ? (arg.startsWith('@') ? readFileSync(arg.slice(1), 'utf8') : arg) : empty ? '' : readFileSync(0, 'utf8');
     try {
       const out = await runTool(name, raw.trim() ? JSON.parse(raw) : {});
       console.log(typeof out === 'string' ? out : JSON.stringify(out, null, 1));

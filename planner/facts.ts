@@ -84,6 +84,8 @@ export const FACTS_SYSTEM = `You extract hard facts about one place from the sou
 // ── Validation: a fact survives only if its quote is on its page and holds its value ──
 /** Text as compared: NFKC (full-width → half-width), no spaces or commas, lower case. */
 export const flat = (s: string) => s.normalize('NFKC').replace(/[\s,、]/g, '').toLowerCase();
+/** A correction's quote proves something only if it is long enough to mean something and is really on the page. */
+export const quoteOn = (page: string, quote: string) => flat(quote).length >= 6 && flat(page).includes(flat(quote));
 const onPage = (sources: Source[], url: string, quote: string) => {
   const q = flat(quote);
   const own = sources.find((s) => s.url === url);

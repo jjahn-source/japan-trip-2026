@@ -50,7 +50,7 @@ test('a place match needs the place\'s own name, not its neighbourhood or a stat
   assert.equal(nameMatch('Ichiran', 'Ichiran Shibuya'), true);
 });
 
-import { validate, claims, allowedFrom, unsupported, stripUnsupported, factProblem, htmlText, EMPTY } from '../planner/facts.ts';
+import { validate, claims, allowedFrom, unsupported, stripUnsupported, factProblem, htmlText, quoteOn, EMPTY } from '../planner/facts.ts';
 
 const page = [{ url: 'https://www.hakoneyuryo.jp/price/', text: '日帰り温泉 大人 1,700円（土日祝 2,000円）\n営業時間 10:00～20:00（最終受付 19:00）\n毎週火曜日 休館' }];
 test('a fact survives only when its quote is on the page and holds the value', () => {
@@ -64,6 +64,14 @@ test('a fact survives only when its quote is on the page and holds the value', (
   assert.equal(v.open.length, 1);
   assert.equal(v.last_entry, null); // quote is real but not on the page it cites
   assert.equal(dropped.length, 3);
+});
+
+test('a correction\'s quote counts only when it is really on the page, ignoring width, spaces and commas', () => {
+  const text = '営業時間 10:00～20:00\n大人 1,700円';
+  assert.equal(quoteOn(text, '大人　１７００円'), true); // full-width and no comma still match
+  assert.equal(quoteOn(text, '大人 1,500円'), false);
+  assert.equal(quoteOn(text, ''), false); // an empty quote proves nothing
+  assert.equal(quoteOn(text, '10:00'), false); // too short to prove anything
 });
 
 test('the audit finds unbacked prices, times and minutes, and allows group totals of backed prices', () => {
