@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generated": "2026-10-19T05:26:07.987Z",
+  "generated": "2026-10-19T05:34:39.268Z",
   "title": "Japan, Dec 2026 · 8 friends",
   "dates": "Tue Dec 15 – Tue Dec 29 2026",
   "people": 8,
@@ -2629,7 +2629,7 @@
         {
           "id": "d05-s05",
           "start": "16:30",
-          "end": "17:40",
+          "end": "17:10",
           "name": "Gora Brewery & Grill",
           "nameJa": "GORA BREWERY & GRILL",
           "category": "bar",
@@ -2648,8 +2648,7 @@
             "story": "Hidden in the trees uphill from the museum, Gora Brewery opened in 2017 in a building by architect Hiroshi Nakamura with big glass walls onto the forest. The beer is brewed on site, the GORA stout is the one drinkers rave about, and one TikToker called the blistered shishitos the best she's ever had. With the dark coming down outside the glass, it's the best craft-beer stop in Hakone.",
             "how": [
               "Walk 16 min uphill from the museum.",
-              "Order a flight of the house beers and a spread of grill plates to share; get the shishitos.",
-              "Leave in time for the 18:05 Hakone Tozan train from Gora to Yumoto (arrives 18:43, Freepass)."
+              "Order a flight of the house beers and a spread of grill plates to share; get the shishitos."
             ],
             "tips": [
               "Book the table for 8 ahead; same-day bookings are phone only (0460-83-8107) and there's no guaranteed seat at busy times.",
@@ -2710,13 +2709,13 @@
                 "url": "http://itoh-dining.co.jp/gorabrewery/"
               }
             ],
-            "measured": "train/bus 64 min door to door (箱根登山線 強羅→箱根湯本 18:05→18:43), ¥460; by taxi 20 min"
+            "measured": "train/bus 64 min door to door (箱根登山線 強羅→箱根湯本 17:35→18:13), ¥460; by taxi 20 min"
           }
         },
         {
           "id": "d05-s06",
-          "start": "18:50",
-          "end": "19:50",
+          "start": "18:25",
+          "end": "19:20",
           "name": "Izakaya Hakoneji",
           "nameJa": "居酒屋 箱根路",
           "category": "restaurant",
@@ -2736,7 +2735,7 @@
             "how": [
               "Grab the bags from the coin lockers when you get off the train, then head to the izakaya.",
               "Order a spread to share and get the first drinks in.",
-              "Leave at 19:50 and walk 2 min to the Kenban so all 8 can sit together."
+              "Leave at 19:20 and walk 2 min to the Kenban so all 8 can sit together."
             ],
             "tips": [
               "Call ahead to hold a table for 8; it's a Saturday.",
@@ -2782,7 +2781,7 @@
         },
         {
           "id": "d05-s07",
-          "start": "20:00",
+          "start": "19:30",
           "end": "20:40",
           "name": "Furatto Geisha night, Hakone Yumoto Kenban",
           "nameJa": "箱根湯本見番「ふらっと芸者」／芸者カフェバーはな",
@@ -2801,13 +2800,12 @@
           "guide": {
             "story": "Yumoto is still a working geisha town, and on the 1st and 3rd Saturday of the month the geisha union opens its Kenban hall to anyone for 'Furatto Geisha'. Tonight is the 3rd Saturday. Three geisha perform a dance, then pull the audience into ozashiki drinking games and pose for photos, with a drink in your hand the whole time.",
             "how": [
-              "Walk over at 19:50; doors open at 19:30 for the 20:00 show.",
+              "Walk over at 19:20; doors open at 19:30 for the 20:00 show.",
               "Pay at the door: the ticket includes one drink.",
               "Watch the dance, then volunteer for the ozashiki games and stay for photos."
             ],
             "tips": [
               "The hall is small, so arriving early is the only way to sit together.",
-              "Extra drinks are about ¥700 at the geisha-run Cafe Bar Hana, which is closed on Sundays and Mondays, so tonight is your only chance.",
               "The official page is old; check the time and price before you go."
             ],
             "cost": "¥3,000 pp incl. 1 drink",
@@ -3029,7 +3027,7 @@
           "website": null,
           "phone": null,
           "map": null,
-          "transport": "Hakone Tozan bus to Togendai (Freepass), or a 30-min walk downhill",
+          "transport": "Hakone Tozan bus to Togendai (Freepass)",
           "guide": null
         },
         {
@@ -3380,7 +3378,7 @@
           "nameJa": "箱根ガラスの森美術館 クリスタルイルミネーション",
           "category": "attraction",
           "categoryLabel": "Illumination",
-          "price": "¥1,800 pp (Freepass discount)",
+          "price": "¥1,700 pp (Freepass discount)",
           "summary": "A Venetian-glass garden of crystal arches and a glass Christmas tree that lights up around sunset.",
           "plan": "Venetian glass garden and crystal arches; stay past sunset (~16:30) for the glass Christmas tree and candles (lit 1–25 Dec).",
           "address": "箱根町仙石原940-48",
@@ -3704,7 +3702,7 @@
         },
         {
           "kind": "WEATHER",
-          "text": "Cold, clear December day: Fuji is sharpest over the outlets in the morning, and it's dark before the Shinkansen even leaves Mishima. Wear layers you can shove in a bag."
+          "text": "Cold, clear December day: Fuji is sharpest over the outlets in the morning, and the sun sets around 16:37, shortly after the Hikari leaves Mishima at 15:46, so it is dark by Nagoya. Wear layers you can shove in a bag."
         },
         {
           "kind": "BRING",
@@ -3923,30 +3921,19 @@
               "At Shin-Osaka take the Midosuji line to Hommachi, then the Chuo line to Kujō."
             ],
             "tips": [
-              "Snap Fuji from the right-hand side of the train as you pull out of Mishima, before the light goes.",
-              "Correction: Cold, clear December day: Fuji is sharpest over the outlets in the morning, and the sun sets around 16:37, shortly after the Hikari leaves Mishima at 15:46, so it is dark by Nagoya."
+              "Snap Fuji from the right-hand side of the train as you pull out of Mishima, before the light goes."
             ],
             "cost": "≈ ¥12,000 pp (reserved seat)",
             "booking": "Reserved seats for all 8 together, booked ahead",
             "hours": null,
-            "sources": [
-              {
-                "url": "https://www.surf-life.blue/sunrisesunset/静岡県/三島市/202612/",
-                "label": "surf-life.blue"
-              }
-            ],
+            "sources": [],
             "media": [],
             "wishes": [
               "We love to drink",
               "We want to maximise all the time we've got in the country"
             ],
             "verified": null,
-            "facts": [
-              {
-                "text": "Cold, clear December day: Fuji is sharpest over the outlets in the morning, and the sun sets around 16:37, shortly after the Hikari leaves Mishima at 15:46, so it is dark by Nagoya.",
-                "url": "https://www.surf-life.blue/sunrisesunset/静岡県/三島市/202612/"
-              }
-            ],
+            "facts": [],
             "measured": "train/bus 38 min door to door (OsakaMetro御堂筋線 新大阪→本町 18:17→18:27, OsakaMetro中央線 本町→九条（大阪府） 18:34→18:39), ¥290; by taxi 19 min"
           }
         },
@@ -4461,7 +4448,7 @@
           "website": "https://jankara.ne.jp/open/109/",
           "phone": "080-6202-7587",
           "map": "https://maps.google.com/?cid=11364755179571898413&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-          "transport": "Walk to Osaka-Namba, Hanshin Namba line → Kujō (2 stops), about 35 min door to door",
+          "transport": "Walk to Osaka-Namba, Hanshin Namba line → Kujō (3 stops: Sakuragawa, Dome-mae, Kujō), about 35 min door to door",
           "guide": {
             "story": "Jankara is Osaka's homegrown cheap karaoke chain, and this Dotonbori flagship is its biggest: 51 rooms on B1–5F, open 24 hours. BAL UTAO is its all-you-can-drink karaoke lounge, a livelier and cheaper night than Round1 karaoke.",
             "how": [
@@ -4472,8 +4459,7 @@
             "tips": [
               "Join the free Jankara app before you go: BAL UTAO drops from ¥1,000 to ¥500 per 30 min.",
               "Rooms can be booked online through すぐカラ.",
-              "Don't stay late: alcohol stops at 00:00 and tomorrow is an early Kyoto start.",
-              "Correction: Walk to Osaka-Namba, Hanshin Namba line → Kujō (3 stops: Sakuragawa, Dome-mae, Kujō), about 35 min door to door"
+              "Don't stay late: alcohol stops at 00:00 and tomorrow is an early Kyoto start."
             ],
             "cost": "BAL UTAO ¥500 per 30 min with the app (¥1,000 without) + 1 food item each",
             "booking": "Download the Jankara app; rooms bookable online",
@@ -4486,10 +4472,6 @@
               {
                 "url": "https://maps.google.com/?q=Jankara+Dotonbori",
                 "label": "Google Maps"
-              },
-              {
-                "url": "https://ja.wikipedia.org/wiki/阪神なんば線",
-                "label": "ja.wikipedia.org"
               }
             ],
             "media": [
@@ -4539,10 +4521,6 @@
               {
                 "text": "BAL UTAO after 24:00: alcohol-only service is restricted and one food order per person is required.",
                 "url": "https://jankara.ne.jp/open/109/"
-              },
-              {
-                "text": "Walk to Osaka-Namba, Hanshin Namba line → Kujō (3 stops: Sakuragawa, Dome-mae, Kujō), about 35 min door to door",
-                "url": "https://ja.wikipedia.org/wiki/阪神なんば線"
               }
             ],
             "measured": "train/bus 32 min door to door (阪神なんば線 大阪難波〔近鉄・阪神線〕→九条（大阪府） 23:22→23:29), ¥220; by taxi 11 min"
@@ -6814,7 +6792,7 @@
           "website": "https://www.round1.co.jp/shop/tenpo/osaka-sennichimae.html",
           "phone": "06-4708-2600",
           "map": "https://maps.google.com/?cid=3701030705939791980&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-          "transport": "Walk to Osaka-Namba, first Hanshin Namba line train to Kujō (2 stops), walk home; or taxi, 2 cars",
+          "transport": "Walk to Osaka-Namba, first Hanshin Namba line train to Kujō (3 stops: Sakuragawa, Dome-mae, Kujō), walk home; or taxi, 2 cars",
           "guide": {
             "story": "Round1 Sennichimae never closes, and its midnight-to-morning karaoke is made for the gap between the club and the first train. Two rooms of 4, a drink bar and a Christmas-night setlist is how you finish Osaka.",
             "how": [
@@ -6825,8 +6803,7 @@
             "tips": [
               "Add the drink bar for ¥390.",
               "The arcade and medal corner are closed by the time you arrive, so go straight to karaoke.",
-              "If anyone is fading, a taxi to Kujō is 13 min: 2 cars for 8.",
-              "Correction: first Hanshin Namba line train to Kujō (3 stops: Sakuragawa, Dome-mae, Kujō)"
+              "If anyone is fading, a taxi to Kujō is 13 min: 2 cars for 8."
             ],
             "cost": "Karaoke from ¥440 one-order minimum pp, plus room charge",
             "booking": "Reservations through the site's ご予約はコチラ link",
@@ -6839,10 +6816,6 @@
               {
                 "url": "https://www.walkerplus.com/spot/ar0727s76077/data.html",
                 "label": "Google Maps / Walkerplus listing"
-              },
-              {
-                "url": "https://rosen-zu.net/hanshin/hanshin_namba-top/hanshin_namba-rosenzu/",
-                "label": "rosen-zu.net"
               }
             ],
             "media": [],
@@ -6879,10 +6852,6 @@
               {
                 "text": "Phone 06-4708-2600",
                 "url": "https://www.round1.co.jp/shop/tenpo/osaka-sennichimae.html"
-              },
-              {
-                "text": "first Hanshin Namba line train to Kujō (3 stops: Sakuragawa, Dome-mae, Kujō)",
-                "url": "https://rosen-zu.net/hanshin/hanshin_namba-top/hanshin_namba-rosenzu/"
               }
             ],
             "measured": "train/bus 31 min door to door (阪神なんば線 大阪難波〔近鉄・阪神線〕→九条（大阪府） 05:11→05:18), ¥220; by taxi 13 min"

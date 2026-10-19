@@ -176,3 +176,13 @@ test('group rules and year-end hours survive only with their quote on the page',
   assert.equal(sheet.group?.text, 'Groups of 7+ must phone');
   assert.match(factProblem(sheet, '2026-12-29', 1140, 1260), /closed on 2026-12-29/);
 });
+
+import { patchDay } from '../planner/core.ts';
+test('a correction lands where its sentence is, even when the checker names the wrong stop', () => {
+  const g = (story) => ({ story, how: [], tips: [], cost: null, booking: null, hours: null, sources: [], media: [], wishes: [], verified: null });
+  const d = { date: '2026-12-21', notes: [{ kind: 'NOTE', text: "It's dark before the train leaves." }], stops: [{ name: 'A', guide: g('Fine.') }, { name: 'B', guide: g('Also fine.') }] };
+  const left = patchDay(d, [{ stop: 1, claim: "It's dark before the train leaves.", fix: 'Sunset is just after the train leaves.', source_url: 'https://x.example/', schedule: false }], [null, null]);
+  assert.equal(d.notes[0].text, 'Sunset is just after the train leaves.');
+  assert.deepEqual(d.stops[1].guide.tips, []);
+  assert.deepEqual(left, []);
+});

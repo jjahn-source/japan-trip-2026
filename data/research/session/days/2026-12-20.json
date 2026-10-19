@@ -21,7 +21,7 @@
       "lng": 138.998921,
       "end_lat": null,
       "end_lng": null,
-      "transport": "Hakone Tozan bus to Togendai (Freepass), or a 30-min walk downhill"
+      "transport": "Hakone Tozan bus to Togendai (Freepass)"
     },
     {
       "start": "09:00",
@@ -106,7 +106,7 @@
       "category": "attraction",
       "category_label": "Illumination",
       "plan": "Venetian glass garden and crystal arches; stay past sunset (~16:30) for the glass Christmas tree and candles (lit 1–25 Dec).",
-      "price": "¥1,800 pp (Freepass discount)",
+      "price": "¥1,700 pp (Freepass discount)",
       "lat": 35.26625633239746,
       "lng": 139.0177230834961,
       "end_lat": null,

@@ -338,6 +338,7 @@ export const dayText = (d: ItinDay, logistics: string[] = []) => `TRIP LOGISTICS
 export type FactError = { stop: number; claim: string; fix: string; source_url: string; schedule: boolean };
 
 /** Put each correction in place of the wrong sentence (no rewrite, so nothing new and unchecked creeps in). */
+const guideHas = (g: Guide | null | undefined, t: string) => !!g && [g.story, g.cost, g.booking, g.hours, ...g.how, ...g.tips].some((x) => x?.includes(t));
 export function patchDay(d: ItinDay, errors: FactError[], measured: F.Allowed[]): string[] {
   const left: string[] = [];
   // A correction may not overrule a number measured by routing data or quoted from an official page.
@@ -349,14 +350,23 @@ export function patchDay(d: ItinDay, errors: FactError[], measured: F.Allowed[])
     return !changes;
   });
   const swap = (t: string, e: FactError) => (t.includes(e.claim) ? t.replace(e.claim, e.fix) : null);
-  for (const e of errors) {
+  for (let e of errors) {
     const src = (() => { try { return new URL(e.source_url).hostname.replace(/^www\./, ''); } catch { return 'source'; } })();
     let done = false;
+    // The checker's stop number can be off: put the fix wherever the sentence really is.
+    const inNotes = d.notes.some((n) => n.text.includes(e.claim));
+    if (!(e.stop >= 0 && (guideHas(d.stops[e.stop]?.guide, e.claim) || d.stops[e.stop]?.transport?.includes(e.claim)))) {
+      const at = inNotes ? -1 : d.stops.findIndex((x) => guideHas(x.guide, e.claim) || !!x.transport?.includes(e.claim));
+      if (inNotes || at >= 0) e = { ...e, stop: at };
+    }
     if (e.stop < 0) {
       d.notes = d.notes.map((n) => { const r = done ? null : swap(n.text, e); if (r) done = true; return r ? { ...n, text: r } : n; });
       if (!done) { log(`  skipped a note correction whose sentence isn't in the text: "${e.claim.slice(0, 60)}"`); done = true; }
     }
-    const g = d.stops[e.stop]?.guide;
+    // A wrong route line ("2 stops to Kujō") lives in the stop's transport text.
+    const st = d.stops[e.stop];
+    if (st && !done && st.transport?.includes(e.claim)) { st.transport = st.transport.replace(e.claim, e.fix); done = true; }
+    const g = st?.guide;
     if (g && !done) {
       for (const k of ['story', 'cost', 'booking', 'hours'] as const) { const r = !done && g[k] ? swap(g[k]!, e) : null; if (r) { g[k] = r; done = true; } }
       for (const k of ['how', 'tips'] as const) g[k] = g[k].map((t) => { const r = done ? null : swap(t, e); if (r) done = true; return r ?? t; });

@@ -70,7 +70,7 @@
     },
     {
       "start": "16:30",
-      "end": "17:40",
+      "end": "17:10",
       "candidate_id": "c3",
       "name": "Gora Brewery & Grill",
       "category": "bar",
@@ -84,8 +84,8 @@
       "transport": "Walk to Gora Sta., Hakone Tozan Railway Gora → Hakone-Yumoto (the 18:05), about 55 min door to door (Freepass); collect the bags from the lockers"
     },
     {
-      "start": "18:50",
-      "end": "19:50",
+      "start": "18:25",
+      "end": "19:20",
       "candidate_id": "c162",
       "name": "Izakaya Hakoneji",
       "category": "restaurant",
@@ -99,7 +99,7 @@
       "transport": "Walk to the Kenban, 2 min"
     },
     {
-      "start": "20:00",
+      "start": "19:30",
       "end": "20:40",
       "candidate_id": "c21",
       "name": "Furatto Geisha night, Hakone Yumoto Kenban",
