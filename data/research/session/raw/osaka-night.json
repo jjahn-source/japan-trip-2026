@@ -341,11 +341,6 @@
           "source": "Google Maps",
           "url": "https://maps.google.com/?q=Space+Station+Osaka",
           "note": "Operational, 4.6★ / 945 reviews, 17:00–02:00 daily"
-        },
-        {
-          "source": "Osaka Tourism nightlife guide",
-          "url": "https://www.osakatourism.org/?p=1528",
-          "note": "Mentions Amerikamura's retro gaming bars"
         }
       ],
       "confidence": 0.75
@@ -418,11 +413,6 @@
           "source": "Google Maps",
           "url": "https://maps.google.com/?q=Shin-Umeda+Shokudogai",
           "note": "4.0★ / 9.7k reviews, operational"
-        },
-        {
-          "source": "Osaka Tourism nightlife guide",
-          "url": "https://www.osakatourism.org/?p=1528",
-          "note": "Lists Umeda under-track standing bars as the Kita entry point"
         }
       ],
       "confidence": 0.7
