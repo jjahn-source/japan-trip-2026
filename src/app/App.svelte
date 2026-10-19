@@ -102,13 +102,15 @@
   $effect(() => { const k = mapKey; if (pinKey && k !== pinKey) untrack(() => (app.pin = null)); pinKey = k; });
   $effect(() => { const s = app.selected; if (mapReady) untrack(() => map?.highlight(s)); });
   $effect(() => {
-    const id = app.sheet;
+    const id = app.sheet, size = app.sheetSize;
     if (!mapReady || !id) return;
     // The sheet paints first; the camera moves after (the map stays in view beside or above it).
     untrack(() => {
       const f = stopOf(id);
       if (!f || app.view.kind !== 'day' || app.view.n !== f.day.n) return;
-      requestAnimationFrame(() => setTimeout(() => { if (app.sheet === id) map?.focus(f.stop); }, 60));
+      // Folded, nothing covers the map (the laptop card sits in a corner; the phone map grows), so the
+      // stop goes in the middle; with the panel open on a laptop it goes in the part left showing.
+      requestAnimationFrame(() => setTimeout(() => { if (app.sheet === id) map?.focus(f.stop, false, size !== 'peek'); }, size === 'peek' ? 120 : 60));
     });
   });
   $effect(() => { const p = app.pin; if (mapReady) untrack(() => map?.showPin(p)); });
@@ -198,7 +200,7 @@
   </header>
 
   <div class="body">
-    <section class="stage" class:big={bigMap} class:quiet aria-label="Map">
+    <section class="stage" class:big={bigMap} class:tall={!!app.sheet && app.sheetSize === 'peek'} class:quiet aria-label="Map">
       <div class="map" bind:this={mapEl}></div>
       {#if mapFailed}
         <p class="nomap">The map can't load right now. Everything else works, and each stop's Directions button opens Google Maps.</p>
@@ -279,6 +281,9 @@
 
   .stage { position: sticky; top: calc(var(--bar-h) + env(safe-area-inset-top, 0px)); z-index: 30; height: 40svh; background: var(--night-2); border-bottom: 1px solid var(--rule); overflow: hidden; }
   .stage.big { height: 70svh; }
+  .stage.tall .grow { display: none; }
+  /* A stop's details folded to a peek: the map takes everything above the card. */
+  .stage.tall { height: calc(100svh - var(--bar-h) - env(safe-area-inset-top, 0px) - var(--peek-h) - env(safe-area-inset-bottom, 0px) + 12px); }
   .stage.quiet { display: none; }
   .map { position: absolute; inset: 0; }
   .maploading { position: absolute; inset: 0; background: radial-gradient(60% 50% at 50% 60%, oklch(83% 0.145 76 / 0.12), transparent 70%), var(--night-2); animation: breathe 1.8s var(--ease-in-out) infinite alternate; }
@@ -327,7 +332,7 @@
     .find { padding: 0 8px 0 12px; }
     .body { display: grid; grid-template-columns: 440px 1fr; grid-template-areas: 'pane stage'; min-height: 0; }
     .pane { grid-area: pane; overflow-y: auto; overscroll-behavior: contain; border-right: 1px solid var(--rule); }
-    .stage, .stage.big, .stage.quiet { grid-area: stage; display: block; position: relative; top: 0; height: auto; border-bottom: 0; }
+    .stage, .stage.big, .stage.tall, .stage.quiet { grid-area: stage; display: block; position: relative; top: 0; height: auto; border-bottom: 0; }
     .grow { display: none; }
     .pincard { left: 16px; right: auto; bottom: 24px; width: min(440px, calc(100% - 32px)); }
   }

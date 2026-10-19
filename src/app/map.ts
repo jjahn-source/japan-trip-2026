@@ -192,11 +192,11 @@ export class TripMap {
   highlight(id: string | null) {
     for (const m of this.markers) { const el = m.getElement(); el.classList.toggle('is-selected', !!id && (el.dataset.ids ?? '').split(' ').includes(id)); }
   }
-  focus(s: AppStop, instant = false) {
+  focus(s: AppStop, instant = false, besidePanel = true) {
     if (!this.map || s.lat == null) return;
     this.highlight(s.id);
     // On desktop the stop's panel covers the right of the map: centre the stop in what's left.
-    const panel = innerWidth >= 900 ? Math.min(460, innerWidth * 0.38) : 0;
+    const panel = besidePanel && innerWidth >= 900 ? Math.min(460, innerWidth * 0.38) : 0;
     // Close enough to see the place, far enough to see where it sits.
     this.map.flyTo({ center: [s.lng!, s.lat], offset: [-panel / 2, 0], zoom: Math.min(16, Math.max(this.map.getZoom(), 15)), pitch: 45, bearing: -18, duration: reduce() || instant ? 0 : 1200, essential: true } as never);
   }

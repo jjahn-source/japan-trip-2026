@@ -21,14 +21,18 @@
     if (!d.open) d.show();
     return () => { if (d.open) d.close(); };
   });
-  $effect(() => { void stop.id; body?.scrollTo({ top: 0 }); playing = null; expanded = false; });
-  // Phone: half height first, so the map above shows where the stop is; scrolling the details or
-  // swiping the bar up opens it to full height, and pulling down goes back to half, then closes.
-  let expanded = $state(false);
+  $effect(() => { void stop.id; body?.scrollTo({ top: 0 }); playing = null; });
+  // Three sizes. Phone: half first, so the map above shows where the stop is; scrolling the details or
+  // swiping up opens it to full; swiping down goes full → half → peek (just the name, the map takes
+  // the screen) → closed. Laptop: the panel, or a small card in the map's corner.
+  const size = $derived(app.sheetSize);
   const phone = () => innerWidth < 900;
-  const onScroll = () => { if (!expanded && phone() && (body?.scrollTop ?? 0) > 16) expanded = true; };
+  const bigger = () => { app.sheetSize = size === 'peek' ? 'half' : 'full'; };
+  const smaller = () => { if (size === 'full') app.sheetSize = 'half'; else if (size === 'half') app.sheetSize = 'peek'; else closeSheet(); };
+  const toggle = () => { app.sheetSize = size === 'peek' ? 'half' : 'peek'; body?.scrollTo({ top: 0 }); };
+  const onScroll = () => { if (size === 'half' && phone() && (body?.scrollTop ?? 0) > 16) app.sheetSize = 'full'; };
   const release = (d: number, closeAt: number) => {
-    if (d > closeAt) { if (expanded && phone()) { expanded = false; dy = 0; } else closeSheet(); }
+    if (d > closeAt) { if (phone() && size !== 'peek') { smaller(); dy = 0; } else closeSheet(); }
     else dy = 0;
   };
 
@@ -68,7 +72,7 @@
   const move = (e: PointerEvent) => {
     if (!startY) return;
     const d = e.clientY - startY;
-    if (d < -40 && !expanded && phone()) { expanded = true; startY = 0; dragging = false; dy = 0; return; }
+    if (d < -40 && size !== 'full' && phone()) { bigger(); startY = 0; dragging = false; dy = 0; return; }
     dy = Math.max(0, d);
   };
   const up = () => { if (startY) release(dy, 90); startY = 0; dragging = false; }; // closing keeps the offset, so it slides on from there
@@ -87,15 +91,17 @@
 
 <svelte:window onkeydown={(e) => { if (e.key === 'Escape' && !app.search) { e.preventDefault(); closeSheet(); } }} />
 
-<dialog bind:this={dlg} class="sheet" aria-labelledby="sheet-title" style:--drag="{dy}px">
-  <div class="panel" class:dragging class:expanded out:exit|global>
+<dialog bind:this={dlg} class="sheet" class:peek={size === 'peek'} aria-labelledby="sheet-title" style:--drag="{dy}px">
+  <div class="panel" class:dragging class:full={size === 'full'} class:peek={size === 'peek'} out:exit|global>
     <!-- Its own bar above the scrolling content, so nothing ever runs under the close button. The
          whole bar is a handle for the swipe down. -->
     <div class="bar" onpointerdown={down} onpointermove={move} onpointerup={up} onpointercancel={up}>
       <span class="grip" aria-hidden="true"></span>
+      <button class="fold" type="button" onclick={toggle} onpointerdown={(e) => e.stopPropagation()} aria-expanded={size !== 'peek'} aria-label={size === 'peek' ? 'Show the details' : 'Show the map'}>{@html icon('next')}</button>
       <button class="close" type="button" onclick={closeSheet} onpointerdown={(e) => e.stopPropagation()} aria-label="Close">{@html icon('x')}</button>
     </div>
-    <div class="scroll" bind:this={body} onscroll={onScroll} ontouchstart={tStart} ontouchmove={tMove} ontouchend={tEnd} ontouchcancel={tEnd}>
+    <!-- svelte-ignore a11y_click_events_have_key_events, a11y_no_static_element_interactions -->
+    <div class="scroll" bind:this={body} onclick={() => { if (size === 'peek') app.sheetSize = 'half'; }} onscroll={onScroll} ontouchstart={tStart} ontouchmove={tMove} ontouchend={tEnd} ontouchcancel={tEnd}>
       {#if photo}
         <figure class="hero"><img src={photo.large ? BASE + photo.large : photo.url} alt="" decoding="async" referrerpolicy="no-referrer" onerror={(e) => (e.currentTarget as HTMLElement).closest('figure')?.remove()} />{#if photo.credit}<figcaption>{photo.credit}</figcaption>{/if}</figure>
       {/if}
@@ -164,7 +170,14 @@
     /* Half height: from just under the map to the bottom of the screen. */
     --half: max(44svh, calc(100svh - var(--bar-h) - env(safe-area-inset-top, 0px) - 40svh - 6px)); }
   .panel { position: relative; height: auto; max-height: var(--half); display: flex; flex-direction: column; background: var(--night-2); border-radius: var(--r-l) var(--r-l) 0 0; border-top: 1px solid oklch(83% 0.145 76 / 0.5); box-shadow: 0 -18px 50px -12px oklch(10% 0.05 276 / 0.8); transform: translateY(var(--drag, 0)); animation: up var(--t-slow) var(--ease); transition: transform var(--t-fast) var(--ease), max-height var(--t-med) var(--ease); }
-  .panel.expanded { max-height: 92svh; }
+  .panel.full { max-height: 92svh; }
+  /* Peek: the bar and the name and time; the map takes the rest. Tap it or swipe up for more. */
+  .panel.peek { max-height: calc(var(--peek-h) + env(safe-area-inset-bottom, 0px)); cursor: pointer; }
+  .panel.peek .scroll { overflow: hidden; }
+  .panel.peek .scroll > :not(.top), .panel.peek .top > :not(.when):not(h2) { display: none; }
+  .fold { position: absolute; z-index: 2; top: 6px; right: 58px; width: 40px; height: 40px; display: grid; place-items: center; border-radius: 50%; border: 1px solid var(--rule); background: oklch(23.5% 0.058 278 / 0.9); color: var(--washi); cursor: pointer; }
+  .fold :global(svg) { width: 18px; height: 18px; rotate: 90deg; transition: rotate var(--t-med) var(--ease); }
+  .fold[aria-expanded='false'] :global(svg) { rotate: -90deg; }
   .panel.dragging { transition: none; }
   @keyframes up { from { transform: translateY(40%); opacity: 0.4; } }
   @keyframes fade { from { opacity: 0; } }
@@ -226,7 +239,13 @@
   @media (min-width: 900px) {
     /* Beside the map, under the top bar (search stays in reach). */
     .sheet { inset: var(--bar-h) 0 0 auto; width: min(460px, 38vw); height: auto; max-height: none; }
-    .panel, .panel.expanded { height: 100%; max-height: none; }
+    .panel, .panel.full { height: 100%; max-height: none; }
+    /* Folded: a small card in the map's top corner, the whole map in view. */
+    .sheet.peek { bottom: auto; top: calc(var(--bar-h) + 14px); right: 14px; width: min(400px, 34vw); }
+    .sheet.peek .panel { height: auto; max-height: none; border: 1px solid oklch(83% 0.145 76 / 0.35); border-radius: var(--r-l); box-shadow: 0 18px 50px -12px oklch(10% 0.05 276 / 0.85); }
+    .sheet.peek .bar { position: absolute; inset: 0 0 auto 0; }
+    .sheet.peek .scroll { padding-top: 16px; padding-bottom: 16px; }
+    .sheet.peek .top { padding-right: 96px; }
     .panel { border-radius: 0; border-top: 0; border-left: 1px solid oklch(83% 0.145 76 / 0.35); animation-name: side; }
     @keyframes side { from { transform: translateX(30%); opacity: 0.4; } }
     .grip { display: none; }

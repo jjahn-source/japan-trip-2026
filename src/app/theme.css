@@ -30,6 +30,7 @@
   --t-med: 240ms;
   --t-slow: 380ms;
   --bar-h: 56px;
+  --peek-h: 150px; /* a stop's details folded down to their name (StopSheet) */
   --r-s: 8px;
   --r-m: 14px;
   --r-l: 22px;

@@ -8,8 +8,10 @@ export const BASE = (import.meta.env.BASE_URL ?? '/').replace(/\/$/, '');
 export const app = $state({
   data: null as AppData | null,
   view: { kind: 'trip' } as View,
-  /** The stop whose sheet is open. */
+  /** The stop whose sheet is open, and how much of the screen it takes: a peek (name and time, the
+   *  map gets the rest), half (the default) or full. */
   sheet: null as string | null,
+  sheetSize: 'half' as 'peek' | 'half' | 'full',
   /** The stop highlighted on the map and in the list. */
   selected: null as string | null,
   /** The leg playing on the map (its starting stop's id), with progress 0–1 and the clock. */
@@ -48,6 +50,7 @@ export function openSheet(id: string) {
   const v = $state.snapshot(app.view);
   if (app.sheet) history.replaceState({ v, sheet: id }, '', url);
   else history.pushState({ v, sheet: id }, '', url);
+  if (!app.sheet) app.sheetSize = 'half'; // a fresh sheet opens at half; moving between stops keeps the size
   app.sheet = id; app.selected = id;
 }
 export function closeSheet() {
