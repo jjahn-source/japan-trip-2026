@@ -1,5 +1,6 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
+import svelte from '@astrojs/svelte';
 import { serviceWorker } from './scripts/service-worker.mjs';
 
 // BASE lets the site live under a sub-path (e.g. GitHub Pages: BASE=/japan-plan-c/).
@@ -11,5 +12,5 @@ export default defineConfig({
   trailingSlash: 'always',
   build: { format: 'directory', inlineStylesheets: 'auto' },
   prefetch: { prefetchAll: true, defaultStrategy: "hover" },
-  integrations: [serviceWorker()],
+  integrations: [svelte(), serviceWorker()],
 });
