@@ -1,0 +1,220 @@
+{
+  "notes": [
+    {
+      "kind": "BRING",
+      "text": "Everyone carries their ORIGINAL passport tonight: ZEROTOKYO is 20+ and checks every ID at the door (no photos or copies). No sandals, tank tops or sports pants."
+    },
+    {
+      "kind": "CHECK",
+      "text": "The Rainbow Fireworks date is not on the official site yet: check that morning before you head to Odaiba. Only stormy weather cancels it."
+    },
+    {
+      "kind": "NOTE",
+      "text": "Overnight bags only on the Shinkansen; the suitcases arrive at Garfield House this evening, so confirm with the host at check-in."
+    }
+  ],
+  "stops": [
+    {
+      "index": 1,
+      "summary": "Last Osaka meal: big, fresh nigiri at local prices in Japan's longest shopping arcade, before the bullet train.",
+      "story": "Harukoma is where Osaka locals go for slabs of fish that droop over the rice, at prices that make Tokyo sushi look silly. It sits in the Tenjinbashisuji arcade, the long covered shopping street, so the queue at least stays out of the December wind. It's a fitting goodbye to the city.",
+      "how": [
+        "Get in the queue from about 10:30; doors open at 11:00.",
+        "It's counter seating, so split into smaller groups and let the staff seat you as spots open.",
+        "Order by the plate (nigiri from ¥165) and keep it to 40 min.",
+        "Walk back to JR Tenma for the 11:58 Loop line to Osaka, then change for Shin-Osaka (¥180)."
+      ],
+      "tips": [
+        "No reservations, so the early queue is the whole strategy.",
+        "Don't drift into the arcade shops afterwards: the Shinkansen won't wait."
+      ],
+      "cost": "¥2,000–3,500 pp",
+      "booking": "No reservations; queue",
+      "hours": "11:00–21:30",
+      "source_urls": [
+        "https://www.instagram.com/harukoma_5tenjinbashi/",
+        "https://www.tiktok.com/@japan_tourism.1/video/7692668287729011989",
+        "https://www.google.com/maps/search/?api=1&query=34.707734,135.5116005"
+      ],
+      "wishes": [
+        "We want to maximise all the time we've got in the country",
+        "We love to do it all"
+      ]
+    },
+    {
+      "index": 2,
+      "summary": "All 8 seated together on the Nozomi to Tokyo: ekiben, a nap, and bare winter fields racing past.",
+      "story": "The Nozomi covers the whole Tokaido corridor in one smooth run while you eat lunch out of a box. In late December the rice paddies are cut to brown stubble, and on a clear day the snow-capped cone of Fuji shows up on the right-hand side of the train.",
+      "how": [
+        "Pick up ekiben and drinks in the Shin-Osaka concourse before the gates.",
+        "Sit in your reserved seats and keep the overnight bags on the overhead racks.",
+        "At Tokyo, follow signs to First Avenue (Ichibangai) B1: a 6 min walk inside the station."
+      ],
+      "tips": [
+        "Sit on the E side (seats on the right-hand side heading to Tokyo) for the Fuji view.",
+        "Buy drinks at the station: the trolley on board has less choice and costs more."
+      ],
+      "cost": "about ¥14,700 pp (reserved Nozomi) + ekiben ¥1,000–1,500",
+      "booking": "Seats for all 8 reserved together in advance",
+      "hours": null,
+      "source_urls": [],
+      "wishes": [
+        "We want to maximise all the time we've got in the country"
+      ]
+    },
+    {
+      "index": 3,
+      "summary": "Thirty minutes of Tokyo-Station-only Pokémon, Ghibli and Sanrio goods, plus snack shops selling fresh-made treats.",
+      "story": "Under First Avenue (Ichibangai) is a corridor of 30+ character shops (Pokémon, Sanrio, Ghibli, Jump, Rilakkuma), and next door the Glico, Morinaga and Calbee shops sell things you can only buy here. Some snacks are made fresh on site, so it's a great place for gifts to take home.",
+      "how": [
+        "From the Shinkansen gates, follow signs for First Avenue / Ichibangai down to B1.",
+        "Split up by interest: character goods on one side, Okashi Land snacks on the other.",
+        "Meet back at the Marunouchi line gates for the 16:10 train to Shinjuku-gyoemmae (¥210)."
+      ],
+      "tips": [
+        "Look for the station-only labels: those are the items worth the luggage space.",
+        "Keep any tax-free buys unused, with receipts, in your carry-on for the customs kiosk at Haneda.",
+        "Hours differ by store, so do any shop you really care about first."
+      ],
+      "cost": "¥500–3,000 per box",
+      "booking": null,
+      "hours": "10:00–20:30 (varies by store)",
+      "source_urls": [
+        "https://jw-webmagazine.com/tips/tokyo-character-street",
+        "https://en.jal.japantravel.com/tokyo/tokyo-okashi-land-character-st/21750"
+      ],
+      "wishes": [
+        "Shopping",
+        "We love to do it all"
+      ]
+    },
+    {
+      "index": 5,
+      "summary": "Free fireworks over Tokyo Bay with Rainbow Bridge lit behind: 1,300 shells in five minutes, starting at 19:00.",
+      "story": "On December Saturdays, Odaiba launches 1,300 shells over the black water of Tokyo Bay in about five minutes, with Rainbow Bridge and the skyline lit up behind. By now it has long been dark, and the wind off the bay is bitter, so the warm Yurikamome ride back feels great.",
+      "how": [
+        "Get off the Yurikamome at Odaiba-kaihinkoen and head down to Odaiba Seaside Park beach.",
+        "Be on the sand by 18:40: the show starts at 19:00 sharp.",
+        "Afterwards walk to Tokyo Teleport for the 19:38 Rinkai line, changing at Osaki onto the Saikyo line to Shinjuku (¥550)."
+      ],
+      "tips": [
+        "Dress warmly in hats and gloves: you'll stand still on an open beach in winter.",
+        "Stay together on the sand: the crowd surges for the exits the moment the last shell fades."
+      ],
+      "cost": "Free",
+      "booking": null,
+      "hours": "19:00–19:05",
+      "source_urls": [
+        "https://tokyocheapo.com/events/odaiba-rainbow-fireworks-zh_hk/",
+        "https://watabi.org/articles/odaiba-rainbow-fireworks-2026"
+      ],
+      "wishes": [
+        "We love to do it all",
+        "We want to maximise all the time we've got in the country"
+      ]
+    },
+    {
+      "index": 6,
+      "summary": "Smoky skewers and cold beers at a booked table for 8 in Shinjuku's postwar yakitori alley.",
+      "story": "Omoide Yokocho is a narrow Showa-era lane of charcoal grills squeezed against the JR tracks, with lanterns, smoke and salarymen elbow to elbow. Most stalls seat only a handful, so 8 walk-ins rarely fit; Torien is one of the few you can book.",
+      "how": [
+        "From Shinjuku West Exit it's a 3 min walk to the alley.",
+        "Give the name on the booking at Torien and take your table.",
+        "Order a round of mixed skewers and beers, then keep the second order rolling."
+      ],
+      "tips": [
+        "Walk the full alley for photos before you sit down, since it's at its smokiest after dark.",
+        "Per-skewer prices and table charges add up, so watch the tab if you're saving for the club."
+      ],
+      "cost": "¥3,000–4,500 pp with drinks",
+      "booking": "Booked table for 8 (online booking)",
+      "hours": "11:30–23:30 (last entry 23:00)",
+      "source_urls": [
+        "https://www.hotpepper.jp/strJ000762068/"
+      ],
+      "wishes": [
+        "We love to drink",
+        "We love to do it all"
+      ]
+    },
+    {
+      "index": 7,
+      "summary": "Neon food-hall pre-game: everyone orders from a different stall, one big table, DJs and video shows.",
+      "story": "Kabuki Hall packs 10 stalls from around Japan and Korea into a loud, neon-lit hall, with music and video shows every night. It's the easiest place in Shinjuku to seat 8 at short notice, and the club is right upstairs.",
+      "how": [
+        "Walk 7 min under the tracks from Omoide Yokocho to Tokyu Kabukicho Tower.",
+        "Grab a big shared table first, then send people out to different stalls.",
+        "Head up in the lifts inside the same tower for ZEROTOKYO doors at 23:00."
+      ],
+      "tips": [
+        "Walk-ins are fine: the hall only takes bookings for 10 or more.",
+        "Pace the drinks: the ZEROTOKYO door turns away anyone who's very drunk.",
+        "It's open through the first trains, so it doubles as a refuel later."
+      ],
+      "cost": "¥2,500–4,500 pp with drinks",
+      "booking": "Walk in",
+      "hours": "Open through the first trains",
+      "source_urls": [
+        "https://kabukihall.com/",
+        "https://www.timeout.jp/tokyo/ja/レストラン/shinjyuku-kabukihall"
+      ],
+      "wishes": [
+        "We love to drink",
+        "We love to do it all"
+      ]
+    },
+    {
+      "index": 8,
+      "summary": "Saturday NEON STARS at Tokyo's biggest new club: bass, open format and techno until 03:00.",
+      "story": "ZEROTOKYO is the Kabukicho superclub everyone talks about for its sheer scale, stacked inside Tokyu Kabukicho Tower. On Saturday 26 Dec the night is NEON STARS, with bass, open-format and techno rooms, and it peaks from 00:30.",
+      "how": [
+        "Buy advance tickets on zaiko or livepocket from the event page.",
+        "Queue for doors at 23:00 with everyone holding their own original passport.",
+        "Agree on a meeting point inside before you split up, then leave at 03:00 for ramen."
+      ],
+      "tips": [
+        "Expired IDs, photos and copies are refused, and tank tops and sandals may be turned away.",
+        "A VIP table (Book VIP on the site) could work for 8 if you want a base.",
+        "Garfield House is a walk home, so there's no need to stress about the last train."
+      ],
+      "cost": "about ¥2,000–5,000 pp (advance tickets)",
+      "booking": "Advance tickets via zaiko/livepocket; VIP tables via Book VIP",
+      "hours": "Doors 23:00",
+      "source_urls": [
+        "https://www.zerotokyo.jp/",
+        "https://www.zerotokyo.jp/system/",
+        "https://nightlifetokyo.com/en/tokyo-nightlife-guide"
+      ],
+      "wishes": [
+        "We love to drink",
+        "We love to do it all",
+        "We want to maximise all the time we've got in the country"
+      ]
+    },
+    {
+      "index": 9,
+      "summary": "The classic 03:00 bowl: intense dried-sardine ramen up a steep staircase in Golden Gai, open 24 hours.",
+      "story": "Nagi's Golden Gai shop is a tiny upstairs counter in the middle of Shinjuku's maze of shoebox bars, serving a murky, punchy niboshi broth that cures the club. There are only 10 seats around an L-shaped counter, and it's always a little bit chaotic.",
+      "how": [
+        "Walk 9 min from ZEROTOKYO into Golden Gai.",
+        "Queue on the stairs, since there's no booking.",
+        "Buy tickets at the machine and eat in two shifts of four.",
+        "Walk 8 min home to Garfield House."
+      ],
+      "tips": [
+        "Have cash or coins ready for the ticket machine.",
+        "The second shift can wander the Golden Gai alleys while the first eats."
+      ],
+      "cost": "about ¥1,000–1,500 pp",
+      "booking": "No booking; queue on the stairs",
+      "hours": "Open 24 hours",
+      "source_urls": [
+        "https://n-nagi.com/",
+        "https://maps.google.com/?cid=9832644939543904579"
+      ],
+      "wishes": [
+        "We want to maximise all the time we've got in the country"
+      ]
+    }
+  ]
+}

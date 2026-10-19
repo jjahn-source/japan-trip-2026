@@ -1,0 +1,194 @@
+{
+  "notes": [
+    {
+      "kind": "WEATHER",
+      "text": "December cold, and it's dark before you leave Senso-ji. Layer up, but wear trousers that roll above the knee for teamLab's water rooms."
+    },
+    {
+      "kind": "BRING",
+      "text": "Original passports for everyone: Big Echo checks ID at night, and you need them again at ZEROTOKYO tomorrow."
+    },
+    {
+      "kind": "CHECK",
+      "text": "Someone phone Onigiri Bongo today to order tomorrow's takeaway for 8 (number in tomorrow's spread). Phone orders only, first come first served."
+    }
+  ],
+  "stops": [
+    {
+      "index": 1,
+      "summary": "Graze Tsukiji's stalls in pairs: tamagoyaki on a stick, grilled scallops, uni and tuna, then Kitsuneya's horumon-don.",
+      "story": "Tsukiji is still Tokyo's best street-food breakfast, steam coming off the grills in the cold morning air. Kitsuneya has been simmering its horumon for 70 years, and the counter is so small you'll eat in shifts. Thursday is a market day, so the stalls are open, unlike yesterday.",
+      "how": [
+        "Split into pairs, each buying something different, and swap bites.",
+        "Send groups of two or three to Kitsuneya's counter in turn for the horumon-don or gyudon.",
+        "Regroup and walk to Shintomicho for the 10:05 Yurakucho line train toward Toyosu."
+      ],
+      "tips": [
+        "Go early: many stalls sell out well before the 13:30 close.",
+        "Skip the Senkyaku Banrai food hall at Toyosu. Reviews say it isn't worth it."
+      ],
+      "cost": "¥2,000–4,000 pp grazing; Kitsuneya bowls about ¥1,000–1,500",
+      "booking": "None",
+      "hours": "06:30–13:30",
+      "source_urls": [
+        "https://tkjm.jp/tsukijijougai/store24/",
+        "https://tkjm.jp/tsukijijougai/calender/",
+        "https://tabelog.com/en/tokyo/A1313/A131301/13007656/dtlrvwlst/"
+      ],
+      "wishes": [
+        "We love to do it all",
+        "We want to maximise all the time we've got in the country"
+      ]
+    },
+    {
+      "index": 2,
+      "summary": "Barefoot through knee-deep water, a room of floating orbs and a mirror koi pond: Tokyo's most photogenic 90 minutes.",
+      "story": "You leave your shoes in a locker and wade through warm, knee-deep water while koi made of light scatter around your legs. Planets is one continuous route, so eight people don't get lost the way they do at Borderless. It's scheduled to close at the end of 2027, so this may be your only chance.",
+      "how": [
+        "Show the 10:30 timed tickets bought online. There are no sales at the door.",
+        "Roll trousers above the knee and use the free lockers for bags and phones you don't need.",
+        "Walk to Manyo Club afterwards: it's 13 minutes."
+      ],
+      "tips": [
+        "Weekday slots are the cheap ones. You're on a Thursday, so ¥3,800 rather than ¥4,200.",
+        "Keep one waterproof phone per pair for photos in the orb and koi rooms."
+      ],
+      "cost": "¥3,800 pp (weekday)",
+      "booking": "Timed tickets online only, booked ahead for all 8",
+      "hours": "08:00–22:00",
+      "source_urls": [
+        "https://www.trvlogue.com/en/teamlab-planets-vs-borderless-tokyo-2",
+        "https://mileasia.com/japan/teamlab-planets/",
+        "https://maps.google.com/?q=teamLab+Planets+TOKYO+DMM"
+      ],
+      "wishes": [
+        "We love to do it all"
+      ]
+    },
+    {
+      "index": 3,
+      "summary": "Lunch, a beer and a long soak in Hakone spring water trucked to Toyosu, then the rooftop foot bath over the bay.",
+      "story": "Manyo Club trucks in spring water from Hakone and Yugawara, so this is a real onsen soak at the edge of Tokyo Bay. After a 06:50 start, the rooftop foot bath with a cold wind off the water and a hot soak underneath is the reset you need. Think of it as a warm-up: the real Hakone onsen come on Dec 19.",
+      "how": [
+        "Pay for the set at the front desk: it includes a yukata and towels.",
+        "Eat lunch and have a beer in the restaurant first, then split for the gender-separated baths.",
+        "Meet on the rooftop foot-bath deck, then leave for the 15:06 Yurikamome from Shijo-mae."
+      ],
+      "tips": [
+        "Tattoos are refused unless you follow the house rules. Ask staff before paying.",
+        "No outside food or drink, so finish any Tsukiji snacks before you go in."
+      ],
+      "cost": "¥3,850 set plus ¥150 bath tax; lunch and drinks extra",
+      "booking": "Walk-in",
+      "hours": "Open 24 hours",
+      "source_urls": [
+        "https://news.allabout.co.jp/articles/o/110327/",
+        "https://www.walkerplus.com/spot/ar0313s491261/price.html"
+      ],
+      "wishes": [
+        "We love to drink",
+        "We love to do it all"
+      ]
+    },
+    {
+      "index": 4,
+      "summary": "Senso-ji at dusk, then the lit Hagoita-ichi stalls, where sellers clap out every battledore they sell.",
+      "story": "Only on these three days in December, about 30 stalls fill the temple grounds with giant battledores decorated with kabuki faces and padded silk. Whenever one sells, the stall breaks into a rhythmic ceremonial hand-clap for the buyer. In December it's dark early, so the stalls are lit and glowing well before you leave.",
+      "how": [
+        "Come through Kaminarimon and up Nakamise while there's still a little light.",
+        "Go to the main hall first: it closes at 17:00.",
+        "Then work the Hagoita-ichi stalls, which stay open until 19:30, and wait nearby to catch a sale and its clap.",
+        "Walk to Kuramae for the 18:55 Oedo line to Tsukishima."
+      ],
+      "tips": [
+        "Draw an omikuji fortune for ¥100. If it's bad, tie it to the rack and leave it behind.",
+        "Entry to the fair is free. The big battledores are for looking at unless someone wants a souvenir."
+      ],
+      "cost": "Free; omikuji ¥100",
+      "booking": null,
+      "hours": "Main hall 06:30–17:00; Hagoita-ichi 09:00–19:30",
+      "source_urls": [
+        "https://www.gotokyo.org/jp/kanko/taito/event/hagoita.html",
+        "https://kaibutsu-blog.com/?p=3611"
+      ],
+      "wishes": [
+        "We love to do it all"
+      ]
+    },
+    {
+      "index": 5,
+      "summary": "Tokyo-only monjayaki you cook yourselves on two griddles side by side, with beer, at Tsukishima's top-rated shop.",
+      "story": "Monja is a runny, crispy-edged griddle mess that you scrape off with tiny spatulas. It isn't pretty, and that's the fun. Moheji's main shop ranked first in Tsukishima with foreign visitors, and staff show first-timers how to build the batter wall.",
+      "how": [
+        "Check in for the 19:15 table for 8 across two griddles.",
+        "Order a classic mentaiko-mochi-cheese monja per griddle, plus beers, and let staff do the first one.",
+        "Leave for the 21:22 Yurakucho line from Tsukishima straight to Ikebukuro."
+      ],
+      "tips": [
+        "Wait until the edges crisp before scraping. That crust is the best bit.",
+        "Kondo, founded in 1950, is the old-school backup if anything goes wrong with the booking."
+      ],
+      "cost": "¥3,500 pp",
+      "booking": "Booked, 19:15 for 8",
+      "hours": "17:00–23:00",
+      "source_urls": [
+        "https://honichi.com/news/2025/02/20/202502_inboundranking_tsukishima/",
+        "https://www.instagram.com/moheji_tsukishima_monja/"
+      ],
+      "wishes": [
+        "We love to drink",
+        "We love to do it all"
+      ]
+    },
+    {
+      "index": 6,
+      "summary": "Cheap Showa-era second round by Ikebukuro West Exit: flat-price plates, the famous nikomi, highballs.",
+      "story": "A smoky, Showa-style salaryman izakaya that's open until morning, where every plate on the wall costs the same. The stewed offal nikomi is the reason people come. A 2026 video puts the plates at ¥420, and an older listing says ¥335.",
+      "how": [
+        "Split into two tables if the room is tight.",
+        "Order the nikomi first, then point at the wall menu, with a highball each.",
+        "Big Echo is a 2-minute walk."
+      ],
+      "tips": [
+        "It's listed as 若大将 まつしま in Nishi-Ikebukuro. Check that the sign matches.",
+        "If there's no room, phone ahead to ask about seats."
+      ],
+      "cost": "about ¥2,000 pp",
+      "booking": "Phone +81-3-5951-0170",
+      "hours": "Open 24 hours",
+      "source_urls": [
+        "https://www.tiktok.com/@hakkutsu_gourmet97/video/7649002461289663762",
+        "https://maps.google.com/?q=若大将+西池袋1-26-5"
+      ],
+      "wishes": [
+        "We love to drink",
+        "We want to maximise all the time we've got in the country"
+      ]
+    },
+    {
+      "index": 7,
+      "summary": "One big room for all 8 for a 3-hour session with drinks, carrying on well past the last train.",
+      "story": "Big Echo is run by Daiichikosho, who make the DAM machines, so the rooms get the newest system with the full song list. It costs more than other chains, but the rooms are better.",
+      "how": [
+        "Check in for the room booked online. Everyone shows an original passport.",
+        "Order drinks from the room tablet. The session limit is 180 minutes.",
+        "Afterwards take two taxis home to Ninja House: 10 minutes."
+      ],
+      "tips": [
+        "Anyone under 20 can't be served alcohol. Photos or copies of passports won't do.",
+        "Year-end prices can differ from the listed rates. Check the store page before booking."
+      ],
+      "cost": "Late-night rate (check the store page)",
+      "booking": "Booked online, one big room",
+      "hours": null,
+      "source_urls": [
+        "https://maps.google.com/?cid=11194344274043032063",
+        "https://www.mapple.net/original/371134/"
+      ],
+      "wishes": [
+        "We love to drink",
+        "We want to maximise all the time we've got in the country"
+      ]
+    }
+  ]
+}

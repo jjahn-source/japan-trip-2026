@@ -1,0 +1,218 @@
+{
+  "notes": [
+    {
+      "kind": "CHECK",
+      "text": "Every person carries their own original passport plus ALL tax-free goods and receipts in the carry-on; nothing refundable goes in a suitcase."
+    },
+    {
+      "kind": "NOTE",
+      "text": "Dec 29 is a peak year-end travel day: hold the 12:45 Donki hard stop so you reach T3 by 14:00 for the 17:20 flight."
+    },
+    {
+      "kind": "WEATHER",
+      "text": "Cold, clear-to-grey winter day; it will be dark outside the terminal windows before you board."
+    }
+  ],
+  "stops": [
+    {
+      "index": 0,
+      "summary": "Out the door well before the 10:00 deadline, passports and tax-free bags on you.",
+      "story": "Last morning at Garfield House: the big suitcases should already be heading to Haneda T3 by Yamato, so you leave with day bags only. Shinjuku on a cold December morning is quieter than you've seen it all trip, with office workers gone for the holidays.",
+      "how": [
+        "Do a room sweep for chargers and passports before you hand back keys.",
+        "Check every carry-on holds its owner's tax-free goods and receipts.",
+        "Walk west through Shinjuku Station, or take the Toei Shinjuku line one stop from Shinjuku-sanchome (09:24→09:25, ¥180)."
+      ],
+      "tips": [
+        "If anyone is dragging, a taxi is 10 min; two cars for 8.",
+        "If the suitcases weren't sent on Dec 27, they roll with you all day: pick routes with lifts."
+      ],
+      "cost": null,
+      "booking": null,
+      "hours": null,
+      "source_urls": [],
+      "wishes": [
+        "We want to maximise all the time we've got in the country"
+      ]
+    },
+    {
+      "index": 1,
+      "summary": "Hangover-fixing grilled-fish breakfast: salmon, mackerel or hokke with rice, miso and pickles.",
+      "story": "Shinpachi Shokudo does one thing well: charcoal-grilled fish sets with rice, miso soup and pickles, served fast to Shinjuku's early risers. It's the Japanese breakfast you've been meaning to have all trip, and it's open from 07:00 every day including today.",
+      "how": [
+        "Split into 2–3 tables; the room is small tables plus a counter.",
+        "Order a teishoku set: salmon is the safe pick, hokke the big flaky one, mackerel the richest.",
+        "Eat and go: it's a walk 13 min east through the station to Isetan."
+      ],
+      "tips": [
+        "Rice refills are part of the deal at breakfast; ask rather than order more.",
+        "The Kabukicho branch keeps far longer hours if anyone wants a second round later."
+      ],
+      "cost": "¥1,000 pp",
+      "booking": "No booking",
+      "hours": "07:00–23:00",
+      "source_urls": [
+        "https://retty.me/restaurant/100000729976/",
+        "https://maps.google.com/?cid=14023482379824896455",
+        "https://www.nap-camp.com/mag/55359"
+      ],
+      "wishes": [
+        "We want to maximise all the time we've got in the country"
+      ]
+    },
+    {
+      "index": 2,
+      "summary": "Tokyo's best-known food hall at its year-end peak: boxed wagashi and sweets for everyone back home.",
+      "story": "Isetan's basement is wall-to-wall wagashi, gift-boxed sweets, bento and sake, and on Dec 29 it is packed with locals buying New Year osechi. The crowd and the shouting shop staff are half the show; the gift boxes are the other half.",
+      "how": [
+        "Head straight down to the basement food floor once the store opens at 10:00.",
+        "Split up by what you're buying: sweets, sake, snacks.",
+        "Meet at the main entrance at 11:20 sharp, then it's a walk 7 min up to Kabukicho."
+      ],
+      "tips": [
+        "Grab an onigiri or small bento here to carry you to the late lunch at the airport.",
+        "Pick boxed sweets that travel flat and sealed; they go in the carry-on."
+      ],
+      "cost": "Gift boxes ¥1,000–3,000",
+      "booking": null,
+      "hours": "10:00–20:00 (food-floor hours may differ)",
+      "source_urls": [
+        "https://www.google.com/maps/search/?api=1&query=Isetan+Shinjuku",
+        "https://rurubu.jp/andmore/spot/80011203"
+      ],
+      "wishes": [
+        "Shopping",
+        "We love to do it all"
+      ]
+    },
+    {
+      "index": 3,
+      "summary": "The final Donki haul: snacks, cosmetics and gifts, one clean ¥5,000+ receipt each.",
+      "story": "The 24-hour Kabukicho Donki is the last chance to fill every gap in the souvenir list, under the same jingle you've heard all trip. Refunds are fee-free at Donki, as long as you don't take cash at the airport.",
+      "how": [
+        "Pay with your own passport; never pool items across people.",
+        "Keep the take-home haul on its own receipt of at least ¥5,000 ex-tax, unopened, in the carry-on.",
+        "Snacks you'll eat today go on a separate receipt.",
+        "Hard stop 12:45: Marunouchi line from Shinjuku at 12:57, arriving Haneda T3 at 13:47 (¥890)."
+      ],
+      "tips": [
+        "The simpler fallback is JR Yamanote to Shinagawa, then Keikyu to T3.",
+        "A taxi is 35 min but needs two cars for 8."
+      ],
+      "cost": "¥5,000–10,000 pp",
+      "booking": null,
+      "hours": "Open 24 hours",
+      "source_urls": [
+        "https://www.google.com/maps/search/?api=1&query=Don+Quijote+Shinjuku+Kabukicho",
+        "https://www.hokkaido-np.co.jp/article/1386454/"
+      ],
+      "wishes": [
+        "Shopping",
+        "We love to do it all"
+      ]
+    },
+    {
+      "index": 4,
+      "summary": "Scan your passport at the customs tax-free kiosk BEFORE bag drop, or lose the refund.",
+      "story": "Since November Japan refunds tax at departure, not at the till: you scan your passport here and GREEN means your 10% comes back to the registered card. RED means customs wants to see the goods, so they must be in your hands, not in a checked bag.",
+      "how": [
+        "Find the customs tax-free kiosks in the departures lobby, before the airline counters.",
+        "Each person scans their own passport with all refundable items in hand.",
+        "Wait for GREEN before anyone goes near bag drop."
+      ],
+      "tips": [
+        "One missing item from a receipt voids that whole receipt.",
+        "Visit Japan Web on the airport's tax-free Wi-Fi is the backup if the kiosk queue is long.",
+        "Anything already eaten or used isn't refunded."
+      ],
+      "cost": null,
+      "booking": "Register on Visit Japan Web to speed things up",
+      "hours": "Kiosks in the departure lobby, before check-in",
+      "source_urls": [
+        "https://www.mlit.go.jp/kankocho/tax-free/page01_000001_00021.html",
+        "https://www.mlit.go.jp/kankocho/tax-free/content/001978459.pdf",
+        "https://www.customs.go.jp/kaigairyoko/20250325.html"
+      ],
+      "wishes": [
+        "Look for money we can save by booking early or buying passes"
+      ]
+    },
+    {
+      "index": 5,
+      "summary": "Pick up the Yamato suitcases, then check in and drop bags, only after the kiosk is green.",
+      "story": "The suitcases you sent on Dec 27 are waiting at the Yamato counter in T3. Collect them, repack anything fragile, then queue together at the airline counter.",
+      "how": [
+        "Collect suitcases at the Yamato counter with your receipt slip.",
+        "Check in and drop bags as a group.",
+        "Escalator up to Edo Koji on the 4th floor."
+      ],
+      "tips": [
+        "Keep liquids from the Donki haul out of the carry-on before you drop the big bags."
+      ],
+      "cost": null,
+      "booking": null,
+      "hours": null,
+      "source_urls": [],
+      "wishes": []
+    },
+    {
+      "index": 6,
+      "summary": "One last bowl in an Edo-style street: gyudon, tonkatsu, oden, udon or ramen before security.",
+      "story": "Edo Koji on the 4th floor dresses the terminal up as an old Tokyo street, with wooden shopfronts and lanterns over a run of quick restaurants. Yoshinoya gyudon with tonjiru, Katsusen tonkatsu and all-year oden mean all 8 of you eat what you want, fast.",
+      "how": [
+        "Split across shops by craving.",
+        "Order the quickest thing on the menu; this is a sprint.",
+        "Regroup at 15:40 sharp, then it's a walk 1 min to security."
+      ],
+      "tips": [
+        "Saryo Itoen does matcha if anyone wants one last tea instead of a meal.",
+        "Don't linger: security on Dec 29 is the real bottleneck."
+      ],
+      "cost": "¥1,500 pp",
+      "booking": "None",
+      "hours": "Shop hours vary; terminal open 24 hours",
+      "source_urls": [
+        "https://www.veltra.com/jp/yokka/article/haneda-terminal-3-for-girls-trip/",
+        "https://www.gotokyo.org/jp/spot/69/index.html"
+      ],
+      "wishes": [
+        "We love to do it all"
+      ]
+    },
+    {
+      "index": 7,
+      "summary": "Allow the full hour for security and immigration on a peak year-end departure day.",
+      "story": "Dec 29 is one of the busiest departure days of the year, so the security line is the last thing that can sink the trip. Get through first, then shop the airside stores at the gate.",
+      "how": [
+        "Go through as a group with passports and boarding passes ready.",
+        "Liquids out, jackets off.",
+        "Head straight to the gate once through."
+      ],
+      "tips": [
+        "Use the joint customs and immigration kiosk lanes if they're open; they're faster."
+      ],
+      "cost": null,
+      "booking": null,
+      "hours": null,
+      "source_urls": [
+        "https://www.customs.go.jp/kaigairyoko/20250325.html"
+      ],
+      "wishes": []
+    },
+    {
+      "index": 8,
+      "summary": "Wheels up at 17:20; be at the gate when boarding opens.",
+      "story": "By the time you board, Tokyo is lit up under a dark winter sky, and the city you've run around for two weeks slides away under the wing.",
+      "how": [
+        "Be at the gate when boarding starts, about 30 min before departure.",
+        "Get a window seat if you can for the night-time view of the bay."
+      ],
+      "tips": [],
+      "cost": null,
+      "booking": null,
+      "hours": null,
+      "source_urls": [],
+      "wishes": []
+    }
+  ]
+}

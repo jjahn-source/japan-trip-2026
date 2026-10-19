@@ -1,0 +1,222 @@
+{
+  "notes": [
+    {
+      "kind": "BRING",
+      "text": "Overnight bags only (the suitcases are already on their way to Kujō House). Park them in the Hakone-Yumoto coin lockers after lunch and collect them on the way back down."
+    },
+    {
+      "kind": "MONEY",
+      "text": "The Hakone Freepass covers Odakyu from Shinjuku and every Hakone train today, but Romancecar seats cost extra: reserve all 8 together in advance."
+    },
+    {
+      "kind": "CHECK",
+      "text": "Pre-book two taxis from Yumoto to the villa for the end of the night, and get the villa door code from the host before you leave Tokyo. Dress for a cold mountain evening; it's dark well before dinner."
+    }
+  ],
+  "stops": [
+    {
+      "index": 0,
+      "summary": "Out the door by 10:00 with overnight bags only, then the Oedo and Marunouchi lines to Shinjuku.",
+      "story": "Last morning in Toshima, travelling light because the big suitcases left for Osaka yesterday. The hop to Shinjuku is two short subway rides, so there's no need to haul anything across the city.",
+      "how": [
+        "Check out before the 10:00 deadline.",
+        "Walk to Ochiai-minami-nagasaki and take the Toei Oedo line 10:15→10:21 to Nakano-sakaue.",
+        "Change to the Marunouchi line 10:29→10:33 to Shinjuku and follow the signs to the Odakyu Romancecar platforms."
+      ],
+      "tips": [
+        "Tap your IC card; the subway leg is ¥290 and isn't covered by the Freepass.",
+        "If anyone is running late, a taxi to Shinjuku takes 18 min."
+      ],
+      "cost": "¥290 pp subway",
+      "booking": null,
+      "hours": "Check out by 10:00",
+      "source_urls": [],
+      "wishes": []
+    },
+    {
+      "index": 1,
+      "summary": "Eight seats together on the Romancecar, with ekiben and cold cans, as the city gives way to winter hills.",
+      "story": "The Romancecar is the fun way into Hakone: reserved seats, a picnic on your knees and Tokyo's suburbs thinning out into bare, brown December hills. Since the Freepass already covers the fare, the only add-on is the seat ticket.",
+      "how": [
+        "Pick up the Freepass on EMot and reserve the seat tickets for all 8 together.",
+        "Buy ekiben and drinks on the Odakyu concourse before boarding.",
+        "Get off at Hakone-Yumoto, the end of the line."
+      ],
+      "tips": [
+        "Stock up at Shinjuku; there's little worth buying on board.",
+        "Book the seats in advance so the group isn't split across cars on a Saturday."
+      ],
+      "cost": "¥7,500 pp 3-day Freepass + ~¥1,200 pp Romancecar seat",
+      "booking": "Romancecar seats reserved in advance",
+      "hours": null,
+      "source_urls": [],
+      "wishes": [
+        "Look for money we can save by booking early or buying passes"
+      ]
+    },
+    {
+      "index": 2,
+      "summary": "Yumoto's classic yam-tororo soba: a warm, cheap first lunch steps from the station.",
+      "story": "Hatsuhana is the soba shop Yumoto is known for, a long-running favourite that serves cold-weather bowls of buckwheat noodles under grated mountain yam. It's quick and filling, and the shopping street outside is the place to graze on snacks afterwards.",
+      "how": [
+        "Walk 8 min from Hakone-Yumoto Station.",
+        "Take a waitlist ticket at the door; the Shinkan building can seat all 8.",
+        "Order the yam-tororo soba."
+      ],
+      "tips": [
+        "No bookings, so go straight from the train before the lunch rush builds.",
+        "Afterwards, put the bags in the station coin lockers and catch the 14:04 Hakone Tozan train up to Chokoku-no-Mori (arrives 14:39, covered by the Freepass)."
+      ],
+      "cost": "About ¥1,500 pp",
+      "booking": "No bookings; take a waitlist ticket",
+      "hours": "10:00–19:00",
+      "source_urls": [
+        "http://www.hatsuhana.co.jp"
+      ],
+      "wishes": []
+    },
+    {
+      "index": 3,
+      "summary": "Giant sculptures on a cold hillside, a stained-glass tower to climb, Picasso, and a free footbath to finish.",
+      "story": "Hakone's best museum is mostly outdoors: monumental sculptures scattered across a hillside, with bare winter trees and mountain ridges behind them. The Symphonic Sculpture is a tower wrapped in stained glass that glows when the low December sun hits it, and the Picasso pavilion is a real surprise. The grounds are so big that it rarely feels crowded, and it goes quiet after 15:30.",
+      "how": [
+        "Enter by the main gate and show the Freepass for the discount.",
+        "Loop the sculpture park, then climb inside the Symphonic Sculpture tower.",
+        "See the Picasso pavilion, then finish with your feet in the free footbath."
+      ],
+      "tips": [
+        "An Asoview e-ticket is a little cheaper than paying at the gate.",
+        "Do the tower while there's still daylight; the glass is best with the sun on it.",
+        "The footbath is the best hand-warmer on the hill, so leave time for it before the 17:00 close."
+      ],
+      "cost": "¥2,000 pp (Freepass discount)",
+      "booking": "Optional Asoview e-ticket",
+      "hours": "09:00–17:00",
+      "source_urls": [
+        "https://maps.google.com/?q=35.2448,139.0516"
+      ],
+      "wishes": [
+        "We love to do it all"
+      ]
+    },
+    {
+      "index": 4,
+      "summary": "Hakone's own brewpub in the Gora woods: house beer flights and wood-fired grill plates as night falls.",
+      "story": "Hidden in the trees uphill from the museum, Gora Brewery opened in 2017 in a building by architect Hiroshi Nakamura with big glass walls onto the forest. The beer is brewed on site, the GORA stout is the one drinkers rave about, and one TikToker called the blistered shishitos the best she's ever had. With the dark coming down outside the glass, it's the best craft-beer stop in Hakone.",
+      "how": [
+        "Walk 16 min uphill from the museum.",
+        "Order a flight of the house beers and a spread of grill plates to share; get the shishitos.",
+        "Leave in time for the 18:05 Hakone Tozan train from Gora to Yumoto (arrives 18:43, Freepass)."
+      ],
+      "tips": [
+        "Book the table for 8 ahead; same-day bookings are phone only (0460-83-8107) and there's no guaranteed seat at busy times.",
+        "Ask for the stout if you only try one beer."
+      ],
+      "cost": "¥3,000 pp planned (research puts a full session with beers at ¥4,000–6,000 pp)",
+      "booking": "Book ahead; same-day by phone only, 0460-83-8107",
+      "hours": "13:00–21:00",
+      "source_urls": [
+        "https://www.xiaohongshu.com/explore/6ab76bae000000001802da24",
+        "https://www.xiaohongshu.com/explore/6725caff000000001a034ce9",
+        "https://www.tiktok.com/@melissaachavez_/video/7688551130133024014"
+      ],
+      "wishes": [
+        "We love to drink"
+      ]
+    },
+    {
+      "index": 5,
+      "summary": "Booked izakaya table in Yumoto: dinner and the first rounds, two minutes from the geisha show.",
+      "story": "Hakoneji is the reliable dinner base for a Yumoto night, an izakaya listed by the official Hakone tourism site that stays open late with no fixed closing day. It's close enough to the Kenban that you can order one more round and still make the show.",
+      "how": [
+        "Grab the bags from the coin lockers when you get off the train, then head to the izakaya.",
+        "Order a spread to share and get the first drinks in.",
+        "Leave at 19:50 and walk 2 min to the Kenban so all 8 can sit together."
+      ],
+      "tips": [
+        "Call ahead to hold a table for 8; it's a Saturday.",
+        "Don't linger: doors for the 20:00 show open at 19:30 and the hall is small."
+      ],
+      "cost": "¥4,500 pp",
+      "booking": "Call ahead for 8",
+      "hours": "18:00–24:00 (last entry 23:00)",
+      "source_urls": [
+        "https://www.hakone.or.jp/8207"
+      ],
+      "wishes": [
+        "We love to drink"
+      ]
+    },
+    {
+      "index": 6,
+      "summary": "Three geisha dance, then you play their drinking games: Hakone's best night-out, and it's only on tonight.",
+      "story": "Yumoto is still a working geisha town, and on the 1st and 3rd Saturday of the month the geisha union opens its Kenban hall to anyone for 'Furatto Geisha'. Tonight is the 3rd Saturday. Three geisha perform a dance, then pull the audience into ozashiki drinking games and pose for photos, with a drink in your hand the whole time.",
+      "how": [
+        "Walk over at 19:50; doors open at 19:30 for the 20:00 show.",
+        "Pay at the door: the ticket includes one drink.",
+        "Watch the dance, then volunteer for the ozashiki games and stay for photos."
+      ],
+      "tips": [
+        "The hall is small, so arriving early is the only way to sit together.",
+        "Extra drinks are about ¥700 at the geisha-run Cafe Bar Hana, which is closed on Sundays and Mondays, so tonight is your only chance.",
+        "The official page is old; check the time and price before you go."
+      ],
+      "cost": "¥3,000 pp incl. 1 drink",
+      "booking": "Walk-in; no booking",
+      "hours": "Second show 20:00 (40 min), doors 19:30",
+      "source_urls": [
+        "https://geisha.co.jp/",
+        "https://blog.fmyokohama.jp/machikado/2026/07/post-a21b.html",
+        "https://www.tokyo-np.co.jp/article/378183"
+      ],
+      "wishes": [
+        "If there are cool nightlife things to do in the neighbouring cities as well, include them",
+        "We love to drink"
+      ]
+    },
+    {
+      "index": 7,
+      "summary": "Yakitori and highballs at the one place in Hakone still pouring after the rest of the town has gone to bed.",
+      "story": "Yumoto is the only part of Hakone with any late-night life, and Flying Chicken is where it happens: skewers off the grill, highball after highball, open long after the rest of the valley is asleep. The staff will even come and fetch you in their car if you phone from the station.",
+      "how": [
+        "Walk 12 min from the Kenban, or phone 0460-83-8350 for the free pick-up.",
+        "Order yakitori in rounds and keep the highballs coming.",
+        "Wrap up so the pre-booked taxis can run you to the villa: two cars, 28 min."
+      ],
+      "tips": [
+        "Book for 8 by phone and ask about the pick-up at the same time.",
+        "The last trains and buses up the mountain are gone by then; a taxi to Sengokuhara is about ¥7,000–9,000 per car.",
+        "Grab tomorrow's breakfast and cans at a station konbini on the way out."
+      ],
+      "cost": "¥4,000 pp",
+      "booking": "Phone 0460-83-8350",
+      "hours": "From the evening; listings give 02:00 or 03:00 closing",
+      "source_urls": [
+        "https://www.magical-trip.com/media/top-10-late-night-dining-spots-in-hakone-2026-best-places-to-eat-after-midnight/"
+      ],
+      "wishes": [
+        "We love to drink",
+        "We want to maximise all the time we've got in the country"
+      ]
+    },
+    {
+      "index": 8,
+      "summary": "Late self check-in, then a midnight soak in the villa's own hot spring.",
+      "story": "After a cold day and a long night, the villa's private hot spring is the reward: steam rising into the dark Sengokuhara air, and nobody else's schedule but yours.",
+      "how": [
+        "Let yourselves in with the door code from the host.",
+        "Drop the bags and head straight for the bath."
+      ],
+      "tips": [
+        "Confirm the door code before you leave Yumoto; there's no phone signal you want to rely on at midnight."
+      ],
+      "cost": null,
+      "booking": null,
+      "hours": null,
+      "source_urls": [],
+      "wishes": [
+        "Stays already booked: Ninja House in Toshima (Tokyo), Hot Spring Hakone Villa in Sengokuhara, Kujō House in Nishi-ku (Osaka), Garfield House in Shinjuku (Tokyo)"
+      ]
+    }
+  ]
+}

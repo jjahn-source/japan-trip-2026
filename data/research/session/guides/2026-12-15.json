@@ -1,0 +1,116 @@
+{
+  "notes": [
+    {
+      "kind": "BRING",
+      "text": "Original passports in your pocket tonight: Round1 checks them at night and the drinking age is 20+."
+    },
+    {
+      "kind": "MONEY",
+      "text": "Carry cash for the ramen at the end of the night; Mutekiya doesn't take cards."
+    },
+    {
+      "kind": "WEATHER",
+      "text": "December cold and it's already dark by the time you leave the airport, so keep a warm layer out of the suitcase."
+    }
+  ],
+  "stops": [
+    {
+      "index": 0,
+      "summary": "Land, clear immigration, and load an IC card each before the long train ride to Ninja House.",
+      "story": "You land at 15:00 and by the time you're through immigration and bags the winter light is already fading over the bay. All the luggage comes with you to Ninja House tonight, so the first job is getting eight people and their suitcases onto the right trains in one piece.",
+      "how": [
+        "Clear immigration and customs, then regroup before the Keikyu gates.",
+        "Buy or top up a Suica/PASMO IC card each at the Keikyu ticket machines; it covers every city train and bus this week.",
+        "Ride Keikyu to Shinagawa, the JR Yamanote line to Ikebukuro, then the Seibu Ikebukuro line to Higashi-Nagasaki."
+      ],
+      "tips": [
+        "Load enough onto each card for a few days so nobody holds up the gates.",
+        "Keep suitcases together at the back of the carriage; Yamanote trains get crowded in the evening rush."
+      ],
+      "cost": null,
+      "booking": null,
+      "hours": "15:00–16:15",
+      "source_urls": [],
+      "wishes": [
+        "We want to maximise all the time we've got in the country"
+      ]
+    },
+    {
+      "index": 2,
+      "summary": "Welcome feast: all-you-can-eat wagyu and all-you-can-drink in your own private room for 8.",
+      "story": "Kingyuen is a wagyu all-you-can-eat yakiniku specialist right by JR Ikebukuro, and its private rooms fit exactly six to eight people. You grill your own marbled cuts at the table while the drinks keep coming, which is precisely the right way for a group of eight to shake off a long flight.",
+      "how": [
+        "Give the booking name at the door and ask for your koshitsu (private room).",
+        "Your course is about ¥4,290 pp plus the all-you-can-drink add-on; order in rounds so the grill is never empty.",
+        "Pace the meat: you have the room from 18:45 to 20:45, then it's an 8-minute walk to Round1."
+      ],
+      "tips": [
+        "Order the fatty cuts in small batches; they flare up and burn fast on the grill.",
+        "Last entry is 23:00 if you ever want to come back on a later night this week."
+      ],
+      "cost": "about ¥4,290 pp course + all-you-can-drink add-on",
+      "booking": "Booked: private room for 8",
+      "hours": "17:00–23:30 (last entry 23:00)",
+      "source_urls": [
+        "https://www.hotpepper.jp/strJ004509938/",
+        "https://r.gnavi.co.jp/area/aream2157/gyutan/kods00077/rs/",
+        "https://tabelog.com/tokyo/A1305/A130501/13317258/dtlmenu/"
+      ],
+      "wishes": [
+        "We love to drink",
+        "We love to do it all"
+      ]
+    },
+    {
+      "index": 3,
+      "summary": "Round1 on night one: bowling, karaoke, darts and a huge arcade, open 24 hours, walking distance from home.",
+      "story": "Round1 Ikebukuro stacks bowling, karaoke, billiards, darts, table tennis and a loud, bright arcade into one tower, and the games side runs 24 hours. On a Tuesday night in December it's mostly locals and students, and it's the perfect way to stay awake through the jet lag.",
+      "how": [
+        "Show your original passports at the counter; photocopies and phone photos won't do after dark.",
+        "Split into two bowling lanes of 4, or take one big karaoke room for everyone.",
+        "Ask at the counter which late-night pack is cheapest for your time; prices vary by store."
+      ],
+      "tips": [
+        "The arcade floor closes at 00:50 even though bowling and karaoke run all night.",
+        "Leave by 23:10 for the 8-minute walk to Mutekiya before the ramen queue builds."
+      ],
+      "cost": "Pay at the counter (late-night packs vary)",
+      "booking": "Walk in; lanes can be reserved on the Round1 site",
+      "hours": "Open 24 hours; arcade corner 10:00–00:50",
+      "source_urls": [
+        "https://www.round1.co.jp/shop/tenpo/tokyo-ikebukuro.html",
+        "https://maps.google.com/?cid=5244696194787840894"
+      ],
+      "wishes": [
+        "Round1",
+        "We love to do it all",
+        "We want to maximise all the time we've got in the country"
+      ]
+    },
+    {
+      "index": 4,
+      "summary": "Close night one with Ikebukuro's famous late tonkotsu ramen, open until 4am.",
+      "story": "Mutekiya's rich tonkotsu-shoyu broth and thick slabs of chashu have kept a queue outside this Ikebukuro counter for years. It stays open until 4am, so the line late at night is full of people coming off their own nights out, and the steam on a cold December night is half the pleasure.",
+      "how": [
+        "Queue outside together; there are no bookings and only 17 counter seats.",
+        "You'll be seated in twos and threes as seats free up, so expect to eat in waves.",
+        "Order the honmaru (¥1,150) and add a kaedama (extra noodles, ¥200) if you're still hungry."
+      ],
+      "tips": [
+        "Cash only, so sort it before you reach the front.",
+        "Turnover is fast; the late queue usually runs 10 to 30 minutes.",
+        "Last Seibu train leaves Ikebukuro 00:18 (¥170); miss it and take 2 taxis, about 12 min."
+      ],
+      "cost": "about ¥1,000–1,500 pp, cash only",
+      "booking": "No reservations; queue outside",
+      "hours": "10:30–04:00",
+      "source_urls": [
+        "https://maps.google.com/?cid=9408920881125569229",
+        "https://www.hotpepper.jp/strJ000103852"
+      ],
+      "wishes": [
+        "We want to maximise all the time we've got in the country"
+      ]
+    }
+  ]
+}
