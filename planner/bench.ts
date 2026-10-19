@@ -75,15 +75,17 @@ async function geminiJudge(A: Itinerary, B: Itinerary, model = 'gemini-4-argon')
 async function judge(base: Itinerary, other: Itinerary) {
   const flip = Math.random() < 0.5; // blind and order-randomised: the judge never knows which is the baseline
   const [A, B] = flip ? [other, base] : [base, other];
-  const stream = client.beta.messages.stream({
+  // BENCH_FREE=1 skips the paid Opus API judge (judge in the session instead) and keeps the free Gemini one.
+  const free = key('BENCH_FREE') === '1';
+  const gv = await geminiJudge(A, B).catch((e) => { log(`  Gemini judge failed: ${String(e).slice(0, 200)}`); return null; });
+  if (free && !gv) throw new Error('BENCH_FREE needs the Gemini judge, and it failed.');
+  const msg = free ? null : await client.beta.messages.stream({
     model: 'claude-opus-5-5', max_tokens: 32000, betas: ['server-side-fallback-2026-07-01'], fallbacks: 'default',
     output_config: { effort: 'high', format: betaZodOutputFormat(Verdict) },
     system: SYSTEM,
     messages: [{ role: 'user', content: `ITINERARY A\n${asText(A)}\n\n=====\n\nITINERARY B\n${asText(B)}` }],
-  });
-  const msg = await stream.finalMessage();
-  const v = Verdict.parse(JSON.parse(msg.content.flatMap((b) => (b.type === 'text' ? [b.text] : [])).join('')));
-  const gv = await geminiJudge(A, B).catch((e) => { log(`  Gemini judge failed: ${String(e).slice(0, 200)}`); return null; });
+  }).finalMessage();
+  const v = msg ? Verdict.parse(JSON.parse(msg.content.flatMap((b) => (b.type === 'text' ? [b.text] : [])).join(''))) : gv!;
   // Map A/B back to baseline/variant.
   const side = (c: { a: number; b: number; why: string }) => (flip ? { baseline: c.b, variant: c.a, why: c.why } : { baseline: c.a, variant: c.b, why: c.why });
   const crits = ['specificity', 'accuracy', 'feasibility', 'fit', 'sourcing', 'usefulness'] as const;
@@ -97,7 +99,7 @@ async function judge(base: Itinerary, other: Itinerary) {
     errors: { baseline: flip ? v.errors_b : v.errors_a, variant: flip ? v.errors_a : v.errors_b },
     winner: v.overall === 'tie' ? 'tie' : (v.overall === 'A') !== flip ? 'baseline' : 'variant',
     summary: v.summary,
-    judgeCost: +((msg.usage.input_tokens * 4 + msg.usage.output_tokens * 20) / 1e6).toFixed(3),
+    judgeCost: msg ? +((msg.usage.input_tokens * 4 + msg.usage.output_tokens * 20) / 1e6).toFixed(3) : 0,
   };
 }
 
