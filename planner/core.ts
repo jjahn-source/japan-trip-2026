@@ -419,5 +419,6 @@ export function assemble(brief: Brief, plan: Plan & { warnings?: string[]; legs?
     coverage: plan.coverage.map((c) => ({ wish: brief.wishes.find((w) => w.id === c.wish_id)?.text ?? c.wish_id, how: c.how })),
     sources: Object.entries(S.has).filter(([, f]) => f()).map(([k]) => k).concat(['claude web search', 'TREK Places', 'Wikipedia']),
     warnings: plan.warnings ?? [],
+    logistics: (plan as { logistics?: string[] }).logistics ?? [],
   };
 }

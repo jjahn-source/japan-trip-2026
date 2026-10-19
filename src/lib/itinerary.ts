@@ -39,6 +39,7 @@ export interface Itinerary {
   budget: BudgetRow[]; budgetTotals: { category: string; perPerson: string }[];
   coverage: { wish: string; how: string }[];
   sources: string[]; warnings: string[];
+  logistics?: string[];                // trip-wide: luggage each day, passes, tax-free rules
 }
 
 const WD = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
