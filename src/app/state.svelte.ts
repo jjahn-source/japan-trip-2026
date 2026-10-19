@@ -17,6 +17,8 @@ export const app = $state({
   progress: 0,
   clock: '',
   search: false,
+  /** A place dropped on the map from search or a nearby pick. */
+  pin: null as null | { lat: number; lng: number; name: string; sub?: string; web?: string; hours?: string },
 });
 
 export function parse(path: string): View {
@@ -33,7 +35,7 @@ export const sameView = (a: View, b: View) => a.kind === b.kind && (a.kind !== '
 export function go(v: View, e?: Event) {
   e?.preventDefault();
   if (sameView(v, app.view) && !app.sheet) return;
-  history.pushState({ v }, '', href(v));
+  history.pushState({ v: $state.snapshot(v) }, '', href(v));
   app.view = v; app.sheet = null; app.selected = null; app.playing = null;
   window.scrollTo({ top: 0 });
   document.querySelector('[data-scroll]')?.scrollTo({ top: 0 });
@@ -42,14 +44,16 @@ export function go(v: View, e?: Event) {
 export function openSheet(id: string) {
   if (app.sheet === id) return;
   const url = `${location.pathname}${location.search}#${id}`;
-  if (app.sheet) history.replaceState({ v: app.view, sheet: id }, '', url);
-  else history.pushState({ v: app.view, sheet: id }, '', url);
+  // History entries must be plain data: the store's objects are reactive proxies.
+  const v = $state.snapshot(app.view);
+  if (app.sheet) history.replaceState({ v, sheet: id }, '', url);
+  else history.pushState({ v, sheet: id }, '', url);
   app.sheet = id; app.selected = id;
 }
 export function closeSheet() {
   if (!app.sheet) return;
   if ((history.state as { sheet?: string } | null)?.sheet) history.back();
-  else { history.replaceState({ v: app.view }, '', `${location.pathname}${location.search}`); app.sheet = null; }
+  else { history.replaceState({ v: $state.snapshot(app.view) }, '', `${location.pathname}${location.search}`); app.sheet = null; }
 }
 
 export function bindHistory() {

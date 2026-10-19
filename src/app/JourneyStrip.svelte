@@ -2,7 +2,7 @@
   // The hop between two stops, drawn as what it is: walking dots, then each train or bus as a bar in
   // its line's own colour, sized by how long it takes. Tap ▶ and the map plays it.
   import { icon } from '../lib/icons';
-  import { colourOf } from './map';
+  import { colourOf, inkOn } from './map';
   import type { AppLeg, AppSeg, AppStop } from './types';
 
   let { leg, from, to, active = false, progress = 0, clock = '', onplay }: {
@@ -29,6 +29,7 @@
     return segs.map((seg) => ({ seg, min: seg.m === 'walk' ? walkMin(seg) : Math.max(1, Math.round((km(seg.coords) / rideKm) * rideMin)) }));
   });
   const total = $derived(parts.reduce((n, p) => n + p.min, 0) || leg?.minutes || 0);
+  const running = $derived(active && progress < 1);
   const rides = $derived(parts.filter((p) => p.seg.m !== 'walk'));
   const MODE: Record<string, string> = { walk: 'Walk', rail: 'Train', bus: 'Bus', car: 'Taxi', ropeway: 'Ropeway', funicular: 'Cable car', boat: 'Boat' };
   const ICON = { walk: 'footprints', rail: 'transport', bus: 'bus', car: 'car', ropeway: 'mountain', funicular: 'mountain', boat: 'ship' } as const;
@@ -47,8 +48,8 @@
       </div>
       <span class="when num">{active && clock ? clock : to.start}</span>
       {#if onplay}
-        <button class="play" type="button" onclick={onplay} aria-label={`Play the route from ${from.name} to ${to.name} on the map`} aria-pressed={active}>
-          {@html icon(active ? 'pause' : 'play')}
+        <button class="play" type="button" onclick={onplay} aria-label={running ? 'Stop the route' : `Play the route from ${from.name} to ${to.name} on the map`} aria-pressed={running}>
+          {@html icon(running ? 'pause' : 'play')}
         </button>
       {/if}
     </div>
@@ -57,10 +58,9 @@
         {#if p.seg.m === 'walk'}
           <li class="walk">{@html icon('footprints')}<span>Walk {p.min} min</span></li>
         {:else}
-          <li class="ride" style:--c={colourOf(p.seg.m, p.seg.colour)}>
+          <li class="ride" style:--c={colourOf(p.seg.m, p.seg.colour)} style:--ink={inkOn(colourOf(p.seg.m, p.seg.colour))}>
             <span class="ic">{@html icon(ICON[p.seg.m] ?? 'transport')}</span>
-            <span class="pill">{p.seg.line ?? MODE[p.seg.m]}</span>
-            {#if p.seg.on && p.seg.off}<span class="stations">{p.seg.on} <span class="arrow">→</span> {p.seg.off}</span>{/if}
+            <span class="what"><span class="pill">{p.seg.line ?? MODE[p.seg.m]}</span>{#if p.seg.on && p.seg.off} <span class="stations">{p.seg.on} <span class="arrow">→</span> {p.seg.off}</span>{/if}</span>
             <span class="mins num">{p.min} min</span>
           </li>
         {/if}
@@ -92,8 +92,13 @@
   .legs :global(svg) { width: 14px; height: 14px; flex: none; }
   .walk { color: var(--washi-3); }
   .ride .ic { color: var(--c); display: grid; }
-  .pill { flex: none; padding: 1px 8px 2px; border-radius: 99px; background: var(--c); color: oklch(18% 0.03 280); font-weight: 700; font-size: 0.76rem; white-space: nowrap; }
-  .stations { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: var(--washi); }
+  .pill { flex: none; padding: 1px 8px 2px; border-radius: 99px; background: var(--c); color: var(--ink, oklch(18% 0.03 280)); font-weight: 700; font-size: 0.76rem; white-space: nowrap; }
+  .ride { align-items: flex-start; }
+  .ride .ic { padding-top: 3px; }
+  .what { flex: 1; min-width: 0; line-height: 1.5; }
+  .what .pill { display: inline-block; margin-right: 2px; line-height: 1.35; }
+  .stations { color: var(--washi); }
+  .ride .mins { padding-top: 1px; }
   .arrow { color: var(--washi-3); }
   .mins { margin-inline-start: auto; flex: none; color: var(--washi-3); }
   .sum { display: flex; gap: 6px; font-size: 0.78rem; color: var(--washi-3); }

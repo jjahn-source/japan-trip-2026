@@ -1,6 +1,7 @@
 // The 3D map: the trip's route, a day's route in its railways' colours, numbered stop pins, and the
 // signature move, a leg playing out along its real path. One instance for the app's whole life.
 import type { AppDay, AppLeg, AppStop } from './types';
+import 'mapbox-gl/dist/mapbox-gl.css';
 
 type MB = typeof import('mapbox-gl').default;
 type MbMap = import('mapbox-gl').Map;
@@ -11,6 +12,14 @@ type Phase = 'dawn' | 'day' | 'dusk' | 'night';
 
 const LANTERN = '#f2c46d';
 export const colourOf = (m: string, c?: string) => c ?? (m === 'bus' ? '#7fc8a9' : m === 'boat' ? '#79b8ff' : LANTERN);
+/** Dark or light text, whichever reads on a line's colour (WCAG relative luminance). */
+export function inkOn(hex: string) {
+  const m = hex.match(/^#?([0-9a-f]{2})([0-9a-f]{2})([0-9a-f]{2})$/i);
+  if (!m) return '#14122a';
+  const [r, g, b] = m.slice(1).map((x) => { const c = parseInt(x, 16) / 255; return c <= 0.04045 ? c / 12.92 : ((c + 0.055) / 1.055) ** 2.4; });
+  const L = 0.2126 * r + 0.7152 * g + 0.0722 * b;
+  return (L + 0.05) / 0.05 >= 1.05 / (L + 0.05) ? '#14122a' : '#ffffff';
+}
 const reduce = () => matchMedia('(prefers-reduced-motion: reduce)').matches;
 const esc = (s: string) => s.replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]!);
 
@@ -33,6 +42,8 @@ export class TripMap {
   private phase: Phase | null = null;
   private wantPhase: Phase = 'dusk';
   private anim = 0;
+  private run = 0;
+  private pinMarker: Marker | null = null;
   private stopAnim: (() => void) | null = null;
   ready: Promise<void>;
   failed = false;
@@ -43,7 +54,7 @@ export class TripMap {
 
   private async init() {
     try {
-      const [{ default: mb }] = await Promise.all([import('mapbox-gl'), import('mapbox-gl/dist/mapbox-gl.css')]);
+      const { default: mb } = await import('mapbox-gl');
       if (!this.token) throw new Error('no map token');
       mb.accessToken = this.token;
       this.mb = mb;
@@ -117,6 +128,7 @@ export class TripMap {
       if (g.days.some((d) => d.n === todayN)) el.classList.add('is-today');
       el.addEventListener('click', (e) => { e.stopPropagation(); this.onDay(first.n); });
       this.markers.push(new this.mb.Marker({ element: el, anchor: 'center' }).setLngLat(g.at).addTo(this.map));
+      el.setAttribute('role', 'button'); // Mapbox marks markers as images; these are buttons
     }
     this.fit(groups.map((g) => g.at), { pad: 48, max: 8 });
   }
@@ -142,6 +154,7 @@ export class TripMap {
       el.innerHTML = `<span class="num">${g.stops.map((s) => s.i).join('·')}</span>`;
       el.addEventListener('click', (e) => { e.stopPropagation(); this.onPick(g.stops[0].id); });
       this.markers.push(new this.mb.Marker({ element: el, anchor: 'center' }).setLngLat(g.at).addTo(this.map));
+      el.setAttribute('role', 'button'); // Mapbox marks markers as images; these are buttons
     }
     this.highlight(selected);
     const sel = located.find((s) => s.id === selected);
@@ -159,8 +172,8 @@ export class TripMap {
   }
 
   /** The signature move: the leg lights up along its real path, segment by segment, in its own colours. */
-  async playLeg(leg: AppLeg, depart: number, arrive: number, onTick: (p: number, clock: string) => void): Promise<void> {
-    if (!this.map) return;
+  async playLeg(leg: AppLeg, depart: number, arrive: number, onTick: (p: number, clock: string) => void): Promise<boolean> {
+    if (!this.map) return false;
     this.stop();
     const map = this.map;
     const pts: { c: LngLat; seg: number; d: number }[] = [];
@@ -169,11 +182,14 @@ export class TripMap {
       const d = prev ? prev.d + Math.hypot(c[0] - prev.c[0], (c[1] - prev.c[1]) * 1.2) : 0;
       pts.push({ c, seg: si, d });
     }));
-    if (pts.length < 2) return;
+    if (pts.length < 2) return false;
     const total = pts.at(-1)!.d || 1;
     const all = pts.map((p) => p.c);
     this.fit(all, { pad: 72, pitch: 50, bearing: -15, max: 15.8, duration: 900 });
+    // Anything that stops playback (a touch on the map, another leg, a new day) bumps the run number.
+    const run = ++this.run;
     await new Promise((r) => setTimeout(r, reduce() ? 0 : 950));
+    if (run !== this.run) return false;
     const clock = (p: number) => { const m = Math.round(depart + (arrive - depart) * p); return `${String(Math.floor(m / 60) % 24).padStart(2, '0')}:${String(m % 60).padStart(2, '0')}`; };
     const shown = new Set<string>();
     const tag = (at: LngLat, text: string, colour: string) => {
@@ -204,7 +220,7 @@ export class TripMap {
       if (p >= 1 && seg.off) tag(seg.coords.at(-1)!, seg.off, colourOf(seg.m, seg.colour));
       return head;
     };
-    if (reduce()) { draw(1); onTick(1, clock(1)); return; }
+    if (reduce()) { draw(1); onTick(1, clock(1)); return true; }
     const dur = Math.min(6500, Math.max(3200, leg.minutes * 120));
     const start = performance.now();
     let cam = map.getCenter().toArray() as LngLat;
@@ -222,11 +238,14 @@ export class TripMap {
       };
       this.anim = requestAnimationFrame(step);
     });
-    if (map) map.easeTo({ center: all.at(-1)!, zoom: Math.max(map.getZoom(), 15.6), duration: 900, essential: true });
+    if (run !== this.run) return false;
+    map.easeTo({ center: all.at(-1)!, zoom: Math.max(map.getZoom(), 15.6), duration: 900, essential: true });
+    return true;
   }
 
   /** Stop a playing leg and clear its trail. */
   stop() {
+    this.run++;
     this.stopAnim?.(); this.stopAnim = null;
     for (const t of this.tags) t.remove();
     this.tags = [];
@@ -234,4 +253,15 @@ export class TripMap {
     this.set('dot', { type: 'FeatureCollection', features: [] });
   }
   resize() { this.map?.resize(); }
+
+  /** A place found in search or a nearby pick, dropped as a pin with its name. */
+  showPin(p: { lat: number; lng: number; name: string } | null) {
+    this.pinMarker?.remove(); this.pinMarker = null;
+    if (!p || !this.map || !this.mb) return;
+    const el = document.createElement('div');
+    el.className = 'mk-pin';
+    el.innerHTML = `<span class="mk-pin-name">${esc(p.name)}</span><span class="mk-pin-dot"></span>`;
+    this.pinMarker = new this.mb.Marker({ element: el, anchor: 'bottom' }).setLngLat([p.lng, p.lat]).addTo(this.map);
+    this.map.flyTo({ center: [p.lng, p.lat], zoom: Math.max(this.map.getZoom(), 16), pitch: 45, duration: reduce() ? 0 : 1100, essential: true });
+  }
 }

@@ -116,9 +116,9 @@
 </dialog>
 
 <style>
-  .sheet { position: fixed; inset: auto 0 0 0; margin: 0; width: 100%; max-width: 100%; max-height: 92svh; height: 92svh; padding: 0; border: 0; background: transparent; color: var(--washi); overflow: visible; }
+  .sheet { position: fixed; inset: auto 0 0 0; margin: 0; width: 100%; max-width: 100%; max-height: 92svh; height: auto; padding: 0; border: 0; background: transparent; color: var(--washi); overflow: visible; }
   .sheet::backdrop { background: oklch(12% 0.04 276 / 0.55); animation: fade var(--t-med) var(--ease); }
-  .panel { position: relative; height: 100%; display: flex; flex-direction: column; background: var(--night-2); border-radius: var(--r-l) var(--r-l) 0 0; border-top: 1px solid oklch(83% 0.145 76 / 0.5); box-shadow: 0 -18px 50px -12px oklch(10% 0.05 276 / 0.8); transform: translateY(var(--drag, 0)); animation: up var(--t-slow) var(--ease); }
+  .panel { position: relative; height: auto; max-height: 92svh; display: flex; flex-direction: column; background: var(--night-2); border-radius: var(--r-l) var(--r-l) 0 0; border-top: 1px solid oklch(83% 0.145 76 / 0.5); box-shadow: 0 -18px 50px -12px oklch(10% 0.05 276 / 0.8); transform: translateY(var(--drag, 0)); animation: up var(--t-slow) var(--ease); }
   @keyframes up { from { transform: translateY(40%); opacity: 0.4; } }
   @keyframes fade { from { opacity: 0; } }
   .grip { flex: none; height: 26px; display: grid; place-items: center; cursor: grab; touch-action: none; }
@@ -176,6 +176,7 @@
 
   @media (min-width: 900px) {
     .sheet { inset: 0 0 0 auto; width: min(480px, 42vw); height: 100%; max-height: 100%; }
+    .panel { height: 100%; max-height: none; }
     .panel { border-radius: 0; border-top: 0; border-left: 1px solid oklch(83% 0.145 76 / 0.35); animation-name: side; }
     @keyframes side { from { transform: translateX(30%); opacity: 0.4; } }
     .grip { display: none; }

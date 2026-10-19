@@ -135,11 +135,11 @@
   .chip.today:not([aria-current]) { border-color: var(--noren); color: var(--washi); }
 
   .head { position: relative; display: grid; grid-template-columns: auto 1fr; gap: 4px 16px; align-items: end; padding: 18px 0 14px; isolation: isolate; }
-  .kanji { position: absolute; z-index: -1; right: -6px; top: -4px; font-family: var(--f-display); font-size: 9rem; line-height: 1; color: oklch(83% 0.145 76 / 0.07); pointer-events: none; }
+  .kanji { position: absolute; z-index: -1; right: -6px; top: -4px; font-family: var(--f-display); font-size: 9rem; line-height: 1; color: transparent; -webkit-text-stroke: 1.2px oklch(83% 0.145 76 / 0.2); pointer-events: none; }
   .numeral { font-size: clamp(3.6rem, 16vw, 5.4rem); line-height: 0.82; color: var(--lantern); text-shadow: 0 0 34px oklch(83% 0.145 76 / 0.35); }
-  .meta { min-width: 0; display: grid; gap: 4px; }
-  .date { font-size: 0.82rem; color: var(--washi-2); }
-  h1 { font-weight: 700; font-size: 1.12rem; line-height: 1.32; }
+  .meta { display: contents; }
+  .date { align-self: end; padding-bottom: 4px; font-size: 0.86rem; font-weight: 500; color: var(--washi-2); }
+  h1 { grid-column: 1 / -1; margin-top: 8px; font-weight: 700; font-size: 1.2rem; line-height: 1.34; text-wrap: pretty; }
   .facts { grid-column: 1 / -1; list-style: none; padding: 6px 0 0; display: flex; flex-wrap: wrap; gap: 4px 14px; font-size: 0.8rem; color: var(--washi-2); }
   .facts li { display: inline-flex; align-items: center; gap: 5px; }
   .facts :global(svg) { width: 15px; height: 15px; color: var(--lantern); }

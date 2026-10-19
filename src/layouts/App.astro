@@ -1,0 +1,42 @@
+---
+// Every page is the same app opened at a different view; the server renders the frame and the view's
+// loading state, the app fetches the trip (precached for offline) and takes over.
+import '../app/theme.css';
+import App from '../app/App.svelte';
+import type { View } from '../app/state.svelte';
+import { url } from '../lib/format';
+
+interface Props { title: string; view: View; description?: string }
+const { title, view, description = 'The Japan trip for eight: every day hour by hour on a 3D map, with each train ride played out along its real route.' } = Astro.props;
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#0e112a" />
+    <meta name="color-scheme" content="dark" />
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="Japan" />
+    <link rel="manifest" href={url('/manifest.webmanifest')} />
+    <link rel="icon" href={url('/icon.svg')} type="image/svg+xml" />
+    <link rel="apple-touch-icon" href={url('/icon-180.png')} />
+    <link rel="preload" href={url('/app-data.json')} as="fetch" crossorigin="anonymous" />
+    <link rel="preconnect" href="https://api.mapbox.com" crossorigin />
+    <slot name="head" />
+  </head>
+  <body>
+    <App client:load initial={view} />
+    <noscript><p style="padding:16px">The trip app needs JavaScript turned on.</p></noscript>
+    <script>
+      if ('serviceWorker' in navigator && import.meta.env.PROD) {
+        addEventListener('load', () => navigator.serviceWorker.register(`${import.meta.env.BASE_URL}sw.js`));
+      }
+    </script>
+  </body>
+</html>
