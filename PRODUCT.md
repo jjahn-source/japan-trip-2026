@@ -8,15 +8,12 @@ web
 
 ## Stack
 
-Delegated to research (user asked for the best stack, researched extensively). Chosen:
-Astro 7.3 static output (zero JS by default, Rust compiler, Vite 8 / Rolldown), plain
-TypeScript islands for the few interactive pieces (no UI framework: nothing here needs
-component state across a tree, and it avoids the Svelte/TS 7 peer gap), MapLibre GL JS 6
-over OpenFreeMap vector tiles (no API key) with a custom style, native cross-document View
-Transitions, hand-authored modern CSS (oklch tokens, nesting, container queries,
-scroll-driven animation as progressive enhancement), and a hand-written service worker for
-offline use (the @vite-pwa/astro integration does not support Astro 7 yet). Trip data is
-parsed at build time from the TREK markdown export, so a fresh export rebuilds the site.
+Astro 7.3 static output with every view pre-rendered from the trip data at build time (readable at
+first paint and without JavaScript), and one Svelte 5 app that takes over in the browser (the
+URL, the back button, the map and the view share one store). Mapbox GL 3 with the Standard style
+for the 3D night map and leg playback. Hand-authored CSS with oklch tokens, self-hosted subset
+fonts, local WebP copies of photos, and a hand-written service worker for offline use. Trip data
+comes from the itinerary agent (`data/itinerary.json`), so a new plan rebuilds the site.
 Deploys as static files to any host.
 
 ## Users
