@@ -1,0 +1,419 @@
+{
+  "candidates": [
+    {
+      "name": "Kitano Tenmangu Shimai-Tenjin (last Tenjin market of the year)",
+      "name_ja": "北野天満宮 終い天神",
+      "city": "Kyoto",
+      "area": "Kyoto – Kitano (Kamigyo)",
+      "kind": "event",
+      "why": "It only happens on 25 December: Kyoto's biggest year-end market, with stalls packed around the shrine selling New Year goods, antiques, street food and amazake. Eight friends in Santa suits walking through a Kyoto shrine market on Christmas morning is a far better flight-home story than a second temple. It can replace Plan C's Nara morning on the 25th (move Nara to the 24th or drop it) and still gets you back to Osaka by mid-afternoon for the Santa-suit evening and Round1.",
+      "best_time": "Arrive 08:30–10:00, before the crowds peak; leave by 13:00 to get back to Osaka",
+      "dates": "Fri 25 Dec 2026 (always the 25th). Stalls run from early morning to around dusk",
+      "price": "Free entry; street food ¥300–¥800",
+      "booking": "No booking. Stay together as one group (stalls are dense, so set a meet point at the main romon gate). Named fallback if the group sleeps in: the Kitano grounds are open 07:00–17:00 and the market is busiest 10:00–14:00, so even an 11:00 arrival works. If the 25th morning goes to Nara instead, Plan C's Tō-ji Shimai-Kōbō on Mon 21 Dec is the Kyoto year-end market fix.",
+      "group_of_8": "Yes, open-air market; no seats needed",
+      "hours": "Shrine 07:00–17:00 (Google). Market stalls from early morning to around dusk",
+      "visit_minutes": 120,
+      "first_last": "From Kujō about 70–80 min: Hanshin/JR to Osaka, JR to Kyoto, then city bus 50/101 or Randen to Kitano-Hakubaichō",
+      "lat": 35.0311737,
+      "lng": 135.7351227,
+      "wish_ids": [
+        "w12",
+        "w26",
+        "w27",
+        "w1",
+        "w5"
+      ],
+      "evidence": [
+        {
+          "source": "Kyoto City official tourism, December events",
+          "url": "https://ja.kyoto.travel/event/season/december/",
+          "note": "Lists Shimai-Tenjin at Kitano on 25 Dec, with year-end New Year goods stalls"
+        },
+        {
+          "source": "GLTJP / mapple event listings",
+          "url": "https://www.gltjp.com/ja/review/item/13033/",
+          "note": "Describes the stalls running from early morning to evening, with more New Year goods than usual"
+        },
+        {
+          "source": "Google Places",
+          "url": "https://maps.google.com/?q=Kitano+Tenman-gu",
+          "note": "Operational, 07:00–17:00 daily, 4.5 from about 17k reviews"
+        }
+      ],
+      "confidence": 0.85
+    },
+    {
+      "name": "Shitennō-ji Daishi-e flea market (last of the year)",
+      "name_ja": "四天王寺 終い大師（大師会）",
+      "city": "Osaka",
+      "area": "Osaka – Tennoji",
+      "kind": "event",
+      "why": "Osaka's own temple flea market on the 21st, the last of the year, in Japan's oldest official temple, about 20 minutes from Kujō. It is the Osaka-side twin of Plan C's Tō-ji Shimai-Kōbō: use it if the Hakone transfer on the 21st runs late and Kyoto is out of reach, or as a Tuesday-morning stop on the 22nd (the Taishi-e day) on the way to Tenshiba and Shinsekai. It is antiques, old kimono and street snacks with locals, not tourists.",
+      "best_time": "Morning, 09:00–12:00",
+      "dates": "Mon 21 Dec 2026 (Daishi-e, the main market); Tue 22 Dec (Taishi-e, smaller)",
+      "price": "Free; the inner precinct costs ¥300",
+      "booking": "No booking. Fallback: Plan C's Tō-ji Shimai-Kōbō in Kyoto the same day (21 Dec), 15 min on foot from Kyoto Station, which is on the Shinkansen route from Hakone",
+      "group_of_8": "Yes",
+      "hours": "Temple 08:30–16:00 Oct–Mar; opens 08:00 on the 21st. Stalls from early morning until late afternoon",
+      "visit_minutes": 90,
+      "first_last": "Kujō to Shitennōji-mae Yūhigaoka: Chūō line to Tanimachi 4-chōme, then Tanimachi line, about 20 min",
+      "lat": 34.6547194,
+      "lng": 135.5167979,
+      "wish_ids": [
+        "w1",
+        "w5",
+        "w26",
+        "w30"
+      ],
+      "evidence": [
+        {
+          "source": "Osaka Info (official tourism)",
+          "url": "https://osaka-info.jp/zh-Hant-HK/spot/shitennoji",
+          "note": "Temple hours, and that the grounds open earlier on the 21st for the monthly Daishi-e"
+        },
+        {
+          "source": "Osaka City Tennoji Ward PDF",
+          "url": "https://www.city.osaka.lg.jp/tennoji/cmsfiles/contents/0000275/275425/3citypuromo-syonn2.pdf",
+          "note": "Monthly flea market on the 21st/22nd (Daishi-e and Taishi-e)"
+        },
+        {
+          "source": "Yakuji Nippo column",
+          "url": "https://www.yakuji.co.jp/entry1920.html",
+          "note": "Antique market in the grounds on the 21st each month, busy with visitors and worshippers"
+        }
+      ],
+      "confidence": 0.75
+    },
+    {
+      "name": "Smartball New Star",
+      "name_ja": "スマートボール ニュースター",
+      "city": "Osaka",
+      "area": "Shinsekai",
+      "kind": "experience",
+      "why": "Said to be the last smartball parlour left in Osaka: a 1950s glass-topped pinball you flick by hand, run by the same family in Shinsekai. It is cheap, loud and very Shōwa, and eight of you can play in a row. It beats the Tsūtenkaku slide or another arcade because nowhere else has it. It is a two-minute walk from Spa World and the Jan Jan Yokochō kushikatsu, so slot it into the Shinsekai/Spa World night.",
+      "best_time": "Early evening before kushikatsu, or 20:00–21:30 before Spa World",
+      "dates": "Open Mon 21, Wed 23, Thu 24, Fri 25 Dec. CLOSED on Tuesdays, so not Tue 22 Dec",
+      "price": "A few hundred yen per game (check at the door)",
+      "booking": "Walk-in only. Fallback if it is closed or full: the Shinsekai retro shooting galleries and arcades on the same block, or straight into Spa World",
+      "group_of_8": "Yes, a row of machines; you may have to split across two rows",
+      "hours": "Mon, Wed–Fri 11:30–22:00; Sat–Sun 10:00–22:00; closed Tuesday (Google)",
+      "visit_minutes": 45,
+      "first_last": "Ebisuchō (Sakaisuji line) or Dōbutsuen-mae, 3 min walk",
+      "lat": 34.6509861,
+      "lng": 135.5062055,
+      "wish_ids": [
+        "w26",
+        "w27",
+        "w22",
+        "w8"
+      ],
+      "evidence": [
+        {
+          "source": "Google Places",
+          "url": "https://maps.google.com/?cid=12566958246630359947",
+          "note": "Operational, 4.2 from about 1.1k reviews, closed Tuesdays"
+        },
+        {
+          "source": "TikTok @runo4997 (Shinsekai food creator, 2026)",
+          "url": "https://www.tiktok.com/@runo4997/video/7679990688414584082",
+          "note": "Recent 2026 reel: a Shinsekai classic, a Shōwa-retro experience that feels new to young visitors"
+        },
+        {
+          "source": "TikTok #スマートボールニュースター (2026)",
+          "url": "https://www.tiktok.com/@user1462578811919/video/7651527501180718357",
+          "note": "Other recent local posts that pair it with kushikatsu"
+        }
+      ],
+      "confidence": 0.85
+    },
+    {
+      "name": "Boat Race Amagasaki: year-end series 'Toshiwasure Kotoshi mo Arigatō'",
+      "name_ja": "ボートレース尼崎 日本MB選手会代表杯争奪 歳忘れ今年もありがとう競走",
+      "city": "Osaka",
+      "area": "Amagasaki (Hyōgo), on the Hanshin line from Kujō",
+      "kind": "experience",
+      "why": "Real Japanese gambling culture that no itinerary lists: boats screaming past at 80 km/h, ¥100 bets, beer, doteyaki and salarymen on the stands, all on the year-end 'thanks for this year' series. Kujō sits on the Hanshin line, so it is about 20 minutes from the house. Osaka's own Suminoe course is dark 17–25 Dec (its Queens Climax women's G1 only starts Sat 26), and the national Grand Prix is at Ōmura on 15–20 Dec, so Amagasaki is the live racing in reach this week.",
+      "best_time": "Arrive around 13:00 for the last 5–6 races and the final (about 16:30); good before a Fukushima or Umeda night",
+      "dates": "Wed 23 to Sun 27 Dec 2026 (in the Osaka window: Wed 23, Thu 24, Fri 25)",
+      "price": "Entry about ¥100; bets from ¥100",
+      "booking": "No booking; walk in. Betting is legal from 20, so bring passports. Fallback: Boat Race Biwako (Ōtsu, about 1 h) races 20–25 Dec. On Sat 26 Dec, Suminoe's Queens Climax series starts (a night meeting), if the move to Tokyo is late in the day",
+      "group_of_8": "Yes; free stand seating, plus paid reserved rooms",
+      "hours": "Daytime racing, roughly 10:30–16:40 (check the race card)",
+      "visit_minutes": 150,
+      "first_last": "Kujō to Amagasaki on the Hanshin Namba line (through train, about 15 min), then 1 stop to Amagasaki Center Pool-mae",
+      "lat": 34.7187918,
+      "lng": 135.3941922,
+      "wish_ids": [
+        "w26",
+        "w27",
+        "w4",
+        "w5",
+        "w8"
+      ],
+      "evidence": [
+        {
+          "source": "BOAT RACE official monthly schedule, Dec 2026",
+          "url": "https://www.boatrace.jp/owpc/pc/race/monthlyschedule?ym=202612",
+          "note": "Amagasaki 23–27 Dec 'Toshiwasure Kotoshi mo Arigatō'; Suminoe dark 17–25 Dec, Queens Climax 26–31 Dec; Biwako 20–25 Dec; Grand Prix at Ōmura 15–20 Dec"
+        },
+        {
+          "source": "Daily Sports (Jul 2026)",
+          "url": "https://www.daily.co.jp/horse/2026/07/09/0020571094.shtml",
+          "note": "The Grand Prix returns to Suminoe in 2027 'for the first time in two years', which confirms 2026's GP is not in Osaka"
+        },
+        {
+          "source": "OpenStreetMap",
+          "url": "https://www.openstreetmap.org/?mlat=34.7188&mlon=135.3942",
+          "note": "Venue location next to Amagasaki Center Pool-mae"
+        }
+      ],
+      "confidence": 0.75
+    },
+    {
+      "name": "Fushimi Sake Village (18-brewery tasting alley)",
+      "name_ja": "伏水酒蔵小路",
+      "city": "Kyoto",
+      "area": "Kyoto – Fushimi (Chūshojima)",
+      "kind": "bar",
+      "why": "Fushimi is one of Japan's two great sake towns, and this covered alley pours a flight from all 18 Fushimi breweries in one sitting, with stalls serving snacks to go with it. It is the drinking payoff for a Fushimi Inari first-light start (w28's named reason for an early alarm), and it beats a Gekkeikan museum queue because you taste the whole town, not one label.",
+      "best_time": "11:00–14:00 after a dawn Fushimi Inari, or an early evening before heading back to Osaka",
+      "dates": "Open daily, every day 21–26 Dec",
+      "price": "18-brewery tasting set about ¥2,400 (older listing; check); snacks ¥500–¥1,200",
+      "booking": "Mostly walk-in counters; for 8 together, call ahead for the long table or arrive at opening. Fallback: Gekkeikan Okura Sake Museum (09:30–16:30, closed only 28 Dec–4 Jan) with a tasting, or Kizakura Kappa Country's brewpub",
+      "group_of_8": "Possible at opening; counters can split you",
+      "hours": "11:00–22:00 daily (Google)",
+      "visit_minutes": 90,
+      "first_last": "Keihan Chūshojima or Kintetsu Momoyama-goryōmae, 5 min. Fushimi Inari to here is 2 stops on the Keihan line",
+      "lat": 34.9325,
+      "lng": 135.7605556,
+      "wish_ids": [
+        "w4",
+        "w1",
+        "w3",
+        "w28",
+        "w26"
+      ],
+      "evidence": [
+        {
+          "source": "Kyoto official restaurant guide",
+          "url": "https://krws.kyoto.travel/restaurant/fushimisake",
+          "note": "Listed as the place to taste Fushimi sake"
+        },
+        {
+          "source": "Retty",
+          "url": "https://retty.me/restaurant/100001284562/",
+          "note": "18-brewery tasting set; long hours"
+        },
+        {
+          "source": "Google Places",
+          "url": "https://maps.google.com/?cid=8010958909233799885",
+          "note": "Operational, 4.2 from about 2.8k reviews, 11:00–22:00 daily; official site fushimi-sakagura-kouji.com"
+        }
+      ],
+      "confidence": 0.8
+    },
+    {
+      "name": "Zauo Namba (catch-your-own-fish restaurant, boat seating)",
+      "name_ja": "釣船茶屋ざうお 難波本店",
+      "city": "Osaka",
+      "area": "Nipponbashi / Namba",
+      "kind": "food",
+      "why": "You sit in a full-size wooden boat over a pool, fish for your own dinner, and the kitchen cooks it however you choose (sashimi, grilled, tempura). A drum and a cheer go off for every catch. It is group-scale (the boat seats a big party together), loud, and pairs with drinks, which makes it a better Christmas-week dinner for 8 than another yakiniku. It is in Namba, so the Dōtonbori and Ura-Namba night starts at the door.",
+      "best_time": "17:00–19:00 start, then out into Minami",
+      "dates": "Open daily 21–26 Dec; book ahead for 24/25 Dec",
+      "price": "Fish priced per catch (roughly ¥1,000–¥5,000+); party courses with nomihōdai available (check the site)",
+      "booking": "Book online at zauo.com for 8 and ask for boat seating (船の席, 8名同席). Fallback if the boat is full: Jizakana Yatai Tottsuan in Fukushima, a fish izakaya that seats 8 (already in the food list)",
+      "group_of_8": "Yes; ask for the boat",
+      "hours": "Mon–Fri 17:00–23:00; Sat–Sun 11:30–15:00 and 16:00–23:00 (Google)",
+      "visit_minutes": 120,
+      "first_last": "Nipponbashi station, 2 min; Kujō to Namba on the Hanshin line, 2 stops",
+      "lat": 34.668342100000004,
+      "lng": 135.5067441,
+      "wish_ids": [
+        "w29",
+        "w4",
+        "w26",
+        "w2",
+        "w8"
+      ],
+      "evidence": [
+        {
+          "source": "Zauo official shop page",
+          "url": "https://www.zauo.com/shops/namba/",
+          "note": "Fishing-boat restaurant with online booking"
+        },
+        {
+          "source": "Google Places",
+          "url": "https://maps.google.com/?q=Zauo+Fishing+Restaurant+Namba",
+          "note": "Operational, 4.3 from about 4k reviews; in the basement of Sotetsu Grand Fresa Osaka-Namba"
+        }
+      ],
+      "confidence": 0.75
+    },
+    {
+      "name": "JR Kansai-Hiroshima Area Pass (5 days, Mon 21 to Fri 25 Dec)",
+      "name_ja": "JR関西広島エリアパス",
+      "city": "Osaka",
+      "area": "Activate at Shin-Osaka (or Kyoto) station",
+      "kind": "other",
+      "why": "It is what makes the Hiroshima and Miyajima day pay for itself. For ¥17,000 it covers the Shin-Osaka–Hiroshima Sanyo Shinkansen (Nozomi included), the JR Miyajima ferry, JR Kyoto and Nara lines and the Haruka, for 5 days in a row. A single Hiroshima round trip on the Nozomi already costs about ¥21,000+, so each of you saves at least ¥4,000, and the Kyoto and Nara rides come free on top. That is ¥35,000+ for the group.",
+      "best_time": "Activate Mon 21 Dec (the Kyoto stop on the way in from Hakone) so it runs to Fri 25. The Tokaido leg from Odawara is not covered",
+      "dates": "Valid any 5 straight days; use 21–25 Dec 2026",
+      "price": "¥17,000 per adult (JR West listing; confirm the current price before buying)",
+      "booking": "Buy online from JR West or an agent, up to 90 days ahead, and exchange with passports at a JR ticket office. Reserve 8 seats together on the Hiroshima Shinkansen as soon as you have the pass, because 23 Dec is year-end travel season. Fallback: point-to-point e5489/SmartEX tickets, which cost more",
+      "group_of_8": "Yes; reserve 8 seats in the same car",
+      "hours": null,
+      "visit_minutes": null,
+      "first_last": "Hiroshima day: a Shin-Osaka departure around 07:00 reaches Hiroshima around 08:25; Miyajimaguchi is about 30 min on the JR Sanyo line, then a 10 min ferry",
+      "lat": 34.7334658,
+      "lng": 135.5002547,
+      "wish_ids": [
+        "w10",
+        "w17",
+        "w1",
+        "w5"
+      ],
+      "evidence": [
+        {
+          "source": "GLTJP (listing supervised by JR West)",
+          "url": "https://www.gltjp.com/en/directory/item/17033/",
+          "note": "Adults ¥17,000, children ¥8,500, valid 5 days in a row"
+        },
+        {
+          "source": "JapanActivity pass guide",
+          "url": "https://japanactivity.com/kansai-hiroshima-area-pass-guide",
+          "note": "Nozomi and Mizuho covered Shin-Osaka–Hiroshima; JR Miyajima ferry included (not the Matsudai ferry); 90-day advance purchase and exchange"
+        },
+        {
+          "source": "Flip Japan guide",
+          "url": "https://flipjapanguide.com/kansai-hiroshima-area-pass/",
+          "note": "Same ¥17,000 price, and break-even logic against an Osaka–Hiroshima round trip"
+        }
+      ],
+      "confidence": 0.8
+    },
+    {
+      "name": "Christmas Market in Osaka at Tenshiba (Tennoji Park)",
+      "name_ja": "クリスマスマーケット in 大阪 てんしば",
+      "city": "Osaka",
+      "area": "Tennoji",
+      "kind": "event",
+      "why": "Osaka's main German-style Christmas market: 24 stalls with glühwein, sausages and a lit-up lawn, on the doorstep of Shinsekai, Spa World and Shitennō-ji. Use it as the start of the night (mulled wine, then smartball, kushikatsu and Spa World), not as a destination. It beats the Umeda Sky market for this group because it sits on the Shinsekai route instead of being a detour.",
+      "best_time": "17:00–19:00 on Mon 21, Wed 23 or Thu 24, then walk to Shinsekai",
+      "dates": "Fri 20 Nov to Fri 25 Dec 2026 (last day 25 Dec)",
+      "price": "Free entry; drinks and food ¥700–¥1,500",
+      "booking": "No booking; stand at the high tables. Fallback: Hankyu Umeda Christmas Market (9F Festival Plaza until 25 Dec) or the Umeda Sky German market",
+      "group_of_8": "Yes, standing tables",
+      "hours": "Evening hours to be confirmed on the official site; the park is open 07:00–22:00",
+      "visit_minutes": 60,
+      "first_last": "JR/Metro Tennōji, 2 min; 10 min walk to Shinsekai",
+      "lat": 34.648538099999996,
+      "lng": 135.5110453,
+      "wish_ids": [
+        "w4",
+        "w5",
+        "w8",
+        "w22"
+      ],
+      "evidence": [
+        {
+          "source": "2026 press release (san-tatsu / PR Times)",
+          "url": "https://san-tatsu.jp/pressrelease/559231/",
+          "note": "2026 edition at Tenshiba, 20 Nov–25 Dec, 24 stalls; 295k visitors in 2025"
+        },
+        {
+          "source": "Jorudan illumination listing (2025 edition)",
+          "url": "https://sp.jorudan.co.jp/illumi/spot_105457.html",
+          "note": "Runs every year at Tenshiba"
+        },
+        {
+          "source": "Google Places, Tenshiba",
+          "url": "https://maps.google.com/?q=Tenshiba+Tennoji",
+          "note": "Park open 07:00–22:00, 4.2 from about 2.5k reviews"
+        }
+      ],
+      "confidence": 0.75
+    },
+    {
+      "name": "GRAND WISH CHRISTMAS: Evergreen Forest Tree show and Umekita Champagne Gold Illumination",
+      "name_ja": "GRAND WISH CHRISTMAS 2026（グランフロント大阪・グラングリーン大阪）",
+      "city": "Osaka",
+      "area": "Umeda – Umekita (Grand Front / Grand Green Osaka)",
+      "kind": "event",
+      "why": "This is the backdrop to the Grand Santa Parade on Tue 22 Dec (confirmed for 2026). Stay in your new suits for the light show at the North Building tree (every 15 min until 23:45) and the gold-lit Umekita Park. Then cross to Fukushima or Tenma for the night, one JR stop away. It is only worth it as part of the parade day; on its own it is a mall tree.",
+      "best_time": "Straight after the parade, 17:00–19:00",
+      "dates": "Tree show 4 Nov–25 Dec 2026; Champagne Gold Illumination 4 Nov 2026–28 Feb 2027; Grand Santa Parade Tue 22 Dec 2026",
+      "price": "Free",
+      "booking": "No booking for the lights. For the parade (Plan C, not re-saved): recruitment details go up in early November on the Grand Front Osaka and Grand Green Osaka sites. In 2025 it was free, with 500 public places, first come first served, closing 15 Dec or when full, and the suit was provided and yours to keep. Register all 8 the day it opens. Fallback if it fills: Christmas Day in your own suits per Plan C, plus this light show on the 22nd anyway",
+      "group_of_8": "Yes",
+      "hours": "Tree show weekdays 16:00–24:00 (weekends from 15:00), shows every 15 min, last 23:45; illumination 17:00–24:00",
+      "visit_minutes": 45,
+      "first_last": "JR Osaka (Umekita/North exit), 3 min; from Kujō via Hanshin to Nishikujō, then JR loop",
+      "lat": 34.705897199999995,
+      "lng": 135.4944646,
+      "wish_ids": [
+        "w13",
+        "w12",
+        "w30",
+        "w5"
+      ],
+      "evidence": [
+        {
+          "source": "Have a Good Holiday (Oct 2026)",
+          "url": "https://www.haveagood-holiday.com/en/articles/grand-front-osaka-grand-wish-christmas-2026",
+          "note": "GRAND WISH CHRISTMAS 2026 runs 4 Nov–25 Dec; Grand Santa Parade in UMEKITA on Tue 22 Dec 2026; recruitment details in early November; about 650 Santas last year"
+        },
+        {
+          "source": "GRAND WISH CHRISTMAS PR office press release",
+          "url": "https://san-tatsu.jp/pressrelease/558449/",
+          "note": "2026 parade confirmed in the UMEKITA WINTER programme; materials provided, and you keep the Santa costume"
+        },
+        {
+          "source": "Time Out Osaka (2025 edition)",
+          "url": "https://www.timeout.com/osaka/things-to-do/grand-santa-parade-in-umekita",
+          "note": "2025 terms: free, 500 Santas, online registration closes 15 Dec"
+        }
+      ],
+      "confidence": 0.85
+    },
+    {
+      "name": "Kobe Shushinkan (Fukuju sake brewery, Nada)",
+      "name_ja": "神戸酒心館（福寿）",
+      "city": "Kobe",
+      "area": "Kobe – Mikage (Nada Gogō)",
+      "kind": "bar",
+      "why": "If Kobe gets an afternoon, Nada (the 'Nada Gogō', Japan's largest sake-brewing district) is the reason to go, not Harborland. Shushinkan brews Fukuju, the sake served at the Nobel Prize banquet. It has a tasting counter, a brewery shop and the Sakabayashi restaurant. Late December is peak brewing season, so the brewery is working. Pair it with Kobe beef in Sannomiya and the night view, then the Hanshin line runs straight back to Kujō. Only do Kobe if Hiroshima is dropped; otherwise Fushimi covers the sake story.",
+      "best_time": "14:00–17:00",
+      "dates": "Open on weekdays in late Dec; confirm year-end days on the site (breweries usually close around 30 Dec–3 Jan)",
+      "price": "Tasting from a few hundred yen; free brewery shop",
+      "booking": "Walk-in for tasting. Book Sakabayashi for 8 by phone (+81-78-841-1121). Fallback: Hakutsuru Sake Brewery Museum, a free self-guided brewery 10 min away",
+      "group_of_8": "Yes",
+      "hours": "Shop and tasting about 10:00–18:00 (check)",
+      "visit_minutes": 75,
+      "first_last": "Hanshin Ishiyagawa, 10 min walk. Kujō to Ishiyagawa is about 35 min on Hanshin, with no change if you catch a through train",
+      "lat": 34.70973777770996,
+      "lng": 135.2485122680664,
+      "wish_ids": [
+        "w3",
+        "w4",
+        "w1",
+        "w26"
+      ],
+      "evidence": [
+        {
+          "source": "Official site",
+          "url": "https://www.shushinkan.co.jp/",
+          "note": "Brewery shop, tasting and the Sakabayashi restaurant"
+        },
+        {
+          "source": "TREK Places / Google",
+          "url": "https://maps.google.com/?q=神戸酒心館",
+          "note": "Operational at 1-8-17 Mikage-tsukamachi, Higashinada"
+        }
+      ],
+      "confidence": 0.6
+    }
+  ],
+  "notes": "Osaka · only: Plan C checks: Grand Santa Parade in UMEKITA is confirmed for Tue 22 Dec 2026 (GRAND WISH CHRISTMAS 4 Nov–25 Dec). Recruitment goes up in early Nov on the Grand Front and Grand Green sites. In 2025 it was free, with 500 public slots, first come first served, closing 15 Dec or when full, and the suit was yours to keep. Register all 8 the day it opens; the start time is still TBA, so if it falls in daytime the 22nd Kyoto day must flip. Hikari Renaissance runs 11–25 Dec (not the 26th); Midosuji is lit 3 Nov–31 Dec.\nHiroshima verdict: KEEP it, on Wed 23 Dec. It is a spring tide (大潮): high tide at Itsukushima is 09:29 at 341 cm, so the torii floats from about 07:30 to 11:30; the 15:21 low is 150 cm, too high to walk out. Plan: Shin-Osaka about 07:00 Nozomi → Hiroshima 08:25 → Miyajima by about 09:30 (shrine closes about 17:00 in Dec; pagoda repairs end 20 Dec, the east corridor may still have scaffolding), oysters, then the Peace Park and okonomiyaki in the afternoon. Dreamination has new 2026 dates, 4 Dec–24 Jan, lit 17:30–22:30, then the last Shinkansen back (check it, about 21:30–22:00). There are no year-end closures on the 23rd. The JR Kansai-Hiroshima Area Pass (¥17,000, 5 days, Nozomi and JR ferry included) costs less than one Nozomi round trip (about ¥21k), so activate it on 21 Dec at Kyoto and the Kyoto and Nara rides come free. It beats a second Kyoto day; USJ keeps the 24th.\nPairings: Tenshiba Christmas market → Smartball New Star (closed Tue) → kushikatsu → Spa World is one Tennoji/Shinsekai night (Mon 21, Wed 23 or Thu 24). Fushimi Inari at first light → Fushimi Sake Village from 11:00 is the Kyoto drinking day. Fri 25: Kitano Shimai-Tenjin in Santa suits in the morning (only on the 25th) instead of Nara, back to Osaka by 15:00 for Plan C's evening and Round1. Boat Race Amagasaki (23–27 Dec, daytime) is 20 min from Kujō on the Hanshin line. Suminoe is dark 17–25 Dec, and the national Grand Prix is at Ōmura 15–20 Dec.\nTraps: Kis-My-Ft2 play Kyocera Dome, next to Kujō, on Fri 25 Dec at 18:00 and Sat 26 Dec at 15:00, so Dome-mae and Kujō stations will be jammed around 16:30–18:00 and 21:00–22:00 on the 25th, and around your checkout on the 26th. Arashiyama Hanatouro no longer runs. Kasuga On-matsuri (15–18 Dec) and Kobe Luminarie (now January) are outside the window. I could not confirm B.LEAGUE (Evessa, Storks, Hannaryz) or Osaka Pro Wrestling dates for 21–26 Dec. Gekkeikan Okura closes 28 Dec–4 Jan, which does not affect you."
+}

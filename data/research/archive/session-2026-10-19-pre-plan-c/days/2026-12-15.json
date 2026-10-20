@@ -1,0 +1,102 @@
+{
+  "date": "2026-12-15",
+  "city": "Tokyo",
+  "title": "Land at Haneda · wagyu all-you-can-eat welcome feast · Round1 bowling & karaoke · Mutekiya ramen",
+  "stamp": {
+    "kanji": "着",
+    "reading": "chaku · arrive",
+    "place": "HANEDA · IKEBUKURO"
+  },
+  "stops": [
+    {
+      "start": "15:00",
+      "end": "16:15",
+      "candidate_id": null,
+      "name": "Arrive Haneda Airport T3",
+      "category": "transport",
+      "category_label": "Arrival",
+      "plan": "Land 15:00; immigration and bags, then load Suica/PASMO IC cards for all 8 at the Keikyu ticket machines.",
+      "price": null,
+      "lat": 35.5438875,
+      "lng": 139.7686524,
+      "end_lat": null,
+      "end_lng": null,
+      "transport": "Keikyu Airport line to Shinagawa, JR Yamanote line to Ikebukuro, Seibu Ikebukuro line to Higashi-Nagasaki, then walk (about 60–70 min)"
+    },
+    {
+      "start": "17:35",
+      "end": "18:00",
+      "candidate_id": null,
+      "name": "Check in Ninja House",
+      "category": "stay",
+      "category_label": "Stay",
+      "plan": "Check in (from 16:00), drop all the luggage, quick freshen-up.",
+      "price": null,
+      "lat": 35.726723,
+      "lng": 139.687636,
+      "end_lat": null,
+      "end_lng": null,
+      "transport": "Walk to Higashi-Nagasaki, Seibu Ikebukuro line to Ikebukuro, walk to the East exit (about 36 min)"
+    },
+    {
+      "start": "18:45",
+      "end": "20:45",
+      "candidate_id": "c61",
+      "name": "Kingyuen (wagyu all-you-can-eat yakiniku)",
+      "category": "restaurant",
+      "category_label": "Restaurant",
+      "plan": "Booked private room for 8: wagyu all-you-can-eat course with the all-you-can-drink add-on, the welcome feast.",
+      "price": "about ¥4,290 pp course + all-you-can-drink add-on",
+      "lat": 35.7272615,
+      "lng": 139.7117514,
+      "end_lat": null,
+      "end_lng": null,
+      "transport": "Walk to Round1 Ikebukuro, 8 min"
+    },
+    {
+      "start": "20:55",
+      "end": "23:10",
+      "candidate_id": "c37",
+      "name": "Round1 Ikebukuro",
+      "category": "activity",
+      "category_label": "Arcade · bowling · karaoke",
+      "plan": "Two bowling lanes of 4 or a big karaoke room, plus the arcade floor. Bring original passports for the night ID check.",
+      "price": "Pay at the counter (late-night packs vary)",
+      "lat": 35.730065200000006,
+      "lng": 139.7151731,
+      "end_lat": null,
+      "end_lng": null,
+      "transport": "Walk to Mutekiya, 8 min"
+    },
+    {
+      "start": "23:20",
+      "end": "00:00",
+      "candidate_id": "c48",
+      "name": "Mutekiya",
+      "category": "restaurant",
+      "category_label": "Ramen",
+      "plan": "Late tonkotsu ramen to close night one; counter only, so you sit in 2s and 3s. Cash only.",
+      "price": "about ¥1,000–1,500 pp",
+      "lat": 35.7269046,
+      "lng": 139.7116557,
+      "end_lat": null,
+      "end_lng": null,
+      "transport": "Seibu Ikebukuro line Ikebukuro → Higashi-Nagasaki, then walk (12 min); taxi if you miss the last train"
+    },
+    {
+      "start": "00:30",
+      "end": "00:30",
+      "candidate_id": null,
+      "name": "Back at Ninja House",
+      "category": "stay",
+      "category_label": "Stay",
+      "plan": "Sleep off the jet lag; tomorrow starts about 08:00.",
+      "price": null,
+      "lat": 35.726723,
+      "lng": 139.687636,
+      "end_lat": null,
+      "end_lng": null,
+      "transport": null
+    }
+  ]
+}

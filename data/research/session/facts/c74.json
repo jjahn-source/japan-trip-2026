@@ -9,10 +9,10 @@
         "2026-12-25",
         "2026-12-26"
       ],
-      "open": "05:00",
-      "close": "14:00",
-      "quote": "5:00 〜 14:00",
-      "url": "https://retty.me/restaurant/100000447698/"
+      "open": "06:00",
+      "close": "18:00",
+      "quote": "6：00開門～18：00閉門（7.8月は18：30閉門）",
+      "url": "https://www.kiyomizudera.or.jp/news/open-hour.php"
     }
   ],
   "closed": [],
@@ -20,13 +20,27 @@
   "prices": [],
   "fixed_minutes": null,
   "time_limit": null,
-  "group": null,
+  "group": {
+    "text": "No group discount on admission; group and group-photo shoots need notice and permission",
+    "quote": "拝観料の団体割引等はございません。",
+    "url": "https://www.kiyomizudera.or.jp/faq.php"
+  },
   "booking": null,
   "notes": [
     {
-      "text": "Closed every Sunday (no Sunday in the trip dates)",
-      "quote": "毎週日曜日",
-      "url": "https://retty.me/restaurant/100000447698/"
+      "text": "Closing time changes with season and events; no year-end hours printed on the pages read",
+      "quote": "清水寺は通常6:00より開門し、閉門時間は季節や行事により変更になります。",
+      "url": "https://www.kiyomizudera.or.jp/faq.php"
+    },
+    {
+      "text": "Group or group photos need a notice and permission",
+      "quote": "集合写真、グループ写真を撮影される場合は届け出、申請が必要です。",
+      "url": "https://www.kiyomizudera.or.jp/faq.php"
+    },
+    {
+      "text": "School teachers leading official events are admitted free with ID and itinerary",
+      "quote": "教育機関の公式行事や修学旅行などで引率される教員の方は、拝観料を頂戴いたしておりません。",
+      "url": "https://www.kiyomizudera.or.jp/faq.php"
     }
   ]
 }

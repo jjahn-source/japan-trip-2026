@@ -1,233 +1,237 @@
 {
   "notes": [
     {
-      "kind": "LUGGAGE",
-      "text": "Before you leave Garfield House this morning, send the big suitcases to Haneda T3 with Yamato airport delivery. Keep tax-free goods and their receipts in your carry-on."
+      "kind": "CHECK",
+      "text": "DDT RING FINALE is a lottery on e+, so enter now: one application for all 8. If you lose the draw, skip it and spend the morning in Kōenji instead."
     },
     {
-      "kind": "WEATHER",
-      "text": "December on the coast is cold and the wind on Enoshima bites. Bring hats and gloves; it is dark before you leave the island."
+      "kind": "BAGS",
+      "text": "First thing, the big suitcases go to Yamato for Haneda T3. Keep out everything you need until the flight, and save the waybills on a phone."
     },
     {
-      "kind": "BRING",
-      "text": "Original passports for tonight (drinking age is 20+, and Umi no Ie turns away under-20s), plus cash for Golden Gai."
+      "kind": "MONEY",
+      "text": "Bring cash for the Golden Gai seat charges and the Kōenji izakaya, and passports for tax-free and the bars. Thermae-yu turns away anyone with tattoos."
     }
   ],
   "stops": [
     {
       "index": 0,
-      "summary": "Grab the Enoshima-Kamakura Freepass and konbini onigiri, then take the first Rapid Express south.",
-      "story": "One ticket covers your ride out of Shinjuku and back, plus unlimited rides on the Enoden coast tram, which costs about half as much as buying separate fares. Breakfast is konbini onigiri and hot canned coffee eaten on the train while Tokyo thins out into the suburbs.",
+      "summary": "Ship the suitcases to Haneda now, and the last two days are bag-free until airline bag drop.",
+      "story": "Yamato will take your suitcases to Haneda T3, where you collect them on Tuesday. Until then you carry nothing heavier than a tote.",
       "how": [
-        "Buy one Freepass each from the Odakyu ticket machines at Shinjuku, or in the EMot app.",
-        "Hit the konbini for onigiri and coffee while one person checks the next Rapid Express to Fujisawa.",
-        "Change at Fujisawa to the Enoden for Kamakura; it's all on the pass."
+        "Hand the suitcases in at the Garfield House front desk or the nearest konbini; ask for airport delivery to Haneda T3.",
+        "Screenshot every waybill."
       ],
       "tips": [
-        "The Odakyu leg to Fujisawa is good for one ride out and one ride back only, so don't get off partway and back on.",
-        "Hold on to the pass all day: it gets collected at the last station of your trip."
+        "Keep tax-free purchases and passports on you, not in the suitcase: you finish the paperwork at the Haneda T3 customs kiosk before bag drop."
       ],
-      "cost": "¥1,640 pp Freepass + about ¥600 pp breakfast",
-      "booking": "Buy on the day at Odakyu Shinjuku or in the EMot app",
+      "cost": "About ¥2,000–3,000 per suitcase (by size)",
+      "booking": null,
       "hours": null,
-      "source_urls": [
-        "https://www.odakyu.jp/wordpress/wp-content/uploads/terms.pdf",
-        "https://monomoney-living.com/?p=17599"
-      ],
+      "source_urls": [],
       "wishes": [
-        "Look for money we can save by booking early or buying passes",
         "We want to maximise all the time we've got in the country"
       ]
     },
     {
       "index": 1,
-      "summary": "Climb the stone stairs to Kamakura's vermilion main shrine, already decked out for New Year.",
-      "story": "Tsurugaoka Hachimangu is the shrine the whole town was built around: a wide approach running inland from the sea that ends at a steep stone staircase and a vermilion hall. In the last week of the year, the shrine is getting ready for the New Year rush, and on a clear winter morning the view back down the approach is crisp.",
+      "summary": "Hangover breakfast: seafood bowls and grill-your-own scallops at a 24-hour fish izakaya. Eat fast, the bell's at 11:30.",
+      "story": "Isomaru Suisan never shuts: you grill scallops, crab-miso shells and squid yourself on a tabletop grill. Last night it was the after-party for half of Shinjuku; this morning it's kaisen-don for eight wrecked people. It's on four floors, so a table for 8 is easy off-peak.",
       "how": [
-        "Walk up Wakamiya-oji from Kamakura station to the big torii.",
-        "Cross the arched bridge area and climb the main staircase to the hall.",
-        "Look back from the top before heading down to Komachi-dori."
+        "Walk 13 min from Garfield House to Shinjuku 3-chōme.",
+        "Order kaisen-don and a round of scallops for the grill.",
+        "Leave by 10:35: Marunouchi line to Yotsuya, then the JR Sōbu local to Suidobashi, 10:45→10:51 (¥380)."
       ],
       "tips": [
-        "Sunday crowds build through the morning, so take the group photo on the stairs early, before the tour groups arrive."
+        "Skip the highballs: you have a wrestling show to get through.",
+        "Course menus need booking the day before. The bowls don't."
       ],
-      "cost": null,
-      "booking": null,
-      "hours": null,
-      "source_urls": [],
+      "cost": "¥1,500–2,500 pp",
+      "booking": "Walk-in",
+      "hours": "Open 24 hours",
+      "source_urls": [
+        "https://maps.google.com/?cid=8121084490993100929",
+        "https://www.tv-tokyo.co.jp/cambria/backnumber/2016/1013/"
+      ],
       "wishes": [
         "We love to do it all"
       ]
     },
     {
       "index": 2,
-      "summary": "Graze Kamakura's snack street: shirasu, croquettes, dango and matcha soft serve, in two groups of four.",
-      "story": "Komachi-dori is a narrow lane of snack counters, and the local star is shirasu, the tiny whitebait landed off this coast, stuffed into buns or piled on rice. Two groups of four can cover twice the stalls and swap bites.",
+      "summary": "DDT's last show of the year at Korakuen Hall: comedy, stunts and title fights in wrestling's holy land. Lottery: apply now.",
+      "story": "DDT is Tokyo's most unhinged wrestling company: comedy spots, ladder stunts and serious title matches on the same card. Korakuen Hall is a sweaty 1,800-seat box where every seat is close to the ring. This is DDT's last show of the year, so expect them to go all out.",
       "how": [
-        "Split into two groups of four and work down the street from the shrine end.",
-        "Get one shirasu thing, a croquette and some dango per group, and finish on matcha soft serve.",
-        "Regroup at Kamakura station for the Enoden."
+        "Apply on e+ now: it's a lottery (抽選), one application for all 8.",
+        "Doors 10:30, bell 11:30; you're out about 14:30.",
+        "After the show, take the yellow JR Chūō-Sōbu local from Suidobashi to Kōenji (¥260): weekend rapids skip Kōenji."
       ],
       "tips": [
-        "Kamakura asks visitors not to eat while walking on Komachi-dori, so eat at the stall or in its little standing area.",
-        "Your Freepass covers the Enoden to Hase, so don't tap your IC card."
+        "One application for 8 usually gets a block of seats together. The south balcony is the cheap, rowdy part.",
+        "Lost the lottery? Skip it and go to Kōenji from late morning. Sareee-ISM, Mon 28 Dec 11:30 at the same hall, is first-come on e+.",
+        "The B.LEAGUE games (Kawasaki vs Chiba 15:05) are only a backup until bleague.jp confirms them."
       ],
-      "cost": "about ¥1,500–2,500 pp",
-      "booking": null,
-      "hours": null,
-      "source_urls": [],
+      "cost": "About ¥5,000–10,000 pp (not yet confirmed)",
+      "booking": "Lottery on e+, apply now for 8 in one application",
+      "hours": "Doors 10:30, bell 11:30, out about 14:30",
+      "source_urls": [
+        "https://eplus.jp/sf/venue/1120010/events",
+        "https://www.ddtpro.jp/schedules/693148bd55bee30002329699"
+      ],
       "wishes": [
-        "We love to do it all"
+        "Pro wrestling: Pro Wrestling NOAH Thanksgiving 2026 at Korakuen Hall (Plan C had Fri 18 Dec)",
+        "Be bold: prefer one-of-a-kind, local-run, hard-to-book and group-scale things, and name a safe fallback beside every hard-to-book thing"
       ]
     },
     {
       "index": 3,
-      "summary": "Stand under the giant bronze Buddha that sits outdoors, then step inside its hollow body.",
-      "story": "Kotoku-in's Daibutsu sits in the open air, cross-legged and green with age, against a bare winter sky. The hall that once covered it is long gone, and you can climb inside the hollow bronze body to see the seams where it was cast in sections.",
+      "summary": "Day-drinking under the JR tracks: cheap yakitori and highballs while the Chūō line rattles overhead.",
+      "story": "Kōenji is a scruffy, music-mad neighbourhood where Sunday afternoon drinking is normal. The izakaya under the tracks are smoky and tiny, and the trains rumble right over the plastic stools. Plan C's pick was Bariki, right under the tracks.",
       "how": [
-        "Walk up from Hase station on the Enoden, which is covered by the Freepass.",
-        "Pay admission at the gate, take the full-frontal photo, then queue for the small entrance into the statue.",
-        "Anyone who wants Hase-dera can split off next door and meet back at Hase station."
+        "Find the izakaya under the JR tracks by Kōenji station.",
+        "Order yakitori and highballs, then a second round.",
+        "Then walk 3 min to the arcades."
       ],
       "tips": [
-        "Leaving Hase, sit on the left side of the Enoden: that's the sea side for the coast stretch to Enoshima.",
-        "The Enoden from Hase is on the Freepass, so ignore the fare in the route app."
+        "It's dark by the time you come out. In December that comes early.",
+        "Keep it to two rounds; the racks are waiting."
       ],
-      "cost": "¥300 pp",
+      "cost": "About ¥3,000 pp",
       "booking": null,
       "hours": null,
-      "source_urls": [],
+      "source_urls": [
+        "https://jirokichi.net/"
+      ],
       "wishes": [
-        "We love to do it all"
+        "Karaoke (Manekineko, Big Echo, Karaokekan), arcades, izakaya and yokocho nights, standing bars, and the last-train problem solved properly",
+        "We love to drink"
       ]
     },
     {
       "index": 4,
-      "summary": "Climb Enoshima's shrine lanes to the top, then catch sunset with Fuji over the sea from the rocks.",
-      "story": "Enoshima is a small, steep island tied to the shore by a long bridge, and its lanes climb through shrine gates and snack shops to the top. Cold, dry winter air is when Fuji shows up most clearly across Sagami Bay, and the sun drops behind it early.",
+      "summary": "Tokyo's grittiest vintage digging: punk, archive and bargain racks, cheaper and rougher than Shimokita.",
+      "story": "Locals and recent Xiaohongshu guides now send vintage hunters to Kōenji over Shimokitazawa. There are more shops and fewer tourists, and the racks are less curated and cheaper. Pal and Look arcades run south for blocks, and Kita-Kore Building on the north side is a warren of punk and designer-archive shops.",
       "how": [
-        "Cross the bridge and climb the shrine lanes to the top of the island.",
-        "Keep going to the rocky west side and claim a spot before the sunset at around 16:30.",
-        "Walk back over the bridge in the dark to Katase-Enoshima for the train back."
+        "Split into 2–3 crews; the shops are tiny.",
+        "Hit Kita-Kore first (north of the tracks), then work south down Pal into Look arcade.",
+        "Regroup at 18:45 at the south end and take the Marunouchi line from Shin-Kōenji to Nishi-Shinjuku, 19:02→19:09 (¥180)."
       ],
       "tips": [
-        "The return to Shinjuku is your one ride back on the Freepass's Odakyu leg, and the pass is collected at the end station, so hold on to it until Shinjuku.",
-        "The rocks get slippery and the wind is fierce after dark, so wear proper shoes and use phone torches on the steps down.",
-        "Enoden trains are packed on weekends; the timing here keeps you ahead of most of the day-trippers."
+        "Kita-Kore is listed 11:00–18:00, earlier than the arcades, which close about 20:00 on Sundays.",
+        "Pieces run ¥2,000–8,000; dig the ¥500–1,000 bargain racks.",
+        "If a shop does tax-free, you need ¥5,000 or more in that shop and a passport."
       ],
-      "cost": "Covered by the Freepass",
+      "cost": "¥2,000–8,000 per piece; ¥500–1,000 bargain racks",
       "booking": null,
-      "hours": null,
+      "hours": "Most shops about 12:00–20:00; Kita-Kore 11:00–18:00",
       "source_urls": [
-        "https://www.fun-japan.jp/jp/articles/13398",
-        "https://www.odakyu.jp/wordpress/wp-content/uploads/terms.pdf",
-        "https://monomoney-living.com/?p=17599"
+        "https://www.xiaohongshu.com/explore/6aa14400000000002601db98",
+        "https://www.xiaohongshu.com/explore/6a89a15f0000000028029f0f",
+        "https://onedayawaytravel.com/?p=1767"
       ],
       "wishes": [
-        "We want to maximise all the time we've got in the country",
-        "We love to do it all"
+        "Streetwear, sneakers and vintage (Harajuku, Koenji, Shimokitazawa, Ameyoko, Amerikamura), Don Quijote and tax-free hauls",
+        "Shopping"
       ]
     },
     {
       "index": 5,
-      "summary": "Free night view from the 202 m deck over Shinjuku, then the projection-mapping show on the facade.",
-      "story": "The Tokyo Metropolitan Government Building gives you a city-hall observatory with no ticket, looking out over the glittering towers of west Shinjuku. On the way out, the building's own facade turns into a screen for a Guinness-certified projection-mapping show.",
+      "summary": "Tokyo from 202 m for free, and the last good night for it before the year-end closure.",
+      "story": "The city government lets you up its tower for free, and from up there Tokyo's lights run out to the horizon. Down on the plaza, the building's facade turns into a huge projection-mapping screen after dark. The north deck closes tomorrow and both decks close on the 29th, so tonight is the night.",
       "how": [
-        "Go to the South observatory: the North deck stops letting people in at 17:00.",
-        "Queue for the short security check at the lifts and ride up.",
-        "Back outside, wait on the plaza for the next projection show on the facade."
+        "Walk-in only, no group bookings: expect a 20-30 minute queue at the lifts.",
+        "Go up first, then watch the projection show from outside.",
+        "Then take the Oedo line from Tochōmae to Shinjuku-nishiguchi, 20:30→20:32 (¥180)."
       ],
       "tips": [
-        "Last entry is at 21:30, and the deck can close suddenly in bad weather.",
-        "Today is your last chance: the North deck is closed tomorrow and both decks shut for the year from the day after.",
-        "No group bookings are taken, so just walk in."
+        "The north deck is listed only to 17:00, so at night it's probably the south one.",
+        "It can close suddenly in bad weather; check the tocho_tenbou X account.",
+        "Last entry 21:30."
       ],
       "cost": "Free",
-      "booking": "No advance reservations or group bookings",
-      "hours": "09:30–22:00, last entry 21:30",
+      "booking": "No booking; walk in",
+      "hours": "09:30–21:30 today; last entry 21:30",
       "source_urls": [
         "https://www.gotokyo.org/jp/spot/74/index.html",
         "https://iko-yo.net/facilities/27635"
       ],
       "wishes": [
-        "Look for money we can save by booking early or buying passes",
-        "We want to maximise all the time we've got in the country"
-      ]
-    },
-    {
-      "index": 6,
-      "summary": "Cheap base camp: ¥1,480 nomihodai with free-flow gyoza and oden, with an eighth seat free if you phone-book.",
-      "story": "Umi no Ie is a 7th-floor izakaya near the East Exit built for exactly this group: an unlimited drinks plan that can run up to 7 hours, with free-flow gyoza and oden. It's loud and cheap, and it's open until the small hours.",
-      "how": [
-        "Book by phone for 8: groups of 8+ booked that way get one person free (online bookings don't qualify).",
-        "Show the Hot Pepper coupon for the ¥1,480 nomihodai price.",
-        "Order 2 dishes each; that's the condition for the deal."
-      ],
-      "tips": [
-        "A ¥450 cover charge is added on top of the course.",
-        "Under-20s are refused entry even with friends, so bring your passport.",
-        "Skip the pain-gout hotpot at ¥3,850 a serving; with 2 servings to order, it blows the budget."
-      ],
-      "cost": "about ¥3,000–4,000 pp (¥1,480 nomihodai + ¥450 cover + 2 dishes)",
-      "booking": "Phone for 8 (one person free); online instant booking also available",
-      "hours": "12:00–29:00 today, last entry 28:00",
-      "source_urls": [
-        "https://www.tiktok.com/@sassy_gourmet_cat/video/7665180520375979271",
-        "https://maps.google.com/?cid=15983407868044937438"
-      ],
-      "wishes": [
-        "We love to drink",
         "Look for money we can save by booking early or buying passes"
       ]
     },
     {
-      "index": 7,
-      "summary": "Bar-hop Tokyo's maze of micro-bars in two crews of four, and bring cash.",
-      "story": "Golden Gai is about 200 tiny bars squeezed into six alleys, each one a staircase or a doorway with a handful of stools behind it. Most seat only 6–8 people, so every bar is a different room with a different bartender.",
+      "index": 6,
+      "summary": "Neon food hall with DJs: one big table, everyone eats a different region, the stage gets loud.",
+      "story": "Kabuki Yokocho is a noisy, neon food hall on the 2nd floor of Tokyu Kabukicho Tower, with regional stalls around a stage. You grab a long table, scatter to the gyoza, yakitori, seafood and Korean stalls, and reconvene with trays. DJs and karaoke battles keep it loud late.",
       "how": [
-        "Split into two groups of four and work neighbouring alleys.",
-        "Pick doors with English prices posted outside, and walk past any marked 'regulars only'.",
-        "Have one drink, then move on if the next bar has space."
+        "Walk to Tokyu Kabukicho Tower and go up to the 2nd floor.",
+        "Claim a big shared table first, then split up and order at the stalls.",
+        "Then it's a 7-minute walk to Thermae-yu."
       ],
       "tips": [
-        "Expect a seat charge of ¥500–1,500 a head, sometimes with the first drink included, and drinks at about ¥700–1,000.",
-        "It's mostly cash only.",
-        "Sunday is one of the calmer nights, which makes it easier to find seats for four."
+        "Go easy on the drinks: the bath is next.",
+        "Skip Umi no Ie's ¥1,480 nomihodai. They refuse anyone under 20."
       ],
-      "cost": "about ¥2,000–3,500 pp (seat charge ¥500–1,500 + drinks)",
+      "cost": "¥2,500–4,500 pp",
+      "booking": "No booking needed; group bookings accepted",
+      "hours": "Open every day; listed 6:00–05:00, hours per stall",
+      "source_urls": [
+        "https://kabukihall.com/"
+      ],
+      "wishes": [
+        "Karaoke (Manekineko, Big Echo, Karaokekan), arcades, izakaya and yokocho nights, standing bars, and the last-train problem solved properly",
+        "Everyone stays together; every booking is for 8 at the same table or private room (8名で、同じテーブル/個室)"
+      ]
+    },
+    {
+      "index": 7,
+      "summary": "A natural hot-spring soak and sauna in the middle of Kabukichō: steam out the wrestling, the trains and the cold.",
+      "story": "Thermae-yu is a 24-hour natural hot-spring super-sento in the middle of Kabukichō. There are outdoor baths, saunas, and a lounge that sells beer. After a cold day of crate-digging it's the warmest place in Shinjuku.",
+      "how": [
+        "Baths are separate by gender; meet back in the shared lounge.",
+        "Do the outdoor bath, then the sauna.",
+        "Be out well before 1:00."
+      ],
+      "tips": [
+        "No tattoos: anyone with ink can't go in.",
+        "The weekend rate is higher, and staying between 1:00 and 6:00 costs extra.",
+        "Golden Gai is a 1-minute walk away."
+      ],
+      "cost": "About ¥2,800–3,000 pp (weekend rate higher)",
+      "booking": "Walk-in",
+      "hours": "Open 24 hours; late-night surcharge from 1:00",
+      "source_urls": [
+        "https://www.nap-camp.com/mag/85016",
+        "https://onsen.nifty.com/ft-atopic/shinjuku-onsen/"
+      ],
+      "wishes": [
+        "A 24-hour onsen night (Thermae-yu in Kabukichō or Spa World in Shinsekai)"
+      ]
+    },
+    {
+      "index": 8,
+      "summary": "Two crews of 4, six alleys of tiny bars: hop the ones with English prices, then stagger home.",
+      "story": "Golden Gai is about 200 micro-bars across six alleys, most of them seating 6–8 people. You won't find a better bar crawl in Tokyo. Sunday night is calmer, so you have a better shot at getting in.",
+      "how": [
+        "Split into two groups of 4 and hop neighbouring bars.",
+        "Pick bars that post English prices outside.",
+        "Pay the seat charge, have a drink, move on."
+      ],
+      "tips": [
+        "Cash only, mostly: seat charges ¥500–1,500 and drinks about ¥700–1,000.",
+        "Walk past anything marked 'regulars only'.",
+        "Bring passports; the drinking age is 20."
+      ],
+      "cost": "About ¥3,000 pp",
       "booking": "No booking; walk in",
-      "hours": null,
+      "hours": "Bar by bar, roughly 19:00–05:00",
       "source_urls": [
         "https://nightlifetokyo.com/en/tokyo/guides/golden-gai-guide",
         "https://metropolisjapan.com/golden-gai/"
       ],
       "wishes": [
-        "We love to drink",
-        "We love to do it all"
-      ]
-    },
-    {
-      "index": 8,
-      "summary": "A party room for 8 on the late-night flat rate with free-flow drinks, until your voices go.",
-      "story": "Karaokekan's Kabukicho flagship runs right through the night, so the night ends when you decide, not when the trains stop. After midnight, the late-night flat rate plus a drinks add-on usually beats hourly pricing for a group this size.",
-      "how": [
-        "Book a party room for 8 on LINE.",
-        "Ask for the late-night flat rate and add the free-flow drinks plan.",
-        "Walk home to Garfield House when you're done; no taxi needed."
-      ],
-      "tips": [
-        "Prices weren't verified, so check the store page or ask at the desk before you commit."
-      ],
-      "cost": "Late-night flat rate + drinks plan (check karaokekan.jp)",
-      "booking": "LINE booking",
-      "hours": "11:00–30:00",
-      "source_urls": [
-        "https://maps.google.com/?cid=17144439067794512100",
-        "https://www.mapple.net/original/371134/"
-      ],
-      "wishes": [
-        "We love to drink",
-        "We want to maximise all the time we've got in the country"
+        "Karaoke (Manekineko, Big Echo, Karaokekan), arcades, izakaya and yokocho nights, standing bars, and the last-train problem solved properly",
+        "We love to drink"
       ]
     }
   ]

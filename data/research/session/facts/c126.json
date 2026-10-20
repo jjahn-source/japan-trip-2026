@@ -12,10 +12,10 @@
         "2026-12-28",
         "2026-12-29"
       ],
-      "open": "09:00",
-      "close": "19:00",
-      "quote": "9:00〜19:00（業種により異なる）",
-      "url": "https://banzokubiology.com/ameyoko-time-guide/"
+      "open": "11:00",
+      "close": "21:00",
+      "quote": "物販・サービス 11:00～21:00、 飲食 11:30～23:00",
+      "url": "https://www.walkerplus.com/spot/ar0313s376307/data.html"
     }
   ],
   "closed": [],
@@ -27,14 +27,19 @@
   "booking": null,
   "notes": [
     {
-      "text": "Hours are a general guide from a third-party blog (not the official site), and vary by shop. Year-end market dates were not found on any fetched page.",
-      "quote": "営業時間の目安",
-      "url": "https://banzokubiology.com/ameyoko-time-guide/"
+      "text": "Dining floors open until 23:00; some shops have different hours (6F from 10:00, 7F dining from 11:00)",
+      "quote": "※6F 10:00～、7F飲食11:00～ ※一部営業時間が異なる店舗があります",
+      "url": "https://www.walkerplus.com/spot/ar0313s376307/data.html"
     },
     {
-      "text": "Year-end is the busiest period: many customers buy New Year goods.",
-      "quote": "特に年末は正月用品を求める客で賑わい",
-      "url": "https://banzokubiology.com/ameyoko-time-guide/"
+      "text": "Listing dated January 2026; check official site for year-end hours",
+      "quote": "※掲載情報は2026年1月時点のものです。",
+      "url": "https://www.walkerplus.com/spot/ar0313s376307/data.html"
+    },
+    {
+      "text": "Official site is the source for hours; no year-end hours on this listing",
+      "quote": "詳細は公式サイト等をご確認ください",
+      "url": "https://www.walkerplus.com/spot/ar0313s376307/data.html"
     }
   ]
 }

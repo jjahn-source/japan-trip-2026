@@ -1,72 +1,21 @@
 {
-  "open": [
-    {
-      "dates": [
-        "2026-12-19"
-      ],
-      "open": "18:00",
-      "close": "24:00",
-      "quote": "営業時間:18:00～0:00 定休日:日曜日・月曜日",
-      "url": "https://geisha.co.jp/"
-    }
-  ],
-  "closed": [
-    {
-      "dates": [
-        "2026-12-20",
-        "2026-12-21"
-      ],
-      "why": "Regular closing day: Sunday and Monday",
-      "what": "Geisha Cafe Bar Hana (カフェバー はな) only",
-      "whole_place": false,
-      "quote": "営業時間:18:00～0:00 定休日:日曜日・月曜日",
-      "url": "https://geisha.co.jp/"
-    }
-  ],
+  "open": [],
+  "closed": [],
   "last_entry": null,
-  "prices": [
-    {
-      "what": "Furatto Geisha show, adult (one drink included)",
-      "yen": 3000,
-      "quote": "お一人様　3,000円(ワンドリンク付)",
-      "url": "https://geisha.co.jp/"
-    },
-    {
-      "what": "Furatto Geisha show, under 15 (one drink included)",
-      "yen": 2000,
-      "quote": "15歳以下は2,000円(ワンドリンク付)",
-      "url": "https://geisha.co.jp/"
-    }
-  ],
+  "prices": [],
   "fixed_minutes": null,
   "time_limit": null,
-  "group": null,
+  "group": {
+    "text": "Group bus reservations are accepted by fax only (phone on the day only, when the car park is full it may be refused).",
+    "quote": "FAXでの受付のみとなりますので",
+    "url": "https://www.toyosu-senkyakubanrai.jp/"
+  },
   "booking": null,
   "notes": [
     {
-      "text": "Furatto Geisha runs on the 1st and 3rd Saturday of the month (3rd Saturday = 19 Dec 2026, a trip date).",
-      "quote": "Open every 1st and 3rdSaturday",
-      "url": "https://geisha.co.jp/"
-    },
-    {
-      "text": "Furatto Geisha first show: 18:30 (40 min), admission from 18:00.",
-      "quote": "Curtain time : 18:30～（40 min.）",
-      "url": "https://geisha.co.jp/"
-    },
-    {
-      "text": "Furatto Geisha second show: 20:00 (40 min), admission from 19:30.",
-      "quote": "Curtain time : 20:00～（40 min.）",
-      "url": "https://geisha.co.jp/"
-    },
-    {
-      "text": "Venue: Hakone Yumoto Kenban 1st floor, about 3 minutes' walk from Hakone Yumoto Station.",
-      "quote": "Place: Hakone Yumoto Kenban 1st floor",
-      "url": "https://geisha.co.jp/"
-    },
-    {
-      "text": "The official page carries a 2022.02.09 date stamp; confirm times and prices before going.",
-      "quote": "2022.02.09",
-      "url": "https://geisha.co.jp/"
+      "text": "The official page only shows special hours for 10/24 (a fireworks day), not the regular hours or year-end schedule.",
+      "quote": "10月24日（土）営業時間・施設利用のご案内",
+      "url": "https://www.toyosu-senkyakubanrai.jp/"
     }
   ]
 }

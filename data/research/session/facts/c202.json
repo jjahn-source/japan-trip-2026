@@ -1,0 +1,40 @@
+{
+  "open": [
+    {
+      "dates": [
+        "2026-12-15",
+        "2026-12-16",
+        "2026-12-17",
+        "2026-12-18",
+        "2026-12-19",
+        "2026-12-26",
+        "2026-12-27",
+        "2026-12-28",
+        "2026-12-29"
+      ],
+      "open": "11:00",
+      "close": "20:00",
+      "quote": "平日：11:00〜20:00",
+      "url": "https://visit-chiyoda.tokyo/app/spot/detail/819"
+    }
+  ],
+  "closed": [],
+  "last_entry": null,
+  "prices": [],
+  "fixed_minutes": null,
+  "time_limit": null,
+  "group": null,
+  "booking": null,
+  "notes": [
+    {
+      "text": "Hours from Chiyoda tourism association listing (secondary, undated); listed as open all year",
+      "quote": "年中無休",
+      "url": "https://visit-chiyoda.tokyo/app/spot/detail/819"
+    },
+    {
+      "text": "Official superpotato.com page gives hours only for the mail-order dept (通販部), not the store",
+      "quote": "【営業時間】11:00～17:00",
+      "url": "https://www.superpotato.com/shop/akihabara/"
+    }
+  ]
+}

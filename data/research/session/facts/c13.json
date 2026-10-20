@@ -1,31 +1,6 @@
 {
-  "open": [
-    {
-      "dates": [
-        "2026-12-19",
-        "2026-12-20",
-        "2026-12-21"
-      ],
-      "open": "09:00",
-      "close": "16:15",
-      "quote": "●12～1月 9:00～16:15",
-      "url": "https://www.hakonenavi.jp/transportation/station/ohwakudani/"
-    }
-  ],
-  "closed": [
-    {
-      "dates": [
-        "2026-12-19",
-        "2026-12-20",
-        "2026-12-21"
-      ],
-      "why": "Periodic inspection; replacement bus on this section",
-      "what": "Only the Owakudani–Sounzan (大涌谷駅～早雲山駅) leg; replacement bus runs. Period 7–24 Dec 2026 per the Odakyu Hakone PDF notice (dates read from that PDF, not from the quoted line).",
-      "whole_place": false,
-      "quote": "【箱根ロープウェイ】定期点検整備工事等実施に伴う一部区間代行バス輸送について",
-      "url": "https://www.hakonenavi.jp/groupnews/15097/"
-    }
-  ],
+  "open": [],
+  "closed": [],
   "last_entry": null,
   "prices": [],
   "fixed_minutes": null,
@@ -34,9 +9,19 @@
   "booking": null,
   "notes": [
     {
-      "text": "Ropeway may be suspended in bad weather or for maintenance.",
-      "quote": "※悪天候や定期点検整備等で運休となる場合がございます。",
-      "url": "https://www.hakonenavi.jp/transportation/station/ohwakudani/"
+      "text": "Many outer-market shops also close on Tokyo Central Wholesale Market closing days (calendar not read)",
+      "quote": "東京都中央卸売市場の休市日は築地場外市場もお休みのお店が多いです。",
+      "url": "https://www.tsukiji.or.jp/"
+    },
+    {
+      "text": "Information center ぷらっと築地 is closed during 年末年始 (exact dates not stated)",
+      "quote": "休業日／年末年始",
+      "url": "https://www.tsukiji.or.jp/ordinary/plattsukiji/"
+    },
+    {
+      "text": "Shops prioritise trade buyers until 9:00",
+      "quote": "9時までは仕入れの方の優先時間です。",
+      "url": "https://www.tsukiji.or.jp/ordinary/plattsukiji/"
     }
   ]
 }

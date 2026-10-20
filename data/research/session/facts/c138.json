@@ -1,23 +1,5 @@
 {
-  "open": [
-    {
-      "dates": [
-        "2026-12-15",
-        "2026-12-16",
-        "2026-12-17",
-        "2026-12-18",
-        "2026-12-19",
-        "2026-12-26",
-        "2026-12-27",
-        "2026-12-28",
-        "2026-12-29"
-      ],
-      "open": "00:00",
-      "close": "24:00",
-      "quote": "24時間営業/年中無休",
-      "url": "http://thermae-yu.jp/"
-    }
-  ],
+  "open": [],
   "closed": [],
   "last_entry": null,
   "prices": [],
@@ -27,9 +9,9 @@
   "booking": null,
   "notes": [
     {
-      "text": "Page notice: women's bath cleaning hours changed and the chilled-water bath suspended (details not in page text)",
-      "quote": "【重要】女性浴室清掃時間変更・化粧水風呂利用停止のお知らせ",
-      "url": "http://thermae-yu.jp/"
+      "text": "Shows can be changed or cancelled by weather; times are on the schedule page (not readable, no Dec 18 times found)",
+      "quote": "（気象条件により演出変更や中止になる場合があります。）",
+      "url": "https://tokyoaquasymphony.jp/"
     }
   ]
 }

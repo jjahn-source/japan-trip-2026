@@ -1,0 +1,72 @@
+{
+  "open": [
+    {
+      "dates": [
+        "2026-12-15",
+        "2026-12-16",
+        "2026-12-17",
+        "2026-12-18",
+        "2026-12-19",
+        "2026-12-26",
+        "2026-12-27",
+        "2026-12-28",
+        "2026-12-29"
+      ],
+      "open": "11:00",
+      "close": "33:00",
+      "quote": "11：00～9：00",
+      "url": "https://www.gotokyo.org/jp/spot/51/index.html"
+    }
+  ],
+  "closed": [],
+  "last_entry": null,
+  "prices": [
+    {
+      "what": "General admission (adult)",
+      "yen": 3500,
+      "quote": "一般料金：3,500円",
+      "url": "https://www.gotokyo.org/jp/spot/51/index.html"
+    },
+    {
+      "what": "JTB advance ticket, basic (adult)",
+      "yen": 3500,
+      "quote": "スパ ラクーア（ベーシック券） 3,500円",
+      "url": "https://www.jtb.co.jp/leisure/m/pE1031601/"
+    }
+  ],
+  "fixed_minutes": null,
+  "time_limit": null,
+  "group": null,
+  "booking": {
+    "text": "No advance booking needed",
+    "quote": "※スパ ラクーアのご利用に際し、事前のご予約は不要です。",
+    "url": "https://www.jtb.co.jp/leisure/m/pE1031601/"
+  },
+  "notes": [
+    {
+      "text": "Hours run to 09:00 the next morning (close shown as 33:00); bath use until 8:30",
+      "quote": "11:00～翌9:00(浴室利用は8:30まで)",
+      "url": "https://www.walkerplus.com/spot/ar0313s73534/map.html"
+    },
+    {
+      "text": "Closed irregularly for repairs; no specific closure on the trip dates was found",
+      "quote": "※修繕等による休館あり",
+      "url": "https://www.gotokyo.org/jp/spot/51/index.html"
+    },
+    {
+      "text": "Entry fee varies by day; season variation also applies",
+      "quote": "※入館料は日によって異なります。",
+      "url": "https://www.jtb.co.jp/leisure/m/pE1031601/"
+    },
+    {
+      "text": "Late-night stay 01:00 to 06:00 costs an extra fee",
+      "quote": "※深夜1:00～早朝6:00のご在館には、深夜割増料金が必要です。",
+      "url": "https://www.jtb.co.jp/leisure/m/pE1031601/"
+    },
+    {
+      "text": "Children 6 to 17 need a guardian until 18:00; under 6 not admitted",
+      "quote": "6～17歳の利用は保護者同伴で18:00まで、0～5歳のお子様は入館できません。",
+      "url": "https://www.gotokyo.org/jp/spot/51/index.html"
+    }
+  ]
+}

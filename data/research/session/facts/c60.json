@@ -2,43 +2,39 @@
   "open": [
     {
       "dates": [
-        "2026-12-15",
-        "2026-12-16",
-        "2026-12-17",
-        "2026-12-18",
         "2026-12-19",
-        "2026-12-26",
-        "2026-12-27",
-        "2026-12-28",
-        "2026-12-29"
+        "2026-12-20",
+        "2026-12-21"
       ],
-      "open": "08:00",
-      "close": "22:00",
-      "quote": "8:00 - 22:00",
-      "url": "https://www.teamlab.art/jp/e/planets/"
+      "open": "07:00",
+      "close": "17:30",
+      "quote": "【営業時間】 7:00〜17:30（L.O.17:00）イベント時は延長あり",
+      "url": "https://amasake-chaya.com/"
     }
   ],
   "closed": [],
-  "last_entry": null,
-  "prices": [],
+  "last_entry": {
+    "time": "17:00",
+    "quote": "【営業時間】 7:00〜17:30（L.O.17:00）イベント時は延長あり",
+    "url": "https://amasake-chaya.com/"
+  },
+  "prices": [
+    {
+      "what": "Amazake (sweet rice drink), one cup",
+      "yen": 500,
+      "quote": "甘酒 1杯 500円(税込)",
+      "url": "https://amasake-chaya.com/"
+    }
+  ],
   "fixed_minutes": null,
   "time_limit": null,
   "group": null,
-  "booking": {
-    "text": "Tickets sold online only, no on-site sales",
-    "quote": "現地でチケット販売は行っておりません。",
-    "url": "https://www.teamlab.art/jp/e/planets/"
-  },
+  "booking": null,
   "notes": [
     {
-      "text": "Last entry is 1 hour before closing",
-      "quote": "* 最終入館は閉館の1時間前",
-      "url": "https://www.teamlab.art/jp/e/planets/"
-    },
-    {
-      "text": "Exhibition period runs through end of 2027",
-      "quote": "2018.7.07(土) – 2027年末",
-      "url": "https://www.teamlab.art/jp/e/planets/"
+      "text": "Open all year, no regular closing day",
+      "quote": "【定休日】 年中無休",
+      "url": "https://amasake-chaya.com/"
     }
   ]
 }

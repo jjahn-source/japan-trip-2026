@@ -1,20 +1,5 @@
 {
-  "open": [
-    {
-      "dates": [
-        "2026-12-15",
-        "2026-12-16",
-        "2026-12-17",
-        "2026-12-18",
-        "2026-12-28",
-        "2026-12-29"
-      ],
-      "open": "17:00",
-      "close": "23:00",
-      "quote": "ディナー　17:00～23:00",
-      "url": "https://r.gnavi.co.jp/2t5cvya20000/"
-    }
-  ],
+  "open": [],
   "closed": [],
   "last_entry": null,
   "prices": [],
@@ -24,9 +9,9 @@
   "booking": null,
   "notes": [
     {
-      "text": "Listing shows no regular closing day (定休日 無); the Gurunavi listing, not the restaurant or Tabelog",
-      "quote": "定休日 無",
-      "url": "https://r.gnavi.co.jp/2t5cvya20000/"
+      "text": "Admission fees for the main keep and related halls were revised (notice dated 3 Feb 2026); the amounts and hours are not on the fetched page",
+      "quote": "小田原城天守閣等入館料改定のお知らせ",
+      "url": "https://odawaracastle.com/"
     }
   ]
 }

@@ -1,0 +1,34 @@
+{
+  "open": [
+    {
+      "dates": [
+        "2026-12-19",
+        "2026-12-20",
+        "2026-12-21"
+      ],
+      "open": "10:00",
+      "close": "19:00",
+      "quote": "10:00〜19:00",
+      "url": "https://www.hakonenavi.jp/spot/1109"
+    }
+  ],
+  "closed": [],
+  "last_entry": null,
+  "prices": [],
+  "fixed_minutes": null,
+  "time_limit": null,
+  "group": null,
+  "booking": null,
+  "notes": [
+    {
+      "text": "Regular closing day is Wednesday (Wed holidays: day before or after); no trip date falls on a Wednesday",
+      "quote": "毎週水曜日（祝日の場合は前日か翌日）",
+      "url": "https://www.hakonenavi.jp/spot/1109"
+    },
+    {
+      "text": "Source is a Hakone tourism aggregator; the official site has no hours; no year-end hours found",
+      "quote": "箱根湯本駅から、徒歩約5分",
+      "url": "https://www.hakonenavi.jp/spot/1109"
+    }
+  ]
+}

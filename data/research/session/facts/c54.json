@@ -13,23 +13,76 @@
         "2026-12-29"
       ],
       "open": "10:00",
-      "close": "21:00",
-      "quote": "10:00～21:00",
-      "url": "https://www.animate.co.jp/shop/ikebukuro/"
+      "close": "22:30",
+      "quote": "10:00～22:30（最終入場は21:20）",
+      "url": "https://www.gotokyo.org/jp/spot/1749/index.html"
     }
   ],
   "closed": [],
-  "last_entry": null,
-  "prices": [],
+  "last_entry": {
+    "time": "21:20",
+    "quote": "10:00～22:30（最終入場は21:20）",
+    "url": "https://www.gotokyo.org/jp/spot/1749/index.html"
+  },
+  "prices": [
+    {
+      "what": "Adult, online ticket, before 15:00",
+      "yen": 2700,
+      "quote": "大人：2,700円（～14:59）｜3400円（15:00～）",
+      "url": "https://www.gotokyo.org/jp/spot/1749/index.html"
+    },
+    {
+      "what": "Adult, online ticket, from 15:00",
+      "yen": 3400,
+      "quote": "大人：2,700円（～14:59）｜3400円（15:00～）",
+      "url": "https://www.gotokyo.org/jp/spot/1749/index.html"
+    },
+    {
+      "what": "Adult, counter ticket (when available), before 15:00",
+      "yen": 3000,
+      "quote": "大人：3,000円（～14:59）｜3700円（15:00～）",
+      "url": "https://www.gotokyo.org/jp/spot/1749/index.html"
+    },
+    {
+      "what": "Adult, counter ticket (when available), from 15:00",
+      "yen": 3700,
+      "quote": "大人：3,000円（～14:59）｜3700円（15:00～）",
+      "url": "https://www.gotokyo.org/jp/spot/1749/index.html"
+    }
+  ],
   "fixed_minutes": null,
   "time_limit": null,
   "group": null,
-  "booking": null,
+  "booking": {
+    "text": "Advance web ticket purchase recommended; no reservation required",
+    "quote": "不要 WEBチケットの事前購入推奨",
+    "url": "https://www.walkerplus.com/spot/ar0313s373336/data.html"
+  },
   "notes": [
     {
-      "text": "Store phone number on the official page",
-      "quote": "03-3988-1351",
-      "url": "https://www.animate.co.jp/shop/ikebukuro/"
+      "text": "Hours differ during year-end and New Year; closed on Jan 1",
+      "quote": "年末年始の営業時間は異なる",
+      "url": "https://www.walkerplus.com/spot/ar0313s373336/data.html"
+    },
+    {
+      "text": "Temporary closures or shortened hours possible; roof can close in bad weather",
+      "quote": "渋谷スカイは元旦は休館で、その他に臨時休業や営業時間短縮となる場合があります。",
+      "url": "https://www.gotokyo.org/jp/spot/1749/index.html"
+    },
+    {
+      "text": "Sunset is about 16:30 at earliest in early December",
+      "quote": "東京の日没は、最も早い12月上旬では16:30頃",
+      "url": "https://www.gotokyo.org/jp/spot/1749/index.html"
+    },
+    {
+      "text": "No time limit on stay",
+      "quote": "時間制限はなく、営業時間内であれば好きなだけ滞在できます。",
+      "url": "https://www.gotokyo.org/jp/spot/1749/index.html"
+    },
+    {
+      "text": "Roof bag limit: large bags and food/drink not allowed; lockers on 46F",
+      "quote": "屋上は荷物制限があるため、屋上への入場の際には持ち込み禁止物を46階の専用ロッカーに預ける必要あり。",
+      "url": "https://www.walkerplus.com/spot/ar0313s373336/data.html"
     }
   ]
 }

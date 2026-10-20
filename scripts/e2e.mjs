@@ -52,7 +52,7 @@ for (const size of ['phone', 'desktop']) {
     assert.equal(await page.locator('.days li').count(), 15);
     await page.locator('.days a').nth(2).click();
     await page.waitForURL('**/day/3/');
-    assert.match(await page.locator('#day-title').innerText(), /teamLab/);
+    assert.match(await page.locator('#day-title').innerText(), /Tsukiji/);
     await page.goBack();
     await page.waitForURL(base + '/');
     await page.locator('ol.days').waitFor();
@@ -84,16 +84,16 @@ for (const size of ['phone', 'desktop']) {
   });
 
   test(`${size}: the details step through the day, playing the ride forward`, async () => {
-    const { page, ctx, errors } = await open(size, '/day/9/');
+    const { page, ctx, errors } = await open(size, '/day/8/');
     await page.locator('.stop .hit').nth(1).click();
     await page.locator('dialog.sheet').waitFor({ state: 'visible' });
     assert.match(await page.locator('#sheet-title').innerText(), /Fushimi/);
     assert.match(await page.locator('.nx').innerText(), /Next: .*Kiyomizu/);
     await page.getByRole('button', { name: /^Next stop/ }).click();
-    await page.waitForURL(/#d09-s03$/);
+    await page.waitForURL(/#d08-s03$/);
     await page.locator('.play[aria-pressed="true"]').first().waitFor(); // the ride plays
     await page.getByRole('button', { name: /^Previous stop/ }).click();
-    await page.waitForURL(/#d09-s02$/);
+    await page.waitForURL(/#d08-s02$/);
     // Folded: the card keeps the name, the next hop and Go; the map gets the room.
     await page.getByRole('button', { name: 'Show the map' }).click();
     await page.locator('.panel.peek').waitFor();
@@ -112,8 +112,8 @@ for (const size of ['phone', 'desktop']) {
 
   test(`${size}: switching days keeps the URL, the header and the timeline in step`, async () => {
     const { page, ctx, errors } = await open(size, '/day/3/');
-    await page.locator('nav.days a[href="/day/8/"]').click();
-    await page.waitForURL('**/day/8/');
+    await page.locator('nav.days a[href="/day/10/"]').click();
+    await page.waitForURL('**/day/10/');
     assert.match(await page.locator('#day-title').innerText(), /USJ/);
     assert.ok(await page.locator('.stop').count() > 3);
     assert.deepEqual(errors, []);
@@ -143,7 +143,7 @@ for (const size of ['phone', 'desktop']) {
     await input.fill('teamlab');
     await page.getByRole('option').first().waitFor();
     await input.press('Enter');
-    await page.waitForURL(/\/day\/3\/#d03-s03$/);
+    await page.waitForURL(/\/day\/4\/#d04-s02$/);
     await page.locator('dialog.sheet').waitFor({ state: 'visible' });
     assert.deepEqual(errors, []);
     await ctx.close();
@@ -176,7 +176,7 @@ test('phone: a booking tick survives a reload', async () => {
 
 test('phone: the budget shows the plan’s own total', async () => {
   const { page, ctx, errors } = await open('phone', '/budget/');
-  assert.match(await page.locator('.total').innerText(), /¥209,000/);
+  assert.match(await page.locator('.total').innerText(), /¥230,000/);
   assert.equal(await page.locator('.bars li', { hasText: 'Total' }).count(), 0);
   assert.deepEqual(errors, []);
   await ctx.close();
@@ -186,7 +186,7 @@ test('phone: the page reads before any script runs', async () => {
   const ctx = await browser.newContext({ viewport: { width: 390, height: 844 }, javaScriptEnabled: false });
   const page = await ctx.newPage();
   await page.goto(base + '/day/3/');
-  assert.match(await page.locator('#day-title').innerText(), /teamLab/);
+  assert.match(await page.locator('#day-title').innerText(), /Tsukiji/);
   assert.ok(await page.locator('.stop').count() > 5);
   await page.locator('nav.days a[href="/day/4/"]').click();
   await page.waitForURL('**/day/4/');

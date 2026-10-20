@@ -1,0 +1,71 @@
+{
+  "open": [
+    {
+      "dates": [
+        "2026-12-15",
+        "2026-12-16",
+        "2026-12-17",
+        "2026-12-18",
+        "2026-12-19",
+        "2026-12-26",
+        "2026-12-27",
+        "2026-12-28",
+        "2026-12-29"
+      ],
+      "open": "11:00",
+      "close": "22:00",
+      "quote": "その他全日　11:00～22:00",
+      "url": "https://san-tatsu.jp/pressrelease/558555/"
+    }
+  ],
+  "closed": [],
+  "last_entry": {
+    "time": "21:00",
+    "quote": "最終入場　21:00",
+    "url": "https://san-tatsu.jp/pressrelease/558555/"
+  },
+  "prices": [
+    {
+      "what": "Adult (middle school+), weekday, 12/4-12/23 tier (trip dates Tue-Fri)",
+      "yen": 1000,
+      "quote": "大人(中学生以上):平日:1,000円",
+      "url": "https://san-tatsu.jp/pressrelease/558555/"
+    },
+    {
+      "what": "Adult (middle school+), Sat/Sun/holiday, 12/4-12/23 tier (trip date Sat 12-19)",
+      "yen": 1500,
+      "quote": "土‧日:1,500円",
+      "url": "https://san-tatsu.jp/pressrelease/558555/"
+    }
+  ],
+  "fixed_minutes": null,
+  "time_limit": null,
+  "group": null,
+  "booking": {
+    "text": "Advance tickets sold via KKday from 2026年10月1日 18:00; walk-in entry can be limited at busy times",
+    "quote": "チケットの購入は東京クリスマスマーケット2026のチケット購入サイト KKday で事前予約チケットをご購入いただけます。",
+    "url": "https://san-tatsu.jp/pressrelease/558555/"
+  },
+  "notes": [
+    {
+      "text": "Fee tier for 12/24-12/25 is adult 2,000 yen (not a trip date)",
+      "quote": "大人(中学生以上)2,000円",
+      "url": "https://san-tatsu.jp/pressrelease/558555/"
+    },
+    {
+      "text": "Event end date is not stated on this page; the last fee tier is 12/24-12/25, so 12/26-12/29 needs confirming",
+      "quote": "[12月24日(木)‧25日(金)の料金]",
+      "url": "https://san-tatsu.jp/pressrelease/558555/"
+    },
+    {
+      "text": "Advance adult ticket includes a mug",
+      "quote": "※事前予約の大人料金には入場特典のマグカップ付き",
+      "url": "https://san-tatsu.jp/pressrelease/558555/"
+    },
+    {
+      "text": "Nearest station",
+      "quote": "最寄り駅：都営三田線「御成門駅」A6出口より徒歩1分",
+      "url": "https://san-tatsu.jp/pressrelease/558555/"
+    }
+  ]
+}

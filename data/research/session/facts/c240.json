@@ -1,0 +1,26 @@
+{
+  "open": [],
+  "closed": [],
+  "last_entry": null,
+  "prices": [],
+  "fixed_minutes": null,
+  "time_limit": null,
+  "group": null,
+  "booking": {
+    "text": "Lottery (抽選) sale listed on the e+ Korakuen Hall events page",
+    "quote": "抽選 DDTプロレスリング 「RING FINALE 2026 ～DDT年内最終興行～」",
+    "url": "https://eplus.jp/sf/venue/1120010/events"
+  },
+  "notes": [
+    {
+      "text": "RING FINALE 2026 is on Sun 2026-12-27 at Korakuen Hall (per e+ listing)",
+      "quote": "2026/ 12/27(日)",
+      "url": "https://eplus.jp/sf/venue/1120010/events"
+    },
+    {
+      "text": "Start 11:30, doors 10:30 on 2026-12-27",
+      "quote": "開始：11:30～（開場：10:30～）",
+      "url": "https://eplus.jp/sf/venue/1120010/events"
+    }
+  ]
+}

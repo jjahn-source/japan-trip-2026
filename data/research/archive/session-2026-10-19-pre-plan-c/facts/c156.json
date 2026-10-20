@@ -1,0 +1,27 @@
+{
+  "open": [],
+  "closed": [],
+  "last_entry": null,
+  "prices": [],
+  "fixed_minutes": null,
+  "time_limit": null,
+  "group": null,
+  "booking": null,
+  "notes": [
+    {
+      "text": "The terminal is open 24 hours; individual shop hours differ (Edo Koji shop hours not found).",
+      "quote": "第3ターミナルは24時間オープンしていますが、店舗の営業時間は個々に異なります。",
+      "url": "https://www.gotokyo.org/jp/spot/69/index.html"
+    },
+    {
+      "text": "Edo Koji is on the 4th floor of Terminal 3 with Japanese-themed shops and restaurants.",
+      "quote": "第3ターミナルにある江戸の町並みを再現した「江戸小路」には",
+      "url": "https://www.gotokyo.org/jp/spot/69/index.html"
+    },
+    {
+      "text": "Weekends are busy at the security checkpoint; arrive early.",
+      "quote": "また週末は保安検査場が混雑しますので、早めに空港に着くようにしましょう。",
+      "url": "https://www.gotokyo.org/jp/spot/69/index.html"
+    }
+  ]
+}

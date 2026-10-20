@@ -9,19 +9,9 @@
   "booking": null,
   "notes": [
     {
-      "text": "Hours and closing days vary by shop; no market-wide hours listed",
-      "quote": "店舗により異なる",
-      "url": "https://rurubu.jp/andmore/spot/80026505"
-    },
-    {
-      "text": "Listing omits year-end and New Year closures, so 12-21 to 12-26 closures are unconfirmed",
-      "quote": "※店舗・施設の定休日は原則として年末年始・お盆休み・ゴールデンウィーク・臨時休業を省略しています。",
-      "url": "https://rurubu.jp/andmore/spot/80026505"
-    },
-    {
-      "text": "Mapple article (undated): most shops close Wednesday, open 10:00-17:00; a general statement, not place-wide. Trip date 12-23 is a Wednesday",
-      "quote": "水曜休み、10:00～17:00営業の店が多い。",
-      "url": "https://www.mapple.net/article/37026/"
+      "text": "Official page lists no shop hours or year-end schedule; last updated 2026/04/04",
+      "quote": "（最終更新日: 2026/04/04）",
+      "url": "http://goldengai.jp/"
     }
   ]
 }

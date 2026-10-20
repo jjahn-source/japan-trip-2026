@@ -1,0 +1,53 @@
+{
+  "open": [
+    {
+      "dates": [
+        "2026-12-19",
+        "2026-12-20",
+        "2026-12-21"
+      ],
+      "open": "11:30",
+      "close": "15:00",
+      "quote": "Lunch Time 11:30～15:00 (L.O.14:00)",
+      "url": "http://itoh-dining.co.jp/hakone/index.html"
+    },
+    {
+      "dates": [
+        "2026-12-19",
+        "2026-12-20",
+        "2026-12-21"
+      ],
+      "open": "17:00",
+      "close": "21:00",
+      "quote": "Dinner Time 17:00～21:00 (L.O.20:00)",
+      "url": "http://itoh-dining.co.jp/hakone/index.html"
+    }
+  ],
+  "closed": [],
+  "last_entry": {
+    "time": "20:00",
+    "quote": "Dinner Time 17:00～21:00 (L.O.20:00)",
+    "url": "http://itoh-dining.co.jp/hakone/index.html"
+  },
+  "prices": [],
+  "fixed_minutes": null,
+  "time_limit": null,
+  "group": null,
+  "booking": {
+    "text": "Same-day bookings by phone only (0460-83-8209); reservation recommended",
+    "quote": "当日のご予約はお電話のみ承っております。",
+    "url": "http://itoh-dining.co.jp/hakone/index.html"
+  },
+  "notes": [
+    {
+      "text": "No regular holiday",
+      "quote": "No Holiday ：定休日なし",
+      "url": "http://itoh-dining.co.jp/hakone/index.html"
+    },
+    {
+      "text": "Busy times may turn away walk-ins; booking advised",
+      "quote": "混雑時はご予約のないお客様をご案内できない場合がございます。",
+      "url": "http://itoh-dining.co.jp/hakone/index.html"
+    }
+  ]
+}

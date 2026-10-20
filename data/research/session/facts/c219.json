@@ -1,0 +1,46 @@
+{
+  "open": [
+    {
+      "dates": [
+        "2026-12-19",
+        "2026-12-20",
+        "2026-12-21"
+      ],
+      "open": "16:30",
+      "close": "22:00",
+      "quote": "2026年11月1日〜2027年1月11日　16:30〜22:00",
+      "url": "https://www.tokinosumika.com/illumination/"
+    }
+  ],
+  "closed": [],
+  "last_entry": null,
+  "prices": [
+    {
+      "what": "Mori no Sumika, adult",
+      "yen": 700,
+      "quote": "大人 ¥700 / 小学生 ¥400",
+      "url": "https://www.tokinosumika.com/illumination/"
+    }
+  ],
+  "fixed_minutes": null,
+  "time_limit": null,
+  "group": null,
+  "booking": null,
+  "notes": [
+    {
+      "text": "Light tunnel, night sky path and cloud path are a free area",
+      "quote": "無料エリアだけでも十分楽しめます。",
+      "url": "https://www.tokinosumika.com/illumination/"
+    },
+    {
+      "text": "Shuttle bus north-stop restriction during the illumination period (2026/11/21 to 2027/1/11)",
+      "quote": "イルミネーション開催期間中のシャトルバス北口バス停規制のお知らせ(2026/11/21～2027/1/11)",
+      "url": "http://www.tokinosumika.com/"
+    },
+    {
+      "text": "Year-end countdown event announced for the illumination season",
+      "quote": "年末カウントダウンイベントも開催決定。",
+      "url": "https://www.tokinosumika.com/illumination/"
+    }
+  ]
+}

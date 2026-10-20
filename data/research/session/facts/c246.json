@@ -1,0 +1,99 @@
+{
+  "open": [
+    {
+      "dates": [
+        "2026-12-15",
+        "2026-12-16",
+        "2026-12-17",
+        "2026-12-18",
+        "2026-12-28"
+      ],
+      "open": "11:30",
+      "close": "15:00",
+      "quote": "ランチ　11:30～15:00",
+      "url": "https://r.gnavi.co.jp/g775103/"
+    },
+    {
+      "dates": [
+        "2026-12-15",
+        "2026-12-16",
+        "2026-12-17",
+        "2026-12-18",
+        "2026-12-28"
+      ],
+      "open": "17:00",
+      "close": "22:00",
+      "quote": "ディナー　17:00～22:00",
+      "url": "https://r.gnavi.co.jp/g775103/"
+    },
+    {
+      "dates": [
+        "2026-12-19",
+        "2026-12-26",
+        "2026-12-27",
+        "2026-12-29"
+      ],
+      "open": "11:30",
+      "close": "14:30",
+      "quote": "ランチ　11:30～14:30",
+      "url": "https://r.gnavi.co.jp/g775103/"
+    },
+    {
+      "dates": [
+        "2026-12-19",
+        "2026-12-26",
+        "2026-12-27",
+        "2026-12-29"
+      ],
+      "open": "16:00",
+      "close": "22:00",
+      "quote": "ディナー　16:00～22:00",
+      "url": "https://r.gnavi.co.jp/g775103/"
+    }
+  ],
+  "closed": [],
+  "last_entry": {
+    "time": "21:30",
+    "quote": "21：30最終入店。21：45釣り終了。",
+    "url": "https://r.gnavi.co.jp/g775103/"
+  },
+  "prices": [],
+  "fixed_minutes": null,
+  "time_limit": {
+    "minutes": 120,
+    "quote": "混雑時は当日２時間の時間制限をさせて頂く場合が御座いますのでご了承ください。",
+    "url": "https://r.gnavi.co.jp/g775103/"
+  },
+  "group": {
+    "text": "Banquet room for up to 70 people",
+    "quote": "宴会部屋も完備！最大70名様まで可能です。",
+    "url": "https://r.gnavi.co.jp/g775103/"
+  },
+  "booking": {
+    "text": "Book online through the Zauo website",
+    "quote": "ネット予約はざうおのホームページから出来ます！！",
+    "url": "https://r.gnavi.co.jp/g775103/"
+  },
+  "notes": [
+    {
+      "text": "12/29 (Tue) is run on holiday hours (祝日と同じ営業); 12/30 too",
+      "quote": "12月29，30日は祝日と同じ営業。",
+      "url": "https://r.gnavi.co.jp/g775103/"
+    },
+    {
+      "text": "Irregular closing days: no fixed closed day; check before going",
+      "quote": "不定休日あり",
+      "url": "https://r.gnavi.co.jp/g775103/"
+    },
+    {
+      "text": "Year-end line on this page only gives 2021 dates; no 2026-27 year-end hours found",
+      "quote": "年末年始（2021年12月31日～2022年1月2日）",
+      "url": "https://r.gnavi.co.jp/g775103/"
+    },
+    {
+      "text": "Average budget (normal average)",
+      "quote": "5,000 円（通常平均）",
+      "url": "https://r.gnavi.co.jp/g775103/"
+    }
+  ]
+}

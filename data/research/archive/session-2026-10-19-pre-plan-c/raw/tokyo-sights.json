@@ -1,0 +1,643 @@
+{
+  "candidates": [
+    {
+      "name": "Setagaya Boro-ichi (year-end flea market)",
+      "name_ja": "世田谷ボロ市",
+      "city": "Tokyo",
+      "area": "Setagaya",
+      "kind": "event",
+      "why": "A 440-year-old street market held only on 15–16 Dec and 15–16 Jan, about 700 stalls of antiques, junk, vintage clothes and street food along Boro-ichi-dori around the Daikan Yashiki. It is one of the most local things you can do in Tokyo, it costs nothing, and the dates land exactly on arrival. Daikan-mochi (rice cakes pounded on site) is the snack to queue for.",
+      "best_time": "Wed 16 Dec 9:00–11:00, before the lunchtime crush; 15 Dec only works as a quick evening look after landing (it closes at 20:00).",
+      "dates": "Tue 15 & Wed 16 Dec 2026, 9:00–20:00 (fixed dates every year; confirm on the Setagaya city site nearer the time)",
+      "price": "Free; ¥500–1,500 pp for snacks",
+      "booking": null,
+      "group_of_8": "Fine as a group, but the street is narrow and packed: split into pairs and meet at the Daikan Yashiki.",
+      "hours": "9:00–20:00",
+      "visit_minutes": 120,
+      "first_last": "Stalls run 9:00–20:00 on both days",
+      "lat": 35.6414113,
+      "lng": 139.6476627,
+      "wish_ids": [
+        "w5",
+        "w7",
+        "w8"
+      ],
+      "evidence": [
+        {
+          "source": "Setagaya City (official)",
+          "url": "https://www.city.setagaya.lg.jp/02072/10108.html",
+          "note": "Held every year on 15–16 Dec and 15–16 Jan, 9:00–20:00, no parking"
+        },
+        {
+          "source": "blog (kaibutsu-blog)",
+          "url": "https://kaibutsu-blog.com/?p=3420",
+          "note": "Lists the 2026 December dates as Tue 15 and Wed 16 Dec, 9:00–20:00"
+        },
+        {
+          "source": "GO TOKYO (official tourism)",
+          "url": "https://www.gotokyo.org/jp/spot/ev114/index.html",
+          "note": "Event page: Boro-ichi, Setagaya, December and January"
+        }
+      ],
+      "confidence": 0.8
+    },
+    {
+      "name": "Senso-ji early morning + Hagoita-ichi year-end fair",
+      "name_ja": "浅草寺・羽子板市",
+      "city": "Tokyo",
+      "area": "Asakusa",
+      "kind": "sight",
+      "why": "Senso-ji is the classic, but by 10:00 Nakamise is a shuffle. Go at dawn for the lit five-storey pagoda with nobody around, then come back later for the Hagoita-ichi (17–19 Dec), when about 30 stalls sell huge decorated battledores and the stalls clap you out with a ceremonial hand-clap when someone buys one. This is a December-only scene, and it falls on the first Tokyo leg.",
+      "best_time": "6:30–8:00 for an empty temple (the main hall opens 6:30 Oct–Mar). For the fair, 17:00–19:30 on 17 or 18 Dec, when the stalls are lit.",
+      "dates": "Hagoita-ichi Thu 17 – Sat 19 Dec 2026, 9:00–19:30 (until 19:00 on the last day); 19 Dec is the Hakone transfer day, so 17 or 18 Dec",
+      "price": "Free; omikuji ¥100",
+      "booking": null,
+      "group_of_8": "Easy for 8.",
+      "hours": "Grounds open 24h; main hall 6:30–17:00 in winter",
+      "visit_minutes": 75,
+      "first_last": "Fair last day 19 Dec ends 19:00",
+      "lat": 35.7147651,
+      "lng": 139.7966553,
+      "wish_ids": [
+        "w5",
+        "w8"
+      ],
+      "evidence": [
+        {
+          "source": "GO TOKYO (official tourism)",
+          "url": "https://www.gotokyo.org/jp/kanko/taito/event/hagoita.html",
+          "note": "Hagoita-ichi held 17–19 Dec every year, on the temple's last Kannon fair day of the year"
+        },
+        {
+          "source": "blog (kaibutsu-blog)",
+          "url": "https://kaibutsu-blog.com/?p=3611",
+          "note": "2026: Thu 17 – Sat 19 Dec, 9:00–19:30 (19:00 on the last day), free; tips on less crowded times"
+        },
+        {
+          "source": "Google Maps",
+          "url": "https://www.senso-ji.jp/",
+          "note": "Rating 4.6 from about 100k reviews"
+        }
+      ],
+      "confidence": 0.85
+    },
+    {
+      "name": "Roppongi Hills Christmas Market + Keyakizaka illumination",
+      "name_ja": "六本木ヒルズ クリスマスマーケット・けやき坂イルミネーション",
+      "city": "Tokyo",
+      "area": "Roppongi",
+      "kind": "event",
+      "why": "This is Tokyo's best-known Christmas street: Keyakizaka's 400 m of trees in about 970,000 LEDs with Tokyo Tower at the end, and a German-style market in the Oyane Plaza (its 20th year). Entry is free and the market sells glühwein. It is the one Christmas set piece worth crossing town for, and it ends on 25 Dec, so do it on leg 1.",
+      "best_time": "17:00–18:30 on a weekday (16–18 Dec). The lights come on at 17:00. Weekends and 23–25 Dec are packed.",
+      "dates": "Illumination 5 Nov – 25 Dec 2026 (17:00–22:00); market 21 Nov – 25 Dec 2026. Over before the second Tokyo stay.",
+      "price": "Free entry; glühwein and food about ¥800–1,500 each",
+      "booking": null,
+      "group_of_8": "Fine; the market is compact, so grab a standing table early.",
+      "hours": "Lights 17:00–22:00; market roughly 11:00–21:00 (confirm)",
+      "visit_minutes": 75,
+      "first_last": "Lights 17:00–22:00; ends 25 Dec",
+      "lat": 35.6599324,
+      "lng": 139.7294781,
+      "wish_ids": [
+        "w4",
+        "w5",
+        "w8"
+      ],
+      "evidence": [
+        {
+          "source": "press release (bestcalendar)",
+          "url": "https://bestcalendar.jp/press/155764",
+          "note": "ROPPONGI HILLS CHRISTMAS 2026, 5 Nov – 25 Dec; Christmas market 21 Nov – 25 Dec, 10 stalls, 20th edition"
+        },
+        {
+          "source": "Xiaohongshu",
+          "url": "https://www.xiaohongshu.com/explore/69491d5f000000001e039479",
+          "note": "Dec 2025 posts call the Keyakizaka lights with Tokyo Tower the must-shoot Christmas scene"
+        },
+        {
+          "source": "rurubu",
+          "url": "https://rurubu.jp/andmore/article/14995",
+          "note": "Keyakizaka illumination lit 17:00–22:00, about 970k LEDs"
+        }
+      ],
+      "confidence": 0.85
+    },
+    {
+      "name": "Tokyo Christmas Market – Shiba Park (under Tokyo Tower)",
+      "name_ja": "東京クリスマスマーケット 芝公園会場",
+      "city": "Tokyo",
+      "area": "Shiba Park / Onarimon",
+      "kind": "event",
+      "why": "The big ticketed German Christmas market, which moved from Jingu Gaien in 2026. The Shiba Park site sits right under Tokyo Tower: mulled wine, sausages, a giant pyramid. The advance ticket includes a souvenir mug, which is where most of the ¥1,000 goes. It is a 20-minute walk or one Oedo-line stop from Roppongi Hills, so do both in one evening.",
+      "best_time": "Weekday 16–18 Dec at about 16:00, so you see Tokyo Tower at dusk before the after-work rush",
+      "dates": "4 – 25 Dec 2026, 11:00–22:00 (last entry 21:00, last order 21:30)",
+      "price": "Adults ¥1,000 weekdays, ¥1,500 Sat/Sun, ¥2,000 on 24–25 Dec, plus drinks about ¥800–1,200",
+      "booking": "Advance tickets on KKday (on sale since 1 Oct 2026). Buy ahead: same-day entry can be restricted when it is busy, and the advance ticket includes the mug.",
+      "group_of_8": "Good for 8; buy 8 weekday tickets for the same date.",
+      "hours": "11:00–22:00",
+      "visit_minutes": 90,
+      "first_last": "Last entry 21:00",
+      "lat": 35.6571637,
+      "lng": 139.7485979,
+      "wish_ids": [
+        "w4",
+        "w8",
+        "w10"
+      ],
+      "evidence": [
+        {
+          "source": "press release (bestcalendar)",
+          "url": "https://bestcalendar.jp/press/155933",
+          "note": "2026: Shin-Toyosu 20 Nov – 25 Dec and Shiba Park 4 – 25 Dec; prices, hours, KKday advance sales from 1 Oct"
+        },
+        {
+          "source": "iko-yo",
+          "url": "https://report.iko-yo.net/articles/34138",
+          "note": "2026 announcement: no Jingu Gaien site this year, two venues instead"
+        }
+      ],
+      "confidence": 0.75
+    },
+    {
+      "name": "Tokyo Christmas Market – Shin-Toyosu (waterfront)",
+      "name_ja": "東京クリスマスマーケット 新豊洲会場",
+      "city": "Tokyo",
+      "area": "Toyosu",
+      "kind": "event",
+      "why": "The new 2026 waterfront site of the same market, two minutes from teamLab Planets and Manyo Club. Pair them: Planets in the afternoon, then mulled wine here at dusk, then an onsen soak. Pick this site or Shiba Park, not both.",
+      "best_time": "Weekday 16–18 Dec, about 16:30–19:00, after a teamLab Planets slot",
+      "dates": "20 Nov – 25 Dec 2026, 11:00–21:30 (last entry 20:30, last order 21:00)",
+      "price": "Adults ¥1,000 weekdays, ¥1,500 Sat/Sun/holidays, ¥2,000 on 24–25 Dec, plus drinks",
+      "booking": "KKday advance tickets (with mug), on sale since 1 Oct 2026",
+      "group_of_8": "Good for 8",
+      "hours": "11:00–21:30",
+      "visit_minutes": 90,
+      "first_last": "Last entry 20:30",
+      "lat": 35.6489544,
+      "lng": 139.7866135,
+      "wish_ids": [
+        "w4",
+        "w8",
+        "w10"
+      ],
+      "evidence": [
+        {
+          "source": "press release (bestcalendar)",
+          "url": "https://bestcalendar.jp/press/155933",
+          "note": "Shin-Toyosu venue at 6-4 Toyosu, 2 min from Shin-Toyosu station (Yurikamome), 20 Nov – 25 Dec 2026"
+        },
+        {
+          "source": "press release (san-tatsu)",
+          "url": "https://san-tatsu.jp/pressrelease/558555/",
+          "note": "2026 Tokyo Christmas Market announcement: new Shin-Toyosu waterfront venue"
+        }
+      ],
+      "confidence": 0.65
+    },
+    {
+      "name": "Odaiba Rainbow Fireworks",
+      "name_ja": "お台場レインボー花火",
+      "city": "Tokyo",
+      "area": "Odaiba",
+      "kind": "event",
+      "why": "Free winter fireworks over Tokyo Bay with the Rainbow Bridge lit behind: 1,300 shells in five minutes, at 19:00 on December Saturdays. Sat 26 Dec is the evening they get back from Osaka, an easy and spectacular first night of the second Tokyo stay (Shinjuku to Odaiba is about 35 min).",
+      "best_time": "Be on the Odaiba Seaside Park beach by 18:40",
+      "dates": "Sat 26 Dec 2026, 19:00 (also 5, 12, 19 Dec); organiser confirmation pending",
+      "price": "Free",
+      "booking": null,
+      "group_of_8": "Easy; the beach is wide.",
+      "hours": "19:00–19:05",
+      "visit_minutes": 30,
+      "first_last": "Starts 19:00 sharp; cancelled only in stormy weather",
+      "lat": 35.6280537,
+      "lng": 139.7738266,
+      "wish_ids": [
+        "w5",
+        "w8"
+      ],
+      "evidence": [
+        {
+          "source": "Tokyo Cheapo",
+          "url": "https://tokyocheapo.com/events/odaiba-rainbow-fireworks-zh_hk/",
+          "note": "2026 dates 5, 12, 19, 26 Dec at 19:00, about 1,300 shells"
+        },
+        {
+          "source": "watabi",
+          "url": "https://watabi.org/articles/odaiba-rainbow-fireworks-2026",
+          "note": "Four Saturdays in 2026, 19:00, about 5 min; 19 Dec is a music show"
+        },
+        {
+          "source": "Xiaohongshu",
+          "url": "https://www.xiaohongshu.com/explore/69049ee4000000000301a0eb",
+          "note": "Traveller post listing December 2026 Saturday dates, free"
+        }
+      ],
+      "confidence": 0.7
+    },
+    {
+      "name": "Ameyoko year-end market",
+      "name_ja": "アメ横 年末市",
+      "city": "Tokyo",
+      "area": "Ueno",
+      "kind": "event",
+      "why": "In the last days of December, Ameyoko becomes Tokyo's New Year food market: fishmongers shout down crab and tuna prices and the crowd is shoulder to shoulder. The tachinomi stand-bars under the tracks are open all day. It is a year-end ritual you cannot see at other times, and it is still going strong when the big sights start closing on 28–29 Dec.",
+      "best_time": "Mon 28 Dec, 11:00–15:00: busy but bearable; 30–31 Dec is the real crush (after they leave)",
+      "dates": "Year-end rush about 27–31 Dec; the group can do 27 or 28 Dec",
+      "price": "Free to walk; street food ¥300–800",
+      "booking": null,
+      "group_of_8": "Hard to move as 8 at peak; set a meeting point at Ueno station Shinobazu exit.",
+      "hours": "Most shops about 10:00–20:00",
+      "visit_minutes": 90,
+      "first_last": null,
+      "lat": 35.7101145,
+      "lng": 139.7745604,
+      "wish_ids": [
+        "w4",
+        "w5",
+        "w7",
+        "w8"
+      ],
+      "evidence": [
+        {
+          "source": "Tokyo Metropolitan Government",
+          "url": "https://www.koho.metro.tokyo.lg.jp/photo/en/news/2013/12.html",
+          "note": "Year-end crowds at Ameyoko needing traffic control on 30 Dec"
+        },
+        {
+          "source": "japantravel",
+          "url": "https://en.japantravel.com/tokyo/ameyoko-market-ueno/4686",
+          "note": "Year-end is peak season, crowds from all over Tokyo buying New Year food"
+        },
+        {
+          "source": "Google Maps",
+          "url": "https://maps.google.com/?cid=5175330337205471113",
+          "note": "Ameyoko Street, Ueno"
+        }
+      ],
+      "confidence": 0.7
+    },
+    {
+      "name": "Shibuya Sky (sunset slot)",
+      "name_ja": "渋谷スカイ",
+      "city": "Tokyo",
+      "area": "Shibuya",
+      "kind": "sight",
+      "why": "The open-air rooftop 229 m above the Scramble, and the one paid deck that is genuinely worth it. On a clear December day you see Mt Fuji at sunset, then the city lights up. It beats Skytree and Tokyo Tower for this group because you are outside on the roof and Shibuya nightlife is downstairs. Sunset is about 16:30 in late December.",
+      "best_time": "Book a 15:40–16:00 entry: about 45 min of daylight and Fuji, sunset around 16:30, then night. December has the clearest air of the year.",
+      "dates": "Open through the trip; no closures on 16–18 or 26–28 Dec found",
+      "price": "About ¥2,500–3,400 pp online (sunset/evening slots cost more); about ¥300 more at the door",
+      "booking": "Official site or Klook. Sources disagree on the release date (about 2 to 4 weeks ahead, at midnight JST), so check the official page in mid-November and buy the moment sunset slots open; they go within minutes, worst on weekends. Buy all 8 in one order.",
+      "group_of_8": "Works; everyone needs the same slot. Bags go in lockers before the roof.",
+      "hours": "10:00–22:30 (last entry 21:20)",
+      "visit_minutes": 75,
+      "first_last": "Rooftop closes in rain or strong wind; unused tickets are refunded only before you enter",
+      "lat": 35.6586719,
+      "lng": 139.7019848,
+      "wish_ids": [
+        "w5",
+        "w8",
+        "w10"
+      ],
+      "evidence": [
+        {
+          "source": "Google Maps",
+          "url": "https://www.shibuya-scramble-square.com/sky/",
+          "note": "Rating 4.6 from about 27k reviews; 10:00–22:30"
+        },
+        {
+          "source": "flipjapanguide",
+          "url": "https://flipjapanguide.com/shibuya-sky/",
+          "note": "Skeptic's review: worth it for the open rooftop; book the sunset slot ahead"
+        },
+        {
+          "source": "agoda travel guide",
+          "url": "https://www.agoda.com/travel-guides/japan/tokyo/when-do-shibuya-sky-tickets-go-on-sale-find-out-now",
+          "note": "Sunset slots sell out almost as soon as they are released; online is cheaper than the door"
+        }
+      ],
+      "confidence": 0.85
+    },
+    {
+      "name": "Tokyo Metropolitan Government Building observatory + projection mapping",
+      "name_ja": "東京都庁 展望室・TOKYO Night & Light",
+      "city": "Tokyo",
+      "area": "Nishi-Shinjuku",
+      "kind": "sight",
+      "why": "A free 202 m deck, a 10-minute walk from Garfield House. After dark, the world's largest permanent projection-mapping show (Guinness-certified) plays on the building's facade several times a night. It is a free alternative to paid decks for a second sunset or a pre-drinks stop. It is not as good as Shibuya Sky, but it costs nothing.",
+      "best_time": "Sat 26 or Sun 27 Dec: deck at about 16:15 for sunset, then the projection show outside after dark. Avoid 28 Dec (north deck closed on the 4th Monday) and 29 Dec (both decks closed for New Year).",
+      "dates": "Year-end closure 29–31 Dec and 2–3 Jan. South deck also closed 1st/3rd Tue (15 Dec); north deck 2nd/4th Mon (14 & 28 Dec)",
+      "price": "Free",
+      "booking": null,
+      "group_of_8": "Easy; expect a short security queue at the lifts.",
+      "hours": "Deck 9:30–22:00 (last entry 21:30); projection from sunset to about 21:30",
+      "visit_minutes": 60,
+      "first_last": "Closed 29 Dec; north deck closed 28 Dec",
+      "lat": 35.6894807,
+      "lng": 139.6916863,
+      "wish_ids": [
+        "w5",
+        "w10",
+        "w11"
+      ],
+      "evidence": [
+        {
+          "source": "GO TOKYO (official tourism)",
+          "url": "https://www.gotokyo.org/jp/spot/74/index.html",
+          "note": "Free; 9:30–22:00; closed 29–31 Dec and 2–3 Jan; deck closure days by week"
+        },
+        {
+          "source": "Google Maps",
+          "url": "https://maps.google.com/?q=Tokyo+Metropolitan+Government+Building",
+          "note": "Rating 4.5 from about 8.7k reviews"
+        },
+        {
+          "source": "iko-yo",
+          "url": "https://iko-yo.net/facilities/27635",
+          "note": "Free projection mapping 'Tokyo Night & Light' after sunset"
+        }
+      ],
+      "confidence": 0.8
+    },
+    {
+      "name": "teamLab Planets TOKYO",
+      "name_ja": "チームラボプラネッツ TOKYO DMM",
+      "city": "Tokyo",
+      "area": "Toyosu",
+      "kind": "experience",
+      "why": "You walk barefoot through knee-deep water, a floating-orb room and a mirror koi pond. It is the most photogenic 90 minutes in Tokyo. For a group it beats Borderless: it is one route, so nobody gets lost, it is less of a maze and it photographs better. One 2026 guide says it is scheduled to close at the end of 2027. Pair it with the Shin-Toyosu Christmas market and Manyo Club next door.",
+      "best_time": "First slot at 8:00 on a weekday (16–18 Dec), when crowds are thinnest. Or about 15:00, then the market at dusk.",
+      "dates": "Open daily through the trip; check year-end hours for 26–29 Dec",
+      "price": "About ¥3,800 weekday / ¥4,200 weekend pp (dynamic; costs more at peak)",
+      "booking": "Timed tickets online only. Book 2–3 weeks ahead (by about 25 Nov for the 16–18 Dec slots); weekday early slots are cheapest. Wear shorts or trousers that roll above the knee.",
+      "group_of_8": "Good; buy 8 for one slot. Lockers are provided.",
+      "hours": "About 8:00–22:00 (Google)",
+      "visit_minutes": 90,
+      "first_last": "Timed entry; the last slot is about 1h before close",
+      "lat": 35.6491207,
+      "lng": 139.7897739,
+      "wish_ids": [
+        "w5",
+        "w8",
+        "w10"
+      ],
+      "evidence": [
+        {
+          "source": "Google Maps",
+          "url": "https://maps.google.com/?q=teamLab+Planets+TOKYO+DMM",
+          "note": "Rating 4.5 from about 57k reviews; 8:00–22:00"
+        },
+        {
+          "source": "trvlogue",
+          "url": "https://www.trvlogue.com/en/teamlab-planets-vs-borderless-tokyo-2",
+          "note": "2026 comparison of Planets and Borderless; timed entry and sell-outs"
+        },
+        {
+          "source": "mileasia",
+          "url": "https://mileasia.com/japan/teamlab-planets/",
+          "note": "2026: about ¥3,800 weekday / ¥4,200 weekend; book 2–3 weeks ahead"
+        }
+      ],
+      "confidence": 0.8
+    },
+    {
+      "name": "Manyo Club Toyosu (Senkyaku Banrai)",
+      "name_ja": "東京豊洲 万葉倶楽部",
+      "city": "Tokyo",
+      "area": "Toyosu",
+      "kind": "onsen",
+      "why": "A 24-hour onsen complex at Toyosu market, with Hakone and Yugawara spring water trucked in, a rooftop foot bath looking over the bay, a restaurant and a beer bar. It is the best onsen within Tokyo's limits for a group and is walkable from teamLab Planets. Since they get real Hakone onsen on 19–21 Dec, use it as a late-night soak and recovery stop rather than a destination.",
+      "best_time": "After teamLab or the Christmas market, about 19:00–23:00 on a weekday; leave before 3:00 to avoid the late-night surcharge",
+      "dates": null,
+      "price": "¥3,850 pp set (bath, yukata, towels) plus ¥150 bath tax; ¥3,000 extra if you stay past 3:00",
+      "booking": "Walk-in",
+      "group_of_8": "Good; baths are split by gender, with a mixed lounge and foot-bath deck.",
+      "hours": "Open 24 hours",
+      "visit_minutes": 150,
+      "first_last": null,
+      "lat": 35.6461872,
+      "lng": 139.7831588,
+      "wish_ids": [
+        "w4",
+        "w8"
+      ],
+      "evidence": [
+        {
+          "source": "All About",
+          "url": "https://news.allabout.co.jp/articles/o/110327/",
+          "note": "24-hour, Hakone/Yugawara spring water, rooftop foot-bath garden"
+        },
+        {
+          "source": "Walkerplus",
+          "url": "https://www.walkerplus.com/spot/ar0313s491261/price.html",
+          "note": "July 2026: adult set ¥3,850, ¥3,000 surcharge after 3:00, bath tax ¥150"
+        },
+        {
+          "source": "Google Maps",
+          "url": "https://maps.google.com/?q=Manyo+Club+Toyosu",
+          "note": "Rating 4.0 from about 2.3k reviews; open 24h"
+        }
+      ],
+      "confidence": 0.7
+    },
+    {
+      "name": "Toshimaen Niwa no Yu",
+      "name_ja": "豊島園 庭の湯",
+      "city": "Tokyo",
+      "area": "Nerima (Toshimaen)",
+      "kind": "onsen",
+      "why": "A natural-onsen day spa with 1,200 tsubo (about 4,000 m²) of Japanese garden, outdoor baths, a swimsuit 'Baden' pool zone and saunas. It is the nearest quality onsen to Ninja House: 15 min on the Seibu Ikebukuro line to Toshimaen, next to the Harry Potter studio. Locals rate it among Tokyo's best day onsen, and it is calmer and more adult than the big super-sento.",
+      "best_time": "Weekday evening (16–18 Dec) about 18:00–21:00, after a day out, before going back to Ikebukuro",
+      "dates": null,
+      "price": "¥2,520 weekdays / ¥2,970 weekends pp (includes robe and towels; Mar 2026 price)",
+      "booking": "Walk-in",
+      "group_of_8": "Good; the swimsuit Baden zone is mixed, so the group can be together there.",
+      "hours": "10:00–23:00 (last entry 22:00); occasional maintenance days",
+      "visit_minutes": 150,
+      "first_last": "Last entry 22:00",
+      "lat": 35.7433357,
+      "lng": 139.647728,
+      "wish_ids": [
+        "w8",
+        "w11"
+      ],
+      "evidence": [
+        {
+          "source": "All About",
+          "url": "https://news.allabout.co.jp/articles/o/112071/",
+          "note": "Mar 2026: ¥2,520 weekday / ¥2,970 weekend, 10:00–23:00, 4.0+ Google average from 500+ reviews"
+        },
+        {
+          "source": "GO TOKYO (official tourism)",
+          "url": "https://www.gotokyo.org/jp/spot/590/index.html",
+          "note": "Official listing, natural hot spring with garden"
+        }
+      ],
+      "confidence": 0.75
+    },
+    {
+      "name": "Thermae-yu (Kabukicho)",
+      "name_ja": "テルマー湯",
+      "city": "Tokyo",
+      "area": "Kabukicho, Shinjuku",
+      "kind": "onsen",
+      "why": "A 24-hour natural-spring super-sento in the middle of Kabukicho, about a 10-minute walk from Garfield House. It has an outdoor bath, saunas, a lounge, and restaurants that sell beer. It is the classic soak between bars or after a big night, or a place to shower and nap on the last morning before the 17:20 flight. Note: tattoos are refused here.",
+      "best_time": "Before 1:00 to avoid the overnight surcharge; or the morning of 29 Dec, to freshen up before Haneda",
+      "dates": null,
+      "price": "About ¥2,800–3,000 pp (weekend rate higher), with an extra surcharge if you stay between 1:00 and 6:00",
+      "booking": "Walk-in",
+      "group_of_8": "Good; baths are separate by gender with a shared lounge.",
+      "hours": "Open 24h (check for a short cleaning break each morning)",
+      "visit_minutes": 120,
+      "first_last": "Late-night surcharge from 1:00",
+      "lat": 35.694526,
+      "lng": 139.7051388,
+      "wish_ids": [
+        "w4",
+        "w8",
+        "w11"
+      ],
+      "evidence": [
+        {
+          "source": "nap-camp magazine",
+          "url": "https://www.nap-camp.com/mag/85016",
+          "note": "Adult from ¥2,800, with late-night and weekend surcharges"
+        },
+        {
+          "source": "Google Maps",
+          "url": "https://maps.google.com/?q=Thermae-Yu+Kabukicho",
+          "note": "Rating 4.1 from about 3.8k reviews; listed as open 24h"
+        },
+        {
+          "source": "onsen.nifty",
+          "url": "https://onsen.nifty.com/ft-atopic/shinjuku-onsen/",
+          "note": "Shinjuku onsen roundup including Thermae-yu"
+        }
+      ],
+      "confidence": 0.65
+    },
+    {
+      "name": "Kosugiyu (classic sento)",
+      "name_ja": "小杉湯",
+      "city": "Tokyo",
+      "area": "Koenji",
+      "kind": "onsen",
+      "why": "Tokyo's most loved neighbourhood sento: a 1933 temple-roof bathhouse famous for its milky bath, alternating hot and cold baths, and crowds of young locals. This is the real sento experience for the price of a coffee, and 6 min from Shinjuku on the Chuo line. Pair it with Koenji's izakaya alleys. (There is also a newer Kosugiyu in Harajuku.)",
+      "best_time": "About 16:00–18:00 or after 23:00; avoid 19:00–22:00 peak",
+      "dates": null,
+      "price": "About ¥550 pp (Tokyo's fixed sento price; bring a towel or rent one)",
+      "booking": "Walk-in; closed Thursdays (verify year-end days)",
+      "group_of_8": "Small changing rooms: arrive in two waves of four.",
+      "hours": "About 15:30–1:45, closed Thursday (older listing; check current hours)",
+      "visit_minutes": 60,
+      "first_last": "Last entry about 1:30",
+      "lat": 35.7081108,
+      "lng": 139.648811,
+      "wish_ids": [
+        "w8",
+        "w10"
+      ],
+      "evidence": [
+        {
+          "source": "Time Out Tokyo (ja)",
+          "url": "https://www.timeout.jp/tokyo/ja/things-to-do/kosugiyu",
+          "note": "Listed as a top Tokyo sento, Koenji"
+        },
+        {
+          "source": "All About",
+          "url": "https://news.allabout.co.jp/articles/o/130634/",
+          "note": "Known for the milky bath and 44°C hot bath; Harajuku branch"
+        },
+        {
+          "source": "kyodo PR wire",
+          "url": "https://kyodonewsprwire.jp/release/201507292330",
+          "note": "Hours 15:30–1:45, closed Thursdays (2015)"
+        }
+      ],
+      "confidence": 0.6
+    },
+    {
+      "name": "Kawagoe 'Little Edo' half-day trip",
+      "name_ja": "川越（小江戸・菓子屋横丁）",
+      "city": "Tokyo",
+      "area": "Kawagoe (Saitama)",
+      "kind": "sight",
+      "why": "The easiest day trip from Ninja House: Ikebukuro to Kawagoe is about 30 min on the Tobu Tojo line. You get Edo-era clay warehouse streets, the Toki-no-Kane bell tower, Penny-candy Alley and sweet-potato everything. It costs little and fits a half day, so you are back in Ikebukuro for the evening. It is quieter on weekdays.",
+      "best_time": "Weekday morning (16–18 Dec), arriving about 10:00; shops close about 17:00",
+      "dates": null,
+      "price": "¥490 each way Ikebukuro to Kawagoe; snacks ¥1,000–2,000 pp",
+      "booking": "No booking. Tobu sometimes sells a Kawagoe discount pass; if not, the plain fare is cheap.",
+      "group_of_8": "Easy for 8",
+      "hours": "Shops roughly 10:00–17:00",
+      "visit_minutes": 240,
+      "first_last": null,
+      "lat": 35.9247608,
+      "lng": 139.4811478,
+      "wish_ids": [
+        "w5",
+        "w8",
+        "w10",
+        "w11"
+      ],
+      "evidence": [
+        {
+          "source": "Kawagoe City (official)",
+          "url": "https://www.city.kawagoe.saitama.jp/welcome/kankospot/kurazukurizone/kashiya.html",
+          "note": "Penny-candy alley in the kurazukuri warehouse district"
+        },
+        {
+          "source": "ekitan",
+          "url": "https://ekitan.com/transit/fare/sf-1541/st-3009",
+          "note": "Ikebukuro to Hon-Kawagoe/Kawagoe fare ¥490 one way"
+        },
+        {
+          "source": "trvlogue",
+          "url": "https://www.trvlogue.com/ja/tokyo-to-kawagoe-pass",
+          "note": "Guide to getting from Tokyo to Kawagoe and its passes"
+        }
+      ],
+      "confidence": 0.7
+    },
+    {
+      "name": "Kamakura + Enoshima day trip (Odakyu Freepass)",
+      "name_ja": "江の島・鎌倉フリーパス",
+      "city": "Tokyo",
+      "area": "Kamakura / Enoshima",
+      "kind": "sight",
+      "why": "The best full day trip from the Shinjuku stay: the Great Buddha, Hase-dera, the coast ride on the Enoden tram and Enoshima island with Fuji views over the sea at sunset. The Odakyu Enoshima-Kamakura Freepass covers the Shinjuku to Fujisawa return plus unlimited Enoden, about half the price of separate fares. Temples stay open through year-end.",
+      "best_time": "Sun 27 or Mon 28 Dec: Kamakura in the morning, Enoshima for the 16:30 sunset, back to Shinjuku for the evening",
+      "dates": "Open through the trip, with no year-end closures before 31 Dec",
+      "price": "Freepass ¥1,640 pp from Shinjuku; Daibutsu ¥300; Hase-dera ¥400",
+      "booking": "Buy the Freepass at Odakyu Shinjuku station or in the digital (EMot) app on the day",
+      "group_of_8": "Good; Enoden trains are crowded on weekends, so start early.",
+      "hours": "Daibutsu 8:00–17:00 (winter, approx.)",
+      "visit_minutes": 540,
+      "first_last": null,
+      "lat": 35.2987595,
+      "lng": 139.4790726,
+      "wish_ids": [
+        "w5",
+        "w8",
+        "w10"
+      ],
+      "evidence": [
+        {
+          "source": "blog (monomoney-living, updated Jun 2026)",
+          "url": "https://monomoney-living.com/?p=17599",
+          "note": "2026 Enoshima-Kamakura Freepass from Shinjuku ¥1,640 adult, 1 day, Odakyu return plus unlimited Enoden"
+        },
+        {
+          "source": "Odakyu (official terms)",
+          "url": "https://www.odakyu.jp/wordpress/wp-content/uploads/terms.pdf",
+          "note": "Official freepass terms"
+        },
+        {
+          "source": "fun-japan",
+          "url": "https://www.fun-japan.jp/jp/articles/13398",
+          "note": "How to use the freepass for Kamakura and Enoshima sights"
+        }
+      ],
+      "confidence": 0.75
+    }
+  ],
+  "notes": "Tokyo · sights: Leg 1 (Ninja House, Ikebukuro, 15–18 Dec) is the window for everything Christmas: Roppongi Hills, the Shiba Park and Shin-Toyosu Christmas markets and the illuminations all END 25 Dec, so none are left on leg 2. Pairings: (a) Roppongi Hills Keyakizaka then Shiba Park market under Tokyo Tower (walk or Oedo line, one evening); (b) teamLab Planets (8:00 or 15:00 slot), then the Shin-Toyosu market, then Manyo Club onsen, all within 5 min on the Yurikamome line. Time-locked leg-1 events: Setagaya Boro-ichi 15–16 Dec (go 16th, 9:00); Asakusa Hagoita-ichi 17–19 Dec (go 17/18 at dusk; Senso-ji at 6:30 to beat crowds). Kawagoe is the cheap half-day from Ikebukuro (¥490 each way). Leg 2 (Garfield House, Shinjuku, 26–29 Dec): Odaiba Rainbow Fireworks Sat 26 Dec at 19:00 (free); Tokyo Government deck free on 26/27 only (north deck closed 28th, both closed 29–31 Dec); Kamakura/Enoshima on 27 or 28 Dec with the ¥1,640 Odakyu Freepass; Ameyoko year-end market on 27/28 Dec; Thermae-yu in Kabukicho for late soaks and the last-morning shower before the 17:20 flight. Year-end (年末年始): museums and gardens mostly close from 28/29 Dec (Imperial East Gardens 28 Dec – 3 Jan); temples, Shibuya Sky, teamLab and onsen stay open. Booking calendar: KKday Christmas-market tickets now (weekday ¥1,000, includes mug); Ghibli Museum December tickets go on sale 10 Nov at 10:00 JST on Lawson Ticket (QR system from Nov 2026, ¥110 fee; closed Tuesdays, so not 15 or 29 Dec); Shibuya Sky sunset slot (about 15:40) the minute sales open, 2–4 weeks ahead (check in mid-Nov); teamLab Planets weekday early slot about 3 weeks ahead. Optional for anime fans: Comiket C109 runs 29–31 Dec at Tokyo Big Sight, but only a morning on 29 Dec fits before a 17:20 Haneda flight. Transport: a Tokyo Subway Ticket (24/48/72h) covers Metro and Toei (Roppongi, Shiba, Asakusa, Ueno) but not the Yurikamome, JR, Seibu, Tobu or Odakyu. Skip Skytree and Tokyo Tower decks: Shibuya Sky plus the free Tokyo Government deck cover the views."
+}

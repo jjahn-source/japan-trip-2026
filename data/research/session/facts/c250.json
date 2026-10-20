@@ -1,0 +1,47 @@
+{
+  "open": [
+    {
+      "dates": [
+        "2026-12-21",
+        "2026-12-22",
+        "2026-12-23",
+        "2026-12-24",
+        "2026-12-25",
+        "2026-12-26"
+      ],
+      "open": "10:30",
+      "close": "20:00",
+      "quote": "10時30分～20時",
+      "url": "https://www.nintendo.com/jp/officialstore/"
+    }
+  ],
+  "closed": [],
+  "last_entry": null,
+  "prices": [],
+  "fixed_minutes": null,
+  "time_limit": null,
+  "group": null,
+  "booking": null,
+  "notes": [
+    {
+      "text": "Nintendo KYOTO hours follow Kyoto Takashimaya S.C. operating days",
+      "quote": "Nintendo KYOTOは京都髙島屋S.C.、Nintendo FUKUOKAはアミュプラザ博多の営業日に準じています。",
+      "url": "https://www.nintendo.com/jp/officialstore/"
+    },
+    {
+      "text": "Takashimaya T8 specialty zone hours 10:30-20:00 (Takashimaya official page)",
+      "quote": "午前10時30分～午後8時",
+      "url": "https://www.takashimaya.co.jp/kyoto/specialtystores/businesshours/"
+    },
+    {
+      "text": "Admission free",
+      "quote": "入場は無料です。",
+      "url": "https://www.nintendo.com/jp/officialstore/"
+    },
+    {
+      "text": "Ticket (整理券) handed out on weekends, holidays and busy days; 26 Dec (Sat) is a trip date",
+      "quote": "当面、土・日・祝日など混雑が予想される日は、整理券でご入店の受付を行います。",
+      "url": "https://www.nintendo.com/jp/officialstore/"
+    }
+  ]
+}

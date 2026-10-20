@@ -1,0 +1,22 @@
+{
+  "open": [],
+  "closed": [],
+  "last_entry": null,
+  "prices": [],
+  "fixed_minutes": null,
+  "time_limit": null,
+  "group": null,
+  "booking": null,
+  "notes": [
+    {
+      "text": "Official Minato City park page has no fireworks dates or times. Unofficial Tokyo Cheapo listing gives the 2026 date range Dec 5 to Dec 26 but not the individual days; check the official site.",
+      "quote": "Dates Dec 5&ndash;Dec 26, 2026",
+      "url": "https://tokyocheapo.com/events/odaiba-rainbow-fireworks-zh_tw/"
+    },
+    {
+      "text": "Organizers may cancel events or alter schedules without notice; check official sites before going.",
+      "quote": "Organizers may cancel events, alter schedules, or change admission requirements without notice.",
+      "url": "https://tokyocheapo.com/events/odaiba-rainbow-fireworks-zh_tw/"
+    }
+  ]
+}

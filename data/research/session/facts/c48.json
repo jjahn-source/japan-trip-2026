@@ -1,65 +1,40 @@
 {
-  "open": [
-    {
-      "dates": [
-        "2026-12-15",
-        "2026-12-16",
-        "2026-12-17",
-        "2026-12-18",
-        "2026-12-19",
-        "2026-12-26",
-        "2026-12-27",
-        "2026-12-28",
-        "2026-12-29"
-      ],
-      "open": "10:30",
-      "close": "28:00",
-      "quote": "10：30〜4：00",
-      "url": "https://www.mutekiya.com/about/index.html"
-    }
-  ],
+  "open": [],
   "closed": [],
   "last_entry": null,
-  "prices": [
-    {
-      "what": "Extra noodles (替玉)",
-      "yen": 200,
-      "quote": "麺替玉は￥200です。",
-      "url": "https://www.mutekiya.com/menu/index.html"
-    }
-  ],
+  "prices": [],
   "fixed_minutes": null,
   "time_limit": null,
   "group": {
-    "text": "Group members cannot sit next to each other; seated in groups of a few; group pays together. Counter only (17 seats).",
-    "quote": "グループ全員が、となり席にはなれません。数名ずつ別れた席になります。",
-    "url": "https://www.mutekiya.com/about/index.html"
+    "text": "Groups from 10 to 1,000 people; under 10 also accepted",
+    "quote": "10名〜最大1,000名対応",
+    "url": "https://kabukihall.com/"
   },
   "booking": {
-    "text": "No reservations accepted.",
-    "quote": "申し訳ございません。ご予約は承っておりません。",
-    "url": "https://www.mutekiya.com/faq/index.html"
+    "text": "Contact page says seat reservations are not taken at present (scope unclear)",
+    "quote": "現在お席のご予約は承っておりません。",
+    "url": "https://kabukihall.com/contact/?lang=en"
   },
   "notes": [
     {
-      "text": "Cash only.",
-      "quote": "現金のみの会計でお願い致します。",
-      "url": "https://www.mutekiya.com/faq/index.html"
+      "text": "Open all year, including the New Year period",
+      "quote": "※年末年始も通常営業",
+      "url": "https://kabukihall.com/access/?lang=en"
     },
     {
-      "text": "Adults only; no child seats.",
-      "quote": "申し訳ございません。大人用のみです。",
-      "url": "https://www.mutekiya.com/faq/index.html"
+      "text": "KABUKI CAFE hours shown on the access page (shop-specific)",
+      "quote": "10時から29時",
+      "url": "https://kabukihall.com/access/?lang=en"
     },
     {
-      "text": "Counter seats only, 17 seats, no table seats.",
-      "quote": "当店はテーブル席はありません。カウンターでの17席だけです。",
-      "url": "https://www.mutekiya.com/about/index.html"
+      "text": "Open-air terrace BBQ and beer garden on the 2F",
+      "quote": "東急歌舞伎町タワー2F、オープンテラス。",
+      "url": "https://kabukihall.com/"
     },
     {
-      "text": "Closed 31 Dec to 3 Jan (not on the trip dates).",
-      "quote": "12月31日〜1月3日",
-      "url": "https://www.mutekiya.com/about/index.html"
+      "text": "BBQ and beer garden can be rented for 50+ people",
+      "quote": "50名〜貸切OK",
+      "url": "https://kabukihall.com/"
     }
   ]
 }

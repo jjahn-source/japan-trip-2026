@@ -1,0 +1,29 @@
+{
+  "open": [],
+  "closed": [],
+  "last_entry": null,
+  "prices": [
+    {
+      "what": "Tempozan Ferris Wheel (大観覧車), general ticket, per person",
+      "yen": 1000,
+      "quote": "1名　1000円",
+      "url": "http://tempozan-kanransya.com/tempozan-kanransya.com/"
+    }
+  ],
+  "fixed_minutes": null,
+  "time_limit": null,
+  "group": null,
+  "booking": null,
+  "notes": [
+    {
+      "text": "Ferris wheel ticket sales stop 15 minutes before closing; hours vary by season and weather",
+      "quote": "※チケットの販売は営業終了時間の15分前に終了致します。",
+      "url": "http://tempozan-kanransya.com/tempozan-kanransya.com/"
+    },
+    {
+      "text": "Ferris wheel: riding alone is allowed from elementary-school age (小学生以上)",
+      "quote": "小学生以上の方からお1人でご利用いただけます。",
+      "url": "http://tempozan-kanransya.com/tempozan-kanransya.com/"
+    }
+  ]
+}

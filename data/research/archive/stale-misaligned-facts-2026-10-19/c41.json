@@ -1,0 +1,39 @@
+{
+  "open": [],
+  "closed": [],
+  "last_entry": null,
+  "prices": [
+    {
+      "what": "Original mug, limited quantity",
+      "yen": 1600,
+      "quote": "1,600円（税込）",
+      "url": "https://www.roppongihills.com/sp/christmashills/101/"
+    }
+  ],
+  "fixed_minutes": null,
+  "time_limit": null,
+  "group": null,
+  "booking": null,
+  "notes": [
+    {
+      "text": "Crowds can mean long waits to buy",
+      "quote": "※混雑時はご購入までに長時間お待ちいただく場合がございますので､予めご了承ください。",
+      "url": "https://www.roppongihills.com/sp/christmashills/101/"
+    },
+    {
+      "text": "Weather may change hours or cancel",
+      "quote": "※荒天時は時間変更および中止になる場合がございます。",
+      "url": "https://www.roppongihills.com/sp/christmashills/101/"
+    },
+    {
+      "text": "Market stamp card: one stamp per day for a 1,000 yen spend",
+      "quote": "1会計1,000円(税込)以上お買い上げいただくと､ ヒルズアプリ内デジタルスタンプカードに1日1つスタンプが付きます。",
+      "url": "https://www.roppongihills.com/sp/christmashills/101/"
+    },
+    {
+      "text": "Press release lists an event period 11/5 to 12/25, 17:00-22:00; the event name is not confirmed in this text",
+      "quote": "開催日時：11月5日（木）～ 12月25日（金）17：00 ～ 22：00",
+      "url": "https://san-tatsu.jp/pressrelease/558251/"
+    }
+  ]
+}

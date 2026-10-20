@@ -1,1 +1,34 @@
-[]
+[
+  {
+    "stop": 7,
+    "claim": "No tattoos: anyone with ink can't go in.",
+    "fix": "Tattoos: Japanese or Japan-resident men are refused outright, but male tourists can enter with a passport and a ¥330 tattoo sticker over one tattoo, and women's fashion tattoos are allowed (a sticker is only needed above 30 cm x 30 cm).",
+    "source_url": "https://thermae-yu.jp/user-guide/",
+    "source_quote": "タトゥーシール　1枚/¥330",
+    "schedule": false
+  },
+  {
+    "stop": 7,
+    "claim": "The weekend rate is higher, and staying between 1:00 and 6:00 costs extra.",
+    "fix": "The weekend rate is higher, and anyone in the building between midnight and 6:00 pays a late-night surcharge (Fri-Sun roughly +¥2,300 general).",
+    "source_url": "https://thermae-yu.jp/user-guide/",
+    "source_quote": "深夜0時〜翌6時ご在館",
+    "schedule": false
+  },
+  {
+    "stop": 7,
+    "claim": "Be out well before 1:00.",
+    "fix": "Be out before midnight (0:00), when the late-night surcharge starts.",
+    "source_url": "https://thermae-yu.jp/user-guide/",
+    "source_quote": "深夜0時〜翌6時ご在館",
+    "schedule": false
+  },
+  {
+    "stop": 2,
+    "claim": "Korakuen Hall is a sweaty 1,800-seat box where every seat is close to the ring.",
+    "fix": "Korakuen Hall is a sweaty 1,403-seat box where every seat is close to the ring.",
+    "source_url": "https://www.tokyo-dome.co.jp/hall/organizer/hall.html",
+    "source_quote": "南固定席/780席 可動席/東：109席 西：109席 北：405席 合計：1,403席",
+    "schedule": false
+  }
+]

@@ -1,0 +1,10 @@
+[
+  {
+    "stop": 6,
+    "claim": "Use the Freepass discount at the ticket desk: ¥1,800 pp.",
+    "fix": "Show your Freepass at the ticket desk for the ¥100 discount: ¥1,700 pp (the full adult price is ¥1,800).",
+    "source_url": "https://www.hakonenavi.jp/spot/1214",
+    "source_quote": "フリーパス 優待情報 100円引き",
+    "schedule": false
+  }
+]

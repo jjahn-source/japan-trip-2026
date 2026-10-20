@@ -1,0 +1,38 @@
+{
+  "open": [
+    {
+      "dates": [
+        "2026-12-15",
+        "2026-12-16"
+      ],
+      "open": "09:00",
+      "close": "20:00",
+      "quote": "開催時間：午前9時～午後8時",
+      "url": "https://www.city.setagaya.lg.jp/setagaya/001/003/d00125000.html"
+    }
+  ],
+  "closed": [],
+  "last_entry": null,
+  "prices": [],
+  "fixed_minutes": null,
+  "time_limit": null,
+  "group": null,
+  "booking": null,
+  "notes": [
+    {
+      "text": "Held 12 Dec 15-16 and 1 Jan 15-16 (trip has no event on other dates)",
+      "quote": "12月15日・16日、1月15日・16日の4日間",
+      "url": "https://www.city.setagaya.lg.jp/setagaya/001/003/d00125000.html"
+    },
+    {
+      "text": "No parking; use trains or buses",
+      "quote": "(1)駐車場はありません。電車・バスをご利用下さい。",
+      "url": "https://www.city.setagaya.lg.jp/setagaya/001/003/d00125000.html"
+    },
+    {
+      "text": "Hours can change or the market can be cancelled in bad weather",
+      "quote": "天候により開催時間が変更となる場合がございます。",
+      "url": "https://www.city.setagaya.lg.jp/setagaya/001/003/d00125000.html"
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "open": [
+    {
+      "dates": [
+        "2026-12-19",
+        "2026-12-20"
+      ],
+      "open": "09:00",
+      "close": "16:00",
+      "quote": "ディスティラリーショップ9:00〜16:00、有料テイスティング9:30〜15:30",
+      "url": "https://www.gltjp.com/ja/directory/item/16153/"
+    }
+  ],
+  "closed": [
+    {
+      "dates": [
+        "2026-12-21"
+      ],
+      "why": "定休日 (Monday)",
+      "what": "the whole distillery (visitor facilities and tours)",
+      "whole_place": true,
+      "quote": "月曜（祝日の場合は翌平日）、設備点検日、年末年始",
+      "url": "https://www.gltjp.com/ja/directory/item/16153/"
+    }
+  ],
+  "last_entry": null,
+  "prices": [
+    {
+      "what": "Distillery tour, adult (19 and under free); shop entry free",
+      "yen": 500,
+      "quote": "入場無料、蒸溜所見学ツアー大人500円（※19歳以下無料）",
+      "url": "https://www.gltjp.com/ja/directory/item/16153/"
+    }
+  ],
+  "fixed_minutes": null,
+  "time_limit": null,
+  "group": null,
+  "booking": {
+    "text": "Guided distillery tour must be booked in advance; shop needs no booking",
+    "quote": "要予約の蒸溜所見学ツアーでは",
+    "url": "https://www.gltjp.com/ja/directory/item/16153/"
+  },
+  "notes": [
+    {
+      "text": "Phone 0570-055898, 9:00-16:00 except closed days",
+      "quote": "0570-055898（9:00〜16:00※休館日を除く）",
+      "url": "https://www.gltjp.com/ja/directory/item/16153/"
+    },
+    {
+      "text": "Tour ends with tasting of two whiskies",
+      "quote": "「キリン シングルグレーンジャパニーズウイスキー 富士」と「キリンウイスキー 陸」のテイスティング",
+      "url": "https://www.gltjp.com/ja/directory/item/16153/"
+    },
+    {
+      "text": "Access: free shuttle from JR Gotemba station, about 20 min",
+      "quote": "JR「御殿場」駅から無料シャトルバスで約20分",
+      "url": "https://www.gltjp.com/ja/directory/item/16153/"
+    },
+    {
+      "text": "Facility hours 9:00-16:00 (walkerplus listing)",
+      "quote": "9:00～16:00",
+      "url": "https://summer.walkerplus.com/odekake/detail/ar0622s04486/data.html"
+    }
+  ]
+}

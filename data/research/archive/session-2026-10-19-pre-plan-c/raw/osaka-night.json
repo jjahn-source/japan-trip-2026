@@ -1,0 +1,574 @@
+{
+  "candidates": [
+    {
+      "name": "Giraffe Japan (nightclub)",
+      "name_ja": "GIRAFFE JAPAN",
+      "city": "Osaka",
+      "area": "Dotonbori",
+      "kind": "nightlife",
+      "why": "The club young visitors in Osaka are actually posting from right now: reopened in 2025 on the 5F of the Nakaza Cuidaore building on Dotonbori, new sound and lights, crowd packed most nights. Two minutes' walk from Jankara and Round1, so it slots straight into a Namba night.",
+      "best_time": "Arrive 22:00–23:00; lines build before midnight, peak ~00:30–02:30",
+      "dates": "Fri 25 Dec is the strongest night (Christmas-night parties + weekend); Mon–Thu still busy with tourists",
+      "price": "Entry with 1 drink included at the door per Google reviews; reseller foreigner tickets run roughly ¥800–1,800 incl. drinks; VIP table packages sold separately. Women often cheaper",
+      "booking": "Buy foreigner entry/drink tickets online (Klook/Expedia/official) a few days ahead for Thu 24 and Fri 25; walk-in fine other nights",
+      "group_of_8": "Good; ask about a VIP set if you want a table for 8",
+      "hours": "Club 22:00–04:00 nightly (variety show 19:00–22:00 earlier)",
+      "visit_minutes": 180,
+      "first_last": "Opens 22:00, closes 04:00: either taxi home (~15 min to Kujo) or stay until the first train",
+      "lat": 34.6685971,
+      "lng": 135.5024972,
+      "wish_ids": [
+        "w2",
+        "w4",
+        "w5",
+        "w8"
+      ],
+      "evidence": [
+        {
+          "source": "Google Maps (find_place + newest JA reviews)",
+          "url": "https://maps.google.com/?q=Giraffe+Japan+Dotonbori",
+          "note": "Operational, 4.8★ / 2.7k reviews; May 2025 review: bag check + age ID check at the door, entry includes one drink ticket, cloak available"
+        },
+        {
+          "source": "TikTok @osakanightlife & visitor clips 2026",
+          "url": "https://www.tiktok.com/@osakanightlife/video/7645664676403072276",
+          "note": "~100k views: 'every night is packed, expect lines, arrive early'; more 2026 visitor clubbing videos tagged here"
+        },
+        {
+          "source": "Official site",
+          "url": "https://giraffe-japan.com/",
+          "note": "Night club 22:00–04:00; rooftop bar by day, variety act show 19:00–22:00"
+        }
+      ],
+      "confidence": 0.85
+    },
+    {
+      "name": "Round1 Stadium Sennichimae",
+      "name_ja": "ラウンドワンスタジアム 千日前店",
+      "city": "Osaka",
+      "area": "Sennichimae / Namba",
+      "kind": "experience",
+      "why": "The group's must-do (w6). Building is 24h, steps from Dotonbori: Spo-Cha all-you-can-play sports, bowling, darts, arcade, karaoke. Ideal 'after the bars' or 'kill time until the first train' stop.",
+      "best_time": "Spo-Cha or karaoke after midnight; arcade before ~00:50",
+      "dates": "Any night; weekday rates Mon 21–Thu 24 are cheaper than weekend/holiday rates",
+      "price": "Karaoke from ¥440 one-order minimum per person; drink bar ¥390; Spo-Cha pack prices vary by weekday/weekend (check the store's fee page); bring a student ID for student rates",
+      "booking": "No booking; join the free Round1 membership in the app for ¥200–350 off Spo-Cha packs",
+      "group_of_8": "Great; split into 2 karaoke rooms or play Spo-Cha together",
+      "hours": "Building 24h; amusement corner ~06:00–00:50; karaoke 24h (entry 00:00–06:00 allows up to 6 h if no queue)",
+      "visit_minutes": 180,
+      "first_last": "Midnight-to-6am karaoke covers the gap until the first train (~05:00)",
+      "lat": 34.667511,
+      "lng": 135.502862,
+      "wish_ids": [
+        "w6",
+        "w5",
+        "w8",
+        "w10",
+        "w2"
+      ],
+      "evidence": [
+        {
+          "source": "Round1 official fee/rules pages",
+          "url": "https://www.round1.co.jp/shop/ryokin/osaka-sennichimae.html",
+          "note": "Karaoke 24h with up to 6 h after midnight; ID checks at night; under-18s barred 22:00–05:00 under Osaka ordinance, so carry passports"
+        },
+        {
+          "source": "Google Maps / Walkerplus listing",
+          "url": "https://www.walkerplus.com/spot/ar0727s76077/data.html",
+          "note": "Open 24 hours, 5.8k reviews; amusement corner closes around 00:50"
+        }
+      ],
+      "confidence": 0.9
+    },
+    {
+      "name": "Jankara Dotonbori (Jankara Yokocho)",
+      "name_ja": "ジャンカラ 道頓堀店",
+      "city": "Osaka",
+      "area": "Dotonbori",
+      "kind": "nightlife",
+      "why": "Osaka's own cheap karaoke chain in its flagship: 51 rooms on B1–5F, open 24h, right next to Giraffe. Has the BAL UTAO all-you-can-drink karaoke bar. A cheaper, livelier alternative to Round1 karaoke.",
+      "best_time": "Between bars and the club (20:00–22:00), or 02:00+ after the club",
+      "dates": "Any night; Thu 24 / Fri 25 may have queues after 23:00",
+      "price": "Room rates per 30 min / free-time packs vary by time (check app); BAL UTAO all-you-can-drink ¥1,000 per 30 min (general) / ¥500 for app members, plus 1 food item each. Note: the site says no alcohol after midnight",
+      "booking": "Download the Jankara app (free membership halves BAL UTAO price); rooms bookable in app",
+      "group_of_8": "One large room or two rooms of 4",
+      "hours": "24h",
+      "visit_minutes": 120,
+      "first_last": "Alcohol stops at 00:00, so treat a late session as a sober-up stop before the first train",
+      "lat": 34.6685446,
+      "lng": 135.5027984,
+      "wish_ids": [
+        "w4",
+        "w5",
+        "w8",
+        "w10"
+      ],
+      "evidence": [
+        {
+          "source": "Jankara official store page",
+          "url": "https://jankara.ne.jp/open/109/en",
+          "note": "24h, 51 rooms, BAL UTAO drink plan, EN/ZH/KO site"
+        },
+        {
+          "source": "Google Maps",
+          "url": "https://maps.google.com/?q=Jankara+Dotonbori",
+          "note": "Operational, open 24 hours, ~670 reviews"
+        },
+        {
+          "source": "PR Times press release",
+          "url": "https://www.nikkan.co.jp/releases/view/38126",
+          "note": "Jankara Yokocho concept: yatai-style food and drinking area plus karaoke"
+        }
+      ],
+      "confidence": 0.8
+    },
+    {
+      "name": "Hozenji Yokocho",
+      "name_ja": "法善寺横丁",
+      "city": "Osaka",
+      "area": "Namba (off Dotonbori)",
+      "kind": "bar",
+      "why": "A lantern-lit stone alley 1 minute from the Dotonbori chaos, with tiny bars and izakaya around the moss-covered Fudo statue. Best for a first drink and photos before heading into Ura-Namba. Most places seat 4–6, so split up.",
+      "best_time": "18:00–21:00, when the lanterns are on",
+      "dates": "Any night",
+      "price": "Bars ¥700–1,200 per drink; some charge a seat fee (otoshi ¥300–500)",
+      "booking": "Walk in; split into pairs or fours",
+      "group_of_8": "Hard as one group; split up, then regroup at the Fudo statue",
+      "hours": "Most bars ~17:00–24:00",
+      "visit_minutes": 45,
+      "first_last": null,
+      "lat": 34.6681187,
+      "lng": 135.5026104,
+      "wish_ids": [
+        "w4",
+        "w5"
+      ],
+      "evidence": [
+        {
+          "source": "Google Maps",
+          "url": "https://maps.google.com/?q=Hozenji+Yokocho",
+          "note": "4.4★ / 550 reviews"
+        },
+        {
+          "source": "TableJourney Osaka nightlife",
+          "url": "https://tablejourney.com/japan/osaka/nightlife/hozenji-yokocho-dive/",
+          "note": "Lantern-lit stone alley with about a dozen traditional izakaya, off Dotonbori"
+        }
+      ],
+      "confidence": 0.75
+    },
+    {
+      "name": "Ura-Namba drinking district",
+      "name_ja": "裏なんば",
+      "city": "Osaka",
+      "area": "Ura-Namba (Sennichimae–Kuromon)",
+      "kind": "bar",
+      "why": "Where young Osakans actually drink in Minami. A grid of standing bars, horumon and yakiton counters south-east of Namba, between Sennichimae-dori and Nansan-dori, Takashimaya and Kuromon. Cheap drinks and lots of bars close together for a crawl; many stay open to 02:00–03:00.",
+      "best_time": "19:00–24:00 bar-hopping, 1–2 drinks per stop",
+      "dates": "Mon 21–Thu 24 easier; Fri 25 + year-end bonenkai season means some bars are full",
+      "price": "¥2,000–3,500 per person across 3 stops; standing-bar drinks ¥400–600",
+      "booking": "Walk in. For a sit-down izakaya for all 8 on Fri 25, book a few days ahead (Hot Pepper)",
+      "group_of_8": "Split into 2×4 for standing bars; regroup at bigger izakaya",
+      "hours": "Most 17:00–24:00; several to 03:00 (e.g. Yusei ura-Namba to 03:00)",
+      "visit_minutes": 150,
+      "first_last": "5–10 min walk back to Namba for the Hanshin Namba line to Kujo",
+      "lat": 34.6648844,
+      "lng": 135.5054576,
+      "wish_ids": [
+        "w4",
+        "w5",
+        "w8",
+        "w2"
+      ],
+      "evidence": [
+        {
+          "source": "Tabelog matome (Ura-Namba standing bars)",
+          "url": "https://tabelog.com/matome/5600/",
+          "note": "Lists Uo-ya Hidezo standing bar, Ankeraso (all horumon ¥330), Kotetsu (sister of Ushitora)"
+        },
+        {
+          "source": "Kinarino Ura-Namba guide",
+          "url": "https://kinarino.jp/cat8/36212",
+          "note": "Osaka Yakiton Center credited with kicking off the Ura-Namba boom; defines the district's boundaries"
+        },
+        {
+          "source": "Google Maps anchor",
+          "url": "https://maps.google.com/?q=Yusei+ura-Namba",
+          "note": "Example late bar in the district: 4.1★, open to 03:00"
+        }
+      ],
+      "confidence": 0.8
+    },
+    {
+      "name": "Ura-Tenma standing-bar alleys",
+      "name_ja": "裏天満（天満 立ち飲み街）",
+      "city": "Osaka",
+      "area": "Tenma (Kita)",
+      "kind": "bar",
+      "why": "Osaka's best-value drinking maze, north of JR Tenma around Tenma Market: tachinomi standing bars under tarp sheets, horumon counters, cheap seafood bars. ¥1,000 gets you 2–3 drinks plus snacks. The most local and social night for a group that loves to drink.",
+      "best_time": "17:30–22:00 (starts early, many close by 23:00)",
+      "dates": "Mon 21–Thu 24 ideal; Fri 25 packed with year-end parties",
+      "price": "¥1,500–3,000 per person for a 3-stop crawl; big bottle of beer from ~¥330 at old-school bars",
+      "booking": "Walk in; cash",
+      "group_of_8": "Split into 2×4 and swap bars; standing bars rarely fit 8 in one gap",
+      "hours": "Typically 15:00/17:00–23:00",
+      "visit_minutes": 150,
+      "first_last": "JR Loop Tenma → Osaka, then onward to Kujo; or Metro Ogimachi",
+      "lat": 34.7070344,
+      "lng": 135.5130171,
+      "wish_ids": [
+        "w4",
+        "w5",
+        "w8",
+        "w10"
+      ],
+      "evidence": [
+        {
+          "source": "Tabelog matome (Tenma standing bars)",
+          "url": "https://tabelog.com/matome/5629/",
+          "note": "Daian, Dengeki Horumon Tsugie (young crowd, ¥300–900), Tokuichi; under-track standing bar with big bottles from ¥330"
+        },
+        {
+          "source": "Osaka Tourism nightlife guide",
+          "url": "https://www.osakatourism.org/?p=1528",
+          "note": "Tenma described as a maze of standing bars locals adore, best for shoulder-to-shoulder chats with locals"
+        },
+        {
+          "source": "Mapple Tenjinbashi article",
+          "url": "https://www.mapple.net/article/5567/",
+          "note": "Ura-Tenma = drinking district north of JR Tenma, from standing bars to stylish izakaya"
+        }
+      ],
+      "confidence": 0.85
+    },
+    {
+      "name": "Circus Osaka (club)",
+      "name_ja": "CIRCUS OSAKA",
+      "city": "Osaka",
+      "area": "Amerikamura / Nishi-Shinsaibashi",
+      "kind": "nightlife",
+      "why": "The real underground club: small, serious sound, house/techno, locals rather than tourists. Good for the music lovers in the group as an alternative to Giraffe's commercial party. Weekend-only, so Thu 24 or Fri 25.",
+      "best_time": "00:00–04:00",
+      "dates": "Open Thu–Sat only, so Thu 24 Dec (Christmas Eve) or Fri 25; check the schedule for Christmas parties",
+      "price": "Usually ¥2,000–3,500 door with 1 drink (varies by event)",
+      "booking": "Check the event schedule on circus-osaka.com; some events have cheaper advance tickets",
+      "group_of_8": "Fine",
+      "hours": "Thu 23:00–05:30, Fri–Sat 23:00–05:00",
+      "visit_minutes": 180,
+      "first_last": "Closes at ~05:00, just as the first Hanshin trains run from Namba",
+      "lat": 34.6730705,
+      "lng": 135.4980275,
+      "wish_ids": [
+        "w2",
+        "w4",
+        "w8"
+      ],
+      "evidence": [
+        {
+          "source": "Google Maps",
+          "url": "https://maps.google.com/?cid=1331041981845503181",
+          "note": "Operational, Thu–Sat late hours, 4.0★"
+        },
+        {
+          "source": "Fun Japan Namba/Dotonbori nightlife",
+          "url": "https://www.fun-japan.jp/en/articles/11672",
+          "note": "Calls Circus the best place for electronic music in Osaka"
+        }
+      ],
+      "confidence": 0.7
+    },
+    {
+      "name": "Amerikamura & Triangle Park",
+      "name_ja": "アメリカ村・三角公園",
+      "city": "Osaka",
+      "area": "Amerikamura",
+      "kind": "nightlife",
+      "why": "Osaka's youth district at night: Triangle Park is the meeting point, with small clubs, bars, reggae and hip-hop spots in the walk-ups around it. Free hangout with convenience-store drinks before you go in.",
+      "best_time": "21:00–01:00",
+      "dates": "Thu 24 / Fri 25 busiest",
+      "price": "Free to hang out; bars ¥500–800 a drink",
+      "booking": null,
+      "group_of_8": "Great meeting point for the whole group",
+      "hours": "Park 24h",
+      "visit_minutes": 60,
+      "first_last": "10 min walk to Namba / Yotsubashi",
+      "lat": 34.6720688,
+      "lng": 135.4979236,
+      "wish_ids": [
+        "w2",
+        "w4",
+        "w8",
+        "w10"
+      ],
+      "evidence": [
+        {
+          "source": "Japan Nightlife (beehiiv) Osaka guide",
+          "url": "https://japannightlife.beehiiv.com/p/osaka-nightlife",
+          "note": "Streets around Triangle Park hold a dozen independent clubs in walk-ups; Good Times reggae bar"
+        },
+        {
+          "source": "Google Maps",
+          "url": "https://maps.google.com/?q=Sankaku+Koen+Osaka",
+          "note": "Triangle Park, 4.0★ / 1.5k reviews"
+        }
+      ],
+      "confidence": 0.7
+    },
+    {
+      "name": "PC & Retro Bar Space Station",
+      "name_ja": "スペースステーション",
+      "city": "Osaka",
+      "area": "Amerikamura",
+      "kind": "bar",
+      "why": "A retro game bar: walls of Famicom/N64/PlayStation consoles you play free while you drink, plus themed cocktails. Very 'do it all', and a fun first stop before Amemura or Giraffe.",
+      "best_time": "19:00–23:00",
+      "dates": "Any night, open daily",
+      "price": "Drinks ~¥700–1,000, usually a small table charge; games free with drinks",
+      "booking": "Walk in; arrive early for 8",
+      "group_of_8": "Tight but doable early in the evening; it is small",
+      "hours": "17:00–02:00 daily",
+      "visit_minutes": 75,
+      "first_last": null,
+      "lat": 34.6700542,
+      "lng": 135.4980023,
+      "wish_ids": [
+        "w4",
+        "w8",
+        "w6"
+      ],
+      "evidence": [
+        {
+          "source": "Google Maps",
+          "url": "https://maps.google.com/?q=Space+Station+Osaka",
+          "note": "Operational, 4.6★ / 945 reviews, 17:00–02:00 daily"
+        }
+      ],
+      "confidence": 0.75
+    },
+    {
+      "name": "OWL Osaka (Umeda club)",
+      "name_ja": "OWL OSAKA",
+      "city": "Osaka",
+      "area": "Umeda",
+      "kind": "nightlife",
+      "why": "The big Umeda (Kita) club for nights out up north (Tenma crawl, Shin-Umeda drinks, then OWL). Open nightly, mainstream EDM/hip-hop, a first-timer-friendly crowd.",
+      "best_time": "23:00–03:00",
+      "dates": "Open nightly, so fine for Mon–Wed when Minami clubs are quieter",
+      "price": "Foreigner reseller tickets ~US$13 (women) / ~US$20 (men) for a timed entry; door price varies",
+      "booking": "Advance foreigner tickets via Expedia/Headout/TryHard",
+      "group_of_8": "Fine",
+      "hours": "21:00–05:00 nightly",
+      "visit_minutes": 180,
+      "first_last": "Closes 05:00; first trains Umeda → Kujo via Metro around 05:00",
+      "lat": 34.7038568,
+      "lng": 135.5004948,
+      "wish_ids": [
+        "w2",
+        "w4",
+        "w8"
+      ],
+      "evidence": [
+        {
+          "source": "Google Maps",
+          "url": "https://maps.google.com/?q=OWL+Osaka+Umeda",
+          "note": "Operational, 4.3★ / 800 reviews, 21:00–05:00 daily"
+        },
+        {
+          "source": "Expedia / TryHard listing",
+          "url": "https://www.expedia.com/things-to-do/osaka-umeda-owl-nightclub-admission-ticket-for-foreign.a50730840.activity-details",
+          "note": "Foreigner admission tickets; attracts first-time clubbers"
+        },
+        {
+          "source": "Headout",
+          "url": "https://www.headout.com/ja/pub-crawls/tickets-to-owl-osaka-nightclub-e-24188/",
+          "note": "Tickets listed"
+        }
+      ],
+      "confidence": 0.7
+    },
+    {
+      "name": "Shin-Umeda Shokudogai",
+      "name_ja": "新梅田食道街",
+      "city": "Osaka",
+      "area": "Umeda",
+      "kind": "bar",
+      "why": "A post-war warren of 90-plus tiny bars and standing counters under the JR tracks at Osaka Station. Cheap highballs and kushikatsu with salarymen, the classic Umeda first drink.",
+      "best_time": "18:00–22:00",
+      "dates": "Weekday evenings; very busy with bonenkai on Fri 25",
+      "price": "¥1,500–2,500 per person for 2 stops",
+      "booking": "Walk in",
+      "group_of_8": "Split into 2–3 groups",
+      "hours": "Most ~11:00/16:00–23:00",
+      "visit_minutes": 90,
+      "first_last": "Right at JR Osaka / Umeda; easy to get back to Kujo",
+      "lat": 34.7035797,
+      "lng": 135.4980814,
+      "wish_ids": [
+        "w4",
+        "w5",
+        "w10"
+      ],
+      "evidence": [
+        {
+          "source": "Google Maps",
+          "url": "https://maps.google.com/?q=Shin-Umeda+Shokudogai",
+          "note": "4.0★ / 9.7k reviews, operational"
+        }
+      ],
+      "confidence": 0.7
+    },
+    {
+      "name": "Fukushima izakaya streets (Seiten-dori)",
+      "name_ja": "福島 聖天通り・立ち飲み",
+      "city": "Osaka",
+      "area": "Fukushima",
+      "kind": "bar",
+      "why": "One stop from Umeda and the closest good drinking quarter to Kujo (~10 min taxi). Hip, food-led standing bars and izakaya in old nagaya around JR and Hanshin Fukushima. Locals-only feel, more polished than Tenma.",
+      "best_time": "19:00–24:00",
+      "dates": "Any night",
+      "price": "¥2,500–4,000 per person; some highballs from ¥99 at chains",
+      "booking": "Walk in to standing bars; book izakaya for 8",
+      "group_of_8": "Split into 2×4 for standing bars",
+      "hours": "Mostly 17:00–24:00; Rojiura Avant-garde runs late",
+      "visit_minutes": 120,
+      "first_last": "Taxi to Kujo ~¥1,500–2,000 per car",
+      "lat": 34.6986533,
+      "lng": 135.4844715,
+      "wish_ids": [
+        "w4",
+        "w5"
+      ],
+      "evidence": [
+        {
+          "source": "Retty Fukushima standing bars",
+          "url": "https://retty.me/theme/200245005/",
+          "note": "Rojiura Avant-garde (open late, Showa-retro standing bar), Jack & Matilda, Ponshuya Santoku Rokumi"
+        },
+        {
+          "source": "Google Maps",
+          "url": "https://maps.google.com/?q=Seiten-dori+Fukushima+Osaka",
+          "note": "Seiten-dori shopping street anchor"
+        }
+      ],
+      "confidence": 0.6
+    },
+    {
+      "name": "Kiyamachi-dori bar strip (Kyoto)",
+      "name_ja": "木屋町通",
+      "city": "Osaka",
+      "area": "Kyoto – Kiyamachi (Shijo–Sanjo)",
+      "kind": "bar",
+      "why": "Kyoto's young, cheap nightlife: the canal-side street between Shijo and Sanjo has standing bars, cheap chain bars, international bars and karaoke. The natural after-dark add-on to a Kyoto day trip (w1/w3) before the train back to Osaka.",
+      "best_time": "18:00–22:30, then train back",
+      "dates": "Any day you are in Kyoto; avoid making Fri 25 a Kyoto night (save it for Osaka clubs)",
+      "price": "Beer ~¥500–700, cocktails ~¥800–1,200 (cheaper than Pontocho)",
+      "booking": "Walk in",
+      "group_of_8": "Fine; split for small bars",
+      "hours": "Most 17:00–24:00; karaoke and some bars to 04:00–05:00",
+      "visit_minutes": 150,
+      "first_last": "Aim to leave Kyoto-Kawaramachi (Hankyu) by ~23:00 so you still connect to Kujo (Metro/Hanshin last trains ~00:00); otherwise taxi from Umeda",
+      "lat": 35.0084352,
+      "lng": 135.7704882,
+      "wish_ids": [
+        "w3",
+        "w1",
+        "w4",
+        "w5"
+      ],
+      "evidence": [
+        {
+          "source": "Nomado Travel Kyoto nightlife guide",
+          "url": "https://www.nomadotravel.app/en/guides/kyoto-nightlife-guide",
+          "note": "Kiyamachi = younger, international, late crowd; cheaper than Pontocho (beer ¥500–700 vs ¥700–900); last Hankyu toward Osaka ~23:30"
+        },
+        {
+          "source": "Metropolis Kyoto nightlife (2007, background only)",
+          "url": "https://metropolisjapan.com/kyoto-nightlife/",
+          "note": "Kiyamachi long known for Kyoto's cheapest bars; Moonwalk ¥200-a-drink bars (old prices)"
+        },
+        {
+          "source": "Google Maps",
+          "url": "https://maps.google.com/?q=Kiyamachi-dori+Kyoto",
+          "note": "Street anchor between Sanjo and Shijo"
+        }
+      ],
+      "confidence": 0.75
+    },
+    {
+      "name": "Pontocho alley (Kyoto)",
+      "name_ja": "先斗町",
+      "city": "Osaka",
+      "area": "Kyoto – Pontocho",
+      "kind": "bar",
+      "why": "Kyoto's most beautiful drinking street: a narrow lantern-lit stone lane parallel to Kiyamachi, by the Kamo river. Walk through for the atmosphere and have one drink, then do your cheap drinking on Kiyamachi one block over. Pricier, and many places have a seat charge.",
+      "best_time": "17:30–20:00 for the lantern walk",
+      "dates": "Any Kyoto evening",
+      "price": "Cocktails ~¥1,200–2,000; seat charges common. Walking it is free",
+      "booking": "Book ahead only if you want a sit-down dinner for 8 (other researcher)",
+      "group_of_8": "Walk through as a group; bars are tiny",
+      "hours": "Most ~17:00–23:00",
+      "visit_minutes": 30,
+      "first_last": null,
+      "lat": 35.0039339,
+      "lng": 135.7710439,
+      "wish_ids": [
+        "w3",
+        "w1"
+      ],
+      "evidence": [
+        {
+          "source": "Google Maps",
+          "url": "https://maps.google.com/?q=Pontocho+Kyoto",
+          "note": "4.5★ / 1k reviews"
+        },
+        {
+          "source": "Nomado Travel Kyoto nightlife guide",
+          "url": "https://www.nomadotravel.app/en/guides/kyoto-nightlife-guide",
+          "note": "Pontocho is more atmospheric and pricier than Kiyamachi"
+        },
+        {
+          "source": "Metropolis Kyoto nightlife (2007)",
+          "url": "https://metropolisjapan.com/kyoto-nightlife/",
+          "note": "River-deck bars and restaurants, geisha-era history"
+        }
+      ],
+      "confidence": 0.7
+    },
+    {
+      "name": "Kitsune Kyoto (nightclub)",
+      "name_ja": "KITSUNE KYOTO",
+      "city": "Osaka",
+      "area": "Kyoto – Kiyamachi",
+      "kind": "nightlife",
+      "why": "Kyoto's busiest tourist-friendly club, on Kiyamachi, open nightly with cheap foreigner entry. Only worth it if the group decides to stay out in Kyoto until the first train (~05:00) — otherwise clubs in Osaka are better and closer to home (w2).",
+      "best_time": "22:00–23:00 early session only, if you still want the last train",
+      "dates": "Mon–Wed if you do a Kyoto night; not Thu 24/Fri 25",
+      "price": "Foreigner admission ~US$3 for a 2-hour window via resellers (international visitors only, so bring passports)",
+      "booking": "Advance foreigner ticket online",
+      "group_of_8": "Fine",
+      "hours": "22:00–05:00 nightly",
+      "visit_minutes": 90,
+      "first_last": "Opens at 22:00, which clashes with the last trains to Osaka; it only works if you stay out all night and ride the first train back",
+      "lat": 35.007927,
+      "lng": 135.7707265,
+      "wish_ids": [
+        "w3",
+        "w4"
+      ],
+      "evidence": [
+        {
+          "source": "Google Maps",
+          "url": "https://maps.google.com/?q=KITSUNE+KYOTO",
+          "note": "Operational, 4.6★ / 2.3k reviews, 22:00–05:00 daily"
+        },
+        {
+          "source": "Travelocity/Expedia foreigner ticket",
+          "url": "https://www.travelocity.com/things-to-do/kyoto-kitsune-nightclub-admission-ticket-for-foreign.a50793947.activity-details",
+          "note": "~$3 2-hour admission for international visitors only"
+        }
+      ],
+      "confidence": 0.6
+    }
+  ],
+  "notes": "Osaka · night: Base logic: Kujo (Nishi-ku) is 2 stops (~5 min) from Osaka-Namba on the Hanshin Namba line and on the Metro Chuo line via Hommachi, so Minami (Dotonbori, Ura-Namba, Amemura, Shinsaibashi) is home turf. A taxi from Namba is ~10–15 min, ~¥2,000 per car with the 20% late-night surcharge (split 4 ways); walking takes ~40 min. Pair the nights: (1) Mon 21: Tenma crawl from 17:30, then Shin-Umeda Shokudogai, then OWL Umeda (open nightly). (2) Minami nights: Hozenji, then Ura-Namba crawl, then Jankara, then Giraffe 22:00–04:00, then Round1 Sennichimae (24h) karaoke/Spo-Cha until the first train ~05:00. (3) Amemura night: Space Station, Triangle Park, then Circus (Thu–Sat only). Fukushima is the closest quality izakaya area to Kujo (taxi ~10 min). Kyoto (w3): do Pontocho at dusk and Kiyamachi bars after a Kyoto day, but leave Kawaramachi by ~23:00 to connect to Kujo (verify last trains on Jorudan); Kitsune Kyoto only works as an all-nighter with the first train back. Christmas: Thu 24 is a couples' date night (restaurants full, clubs run Xmas parties); Fri 25 = Christmas plus the weekend plus peak year-end bonenkai, so it is the biggest party night of the stay. Book Giraffe tickets ahead and reserve any izakaya for 8 that night. Rules: drinking/club age is 20+, carry original passports (clubs and Round1 check ID; under-18s barred 22:00–05:00 in Osaka). Many clubs refuse shorts/sandals and visible tattoos. Ignore street touts in Shinsaibashi/Dotonbori. Jankara stops serving alcohol at midnight. Budget: ¥1,500–3,000 per person for a standing-bar crawl, club entry ~¥1,000–3,500 incl. 1 drink, so a full night is ~¥5,000–8,000 each. Free Round1/Jankara app memberships cut prices (w10). Year-end: Dec 21–26 is before the New Year closures, so nightlife runs normally. CORRECTION: the osakatourism.org guide cited for Shin-Umeda Shokudogai and Space Station does not name them; treat both as single-signal (Google Maps) until re-checked."
+}

@@ -1,0 +1,71 @@
+{
+  "open": [
+    {
+      "dates": [
+        "2026-12-15",
+        "2026-12-16",
+        "2026-12-17",
+        "2026-12-18",
+        "2026-12-19",
+        "2026-12-26",
+        "2026-12-27",
+        "2026-12-28",
+        "2026-12-29"
+      ],
+      "open": "11:30",
+      "close": "15:00",
+      "quote": "11:30～15:00",
+      "url": "https://www.hotpepper.jp/strJ004509938/"
+    },
+    {
+      "dates": [
+        "2026-12-15",
+        "2026-12-16",
+        "2026-12-17",
+        "2026-12-18",
+        "2026-12-19",
+        "2026-12-26",
+        "2026-12-27",
+        "2026-12-28",
+        "2026-12-29"
+      ],
+      "open": "17:00",
+      "close": "23:30",
+      "quote": "17:00～23:30",
+      "url": "https://www.hotpepper.jp/strJ004509938/"
+    }
+  ],
+  "closed": [],
+  "last_entry": {
+    "time": "23:00",
+    "quote": "料理L.O. 23:00",
+    "url": "https://www.hotpepper.jp/strJ004509938/"
+  },
+  "prices": [
+    {
+      "what": "Banquet course, range 6000-8500 (per course, by menu)",
+      "yen": 6000,
+      "quote": "選べるコースは6000円～8500円まで用意",
+      "url": "https://www.hotpepper.jp/strJ004509938/"
+    }
+  ],
+  "fixed_minutes": null,
+  "time_limit": null,
+  "group": {
+    "text": "Private rooms for 6-8 people, booking preferred; 貸切 space for 10-45 people",
+    "quote": "6名様～8名様用の個室をご用意",
+    "url": "https://www.hotpepper.jp/strJ004509938/"
+  },
+  "booking": {
+    "text": "Online booking: instant booking until 21:00 on the day of visit; request booking until 17:00 the day before",
+    "quote": "即予約 来店日の当日21時まで受付",
+    "url": "https://www.hotpepper.jp/strJ004509938/"
+  },
+  "notes": [
+    {
+      "text": "No regular closing day (年中無休); no year-end or New Year hours shown on the page",
+      "quote": "定休日： 年中無休",
+      "url": "https://www.hotpepper.jp/strJ004509938/"
+    }
+  ]
+}

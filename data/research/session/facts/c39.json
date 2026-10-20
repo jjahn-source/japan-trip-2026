@@ -1,11 +1,49 @@
 {
-  "open": [],
+  "open": [
+    {
+      "dates": [
+        "2026-12-21",
+        "2026-12-22",
+        "2026-12-23",
+        "2026-12-24",
+        "2026-12-25"
+      ],
+      "open": "16:00",
+      "close": "24:00",
+      "quote": "平日は16:00から24:00、土日祝は15:00から24:00まで。",
+      "url": "https://happyell.co.jp/event/grand-wish-christmas-2026-osaka"
+    },
+    {
+      "dates": [
+        "2026-12-26"
+      ],
+      "open": "15:00",
+      "close": "24:00",
+      "quote": "平日は16:00から24:00、土日祝は15:00から24:00まで。",
+      "url": "https://happyell.co.jp/event/grand-wish-christmas-2026-osaka"
+    }
+  ],
   "closed": [],
-  "last_entry": null,
+  "last_entry": {
+    "time": "23:45",
+    "quote": "各日の最終上演は23:45です。",
+    "url": "https://happyell.co.jp/event/grand-wish-christmas-2026-osaka"
+  },
   "prices": [],
   "fixed_minutes": null,
   "time_limit": null,
   "group": null,
   "booking": null,
-  "notes": []
+  "notes": [
+    {
+      "text": "Light show on the main tree runs on the hour and at 15, 30, 45 past; source is a third-party event site (Happyell), not the Grand Front official site",
+      "quote": "毎時00分、15分、30分、45分に上演され、各日の最終上演は23:45です。",
+      "url": "https://happyell.co.jp/event/grand-wish-christmas-2026-osaka"
+    },
+    {
+      "text": "Disney Gift of Story runs 4 Nov to 25 Dec 2026, so it ends on the Fri 25 Dec trip date",
+      "quote": "2026年11月4日（水）～12月25日（金）／グランフロント大阪・グラングリーン大阪 各所",
+      "url": "https://happyell.co.jp/event/grand-wish-christmas-2026-osaka"
+    }
+  ]
 }

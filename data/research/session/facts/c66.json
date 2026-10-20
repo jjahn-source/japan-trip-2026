@@ -1,29 +1,44 @@
 {
-  "open": [
-    {
-      "dates": [
-        "2026-12-19",
-        "2026-12-20",
-        "2026-12-21"
-      ],
-      "open": "09:30",
-      "close": "16:40",
-      "quote": "12月1日〜3月19日 9:30〜16:40",
-      "url": "https://www.hakonenavi.jp/spot/11167"
-    }
-  ],
+  "open": [],
   "closed": [],
   "last_entry": null,
-  "prices": [],
+  "prices": [
+    {
+      "what": "Adult fare, 5-day pass",
+      "yen": 17000,
+      "quote": "Adults: 17,000 yen / Children: 8,500 yen",
+      "url": "https://cdn.gltjp.com/en/directory/item/17033/"
+    }
+  ],
   "fixed_minutes": null,
   "time_limit": null,
   "group": null,
   "booking": null,
   "notes": [
     {
-      "text": "Sailings can be suspended in bad weather",
-      "quote": "天候により運休あり",
-      "url": "https://www.hakonenavi.jp/spot/11167"
+      "text": "Validity: five consecutive days from first use (third-party directory page, last updated 24 Jun 2025; official JR West page not readable)",
+      "quote": "Five consecutive days from the date of first use",
+      "url": "https://cdn.gltjp.com/en/directory/item/17033/"
+    },
+    {
+      "text": "Covers SANYO SHINKANSEN Shin-Osaka to Hiroshima, limited express and local trains in the area, JR-West Miyajima Ferry",
+      "quote": "Unlimited travel for five consecutive days, including the SANYO SHINKANSEN between Shin-Osaka and Hiroshima",
+      "url": "https://cdn.gltjp.com/en/directory/item/17033/"
+    },
+    {
+      "text": "Reserved seats in ordinary cars: unlimited with advance reservation; some reserved seats need separate fare tickets",
+      "quote": "Note: Separate fare tickets are required for certain reserved seats.",
+      "url": "https://cdn.gltjp.com/en/directory/item/17033/"
+    },
+    {
+      "text": "Only for short-term international visitors",
+      "quote": "It’s available exclusively to short-term international visitors to Japan.",
+      "url": "https://cdn.gltjp.com/en/directory/item/17033/"
+    },
+    {
+      "text": "Where to buy: JR-WEST online train reservation or travel agencies outside Japan",
+      "quote": "JR-WEST ONLINE TRAIN RESERVATION, and travel agencies outside Japan",
+      "url": "https://cdn.gltjp.com/en/directory/item/17033/"
     }
   ]
 }

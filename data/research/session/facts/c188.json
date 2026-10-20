@@ -1,0 +1,54 @@
+{
+  "open": [
+    {
+      "dates": [
+        "2026-12-21",
+        "2026-12-22",
+        "2026-12-23",
+        "2026-12-24",
+        "2026-12-25",
+        "2026-12-26"
+      ],
+      "open": "08:30",
+      "close": "16:00",
+      "quote": "開門時間：8：30　閉門時間：16：00",
+      "url": "https://www.shitennoji.or.jp/event/12/"
+    }
+  ],
+  "closed": [],
+  "last_entry": null,
+  "prices": [
+    {
+      "what": "Central Temple (中心伽藍), adult individual; free opening on 12/21 (大師会)",
+      "yen": 500,
+      "quote": "500 円",
+      "url": "https://www.shitennoji.or.jp/admission.html"
+    }
+  ],
+  "fixed_minutes": null,
+  "time_limit": null,
+  "group": null,
+  "booking": null,
+  "notes": [
+    {
+      "text": "2026-12-21 (Mon) is the monthly 大師会 (Daishi-e, 終日); the central temple is opened free and the five-storey pagoda top gallery is open that day",
+      "quote": "この日は、中心伽藍を無料開放し、五重塔最上階回廊も開放しております。",
+      "url": "https://www.shitennoji.or.jp/event/12/"
+    },
+    {
+      "text": "Food and goods stalls (露店) line the temple grounds on 12/21",
+      "quote": "また、境内一円に食べ物のお店や日常品、アンティークなどの露店が出ます。",
+      "url": "https://www.shitennoji.or.jp/event/12/"
+    },
+    {
+      "text": "Listed as 12月21日 終日 大師会（弘法大師忌）; the page itself does not use the name 終い大師",
+      "quote": "大師会（弘法大師忌）",
+      "url": "https://www.shitennoji.or.jp/event/12/"
+    },
+    {
+      "text": "The gate is open 24 hours, so worship from outside the hall is possible at any time",
+      "quote": "四天王寺の門は24 時間開いておりますので、お堂の外からのお参りはいつでも出来ます。",
+      "url": "https://www.shitennoji.or.jp/admission.html"
+    }
+  ]
+}

@@ -9,29 +9,9 @@
   "booking": null,
   "notes": [
     {
-      "text": "Customs check for the refund must be finished before boarding procedures, so arrive with time to spare.",
-      "quote": "搭乗（乗船）手続までに税関確認（検査が必要となった場合は検査を含む）を完了する必要があるため",
-      "url": "https://www.mlit.go.jp/kankocho/tax-free/page01_000001_00021.html"
-    },
-    {
-      "text": "Bags checked in before the tax-free procedure cannot be used for it: keep the duty-free items with you.",
-      "quote": "空海港において手荷物の機（船）内預けをした後に免税手続用の端末等で手続を行うことはできません。",
-      "url": "https://www.mlit.go.jp/kankocho/tax-free/page01_000001_00021.html"
-    },
-    {
-      "text": "Customs check is done per purchase receipt; if one item from a receipt is missing, no item on that receipt is refunded.",
-      "quote": "税関確認は、一回の購入手続（レシート等）単位で行われます。",
-      "url": "https://www.mlit.go.jp/kankocho/tax-free/page01_000001_00021.html"
-    },
-    {
-      "text": "Refund-system items: purchases from 1 Nov 2026 onward.",
-      "quote": "＜免税対象物品＞※2026年11月１日以降",
-      "url": "https://www.mlit.go.jp/kankocho/tax-free/page01_000001_00021.html"
-    },
-    {
-      "text": "Minimum purchase: 5,000 yen or more (tax excluded) per shop per day.",
-      "quote": "同一店舗における１日の購入額（税抜）が5,000円以上の購入が対象です。",
-      "url": "https://www.mlit.go.jp/kankocho/tax-free/page01_000001_00021.html"
+      "text": "The listed website is one shop (Bontemps); its day-to-day hours are only on Instagram. No area-wide hours or year-end hours on the page",
+      "quote": "当日の営業時間についてはInstagramからご確認ください",
+      "url": "https://www.bontemps-seoul.com/ja"
     }
   ]
 }

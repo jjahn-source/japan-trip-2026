@@ -1,0 +1,109 @@
+{
+  "open": [
+    {
+      "dates": [
+        "2026-12-21",
+        "2026-12-22",
+        "2026-12-23",
+        "2026-12-24",
+        "2026-12-25",
+        "2026-12-26"
+      ],
+      "open": "11:00",
+      "close": "23:00",
+      "quote": "11:00～23:00 最終入館 22:00",
+      "url": "https://solaniwa.com/price/"
+    }
+  ],
+  "closed": [],
+  "last_entry": {
+    "time": "22:00",
+    "quote": "11:00～23:00 最終入館 22:00",
+    "url": "https://solaniwa.com/price/"
+  },
+  "prices": [
+    {
+      "what": "Adult admission, ticket type A (day-dependent; see calendar)",
+      "yen": 2310,
+      "quote": "2,310 円",
+      "url": "https://solaniwa.com/price/"
+    },
+    {
+      "what": "Adult admission, ticket type B (day-dependent; see calendar)",
+      "yen": 2640,
+      "quote": "2,640 円",
+      "url": "https://solaniwa.com/price/"
+    },
+    {
+      "what": "Adult admission, ticket type C (day-dependent; see calendar)",
+      "yen": 3080,
+      "quote": "3,080 円",
+      "url": "https://solaniwa.com/price/"
+    },
+    {
+      "what": "Adult admission, ticket type D (day-dependent; see calendar)",
+      "yen": 3300,
+      "quote": "3,300 円",
+      "url": "https://solaniwa.com/price/"
+    },
+    {
+      "what": "Adult admission, ticket type E (day-dependent; see calendar)",
+      "yen": 3630,
+      "quote": "3,630 円",
+      "url": "https://solaniwa.com/price/"
+    },
+    {
+      "what": "Adult night rate from 17:00, ticket types A/B",
+      "yen": 1980,
+      "quote": "1,980 円",
+      "url": "https://solaniwa.com/price/"
+    },
+    {
+      "what": "Adult night rate from 17:00, ticket type C",
+      "yen": 2420,
+      "quote": "2,420 円",
+      "url": "https://solaniwa.com/price/"
+    },
+    {
+      "what": "Child (4 to elementary school), flat",
+      "yen": 1320,
+      "quote": "1,320 円",
+      "url": "https://solaniwa.com/price/"
+    },
+    {
+      "what": "Age 70 and over, flat (ID needed)",
+      "yen": 1800,
+      "quote": "1,800 円",
+      "url": "https://solaniwa.com/price/"
+    }
+  ],
+  "fixed_minutes": null,
+  "time_limit": null,
+  "group": {
+    "text": "Group bookings are arranged through the enquiry form.",
+    "quote": "※下記は一般料金です。団体様のご予約等は、フォームよりお問合せください。",
+    "url": "https://solaniwa.com/price/"
+  },
+  "booking": {
+    "text": "Online entry tickets can be bought; enquiries and cancellations via the link on the site.",
+    "quote": "オンライン入館チケットをご購入のお客様は、下記よりお問合せ・キャンセルを受け付けております。",
+    "url": "https://solaniwa.com/faq/"
+  },
+  "notes": [
+    {
+      "text": "Closed on Wednesdays in the listed closure days; in December 2026 only 9 Dec is listed (not a trip date).",
+      "quote": "12/9(水)",
+      "url": "https://solaniwa.com/price/"
+    },
+    {
+      "text": "Guests with tattoos or body art are refused entry, with exceptions for covering stickers.",
+      "quote": "原則として、入れ墨・ボディアート(タトゥー・ペイント・シール等)のある方のご入館はお断りしています。",
+      "url": "https://solaniwa.com/faq/"
+    },
+    {
+      "text": "Prices are by ticket type; which type applies on each date is in the calendar (not read by the tool).",
+      "quote": "※適用日は、チケットタイプカレンダーでご確認ください。",
+      "url": "https://solaniwa.com/price/"
+    }
+  ]
+}

@@ -1,0 +1,96 @@
+{
+  "open": [
+    {
+      "dates": [
+        "2026-12-15",
+        "2026-12-16",
+        "2026-12-17",
+        "2026-12-18",
+        "2026-12-19",
+        "2026-12-26",
+        "2026-12-27",
+        "2026-12-28",
+        "2026-12-29"
+      ],
+      "open": "10:00",
+      "close": "23:00",
+      "quote": "10:00～23：00（最終受付22:00）",
+      "url": "https://www.seibu-leisure.co.jp/niwanoyu/information/index.html"
+    }
+  ],
+  "closed": [],
+  "last_entry": {
+    "time": "22:00",
+    "quote": "（最終受付22:00）",
+    "url": "https://www.seibu-leisure.co.jp/niwanoyu/information/index.html"
+  },
+  "prices": [
+    {
+      "what": "Adult general, weekday (trip dates Tue-Fri 12-15 to 12-18)",
+      "yen": 2600,
+      "quote": "平日　　 2,600 円",
+      "url": "https://www.seibu-leisure.co.jp/niwanoyu/information/index.html"
+    },
+    {
+      "what": "Adult general, 土日祝 (trip date Sat 12-19)",
+      "yen": 3300,
+      "quote": "土日祝　 3,300 円",
+      "url": "https://www.seibu-leisure.co.jp/niwanoyu/information/index.html"
+    },
+    {
+      "what": "Adult general, 特定日 (trip dates 12-26 to 12-29)",
+      "yen": 3400,
+      "quote": "特定日　 3,400 円",
+      "url": "https://www.seibu-leisure.co.jp/niwanoyu/information/index.html"
+    },
+    {
+      "what": "Night spa (18:00 onward), weekday",
+      "yen": 1800,
+      "quote": "平日　　 1,800 円",
+      "url": "https://www.seibu-leisure.co.jp/niwanoyu/information/index.html"
+    },
+    {
+      "what": "Night spa (18:00 onward), 土日祝",
+      "yen": 2400,
+      "quote": "土日祝　 2,400 円",
+      "url": "https://www.seibu-leisure.co.jp/niwanoyu/information/index.html"
+    },
+    {
+      "what": "Night spa (18:00 onward), 特定日 (trip dates 12-26 to 12-29)",
+      "yen": 2500,
+      "quote": "特定日　 2,500 円",
+      "url": "https://www.seibu-leisure.co.jp/niwanoyu/information/index.html"
+    }
+  ],
+  "fixed_minutes": null,
+  "time_limit": null,
+  "group": null,
+  "booking": null,
+  "notes": [
+    {
+      "text": "12-26 to 12-29 fall in the 特定日 period (year-end), so 特定日 fares apply",
+      "quote": "2026年12月26日（土）～2027年1月3日（日）",
+      "url": "https://www.seibu-leisure.co.jp/niwanoyu/information/index.html"
+    },
+    {
+      "text": "Under-13s not admitted",
+      "quote": "13歳未満のお子さまのご利用はお断りいたします。",
+      "url": "https://www.seibu-leisure.co.jp/niwanoyu/information/index.html"
+    },
+    {
+      "text": "Tattoos (including sticker covers) not admitted",
+      "quote": "刺青・タトゥー(シール類を含む)をされている方",
+      "url": "https://www.seibu-leisure.co.jp/niwanoyu/information/index.html"
+    },
+    {
+      "text": "Admission includes locker, robe, towel and bath towel rental",
+      "quote": "入館料には更衣ロッカー・館内着・タオル・バスタオルのレンタル料金が含まれます。",
+      "url": "https://www.seibu-leisure.co.jp/niwanoyu/information/index.html"
+    },
+    {
+      "text": "Phone",
+      "quote": "TEL:03-5984-4126",
+      "url": "https://www.seibu-leisure.co.jp/niwanoyu/information/index.html"
+    }
+  ]
+}

@@ -1,0 +1,633 @@
+{
+  "candidates": [
+    {
+      "name": "Tax-free refund at Haneda T3 (new refund system)",
+      "name_ja": "免税リファンド方式・羽田空港第3ターミナル税関確認",
+      "city": "Tokyo",
+      "area": "Haneda",
+      "kind": "other",
+      "why": "From 1 Nov 2026 Japan stopped taking tax off at the till. You now pay the full price including the 10% tax, show your passport, and register how you want the refund paid. When you leave, you scan your passport at the customs tax-free kiosk in the departure lobby, or use Visit Japan Web on the airport's tax-free Wi-Fi, BEFORE you drop bags at the airline counter. GREEN means the refund is approved, and the shop or its refund operator pays it to the registered method (secondary guides say 1–2 weeks to a card). RED means a customs inspection. Rules: at least ¥5,000 before tax per store per day; customs must check you within 90 days; the old consumables cap and sealed bags are gone, but anything eaten or used in Japan isn't refunded; it's per receipt, so if one item on a receipt is missing, nothing on that receipt is refunded; only quantities you can carry out yourself.",
+      "best_time": "Tue 29 Dec: aim to reach T3 by ~14:00 for the 17:20 flight. 29 Dec is a peak year-end departure day, and you must do the kiosk with all goods BEFORE bag drop, with no compensation if you run out of time.",
+      "dates": "Applies to everything bought 15–29 Dec 2026 (all under the new system, no transition period)",
+      "price": "Refund ≈10% of the tax-inclusive price; some operators deduct a fee. Don Quijote (PPIH) is fee-free unless you take cash at the airport",
+      "booking": "Register on Visit Japan Web before arrival (speeds up both shops and the airport kiosk). At each tax-free shop, show your passport and register the refund method (card etc.).",
+      "group_of_8": "Each person must buy and claim on their own passport. Don't pool purchases on one receipt across people. Pack every refundable item in an easy-to-reach bag so all 8 can clear the kiosk fast.",
+      "hours": "Kiosks in the international departure lobby, before check-in/bag drop",
+      "visit_minutes": 30,
+      "first_last": "Must be done before checking bags. Checked bags can't be retrieved for the procedure.",
+      "lat": 35.5438875,
+      "lng": 139.7686524,
+      "wish_ids": [
+        "w7",
+        "w10",
+        "w5"
+      ],
+      "evidence": [
+        {
+          "source": "Japan Tourism Agency (official)",
+          "url": "https://www.mlit.go.jp/kankocho/tax-free/page01_000001_00021.html",
+          "note": "Refund method from 1 Nov 2026: pay tax-inclusive, ¥5,000 min per store per day, 90 days, kiosk before checked-baggage drop, green/red, per-receipt all-or-nothing, consumables used in Japan not refunded, packaging rule abolished"
+        },
+        {
+          "source": "Japan Tourism Agency flyer (PDF)",
+          "url": "https://www.mlit.go.jp/kankocho/tax-free/content/001978459.pdf",
+          "note": "Traveller flow: buy tax-incl. → register refund method → kiosk (or VJW on airport Wi-Fi at Haneda/Narita/Kansai etc.) → airline bag drop → refund. ¥500k consumables cap and special packaging abolished"
+        },
+        {
+          "source": "PPIH / Don Quijote press via Hokkaido Shimbun",
+          "url": "https://www.hokkaido-np.co.jp/article/1386454/",
+          "note": "From 1 Nov 2026 refund fee is free at all PPIH (Don Quijote) stores; operator fee applies only if refund is taken in cash at the airport"
+        },
+        {
+          "source": "Japan Customs",
+          "url": "https://www.customs.go.jp/kaigairyoko/20250325.html",
+          "note": "Joint customs/immigration kiosks in full operation at Haneda T2/T3 using Visit Japan Web QR + IC passport"
+        },
+        {
+          "source": "FlipJapan guide (2026)",
+          "url": "https://flipjapanguide.com/japans-new-tax-free-system/",
+          "note": "Traveller-side explainer: keep items in carry-on/with you, refunds to card/bank after departure"
+        }
+      ],
+      "confidence": 0.9
+    },
+    {
+      "name": "MEGA Don Quijote Shibuya Main Store",
+      "name_ja": "MEGAドン・キホーテ渋谷本店",
+      "city": "Tokyo",
+      "area": "Shibuya",
+      "kind": "shopping",
+      "why": "The biggest 24-hour Donki in central Tokyo: snacks, KitKats, cosmetics, costumes, character goods and cheap electronics on several floors. Now that the refund system is in, Donki is the easy place for tax-free shopping, since PPIH waives the refund fee (unless you take cash at the airport). Go late at night after Shibuya, when it's the classic group outing.",
+      "best_time": "After 22:00 on a Shibuya night, when the day crowds thin and nothing else is open for shopping. Avoid 17:00–20:00.",
+      "dates": null,
+      "price": "¥3,000–10,000 pp typical haul; hit ¥5,000 ex-tax on ONE receipt per person for the refund",
+      "booking": null,
+      "group_of_8": "Fine. Split into pairs with a 30-min meet-up at the entrance; everyone pays separately on their own passport.",
+      "hours": "24 hours",
+      "visit_minutes": 60,
+      "first_last": null,
+      "lat": 35.6603873,
+      "lng": 139.6978172,
+      "wish_ids": [
+        "w7",
+        "w5",
+        "w8",
+        "w10"
+      ],
+      "evidence": [
+        {
+          "source": "Google Maps",
+          "url": "https://www.google.com/maps/search/?api=1&query=MEGA+Don+Quijote+Shibuya",
+          "note": "Open 24h, 4.2★ from ~22.8k reviews (Oct 2026)"
+        },
+        {
+          "source": "PPIH press release via Hokkaido Shimbun",
+          "url": "https://www.hokkaido-np.co.jp/article/1386454/",
+          "note": "Fee-free tax refunds at all Don Quijote stores from 1 Nov 2026"
+        }
+      ],
+      "confidence": 0.85
+    },
+    {
+      "name": "Don Quijote Shinjuku Kabukicho",
+      "name_ja": "ドン・キホーテ新宿歌舞伎町店",
+      "city": "Tokyo",
+      "area": "Shinjuku",
+      "kind": "shopping",
+      "why": "A 24-hour Donki a short walk from Garfield House, and the best place for the final souvenir and snack haul on 28 Dec night before flying out. Same fee-free refund as all PPIH stores. Snacks you'll eat on the trip don't qualify, so put the take-home haul on its own receipt.",
+      "best_time": "Night of Mon 28 Dec (late), so everything goes straight into the carry-on for the T3 kiosk",
+      "dates": "26–28 Dec",
+      "price": "¥3,000–10,000 pp",
+      "booking": null,
+      "group_of_8": "Fine; pay individually.",
+      "hours": "24 hours",
+      "visit_minutes": 60,
+      "first_last": null,
+      "lat": 35.6937755,
+      "lng": 139.7017873,
+      "wish_ids": [
+        "w7",
+        "w5",
+        "w10"
+      ],
+      "evidence": [
+        {
+          "source": "Google Maps",
+          "url": "https://www.google.com/maps/search/?api=1&query=Don+Quijote+Shinjuku+Kabukicho",
+          "note": "Listed open 24 hours every day, operational (Oct 2026)"
+        },
+        {
+          "source": "PPIH press release via Hokkaido Shimbun",
+          "url": "https://www.hokkaido-np.co.jp/article/1386454/",
+          "note": "Fee-free refunds at Don Quijote nationwide from 1 Nov 2026"
+        }
+      ],
+      "confidence": 0.75
+    },
+    {
+      "name": "Super Potato Retro-kan",
+      "name_ja": "スーパーポテト レトロ館",
+      "city": "Tokyo",
+      "area": "Akihabara",
+      "kind": "shopping",
+      "why": "The best-known retro game shop in Akihabara: three cramped floors of Famicom, Game Boy, PS1 and N64 stock, plus a small retro arcade on the top floor. It still goes viral on TikTok in 2026. Good for browsing and photos, but prices are collector level, so the Book-Off and Surugaya stores in the area are cheaper for actually buying games.",
+      "best_time": "Weekday early afternoon; pair with Mandarake Complex and Radio Kaikan on one Akihabara loop",
+      "dates": null,
+      "price": "Browsing free; retro cartridges ¥500–¥10,000+",
+      "booking": null,
+      "group_of_8": "Floors are tight, so go in two groups of four.",
+      "hours": "approx. 11:00–20:00 (weekends from 10:00), check before going",
+      "visit_minutes": 45,
+      "first_last": null,
+      "lat": 35.699419021606445,
+      "lng": 139.7708740234375,
+      "wish_ids": [
+        "w7",
+        "w8"
+      ],
+      "evidence": [
+        {
+          "source": "TikTok @gamestorehunters",
+          "url": "https://www.tiktok.com/@gamestorehunters/video/7688044435661163790",
+          "note": "2026 visit video: 'legendary retro game store'; ~14.7k plays, 2.2k likes"
+        },
+        {
+          "source": "Official site",
+          "url": "http://www.superpotato.com/",
+          "note": "Retro-kan at Sotokanda 1-11-2, floors 3–5"
+        }
+      ],
+      "confidence": 0.75
+    },
+    {
+      "name": "Mandarake Complex + Radio Kaikan loop",
+      "name_ja": "まんだらけコンプレックス／秋葉原ラジオ会館",
+      "city": "Tokyo",
+      "area": "Akihabara",
+      "kind": "shopping",
+      "why": "These two are the core of an Akihabara shopping run. Mandarake Complex is an 8-floor secondhand tower: manga, figures, cels, idol goods and vintage toys. Radio Kaikan (by the station) has 10 floors of figure shops, card shops, gachapon and anime goods. Secondhand figures and cards cost far less than new, so it's a good budget pick.",
+      "best_time": "From 12:00 (Mandarake opens at noon). Weekdays are calmer. Combine with Ueno/Ameyoko, 2 stops on the Yamanote line.",
+      "dates": null,
+      "price": "Gachapon ¥300–500; used figures ¥1,000–5,000",
+      "booking": null,
+      "group_of_8": "Split by interest (cards, figures, retro) and regroup at Radio Kaikan's front.",
+      "hours": "Mandarake Complex 12:00–20:00; Radio Kaikan ~10:00–20:00",
+      "visit_minutes": 120,
+      "first_last": null,
+      "lat": 35.700373299999995,
+      "lng": 139.77050309999998,
+      "wish_ids": [
+        "w7",
+        "w8",
+        "w5"
+      ],
+      "evidence": [
+        {
+          "source": "Google Maps",
+          "url": "https://www.google.com/maps/search/?api=1&query=Mandarake+Complex+Akihabara",
+          "note": "Mandarake Complex 4.2★ ~6.1k reviews, 12:00–20:00; Radio Kaikan 4.3★, 10:00–20:00 (Oct 2026)"
+        },
+        {
+          "source": "Lonely Planet geek culture guide",
+          "url": "https://www.lonelyplanet.com/articles/geek-culture-guide-tokyo",
+          "note": "Akihabara and Mandarake as core otaku shopping"
+        }
+      ],
+      "confidence": 0.8
+    },
+    {
+      "name": "animate Ikebukuro Flagship + Otome Road",
+      "name_ja": "アニメイト池袋本店・乙女ロード",
+      "city": "Tokyo",
+      "area": "Ikebukuro",
+      "kind": "shopping",
+      "why": "The world's largest animate (anime goods, rebuilt flagship) plus Otome Road's K-Books and Lashinbang for secondhand character goods. It's Tokyo's main hub for female-oriented fandoms and less hectic than Akihabara. About 10–15 minutes from Ninja House, so it works for the arrival evening on 15 Dec.",
+      "best_time": "Evening of 15–18 Dec (animate open to 21:00); combine with Sunshine City next door",
+      "dates": "15–19 Dec (Ikebukuro stay)",
+      "price": "¥1,000–5,000 pp for goods",
+      "booking": null,
+      "group_of_8": "Easy; big store, many floors.",
+      "hours": "animate 10:00–21:00; K-Books ~12:00–20:00",
+      "visit_minutes": 90,
+      "first_last": null,
+      "lat": 35.7311443,
+      "lng": 139.7154592,
+      "wish_ids": [
+        "w7",
+        "w5",
+        "w8"
+      ],
+      "evidence": [
+        {
+          "source": "Google Maps",
+          "url": "https://www.google.com/maps/search/?api=1&query=animate+Ikebukuro+Flagship+Store",
+          "note": "4.2★ ~14.6k reviews, 10:00–21:00 (Oct 2026); K-Books Otome Pavilion 12:00–20:00"
+        },
+        {
+          "source": "kabu.lolipop.jp anime goods guide",
+          "url": "https://kabu.lolipop.jp/entertainment/amime_goods_5.html",
+          "note": "Names animate Ikebukuro, K-Books, Lashinbang as the key Ikebukuro/Otome Road stores"
+        }
+      ],
+      "confidence": 0.8
+    },
+    {
+      "name": "Pokémon Center Mega Tokyo & Sunshine City",
+      "name_ja": "ポケモンセンターメガトウキョー（サンシャインシティ）",
+      "city": "Tokyo",
+      "area": "Ikebukuro",
+      "kind": "shopping",
+      "why": "The largest Pokémon Center, inside Sunshine City's Alpa mall, with exclusive merch and Pikachu Sweets next door. Sunshine City also has dozens of character and anime shops under one roof, which helps on a cold December evening. It's in Ninja House's own neighbourhood.",
+      "best_time": "Weekday evening 15–18 Dec; weekends get queues at the Pokémon Center",
+      "dates": "15–19 Dec",
+      "price": "¥1,000–5,000 pp",
+      "booking": null,
+      "group_of_8": "Fine; mall-scale.",
+      "hours": "approx. 10:00–20:00",
+      "visit_minutes": 90,
+      "first_last": null,
+      "lat": 35.7289056,
+      "lng": 139.7193245,
+      "wish_ids": [
+        "w7",
+        "w8"
+      ],
+      "evidence": [
+        {
+          "source": "Google Maps",
+          "url": "https://www.google.com/maps/search/?api=1&query=Pokemon+Center+Mega+Tokyo",
+          "note": "Listed in Sunshine City Alpa 2F, operational (Oct 2026)"
+        },
+        {
+          "source": "Lonely Planet geek culture guide",
+          "url": "https://www.lonelyplanet.com/articles/geek-culture-guide-tokyo",
+          "note": "Pokémon Centre Mega Tokyo in Sunshine City for exclusive merchandise"
+        }
+      ],
+      "confidence": 0.75
+    },
+    {
+      "name": "Shibuya PARCO (Nintendo Tokyo, Pokémon Center Shibuya, Capcom, Jump Shop)",
+      "name_ja": "渋谷PARCO",
+      "city": "Tokyo",
+      "area": "Shibuya",
+      "kind": "shopping",
+      "why": "Floor 6 is a run of game and anime shops (Nintendo TOKYO, Pokémon Center Shibuya, Capcom Store, Jump Shop). The other floors carry Japanese designer and streetwear labels. It fits between Shimokitazawa and a Shibuya night. PARCO's big sale (Grand Bazaar) starts in January, after the trip, so December is full price here.",
+      "best_time": "Weekday 11:00–13:00 for Nintendo TOKYO; weekend afternoons queue",
+      "dates": null,
+      "price": "Browse; merch ¥1,500+",
+      "booking": "Nintendo TOKYO sometimes uses timed entry when busy; check on the day",
+      "group_of_8": "Fine.",
+      "hours": "11:00–21:00",
+      "visit_minutes": 75,
+      "first_last": null,
+      "lat": 35.6620484,
+      "lng": 139.6987767,
+      "wish_ids": [
+        "w7",
+        "w8"
+      ],
+      "evidence": [
+        {
+          "source": "Google Maps",
+          "url": "https://www.google.com/maps/search/?api=1&query=Shibuya+PARCO",
+          "note": "4.3★ ~8.5k reviews, 11:00–21:00 (Oct 2026)"
+        },
+        {
+          "source": "Time Out Tokyo (ja) new-year sales 2026",
+          "url": "https://www.timeout.jp/tokyo/ja/shopping/newyearsale-2026",
+          "note": "PARCO Grand Bazaar ran from 3 Jan, so the sale falls after the trip"
+        }
+      ],
+      "confidence": 0.75
+    },
+    {
+      "name": "Koenji vintage crawl (Pal & Look arcades, Kita-Kore Building)",
+      "name_ja": "高円寺 古着（パル商店街・ルック商店街・キタコレビル）",
+      "city": "Tokyo",
+      "area": "Koenji",
+      "kind": "shopping",
+      "why": "Locals and 2025–26 Xiaohongshu guides now prefer Koenji to Shimokitazawa for vintage. There are more shops, a wider range of styles, rougher edges, fewer tourists and generally lower prices. Walk south from Koenji Station down Pal into Look arcade toward Shin-Koenji, then cross to the north side for Kita-Kore Building's punk and designer-archive shops. It's 6 minutes from Shinjuku on the Chuo line, so it works well during the Garfield House stay.",
+      "best_time": "Start 12:00 or later; most shops open at noon and the area is dead in the morning. Pair with Nakano Broadway one stop away.",
+      "dates": "26–28 Dec work. Some indie shops close irregularly over the New Year, so check the shop's Instagram.",
+      "price": "¥2,000–8,000 per piece; ¥500–1,000 bargain racks",
+      "booking": null,
+      "group_of_8": "Shops are tiny, so split into 2–3 groups, use the arcade as the spine and meet at the station.",
+      "hours": "Most shops ~12:00–20:00; Kita-Kore listed 11:00–18:00",
+      "visit_minutes": 180,
+      "first_last": null,
+      "lat": 35.705030799999996,
+      "lng": 139.64920899999998,
+      "wish_ids": [
+        "w7",
+        "w8",
+        "w10"
+      ],
+      "evidence": [
+        {
+          "source": "Xiaohongshu @Gennnnnki元",
+          "url": "https://www.xiaohongshu.com/explore/6aa14400000000002601db98",
+          "note": "Sep 2026: 'buy vintage in Koenji', 8 must-visit shops, more varied than Shimokitazawa"
+        },
+        {
+          "source": "Xiaohongshu @哆发发",
+          "url": "https://www.xiaohongshu.com/explore/6a89a15f0000000028029f0f",
+          "note": "Aug 2026: 3-hour Koenji route starting from Shin-Koenji, with map"
+        },
+        {
+          "source": "X (Japan)",
+          "url": "https://x.com/Xe63ymghyk49847/status/2110012773422014477",
+          "note": "13 Oct 2026, local recommending Koenji to vintage lovers"
+        },
+        {
+          "source": "OneDayAway: Shimokitazawa vs Koenji",
+          "url": "https://onedayawaytravel.com/?p=1767",
+          "note": "Koenji better for bargain digging; Shimokita for curated pieces"
+        }
+      ],
+      "confidence": 0.85
+    },
+    {
+      "name": "Nakano Broadway",
+      "name_ja": "中野ブロードウェイ",
+      "city": "Tokyo",
+      "area": "Nakano",
+      "kind": "shopping",
+      "why": "A 1960s arcade building whose floors 2–4 are packed with Mandarake branches and small collector shops: figures, retro toys, idol goods, watches, cards. It's calmer and often cheaper than Akihabara. It's one Chuo-line stop from Koenji, so the two make a perfect afternoon.",
+      "best_time": "After Koenji, from ~15:00; most shops open around noon and close at 20:00",
+      "dates": null,
+      "price": "Browse; figures and cards from ¥500",
+      "booking": null,
+      "group_of_8": "Narrow corridors; go in two groups.",
+      "hours": "Building ~10:00–20:00; shops mostly 12:00–20:00",
+      "visit_minutes": 90,
+      "first_last": null,
+      "lat": 35.7092475,
+      "lng": 139.66565240000003,
+      "wish_ids": [
+        "w7",
+        "w8"
+      ],
+      "evidence": [
+        {
+          "source": "GO TOKYO (official, updated Dec 2025)",
+          "url": "https://www.gotokyo.org/en/spot/72/index.html",
+          "note": "Anime-themed shops as a relaxed alternative to Akihabara"
+        },
+        {
+          "source": "Kanpai Japan",
+          "url": "https://www.kanpai-japan.com/tokyo/nakano-broadway",
+          "note": "Many Mandarake shops, hobby shops on floors 2–4"
+        },
+        {
+          "source": "Google Maps",
+          "url": "https://www.google.com/maps/search/?api=1&query=Nakano+Broadway",
+          "note": "4.2★, 10:00–20:00 (Oct 2026)"
+        }
+      ],
+      "confidence": 0.8
+    },
+    {
+      "name": "Shimokitazawa vintage (Flamingo, New York Joe Exchange, reload)",
+      "name_ja": "下北沢 古着（フラミンゴ・ニューヨークジョーエクスチェンジ・reload）",
+      "city": "Tokyo",
+      "area": "Shimokitazawa",
+      "kind": "shopping",
+      "why": "Tokyo's best-known vintage village. Flamingo is the classic American-vintage shop. New York Joe Exchange is a former bathhouse used as a trade-in thrift, with the cheapest racks in the area. reload is the new low-rise mall along the old rail line, with curated shops and cafés. Recent Chinese and Reddit reviews say the main streets are pricier and more touristy than they were, so dig the side streets and bargain racks, or do Koenji if you only have time for one.",
+      "best_time": "12:00–17:00, then 4 min on the Inokashira line to Shibuya for the evening",
+      "dates": null,
+      "price": "¥1,000–3,000 at NY Joe; ¥3,000–10,000 per piece at curated shops",
+      "booking": null,
+      "group_of_8": "Compact area, easy to split and regroup at reload.",
+      "hours": "NY Joe 12:00–20:00; Flamingo ~12:00–21:00; reload shops ~11:00–20:00",
+      "visit_minutes": 180,
+      "first_last": null,
+      "lat": 35.6639104,
+      "lng": 139.66815019999999,
+      "wish_ids": [
+        "w7",
+        "w8",
+        "w10"
+      ],
+      "evidence": [
+        {
+          "source": "Xiaohongshu @米亚星球",
+          "url": "https://www.xiaohongshu.com/explore/6ab093c100000000260317f0",
+          "note": "Sep 2026: Shimokita vintage 'not what it was' but rewarding off the main street, with lesser-known local shops"
+        },
+        {
+          "source": "Reddit r/Tokyo",
+          "url": "https://www.reddit.com/r/Tokyo/comments/1icjhxi/good_thrift_stores_in_shimokita/",
+          "note": "Locals' thread on good Shimokita thrift stores"
+        },
+        {
+          "source": "Google Maps",
+          "url": "https://www.google.com/maps/search/?api=1&query=New+York+Joe+Exchange+Shimokitazawa",
+          "note": "NY Joe 3.7★ ~400 reviews 12:00–20:00; reload 4.2★ (Oct 2026)"
+        }
+      ],
+      "confidence": 0.75
+    },
+    {
+      "name": "Harajuku → Ura-Hara → Cat Street walk (atmos, Kicks Lab, 2nd Street)",
+      "name_ja": "原宿・裏原宿・キャットストリート",
+      "city": "Tokyo",
+      "area": "Harajuku",
+      "kind": "shopping",
+      "why": "The streetwear and sneaker spine of Tokyo. Do Takeshita Street quickly at opening (crepes, cheap accessories), cross Meiji-dori into Ura-Hara's back lanes (brand flagships, consignment such as L.A. Avenue), then walk Cat Street south to Shibuya. On the way you pass atmos and Kicks Lab for sneakers, plus 2nd Street and Kinji for budget secondhand. The route ends at Shibuya PARCO and Miyashita Park.",
+      "best_time": "Takeshita at 10:00–11:00 before it jams; Ura-Hara/Cat Street 11:30–16:00; finish in Shibuya at dusk",
+      "dates": null,
+      "price": "Secondhand ¥1,000–5,000; new streetwear ¥8,000+",
+      "booking": "Hyped sneaker drops at atmos/Kicks Lab use raffles in apps or on Instagram. Check a week ahead.",
+      "group_of_8": "Takeshita is shoulder-to-shoulder, so set one meet point (Harajuku station, Omotesando exit).",
+      "hours": "Most shops 11:00–20:00; atmos Harajuku 11:00–20:00; 2nd Street 11:00–21:00",
+      "visit_minutes": 240,
+      "first_last": null,
+      "lat": 35.6671358,
+      "lng": 139.7064336,
+      "wish_ids": [
+        "w7",
+        "w8",
+        "w5"
+      ],
+      "evidence": [
+        {
+          "source": "Complex shop guide Tokyo",
+          "url": "https://www.complex.com/sneakers/a/brennan-hiro-williams/shop-guide-tokyo",
+          "note": "atmos flagship among the world's top sneaker boutiques; L.A. Avenue consignment in Ura-Harajuku"
+        },
+        {
+          "source": "Japan Web Magazine (Oct 2025)",
+          "url": "https://jw-webmagazine.com/tips/sneaker-stores-in-tokyo/",
+          "note": "Best sneaker stores list incl. atmos, mita, Kicks Lab"
+        },
+        {
+          "source": "Google Maps",
+          "url": "https://www.google.com/maps/search/?api=1&query=atmos+Harajuku",
+          "note": "atmos Harajuku 11:00–20:00; Kicks Lab Pino Harajuku; 2nd STREET Harajuku 11:00–21:00 (Oct 2026)"
+        }
+      ],
+      "confidence": 0.8
+    },
+    {
+      "name": "mita sneakers & Ameyoko",
+      "name_ja": "ミタスニーカーズ・アメ横",
+      "city": "Tokyo",
+      "area": "Ueno",
+      "kind": "shopping",
+      "why": "mita is a 1950s-born sneaker shop under the Ameyoko tracks, famous for its Nike, New Balance and Asics collabs. Ameyoko around it has cheap sneaker stalls, jackets and snacks. It's two Yamanote stops from Akihabara. Warning: from about 28 Dec Ameyoko becomes Tokyo's busiest New Year food market and is shoulder-to-shoulder, so go in the first stay (15–18 Dec).",
+      "best_time": "Weekday 11:00–15:00, 15–18 Dec; avoid 28–31 Dec",
+      "dates": "Prefer 15–18 Dec",
+      "price": "Sneakers ¥10,000–25,000",
+      "booking": null,
+      "group_of_8": "Small shop, so 3–4 at a time.",
+      "hours": "approx. 11:00–19:30 (weekends from 10:00)",
+      "visit_minutes": 60,
+      "first_last": null,
+      "lat": 35.709626199999995,
+      "lng": 139.7745182,
+      "wish_ids": [
+        "w7",
+        "w8"
+      ],
+      "evidence": [
+        {
+          "source": "Japan Web Magazine (Oct 2025)",
+          "url": "https://jw-webmagazine.com/tips/sneaker-stores-in-tokyo/",
+          "note": "mita on Ameyoko, known for exclusive collabs with Nike, New Balance, Asics"
+        },
+        {
+          "source": "Time Out Tokyo sneaker shops",
+          "url": "https://timeout.com/tokyo/shopping/best-sneaker-shops-in-tokyo",
+          "note": "Listed among best sneaker shops"
+        },
+        {
+          "source": "Google Maps",
+          "url": "https://www.google.com/maps/search/?api=1&query=mita+sneakers+Ueno",
+          "note": "Mon 11:00–19:30, operational (Oct 2026)"
+        }
+      ],
+      "confidence": 0.65
+    },
+    {
+      "name": "Isetan Shinjuku depachika",
+      "name_ja": "伊勢丹新宿店 食品館（デパ地下）",
+      "city": "Tokyo",
+      "area": "Shinjuku",
+      "kind": "shopping",
+      "why": "Isetan Shinjuku's basement food floor, the best-known department-store food hall in Tokyo: wagashi, high-end sweets in gift boxes, bento and sake. It's a short walk from Garfield House. On 28–30 Dec it fills with New Year (osechi) shoppers, which is a great atmosphere but packed. Go at 10:00 opening for gift boxes, or at 19:00+ for discounted bento.",
+      "best_time": "Sat 26 or Sun 27 Dec at 10:00; or around 19:00 for markdowns",
+      "dates": "Normal hours expected 26–30 Dec (31 Dec usually shortened, 1 Jan closed, winter sale from 2 Jan, all after the trip). Confirm on mistore.jp.",
+      "price": "Gift boxes ¥1,000–3,000; bento ¥1,000–2,000",
+      "booking": null,
+      "group_of_8": "Split up; meet on the ground floor.",
+      "hours": "10:00–20:00",
+      "visit_minutes": 60,
+      "first_last": null,
+      "lat": 35.691573999999996,
+      "lng": 139.7046466,
+      "wish_ids": [
+        "w7",
+        "w5"
+      ],
+      "evidence": [
+        {
+          "source": "Google Maps",
+          "url": "https://www.google.com/maps/search/?api=1&query=Isetan+Shinjuku",
+          "note": "4.2★ ~25k reviews, 10:00–20:00 (Oct 2026)"
+        },
+        {
+          "source": "Time Out Tokyo (ja)",
+          "url": "https://www.timeout.jp/tokyo/ja/shopping/newyearsale-2026",
+          "note": "Isetan Shinjuku winter clearance started 2 Jan last season, i.e. after this trip"
+        },
+        {
+          "source": "rurubu",
+          "url": "https://rurubu.jp/andmore/spot/80011203",
+          "note": "Hours 10–20 (varies by season)"
+        }
+      ],
+      "confidence": 0.7
+    },
+    {
+      "name": "Tokyo Character Street & Tokyo Okashi Land (Tokyo Station)",
+      "name_ja": "東京キャラクターストリート・東京おかしランド",
+      "city": "Tokyo",
+      "area": "Tokyo Station",
+      "kind": "shopping",
+      "why": "The most efficient souvenir stop in Tokyo: 30+ character shops (Pokémon, Sanrio, Ghibli, Jump, Rilakkuma) and the Glico, Morinaga and Calbee shops, all with Tokyo-Station-only items and some freshly made snacks, side by side in the basement of First Avenue (Ichibangai). Do it in one 90-minute pass.",
+      "best_time": "Weekday 9:00–11:00 before office lunch crowds; avoid 28–29 Dec homecoming rush at the station",
+      "dates": "Best 17–18 or 26–27 Dec",
+      "price": "¥500–3,000 per box",
+      "booking": null,
+      "group_of_8": "Easy; corridor layout.",
+      "hours": "Character Street 10:00–20:30; Okashi Land 9:00–21:00",
+      "visit_minutes": 90,
+      "first_last": null,
+      "lat": 35.682033499999996,
+      "lng": 139.7686549,
+      "wish_ids": [
+        "w7",
+        "w5"
+      ],
+      "evidence": [
+        {
+          "source": "Japan Web Magazine",
+          "url": "https://jw-webmagazine.com/tips/tokyo-character-street",
+          "note": "30+ character shops, Ichiban Plaza pop-ups, station-only items"
+        },
+        {
+          "source": "JAL Japan Travel",
+          "url": "https://en.jal.japantravel.com/tokyo/tokyo-okashi-land-character-st/21750",
+          "note": "Glico, Morinaga, Calbee; Tokyo Station-only sweets, freshly made products"
+        },
+        {
+          "source": "Google Maps",
+          "url": "https://www.google.com/maps/search/?api=1&query=Tokyo+Character+Street",
+          "note": "4.2★ ~11.6k reviews; Okashi Land 4.1★ 9:00–21:00 (Oct 2026)"
+        }
+      ],
+      "confidence": 0.8
+    },
+    {
+      "name": "Nakameguro Koukashita & Daikanyama",
+      "name_ja": "中目黒高架下・代官山",
+      "city": "Tokyo",
+      "area": "Nakameguro",
+      "kind": "shopping",
+      "why": "Honest verdict: lowest priority for this group. Nakameguro and Daikanyama are pretty and grown-up: select shops, antique vintage like JANTIQUES, Traveler's Factory, Daikanyama T-Site and Log Road. They're priced for 30-somethings and there's little in December to justify the trip. Do it only if you have a spare half-day; it's one stop from Shibuya on the Tokyu Toyoko line, and you can walk Daikanyama → Nakameguro in 10 minutes.",
+      "best_time": "14:00–19:00, ending at dusk under the Koukashita tracks",
+      "dates": null,
+      "price": "Mostly ¥10,000+ per piece",
+      "booking": null,
+      "group_of_8": "Fine.",
+      "hours": "Many shops ~11:00/12:00–19:00",
+      "visit_minutes": 150,
+      "first_last": null,
+      "lat": 35.6444201,
+      "lng": 139.6990816,
+      "wish_ids": [
+        "w7"
+      ],
+      "evidence": [
+        {
+          "source": "Tokyo Weekender guide",
+          "url": "https://www.tokyoweekender.com/japan-life/the-ultimate-guide-to-nakameguro-tokyos-stylish-canal-side-gem/",
+          "note": "Koukashita strip under the tracks has vintage shops; Daikanyama 10 min walk"
+        },
+        {
+          "source": "Time Out Tokyo",
+          "url": "https://www.timeout.com/tokyo/shopping/the-best-shops-in-nakameguro-and-daikanyama",
+          "note": "Best shops in Nakameguro/Daikanyama, boutique-led"
+        },
+        {
+          "source": "haveagood-holiday",
+          "url": "https://haveagood-holiday.com/en/articles/254561",
+          "note": "JANTIQUES on Meguro Ginza St; Traveler's Factory"
+        }
+      ],
+      "confidence": 0.45
+    }
+  ],
+  "notes": "Tokyo · shop: AREA LOGIC (Tokyo shopping). Stay 1, 15–19 Dec, Ninja House/Ikebukuro: arrival evening = animate flagship, Otome Road, Sunshine City/Pokémon Center Mega Tokyo, then the Ikebukuro Donki. Do an east-side day: Akihabara (Mandarake Complex, Radio Kaikan, Super Potato) + Ueno Ameyoko/mita sneakers, 2 Yamanote stops apart. Do Ameyoko in this first stay, because from 28 Dec it becomes a New Year food-market crush. Do Tokyo Station souvenirs (Character Street/Okashi Land) here too, if they fit. Stay 2, 26–29 Dec, Garfield House/Shinjuku: West day = Koenji (from 12:00) → Nakano Broadway, both on the Chuo line 6 min from Shinjuku. South day = Takeshita at 10:00 → Ura-Hara → Cat Street on foot → Shibuya PARCO/Miyashita Park; or Shimokitazawa 12:00–17:00 → Inokashira line 4 min → Shibuya, then MEGA Donki late. Nakameguro/Daikanyama is optional and low value for this budget. The Yamanote and Chuo lines cover all of it, so use IC cards (Suica/PASMO), no pass needed. YEAR-END: department stores and malls should keep normal hours 26–30 Dec (31 Dec shortened, 1 Jan closed). But the big winter sales and 初売り start 2 Jan (Isetan, Lumine) or 3 Jan (PARCO Grand Bazaar), after the 29 Dec flight, so malls are full price. Get value from secondhand (Koenji, NY Joe, 2nd Street, Mandarake) and Donki instead. Depachika are packed on 28–30 Dec with osechi shoppers. Some small vintage shops close irregularly around New Year, so check their Instagram. TAX-FREE (from 1 Nov 2026): pay full price incl. 10% tax, show your passport, and register the refund method. Keep ≥¥5,000 ex-tax on one receipt per shop per day, per person. Don't eat or use what you'll claim, and keep the whole receipt's items together. At Haneda T3 on 29 Dec, do the customs kiosk (or Visit Japan Web on airport Wi-Fi) with all goods BEFORE bag drop. Arrive by ~14:00 for the 17:20 flight on this peak departure day. Donki waives the refund fee unless you take cash at the airport."
+}

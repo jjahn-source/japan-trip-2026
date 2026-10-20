@@ -1,0 +1,53 @@
+{
+  "open": [
+    {
+      "dates": [
+        "2026-12-21",
+        "2026-12-22",
+        "2026-12-23",
+        "2026-12-24",
+        "2026-12-25"
+      ],
+      "open": "17:00",
+      "close": "23:00",
+      "quote": "月～金、祝前日: 17:00～23:00",
+      "url": "https://www.hotpepper.jp/strJ000012496/"
+    },
+    {
+      "dates": [
+        "2026-12-26"
+      ],
+      "open": "11:30",
+      "close": "15:00",
+      "quote": "土、日、祝日: 11:30～15:00",
+      "url": "https://www.hotpepper.jp/strJ000012496/"
+    },
+    {
+      "dates": [
+        "2026-12-26"
+      ],
+      "open": "16:00",
+      "close": "23:00",
+      "quote": "16:00～23:00",
+      "url": "https://www.hotpepper.jp/strJ000012496/"
+    }
+  ],
+  "closed": [],
+  "last_entry": {
+    "time": "22:00",
+    "quote": "月～金、祝前日: 17:00～23:00 （料理L.O. 22:00 ドリンクL.O. 22:00）",
+    "url": "https://www.hotpepper.jp/strJ000012496/"
+  },
+  "prices": [],
+  "fixed_minutes": null,
+  "time_limit": null,
+  "group": null,
+  "booking": null,
+  "notes": [
+    {
+      "text": "Year-end: closed 31 Dec, 1 Jan and 2 Jan (outside the 21-26 Dec trip dates); source is the HotPepper listing (third party), official site not found",
+      "quote": "定休日： 12月31日、1月1日、2日は店休日です。",
+      "url": "https://www.hotpepper.jp/strJ000012496/"
+    }
+  ]
+}

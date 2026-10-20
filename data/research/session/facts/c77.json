@@ -6,6 +6,31 @@
   "fixed_minutes": null,
   "time_limit": null,
   "group": null,
-  "booking": null,
-  "notes": []
+  "booking": {
+    "text": "Participant recruitment starts in early November; details on the GRAND FRONT OSAKA and GRAND GREEN OSAKA official sites",
+    "quote": "Details and the start of participant recruitment are scheduled for early November and will be announced on the official websites of GRAND FRONT OSAKA and GRAND GREEN OSAKA as soon as they are decided.",
+    "url": "https://www.haveagood-holiday.com/en/articles/grand-front-osaka-grand-wish-christmas-2026"
+  },
+  "notes": [
+    {
+      "text": "Parade held Tuesday 22 December 2026 (inside the trip)",
+      "quote": "On Tuesday, December 22, 2026, \"Grand Santa Parade in UMEKITA\" will take place.",
+      "url": "https://www.haveagood-holiday.com/en/articles/grand-front-osaka-grand-wish-christmas-2026"
+    },
+    {
+      "text": "Dress: Santa Claus costume; workers and visitors of both buildings take part",
+      "quote": "people who work at or visit GRAND FRONT OSAKA and GRAND GREEN OSAKA dress up as Santa Claus and walk through the district.",
+      "url": "https://www.haveagood-holiday.com/en/articles/grand-front-osaka-grand-wish-christmas-2026"
+    },
+    {
+      "text": "Route: through the Umekita area, handing out presents and clean-up; no start time or meeting point stated",
+      "quote": "Participants in Santa costumes parade through the Umekita area while handing out presents and taking part in clean-up activities.",
+      "url": "https://www.haveagood-holiday.com/en/articles/grand-front-osaka-grand-wish-christmas-2026"
+    },
+    {
+      "text": "Press release confirms the parade date",
+      "quote": "2026年12月22日（火）に開催します",
+      "url": "https://san-tatsu.jp/pressrelease/558449/"
+    }
+  ]
 }

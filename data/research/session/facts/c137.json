@@ -1,62 +1,36 @@
 {
-  "open": [
+  "open": [],
+  "closed": [
     {
       "dates": [
         "2026-12-15",
         "2026-12-16",
         "2026-12-17",
         "2026-12-18",
-        "2026-12-19"
-      ],
-      "open": "11:00",
-      "close": "21:30",
-      "quote": "その他全日 11:00～21:30",
-      "url": "https://san-tatsu.jp/pressrelease/558555/"
-    }
-  ],
-  "closed": [
-    {
-      "dates": [
+        "2026-12-19",
         "2026-12-26",
         "2026-12-27",
         "2026-12-28",
         "2026-12-29"
       ],
-      "why": "Event period ends 12/25",
-      "what": "the whole Tokyo Christmas Market Shin-Toyosu (runs 11/20 to 12/25)",
+      "why": "Statue display ended (news report: finale 8/22-8/31/2026)",
+      "what": "the Unicorn Gundam statue (実物大ユニコーンガンダム立像)",
       "whole_place": true,
-      "quote": "開催期間：2026年11月20日(金)～12月25日(金)[36日間]",
-      "url": "https://san-tatsu.jp/pressrelease/558555/"
+      "quote": "展示終了にあわせた",
+      "url": "https://www.gamebusiness.jp/article/2026/08/18/27730.html"
     }
   ],
-  "last_entry": {
-    "time": "20:30",
-    "quote": "最終入場 20:30 ∕ L.O.21:00",
-    "url": "https://san-tatsu.jp/pressrelease/558555/"
-  },
-  "prices": [
-    {
-      "what": "Adult (junior high and up), weekdays, 11/20-12/23",
-      "yen": 1000,
-      "quote": "大人(中学生以上):平日:1,000円",
-      "url": "https://san-tatsu.jp/pressrelease/558555/"
-    },
-    {
-      "what": "Adult, Sat/Sun/holiday, 11/20-12/23",
-      "yen": 1500,
-      "quote": "土‧日‧祝日:1,500円",
-      "url": "https://san-tatsu.jp/pressrelease/558555/"
-    }
-  ],
+  "last_entry": null,
+  "prices": [],
   "fixed_minutes": null,
   "time_limit": null,
   "group": null,
   "booking": null,
   "notes": [
     {
-      "text": "Advance tickets recommended; on-site entry may be limited when crowded",
-      "quote": "混雑時には当日受付の入場を制限する場合があるため",
-      "url": "https://san-tatsu.jp/pressrelease/558555/"
+      "text": "Finale period for the statue was 8/22-8/31/2026, per news; no later display found",
+      "quote": "「実物大ユニコーンガンダム立像」フィナーレ企画は、8月22日～8月31日までの10日間限定で実施予定です。",
+      "url": "https://www.gamebusiness.jp/article/2026/08/18/27730.html"
     }
   ]
 }

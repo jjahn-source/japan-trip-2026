@@ -1,0 +1,578 @@
+{
+  "candidates": [
+    {
+      "name": "Shinsaibashi-suji Shopping Street",
+      "name_ja": "心斎橋筋商店街",
+      "city": "Osaka",
+      "area": "Shinsaibashi",
+      "kind": "shopping",
+      "why": "The covered spine of Minami shopping, about 600 m from Nagahoribashi down to Dotonbori: drugstores (Matsumoto Kiyoshi, Daikoku, Sundrug side by side for price comparison), Uniqlo/GU, ABC-Mart, sneaker and character shops, plus Daimaru Shinsaibashi and Shinsaibashi PARCO at the north end. Covered, so it works in December rain. A 2026 Xiaohongshu guide treats Shinsaibashi + Namba as the main shopping zone in Osaka. It is the classic route and is worth doing, but walk it in the morning before the crowds peak and do the vintage shopping in Amerikamura, one block west.",
+      "best_time": "Weekday 11:00–14:00, before the evening crowd; walk it north to south so you finish at Dotonbori",
+      "dates": null,
+      "price": "Free to walk; drugstore haul ¥5,000–15,000 pp is typical (aim for ¥5,000+ excl. tax at one store, on one day, for tax-free)",
+      "booking": null,
+      "group_of_8": "Split into 2–4s and meet at Daimaru's main entrance or Ebisubashi; the street is too packed to move as 8",
+      "hours": "Most shops roughly 10:00/11:00–21:00 (varies by shop)",
+      "visit_minutes": 90,
+      "first_last": null,
+      "lat": 34.6725086,
+      "lng": 135.5013657,
+      "wish_ids": [
+        "w7",
+        "w5",
+        "w8"
+      ],
+      "evidence": [
+        {
+          "source": "Xiaohongshu 饭团返点",
+          "url": "https://www.xiaohongshu.com/explore/6a673353000000000903629b",
+          "note": "Updated 2026 guide to the Shinsaibashi + Namba shopping area: department stores, cosmetics, streetwear and second-hand in one zone"
+        },
+        {
+          "source": "Xiaohongshu 过了好几年 (2025-10-16)",
+          "url": "https://www.xiaohongshu.com/explore/68f11288000000000300d41d",
+          "note": "Says Osaka is very easy to shop, with Shinsaibashi and Umeda as the two centres"
+        },
+        {
+          "source": "Official site",
+          "url": "https://www.shinsaibashi.or.jp/",
+          "note": "Shopping-street association site; Google lists the street as operational"
+        }
+      ],
+      "confidence": 0.85
+    },
+    {
+      "name": "Amerikamura (Ame-mura) vintage streets around Triangle Park",
+      "name_ja": "アメリカ村（三角公園周辺）",
+      "city": "Osaka",
+      "area": "Amerikamura, Nishi-Shinsaibashi",
+      "kind": "shopping",
+      "why": "Osaka's youth-fashion and vintage district, just west of Midosuji. Guides count around 2,500 shops, and budget-friendly vintage clusters within a few blocks of Triangle Park (Mitsu Park). Good budget picks: Grizzly Ame-mura 1st/2nd (Ralph Lauren and street), Mecca (30s–60s American denim), Pigsty, and the WEGO/streetwear shops. This is the best part of Osaka for this group: cheap, walkable, photogenic, with takoyaki stands by the park. A 2025 Xiaohongshu poster warns vintage has got pricier than two years ago, but the shops are dense enough to compare.",
+      "best_time": "13:00–19:00. Many vintage shops open at noon or 13:00, and a few close Wednesdays (e.g. Mecca)",
+      "dates": null,
+      "price": "Chain thrift ¥300–1,000 per piece, mid-range ¥2,000–8,000, curated vintage ¥5,000–30,000+",
+      "booking": null,
+      "group_of_8": "Meet at Triangle Park, scatter into small groups for 2 hours, regroup there",
+      "hours": "Shops mostly 12:00–20:00 (varies)",
+      "visit_minutes": 150,
+      "first_last": null,
+      "lat": 34.6720688,
+      "lng": 135.4979236,
+      "wish_ids": [
+        "w7",
+        "w8",
+        "w5"
+      ],
+      "evidence": [
+        {
+          "source": "magical-trip.com (Jun 2026, updated Jan 2026)",
+          "url": "https://www.magical-trip.com/media/best-thrift-stores-districts-in-osaka-vintage-clothing-shops-guide-2024/",
+          "note": "Names Mecca, Grizzly 1st/2nd as budget-friendly with addresses and hours; gives price bands; suggests the walking order Amerikamura → Horie → Nakazakicho"
+        },
+        {
+          "source": "aumo / rurubu (ja)",
+          "url": "https://aumo.jp/articles/17676",
+          "note": "Japanese roundups name Pigsty for price and Grizzly for value, plus JETRAG, FUNKY FRUIT and RushOut"
+        },
+        {
+          "source": "X @mogmog_lom (2026-09-27)",
+          "url": "https://x.com/mogmog_lom/status/2104231840257323015",
+          "note": "Recent local post: walked from Namba to Ame-mura to browse the vintage shops; the area is still the default vintage stroll"
+        },
+        {
+          "source": "Xiaohongshu Brookk (2025-03-24)",
+          "url": "https://www.xiaohongshu.com/explore/67e0d8e9000000001d02f3ca",
+          "note": "Says vintage prices are up on two years ago, but the shops are dense and easy to cover"
+        }
+      ],
+      "confidence": 0.9
+    },
+    {
+      "name": "Kinji used clothing (Big Step 2F)",
+      "name_ja": "KINJI アメリカ村店（ビッグステップ2F）",
+      "city": "Osaka",
+      "area": "Amerikamura, Nishi-Shinsaibashi",
+      "kind": "shopping",
+      "why": "A large, cheap used-clothing floor inside the Big Step building, the landmark mall at the Shinsaibashi end of Ame-mura. It mixes pre-owned designer pieces with cheap vintage, and the chain is known in Tokyo and Kyoto for low racks. It is the easiest first stop for 8 people on a budget, and Big Step itself has more youth brands and a WEGO nearby.",
+      "best_time": "Start here at 12:00 when it opens, before the Triangle Park loop",
+      "dates": null,
+      "price": "Many pieces ¥1,000–3,000",
+      "booking": null,
+      "group_of_8": "Big floor; the whole group fits",
+      "hours": "11:00–20:00 (per guide)",
+      "visit_minutes": 45,
+      "first_last": null,
+      "lat": 34.6724243,
+      "lng": 135.4987968,
+      "wish_ids": [
+        "w7",
+        "w10"
+      ],
+      "evidence": [
+        {
+          "source": "FUN! JAPAN (ja/en)",
+          "url": "https://www.fun-japan.jp/en/articles/13609",
+          "note": "Lists Kinji among Amerikamura vintage picks, from pre-owned designer goods to vintage, with branches in Tokyo and Kyoto"
+        },
+        {
+          "source": "Google Maps",
+          "url": "https://www.google.com/maps/search/?api=1&query=Kinji+used+clothing+Big+Step+Osaka",
+          "note": "Kinji used clothing, Shinsaibashi Big Step 2F, 1-6-14 Nishi-Shinsaibashi, operational"
+        },
+        {
+          "source": "japannakama.co.uk",
+          "url": "https://www.japannakama.co.uk/travel/osaka-guides/amerikamura-osakas-center-of-youth-culture-and-street-fashion/",
+          "note": "Amerikamura guide noting Kinji and WEGO, and that vintage shops rarely open before noon"
+        }
+      ],
+      "confidence": 0.75
+    },
+    {
+      "name": "Mandarake Grand Chaos",
+      "name_ja": "まんだらけ グランドカオス",
+      "city": "Osaka",
+      "area": "Amerikamura, Nishi-Shinsaibashi",
+      "kind": "shopping",
+      "why": "A multi-floor second-hand otaku store in Ame-mura, not Den Den Town: figures, vintage manga, doujinshi, retro game software, cels and toys. Better than most Nipponbashi shops for out-of-print and character goods. It fits naturally into the vintage loop, so the anime fans can split off for an hour.",
+      "best_time": "Afternoon, during the Ame-mura loop",
+      "dates": null,
+      "price": "Browsing free; figures from ~¥1,000",
+      "booking": null,
+      "group_of_8": "Narrow aisles; send the 2–4 who care",
+      "hours": null,
+      "visit_minutes": 60,
+      "first_last": null,
+      "lat": 34.670488357543945,
+      "lng": 135.49822235107422,
+      "wish_ids": [
+        "w7",
+        "w8"
+      ],
+      "evidence": [
+        {
+          "source": "Official",
+          "url": "http://www.mandarake.co.jp/shop/index_gcs.html",
+          "note": "Official store page for Grand Chaos, 2-9-22 Nishi-Shinsaibashi"
+        },
+        {
+          "source": "japannook.com",
+          "url": "https://japannook.com/en/articles/nipponbashi-otaku-culture-guide",
+          "note": "Describes Grand Chaos as a multi-floor used store with figures, doujinshi, vintage manga and retro game software, the place for out-of-print items"
+        },
+        {
+          "source": "Xiaohongshu ゆず (2025-04-08)",
+          "url": "https://www.xiaohongshu.com/explore/67f48e8b000000001c01e9ef",
+          "note": "Recent post: Ame-mura vintage toy/character shops worth a visit (Snoopy, Hello Kitty, Crayon Shin-chan)"
+        }
+      ],
+      "confidence": 0.75
+    },
+    {
+      "name": "Horie Orange Street (Tachibana-dori) · JAM Horie",
+      "name_ja": "堀江オレンジストリート（立花通り）・JAM 堀江店",
+      "city": "Osaka",
+      "area": "Minami-Horie, Nishi-ku",
+      "kind": "shopping",
+      "why": "About 800 m of independent fashion, sneaker, furniture and vintage shops, roughly 3 minutes' walk west of Triangle Park, and the closest shopping street to Kujō House. JAM is a budget vintage warehouse with about 9,000 items. jaBBer (LA buys, occasional low-price sales) and LARA Vintage (European vintage) are on the same street. It is calmer and more local than Ame-mura, a good way to finish the Minami loop heading home toward Nishi-ku.",
+      "best_time": "15:00–19:00, after Ame-mura",
+      "dates": null,
+      "price": "JAM pieces mostly ¥1,000–5,000",
+      "booking": null,
+      "group_of_8": "Easy; wide street, shops big enough for 8",
+      "hours": "JAM 11:00–20:00 (per guide)",
+      "visit_minutes": 75,
+      "first_last": null,
+      "lat": 34.6709698,
+      "lng": 135.4937522,
+      "wish_ids": [
+        "w7",
+        "w10"
+      ],
+      "evidence": [
+        {
+          "source": "magical-trip.com (Jun 2026)",
+          "url": "https://www.magical-trip.com/media/best-thrift-stores-districts-in-osaka-vintage-clothing-shops-guide-2024/",
+          "note": "Orange Street ~800 m, 3 min from Triangle Park; JAM ~9,000 items budget-friendly 11:00–20:00; jaBBer and LARA Vintage listed"
+        },
+        {
+          "source": "Official",
+          "url": "https://jamtrading.jp/f/shop-list/shop-04",
+          "note": "JAM's official shop page; Google lists it at 1-19-23 Minami-Horie 2F, operational"
+        }
+      ],
+      "confidence": 0.75
+    },
+    {
+      "name": "Den Den Town · Ota Road (Super Potato, Animate, card shops)",
+      "name_ja": "でんでんタウン・オタロード（日本橋）",
+      "city": "Osaka",
+      "area": "Nipponbashi",
+      "kind": "shopping",
+      "why": "Osaka's Akihabara, a 10-minute walk south-east of Namba. Ota Road, one block west of Sakaisuji, is the core. Super Potato Retrokan (retro consoles and boxed games, a famous stop), Animate's Nipponbashi flagship, Surugaya, K-Books, Toranoana, Volks, Yellow Submarine for trading cards, gachapon lines and Taito Station cranes. It is cheaper and less crowded than Akihabara. Sofmap and Joshin do tax-free electronics.",
+      "best_time": "Weekday 11:00–14:00; shops open 10:00–11:00. Pair with Namba Parks next door",
+      "dates": null,
+      "price": "Gachapon ¥100–400 (premium ¥1,000–2,000); retro carts from a few hundred yen",
+      "booking": null,
+      "group_of_8": "Works as a group stroll; split up inside shops",
+      "hours": "Most shops ~10:00/11:00–20:00 (varies)",
+      "visit_minutes": 120,
+      "first_last": null,
+      "lat": 34.6619602,
+      "lng": 135.5050576,
+      "wish_ids": [
+        "w7",
+        "w8",
+        "w6"
+      ],
+      "evidence": [
+        {
+          "source": "Time Extension (retro gaming feature)",
+          "url": "https://www.timeextension.com/features/3-cities-17-stores-our-epic-retro-gaming-hunt-across-japan?page=3",
+          "note": "Visited Super Potato on Ota Road: boxed and loose titles across many consoles"
+        },
+        {
+          "source": "Inside Osaka (©2026)",
+          "url": "https://insideosaka.com/den-den-town-guide/",
+          "note": "Lists Animate, K-Books, Toranoana, Super Potato, Volks, Yellow Submarine, Taito Station; gachapon ¥100–400; Sofmap/Joshin tax-free"
+        },
+        {
+          "source": "Official",
+          "url": "https://www.superpotato.com/shop/otaroad/",
+          "note": "Super Potato Retrokan Ota Road branch, Nipponbashi 3-8-18, operational on Google"
+        }
+      ],
+      "confidence": 0.85
+    },
+    {
+      "name": "Suruga-ya Osaka Nipponbashi Main Building",
+      "name_ja": "駿河屋 大阪日本橋本館",
+      "city": "Osaka",
+      "area": "Nipponbashi",
+      "kind": "shopping",
+      "why": "A large second-hand store for games, figures, anime goods and trading cards, on the southern end of Den Den Town. It is known for low used prices, so compare here before buying at Super Potato.",
+      "best_time": "Same visit as Ota Road",
+      "dates": null,
+      "price": "Used games and goods often a few hundred yen to a few thousand",
+      "booking": null,
+      "group_of_8": "Split up inside",
+      "hours": null,
+      "visit_minutes": 45,
+      "first_last": null,
+      "lat": 34.6602042,
+      "lng": 135.5057106,
+      "wish_ids": [
+        "w7",
+        "w10"
+      ],
+      "evidence": [
+        {
+          "source": "Official",
+          "url": "https://www.suruga-ya.jp/feature/nihonbashi_main/index.html",
+          "note": "Official page for the Nipponbashi main building; Google lists it as operational at Nipponbashi 4-11-3"
+        },
+        {
+          "source": "Inside Osaka / Nomado guide",
+          "url": "https://www.nomadotravel.app/en/guides/osaka-anime-guide",
+          "note": "Osaka anime guide covering Den Den Town's second-hand chains"
+        }
+      ],
+      "confidence": 0.6
+    },
+    {
+      "name": "Namba Parks",
+      "name_ja": "なんばパークス",
+      "city": "Osaka",
+      "area": "Namba",
+      "kind": "shopping",
+      "why": "A terraced mall above Nankai Namba with a rooftop garden. It is mostly mid-range chains and lifestyle brands, so it is less useful for this group than Ame-mura or Den Den Town. Worth 30–45 minutes only because it sits between Namba station and Den Den Town: walk the rooftop terraces and check the outdoor and sports shops. Skip it if time is tight.",
+      "best_time": "Late morning on the way to Den Den Town, or at dusk for the lit terraces",
+      "dates": null,
+      "price": "Mid-range",
+      "booking": null,
+      "group_of_8": "Easy",
+      "hours": "Shops ~11:00–21:00",
+      "visit_minutes": 40,
+      "first_last": null,
+      "lat": 34.6616083,
+      "lng": 135.5019349,
+      "wish_ids": [
+        "w7"
+      ],
+      "evidence": [
+        {
+          "source": "Official",
+          "url": "https://nambaparks.com/",
+          "note": "Official mall site; Google lists it as operational at Nanbanaka 2-10-70"
+        },
+        {
+          "source": "Xiaohongshu 饭团返点 (2026)",
+          "url": "https://www.xiaohongshu.com/explore/6a673353000000000903629b",
+          "note": "2026 Shinsaibashi + Namba guide; Namba is part of the same shopping zone"
+        }
+      ],
+      "confidence": 0.45
+    },
+    {
+      "name": "Don Quijote Dotonbori",
+      "name_ja": "ドン・キホーテ 道頓堀店",
+      "city": "Osaka",
+      "area": "Dotonbori",
+      "kind": "shopping",
+      "why": "The flagship Donki with the Ebisu Tower Ferris wheel. It has every snack, cosmetic, KitKat flavour and character good under one roof, and it stays open late, so it fits after dinner or drinks in Dotonbori. Donki (PPIH) says it has handled refund applications under the new tax-free system without a refund fee since 1 Nov 2026, which makes it one of the best places to hit ¥5,000 excl. tax for a refund. Expect crowded tills; go late.",
+      "best_time": "After 21:00, when it is quieter and you are already in Dotonbori",
+      "dates": null,
+      "price": "Snacks ¥100–500 each; a ¥5,000+ haul pp is easy",
+      "booking": null,
+      "group_of_8": "Split up; each person pays separately with their own passport for tax-free",
+      "hours": "Open late (check the store page)",
+      "visit_minutes": 60,
+      "first_last": null,
+      "lat": 34.6692979,
+      "lng": 135.5026443,
+      "wish_ids": [
+        "w7",
+        "w10",
+        "w2"
+      ],
+      "evidence": [
+        {
+          "source": "Hokkaido Shimbun / PPIH press release",
+          "url": "https://www.hokkaido-np.co.jp/article/1386454/",
+          "note": "PPIH: from 1 Nov 2026 all group stores handle refund applications under the new system with no refund fee (conditions apply)"
+        },
+        {
+          "source": "Official store page",
+          "url": "https://www.donki.com/store/shop_detail.php?shop_id=110",
+          "note": "Official Dotonbori store page; Google lists it as operational at Souemoncho 7-13"
+        },
+        {
+          "source": "jw-webmagazine (2026)",
+          "url": "https://jw-webmagazine.com/tips/japan-tax-free-shopping-guide/",
+          "note": "2026 tax-free shopping guide covering Don Quijote, Uniqlo and MUJI"
+        }
+      ],
+      "confidence": 0.85
+    },
+    {
+      "name": "Daimaru Shinsaibashi (Pokémon Center Osaka DX + depachika)",
+      "name_ja": "大丸心斎橋店（ポケモンセンターオーサカDX・デパ地下）",
+      "city": "Osaka",
+      "area": "Shinsaibashi",
+      "kind": "shopping",
+      "why": "The Vories-designed department store at the top of Shinsaibashi-suji. Pokémon Center Osaka DX and the Pokémon Café are on 9F, and the B1–B2 food hall is the easiest Minami depachika for boxed sweets as souvenirs. Shinsaibashi PARCO is next door for character shops. Reviews say Pokémon Center DX is crowded at the tills, so go at opening.",
+      "best_time": "At 10:00 opening for Pokémon Center; depachika around 18:00–19:00 for markdowns",
+      "dates": null,
+      "price": "Boxed sweets ¥1,000–3,000",
+      "booking": "Pokémon Café needs a reservation on the official site, released about 31 days ahead; the shop needs none",
+      "group_of_8": "Fine; Pokémon Café seats small groups, so book 2 tables of 4",
+      "hours": "Department store ~10:00–20:00",
+      "visit_minutes": 60,
+      "first_last": null,
+      "lat": 34.6731719,
+      "lng": 135.5007545,
+      "wish_ids": [
+        "w7",
+        "w8"
+      ],
+      "evidence": [
+        {
+          "source": "iko-yo reviews (ja)",
+          "url": "https://iko-yo.net/facilities/176525",
+          "note": "Pokémon Center Osaka DX & Pokémon Café in Daimaru Shinsaibashi, connected to Midosuji Shinsaibashi stn; reviewers note crowded tills"
+        },
+        {
+          "source": "Official",
+          "url": "https://www.pokemon.co.jp/shop/pokecen/osakadx/",
+          "note": "Official page; Google: Daimaru Shinsaibashi Main Building 9F, operational"
+        }
+      ],
+      "confidence": 0.75
+    },
+    {
+      "name": "LUCUA Osaka (Nintendo OSAKA, LUCUA 1100)",
+      "name_ja": "ルクア大阪（Nintendo OSAKA）",
+      "city": "Osaka",
+      "area": "Umeda",
+      "kind": "shopping",
+      "why": "The young-fashion malls built into JR Osaka Station (LUCUA and LUCUA 1100), with mid-price Japanese brands, BEAMS/United Arrows-type selects, cosmetics, and the Isetan-run beauty floors. Google lists Nintendo OSAKA, Nintendo's official store, on 13F of LUCUA South (the former Daimaru Umeda building). That makes LUCUA the main reason to shop in Umeda as a group, ahead of Grand Front.",
+      "best_time": "Weekday late morning; avoid the 25–26 Dec Christmas weekend afternoon",
+      "dates": null,
+      "price": "Mid-range",
+      "booking": "Nintendo stores can bring in timed-entry tickets on busy days; check the official store page the day before",
+      "group_of_8": "Fine; split by floor",
+      "hours": "~10:00/11:00–21:00",
+      "visit_minutes": 90,
+      "first_last": null,
+      "lat": 34.701789,
+      "lng": 135.4965763,
+      "wish_ids": [
+        "w7",
+        "w8"
+      ],
+      "evidence": [
+        {
+          "source": "Google Maps",
+          "url": "https://www.nintendo.com/jp/officialstore/index.html",
+          "note": "Nintendo OSAKA: LUCUA South 13F, 3-1-1 Umeda, operational (Google Places)"
+        },
+        {
+          "source": "Official LUCUA",
+          "url": "https://www.lucua.jp/",
+          "note": "LUCUA official site; Google: 3-1-3 Umeda, operational"
+        }
+      ],
+      "confidence": 0.7
+    },
+    {
+      "name": "Grand Front Osaka",
+      "name_ja": "グランフロント大阪",
+      "city": "Osaka",
+      "area": "Umeda",
+      "kind": "shopping",
+      "why": "A big modern mall north of Osaka Station with mid-to-upper brands, the Umeda Uniqlo/MUJI-type anchors, and a good restaurant floor. It is pleasant but not cheap or distinctive, so give it 45 minutes only if the group is already at LUCUA. The Christmas illumination outside is a free bonus in late December.",
+      "best_time": "Evening for the illuminations, after LUCUA",
+      "dates": null,
+      "price": "Mid to high",
+      "booking": null,
+      "group_of_8": "Easy",
+      "hours": "Shops ~10:00–21:00",
+      "visit_minutes": 45,
+      "first_last": null,
+      "lat": 34.7039162,
+      "lng": 135.4940095,
+      "wish_ids": [
+        "w7"
+      ],
+      "evidence": [
+        {
+          "source": "Official",
+          "url": "http://www.grandfront-osaka.jp/",
+          "note": "Official mall site; Google lists it as operational"
+        },
+        {
+          "source": "Xiaohongshu 过了好几年 (2025-10)",
+          "url": "https://www.xiaohongshu.com/explore/68f11288000000000300d41d",
+          "note": "Names Umeda as one of Osaka's two shopping centres alongside Shinsaibashi"
+        }
+      ],
+      "confidence": 0.45
+    },
+    {
+      "name": "Hankyu Umeda & Hanshin Umeda depachika (souvenirs)",
+      "name_ja": "阪急うめだ本店・阪神梅田本店 デパ地下",
+      "city": "Osaka",
+      "area": "Umeda",
+      "kind": "shopping",
+      "why": "The best one-stop souvenir run in Osaka: Hankyu's B1 sweets hall for boxed gifts, and across the street Hanshin's B1 for local grab-and-go such as ika-yaki. Chilled 551 Horai buta-man and Rikuro cheesecake are on sale around Umeda/Osaka Station for taking home. Note that food you eat in Japan is not tax-free, and only sealed gifts you carry out on 29 Dec qualify.",
+      "best_time": "18:00–19:30 for evening markdowns on fresh items; buy shelf-stable boxed gifts on 25–26 Dec, the last Osaka days",
+      "dates": null,
+      "price": "Boxed sweets ¥1,000–3,000; 551 buta-man about ¥250 each",
+      "booking": null,
+      "group_of_8": "Split up; depachika aisles are tight",
+      "hours": "~10:00–20:00",
+      "visit_minutes": 60,
+      "first_last": null,
+      "lat": 34.7028186,
+      "lng": 135.4985323,
+      "wish_ids": [
+        "w7",
+        "w10"
+      ],
+      "evidence": [
+        {
+          "source": "JAF Mate (2026-01-28)",
+          "url": "https://jafmate.jp/drive/must-buy-souvenir_20260128.html",
+          "note": "Takeaway foods sold only at Osaka Station / Hanshin dept: Hanshin's ika-yaki, Rikuro bread, 551 limited dango, Daimaru Umeda mixed juice"
+        },
+        {
+          "source": "NEWT (ja)",
+          "url": "https://newt.net/mag/738431067922",
+          "note": "Osaka souvenir ranking with 551 Horai and Rikuro; 551 chilled packs recommended for travel"
+        },
+        {
+          "source": "Official Hankyu",
+          "url": "https://www.hankyu-dept.co.jp/honten/",
+          "note": "Hankyu Umeda main store, 8-7 Kakudacho, operational"
+        }
+      ],
+      "confidence": 0.7
+    },
+    {
+      "name": "Nakazakicho vintage alleys",
+      "name_ja": "中崎町",
+      "city": "Osaka",
+      "area": "Nakazakicho, Kita-ku",
+      "kind": "shopping",
+      "why": "Pre-war wooden row-houses one stop (or a 10-minute walk) east of Umeda. It is packed with tiny independent vintage shops (the Sakura Building, TAU, olfe.vintage) and cafés. It feels more local and one-of-a-kind than Ame-mura, and is the perfect add-on to an Umeda afternoon. Most shops open at 13:00.",
+      "best_time": "13:00–18:00, after Umeda's malls",
+      "dates": null,
+      "price": "Mid-range vintage ¥3,000–10,000",
+      "booking": null,
+      "group_of_8": "Narrow alleys and small shops; go in 2 groups of 4",
+      "hours": "Shops ~13:00–20:00, irregular closures",
+      "visit_minutes": 90,
+      "first_last": null,
+      "lat": 34.7072428,
+      "lng": 135.5056046,
+      "wish_ids": [
+        "w7",
+        "w8"
+      ],
+      "evidence": [
+        {
+          "source": "magical-trip.com (Jun 2026)",
+          "url": "https://www.magical-trip.com/media/best-thrift-stores-districts-in-osaka-vintage-clothing-shops-guide-2024/",
+          "note": "Nakazakicho: pre-war wooden buildings, independent shops; Sakura Building, TAU (13:00–20:00), olfe.vintage"
+        },
+        {
+          "source": "FUN! JAPAN",
+          "url": "https://www.fun-japan.jp/en/articles/13609",
+          "note": "Vintage shopping guide covering Amerikamura, Shinsaibashi and Nakazakicho"
+        }
+      ],
+      "confidence": 0.7
+    },
+    {
+      "name": "Kyoto Shinkyogoku & Teramachi arcades + Nintendo KYOTO",
+      "name_ja": "新京極・寺町京極商店街／Nintendo KYOTO（京都髙島屋S.C. T8）",
+      "city": "Osaka",
+      "area": "Kyoto · Shijo-Kawaramachi",
+      "kind": "shopping",
+      "why": "Worth 60–90 minutes at the end of a Kyoto sightseeing day, but not a trip of its own: Osaka has more and cheaper. The covered arcades run north from Shijo next to Nishiki Market. SPINNS Kyoto and a vintage cluster are on Teramachi, along with SOU・SOU's Kyoto-made clothing and stamp/stationery shops. Nintendo KYOTO is on 7F of Kyoto Takashimaya S.C. [T8] at the Shijo-Kawaramachi crossing, and Pokémon Center Kyoto is a 10-minute walk west at SUINA Muromachi. Hankyu Kyoto-Kawaramachi station is right there, so take the Hankyu line straight back to Umeda.",
+      "best_time": "16:00–19:00 on the Kyoto day, after the temples close",
+      "dates": null,
+      "price": "Souvenir goods ¥500–3,000",
+      "booking": null,
+      "group_of_8": "Arcades are wide; fine for 8",
+      "hours": "Most shops ~10:00/11:00–20:00/21:00",
+      "visit_minutes": 90,
+      "first_last": null,
+      "lat": 35.0035271,
+      "lng": 135.768255,
+      "wish_ids": [
+        "w1",
+        "w7",
+        "w5"
+      ],
+      "evidence": [
+        {
+          "source": "HK01 (zh)",
+          "url": "https://www.hk01.com/旅遊/749358/京都錦市場旁的隱藏文青秘地-寺町商店街完全是日本人的街道",
+          "note": "Teramachi beside Nishiki is a local, indie-shop street rather than a tourist strip"
+        },
+        {
+          "source": "WWD Japan",
+          "url": "https://www.wwdjapan.com/articles/1284474",
+          "note": "Kyoto Shinkyogoku/Teramachi youth and vintage scene"
+        },
+        {
+          "source": "Google Maps",
+          "url": "https://www.nintendo.com/jp/officialstore/index.html",
+          "note": "Nintendo KYOTO: Kyoto Takashimaya S.C. T8 7F, Otabicho 2-35, operational"
+        }
+      ],
+      "confidence": 0.65
+    }
+  ],
+  "notes": "Osaka · shop: Shopping logic. MINAMI DAY (the main shopping day, best a weekday, 21–24 Dec): Hanshin Namba line Kujō → Osaka-Namba (2 stops) ~10:30 → Den Den Town/Ota Road + Suruga-ya (open 10–11) → walk past Namba Parks → north up Shinsaibashi-suji (drugstores, Daimaru/Pokémon DX, PARCO) → west across Midosuji into Ame-mura (vintage opens ~12–13: Kinji/Big Step first, Triangle Park loop, Mandarake) → Horie Orange Street (JAM) → late Don Quijote Dotonbori after dinner (quiet after 21:00; PPIH says no refund fee). UMEDA HALF-DAY: LUCUA (Nintendo OSAKA 13F) → Grand Front only if time → Nakazakicho vintage from 13:00 → Hankyu/Hanshin depachika 18:00+ for markdowns and boxed souvenirs. KYOTO: Shinkyogoku/Teramachi + Nintendo KYOTO only as the last 60–90 min of a Kyoto day, then Hankyu Kyoto-Kawaramachi → Umeda direct. TIMING: vintage shops rarely open before noon, some close Wednesdays; 25 Dec (Fri) and 26 Dec (Sat) are the most crowded; winter sales start around 1–2 Jan, after Osaka. TAX-FREE (purchases from 1 Nov 2026, refund system): pay the full price incl. 10% tax; minimum ¥5,000 excl. tax per person, per store, per day, with each person's own passport (purchases can't be pooled); refund only after customs confirms export within 90 days, so it is done at Haneda T3 on 29 Dec at the customs kiosk BEFORE bag drop, with every tax-free item in hand (register Visit Japan Web to speed it up); if one item on a receipt is missing or used, the whole receipt loses the refund; snacks and cosmetics used in Japan don't qualify, so buy anything you'll eat or use on a separate receipt; refunds come from the shop or its refund operator (card, app, or airport cash), and fees vary by operator. Leave extra time at Haneda for the kiosk queue."
+}

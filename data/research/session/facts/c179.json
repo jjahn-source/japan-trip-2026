@@ -1,0 +1,44 @@
+{
+  "open": [
+    {
+      "dates": [
+        "2026-12-19",
+        "2026-12-20",
+        "2026-12-21"
+      ],
+      "open": "11:00",
+      "close": "15:00",
+      "quote": "11:00～15:00（L.O.）",
+      "url": "https://www.mapple.net/article/26095/"
+    },
+    {
+      "dates": [
+        "2026-12-19",
+        "2026-12-20",
+        "2026-12-21"
+      ],
+      "open": "17:00",
+      "close": "20:00",
+      "quote": "17:00～20:00（L.O.）",
+      "url": "https://www.mapple.net/article/26095/"
+    }
+  ],
+  "closed": [],
+  "last_entry": {
+    "time": "15:00",
+    "quote": "11:00～15:00（L.O.）",
+    "url": "https://www.mapple.net/article/26095/"
+  },
+  "prices": [],
+  "fixed_minutes": null,
+  "time_limit": null,
+  "group": null,
+  "booking": null,
+  "notes": [
+    {
+      "text": "Closed Thursdays (none of the trip dates); open on holidays and during GW, Obon and year-end (magazine listing, not the shop's own page)",
+      "quote": "木曜、祝日の場合は営業（GW・盆時期・年末年始は営業）",
+      "url": "https://www.mapple.net/article/26095/"
+    }
+  ]
+}

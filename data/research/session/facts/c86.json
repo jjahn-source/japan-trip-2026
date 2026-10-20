@@ -1,0 +1,22 @@
+{
+  "open": [],
+  "closed": [],
+  "last_entry": null,
+  "prices": [],
+  "fixed_minutes": null,
+  "time_limit": null,
+  "group": null,
+  "booking": null,
+  "notes": [
+    {
+      "text": "No parking at the dome except for tour buses; use paid parking nearby",
+      "quote": "観光バス以外の駐車場はございません。周辺の有料駐車場をご利用ください。",
+      "url": "https://www.city.hiroshima.lg.jp/atomicbomb-peace/1036658/1021107/1015134.html"
+    },
+    {
+      "text": "From Hiroshima Station (south exit): bus route 2 or 6 to 原爆ドーム前 (about 20 min)",
+      "quote": "2番宮島口行き・2番西広島駅行き・6番江波行き「原爆ドーム前」下車",
+      "url": "https://www.city.hiroshima.lg.jp/atomicbomb-peace/1036658/1021107/1015134.html"
+    }
+  ]
+}

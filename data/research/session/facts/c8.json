@@ -2,16 +2,48 @@
   "open": [],
   "closed": [],
   "last_entry": null,
-  "prices": [],
+  "prices": [
+    {
+      "what": "Hakone Freepass, from Shinjuku, first figure in the table (fares from 2025-10-01; page does not label the column)",
+      "yen": 7100,
+      "quote": "7,100円",
+      "url": "https://www.hakonenavi.jp/freepass/"
+    },
+    {
+      "what": "Hakone Freepass, from Odawara, first figure in the table (fares from 2025-10-01; page does not label the column)",
+      "yen": 6000,
+      "quote": "6,000円",
+      "url": "https://www.hakonenavi.jp/freepass/"
+    }
+  ],
   "fixed_minutes": null,
   "time_limit": null,
   "group": null,
-  "booking": null,
+  "booking": {
+    "text": "Buy via the 購入はこちら link or the 特設ページ; ticket machines sell only passes valid from the same day",
+    "quote": "※自動券売機は当日から有効分のみ購入可能です。",
+    "url": "https://www.hakonenavi.jp/freepass/"
+  },
   "notes": [
     {
-      "text": "Nearest stations: Kintetsu Nara and JR Nara. The page gives no hours or year-end information",
-      "quote": "【最寄駅】「近鉄奈良駅」JR「奈良駅」",
-      "url": "https://www3.pref.nara.jp/park/"
+      "text": "Limited Romancecar fare is extra",
+      "quote": "※特急ロマンスカーは別途料金が必要です。",
+      "url": "https://www.hakonenavi.jp/freepass/"
+    },
+    {
+      "text": "Odakyu line section (departure to Odawara) may be ridden only once round trip (no limit on mid-trip stops)",
+      "quote": "※小田急線区間（発駅～小田原駅）のご乗車は往復1回に限ります。",
+      "url": "https://www.hakonenavi.jp/freepass/"
+    },
+    {
+      "text": "Pass is collected at the trip's end station; Izu-Hakone buses cannot be used",
+      "quote": "※箱根フリーパスは旅行終了駅で回収させていただきます。",
+      "url": "https://www.hakonenavi.jp/freepass/"
+    },
+    {
+      "text": "Prices changed on 1 Oct 2025 (old fares listed above this line)",
+      "quote": "2025年10月1日～",
+      "url": "https://www.hakonenavi.jp/freepass/"
     }
   ]
 }

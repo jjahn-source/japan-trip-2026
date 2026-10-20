@@ -1,10 +1,10 @@
 [
   {
-    "stop": 6,
-    "claim": "Use the Freepass discount at the ticket desk: ¥1,800 pp.",
-    "fix": "Show your Freepass at the ticket desk for the ¥100 discount: ¥1,700 pp (the full adult price is ¥1,800).",
-    "source_url": "https://www.hakonenavi.jp/spot/1214",
-    "source_quote": "フリーパス 優待情報 100円引き",
+    "stop": 7,
+    "claim": "Swimsuits on (rental from ¥1,250), then do the wine bath, the sake bath and the coffee bath.",
+    "fix": "Swimsuits on (rental from ¥1,200, tax included), then do the wine bath, the sake bath and the coffee bath.",
+    "source_url": "https://www.yunessun.com/service/price/",
+    "source_quote": "1,200円～（税込）",
     "schedule": false
   }
 ]

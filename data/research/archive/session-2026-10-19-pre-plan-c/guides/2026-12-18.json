@@ -1,0 +1,277 @@
+{
+  "notes": [
+    {
+      "kind": "BRING",
+      "text": "Everyone needs their ORIGINAL passport tonight. ZEROTOKYO turns away photos, copies and expired IDs."
+    },
+    {
+      "kind": "LUGGAGE",
+      "text": "The big suitcases go to Kujō House this morning. Keep overnight bags for Hakone, and keep tax-free goods unused, with receipts, in your carry-on."
+    },
+    {
+      "kind": "NOTE",
+      "text": "Friday is peak bōnenkai night, so trains and bars will be packed. Dinner is booked, so don't drift. It's cold and dark by late afternoon: bring layers for the outdoor markets."
+    }
+  ],
+  "stops": [
+    {
+      "index": 0,
+      "summary": "Ship the big suitcases to Osaka with Yamato so the next three days are overnight bags only.",
+      "story": "Yamato's TA-Q-BIN is how Japan moves luggage: hand your suitcases over at the front desk or a konbini this morning and they turn up at Kujō House on Monday evening. You travel to Hakone tomorrow with just an overnight bag.",
+      "how": [
+        "Fill in a TA-Q-BIN slip for each suitcase, addressed to Kujō House for Mon 21 evening delivery.",
+        "Hand them in at the front desk or the nearest konbini and keep the receipts.",
+        "Walk to Higashi-Nagasaki for the 09:52 Seibu train to Ikebukuro."
+      ],
+      "tips": [
+        "Confirm the Kujō House host can receive them; if not, address them to a Yamato centre near Kujō.",
+        "Before you seal the cases, take out passports, tax-free goods with receipts, and anything you need for Hakone."
+      ],
+      "cost": "Yamato rate per suitcase",
+      "booking": null,
+      "hours": null,
+      "source_urls": [],
+      "wishes": [
+        "Stays already booked: Ninja House in Toshima (Tokyo), Hot Spring Hakone Villa in Sengokuhara, Kujō House in Nishi-ku (Osaka), Garfield House in Shinjuku (Tokyo)"
+      ]
+    },
+    {
+      "index": 1,
+      "summary": "Tokyo's most famous onigiri, collected as a takeaway so you skip the hours-long queue.",
+      "story": "Onigiri Bongo packs its rice loosely around huge fillings like raw egg yolk in soy, salmon and sujiko, with more than 50 combinations. The queue outside runs 1–2.5 hours on weekdays, but your order is already waiting.",
+      "how": [
+        "Make sure someone phoned the takeaway order the day before (03-3910-5617).",
+        "Walk past the queue to collect it, then eat on the way back to Otsuka station.",
+        "Catch the 10:46 Yamanote line to Akihabara."
+      ],
+      "tips": [
+        "Dine-in is a small counter only, so takeaway is the only way 8 people eat together.",
+        "Phone orders are first come, first served, and online orders aren't accepted.",
+        "Closed Sunday."
+      ],
+      "cost": "¥1,500 pp",
+      "booking": "Phone takeaway order: 03-3910-5617",
+      "hours": null,
+      "source_urls": [
+        "https://www.timeout.jp/tokyo/ja/%E3%83%AC%E3%82%B9%E3%83%88%E3%83%A9%E3%83%B3/onigiri-bongo",
+        "https://inout.dig.us.com/samurai096/5671355/",
+        "https://retty.me/area/PRE13/ARE5/SUB505/100001679253/"
+      ],
+      "wishes": [
+        "We want to maximise all the time we've got in the country"
+      ]
+    },
+    {
+      "index": 2,
+      "summary": "Three cramped floors of Famicom, Game Boy and N64, with a retro arcade on top.",
+      "story": "Super Potato Retro-kan is Akihabara's legendary retro game shop: glass cases stacked with boxed Famicom and N64 games on floors 3–5, and a tiny arcade of old cabinets at the top. It's a museum you're allowed to buy from, though prices are for collectors.",
+      "how": [
+        "Go up in two groups of four; the aisles are tight.",
+        "Browse the floors, then finish with a coin or two in the top-floor arcade.",
+        "Walk on to Mandarake."
+      ],
+      "tips": [
+        "Use it for browsing and photos; buy games at the Book-Off and Surugaya stores nearby, which are cheaper.",
+        "Cartridges run ¥500–¥10,000+."
+      ],
+      "cost": "Browsing free",
+      "booking": null,
+      "hours": "11:00–20:00",
+      "source_urls": [
+        "http://www.superpotato.com/",
+        "https://www.tiktok.com/@gamestorehunters/video/7688044435661163790"
+      ],
+      "wishes": [
+        "Shopping",
+        "We love to do it all"
+      ]
+    },
+    {
+      "index": 3,
+      "summary": "An 8-floor secondhand otaku tower plus Radio Kaikan's floors of figures, cards and gachapon.",
+      "story": "Mandarake Complex opens at noon: eight floors of secondhand manga, figures, animation cels, idol goods and vintage toys, much cheaper than new. Radio Kaikan by the station adds 10 floors of figure shops, trading cards and walls of gachapon machines.",
+      "how": [
+        "Be at Mandarake for its 12:00 opening.",
+        "Split by interest: cards, figures or retro.",
+        "Cross to Radio Kaikan and regroup out front, then catch the 13:37 Ginza line from Suehirocho."
+      ],
+      "tips": [
+        "Used figures run ¥1,000–5,000, far below new prices.",
+        "Gachapon is ¥300–500 a pull, so bring coins.",
+        "For tax-free, each buyer pays with their own passport; you can't combine purchases."
+      ],
+      "cost": "Gachapon ¥300–500; used figures ¥1,000–5,000",
+      "booking": null,
+      "hours": "Mandarake 12:00–20:00; Radio Kaikan 10:00–20:00",
+      "source_urls": [
+        "https://www.google.com/maps/search/?api=1&query=Mandarake+Complex+Akihabara",
+        "https://www.lonelyplanet.com/articles/geek-culture-guide-tokyo"
+      ],
+      "wishes": [
+        "Shopping",
+        "We love to do it all"
+      ]
+    },
+    {
+      "index": 4,
+      "summary": "mita's collab sneakers under the Ameyoko tracks, while the rest raid the cheap stalls outside.",
+      "story": "mita has been selling shoes under the Ameyoko railway arches since the 1950s and is known for its Nike, New Balance and Asics collabs. Outside, the market lanes are lined with cheap sneaker stalls, jackets and snack sellers, and they're still easy to walk before the New Year food rush.",
+      "how": [
+        "Send 3–4 into mita at a time; it's small.",
+        "The rest browse the sneaker and jacket stalls along the lanes.",
+        "Walk on to Daitoryo."
+      ],
+      "tips": [
+        "Collabs run ¥10,000–25,000.",
+        "Today is the right time: from about 28 Dec, Ameyoko is shoulder to shoulder."
+      ],
+      "cost": "Sneakers ¥10,000–25,000",
+      "booking": null,
+      "hours": "11:00–19:30",
+      "source_urls": [
+        "https://jw-webmagazine.com/tips/sneaker-stores-in-tokyo/",
+        "https://timeout.com/tokyo/shopping/best-sneaker-shops-in-tokyo"
+      ],
+      "wishes": [
+        "Shopping"
+      ]
+    },
+    {
+      "index": 5,
+      "summary": "Afternoon drinking under the tracks: motsu-yaki and beer at Daitoryo, then standing seafood and sake at Uokusa.",
+      "story": "This is Tokyo's best cheap drinking strip: half-outdoor izakaya under the train line, skewers from ¥100–200, and beer flowing from 10am. Daitoryo grills offal skewers over smoke while trains rumble overhead, and Uokusa is a standing bar for seafood and sake.",
+      "how": [
+        "Go to the Daitoryo branch (bigger than the main shop) and expect to split 4+4.",
+        "Order motsu-yaki and beers.",
+        "Move to Uokusa for standing seafood and sake.",
+        "Leave for the 15:49 Keihin-Tohoku rapid from Ueno."
+      ],
+      "tips": [
+        "Walk-in only. If the wait is long, move on rather than queue; it's a bar hop.",
+        "Some foreign visitors have felt they were seated slower, so another stall is never a loss."
+      ],
+      "cost": "¥2,500 pp",
+      "booking": "Walk-in only",
+      "hours": "Daitoryo branch 10:00–24:00",
+      "source_urls": [
+        "https://www.hotpepper.jp/strJ000724017/",
+        "https://retty.me/area/PRE13/ARE9/SUB901/100000013635/",
+        "https://www.xiaohongshu.com/search_result?keyword=上野%20大统领"
+      ],
+      "wishes": [
+        "We love to drink",
+        "We want to maximise all the time we've got in the country"
+      ]
+    },
+    {
+      "index": 6,
+      "summary": "Mulled wine and sausages in a German Christmas market right under Tokyo Tower as it lights up.",
+      "story": "For 2026 the big ticketed Tokyo Christmas Market has moved to Shiba Park, right under Tokyo Tower: wooden stalls, a giant Christmas pyramid, mulled wine steaming in the cold. Arrive as the light fades and watch the tower switch on above the stalls.",
+      "how": [
+        "Show your advance tickets and collect the souvenir mugs.",
+        "Get mulled wine and sausages and grab a standing table.",
+        "Walk to Kamiyacho for the 18:00 Hibiya line to Roppongi."
+      ],
+      "tips": [
+        "Most of the ¥1,000 weekday ticket is the mug, so keep it; drinks cost ¥800–1,200.",
+        "Same-day entry can be limited when it's busy, so the advance tickets matter.",
+        "Onarimon station exit A6 is the nearest entrance if anyone gets separated."
+      ],
+      "cost": "¥1,000 pp entry (weekday), drinks extra",
+      "booking": "Advance tickets on KKday",
+      "hours": "11:00–22:00; last entry 21:00",
+      "source_urls": [
+        "https://bestcalendar.jp/press/155933",
+        "https://report.iko-yo.net/articles/34138"
+      ],
+      "wishes": [
+        "We love to drink",
+        "We love to do it all",
+        "Look for money we can save by booking early or buying passes"
+      ]
+    },
+    {
+      "index": 7,
+      "summary": "Glühwein at Roppongi Hills, then the Keyakizaka light tunnel with Tokyo Tower glowing at the end.",
+      "story": "Keyakizaka's 400 m of trees are wrapped in about 970,000 LEDs, and the street runs straight at Tokyo Tower: it's the Christmas photo of Tokyo. Up in the Oyane Plaza, the German-style market (in its 20th year) pours glühwein.",
+      "how": [
+        "Start at the Oyane Plaza market for glühwein.",
+        "Walk down Keyakizaka and stop midway for the group shot with Tokyo Tower.",
+        "Head to Roppongi station for the 19:57 Hibiya line."
+      ],
+      "tips": [
+        "The original mug is ¥1,600 and limited, so buy early if you want one.",
+        "Queues to buy can be long; send two people for drinks while the rest hold a table.",
+        "It's free and ends 25 Dec."
+      ],
+      "cost": "Free entry; glühwein and food ¥800–1,500 each",
+      "booking": null,
+      "hours": "Lights 17:00–22:00",
+      "source_urls": [
+        "https://bestcalendar.jp/press/155764",
+        "https://rurubu.jp/andmore/article/14995",
+        "https://www.xiaohongshu.com/explore/69491d5f000000001e039479"
+      ],
+      "wishes": [
+        "We love to drink",
+        "We love to do it all"
+      ]
+    },
+    {
+      "index": 8,
+      "summary": "All-you-can-eat gyoza and dim sum with free-flow drinks in your own private room in Kabukicho.",
+      "story": "Mugen Gyoza is a Kabukicho all-you-can-eat-and-drink with private rooms, full of groups of friends in their twenties. On the busiest bōnenkai night of the year, the booked room means no fight for a table.",
+      "how": [
+        "Go up to 8F at Kabukicho 1-14-4 for your 20:40 booking.",
+        "Order rounds of gyoza and dim sum and keep the drinks coming.",
+        "Walk to Tokyu Kabukicho Tower."
+      ],
+      "tips": [
+        "The time limit is 120 min, so order big early.",
+        "Pace the free-flow: ZEROTOKYO turns away very drunk guests.",
+        "Cancelling the day before costs 50%."
+      ],
+      "cost": "¥3,250 pp",
+      "booking": "Booked: 20:40 private room for 8 (Hot Pepper)",
+      "hours": "15:00–23:30; last entry 23:00",
+      "source_urls": [
+        "https://www.hotpepper.jp/strJ001164469/report/",
+        "https://www.hotpepper.jp/strJ001037224/",
+        "https://www.tiktok.com/@shinjuku.food/video/7676492295457312021"
+      ],
+      "wishes": [
+        "We love to drink",
+        "Look for money we can save by booking early or buying passes"
+      ]
+    },
+    {
+      "index": 9,
+      "summary": "Steve Angello at ZEROTOKYO, Kabukicho Tower's superclub: the headline club night of the trip.",
+      "story": "ZEROTOKYO is Tokyo's biggest new club, known above all for its sheer scale, and tonight Steve Angello plays house and progressive. Doors open at 23:00 and the room peaks after midnight.",
+      "how": [
+        "Queue from about 22:30 with tickets and original passports in hand.",
+        "Dance through the 00:30–03:00 peak.",
+        "Take 2 taxis home to Ninja House (21 min)."
+      ],
+      "tips": [
+        "Entry is 20+ with an original passport only; no photos, copies or expired ID.",
+        "Tank tops, sleeveless tops and sandals may be refused at the door.",
+        "Expect about ¥4,700 per taxi."
+      ],
+      "cost": "about ¥2,000–5,000 pp (advance ticket)",
+      "booking": "Advance tickets bought (zaiko/livepocket)",
+      "hours": "Doors 23:00",
+      "source_urls": [
+        "https://www.zerotokyo.jp/",
+        "https://www.zerotokyo.jp/system/",
+        "https://maps.google.com/?cid=18294562039779609304",
+        "https://nightlifetokyo.com/en/tokyo-nightlife-guide"
+      ],
+      "wishes": [
+        "We love to drink",
+        "We love to do it all",
+        "We want to maximise all the time we've got in the country"
+      ]
+    }
+  ]
+}

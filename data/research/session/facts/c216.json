@@ -1,0 +1,69 @@
+{
+  "open": [
+    {
+      "dates": [
+        "2026-12-15",
+        "2026-12-16",
+        "2026-12-17",
+        "2026-12-18"
+      ],
+      "open": "15:00",
+      "close": "23:30",
+      "quote": "15:00～23:30",
+      "url": "https://r.gnavi.co.jp/ggzf408/"
+    },
+    {
+      "dates": [
+        "2026-12-19"
+      ],
+      "open": "12:00",
+      "close": "23:30",
+      "quote": "12:00～23:30",
+      "url": "https://r.gnavi.co.jp/ggzf408/"
+    }
+  ],
+  "closed": [],
+  "last_entry": {
+    "time": "23:00",
+    "quote": "（L.O.23:00、ドリンクL.O.23:00）",
+    "url": "https://r.gnavi.co.jp/ggzf408/"
+  },
+  "prices": [
+    {
+      "what": "Unlimited gyoza and drink course, per person",
+      "yen": 3250,
+      "quote": "料金： 3,250円 / 1名様",
+      "url": "https://r.gnavi.co.jp/ggzf408/"
+    },
+    {
+      "what": "2-hour all-you-can-drink (limited period)",
+      "yen": 1500,
+      "quote": "2時間飲み放題が1500円と抜群コスパ",
+      "url": "https://r.gnavi.co.jp/ggzf408/"
+    }
+  ],
+  "fixed_minutes": null,
+  "time_limit": null,
+  "group": {
+    "text": "Groups of 10 or more taken by advance booking; 12:00-15:00 walk-ins need advance booking",
+    "quote": "10名様よりご予約承っております。",
+    "url": "https://r.gnavi.co.jp/ggzf408/"
+  },
+  "booking": {
+    "text": "Online booking via gurunavi",
+    "quote": "ネット予約♪",
+    "url": "https://r.gnavi.co.jp/ggzf408/"
+  },
+  "notes": [
+    {
+      "text": "Year-end: opens 12:00 from 12/26 to 1/3 (no opening-hour entry for 12/26-12/29 because the page gives only the opening time; regular close 23:30 applies)",
+      "quote": "◎2026/12/26~2027/1/3は12時から営業いたします！◎",
+      "url": "https://r.gnavi.co.jp/ggzf408/"
+    },
+    {
+      "text": "Course lengths are listed inconsistently on the page (3-hour food and drink vs 2H food plus 3H drinks); confirm when booking",
+      "quote": "2H食べ放題+3H飲み放題付き3250円",
+      "url": "https://r.gnavi.co.jp/ggzf408/"
+    }
+  ]
+}

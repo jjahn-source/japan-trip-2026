@@ -1,23 +1,7 @@
 {
-  "open": [
-    {
-      "dates": [
-        "2026-12-19",
-        "2026-12-20",
-        "2026-12-21"
-      ],
-      "open": "18:00",
-      "close": "24:00",
-      "quote": "18:00～24:00（L.O23：00）",
-      "url": "https://www.hakonenavi.jp/spot/1032"
-    }
-  ],
+  "open": [],
   "closed": [],
-  "last_entry": {
-    "time": "23:00",
-    "quote": "18:00～24:00（L.O23：00）",
-    "url": "https://www.hakonenavi.jp/spot/1032"
-  },
+  "last_entry": null,
   "prices": [],
   "fixed_minutes": null,
   "time_limit": null,
@@ -25,14 +9,34 @@
   "booking": null,
   "notes": [
     {
-      "text": "No regular closing day",
-      "quote": "定休日\n無休",
-      "url": "https://www.hakonenavi.jp/spot/1032"
+      "text": "Bowling and karaoke: students (high school and up) must show an official ID with age",
+      "quote": "※学生(高校生以上)の方は年齢確認できる公的身分証明書のご提示が必要です。",
+      "url": "https://www.round1.co.jp/shop/ryokin/tokyo-divercity.html"
     },
     {
-      "text": "Source is a Hakone tourism aggregator; no official page or year-end hours found",
-      "quote": "箱根湯本駅から、徒歩約3分",
-      "url": "https://www.hakonenavi.jp/spot/1032"
+      "text": "Spocha student price needs a student ID card",
+      "quote": "※学生（高校生以上）の方は、学生証のご提示を頂きますと学生料金が適用となります。",
+      "url": "https://www.round1.co.jp/shop/ryokin/tokyo-divercity.html"
+    },
+    {
+      "text": "Spocha prices differ by weekday; a holiday in the middle of a 3-day weekend uses the Sat/Sun/holiday rate",
+      "quote": "・3連休の中日は「土曜日・日曜日・祝日」料金となります。",
+      "url": "https://www.round1.co.jp/shop/ryokin/tokyo-divercity.html"
+    },
+    {
+      "text": "Spocha price after 20:00 changed from 2026-02-24",
+      "quote": "夜8時以降のご利用料金を改定させていただくこととなりました。",
+      "url": "https://www.round1.co.jp/shop/ryokin/tokyo-divercity.html"
+    },
+    {
+      "text": "Year-end (年末年始) and other special periods may change prices and hours",
+      "quote": "※GW､お盆､年末年始期間等の特別営業期間は､変更になる場合がございます。",
+      "url": "https://www.round1.co.jp/shop/ryokin/tokyo-divercity.html"
+    },
+    {
+      "text": "Rate periods run from OPEN to CLOSE (24-hour stores: 06:00 to next 06:00); store hours are not on this price page",
+      "quote": "※各種営業日の料金は、OPEN時間（24時間営業時は6:00）～CLOSE時間（24時間営業時は翌朝6:00）までを区切りとしております。",
+      "url": "https://www.round1.co.jp/shop/ryokin/tokyo-divercity.html"
     }
   ]
 }

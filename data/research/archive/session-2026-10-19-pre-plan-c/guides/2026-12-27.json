@@ -1,0 +1,234 @@
+{
+  "notes": [
+    {
+      "kind": "LUGGAGE",
+      "text": "Before you leave Garfield House this morning, send the big suitcases to Haneda T3 with Yamato airport delivery. Keep tax-free goods and their receipts in your carry-on."
+    },
+    {
+      "kind": "WEATHER",
+      "text": "December on the coast is cold and the wind on Enoshima bites. Bring hats and gloves; it is dark before you leave the island."
+    },
+    {
+      "kind": "BRING",
+      "text": "Original passports for tonight (drinking age is 20+, and Umi no Ie turns away under-20s), plus cash for Golden Gai."
+    }
+  ],
+  "stops": [
+    {
+      "index": 0,
+      "summary": "Grab the Enoshima-Kamakura Freepass and konbini onigiri, then take the first Rapid Express south.",
+      "story": "One ticket covers your ride out of Shinjuku and back, plus unlimited rides on the Enoden coast tram, which costs about half as much as buying separate fares. Breakfast is konbini onigiri and hot canned coffee eaten on the train while Tokyo thins out into the suburbs.",
+      "how": [
+        "Buy one Freepass each from the Odakyu ticket machines at Shinjuku, or in the EMot app.",
+        "Hit the konbini for onigiri and coffee while one person checks the next Rapid Express to Fujisawa.",
+        "Change at Fujisawa to the Enoden for Kamakura; it's all on the pass."
+      ],
+      "tips": [
+        "The Odakyu leg to Fujisawa is good for one ride out and one ride back only, so don't get off partway and back on.",
+        "Hold on to the pass all day: it gets collected at the last station of your trip."
+      ],
+      "cost": "¥1,640 pp Freepass + about ¥600 pp breakfast",
+      "booking": "Buy on the day at Odakyu Shinjuku or in the EMot app",
+      "hours": null,
+      "source_urls": [
+        "https://www.odakyu.jp/wordpress/wp-content/uploads/terms.pdf",
+        "https://monomoney-living.com/?p=17599"
+      ],
+      "wishes": [
+        "Look for money we can save by booking early or buying passes",
+        "We want to maximise all the time we've got in the country"
+      ]
+    },
+    {
+      "index": 1,
+      "summary": "Climb the stone stairs to Kamakura's vermilion main shrine, already decked out for New Year.",
+      "story": "Tsurugaoka Hachimangu is the shrine the whole town was built around: a wide approach running inland from the sea that ends at a steep stone staircase and a vermilion hall. In the last week of the year, the shrine is getting ready for the New Year rush, and on a clear winter morning the view back down the approach is crisp.",
+      "how": [
+        "Walk up Wakamiya-oji from Kamakura station to the big torii.",
+        "Cross the arched bridge area and climb the main staircase to the hall.",
+        "Look back from the top before heading down to Komachi-dori."
+      ],
+      "tips": [
+        "Sunday crowds build through the morning, so take the group photo on the stairs early, before the tour groups arrive."
+      ],
+      "cost": null,
+      "booking": null,
+      "hours": null,
+      "source_urls": [],
+      "wishes": [
+        "We love to do it all"
+      ]
+    },
+    {
+      "index": 2,
+      "summary": "Graze Kamakura's snack street: shirasu, croquettes, dango and matcha soft serve, in two groups of four.",
+      "story": "Komachi-dori is a narrow lane of snack counters, and the local star is shirasu, the tiny whitebait landed off this coast, stuffed into buns or piled on rice. Two groups of four can cover twice the stalls and swap bites.",
+      "how": [
+        "Split into two groups of four and work down the street from the shrine end.",
+        "Get one shirasu thing, a croquette and some dango per group, and finish on matcha soft serve.",
+        "Regroup at Kamakura station for the Enoden."
+      ],
+      "tips": [
+        "Kamakura asks visitors not to eat while walking on Komachi-dori, so eat at the stall or in its little standing area.",
+        "Your Freepass covers the Enoden to Hase, so don't tap your IC card."
+      ],
+      "cost": "about ¥1,500–2,500 pp",
+      "booking": null,
+      "hours": null,
+      "source_urls": [],
+      "wishes": [
+        "We love to do it all"
+      ]
+    },
+    {
+      "index": 3,
+      "summary": "Stand under the giant bronze Buddha that sits outdoors, then step inside its hollow body.",
+      "story": "Kotoku-in's Daibutsu sits in the open air, cross-legged and green with age, against a bare winter sky. The hall that once covered it is long gone, and you can climb inside the hollow bronze body to see the seams where it was cast in sections.",
+      "how": [
+        "Walk up from Hase station on the Enoden, which is covered by the Freepass.",
+        "Pay admission at the gate, take the full-frontal photo, then queue for the small entrance into the statue.",
+        "Anyone who wants Hase-dera can split off next door and meet back at Hase station."
+      ],
+      "tips": [
+        "Leaving Hase, sit on the left side of the Enoden: that's the sea side for the coast stretch to Enoshima.",
+        "The Enoden from Hase is on the Freepass, so ignore the fare in the route app."
+      ],
+      "cost": "¥300 pp",
+      "booking": null,
+      "hours": null,
+      "source_urls": [],
+      "wishes": [
+        "We love to do it all"
+      ]
+    },
+    {
+      "index": 4,
+      "summary": "Climb Enoshima's shrine lanes to the top, then catch sunset with Fuji over the sea from the rocks.",
+      "story": "Enoshima is a small, steep island tied to the shore by a long bridge, and its lanes climb through shrine gates and snack shops to the top. Cold, dry winter air is when Fuji shows up most clearly across Sagami Bay, and the sun drops behind it early.",
+      "how": [
+        "Cross the bridge and climb the shrine lanes to the top of the island.",
+        "Keep going to the rocky west side and claim a spot before the sunset at around 16:30.",
+        "Walk back over the bridge in the dark to Katase-Enoshima for the train back."
+      ],
+      "tips": [
+        "The return to Shinjuku is your one ride back on the Freepass's Odakyu leg, and the pass is collected at the end station, so hold on to it until Shinjuku.",
+        "The rocks get slippery and the wind is fierce after dark, so wear proper shoes and use phone torches on the steps down.",
+        "Enoden trains are packed on weekends; the timing here keeps you ahead of most of the day-trippers."
+      ],
+      "cost": "Covered by the Freepass",
+      "booking": null,
+      "hours": null,
+      "source_urls": [
+        "https://www.fun-japan.jp/jp/articles/13398",
+        "https://www.odakyu.jp/wordpress/wp-content/uploads/terms.pdf",
+        "https://monomoney-living.com/?p=17599"
+      ],
+      "wishes": [
+        "We want to maximise all the time we've got in the country",
+        "We love to do it all"
+      ]
+    },
+    {
+      "index": 5,
+      "summary": "Free night view from the 202 m deck over Shinjuku, then the projection-mapping show on the facade.",
+      "story": "The Tokyo Metropolitan Government Building gives you a city-hall observatory with no ticket, looking out over the glittering towers of west Shinjuku. On the way out, the building's own facade turns into a screen for a Guinness-certified projection-mapping show.",
+      "how": [
+        "Go to the South observatory: the North deck stops letting people in at 17:00.",
+        "Queue for the short security check at the lifts and ride up.",
+        "Back outside, wait on the plaza for the next projection show on the facade."
+      ],
+      "tips": [
+        "Last entry is at 21:30, and the deck can close suddenly in bad weather.",
+        "Today is your last chance: the North deck is closed tomorrow and both decks shut for the year from the day after.",
+        "No group bookings are taken, so just walk in."
+      ],
+      "cost": "Free",
+      "booking": "No advance reservations or group bookings",
+      "hours": "09:30–22:00, last entry 21:30",
+      "source_urls": [
+        "https://www.gotokyo.org/jp/spot/74/index.html",
+        "https://iko-yo.net/facilities/27635"
+      ],
+      "wishes": [
+        "Look for money we can save by booking early or buying passes",
+        "We want to maximise all the time we've got in the country"
+      ]
+    },
+    {
+      "index": 6,
+      "summary": "Cheap base camp: ¥1,480 nomihodai with free-flow gyoza and oden, with an eighth seat free if you phone-book.",
+      "story": "Umi no Ie is a 7th-floor izakaya near the East Exit built for exactly this group: an unlimited drinks plan that can run up to 7 hours, with free-flow gyoza and oden. It's loud and cheap, and it's open until the small hours.",
+      "how": [
+        "Book by phone for 8: groups of 8+ booked that way get one person free (online bookings don't qualify).",
+        "Show the Hot Pepper coupon for the ¥1,480 nomihodai price.",
+        "Order 2 dishes each; that's the condition for the deal."
+      ],
+      "tips": [
+        "A ¥450 cover charge is added on top of the course.",
+        "Under-20s are refused entry even with friends, so bring your passport.",
+        "Skip the pain-gout hotpot at ¥3,850 a serving; with 2 servings to order, it blows the budget."
+      ],
+      "cost": "about ¥3,000–4,000 pp (¥1,480 nomihodai + ¥450 cover + 2 dishes)",
+      "booking": "Phone for 8 (one person free); online instant booking also available",
+      "hours": "12:00–29:00 today, last entry 28:00",
+      "source_urls": [
+        "https://www.tiktok.com/@sassy_gourmet_cat/video/7665180520375979271",
+        "https://maps.google.com/?cid=15983407868044937438"
+      ],
+      "wishes": [
+        "We love to drink",
+        "Look for money we can save by booking early or buying passes"
+      ]
+    },
+    {
+      "index": 7,
+      "summary": "Bar-hop Tokyo's maze of micro-bars in two crews of four, and bring cash.",
+      "story": "Golden Gai is about 200 tiny bars squeezed into six alleys, each one a staircase or a doorway with a handful of stools behind it. Most seat only 6–8 people, so every bar is a different room with a different bartender.",
+      "how": [
+        "Split into two groups of four and work neighbouring alleys.",
+        "Pick doors with English prices posted outside, and walk past any marked 'regulars only'.",
+        "Have one drink, then move on if the next bar has space."
+      ],
+      "tips": [
+        "Expect a seat charge of ¥500–1,500 a head, sometimes with the first drink included, and drinks at about ¥700–1,000.",
+        "It's mostly cash only.",
+        "Sunday is one of the calmer nights, which makes it easier to find seats for four."
+      ],
+      "cost": "about ¥2,000–3,500 pp (seat charge ¥500–1,500 + drinks)",
+      "booking": "No booking; walk in",
+      "hours": null,
+      "source_urls": [
+        "https://nightlifetokyo.com/en/tokyo/guides/golden-gai-guide",
+        "https://metropolisjapan.com/golden-gai/"
+      ],
+      "wishes": [
+        "We love to drink",
+        "We love to do it all"
+      ]
+    },
+    {
+      "index": 8,
+      "summary": "A party room for 8 on the late-night flat rate with free-flow drinks, until your voices go.",
+      "story": "Karaokekan's Kabukicho flagship runs right through the night, so the night ends when you decide, not when the trains stop. After midnight, the late-night flat rate plus a drinks add-on usually beats hourly pricing for a group this size.",
+      "how": [
+        "Book a party room for 8 on LINE.",
+        "Ask for the late-night flat rate and add the free-flow drinks plan.",
+        "Walk home to Garfield House when you're done; no taxi needed."
+      ],
+      "tips": [
+        "Prices weren't verified, so check the store page or ask at the desk before you commit."
+      ],
+      "cost": "Late-night flat rate + drinks plan (check karaokekan.jp)",
+      "booking": "LINE booking",
+      "hours": "11:00–30:00",
+      "source_urls": [
+        "https://maps.google.com/?cid=17144439067794512100",
+        "https://www.mapple.net/original/371134/"
+      ],
+      "wishes": [
+        "We love to drink",
+        "We want to maximise all the time we've got in the country"
+      ]
+    }
+  ]
+}

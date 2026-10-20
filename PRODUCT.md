@@ -18,9 +18,9 @@ Deploys as static files to any host.
 
 ## Users
 
-Eight friends travelling Japan together, Dec 14–29 2026. Two uses, both primary:
+Eight friends travelling Japan together, Dec 15–29 2026 (15 days; they land Dec 15). Two uses, both primary:
 1. Before the trip: the group (and anyone they share it with) understands and gets
-   excited about the whole 16-day plan: route, bases, big nights, bookings still to make.
+   excited about the whole 15-day plan: route, bases, big nights, bookings still to make.
 2. During the trip: each person on their own phone, often outdoors, in transit, at night,
    with patchy signal, needs "what's now, what's next, how do I get there, is it open,
    when is the last train" in seconds.
@@ -39,7 +39,7 @@ date and time in Japan, so it can tell the group where they should be right now.
 
 ## Operating Context
 
-- Times are Japan time (JST). Trip runs Mon Dec 14 – Tue Dec 29 2026.
+- Times are Japan time (JST). Trip runs Tue Dec 15 – Tue Dec 29 2026 (Dec 14 is the flight day in Plan C).
 - Each stop has a time window, category (transport, stay, restaurant, attraction,
   shopping, activity, bar/cafe, nature), price (per person or group total, ¥ or $),
   practical notes (hours, booking, getting there, tips), website, Google Maps link,
@@ -71,6 +71,10 @@ None. The plan's own voice is direct, practical, a bit irreverent ("8 degenerate
 
 ## Product Principles
 
+0. Legendary, not generic: the plan is built around set pieces the group will talk about for
+   years (Santa suits, wrestling, a dinner cruise), each real, bookable for its date and backed by a
+   named fallback. A famous default needs a stated reason to be there. "Plan C" (the group's own
+   plan in `data/japan-plan-c.md`) is the spine of the content.
 1. Right now beats everything: the current/next stop is never more than one tap away.
 2. Every fact traceable to the plan; uncertainty stays labelled.
 3. Works with one thumb, in the cold, on bad signal.

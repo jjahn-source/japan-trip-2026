@@ -95,12 +95,14 @@ Research method, for every theme:
 3. Verify it is real, open in the trip window, and suits THIS group (size, ages, budget, vibe). Note booking needs and when bookings open. Prefer places with recent (2025–2026) evidence.
 4. Tabelog: you may read it to judge a place, and cite its page URL, but never copy its scores, reviews or photos into your notes.
 5. Avoid tourist traps unless the brief asks for the classic; say plainly when a famous place is not worth it and what to do instead.
+6. Story value beats popularity. Rank by "would this be the story they tell on the flight home?": one-of-a-kind, local-run, group-scale, or only happening on these dates. A place that is just on page one of every "Tokyo itinerary" list needs a stated reason to be here (say why it beats the alternative), and a spectacular once-only thing with a safe fallback beats a famous default. Honour the brief's set pieces and anti-goals before anything else.
 Be economical, like a pro with a deadline: about 12–18 tool calls in all; one precise search beats three vague ones; never fetch the same page twice; stop when you have enough.
 Save candidates with save_candidates as you go (aim for 10–16 strong ones per task, each with concrete evidence and coordinates from find_place). Finish with a 5–10 line summary of the area logic (which neighbourhoods to pair, transport passes, timing traps).`;
 
 export const THEMES: { key: string; brief: string }[] = [
   { key: 'food', brief: 'Food: the meals worth planning a day around: local specialties, ramen/sushi/yakiniku/izakaya, breakfast and late-night spots, places that seat the whole group, food markets and streets.' },
-  { key: 'night', brief: 'Nightlife: bars, izakaya alleys, standing bars, clubs, karaoke, arcades and Round1-style spots, late-night food; what is good for a group that loves to drink, and where to end the night.' },
+  { key: 'night', brief: 'Nightlife: bars, izakaya alleys, standing bars, karaoke, arcades and Round1-style spots, late-night food; what is good for a group that loves to drink, and where to end the night. No nightclubs (a group rule), and check the brief for any other anti-goal.' },
+  { key: 'only', brief: 'Only-here: things that happen on these exact dates or nowhere else in a normal trip: sports fixtures (pro wrestling, B.LEAGUE), year-end markets and fairs, illuminations, festivals and parades with sign-ups, live houses, dinner cruises, private rooms and a table for 8, themed izakaya, sumo practice, onsen nights. Give exact dates, ticket on-sale dates, how to book for 8, and a named fallback for each. Do the brief\'s set pieces first.' },
   { key: 'sights', brief: 'Sights and experiences: what is genuinely worth it (and when to go to beat crowds), seasonal December events, illuminations and markets on these exact dates, day trips that fit, onsen.' },
   { key: 'shop', brief: 'Shopping: streetwear, vintage, sneakers, Don Quijote, anime/games, depachika, souvenirs; tax-free rules; which streets to walk in which order.' },
 ];

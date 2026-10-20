@@ -1,0 +1,55 @@
+{
+  "open": [
+    {
+      "dates": [
+        "2026-12-21",
+        "2026-12-22",
+        "2026-12-23",
+        "2026-12-24",
+        "2026-12-25",
+        "2026-12-26"
+      ],
+      "open": "08:00",
+      "close": "23:00",
+      "quote": "8:00～23:00",
+      "url": "https://r.gnavi.co.jp/7cd1u6ke0000/"
+    }
+  ],
+  "closed": [],
+  "last_entry": {
+    "time": "22:30",
+    "quote": "8:00 〜 23:00 L.O. 22:30",
+    "url": "https://retty.me/restaurant/100000087834/"
+  },
+  "prices": [],
+  "fixed_minutes": null,
+  "time_limit": null,
+  "group": {
+    "text": "2F holds about 30; private hire (会合, 2次会) taken on weekdays only",
+    "quote": "2階は約30名様収容可能で、平日に限り会合や２次会などの貸切のご予約をお受けいたします。",
+    "url": "https://r.gnavi.co.jp/7cd1u6ke0000/"
+  },
+  "booking": null,
+  "notes": [
+    {
+      "text": "Closed 1 January only (not a trip date); no closure on the trip dates",
+      "quote": "1/1のみ定休日",
+      "url": "https://r.gnavi.co.jp/7cd1u6ke0000/"
+    },
+    {
+      "text": "Year-end hours vary each year; no 2026 year-end hours found in the sources",
+      "quote": "年末年始のみ毎年変動あり",
+      "url": "https://retty.me/restaurant/100000087834/"
+    },
+    {
+      "text": "Official site (marufukucoffeeten.com) carries news only, no hours",
+      "quote": "本社電話回線の復旧について",
+      "url": "https://marufukucoffeeten.com/"
+    },
+    {
+      "text": "Phone 06-6211-3474",
+      "quote": "06-6211-3474",
+      "url": "https://rurubu.jp/andmore/spot/80028593"
+    }
+  ]
+}

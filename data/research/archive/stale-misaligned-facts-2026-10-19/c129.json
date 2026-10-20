@@ -1,0 +1,54 @@
+{
+  "open": [
+    {
+      "dates": [
+        "2026-12-15",
+        "2026-12-16",
+        "2026-12-17",
+        "2026-12-18",
+        "2026-12-19",
+        "2026-12-26",
+        "2026-12-28",
+        "2026-12-29"
+      ],
+      "open": "17:30",
+      "close": "24:00",
+      "quote": "Monday - Friday 17:30 - 24:00(L.O.23:00, Drink L.O. 23:30)",
+      "url": "https://gurunavi.com/en/k201447/rev/rst"
+    },
+    {
+      "dates": [
+        "2026-12-27"
+      ],
+      "open": "17:00",
+      "close": "24:00",
+      "quote": "Sunday 17:00 - 24:00(L.O.23:00, Drink L.O. 23:30)",
+      "url": "https://gurunavi.com/en/k201447/rev/rst"
+    }
+  ],
+  "closed": [],
+  "last_entry": {
+    "time": "23:00",
+    "quote": "(L.O.23:00, Drink L.O. 23:30)",
+    "url": "https://gurunavi.com/en/k201447/rev/rst"
+  },
+  "prices": [
+    {
+      "what": "Dinner average spend",
+      "yen": 3000,
+      "quote": "Dinner: 3,000 JPY",
+      "url": "https://gurunavi.com/en/k201447/rev/rst"
+    }
+  ],
+  "fixed_minutes": null,
+  "time_limit": null,
+  "group": null,
+  "booking": null,
+  "notes": [
+    {
+      "text": "Source is a foreign-language Gurunavi listing, which carries a warning that business hours may be out of date; check the Japanese page or call 06-6454-4649. No year-end hours found.",
+      "quote": "some restaurant details (restaurant name, address, access, business hours, regular holidays, service charges) on foreign-language pages may not be up to date",
+      "url": "https://gurunavi.com/en/k201447/rev/rst"
+    }
+  ]
+}

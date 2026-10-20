@@ -1,110 +1,124 @@
 {
   "notes": [
     {
-      "kind": "WEATHER",
-      "text": "Owakudani is cold, windy and sulphurous at 9am: hats, gloves, the warmest layer you packed. It's dark by 16:45."
+      "kind": "CHECK",
+      "text": "Before leaving, check hakonenavi for the ropeway and pirate ship. Both stop in bad weather."
+    },
+    {
+      "kind": "BRING",
+      "text": "Swimsuits for Yunessun (rental exists but costs extra), a rash guard for anyone with tattoos, warm layers, and the original passports for the snack bar tonight."
     },
     {
       "kind": "CHECK",
-      "text": "Confirm the Albergo Bamboo private room, and call Snack Takachan (0460-83-8677) by tonight at the latest about a set price for 8 and a lift."
-    },
-    {
-      "kind": "MONEY",
-      "text": "The Freepass covers the bus, ropeway and pirate ship. The two taxis from Hakone Shrine to Sengokuhara are extra, and so is everything you eat and drink."
+      "text": "Hakone Sushi and Snack Takachan are booked by phone only. Check both are confirmed for 8 before the day starts."
     }
   ],
   "stops": [
     {
-      "index": 1,
-      "summary": "First ropeway car up, sitting on the lake side, for the clearest Fuji views you'll get all trip.",
-      "story": "December mornings are when Fuji is at its sharpest. From the first gondola you watch Lake Ashi drop away behind you while the white cone rises over the ridge. The Owakudani–Sōunzan leg beyond is a replacement bus 7–24 Dec, so today you ride up and come back the same way.",
+      "index": 0,
+      "summary": "Leftover wagyu rice bowls and coffee, then out the door for the first ropeway.",
+      "story": "Last night's cook-off leftovers go over rice for the best villa breakfast of the trip. Fuji is clearest early on winter mornings, so this is the morning to move fast.",
       "how": [
-        "Get to Togendai for the first car at 9:00 and show your Freepass at the gate.",
-        "Grab the seats facing the lake so you're looking towards Fuji.",
-        "Get off at Owakudani. Don't try to carry on towards Sōunzan."
+        "Reheat the wagyu and pile it on rice.",
+        "Check hakonenavi for ropeway and boat status.",
+        "Tozan bus to Togendai on the Freepass, or two taxis if you miss it."
       ],
       "tips": [
-        "Gondolas run continuously, so all 8 of you can split across two cars and meet at the top.",
-        "December service runs 9:00–16:15. If it's suspended for wind, go straight to the pirate ship."
+        "Togendai is close by car, so two taxis are a cheap fix if the bus timing doesn't work."
+      ],
+      "cost": null,
+      "booking": null,
+      "hours": null,
+      "source_urls": [],
+      "wishes": [
+        "We want to maximise all the time we've got in the country"
+      ]
+    },
+    {
+      "index": 1,
+      "summary": "First car up over the lake to a steaming volcano, with Fuji over the ridge if the sky plays along.",
+      "story": "The gondolas lift you from Lake Ashi via Ubako up to Owakudani's sulphur vents, and early winter mornings give the best shot at a clear Fuji. You're on the side that's running: the Sounzan section is shut for inspection.",
+      "how": [
+        "Be at Togendai for the first car.",
+        "Ride up via Ubako to Owakudani. It's on the Freepass."
+      ],
+      "tips": [
+        "The Owakudani–Sounzan leg is closed 7–24 Dec, with a crowded replacement bus. Don't go that way.",
+        "Gondolas run continuously, so 8 people is no problem."
       ],
       "cost": "Freepass",
       "booking": null,
-      "hours": "9:00–16:15 (December)",
+      "hours": null,
       "source_urls": [
-        "https://www.hakonenavi.jp/hakone-ropeway/",
-        "https://www.hakonenavi.jp/_wp/wp-content/uploads/2025/10/4531bb77512201beed24664cf5b3381e.pdf"
+        "https://www.hakonenavi.jp/_wp/wp-content/uploads/2025/10/4531bb77512201beed24664cf5b3381e.pdf",
+        "https://www.hakonenavi.jp/hakone-ropeway/"
       ],
       "wishes": [
-        "We want to maximise all the time we've got in the country",
-        "We love to do it all"
+        "Legendary, not generic: nothing only there because it is on page one of every Tokyo or Kyoto itinerary, and no sit-down sightseeing filler between the big moments"
       ]
     },
     {
       "index": 2,
-      "summary": "Steaming sulphur vents, Fuji over the ridge, and kuro-tamago eggs boiled black in the volcanic pools.",
-      "story": "Owakudani is a raw volcanic crater: yellow rock, hissing vents, and steam blowing sideways in the winter wind. The kuro-tamago come out of the hot spring water with jet-black shells and ordinary white egg inside. Eating one with Fuji in view is the Hakone ritual.",
+      "summary": "Sulphur steam, rotten-egg air and black eggs: each one supposedly adds 7 years to your life.",
+      "story": "Owakudani is a live volcanic valley where the ground hisses and the eggs come out boiled black in the hot springs. Eat one each for the legendary 7 extra years, then do the group photo in the steam.",
       "how": [
-        "Follow the path to the viewing area for the vents with Fuji behind.",
-        "Buy black eggs at the station shop: ¥500 for a bag of 5, so two bags covers 8 with spares.",
-        "Do your souvenir shopping before you ride back down to Togendai."
+        "Buy black eggs, about ¥500 per 5. Two bags covers 8.",
+        "Get the photo with the vents behind you and Fuji over the ridge.",
+        "Head back to the ropeway station."
       ],
       "tips": [
-        "Your hands will be freezing, so peel the eggs indoors.",
-        "The sulphur smell gets into scarves. Don't wear your nicest one.",
-        "The ropeway can stop in bad weather, so keep an eye on the boards."
+        "The nature trail needs online advance booking (¥800). Skip it unless someone has already booked.",
+        "The ropeway isn't open before 09:00, so the first car up is the earliest you can be here."
       ],
-      "cost": "¥500 per 5 eggs",
+      "cost": "about ¥500 per 5 eggs",
       "booking": null,
-      "hours": "9:00–16:15",
+      "hours": "09:00–16:00",
       "source_urls": [
-        "https://www.hakonenavi.jp/_wp/wp-content/uploads/2025/10/4531bb77512201beed24664cf5b3381e.pdf",
-        "https://hontojapan.com/hakone-map/"
+        "https://owakudani.com/"
       ],
       "wishes": [
-        "We love to do it all",
-        "Shopping"
+        "Legendary, not generic: nothing only there because it is on page one of every Tokyo or Kyoto itinerary, and no sit-down sightseeing filler between the big moments"
       ]
     },
     {
-      "index": 3,
-      "summary": "A mock galleon across a steel-grey winter Lake Ashi, with Fuji off the stern if the sky holds.",
-      "story": "It's kitsch and everyone knows it: a gilded pirate ship chugging across a cold mountain lake. That's the fun. On a clear December morning the top deck gets the lake, the bare hills and Fuji all in one frame.",
+      "index": 4,
+      "summary": "Sail across Lake Ashi on a fake pirate ship. Top deck for Fuji and the red torii from the water.",
+      "story": "Yes, it's a full-on pirate galleon on a mountain lake, and yes, it's ridiculous. It's 25 minutes across Lake Ashi to Moto-Hakone, with the red torii appearing on the shore as you come in.",
       "how": [
-        "Board at Togendai for the next winter sailing. The Freepass covers it.",
-        "Go straight up to the open top deck.",
-        "Get off at Motohakone. Hakone Shrine is a 6-min walk along the shore."
+        "Walk from the ropeway to the Togendai pier.",
+        "Board with the Freepass and head straight for the top deck.",
+        "Get off at Moto-Hakone and walk the lakeshore to the shrine."
       ],
       "tips": [
-        "The first-class deck upgrade costs extra and isn't worth it for a crossing this short.",
-        "It's windy out on the water. Go back inside once you've got your photos."
+        "The first-class deck costs extra. The open top deck has the better view anyway.",
+        "It's freezing on deck in December. Wear everything."
       ],
       "cost": "Freepass",
       "booking": null,
-      "hours": "9:30–16:40",
+      "hours": "09:30–16:40",
       "source_urls": [
-        "https://maps.google.com/?cid=15717914079410072592",
-        "https://www.reddit.com/r/JapanTravel/"
+        "https://maps.google.com/?cid=15717914079410072592"
       ],
       "wishes": [
         "We love to do it all"
       ]
     },
     {
-      "index": 4,
-      "summary": "Cedar-lined steps to Hakone Shrine and the red torii standing in the lake, without the midday queue.",
-      "story": "Huge old cedars shade the stone steps up to the shrine, which feels quiet and ancient even when the shore is busy. Below it, the red Torii of Peace stands right in Lake Ashi, Hakone's signature photo. By midday the line to pose under it can run 30–90 minutes.",
+      "index": 5,
+      "summary": "Cedar steps up to the shrine and the red torii standing in the lake. Shoot it from the side, skip the queue.",
+      "story": "A red gate stands in the water of Lake Ashi at the bottom of a cedar-lined approach. It's Hakone's signature photo. By midday the queue to stand in it can hit 30–90 minutes, and you have better things to do.",
       "how": [
-        "Walk up the cedar approach to the main shrine. It's free.",
-        "For the torii, skip the queue and shoot it from the side path.",
-        "Order the two taxis to Sengokuhara from the shore. It's a 23-min ride."
+        "Walk the lakeshore from Moto-Hakone to the shrine.",
+        "Climb the cedar steps to the main shrine.",
+        "Shoot the torii from the side path instead of joining the queue."
       ],
       "tips": [
-        "If you really want the posed shot, send one person to hold your place in the queue while the others explore.",
-        "The treasure hall is ¥500 if anyone wants to go in."
+        "If someone insists on the classic shot, one person holds the place in the queue while the rest explore.",
+        "Check whether the Peace Torii is closed off. It has been closed for year-end crowds before."
       ],
-      "cost": "Free (treasure hall ¥500)",
+      "cost": "Free",
       "booking": null,
-      "hours": "08:15–17:00",
+      "hours": null,
       "source_urls": [
         "https://hakonejinja.or.jp/",
         "https://www.reddit.com/r/JapanTravel/"
@@ -114,120 +128,120 @@
       ]
     },
     {
-      "index": 5,
-      "summary": "The splurge lunch: a castle-style Italian villa with uni-lemon cream pasta and winter boar in a private room.",
-      "story": "Albergo Bamboo looks like a small European castle dropped into the Hakone woods, and TV dramas film here. Upstairs you have the private room to yourselves. The uni and lemon cream pasta is the dish people come for, and in winter the menu adds boar and venison.",
+      "index": 6,
+      "summary": "Clay-pot rice and a side-dish buffet looking out over the lake you just sailed.",
+      "story": "Ashinoko Chaya is run by the pirate-ship company: donabe rice and an obanzai side-dish buffet beside Lake Ashi. It's a warm, sit-down refuel before an afternoon in wine and sake baths.",
       "how": [
-        "Arrive for your booked upstairs private room for 8.",
-        "Order the uni-lemon cream pasta, the winter boar, and a bottle of prosecco for the table.",
-        "Lunch last orders are 14:30, so don't be late. Glass no Mori is a 9-min walk."
+        "Walk back to the Moto-Hakone port area.",
+        "Go round the buffet, but don't overload: you're in a swimsuit in an hour.",
+        "Take the Tozan bus to Kowakien on the Freepass."
       ],
       "tips": [
-        "Dress up a bit: this is the group photo meal of the Hakone stay.",
-        "Booking is by phone (0460-84-3311) or the online form on the official site."
+        "Last entry 15:30, so a lunch at this time is easy.",
+        "Opening hours change with the season."
       ],
-      "cost": "¥6,000 pp",
-      "booking": "Private room for 8 booked; phone 0460-84-3311 or the official online form",
-      "hours": "11:30–14:30 (last order)",
+      "cost": "¥2,500 pp",
+      "booking": null,
+      "hours": "11:15–16:00",
       "source_urls": [
-        "https://www.instagram.com/p/DVht-FmD9NK/",
-        "https://www.instagram.com/p/DVJBWxMkyVr/"
+        "https://www.hakonenavi.jp/ourbrand/ashinokochaya/"
       ],
       "wishes": [
-        "We love to drink",
         "We love to do it all"
       ]
     },
     {
-      "index": 6,
-      "summary": "A Venetian-glass garden of crystal arches and a glass Christmas tree that lights up around sunset.",
-      "story": "Crystal-strung arches and a big glass Christmas tree glitter under the low winter sun, then sparkle again once the lights come on. Candles are lit only 1–25 Dec, so you're catching it at its best. With sunset around 16:30 you see it in daylight and after dark.",
-      "how": [
-        "Use the Freepass discount at the ticket desk: ¥1,800 pp.",
-        "Walk the garden in daylight first, then wait by the glass tree as it gets dark around 16:30.",
-        "Leave at 16:35 so you reach A-Coop with time to spare."
-      ],
-      "tips": [
-        "Golden hour just before dusk is the photo slot.",
-        "Last entry is 17:00, but you'll be gone by then. Don't let anyone wander off."
-      ],
-      "cost": "¥1,800 pp (Freepass discount)",
-      "booking": null,
-      "hours": "10:00–17:30, last entry 17:00",
-      "source_urls": [
-        "https://www.hakone-garasunomori.jp/garden/christmas/",
-        "https://www.jalan.net/event/evt_347401/",
-        "https://maps.google.com/?cid=839950920752152752"
-      ],
-      "wishes": [
-        "We love to do it all",
-        "We want to maximise all the time we've got in the country"
-      ]
-    },
-    {
       "index": 7,
-      "summary": "The village's only supermarket: tomorrow's breakfast and the villa's drinks, before the 18:00 close.",
-      "story": "A-Coop is Sengokuhara's only supermarket, and it closes early. It's Sunday, so Yamakawaya is shut too. Miss this and tonight's nightcaps are gone.",
+      "summary": "Soak in red wine, sake and coffee in your swimsuits. A hot-spring theme park all 8 can do together.",
+      "story": "Yunessun's wine bath was rebuilt as a fake winery, with vines and barrels, and this season the sake bath uses Nihonsakari daiginjo in the indoor swimsuit zone. It's mixed-gender, so the whole group stays together, and phones are allowed, which means the photos will exist.",
       "how": [
-        "Split up: two people on breakfast, the rest on cans, chu-hi and sake.",
-        "Get breakfast for tomorrow morning, because check-out is 10:00.",
-        "Hakone Sushi is a 12-min walk from here."
+        "Buy date-specific e-tickets on yunessun.com in advance, or show the Freepass at the gate for the discount.",
+        "Swimsuits on (rental from ¥1,250), then do the wine bath, the sake bath and the coffee bath.",
+        "Ask at entry when staff are doing the wine pours today."
       ],
       "tips": [
-        "Stock runs out late in the day, so grab the drinks first.",
-        "It's open 9:30–18:00, so don't let Glass no Mori run late."
+        "Sunday queues of an hour or more are reported. Have the e-tickets ready.",
+        "No visible tattoos: cover them with a rash guard. The staff sake-pouring show only starts on 26 Dec, so it's not on today.",
+        "Check at the gate that the coffee bath is running. It isn't on the official news pages."
       ],
-      "cost": "¥1,500 pp",
-      "booking": null,
-      "hours": "9:30–18:00",
+      "cost": "from ¥2,500 pp, swimsuit rental from ¥1,250",
+      "booking": "E-tickets on yunessun.com (date-specific)",
+      "hours": "09:00–19:00",
       "source_urls": [
-        "https://note.com/koti_hakone/n/n007bd5d95cca"
+        "https://san-tatsu.jp/pressrelease/560812/",
+        "https://www.oricon.co.jp/pressrelease/2999249/",
+        "https://www.yunessun.com/"
       ],
       "wishes": [
-        "We love to drink"
+        "Yunessun wine, sake and coffee baths in Hakone, and a villa wagyu cook-off on the Hakone night"
       ]
     },
     {
       "index": 8,
-      "summary": "Father-and-son sushi that locals call the place in Sengokuhara: special chirashi, uni-ikura and anago.",
-      "story": "Hakone Sushi has been run by a father and son for 30 years, and it's full most nights even midweek. The special-grade chirashi is ¥3,500, the uni-ikura bowl is the showpiece, and the anago is what regulars order again. With local sake in a tatami room, it feels like a real mountain-village dinner.",
+      "summary": "Crystal arches and a glass Christmas tree lighting up as the dark comes down. In by 17:00.",
+      "story": "A Venetian-glass garden full of crystal arches and a big glass Christmas tree that catch the light as dusk falls, with candles lit through the 1–25 Dec run. It's Hakone's main December illumination, and you're arriving just as the lights come on.",
       "how": [
-        "Go to your booked tatami room for 8.",
-        "Order the special chirashi and the uni-ikura bowls, plus anago for the table.",
-        "Ask for local sake. Last order is 20:00.",
-        "Snack Takachan is a 14-min walk."
+        "Get in before the 17:00 last entry. Show the Freepass for the discount.",
+        "Walk the crystal arches, then the glass tree.",
+        "Walk to Hakone Sushi when it closes."
       ],
       "tips": [
-        "They don't take bookings by DM. Call 0460-84-7890.",
-        "Credit cards are accepted."
+        "Advance tickets are available online if you want to skip the desk.",
+        "It's cold out in the open garden after a hot bath. Dry your hair."
       ],
-      "cost": "¥5,000 pp",
-      "booking": "Tatami room for 8 booked by phone, 0460-84-7890",
-      "hours": "17:00–21:00, last entry 20:00",
+      "cost": "about ¥1,800–2,000 pp (Freepass discount)",
+      "booking": null,
+      "hours": "10:00–17:30",
+      "source_urls": [
+        "https://www.hakone-garasunomori.jp/garden/christmas/",
+        "https://www.jalan.net/event/evt_347401/"
+      ],
+      "wishes": [
+        "We love to do it all"
+      ]
+    },
+    {
+      "index": 9,
+      "summary": "Sengokuhara's real sushi place: a father-and-son counter, a tatami room for 8, and sake.",
+      "story": "Locals call it the sushi place in Sengokuhara: father and son have been behind the counter for decades, and it's full most nights. Reviews rave about the special-grade chirashi (¥3,500), the uni-ikura bowl and the anago.",
+      "how": [
+        "Take the tatami room booked for 8.",
+        "Order chirashi, uni-ikura bowls and anago to share, and a round of sake.",
+        "Last order is 20:00. Then it's a 14-minute walk to the snack bar."
+      ],
+      "tips": [
+        "CHECK: bookings are by phone only (0460-84-7890), not by DM. Confirm the tatami room for 8.",
+        "Credit cards accepted.",
+        "Omakase runs just under ¥7,000 if anyone wants to go big."
+      ],
+      "cost": "¥3,000–4,000 pp",
+      "booking": "Phone 0460-84-7890",
+      "hours": "11:30–15:00 and 17:00–21:00",
       "source_urls": [
         "https://maps.google.com/?q=はこねずし+仙石原",
         "https://www.xiaohongshu.com/explore/68dba86d000000000302e73f",
         "https://wanderlog.com/place/details/1054467/hakone-sushi"
       ],
       "wishes": [
-        "We love to drink",
-        "We love to do it all"
+        "Everyone stays together; every booking is for 8 at the same table or private room (8名で、同じテーブル/個室)",
+        "We love to drink"
       ]
     },
     {
-      "index": 9,
-      "summary": "A mama-san snack bar with karaoke, the only real night out in Sengokuhara. Eight of you basically take it over.",
-      "story": "A Japanese snack bar is a tiny room with a mama-san behind the counter and a karaoke machine. With 8 of you it turns into a private karaoke party in a mountain village where nothing else is open. It's open until 2:00, and the bar can drive you home by arrangement.",
+      "index": 10,
+      "summary": "Take over a mountain-village snack bar: mama-san, karaoke mic, the 8 of you. Hakone's only nightlife.",
+      "story": "A snack bar is Japan's small-town living room: a mama-san behind the bar, a karaoke machine and regulars who'll judge your song. With 8 of you it turns into a private karaoke party, the most local night out you can get in a village with no other nightlife.",
       "how": [
-        "Call 0460-83-8677 the day before and ask for a set price or nomihodai for 8.",
-        "Ask about a pick-up (送迎) back to the villa when you call.",
-        "Sing something the mama-san knows. It goes down well."
+        "Phone 0460-83-8677 the day before. Ask for a set price or nomihodai for 8.",
+        "Sing badly and loudly, and buy the mama-san a drink.",
+        "Take two taxis back to the villa, booked ahead or ask about the bar's lift."
       ],
       "tips": [
-        "Settle the set price before the first round so the bill is no surprise.",
-        "It's a small bar, so be loud in the karaoke and polite between songs."
+        "CHECK: confirm the booking and a set price for 8 beforehand. Snack-bar charges add up fast if you don't.",
+        "Ask about pick-up (送迎). They arrange transport for guests.",
+        "Bring passports: the drinking age is 20."
       ],
-      "cost": "¥4,000 pp",
+      "cost": "¥3,000–5,000 pp",
       "booking": "Phone 0460-83-8677 the day before",
       "hours": "19:30–02:00, closed Wed",
       "source_urls": [
@@ -235,10 +249,27 @@
         "https://map.yahoo.co.jp/v3/place/8gYOGd4d9rM"
       ],
       "wishes": [
+        "Karaoke (Manekineko, Big Echo, Karaokekan), arcades, izakaya and yokocho nights, standing bars, and the last-train problem solved properly",
         "We love to drink",
-        "We want to maximise all the time we've got in the country",
-        "If there are cool nightlife things to do in the neighbouring cities as well, include them"
+        "Be bold: prefer one-of-a-kind, local-run, hard-to-book and group-scale things, and name a safe fallback beside every hard-to-book thing"
       ]
+    },
+    {
+      "index": 11,
+      "summary": "Last soak in the villa onsen. Pack the overnight bags tonight: check-out is 10:00.",
+      "story": "One last soak in your own hot spring under the cold mountain sky. Tomorrow you're on the move to Kansai, so wake up already packed.",
+      "how": [
+        "Soak, then pack before you sleep.",
+        "Gather leftover drinks and food for the train."
+      ],
+      "tips": [
+        "Check-out is 10:00. Don't leave packing for the morning."
+      ],
+      "cost": null,
+      "booking": null,
+      "hours": null,
+      "source_urls": [],
+      "wishes": []
     }
   ]
 }

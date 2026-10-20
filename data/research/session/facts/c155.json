@@ -1,43 +1,61 @@
 {
-  "open": [],
-  "closed": [],
-  "last_entry": null,
-  "prices": [
+  "open": [
     {
-      "what": "Tempura course 翔風, dinner listing",
-      "yen": 11000,
-      "quote": "「翔風」11,000円（税込）",
-      "url": "https://www.tablecheck.com/shops/tunahachi-tunohazu/reserve"
+      "dates": [
+        "2026-12-15",
+        "2026-12-16",
+        "2026-12-17",
+        "2026-12-18",
+        "2026-12-19",
+        "2026-12-26",
+        "2026-12-27",
+        "2026-12-28",
+        "2026-12-29"
+      ],
+      "open": "11:30",
+      "close": "15:00",
+      "quote": "11:30～15:00（L.O.14:00）",
+      "url": "https://prtimes.jp/main/html/rd/p/000000004.000155297.html"
     },
     {
-      "what": "Lunch tempura and sashimi course",
-      "yen": 3850,
-      "quote": "「天麩羅お刺身コース」3,850円（税込）",
-      "url": "https://www.tablecheck.com/shops/tunahachi-tunohazu/reserve"
+      "dates": [
+        "2026-12-15",
+        "2026-12-16",
+        "2026-12-17",
+        "2026-12-18",
+        "2026-12-19",
+        "2026-12-26",
+        "2026-12-27",
+        "2026-12-28",
+        "2026-12-29"
+      ],
+      "open": "17:30",
+      "close": "21:00",
+      "quote": "17:30～21:00（L.O.20:00）",
+      "url": "https://prtimes.jp/main/html/rd/p/000000004.000155297.html"
     }
   ],
+  "closed": [],
+  "last_entry": null,
+  "prices": [],
   "fixed_minutes": null,
   "time_limit": null,
-  "group": {
-    "text": "For 8 or more guests, contact the shop directly",
-    "quote": "8名様以上のご予約の際は直接店舗までお問い合わせください。",
-    "url": "https://www.tablecheck.com/shops/tunahachi-tunohazu/reserve"
-  },
+  "group": null,
   "booking": {
-    "text": "Book online via TableCheck; phone 03-3358-2788 for questions",
-    "quote": "お電話でのお問合せ：03-3358-2788",
-    "url": "https://www.tablecheck.com/shops/tunahachi-tunohazu/reserve"
+    "text": "Dinner bookable on Tabelog only (1号店, Ueno)",
+    "quote": "※ディナーのみ食べログより予約可",
+    "url": "https://prtimes.jp/main/html/rd/p/000000004.000155297.html"
   },
   "notes": [
     {
-      "text": "Dinner carries a 10% service charge.",
-      "quote": "ディナータイムは「別途サービス料10%」頂戴しております",
-      "url": "https://www.tablecheck.com/shops/tunahachi-tunohazu/reserve"
+      "text": "Hours are for the 1号店 in Ueno (台東区上野); closing days are not on the page, the release points to Instagram",
+      "quote": "※定休日はInstagramよりご確認ください",
+      "url": "https://prtimes.jp/main/html/rd/p/000000004.000155297.html"
     },
     {
-      "text": "Booking calendar on this page runs only to 2025-12-28 and 2026-01-05, so trip-date availability is not confirmed.",
-      "quote": "~ 2025年12月28日, 1月5日 ~",
-      "url": "https://www.tablecheck.com/shops/tunahachi-tunohazu/reserve"
+      "text": "2号店 Jingumae hours not yet announced in this release",
+      "quote": "詳細決定次第、公式SNSにて順次お知らせいたします。",
+      "url": "https://prtimes.jp/main/html/rd/p/000000004.000155297.html"
     }
   ]
 }

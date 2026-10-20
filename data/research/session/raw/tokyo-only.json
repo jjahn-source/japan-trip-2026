@@ -1,0 +1,546 @@
+{
+  "candidates": [
+    {
+      "name": "Grand Sumo Winter Tour: Hasuda Basho",
+      "name_ja": "令和八年 冬巡業 大相撲 蓮田場所",
+      "city": "Tokyo",
+      "area": "Hasuda, Saitama (45-60 min from Ikebukuro)",
+      "kind": "event",
+      "why": "A full touring sumo day an hour from the Toshima base, on the group's first full day: morning open practice with the sekitori, junior bouts, the shokkiri comedy bout, a topknot-tying demo, then the top-division bouts and bow-twirling ceremony. It is a much bigger sumo moment than a stable visit, and it explains the Plan C trap: on Dec 16 the stables are on the winter tour, so Arashio-beya's Dec 17 morning practice may be thin or cancelled. Check Arashio's posted schedule, and if it is off, this replaces it.",
+      "best_time": "Arrive 09:00-10:00 for the open practice (the most up-close part), stay through the top-division bouts (finished by about 15:00 on other winter-tour dates)",
+      "dates": "Wed 16 Dec 2026 (confirmed: e+ listing and the organiser's post). Start 09:00",
+      "price": "Not confirmed: e+ sells seat tickets; yokozuna/ozeki souvenir tickets are extra and do not get you in on their own",
+      "booking": "e+ (eplus.jp/sf/detail/0765220021): first-come seat sales ran 5 Sep to 13 Dec 2026 20:00. A Japanese fan on X (9 Oct) says it is sold out and she is waiting for resale, so watch the e+ resale (リセール) daily now. Fallback: keep Arashio-beya on Dec 17 if its practice is confirmed, or the Hakkiyoi/Ryogoku sumo show and a chanko dinner in Ryogoku",
+      "group_of_8": "Two adjacent 4-person box seats (masu) or 8 chair seats. Resale comes in ones and twos, so the group may end up split across rows",
+      "hours": "Doors and start 09:00; on other winter-tour dates the morning session ran 09:00-11:30 and the afternoon 13:00-14:30",
+      "visit_minutes": 300,
+      "first_last": "Start 09:00; top-division bouts about 13:00-14:30 (based on the Aira date of the same tour)",
+      "lat": 36.010383499999996,
+      "lng": 139.6488372,
+      "wish_ids": [
+        "w21",
+        "w27",
+        "w8",
+        "w5",
+        "w30"
+      ],
+      "evidence": [
+        {
+          "source": "e+ (eplus)",
+          "url": "https://eplus.jp/sf/detail/0765220021",
+          "note": "冬巡業 大相撲 蓮田場所, 2026/12/16(水) 09:00, 蓮田市総合市民体育館パルシー; seat sales 9/5 10:00 to 12/13 20:00; souvenir tickets do not include a seat"
+        },
+        {
+          "source": "X @SSSW2020 (Hasuda organiser), 28 Sep 2026",
+          "url": "https://x.com/SSSW2020/status/2104494155867242718",
+          "note": "Announces 大相撲蓮田場所 at Palcy"
+        },
+        {
+          "source": "X @ibio_0402, 9 Oct 2026",
+          "url": "https://x.com/ibio_0402/status/2108386192064733456",
+          "note": "Fan says the only way to get Hasuda tickets now is resale, so it is effectively sold out"
+        },
+        {
+          "source": "resemom / PR Times, 13 Sep 2026",
+          "url": "https://resemom.jp/release/prtimes/20260913/211792.html",
+          "note": "Same winter tour (Aira, 1 Dec): open practice in the morning, top-division bouts and bow-twirling in the afternoon, 09:00-11:30 / 13:00-14:30"
+        }
+      ],
+      "confidence": 0.72
+    },
+    {
+      "name": "COUNTDOWN JAPAN 26/27",
+      "name_ja": "COUNTDOWN JAPAN 26/27",
+      "city": "Tokyo",
+      "area": "Makuhari Messe, Chiba (about 40 min from Tokyo Station on the Keiyo Line)",
+      "kind": "event",
+      "why": "Japan's huge year-end indoor rock festival: 4 stages, 179 acts over 5 days, about 200,000 people, all inside the Makuhari Messe halls. It is a live-music festival, not a club, so it fits the no-nightclubs rule. The first lineup has Maximum the Hormone, ENHYPEN, Creephyp (クリープハイプ), Eve and Hoshimachi Suisei. Sat 26 Dec is the play: festival from late morning, then the Keiyo Line to the Harumi/Kachidoki pier for the Plan C cruise.",
+      "best_time": "Sat 26 Dec, about 11:00-16:30, then about 60 min to the cruise pier; or Tue 29 Dec morning only if the flight logistics allow",
+      "dates": "Sat 26, Sun 27, Tue 29, Wed 30, Thu 31 Dec 2026; no show on Mon 28 (confirmed by Real Sound and the official site)",
+      "price": "Not confirmed for 26/27 (one-day tickets were in the high teens of thousands of yen in past years); discounted multi-day sets exist",
+      "booking": "First lottery pre-sale opened 14 Oct 2026 in the official J-fes (Jフェス) app; later lotteries and general sale follow. Apply now for 8 one-day tickets on one account if the app allows. Fallback: the TJPW Year-End Party at Korakuen (Sat 26 Dec 18:30), or a Shibuya/Shimokitazawa live-house show that night",
+      "group_of_8": "General admission, standing, with free movement between stages, so 8 friends can stay together easily",
+      "hours": "All day; check the timetable when it is published (usually early December)",
+      "visit_minutes": 330,
+      "first_last": "No show Mon 28 Dec",
+      "lat": 35.647470474243164,
+      "lng": 140.03533172607422,
+      "wish_ids": [
+        "w8",
+        "w27",
+        "w5",
+        "w25",
+        "w16"
+      ],
+      "evidence": [
+        {
+          "source": "Real Sound, Oct 2026",
+          "url": "https://realsound.jp/2026/10/post-2553051.html",
+          "note": "First lineup for CDJ 26/27 (Maximum the Hormone, ENHYPEN, Creephyp, Eve, Hoshimachi Suisei, LEX…), Makuhari Messe, 26/27/29/30/31 Dec, Dec 28 off; first lottery opened 14 Oct in the J-fes app"
+        },
+        {
+          "source": "Natalie",
+          "url": "https://natalie.mu/music/news/631536",
+          "note": "CDJ grew to 5 days and about 200,000 attendees (the format it keeps)"
+        },
+        {
+          "source": "THE FIRST TIMES",
+          "url": "https://www.thefirsttimes.jp/?p=718728",
+          "note": "Previous edition ran 27-31 Dec at Makuhari Messe halls 1-11 and the Event Hall, with a published timetable"
+        }
+      ],
+      "confidence": 0.68
+    },
+    {
+      "name": "Arima Kinen at Nakayama Racecourse",
+      "name_ja": "有馬記念（中山競馬場）",
+      "city": "Tokyo",
+      "area": "Funabashi, Chiba (Funabashi-Hoten / Nishi-Funabashi)",
+      "kind": "event",
+      "why": "The race the whole country bets on: Japan's year-end Grand Prix, voted by fans, with about 100,000 people roaring at Nakayama. Very few visitors ever see it. It suits a group that loves to drink: beer in the stands and ¥100 bets. It also pairs with the Plan C Sunrockers game that evening, since Funabashi to Aomi is about an hour on the Keiyo and Rinkai lines. Only members of the group aged 20 or over may buy betting tickets.",
+      "best_time": "Arrive by about 13:00 for the paddock and earlier races; the Arima post time was about 15:40 in recent years (check the 2026 race card)",
+      "dates": "Sun 27 Dec 2026 (confirmed by JRA)",
+      "price": "Admission is cheap (a few hundred yen, booked online); reserved seats cost more and are allocated by lottery",
+      "booking": "JRA says that on this G1 day only people who bought a reserved seat or an admission ticket online get in: there is no gate sale. You need a free JRA 指定席・入場券ネット予約 membership, then apply in the sale window shown on the Nakayama page (usually 2-4 weeks before). Fallback: watch and bet at a WINS off-track hall in central Tokyo, or Oi's year-end racing",
+      "group_of_8": "Admission tickets let 8 stand together on the apron; reserved seats are sold in small blocks and may split the group",
+      "hours": "Gates in the morning; the Arima is the day's feature race in the late afternoon",
+      "visit_minutes": 240,
+      "first_last": "Online tickets only on this date; no gate sale",
+      "lat": 35.72578430175781,
+      "lng": 139.9596176147461,
+      "wish_ids": [
+        "w4",
+        "w8",
+        "w27",
+        "w15",
+        "w5"
+      ],
+      "evidence": [
+        {
+          "source": "JRA news (Aug 2026)",
+          "url": "https://www.jra.go.jp/news/202608/082001.html",
+          "note": "Second half of 2026 runs to Sun 27 Dec; on listed G1 days including the 27 Dec Arima Kinen at Nakayama, only online reserved-seat or admission buyers can enter"
+        },
+        {
+          "source": "JRA Nakayama entry page",
+          "url": "https://www.jra.go.jp/facilities/race/nakayama/news/nyujou.html",
+          "note": "Online reservation needs a JRA membership"
+        },
+        {
+          "source": "JBC column (2025)",
+          "url": "https://www.jbc-ltd.com/column/?p=2134",
+          "note": "In 2025 same-day gate sales for the Arima were abolished entirely; advance online application required"
+        }
+      ],
+      "confidence": 0.7
+    },
+    {
+      "name": "DDT RING FINALE 2026 at Korakuen Hall",
+      "name_ja": "DDTプロレスリング RING FINALE 2026 ～DDT年内最終興行～（後楽園ホール）",
+      "city": "Tokyo",
+      "area": "Suidobashi / Korakuen",
+      "kind": "event",
+      "why": "DDT is Tokyo's wildest pro-wrestling company: comedy, stunts and serious title matches, in the sweaty 1,800-seat hall where Japanese wrestling lives. This is its last show of the year. Together with the NOAH card it makes a second wrestling night for the trip. Its 11:30 start leaves the evening free for the Plan C Sunrockers game: a wrestling and basketball double on Sunday.",
+      "best_time": "Doors 10:30, bell 11:30, out by about 14:30, then about 35 min to Aomi",
+      "dates": "Sun 27 Dec 2026, 11:30 (doors 10:30) (e+ Korakuen listing; DDT's own schedule shows a Korakuen year-end date too)",
+      "price": "Not confirmed: Korakuen seats usually run from about ¥5,000 (balcony/back rows) to about ¥10,000 (ringside)",
+      "booking": "Lottery (抽選) on e+ is open now; apply for 8 in one application. Fallback: Sareee-ISM Chapter XIII, Mon 28 Dec 11:30 at the same hall (first-come on e+); or the TJPW Year-End Party, Sat 26 Dec 18:30",
+      "group_of_8": "One application for 8 on e+ usually gives a block of adjacent seats; the south balcony is a cheap, rowdy fallback",
+      "hours": "11:30 to about 14:30",
+      "visit_minutes": 180,
+      "first_last": "Doors 10:30",
+      "lat": 35.70463562011719,
+      "lng": 139.75341033935547,
+      "wish_ids": [
+        "w14",
+        "w27",
+        "w8",
+        "w5",
+        "w15"
+      ],
+      "evidence": [
+        {
+          "source": "e+ Korakuen Hall venue listing",
+          "url": "https://eplus.jp/sf/venue/1120010/events",
+          "note": "Sun 27 Dec 11:30 (doors 10:30) DDT RING FINALE 2026 ～DDT年内最終興行～, lottery on sale; Mon 28 Dec 11:30 Sareee-ISM Chapter XIII, first-come"
+        },
+        {
+          "source": "DDT official schedule",
+          "url": "https://www.ddtpro.jp/schedules/693148bd55bee30002329699",
+          "note": "DDT lists a Korakuen Hall year-end event on its official schedule"
+        },
+        {
+          "source": "NOAH official schedule",
+          "url": "https://www.noah.co.jp/schedule/",
+          "note": "Confirms Plan C: NOAH THANKSGIVING 2026, Fri 18 Dec 18:30, Korakuen; no other NOAH Tokyo date in either leg"
+        }
+      ],
+      "confidence": 0.7
+    },
+    {
+      "name": "TJPW Year-End Party 2026 (Yuki Kamifuku graduation)",
+      "name_ja": "東京女子プロレス TJPW Year-End Party 2026 ～上福ゆき卒業スペシャル～",
+      "city": "Tokyo",
+      "area": "Suidobashi / Korakuen",
+      "kind": "event",
+      "why": "Tokyo Joshi's year-end party and Yuki Kamifuku's farewell show, a one-off emotional night with a loud, young crowd in the classic hall. It is the named fallback if the Odaiba fireworks or the Plan C cruise are cancelled on Sat 26 Dec: it starts at 18:30, the same time slot, and Korakuen is a short trip from the cruise piers.",
+      "best_time": "Sat 26 Dec, doors 17:30, bell 18:30",
+      "dates": "Sat 26 Dec 2026, 18:30 (doors 17:30) on the e+ Korakuen listing. One search snippet said Sun 27 Dec, so check the date on e+ before buying",
+      "price": "Not confirmed: usually about ¥5,000-8,000 at Korakuen",
+      "booking": "First-come on e+, on sale now. As a weather fallback, buying late is fine; check e+ on the afternoon of the 26th",
+      "group_of_8": "Seated hall; first-come blocks of 8 are realistic while unsold rows remain",
+      "hours": "18:30 to about 21:00",
+      "visit_minutes": 150,
+      "first_last": "Doors 17:30",
+      "lat": 35.70463562011719,
+      "lng": 139.75341033935547,
+      "wish_ids": [
+        "w14",
+        "w16",
+        "w27",
+        "w8"
+      ],
+      "evidence": [
+        {
+          "source": "e+ Korakuen Hall venue listing",
+          "url": "https://eplus.jp/sf/venue/1120010/events",
+          "note": "Sat 26 Dec 18:30 (doors 17:30) TJPW Year-End Party 2026 ～上福ゆき卒業スペシャル～, first-come, on sale"
+        },
+        {
+          "source": "X @yesbakugacoffee, 5 Oct 2026",
+          "url": "https://x.com/yesbakugacoffee/status/2107120313414885852",
+          "note": "Fans discussing Kamifuku's upcoming graduation from TJPW and her Korakuen shows"
+        }
+      ],
+      "confidence": 0.58
+    },
+    {
+      "name": "Tokyo Mega Illumi (final season) at Oi Racecourse",
+      "name_ja": "東京メガイルミ（大井競馬場）",
+      "city": "Tokyo",
+      "area": "Oi / Shinagawa (Oi Keibajo-mae on the Tokyo Monorail)",
+      "kind": "event",
+      "why": "The racecourse illumination in its 9th and final season before redevelopment: the 100 m Edo Sakura light tunnel and the Mega Tree are being shown for the last time. It is on the Haneda monorail line, so it can be the first stop of the trip: land, forward the bags, and spend the first Tokyo night in a racecourse lit up like a theme park. On Oi race nights the illumination is closed, but Oi's night racing (beer and ¥100 bets) is the same-venue alternative.",
+      "best_time": "Tue 15 Dec straight from Haneda (16:30 opening), or any of Dec 16-18 at dusk",
+      "dates": "Season 31 Oct 2026 to 10 Jan 2027, open 53 days on non-race days only. The official site lists 24 Dec to 1 Jan as closed, so it is the first Tokyo leg only. Exact Dec 15-19 open days depend on the TCK race calendar (not yet confirmed)",
+      "price": "Adult (18+) from ¥800; the price varies by date; date-specific advance tickets are available",
+      "booking": "Advance date tickets on the official site / Activity Japan; no group booking needed. Fallback: if it is a race night, TCK night racing at the same venue, or the Marunouchi/Roppongi Christmas illuminations",
+      "group_of_8": "Walk-around site; easy for 8",
+      "hours": "16:30-21:00, last entry 20:00",
+      "visit_minutes": 90,
+      "first_last": "Last entry 20:00; closed on Oi race days and 24 Dec-1 Jan",
+      "lat": 35.59193801879883,
+      "lng": 139.7409896850586,
+      "wish_ids": [
+        "w5",
+        "w8",
+        "w27"
+      ],
+      "evidence": [
+        {
+          "source": "Tokyo Mega Illumi official site",
+          "url": "https://www.tokyomegaillumi.jp",
+          "note": "9th and final season; Edo Sakura Tunnel and Mega Tree shown for the last time; 16:30-21:00 (LE 20:00); adult from ¥800; closed 24 Dec-1 Jan"
+        },
+        {
+          "source": "Kyodo News PR Wire, Sep 2026",
+          "url": "https://kyodonewsprwire.jp/release/202609115758",
+          "note": "Final season, 31 Oct 2026 to 10 Jan 2027, open 53 days on non-race days; paused from next season for racecourse redevelopment"
+        }
+      ],
+      "confidence": 0.66
+    },
+    {
+      "name": "B.LEAGUE: Kawasaki Brave Thunders vs Chiba Jets",
+      "name_ja": "川崎ブレイブサンダース vs 千葉ジェッツ（東急ドレッセとどろきアリーナ）",
+      "city": "Tokyo",
+      "area": "Todoroki, Kawasaki (Musashi-Kosugi)",
+      "kind": "event",
+      "why": "This is the named fallback or upgrade for the Plan C Sunrockers game: Chiba Jets are the league's biggest draw, and Kawasaki puts on a loud, slick game night at Todoroki. There are games both nights of the weekend, so it also covers a Sunrockers sell-out or a clash with the cruise. It is about 30 min from Shinjuku via Musashi-Kosugi.",
+      "best_time": "Sun 27 Dec 15:05, which also leaves the evening free",
+      "dates": "Sat 26 Dec 17:05 and Sun 27 Dec 15:05, 2026 (Kawasaki's own 2026-27 schedule). B.LEAGUE's list showed a different Kawasaki fixture on the 26th, so re-check on bleague.jp",
+      "price": "Not confirmed: B.LEAGUE upper seats usually start around ¥2,000-3,000",
+      "booking": "B.LEAGUE Ticket (Kawasaki home games); single-game sales usually open about a month ahead, so expect late November. Fallback: Alvark Tokyo, who share Toyota Arena Tokyo with the Sunrockers from 2026-27, if they are at home that weekend",
+      "group_of_8": "Arena seats; buy 8 together in one order",
+      "hours": "Tip-off 15:05 (Sun) / 17:05 (Sat); about 2 hours",
+      "visit_minutes": 150,
+      "first_last": "Arrive 45 min early for the pre-game show",
+      "lat": 35.58675956726074,
+      "lng": 139.6470718383789,
+      "wish_ids": [
+        "w15",
+        "w8",
+        "w27",
+        "w30"
+      ],
+      "evidence": [
+        {
+          "source": "Kawasaki Brave Thunders official schedule 2026-27",
+          "url": "https://kawasaki-bravethunders.com/schedule/2026-27/",
+          "note": "12.26 Sat 17:05 and 12.27 Sun 15:05 vs Chiba Jets at Tokyu Dressa Todoroki Arena"
+        },
+        {
+          "source": "Impress Watch",
+          "url": "https://www.watch.impress.co.jp/docs/news/1625925.html",
+          "note": "Alvark Tokyo and Sunrockers Shibuya share Toyota Arena Tokyo as home arena from 2026-27"
+        },
+        {
+          "source": "B.LEAGUE schedule",
+          "url": "https://sports.yahoo.co.jp/official/detail/2026021700081-spnaviow",
+          "note": "2026-27 B.PREMIER schedule published Feb 2026"
+        }
+      ],
+      "confidence": 0.55
+    },
+    {
+      "name": "Zauo Shinjuku (fishing restaurant)",
+      "name_ja": "釣船茶屋 ざうお 新宿店",
+      "city": "Tokyo",
+      "area": "Nishi-Shinjuku (8 min from Shinjuku South Exit)",
+      "kind": "food",
+      "why": "You sit on a full-size wooden boat floating over a tank, fish for your own dinner, and the kitchen cooks the catch however you call it (sashimi, grilled or fried). The staff ring a drum for every catch. It is a loud, competitive group dinner for 8 with all-you-can-drink, near the Garfield House base. It is touristy but genuinely one-of-a-kind, and the courses are cheap.",
+      "best_time": "Dinner on a Dec 26-28 night, booked for about 19:00 so it is easy to move on to karaoke or Golden Gai",
+      "dates": "Open now (current autumn courses on TableCheck). The year-end holiday schedule is not published, so confirm Dec 27/28 by phone",
+      "price": "Courses about ¥6,600-10,000, or about ¥8,000-12,000 with all-you-can-drink (autumn 2026 menu); December courses not yet listed",
+      "booking": "TableCheck (tablecheck.com/zauo-shinjuku), or phone 03-3343-6622 for 8 and ask for boat seating together (船の上の席、8名で同じテーブル). Courses need booking 1-3 days ahead. Fallback: a Shinjuku izakaya with an 8-seat private room (個室) booked on TableCheck/Hot Pepper",
+      "group_of_8": "Banquet rooms take up to 70 and boat tables take groups, so ask for 8 on the boat. There may be a 2-hour limit when busy",
+      "hours": "Lunch and dinner; check TableCheck for the exact times",
+      "visit_minutes": 120,
+      "first_last": "2-hour limit when busy",
+      "lat": 35.6867466,
+      "lng": 139.693043,
+      "wish_ids": [
+        "w29",
+        "w4",
+        "w27",
+        "w24",
+        "w8"
+      ],
+      "evidence": [
+        {
+          "source": "TableCheck (Zauo Shinjuku)",
+          "url": "https://www.tablecheck.com/zauo-shinjuku",
+          "note": "Live booking widget with Oct 2026 slots; autumn courses ¥6,600-¥10,000, all-you-can-drink versions up to ¥11,980"
+        },
+        {
+          "source": "Gurunavi",
+          "url": "https://r.gnavi.co.jp/g775103/",
+          "note": "Giant boat inside the restaurant; banquet rooms up to 70; 2-hour limit when busy; 8 min from JR Shinjuku South Exit"
+        },
+        {
+          "source": "Tokyo Fly Fishing blog",
+          "url": "https://tokyoflyfishing.com/?p=3599",
+          "note": "Visitor write-up: catch-and-eat format, about ¥4,000-5,000 a head depending on the catch; reserve for good seats"
+        }
+      ],
+      "confidence": 0.68
+    },
+    {
+      "name": "Funasei shared yakatabune (cruise fallback)",
+      "name_ja": "屋形船 船清（乗合船）",
+      "city": "Tokyo",
+      "area": "Kita-Shinagawa",
+      "kind": "experience",
+      "why": "Funasei is the named fallback if Harumiya's Dec 26 boat is full: one of Tokyo's biggest yakatabune operators, from the old fishing canal at Kita-Shinagawa, on the same bay as the Odaiba fireworks. The fireworks are confirmed for Sat 26 Dec 2026 (one of 4 Saturdays). Shared boats take bookings from 2 people, so 8 can book one table; a private charter needs 20 or more, so a shared boat is the realistic option.",
+      "best_time": "Sat 26 Dec evening sailing that covers the Odaiba fireworks",
+      "dates": "Odaiba Rainbow Fireworks 2026: 5, 12, 19 and 26 Dec (Saturdays; cancelled in bad weather). Funasei's December shared-boat calendar not yet confirmed; a 'shared-boat booking start schedule' notice went up on 18 Oct 2026",
+      "price": "Shared-boat menus listed at ¥14,000 / ¥16,800 / ¥20,800 / ¥23,900. The page does not say whether drinks are included or whether prices are per person, so confirm the all-you-can-drink terms",
+      "booking": "Online shared-boat calendar on funasei.com, or phone 03-5479-2731 (10:00-19:00). Book on the day sales open. The English/Chinese/Korean pages run by HIS were suspended on 15 Oct 2026, so book on the Japanese page. Fallback: Amitatsu or another operator's shared boat; or the TJPW Year-End Party at Korakuen",
+      "group_of_8": "Shared boat with low tables. Ask for 8 at one table (8名で同じテーブル)",
+      "hours": "Phone line 10:00-19:00; sailing times on the calendar",
+      "visit_minutes": 150,
+      "first_last": "Boarding pier 13 min walk from Shinagawa Station, 10 min from Kita-Shinagawa",
+      "lat": 35.6238617,
+      "lng": 139.7439621,
+      "wish_ids": [
+        "w16",
+        "w29",
+        "w4",
+        "w27",
+        "w30"
+      ],
+      "evidence": [
+        {
+          "source": "Funasei official site",
+          "url": "https://www.funasei.com/",
+          "note": "Shared boats (min 2) and charters (min 20); menu tiers ¥14,000-¥23,900; phone 03-5479-2731; HIS foreign-language pages suspended (notice 2026.10.15); shared-boat booking schedule notice 2026.10.18"
+        },
+        {
+          "source": "X @marcho01, 1 Oct 2026",
+          "url": "https://x.com/marcho01/status/2105483165158785370",
+          "note": "お台場レインボー花火2026: 4 dates, 5/12/19/26 Dec (Sat), cancelled in bad weather; Dec 19 is a music fireworks night"
+        },
+        {
+          "source": "X @yasuosaeki, 15 Oct 2026",
+          "url": "https://x.com/yasuosaeki/status/2110876545393000915",
+          "note": "A Tokyo neighbourhood association booking a yakatabune to watch the 2026 Rainbow Fireworks, so the boat-and-fireworks combination is common practice"
+        }
+      ],
+      "confidence": 0.6
+    },
+    {
+      "name": "Winter Cup (national high-school basketball) at Tokyo Metropolitan Gymnasium",
+      "name_ja": "SoftBank ウインターカップ2026（東京体育館）",
+      "city": "Tokyo",
+      "area": "Sendagaya (5 min from Shinjuku)",
+      "kind": "event",
+      "why": "The 'Koshien of basketball': Japan's high-school championship, with brass bands, cheering squads and future B.LEAGUE players, in the gym one stop from the Shinjuku base. The late rounds and the women's final land on the Dec 26-28 leg, and it sits next door to the National Stadium for the high-school football opener, so Sendagaya can make a youth-sport day. Tickets are cheap and plentiful compared with pro games.",
+      "best_time": "Sat 26 / Sun 27 Dec for the quarter- and semi-finals; Mon 28 Dec for the women's final (noon in 2025)",
+      "dates": "NOT YET CONFIRMED for 2026. The tournament has run 23-29 Dec at this gym every year from 2020 to 2025 (women's final 28 Dec, men's final 29 Dec), and 2026 qualifiers are under way as the 第79回 tournament",
+      "price": "Not confirmed; past editions were a few thousand yen a day",
+      "booking": "Watch wintercup2026.japanbasketball.jp for dates and ticket sales (in past years sales were for the final days only, via Lawson Ticket/Pia). Fallback: the Kawasaki vs Chiba Jets B.LEAGUE game",
+      "group_of_8": "Large arena; buy 8 together",
+      "hours": "All day; session times TBC",
+      "visit_minutes": 180,
+      "first_last": "Men's final Tue 29 Dec clashes with the 17:20 flight, so skip it",
+      "lat": 35.67977714538574,
+      "lng": 139.71251678466797,
+      "wish_ids": [
+        "w15",
+        "w8",
+        "w27",
+        "w5"
+      ],
+      "evidence": [
+        {
+          "source": "Asahi (team PDF)",
+          "url": "https://www.asahicom.jp/sports/events/wintercup/images/team/men/wc_men_tochigi_utsunomiya.pdf",
+          "note": "Winter Cup 2025: 23-29 Dec 2025 at Tokyo Metropolitan Gymnasium"
+        },
+        {
+          "source": "Okinawa Basketball Association",
+          "url": "https://okinawabba.jp/archives/society/14086/",
+          "note": "Winter Cup 2024: 23-29 Dec at Tokyo Metropolitan Gymnasium"
+        },
+        {
+          "source": "resemom, Dec 2025",
+          "url": "https://resemom.jp/article/2025/12/22/84410.html",
+          "note": "2025: women's final 28 Dec noon, men's final 29 Dec 13:00"
+        }
+      ],
+      "confidence": 0.48
+    },
+    {
+      "name": "All Japan High School Football Championship opener at the National Stadium",
+      "name_ja": "第105回全国高校サッカー選手権 開会式・開幕戦（国立競技場）",
+      "city": "Tokyo",
+      "area": "Sendagaya / Kasumigaoka",
+      "kind": "event",
+      "why": "A national ritual on New Year TV: the opening ceremony with every prefecture's team marching, then the first match, with school cheer sections and brass bands filling the Olympic stadium. Tickets cost almost nothing. It falls on the last full night of the trip and is a short ride from the Shinjuku base.",
+      "best_time": "Mon 28 Dec (traditional opening day); time TBC",
+      "dates": "NOT YET CONFIRMED for the 105th edition. The 104th opened with the ceremony and opening match at the National Stadium on 28 Dec 2025, and 28 Dec is the long-standing opening date",
+      "price": "2025 edition: ¥1,500 (standing behind the goal) to ¥4,500 (SS reserved, advance), ¥5,000 on the day",
+      "booking": "Advance tickets via Lawson Ticket (l-tike) and others when the JFA publishes the 105th details (usually November); same-day tickets only if the advance sale does not sell out. Fallback: the Winter Cup next door, or Sareee-ISM wrestling at Korakuen the same day (11:30)",
+      "group_of_8": "Large stadium; 8 together is easy in the reserved sections",
+      "hours": "TBC",
+      "visit_minutes": 150,
+      "first_last": "No same-day sale if the advance sale sells out",
+      "lat": 35.678001403808594,
+      "lng": 139.7148208618164,
+      "wish_ids": [
+        "w8",
+        "w27",
+        "w5",
+        "w15"
+      ],
+      "evidence": [
+        {
+          "source": "JFA (104th news)",
+          "url": "https://jfa.jp/match/alljapan_highschool_2025/news/00035899/",
+          "note": "Opening ceremony and opening match on 28 Dec at the National Stadium; same-day tickets only if advance tickets do not sell out"
+        },
+        {
+          "source": "Lawson Ticket (104th)",
+          "url": "https://l-tike.com/ntvzero/event/hs104.html",
+          "note": "104th opener prices ¥1,500 standing to ¥4,500 SS reserved (advance)"
+        }
+      ],
+      "confidence": 0.5
+    },
+    {
+      "name": "Ameyoko year-end rush",
+      "name_ja": "アメ横 年末の買い出し",
+      "city": "Tokyo",
+      "area": "Ueno / Okachimachi",
+      "kind": "shopping",
+      "why": "For Tokyo, 28-31 Dec at Ameyoko is the city's annual New Year shopping crush: hawkers shouting crab and tuna prices, the chocolate barker throwing extra bars into your bag, and standing bars under the tracks. Be honest about it: locals on X say the old dried-goods and fish stalls have shrunk and kebab and Chinese street-food stands have taken over, but the year-end crowd is unchanged. Treat it as a 60-90 minute drinking crawl on the last night, not a shopping trip.",
+      "best_time": "Mon 28 Dec, 17:00-20:00 (the rush builds from the 28th; the 30th-31st are shoulder-to-shoulder but after the trip)",
+      "dates": "Year-end rush about 28-31 Dec 2026 (annual pattern); the group gets the 28th",
+      "price": "Street food and drinks about ¥500-1,500 per item; the chocolate stall about ¥1,000 a bag",
+      "booking": "None. Fallback: Ueno's under-track izakaya and the Okachimachi side streets if Ameyoko is too packed for 8",
+      "group_of_8": "Hard to move as 8 in the crush; agree a meeting point (Ueno Station Shinobazu exit) and split into pairs",
+      "hours": "Most shops about 10:00-20:00; bars later",
+      "visit_minutes": 90,
+      "first_last": "Shops close about 20:00",
+      "lat": 35.7096956,
+      "lng": 139.7746581,
+      "wish_ids": [
+        "w23",
+        "w4",
+        "w24",
+        "w5"
+      ],
+      "evidence": [
+        {
+          "source": "X @mori031, 11 Oct 2026",
+          "url": "https://x.com/mori031/status/2109316497801924906",
+          "note": "Ameyoko has changed (fewer dried-goods and fish stalls, more Chinese and kebab), but the year-end crowds are as big as ever"
+        },
+        {
+          "source": "X @Machanique, 19 Oct 2026",
+          "url": "https://x.com/Machanique/status/2111987021812219990",
+          "note": "A local says the old Japanese year-end feel is mostly gone and it now feels international"
+        },
+        {
+          "source": "X @tetsu59116, 13 Oct 2026",
+          "url": "https://x.com/tetsu59116/status/2109978417395638582",
+          "note": "Year-end family shopping at Ameyoko and the chocolate 'tataki-uri' are remembered as the classic ritual"
+        }
+      ],
+      "confidence": 0.5
+    },
+    {
+      "name": "Spa LaQua (Tokyo Dome natural onsen)",
+      "name_ja": "東京ドーム天然温泉 スパ ラクーア",
+      "city": "Tokyo",
+      "area": "Korakuen / Suidobashi (next to Korakuen Hall)",
+      "kind": "onsen",
+      "why": "The upgrade or fallback for the Plan C Thermae-yu night, and right next door to Korakuen Hall: after NOAH on Fri 18 Dec, walk 3 minutes to a rooftop natural-spring onsen with saunas, lounges and beer. It has a better wrestling-then-soak flow than crossing to Kabukicho. A new night rate from June 2026 makes entry after 19:00 ¥1,000 cheaper.",
+      "best_time": "Fri 18 Dec, about 21:30 after the NOAH show (night rate applies)",
+      "dates": "Open year-round; check the official calendar for maintenance closures",
+      "price": "Advance basic ticket ¥3,500 (JTB, valid 1 May 2026 to 31 Mar 2027); night rate from ¥2,500 for entry after 19:00; a late-night surcharge applies for 01:00-06:00",
+      "booking": "No booking; buy advance tickets on JTB to save. Fallback: Thermae-yu (Kabukicho, 24h) as in Plan C",
+      "group_of_8": "Easy, but the baths are split by gender, so agree a meeting time in the lounge",
+      "hours": "From 11:00 to late night (confirm whether it runs to morning on the official site); 01:00-06:00 surcharge",
+      "visit_minutes": 150,
+      "first_last": "Late-night surcharge 01:00-06:00",
+      "lat": 35.7071196,
+      "lng": 139.7531492,
+      "wish_ids": [
+        "w22",
+        "w14",
+        "w4",
+        "w5"
+      ],
+      "evidence": [
+        {
+          "source": "Jorudan news, 29 May 2026",
+          "url": "https://sp.jorudan.co.jp/onsen/news/jrd_260529_3/",
+          "note": "Spa LaQua adds a year-round night rate from 1 Jun 2026: entry after 19:00 is ¥1,000 cheaper, from ¥2,500; 01:00-06:00 surcharge still applies"
+        },
+        {
+          "source": "JTB leisure ticket",
+          "url": "https://www.jtb.co.jp/leisure/m/pE1031601/",
+          "note": "Advance basic ticket ¥3,500, sold 1 May 2026 to 31 Mar 2027; pay the difference on dynamic-price days"
+        },
+        {
+          "source": "GO TOKYO",
+          "url": "https://www.gotokyo.org/jp/spot/51/index.html",
+          "note": "Official Tokyo tourism listing for Spa LaQua at Tokyo Dome City"
+        }
+      ],
+      "confidence": 0.62
+    }
+  ],
+  "notes": "Tokyo · only: Area logic for the only-here layer. (1) Leg 1 (Toshima): Tue 15 Dec land at Haneda, forward the bags, take the monorail to Oi Keibajo-mae for the final-season Tokyo Mega Illumi (closed on Oi race days, so check TCK's December calendar). Wed 16 Dec is the winter sumo tour at Hasuda (an hour north from Ikebukuro via Omiya). It is sold out, so watch e+ resale. It also means the stables are on tour, so confirm Arashio-beya's Dec 17 practice is actually on. Fri 18 Dec: NOAH at Korakuen, then Spa LaQua next door instead of crossing to Kabukicho. (2) Leg 2 (Shinjuku): Sat 26 Dec is a cruise day; the Odaiba fireworks are confirmed on Sat 26 Dec (also 5/12/19 Dec). Book Funasei's shared boat as the named cruise fallback (charters need 20+); the rain fallback is TJPW at Korakuen at 18:30. COUNTDOWN JAPAN runs 26/27/29 Dec (no show on the 28th); go Sat daytime, then Keiyo Line to the pier. (3) Sun 27 Dec is the clash day: Arima Kinen (Nakayama, online tickets only), DDT RING FINALE (Korakuen 11:30, lottery) and Kawasaki vs Chiba Jets (15:05) all compete with the Plan C Sunrockers evening. Pick one daytime event plus the Sunrockers game (Nakayama or Korakuen to Aomi is about 35-60 min). (4) Mon 28 Dec is the last full day: Sendagaya youth sport (Winter Cup women's final and the high-school football opener at the National Stadium, both 2026 dates still unconfirmed), Zauo Shinjuku dinner, then Ameyoko's year-end crush or Shinjuku karaoke. Year-end traps: Mega Illumi closes 24 Dec-1 Jan; many restaurants close from 29/30 Dec; Comiket C109 (Big Sight, 29-31 Dec) floods the Rinkai line and Haneda buses on the morning of the 29th, so leave for the 17:20 flight early. Betting at Nakayama or Oi is 20+ only, the same as drinking. No pass is needed: Suica plus the Keiyo/Rinkai lines covers Makuhari, Funabashi and Aomi."
+}

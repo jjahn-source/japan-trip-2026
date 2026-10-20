@@ -2,62 +2,64 @@
   "open": [
     {
       "dates": [
-        "2026-12-21"
+        "2026-12-15",
+        "2026-12-16",
+        "2026-12-17",
+        "2026-12-18",
+        "2026-12-19",
+        "2026-12-26",
+        "2026-12-27",
+        "2026-12-28",
+        "2026-12-29"
       ],
-      "open": "16:00",
-      "close": "24:00",
-      "quote": "16:00～24:00",
-      "url": "https://livejapan.com/ja/in-kansai/in-pref-osaka/in-umeda_osaka-station_kitashinchi/spot-lj0057765/"
-    },
-    {
-      "dates": [
-        "2026-12-22",
-        "2026-12-23",
-        "2026-12-24",
-        "2026-12-25",
-        "2026-12-26"
-      ],
-      "open": "11:30",
-      "close": "24:00",
-      "quote": "11:30～24:00",
-      "url": "https://livejapan.com/ja/in-kansai/in-pref-osaka/in-umeda_osaka-station_kitashinchi/spot-lj0057765/"
+      "open": "10:30",
+      "close": "28:00",
+      "quote": "10：30〜4：00",
+      "url": "https://www.mutekiya.com/about/index.html"
     }
   ],
   "closed": [],
-  "last_entry": {
-    "time": "23:30",
-    "quote": "（L.O.23:30、ドリンクL.O.23:30）",
-    "url": "https://livejapan.com/ja/in-kansai/in-pref-osaka/in-umeda_osaka-station_kitashinchi/spot-lj0057765/"
-  },
-  "prices": [],
+  "last_entry": null,
+  "prices": [
+    {
+      "what": "Extra noodles (替玉)",
+      "yen": 200,
+      "quote": "麺替玉は￥200です。",
+      "url": "https://www.mutekiya.com/menu/index.html"
+    }
+  ],
   "fixed_minutes": null,
   "time_limit": null,
-  "group": null,
+  "group": {
+    "text": "Group members cannot sit next to each other; seated in groups of a few; group pays together. Counter only (17 seats).",
+    "quote": "グループ全員が、となり席にはなれません。数名ずつ別れた席になります。",
+    "url": "https://www.mutekiya.com/about/index.html"
+  },
   "booking": {
-    "text": "Online reservation via SAVOR JAPAN; phone 06-6361-3619",
-    "quote": "Book Now",
-    "url": "https://savorjapan.com/0031557218/menus"
+    "text": "No reservations accepted.",
+    "quote": "申し訳ございません。ご予約は承っておりません。",
+    "url": "https://www.mutekiya.com/faq/index.html"
   },
   "notes": [
     {
-      "text": "Year-end and New Year notice exists on the listing, but its text was not readable",
-      "quote": "年末年始のお知らせ",
-      "url": "https://livejapan.com/ja/in-kansai/in-pref-osaka/in-umeda_osaka-station_kitashinchi/spot-lj0057765/"
+      "text": "Cash only.",
+      "quote": "現金のみの会計でお願い致します。",
+      "url": "https://www.mutekiya.com/faq/index.html"
     },
     {
-      "text": "Regular closing: none (year-round open per LiveJapan)",
-      "quote": "年中無休",
-      "url": "https://livejapan.com/ja/in-kansai/in-pref-osaka/in-umeda_osaka-station_kitashinchi/spot-lj0057765/"
+      "text": "Adults only; no child seats.",
+      "quote": "申し訳ございません。大人用のみです。",
+      "url": "https://www.mutekiya.com/faq/index.html"
     },
     {
-      "text": "All-you-can-eat courses are timed at 90 or 120 minutes (SAVOR JAPAN Ohatsutenjin branch)",
-      "quote": "90 minutes: 3498 yen; 120 minutes: 3828 yen",
-      "url": "https://savorjapan.com/0031557218/menus"
+      "text": "Counter seats only, 17 seats, no table seats.",
+      "quote": "当店はテーブル席はありません。カウンターでの17席だけです。",
+      "url": "https://www.mutekiya.com/about/index.html"
     },
     {
-      "text": "Average budget 3,000 yen (LiveJapan)",
-      "quote": "通常予算: 3,000 円",
-      "url": "https://livejapan.com/ja/in-kansai/in-pref-osaka/in-umeda_osaka-station_kitashinchi/spot-lj0057765/"
+      "text": "Closed 31 Dec to 3 Jan (not on the trip dates).",
+      "quote": "12月31日〜1月3日",
+      "url": "https://www.mutekiya.com/about/index.html"
     }
   ]
 }

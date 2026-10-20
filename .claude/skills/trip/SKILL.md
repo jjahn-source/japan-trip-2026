@@ -29,8 +29,9 @@ Run every independent piece in parallel, in one message, in the background.
 1. **Status.** `status`. Pick up where the session left off. Never redo a finished step unless the brief changed.
 2. **Brief.** Read `planner/brief.md` and extract the brief faithfully: title, people, who, legs (city, from, to, base), arrival, departure, wishes (every concrete wish in their own words, w1…), pace. Save it with `save_brief`. For a city preview, keep only that city's legs.
 3. **Research.** Earlier research for a city is reused automatically by `resolve`, so research only cities with none.
-   - Spawn one `trip-researcher` per city × theme. Use 4 themes (food, night, sights, shop) for stays over 2 nights, else 2 merged themes (food-night, sights-shop). `prompt {"role":"themes"}` has the theme briefs.
+   - Spawn one `trip-researcher` per city × theme. Use 5 themes (food, night, sights, shop, only) for stays over 2 nights, else 3 merged themes (food-night, sights-shop, only). The `only` theme (dated one-offs and the brief's set pieces) is never skipped. `prompt {"role":"themes"}` has the theme briefs.
    - Each researcher's prompt includes the brief JSON, the city and dates, the theme, and what the other researchers cover.
+3b. **Plan C.** If the group has a plan of their own (`data/japan-plan-c.md`), `node planner/seed-plan-c.ts` adds its stops as candidates (raw/<city>-planc.json) so they are verified and kept where they survive.
 4. **Resolve.** `resolve`. This merges, finds and verifies the places, and adds photos.
 5. **Facts.**
    - `list_candidates {"missing_facts": true}`, split into batches of about 10, one `trip-fact-reader` per batch.

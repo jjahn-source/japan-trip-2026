@@ -1,40 +1,37 @@
 {
-  "open": [],
+  "open": [
+    {
+      "dates": [
+        "2026-12-21",
+        "2026-12-22",
+        "2026-12-23",
+        "2026-12-24",
+        "2026-12-25",
+        "2026-12-26"
+      ],
+      "open": "22:00",
+      "close": "28:00",
+      "quote": "クラブの営業時間は22:00から翌4:00までです。",
+      "url": "https://www.waug.com/ja/activities/162252"
+    }
+  ],
   "closed": [],
   "last_entry": null,
   "prices": [],
   "fixed_minutes": null,
   "time_limit": null,
-  "group": {
-    "text": "Groups from 10 to 1,000 people; under 10 also accepted",
-    "quote": "10名〜最大1,000名対応",
-    "url": "https://kabukihall.com/"
-  },
-  "booking": {
-    "text": "Contact page says seat reservations are not taken at present (scope unclear)",
-    "quote": "現在お席のご予約は承っておりません。",
-    "url": "https://kabukihall.com/contact/?lang=en"
-  },
+  "group": null,
+  "booking": null,
   "notes": [
     {
-      "text": "Open all year, including the New Year period",
-      "quote": "※年末年始も通常営業",
-      "url": "https://kabukihall.com/access/?lang=en"
+      "text": "Official site shows an unlabeled 12:30-17:30 block; it does not state nightclub hours",
+      "quote": "12:30-17:30",
+      "url": "https://giraffe-japan.com/?utm_source=google&utm_medium=maps"
     },
     {
-      "text": "KABUKI CAFE hours shown on the access page (shop-specific)",
-      "quote": "10時から29時",
-      "url": "https://kabukihall.com/access/?lang=en"
-    },
-    {
-      "text": "Open-air terrace BBQ and beer garden on the 2F",
-      "quote": "東急歌舞伎町タワー2F、オープンテラス。",
-      "url": "https://kabukihall.com/"
-    },
-    {
-      "text": "BBQ and beer garden can be rented for 50+ people",
-      "quote": "50名〜貸切OK",
-      "url": "https://kabukihall.com/"
+      "text": "Night show produced by EBIKEN",
+      "quote": "夜は世界的なパフォーマー・EBIKENがプロデュースするショーを楽しめ",
+      "url": "https://giraffe-japan.com/?utm_source=google&utm_medium=maps"
     }
   ]
 }

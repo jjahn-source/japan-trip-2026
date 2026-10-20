@@ -1,0 +1,70 @@
+{
+  "open": [
+    {
+      "dates": [
+        "2026-12-28"
+      ],
+      "open": "09:00",
+      "close": "29:00",
+      "quote": "月曜日 9:00～5:00",
+      "url": "https://big-echo.jp/?p=5274"
+    },
+    {
+      "dates": [
+        "2026-12-15",
+        "2026-12-29"
+      ],
+      "open": "09:00",
+      "close": "29:00",
+      "quote": "火曜日 9:00～5:00",
+      "url": "https://big-echo.jp/?p=5274"
+    },
+    {
+      "dates": [
+        "2026-12-27"
+      ],
+      "open": "09:00",
+      "close": "29:00",
+      "quote": "日曜・祝祭日 9:00～5:00",
+      "url": "https://big-echo.jp/?p=5274"
+    }
+  ],
+  "closed": [],
+  "last_entry": null,
+  "prices": [],
+  "fixed_minutes": null,
+  "time_limit": null,
+  "group": null,
+  "booking": {
+    "text": "Web booking via the site (カンタンWeb予約); phone listed on the page",
+    "quote": "カンタンWeb予約",
+    "url": "https://big-echo.jp/?p=5274"
+  },
+  "notes": [
+    {
+      "text": "Open all year; no regular closing day",
+      "quote": "年中無休",
+      "url": "https://big-echo.jp/?p=5274"
+    },
+    {
+      "text": "Hours are listed only for Mon, Tue and Sun/holidays; Wed to Sat hours are not on the page. The page gives 5:00 without am/pm, read here as 05:00 the next day (29:00)",
+      "quote": "営業時間",
+      "url": "https://big-echo.jp/?p=5274"
+    },
+    {
+      "text": "Special periods such as year-end may change prices (no closure stated)",
+      "quote": "※ゴールデンウィーク・お盆・年末年始などの特別期間は料金が異なる場合がございます。",
+      "url": "https://big-echo.jp/?p=5274"
+    },
+    {
+      "text": "3-hour pack (Mon to Fri) opens until 21:00, reception ends 18:00",
+      "quote": "【３時間パック】OPEN〜21：00※18：00受付終了",
+      "url": "https://big-echo.jp/?p=5274"
+    },
+    {
+      "text": "Coupon valid to end of 2026, one per group visit",
+      "quote": "有効期限： 2026年12月末日",
+      "url": "https://big-echo.jp/?p=5274"
+    }
+  ]
+}

@@ -2,67 +2,71 @@
   "open": [
     {
       "dates": [
-        "2026-12-21",
-        "2026-12-22",
-        "2026-12-23",
-        "2026-12-24",
-        "2026-12-25",
-        "2026-12-26"
+        "2026-12-19"
       ],
-      "open": "09:00",
-      "close": "18:00",
-      "quote": "9:00～18:00（入館は17:30まで）",
-      "url": "https://www.osakacastle.net/guide/"
+      "open": "18:00",
+      "close": "24:00",
+      "quote": "営業時間:18:00～0:00 定休日:日曜日・月曜日",
+      "url": "https://geisha.co.jp/"
     }
   ],
-  "closed": [],
-  "last_entry": {
-    "time": "17:30",
-    "quote": "9:00～18:00（入館は17:30まで）",
-    "url": "https://www.osakacastle.net/guide/"
-  },
+  "closed": [
+    {
+      "dates": [
+        "2026-12-20",
+        "2026-12-21"
+      ],
+      "why": "Regular closing day: Sunday and Monday",
+      "what": "Geisha Cafe Bar Hana (カフェバー はな) only",
+      "whole_place": false,
+      "quote": "営業時間:18:00～0:00 定休日:日曜日・月曜日",
+      "url": "https://geisha.co.jp/"
+    }
+  ],
+  "last_entry": null,
   "prices": [
     {
-      "what": "Adult",
-      "yen": 1200,
-      "quote": "1,200円",
-      "url": "https://www.osakacastle.net/guide/"
+      "what": "Furatto Geisha show, adult (one drink included)",
+      "yen": 3000,
+      "quote": "お一人様　3,000円(ワンドリンク付)",
+      "url": "https://geisha.co.jp/"
     },
     {
-      "what": "University / high school student (ID required)",
-      "yen": 600,
-      "quote": "600円",
-      "url": "https://www.osakacastle.net/guide/"
-    },
-    {
-      "what": "Adult, group of 15 or more",
-      "yen": 1080,
-      "quote": "1,080円",
-      "url": "https://www.osakacastle.net/guide/"
+      "what": "Furatto Geisha show, under 15 (one drink included)",
+      "yen": 2000,
+      "quote": "15歳以下は2,000円(ワンドリンク付)",
+      "url": "https://geisha.co.jp/"
     }
   ],
   "fixed_minutes": null,
   "time_limit": null,
-  "group": {
-    "text": "Groups of 15+ get group rates; groups must arrange the visit by phone (06-6941-3044)",
-    "quote": "予定が決まりましたら電話にてご連絡くださいますようお願いします",
-    "url": "https://www.osakacastle.net/guide/"
-  },
-  "booking": {
-    "text": "No entry reservations taken",
-    "quote": "大阪城天守閣では入館予約を承っておりませんので、ご連絡は予約にはなりません。",
-    "url": "https://www.osakacastle.net/guide/"
-  },
+  "group": null,
+  "booking": null,
   "notes": [
     {
-      "text": "Online WEB tickets available",
-      "quote": "WEBチケットの購入はこちら",
-      "url": "https://www.osakacastle.net/guide/"
+      "text": "Furatto Geisha runs on the 1st and 3rd Saturday of the month (3rd Saturday = 19 Dec 2026, a trip date).",
+      "quote": "Open every 1st and 3rdSaturday",
+      "url": "https://geisha.co.jp/"
     },
     {
-      "text": "Closed 12/28 to 1/1 (outside trip dates)",
-      "quote": "12月28日～1月1日",
-      "url": "https://www.osakacastle.net/guide/"
+      "text": "Furatto Geisha first show: 18:30 (40 min), admission from 18:00.",
+      "quote": "Curtain time : 18:30～（40 min.）",
+      "url": "https://geisha.co.jp/"
+    },
+    {
+      "text": "Furatto Geisha second show: 20:00 (40 min), admission from 19:30.",
+      "quote": "Curtain time : 20:00～（40 min.）",
+      "url": "https://geisha.co.jp/"
+    },
+    {
+      "text": "Venue: Hakone Yumoto Kenban 1st floor, about 3 minutes' walk from Hakone Yumoto Station.",
+      "quote": "Place: Hakone Yumoto Kenban 1st floor",
+      "url": "https://geisha.co.jp/"
+    },
+    {
+      "text": "The official page carries a 2022.02.09 date stamp; confirm times and prices before going.",
+      "quote": "2022.02.09",
+      "url": "https://geisha.co.jp/"
     }
   ]
 }

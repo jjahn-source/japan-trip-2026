@@ -2,28 +2,29 @@
   "open": [
     {
       "dates": [
-        "2026-12-15",
-        "2026-12-16",
-        "2026-12-17",
-        "2026-12-18",
-        "2026-12-19",
-        "2026-12-26",
-        "2026-12-27",
-        "2026-12-28",
-        "2026-12-29"
+        "2026-12-21",
+        "2026-12-22",
+        "2026-12-23",
+        "2026-12-24",
+        "2026-12-25"
       ],
       "open": "10:00",
-      "close": "23:00",
-      "quote": "10:00~23:00",
-      "url": "https://www.seibu-leisure.co.jp/niwanoyu/index.html"
+      "close": "21:00",
+      "quote": "平日 10:00-21:00",
+      "url": "https://search.kfc.co.jp/map/3188"
+    },
+    {
+      "dates": [
+        "2026-12-26"
+      ],
+      "open": "10:00",
+      "close": "21:00",
+      "quote": "土日祝 10:00-21:00",
+      "url": "https://search.kfc.co.jp/map/3188"
     }
   ],
   "closed": [],
-  "last_entry": {
-    "time": "22:00",
-    "quote": "（最終受付 22:00）",
-    "url": "https://www.seibu-leisure.co.jp/niwanoyu/index.html"
-  },
+  "last_entry": null,
   "prices": [],
   "fixed_minutes": null,
   "time_limit": null,
@@ -31,9 +32,24 @@
   "booking": null,
   "notes": [
     {
-      "text": "Maintenance closure 9-13 Nov 2026 (not a trip date)",
-      "quote": "メンテナンス休業のお知らせ｜2026年11月9日(月)～11月13日(金)",
-      "url": "https://www.seibu-leisure.co.jp/niwanoyu/index.html"
+      "text": "Delivery is online order only, with a 860 yen delivery fee",
+      "quote": "別途配達料860円（税込）を頂戴いたします。",
+      "url": "https://search.kfc.co.jp/map/3188"
+    },
+    {
+      "text": "Delivery is cashless only; no cash payment",
+      "quote": "キャッシュレス決済のみ対応で現金支払いは出来ません。",
+      "url": "https://search.kfc.co.jp/map/3188"
+    },
+    {
+      "text": "Delivery hours 10:15-20:30",
+      "quote": "10:15-20:30",
+      "url": "https://search.kfc.co.jp/map/3188"
+    },
+    {
+      "text": "Hours may change with local conditions",
+      "quote": "状況により変更になる場合がございます。",
+      "url": "https://search.kfc.co.jp/map/3188"
     }
   ]
 }

@@ -1,0 +1,509 @@
+{
+  "candidates": [
+    {
+      "name": "Mutekiya",
+      "name_ja": "麺創房 無敵家",
+      "city": "Tokyo",
+      "area": "Ikebukuro",
+      "kind": "food",
+      "why": "Ikebukuro's best-known tonkotsu-shoyu ramen, rich soup and thick chashu, and it stays open until 4am, which makes it the default after-drinks bowl near Ninja House. 2026 Google reviews put the queue at 10 to 30 minutes and say about half the customers are foreign. Good, not life-changing, but the late hours earn it a slot.",
+      "best_time": "Late night after drinks (after 23:00) or a weekday mid-afternoon; Saturday 18:00 queues reach about 30 min",
+      "dates": null,
+      "price": "about ¥1,000–1,500 pp (honmaru ¥1,150; toppings like garlic cost extra)",
+      "booking": "No booking; queue outside",
+      "group_of_8": "Counter only: queue together, eat in 2–3 waves; turnover is fast",
+      "hours": "Daily 10:30–04:00 (Google). Year-end: closed 31 Dec–3 Jan per HotPepper, so it is open for the 15–19 Dec stay and 26–29 Dec",
+      "visit_minutes": 45,
+      "first_last": null,
+      "lat": 35.7269046,
+      "lng": 139.7116557,
+      "wish_ids": [
+        "w4",
+        "w5",
+        "w11"
+      ],
+      "evidence": [
+        {
+          "source": "Google Maps (ja) reviews",
+          "url": "https://maps.google.com/?cid=9408920881125569229",
+          "note": "4.2 from about 8,300 reviews; Oct 2026 reviews: 4 people ahead on a weekday 13:30, 30 min on a Saturday at 18:00; counter only; many foreign customers"
+        },
+        {
+          "source": "HotPepper",
+          "url": "https://www.hotpepper.jp/strJ000103852",
+          "note": "Hours 10:30–4:00 daily; closed 31 Dec–3 Jan"
+        },
+        {
+          "source": "Blog (Marco Togni, Ikebukuro guide)",
+          "url": "https://www.marcotogni.it/dove-mangiare-ikebukuro/",
+          "note": "Famous Ikebukuro ramen with long queues, ¥1,000–1,500"
+        }
+      ],
+      "confidence": 0.8
+    },
+    {
+      "name": "Kinsuien",
+      "name_ja": "焼肉 金牛苑",
+      "city": "Tokyo",
+      "area": "Ikebukuro (East exit)",
+      "kind": "food",
+      "why": "Wagyu all-you-can-eat yakiniku, plus seafood (crab), offal, cold noodles and soup, about 3 minutes from Ikebukuro East exit. Courses come with all-you-can-drink, which suits a group that loves to drink and is counting yen. 2026 reviews in Japanese and Chinese are consistently strong. Many reviews are recent and from Chinese visitors, so treat the rating with some caution.",
+      "best_time": "Dinner from 17:00; a good first-night or second-night group dinner from Ninja House",
+      "dates": null,
+      "price": "Wagyu AYCE courses about ¥4,300–7,600 pp; reviewers cite ¥4,290, ¥6,900 and ¥7,590 courses; all-you-can-drink add-on or bundled",
+      "booking": "Book via HotPepper (linked from its Google listing) a week or two ahead for 8; entry limited when busy",
+      "group_of_8": "Book a table for 8 ahead; restaurant caps entry at peak times",
+      "hours": "Daily 11:30–15:00, 17:00–23:30 (Google). Year-end hours not found",
+      "visit_minutes": 120,
+      "first_last": null,
+      "lat": 35.7272615,
+      "lng": 139.7117514,
+      "wish_ids": [
+        "w4",
+        "w10",
+        "w11"
+      ],
+      "evidence": [
+        {
+          "source": "Google Maps reviews",
+          "url": "https://www.hotpepper.jp/strJ004509938/",
+          "note": "4.5 from 83 reviews; Sep–Oct 2026 reviews praise A5 wagyu AYCE at ¥6,900, crab and offal included, 3 min from East exit"
+        },
+        {
+          "source": "Xiaohongshu @MYeol",
+          "url": "https://www.xiaohongshu.com/explore/6abfb447000000001802a3cd",
+          "note": "Came back for a second time (Oct 2026): ¥4,290 course good, ¥7,590 AYCE wagyu very good"
+        }
+      ],
+      "confidence": 0.65
+    },
+    {
+      "name": "Yakiniku Mugendo Ikebukuro East",
+      "name_ja": "炭火焼肉 無限道 池袋東口駅前店",
+      "city": "Tokyo",
+      "area": "Ikebukuro (East exit)",
+      "kind": "food",
+      "why": "The budget yakiniku all-you-can-eat by Ikebukuro East exit, from about ¥2,000. It is the cheap fallback if Kinsuien is full or the group wants to save yen for drinks. Open until midnight every day.",
+      "best_time": "Weekday dinner or a late lunch",
+      "dates": null,
+      "price": "AYCE from about ¥2,000 pp (HotPepper listing); about ¥2,500 (120 RMB) per Xiaohongshu",
+      "booking": "HotPepper online booking recommended for 8",
+      "group_of_8": "Large chain-style floor; book a table for 8",
+      "hours": "Daily 11:00–24:00 (Google). Year-end hours not found",
+      "visit_minutes": 100,
+      "first_last": null,
+      "lat": 35.7303201,
+      "lng": 139.7132602,
+      "wish_ids": [
+        "w10",
+        "w11"
+      ],
+      "evidence": [
+        {
+          "source": "Xiaohongshu @躺平的在日小康",
+          "url": "https://www.xiaohongshu.com/explore/6ad0e160000000001c00f32f",
+          "note": "Oct 2026: cheap yakiniku buffet at 炭火焼肉無限道 池袋東口駅前店, about 120 RMB and you leave stuffed"
+        },
+        {
+          "source": "Google Maps",
+          "url": "https://maps.google.com/?q=Yakiniku+Mugendo+Higashiikebukuro",
+          "note": "Operational, Higashi-Ikebukuro 1-3-3, open 11:00–24:00 daily"
+        },
+        {
+          "source": "Google Maps",
+          "url": "https://maps.google.com/?cid=11215531791078394377",
+          "note": "Google Maps listing"
+        }
+      ],
+      "confidence": 0.55
+    },
+    {
+      "name": "Tsukiji Outer Market",
+      "name_ja": "築地場外市場",
+      "city": "Tokyo",
+      "area": "Tsukiji",
+      "kind": "food",
+      "why": "Still the best seafood breakfast crawl in Tokyo: tamagoyaki, grilled scallops, tuna, kaisen-don and oysters from about 460 shops. Graze on street food rather than queue for one famous kaisen-don shop. The end of December is the market's busiest time of year, so go early.",
+      "best_time": "07:30–10:00. Avoid Sun 27 Dec, when the wholesale market and many shops are shut. Best on Thu 17 or Fri 18 Dec, or early Mon 28 Dec, when year-end crowds are already building",
+      "dates": "Year-end shopping crowds build from about 27 Dec and peak 28–30 Dec; many shops close on market holidays (Sundays, holidays, some Wednesdays)",
+      "price": "¥2,000–4,000 pp grazing",
+      "booking": "None",
+      "group_of_8": "Street food is easy for 8; sit-down kaisen-don shops seat small groups, so split up",
+      "hours": "Main retail 9:00–14:00 (trade buying 6:00–9:00); many shops shut from about 14:00",
+      "visit_minutes": 120,
+      "first_last": "Check the 2026 market calendar PDF on tsukiji.or.jp for Dec closed days",
+      "lat": 35.6647703,
+      "lng": 139.7702515,
+      "wish_ids": [
+        "w5",
+        "w8"
+      ],
+      "evidence": [
+        {
+          "source": "Tsukiji Outer Market official calendar",
+          "url": "https://www.tsukiji.or.jp/calendar/",
+          "note": "6:00–9:00 mainly trade buyers, 9:00–14:00 normal retail; many shops close on Tokyo Central Wholesale Market holidays"
+        },
+        {
+          "source": "Blog (banzokubiology, Tsukiji crowd tips)",
+          "url": "https://banzokubiology.com/tsukiji-crowd-tips/",
+          "note": "Many shops close Wednesdays; year-end is the peak crowd period"
+        },
+        {
+          "source": "GO TOKYO",
+          "url": "https://www.gotokyo.org/jp/destinations/central-tokyo/tsukiji/index.html",
+          "note": "Page updated Jan 2026: outer market still operating as before"
+        }
+      ],
+      "confidence": 0.85
+    },
+    {
+      "name": "Toyosu Senkyaku Banrai",
+      "name_ja": "豊洲 千客万来",
+      "city": "Tokyo",
+      "area": "Toyosu",
+      "kind": "food",
+      "why": "The Edo-style food street that opened in 2024 beside Toyosu fish market: seafood bowls, grilled skewers and a food court under one roof, plus a 24-hour onsen building. It is calmer and easier for 8 than Tsukiji, and pairs with teamLab Planets next door.",
+      "best_time": "Lunch, or combine with a teamLab Planets slot",
+      "dates": null,
+      "price": "¥1,500–4,000 pp; some tourist pricing",
+      "booking": "None for the food hall",
+      "group_of_8": "Food court seating works for 8",
+      "hours": "Food building 10:00–22:00, open all year (GO TOKYO); hot-spring building 24 h. Shop hours vary by season; year-end hours not published",
+      "visit_minutes": 90,
+      "first_last": null,
+      "lat": 35.6452446,
+      "lng": 139.7837601,
+      "wish_ids": [
+        "w5",
+        "w8"
+      ],
+      "evidence": [
+        {
+          "source": "GO TOKYO",
+          "url": "https://www.gotokyo.org/jp/spot/1858/index.html",
+          "note": "Food building 10:00–22:00, open every day"
+        },
+        {
+          "source": "Koto City bulletin",
+          "url": "https://www.city.koto.lg.jp/011501/kuse/koho/kuho/r06/text/020101.html",
+          "note": "Onsen building 24 hours, open all year; enquiries 03-3533-1515"
+        },
+        {
+          "source": "Official site",
+          "url": "https://toyosu-senkyakubanrai.jp/",
+          "note": "Official listing"
+        }
+      ],
+      "confidence": 0.65
+    },
+    {
+      "name": "Tsukishima Monja Moheji (main shop)",
+      "name_ja": "月島もんじゃ もへじ 総本店",
+      "city": "Tokyo",
+      "area": "Tsukishima",
+      "kind": "food",
+      "why": "Monjayaki is the Tokyo-only dish, and Tsukishima's Monja Street is where to eat it: a gooey griddle mess you cook together at the table with beer. It is the best group-of-8 meal in Tokyo. Moheji ranked first in Tsukishima for foreign visitors in 2025, and staff help first-timers. Kondo (founded 1950) is the old-school alternative.",
+      "best_time": "Dinner; book or arrive before 18:00. Pairs with Toyosu or Tsukiji the same day (one stop on the Oedo line)",
+      "dates": null,
+      "price": "about ¥2,500–4,000 pp with drinks",
+      "booking": "Reserve ahead for 8 (Moheji has several branches incl. hanare nearby; Kondo recommends booking)",
+      "group_of_8": "Two adjacent griddle tables of 4 is standard; a 9-person group visit is documented",
+      "hours": "Daily about 10:30–23:00 (Google). Year-end: Kondo closes 31 Dec–3 Jan; Moheji year-end hours not found",
+      "visit_minutes": 100,
+      "first_last": null,
+      "lat": 35.663165,
+      "lng": 139.7806944,
+      "wish_ids": [
+        "w4",
+        "w8"
+      ],
+      "evidence": [
+        {
+          "source": "Honichi Lab inbound ranking (Feb 2025)",
+          "url": "https://honichi.com/news/2025/02/20/202502_inboundranking_tsukishima/",
+          "note": "Moheji main shop is no. 1 and Moheji hanare no. 2 among Tsukishima restaurants popular with foreign visitors"
+        },
+        {
+          "source": "Google Maps",
+          "url": "https://www.instagram.com/moheji_tsukishima_monja/",
+          "note": "Operational, Tsukishima 3-5-5, 10:30–23:00 daily"
+        },
+        {
+          "source": "Retty",
+          "url": "https://retty.me/theme/200270376/",
+          "note": "A user review describes a 9-friend monja night in Tsukishima; Kondo (est. 1950) closes 31 Dec–3 Jan and recommends booking"
+        }
+      ],
+      "confidence": 0.8
+    },
+    {
+      "name": "Ameyoko",
+      "name_ja": "アメ横（アメヤ横丁）",
+      "city": "Tokyo",
+      "area": "Ueno",
+      "kind": "food",
+      "why": "Ueno's old black-market street, at its loudest at year-end, when stalls sell tuna, crab, roe and New Year food. Cheap kaisen-don, skewers, fruit sticks and standing beers line the way. The 26–29 Dec stay lands in the year-end market, so it is a sight in itself. Bar-alley drinking here belongs to the night list; this entry is for grazing.",
+      "best_time": "Morning to early afternoon on 26–28 Dec; avoid 30–31 Dec, when it is shoulder to shoulder",
+      "dates": "Year-end market crowds 27–31 Dec, peaking 30–31 Dec",
+      "price": "¥1,500–3,000 pp grazing",
+      "booking": "None",
+      "group_of_8": "Easy as a walk-and-graze; stand-up stalls",
+      "hours": "Shops roughly 10:00–20:00, varying by shop",
+      "visit_minutes": 90,
+      "first_last": null,
+      "lat": 35.7096956,
+      "lng": 139.7746581,
+      "wish_ids": [
+        "w5",
+        "w7",
+        "w8"
+      ],
+      "evidence": [
+        {
+          "source": "Blog (banzokubiology, Ameyoko crowds)",
+          "url": "https://banzokubiology.com/ameyoko-konzatsu/",
+          "note": "Year-end 27–31 Dec very crowded, peak 30–31; on 29 Dec 2023 a 6-minute walk took about 14 minutes"
+        },
+        {
+          "source": "Tabelog (Ameyoko shop page with year-end visit)",
+          "url": "https://ssl.tabelog.com/en/tokyo/A1311/A131101/13222121/",
+          "note": "Diner reports visiting Ameyoko in the year-end rush"
+        },
+        {
+          "source": "Blog (banzokubiology, Ameyoko time guide)",
+          "url": "https://banzokubiology.com/ameyoko-time-guide/",
+          "note": "Go in the morning to beat weekend and year-end crowds"
+        }
+      ],
+      "confidence": 0.7
+    },
+    {
+      "name": "Fuunji",
+      "name_ja": "風雲児 新宿本店",
+      "city": "Tokyo",
+      "area": "Shinjuku South / Yoyogi",
+      "kind": "food",
+      "why": "Tokyo's benchmark tsukemen: thick noodles dipped in a dense chicken-and-fish broth, about 6 minutes' walk from Shinjuku South exit. One of the few famous Shinjuku ramen shops that is worth the queue, rather than a tourist line.",
+      "best_time": "Be there by 10:40 for the 11:00 opening, or about 16:45 for the 17:00 dinner opening. By 11:15 the queue was already past 50 people (end-2025 review). Go on Sat 26 or Mon 28 Dec, not Sun 27",
+      "dates": null,
+      "price": "about ¥1,000–1,300 pp",
+      "booking": "No booking; queue",
+      "group_of_8": "Counter only: the group queues together and is seated in waves",
+      "hours": "11:00–15:00, 17:00–21:00, closes when sold out. Travelbook lists Sundays/holidays closed plus year-end and summer breaks; Google shows 7 days. Check its X/Instagram for the 2026 year-end closing date (likely from about 29–30 Dec)",
+      "visit_minutes": 75,
+      "first_last": null,
+      "lat": 35.6868343,
+      "lng": 139.6966393,
+      "wish_ids": [
+        "w5",
+        "w11"
+      ],
+      "evidence": [
+        {
+          "source": "Google Maps",
+          "url": "https://maps.google.com/?cid=3272539110311166620",
+          "note": "4.3 from about 5,760 reviews; operational, Yoyogi 2-14-3"
+        },
+        {
+          "source": "Ekiten review",
+          "url": "https://www.ekiten.jp/shop_2960431/review/",
+          "note": "End-2025 review: arrived 11:15 and there were already 50+ waiting; counter only, you queue behind seated diners"
+        },
+        {
+          "source": "Travelbook",
+          "url": "https://www.travelbook.co.jp/t-253/topic-1577/",
+          "note": "11:00–15:00, 17:00–21:00 or until sold out; closed Sun/holidays with year-end and summer breaks"
+        }
+      ],
+      "confidence": 0.8
+    },
+    {
+      "name": "Shinpachi Shokudo Nishi-Shinjuku",
+      "name_ja": "しんぱち食堂 西新宿店",
+      "city": "Tokyo",
+      "area": "Nishi-Shinjuku",
+      "kind": "food",
+      "why": "The cheap Japanese breakfast that fixes a hangover: charcoal-grilled fish set (salmon, mackerel, hokke) with rice, miso and pickles for well under ¥1,000. It opens at 7:00, near Garfield House. The Kabukicho branch is listed as open 4:00–3:00 for the very late or very early.",
+      "best_time": "Breakfast 7:00–10:00",
+      "dates": null,
+      "price": "about ¥700–1,200 pp",
+      "booking": "No booking",
+      "group_of_8": "Small tables and counter; 8 will usually split across 2–3 tables, which is quick at breakfast",
+      "hours": "Daily 7:00–22:40 (Google; Retty lists 7:00–23:00). Year-end hours not found",
+      "visit_minutes": 40,
+      "first_last": null,
+      "lat": 35.6890294,
+      "lng": 139.6971351,
+      "wish_ids": [
+        "w5",
+        "w10",
+        "w11"
+      ],
+      "evidence": [
+        {
+          "source": "Google Maps",
+          "url": "https://maps.google.com/?cid=14023482379824896455",
+          "note": "4.0 from about 1,930 reviews; 7:00–22:40 daily"
+        },
+        {
+          "source": "Retty",
+          "url": "https://retty.me/restaurant/100000729976/",
+          "note": "Nishi-Shinjuku branch, 7:00–23:00 daily, breakfast sets; last order 30 min before close"
+        },
+        {
+          "source": "nap-camp guide",
+          "url": "https://www.nap-camp.com/mag/55359",
+          "note": "Recommended for grilled-fish breakfast in Shinjuku from 7am"
+        }
+      ],
+      "confidence": 0.75
+    },
+    {
+      "name": "Tempura Shinjuku Tsunahachi Tsunohazuan",
+      "name_ja": "天ぷら新宿つな八 つのはず庵",
+      "city": "Tokyo",
+      "area": "Shinjuku 3-chome",
+      "kind": "food",
+      "why": "Tsunahachi is Shinjuku's historic tempura house, and this branch takes online bookings through TableCheck, so the group can book a proper tempura meal for 8. Lunch sets are the budget way in. It is the one 'classic Japanese dinner' that suits this group and does not cost omakase money.",
+      "best_time": "Lunch (11:30–15:00) for the cheaper sets",
+      "dates": null,
+      "price": "Lunch about ¥2,000–3,000 pp; dinner courses higher",
+      "booking": "Reserve on TableCheck for 8, ideally 2–4 weeks ahead for year-end dates",
+      "group_of_8": "Bookable tables; ask for 8 together when booking",
+      "hours": "Daily 11:30–15:00, 17:30–21:30 (Google). Year-end hours not found; check TableCheck availability for 26–29 Dec",
+      "visit_minutes": 75,
+      "first_last": null,
+      "lat": 35.6901818,
+      "lng": 139.7041722,
+      "wish_ids": [
+        "w8",
+        "w11"
+      ],
+      "evidence": [
+        {
+          "source": "Google Maps",
+          "url": "https://maps.google.com/?cid=5110493334561913828",
+          "note": "4.2 from 266 reviews; Shinjuku 3-32-10 T&T Bldg 5F; 11:30–15:00, 17:30–21:30"
+        },
+        {
+          "source": "TableCheck",
+          "url": "https://www.tablecheck.com/shops/tunahachi-tunohazu/reserve",
+          "note": "Online reservation page for this branch"
+        }
+      ],
+      "confidence": 0.6
+    },
+    {
+      "name": "Uobei Shin-Okubo",
+      "name_ja": "魚べい 新大久保店",
+      "city": "Tokyo",
+      "area": "Shin-Okubo / Shinjuku",
+      "kind": "food",
+      "why": "Touchscreen sushi delivered by express lane, at about ¥100–300 a plate. It is the budget sushi blowout for 8 hungry 20-year-olds, a 10-minute walk from Kabukicho. It is not top sushi, but it is great value and fun, and there is rarely a long wait.",
+      "best_time": "Any time 11:00–23:00; good before a Kabukicho night",
+      "dates": null,
+      "price": "about ¥1,500–2,500 pp",
+      "booking": "No booking; take a ticket",
+      "group_of_8": "Booths of 4–6: split into two adjacent booths",
+      "hours": "Mon–Fri 11:00–23:00, Sat–Sun 10:30–23:00 (Google). Year-end hours not found; chain usually open",
+      "visit_minutes": 60,
+      "first_last": null,
+      "lat": 35.7016721,
+      "lng": 139.7000322,
+      "wish_ids": [
+        "w10",
+        "w11"
+      ],
+      "evidence": [
+        {
+          "source": "Google Maps",
+          "url": "https://maps.google.com/?cid=10168704643464791726",
+          "note": "4.2 from 774 reviews; Hyakunincho 2-4-1, 3F"
+        },
+        {
+          "source": "Official site",
+          "url": "https://www.uobei.info/",
+          "note": "Chain site with store info"
+        }
+      ],
+      "confidence": 0.65
+    },
+    {
+      "name": "Isomaru Suisan Shinjuku 3-chome",
+      "name_ja": "磯丸水産 新宿三丁目店",
+      "city": "Tokyo",
+      "area": "Shinjuku 3-chome",
+      "kind": "food",
+      "why": "A 24-hour seafood izakaya where you grill scallops, crab-miso shells and squid yourself on a tabletop grill, with cheap highballs. It works as the 3am feed, the after-party and the hangover breakfast (seafood bowls) in one, and it seats a group across four floors. Ikebukuro has branches too, for the first stay.",
+      "best_time": "After midnight, or early morning",
+      "dates": null,
+      "price": "about ¥2,500–4,000 pp with drinks",
+      "booking": "Walk-in; book via the chain site for a set time",
+      "group_of_8": "Large multi-floor shop; tables for 8 are easy off-peak",
+      "hours": "Open 24 hours (Google). Year-end: not confirmed; chain is famous for 24h operation",
+      "visit_minutes": 90,
+      "first_last": null,
+      "lat": 35.692537,
+      "lng": 139.7030539,
+      "wish_ids": [
+        "w4",
+        "w5",
+        "w11"
+      ],
+      "evidence": [
+        {
+          "source": "Google Maps",
+          "url": "https://maps.google.com/?cid=8121084490993100929",
+          "note": "3.7 from about 1,470 reviews; open 24 hours; Shinjuku 3-17-13, 1F–4F"
+        },
+        {
+          "source": "TV Tokyo Cambria Kyuden",
+          "url": "https://www.tv-tokyo.co.jp/cambria/backnumber/2016/1013/",
+          "note": "Feature on Isomaru as a 24h seafood izakaya with 9 shops near Shinjuku station"
+        },
+        {
+          "source": "Ekiten",
+          "url": "https://www.ekiten.jp/g0101/st6305/?f%5B%5D=7",
+          "note": "Nishi-Shinjuku branch listed 0:00–24:00"
+        }
+      ],
+      "confidence": 0.7
+    },
+    {
+      "name": "Haneda T3 Edo Market Place (Edo Koji)",
+      "name_ja": "羽田空港第3ターミナル 江戸小路",
+      "city": "Tokyo",
+      "area": "Haneda Airport T3",
+      "kind": "food",
+      "why": "The departure-day lunch on 29 Dec: an Edo-street food court before the 17:20 flight. It has gyudon and tonjiru, tonkatsu, all-year oden, udon, ramen and yakiniku, so 8 people can eat in 45 minutes. It is landside, so eat, then clear security, which will be busy on 29 Dec.",
+      "best_time": "29 Dec about 14:00–14:45, then security",
+      "dates": "29 Dec 2026 (departure)",
+      "price": "¥1,000–2,500 pp",
+      "booking": "None",
+      "group_of_8": "Several restaurants; split or use larger tables",
+      "hours": "About 6:30–23:00 (varies by shop); terminal open 24 h",
+      "visit_minutes": 45,
+      "first_last": null,
+      "lat": 35.5448132,
+      "lng": 139.7684555,
+      "wish_ids": [
+        "w5"
+      ],
+      "evidence": [
+        {
+          "source": "Veltra Yokka",
+          "url": "https://www.veltra.com/jp/yokka/article/haneda-terminal-3-for-girls-trip/",
+          "note": "Edo Koji (4F) restaurants incl. Saryo Itoen, Yoshinoya gyudon+tonjiru, Katsusen tonkatsu, Oguraoden open every day"
+        },
+        {
+          "source": "GO TOKYO",
+          "url": "https://www.gotokyo.org/jp/spot/69/index.html",
+          "note": "T3 open 24 h, shop hours vary; security busy at weekends, arrive early"
+        }
+      ],
+      "confidence": 0.6
+    }
+  ],
+  "notes": "Tokyo · food: Area logic. Stay 1 (15–19 Dec, Ninja House, Toshima): Ikebukuro East exit is the food base; Mutekiya (to 4am) and Kinsuien/Mugendo AYCE yakiniku are all within about 5 min of each other. The first-night dinner after the Haneda 15:00 landing is easy there (Keikyu + Yamanote/Marunouchi to Ikebukuro, about 60–70 min). Do Tsukiji (breakfast) + Tsukishima monja (dinner) + Toyosu Senkyaku Banrai/teamLab as one east-side day: all on the Oedo/Yurikamome lines. Best on Thu 17 or Fri 18 Dec; Wed 16 may be a market holiday. Stay 2 (26–29 Dec, Garfield House, Shinjuku): breakfast at Shinpachi Shokudo (7:00), Fuunji tsukemen at opening, Tsunahachi tempura (book TableCheck), Uobei and Isomaru 24h for late nights. Ameyoko is on the Yamanote from Shinjuku/Ikebukuro: go 26–28 Dec mornings, avoid 30–31. Year-end traps: Sun 27 Dec, the Tsukiji market and many shops are shut; independent shops (Fuunji, Kondo monja) take year-end breaks from about 29–31 Dec; Mutekiya and Kondo close 31 Dec–3 Jan (after the trip). Chains (Isomaru, Uobei, Shinpachi) are the safe bets on 28–29 Dec. Budget: AYCE yakiniku with drinks (¥2,000–7,600) and monja are the best-value group feasts; book Kinsuien, Moheji and Tsunahachi for 8 two to three weeks ahead. Departure 29 Dec: eat at Haneda T3 Edo Koji before security, since 29 Dec is a peak travel day."
+}

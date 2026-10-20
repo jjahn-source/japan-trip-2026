@@ -1,0 +1,36 @@
+{
+  "open": [
+    {
+      "dates": [
+        "2026-12-15",
+        "2026-12-16",
+        "2026-12-17",
+        "2026-12-18",
+        "2026-12-19"
+      ],
+      "open": "12:00",
+      "close": "20:00",
+      "quote": "12:00〜20:00",
+      "url": "https://san-tatsu.jp/spots/537054/"
+    }
+  ],
+  "closed": [],
+  "last_entry": null,
+  "prices": [],
+  "fixed_minutes": null,
+  "time_limit": null,
+  "group": null,
+  "booking": null,
+  "notes": [
+    {
+      "text": "Official NEW YORK JOE site posts a year-end hours notice (details not readable); no 26-29 Dec hours found",
+      "quote": "【年末年始の営業時間について】",
+      "url": "http://newyorkjoeexchange.com/"
+    },
+    {
+      "text": "Third-party listing omits year-end hours",
+      "quote": "年末年始、お盆、臨時休業などは省略してあります。",
+      "url": "https://san-tatsu.jp/spots/537054/"
+    }
+  ]
+}

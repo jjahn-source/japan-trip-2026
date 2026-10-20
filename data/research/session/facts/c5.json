@@ -9,14 +9,9 @@
   "booking": null,
   "notes": [
     {
-      "text": "Precincts' parking closed from 30 Dec to 6 Jan (not a trip date)",
-      "quote": "１２月３０日より１月６日迄は境内駐車場を閉鎖いたします。",
-      "url": "https://inari.jp/"
-    },
-    {
-      "text": "Goshuin only as loose paper (書き置き) during the new-year period",
-      "quote": "御朱印については書き置き（朱印用紙）のみの対応とさせていただきます。",
-      "url": "https://inari.jp/"
+      "text": "Nearest stations: Kintetsu Nara and JR Nara. The page gives no hours or year-end information",
+      "quote": "【最寄駅】「近鉄奈良駅」JR「奈良駅」",
+      "url": "https://www3.pref.nara.jp/park/"
     }
   ]
 }

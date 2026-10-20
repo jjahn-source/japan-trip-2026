@@ -1,0 +1,47 @@
+{
+  "open": [
+    {
+      "dates": [
+        "2026-12-21",
+        "2026-12-22",
+        "2026-12-23",
+        "2026-12-24",
+        "2026-12-25",
+        "2026-12-26"
+      ],
+      "open": "05:00",
+      "close": "14:00",
+      "quote": "5:00 〜 14:00",
+      "url": "https://retty.me/restaurant/100000447698/"
+    }
+  ],
+  "closed": [],
+  "last_entry": null,
+  "prices": [],
+  "fixed_minutes": null,
+  "time_limit": null,
+  "group": null,
+  "booking": null,
+  "notes": [
+    {
+      "text": "Closed every Sunday and public holidays (none of the planned dates; Sun 27 Dec is outside them)",
+      "quote": "毎週日曜日",
+      "url": "https://retty.me/restaurant/100000447698/"
+    },
+    {
+      "text": "Listings conflict on opening time: Wanderlog gives Monday 6:15AM to 2PM",
+      "quote": "Monday: 6:15AM–2PM",
+      "url": "https://wanderlog.com/place/details/56892/ゑんどう寿司-中央市場店"
+    },
+    {
+      "text": "Credit cards not accepted (listing)",
+      "quote": "クレジットカード",
+      "url": "https://retty.me/restaurant/100000447698/"
+    },
+    {
+      "text": "Shop phone per Retty listing; the official site has no hours",
+      "quote": "06-6469-7108",
+      "url": "https://retty.me/restaurant/100000447698/"
+    }
+  ]
+}

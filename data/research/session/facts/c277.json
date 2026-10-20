@@ -1,0 +1,45 @@
+{
+  "open": [],
+  "closed": [],
+  "last_entry": null,
+  "prices": [],
+  "fixed_minutes": null,
+  "time_limit": null,
+  "group": {
+    "text": "Shared boat (乗合船) from 2 guests; private boats (貸切船) are for 20 or more",
+    "quote": "2名様～",
+    "url": "https://funasei.com/"
+  },
+  "booking": {
+    "text": "Book in advance; boat bookings by phone 03-5479-2731",
+    "quote": "屋形船のご予約はお電話で",
+    "url": "https://funasei.com/"
+  },
+  "notes": [
+    {
+      "text": "Meal set 緑舟 is 14,000 yen (tax incl.) on the 屋形船 menu list",
+      "quote": "緑舟 一四，〇〇〇 円 (税込)",
+      "url": "https://funasei.com/"
+    },
+    {
+      "text": "Meal set 青舟 is 16,800 yen (tax incl.) on the 屋形船 menu list",
+      "quote": "青舟 一六，八〇〇 円 (税込)",
+      "url": "https://funasei.com/"
+    },
+    {
+      "text": "All cruises need advance booking",
+      "quote": "全て事前にご予約が必要です。",
+      "url": "https://funasei.com/"
+    },
+    {
+      "text": "Phone reception hours 10:00 to 19:00",
+      "quote": "受付時間：10:00~19:00",
+      "url": "https://funasei.com/"
+    },
+    {
+      "text": "Shared boat is half-private style; private boats 20 guests or more",
+      "quote": "屋形船には、乗合船(半個室風)と貸切船がございます。",
+      "url": "https://funasei.com/"
+    }
+  ]
+}

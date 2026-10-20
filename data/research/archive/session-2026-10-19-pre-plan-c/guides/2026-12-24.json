@@ -1,0 +1,310 @@
+{
+  "notes": [
+    {
+      "kind": "WEATHER",
+      "text": "Cold, dry December day; it is dark before you leave Ame-mura and the night runs to the small hours, so wear real layers and gloves."
+    },
+    {
+      "kind": "BOOK",
+      "text": "Lock in the yakiniku table for the whole group and Giraffe Christmas Eve tickets a few days ahead; both sell out tonight."
+    },
+    {
+      "kind": "BRING",
+      "text": "Original passports for everyone: Giraffe checks ID at the door, and Den Den Town and Shinsaibashi tax-free tills need your own passport."
+    }
+  ],
+  "stops": [
+    {
+      "index": 1,
+      "summary": "Grab onigiri, egg sandos and coffee to eat on the through-train to Nara.",
+      "story": "The Hanshin Namba line from Kujō runs straight onto Kintetsu tracks, so the same train that leaves your local platform pulls into Kintetsu-Nara. Breakfast on board means you hit the park before the tour buses.",
+      "how": [
+        "Buy at the station konbini and get on the 07:54 rapid express from Kujō.",
+        "Stay on at Osaka-Namba: it through-runs to Kintetsu-Nara, arriving 08:38.",
+        "Tap in with your IC card; the fare is ¥900."
+      ],
+      "tips": [
+        "Kintetsu-Nara is the closer station to the park, not JR Nara."
+      ],
+      "cost": "about ¥500 pp",
+      "booking": null,
+      "hours": null,
+      "source_urls": [
+        "https://explore.osaka/kansai-rail-passes/"
+      ],
+      "wishes": [
+        "Osaka base, but during the day we will commute to Kyoto/Nara as needed"
+      ]
+    },
+    {
+      "index": 2,
+      "summary": "Bow to the deer of Nara with crackers in hand, before the tour buses roll in.",
+      "story": "Hundreds of free-roaming deer patrol the park, and if you bow they bow back, right before they headbutt you for a shika senbei. People who thought Nara was skippable come home saying it was the best morning of the trip. In December the lawns are brown and the trees bare, which only makes the deer stand out more.",
+      "how": [
+        "Walk up from Kintetsu-Nara into the park.",
+        "Buy shika senbei from a vendor (about ¥200) and keep them out of sight.",
+        "Bow, wait for the bow back, then hand them over one at a time."
+      ],
+      "tips": [
+        "Deer nip and tug at bags and coats once they spot crackers; hide them until you're ready.",
+        "Mornings are the calm window; the coach crowds arrive later."
+      ],
+      "cost": "Free (deer crackers about ¥200)",
+      "booking": null,
+      "hours": "Open 24 hours",
+      "source_urls": [
+        "https://www.reddit.com/r/ExploreJapanDaily/comments/1wdenbb/i_thought_nara_might_be_skippable_i_was_wrong/",
+        "https://maps.google.com/?cid=17972930374069941334"
+      ],
+      "wishes": [
+        "Osaka base, but during the day we will commute to Kyoto/Nara as needed",
+        "We love to do it all"
+      ]
+    },
+    {
+      "index": 3,
+      "summary": "A 15 m bronze Buddha in one of the world's largest wooden halls, plus a pillar to crawl through.",
+      "story": "The Great Buddha Hall is so big it makes the deer outside look like toys, and the bronze Buddha inside is 15 m tall. Behind it, a pillar has a hole the size of the Buddha's nostril: squeeze through and you're blessed with enlightenment, or at least a good group video.",
+      "how": [
+        "Walk over from the park and pay at the gate (about ¥800 per person).",
+        "Circle the Buddha clockwise and find the pillar with the hole at the back.",
+        "Take turns crawling through while the rest film from outside."
+      ],
+      "tips": [
+        "No tripods or posed group photos inside the hall; take the group shot at the gate.",
+        "No flashlights or sketching inside either."
+      ],
+      "cost": "about ¥800 pp (verify at the gate)",
+      "booking": null,
+      "hours": "07:30–17:30",
+      "source_urls": [
+        "https://www.reddit.com/r/JapanTravelTips/comments/1ucyuws/choosing_a_day_trip_to_nara_from_kyoto_or_osaka/",
+        "https://www.openstreetmap.org/search?query=Todai-ji"
+      ],
+      "wishes": [
+        "Osaka base, but during the day we will commute to Kyoto/Nara as needed",
+        "We love to do it all"
+      ]
+    },
+    {
+      "index": 4,
+      "summary": "Graze Osaka's kitchen in pairs: grilled scallops, tuna, wagyu skewers and strawberries.",
+      "story": "Kuromon is a covered arcade of fishmongers and grill stalls that has fed Osaka for generations. These days it is tourist-priced, so the trick is to eat many small things rather than one big splurge.",
+      "how": [
+        "Take the Kintetsu train back to Kintetsu-Nippombashi and walk in.",
+        "Split into pairs and share: scallops, tuna, a wagyu skewer, fruit.",
+        "Eat at each stall's own seating, then regroup at the far end."
+      ],
+      "tips": [
+        "Skip the crab: it is the priciest thing here and better value elsewhere.",
+        "Items run ¥500–2,000 each; agree a budget before you start."
+      ],
+      "cost": "about ¥2,000 pp",
+      "booking": null,
+      "hours": "Varies by shop",
+      "source_urls": [
+        "https://kuromon.com/jp/",
+        "https://www.tiktok.com/@koyamas_travel/video/7677575128233970965"
+      ],
+      "wishes": [
+        "We love to do it all"
+      ]
+    },
+    {
+      "index": 5,
+      "summary": "Osaka's Akihabara: retro consoles at Super Potato, card shops and walls of gachapon.",
+      "story": "Ota Road, one block west of Sakaisuji, is the core of Den Den Town: Super Potato Retrokan stacked with boxed games, Animate's Nipponbashi flagship, Yellow Submarine for trading cards, and gachapon lines everywhere. It is cheaper and less crowded than Akihabara.",
+      "how": [
+        "Walk over from Kuromon and start at Super Potato on Ota Road.",
+        "Split up inside the shops; Suruga-ya's main building is on the same strip.",
+        "Regroup on the street for gachapon before heading to Namba."
+      ],
+      "tips": [
+        "Gachapon run ¥100–400; premium machines cost more.",
+        "Sofmap and Joshin do tax-free electronics: your own passport, your own receipt, goods stay unused in your carry-on."
+      ],
+      "cost": null,
+      "booking": null,
+      "hours": "Varies by shop",
+      "source_urls": [
+        "https://insideosaka.com/den-den-town-guide/",
+        "https://www.superpotato.com/shop/otaroad/",
+        "https://www.timeextension.com/features/3-cities-17-stores-our-epic-retro-gaming-hunt-across-japan?page=3"
+      ],
+      "wishes": [
+        "Shopping",
+        "We love to do it all"
+      ]
+    },
+    {
+      "index": 6,
+      "summary": "Covered shopping spine of Minami: drugstores side by side, Uniqlo, sneakers, Pokémon Center DX.",
+      "story": "About 600 m of covered arcade, so cold or rain doesn't matter. Matsumoto Kiyoshi, Daikoku and Sundrug sit almost next to each other, which makes price comparison easy, and Daimaru at the north end holds the Pokémon Center DX.",
+      "how": [
+        "Split into groups of 2–4; the street is too packed to move as one.",
+        "Compare drugstore prices before buying the big haul.",
+        "Meet back at Daimaru's main entrance."
+      ],
+      "tips": [
+        "Tax-free: each person pays full price with their own passport and aims for ¥5,000+ ex-tax on one receipt at one store; no pooling.",
+        "Keep tax-free goods unused with their receipts in your carry-on for customs at Haneda T3."
+      ],
+      "cost": null,
+      "booking": null,
+      "hours": "10:00–21:00",
+      "source_urls": [
+        "https://www.shinsaibashi.or.jp/",
+        "https://www.xiaohongshu.com/explore/6a673353000000000903629b"
+      ],
+      "wishes": [
+        "Shopping"
+      ]
+    },
+    {
+      "index": 7,
+      "summary": "Osaka's vintage and youth-fashion quarter: scatter around Triangle Park and dig for finds.",
+      "story": "Ame-mura packs vintage shops into a few lit-up blocks around Triangle Park, and by this hour it is already dark, neon on, takoyaki steaming by the park. Grizzly does Ralph Lauren and streetwear for cheap, Mecca stocks old American denim, Pigsty wins on price.",
+      "how": [
+        "Start at Kinji on the 2F of Big Step.",
+        "Split into fours and work the shops around Triangle Park.",
+        "Regroup at the park for takoyaki before the train to Umeda."
+      ],
+      "tips": [
+        "Chain thrift runs ¥300–1,000 a piece; curated vintage is ¥5,000–30,000+.",
+        "Prices are up on a couple of years ago, but shops are dense enough to compare before you buy."
+      ],
+      "cost": null,
+      "booking": null,
+      "hours": "Shops mostly 12:00–20:00 (varies)",
+      "source_urls": [
+        "https://www.magical-trip.com/media/best-thrift-stores-districts-in-osaka-vintage-clothing-shops-guide-2024/",
+        "https://aumo.jp/articles/17676"
+      ],
+      "wishes": [
+        "Shopping",
+        "We love to do it all"
+      ]
+    },
+    {
+      "index": 8,
+      "summary": "Christmas Eve all-you-can-eat yakiniku with all-you-can-drink, grilled at your own table.",
+      "story": "Rikimaru is the cheap, loud way to feed a hungry group: dozens of cuts on the menu, your own grill, and a drinks plan that keeps the beer coming. It is very highly rated on Google and open to midnight, so nobody gets rushed out.",
+      "how": [
+        "Book a table for the whole group (online or 06-6361-3619).",
+        "Choose the 90 or 120 min course and add the all-you-can-drink plan.",
+        "Order in rounds; the clock starts when you sit down."
+      ],
+      "tips": [
+        "Pace the drinking: the night runs until after 02:00.",
+        "Prices are from 2023; confirm the current course price when you book."
+      ],
+      "cost": "from about ¥3,300 pp (2023 price) plus drinks plan",
+      "booking": "Required tonight: online via SAVOR JAPAN or 06-6361-3619",
+      "hours": "11:30–24:00, last entry 23:30",
+      "source_urls": [
+        "https://livejapan.com/ja/in-kansai/in-pref-osaka/in-nanba_dotonbori_shinsaibashi/article-a2000563/",
+        "https://r.gnavi.co.jp/p79n4xgg0000/"
+      ],
+      "wishes": [
+        "We love to drink",
+        "We love to do it all"
+      ]
+    },
+    {
+      "index": 9,
+      "summary": "Free projection mapping on the 1918 Central Public Hall, one of the festival's final nights.",
+      "story": "Every December the red-brick 1918 Central Public Hall becomes a screen for Osaka's flagship light show, with Nakanoshima's riverside lit up around it. The programme ends on the 25th, so tonight the crowds are at their peak.",
+      "how": [
+        "Walk down from Umeda to Nakanoshima.",
+        "Catch a projection show: each runs about 10 min, every 12 min.",
+        "Get in before last entry at 21:20."
+      ],
+      "tips": [
+        "Pick a fixed meeting point before you go in; phones get swamped in the crowd.",
+        "Stand back from the front for a full view of the facade."
+      ],
+      "cost": "Free",
+      "booking": null,
+      "hours": "Last entry 21:20",
+      "source_urls": [
+        "https://www.pref.osaka.lg.jp/hodo/fumin/o070080/prs_51220.html",
+        "https://www.city.osaka.lg.jp/hodoshiryo/cmsfiles/contents/0000687/687506/rune.pdf"
+      ],
+      "wishes": [
+        "We want to maximise all the time we've got in the country"
+      ]
+    },
+    {
+      "index": 10,
+      "summary": "Stroll Osaka's main boulevard under ginkgo trees wrapped in lights, heading toward the club.",
+      "story": "About 4 km of Midosuji's ginkgo trees are strung with lights from Hanshin-mae down to Namba Nishiguchi, bare branches glowing over the traffic. You only need the Shinsaibashi stretch to get the photos and arrive at Dotonbori warmed up.",
+      "how": [
+        "Come up from Shinsaibashi station onto Midosuji.",
+        "Walk south at an easy pace, stopping for photos.",
+        "Peel off toward Dotonbori for Giraffe."
+      ],
+      "tips": [
+        "Lights stay on until 01:00, so there is no rush."
+      ],
+      "cost": "Free",
+      "booking": null,
+      "hours": "17:00–01:00",
+      "source_urls": [
+        "https://www.pref.osaka.lg.jp/hodo/fumin/o070080/prs_51220.html",
+        "https://happyell.co.jp/event/osaka-hikari2026"
+      ],
+      "wishes": [
+        "We want to maximise all the time we've got in the country"
+      ]
+    },
+    {
+      "index": 11,
+      "summary": "Osaka's packed new club on Dotonbori: Christmas Eve party with fresh sound and lights.",
+      "story": "Giraffe reopened in 2025 on the 5F of the Nakaza Cuidaore building, with new sound and lights, and it is the club young visitors are posting from. Entry includes a drink ticket, and the floor peaks well after midnight.",
+      "how": [
+        "Buy foreigner entry tickets online a few days ahead.",
+        "Arrive early; the queue builds before midnight.",
+        "Clear the bag check and passport check, then use the cloakroom for coats."
+      ],
+      "tips": [
+        "Original passports only, and no shorts or sandals.",
+        "Ask about a VIP table set if you want somewhere to sit as a group."
+      ],
+      "cost": "about ¥800–1,800 pp advance foreigner ticket incl. drinks",
+      "booking": "Advance tickets online (Klook/Expedia/official)",
+      "hours": "22:00–04:00",
+      "source_urls": [
+        "https://giraffe-japan.com/",
+        "https://www.tiktok.com/@osakanightlife/video/7645664676403072276",
+        "https://maps.google.com/?q=Giraffe+Japan+Dotonbori"
+      ],
+      "wishes": [
+        "Ending the night/nightlife in Osaka",
+        "We love to drink"
+      ]
+    },
+    {
+      "index": 12,
+      "summary": "Post-club tonkotsu under the giant dragon, open all night, with free kimchi on the counter.",
+      "story": "Kinryu is not the best ramen in Osaka, but at this hour it is the right one: a 24-hour stall under a huge dragon sign, open-air stools and a ticket machine. The free kimchi and garlic are the real draw.",
+      "how": [
+        "Buy tickets at the machine: Kinryu Ramen ¥600, Chashu Men ¥900.",
+        "Hand them over, grab a stool, load up on kimchi and garlic.",
+        "Then taxi home in 2 cars."
+      ],
+      "tips": [
+        "The trains have stopped; the taxi to Kujō is 16 min."
+      ],
+      "cost": "¥600–900 pp",
+      "booking": null,
+      "hours": "Open 24 hours",
+      "source_urls": [
+        "https://kinryuramen.com/",
+        "https://www.google.com/maps/search/?api=1&query=34.6686694,135.5030523"
+      ],
+      "wishes": [
+        "Ending the night/nightlife in Osaka"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "open": [],
+  "closed": [],
+  "last_entry": null,
+  "prices": [],
+  "fixed_minutes": null,
+  "time_limit": null,
+  "group": null,
+  "booking": null,
+  "notes": [
+    {
+      "text": "Opening hours vary by shop; no single schedule published",
+      "quote": "Varies by shop",
+      "url": "https://insideosaka.com/den-den-town/"
+    },
+    {
+      "text": "Admission is free",
+      "quote": "free",
+      "url": "https://insideosaka.com/den-den-town/"
+    },
+    {
+      "text": "Many Akihabara chains (Mandarake, Animate, Super Potato) also have shops here",
+      "quote": "Many major stores found in Akihabara such as Mandarake, Animate, and Super Potato, can be found in Den-Den Town as well.",
+      "url": "https://insideosaka.com/den-den-town/"
+    }
+  ]
+}

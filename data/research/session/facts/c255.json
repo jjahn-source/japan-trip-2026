@@ -1,0 +1,66 @@
+{
+  "open": [
+    {
+      "dates": [
+        "2026-12-15",
+        "2026-12-16",
+        "2026-12-17",
+        "2026-12-18",
+        "2026-12-19"
+      ],
+      "open": "11:00",
+      "close": "21:30",
+      "quote": "その他全日 11:00～21:30",
+      "url": "https://san-tatsu.jp/pressrelease/558555/"
+    }
+  ],
+  "closed": [
+    {
+      "dates": [
+        "2026-12-26",
+        "2026-12-27",
+        "2026-12-28",
+        "2026-12-29"
+      ],
+      "why": "event period ended on 25 Dec",
+      "what": "the whole Shin-Toyosu market",
+      "whole_place": true,
+      "quote": "開催期間：2026年11月20日(金)～12月25日(金)[36日間]",
+      "url": "https://san-tatsu.jp/pressrelease/558555/"
+    }
+  ],
+  "last_entry": {
+    "time": "20:30",
+    "quote": "最終入場 20:30 ∕ L.O.21:00",
+    "url": "https://san-tatsu.jp/pressrelease/558555/"
+  },
+  "prices": [
+    {
+      "what": "Adult weekday (20 Nov to 23 Dec)",
+      "yen": 1000,
+      "quote": "大人(中学生以上):平日:1,000円　土‧日‧祝日:1,500円/子供（小学生）500円",
+      "url": "https://san-tatsu.jp/pressrelease/558555/"
+    },
+    {
+      "what": "Adult Sat/Sun/holiday (20 Nov to 23 Dec)",
+      "yen": 1500,
+      "quote": "大人(中学生以上):平日:1,000円　土‧日‧祝日:1,500円/子供（小学生）500円",
+      "url": "https://san-tatsu.jp/pressrelease/558555/"
+    }
+  ],
+  "fixed_minutes": null,
+  "time_limit": null,
+  "group": null,
+  "booking": {
+    "text": "Advance tickets on KKday (sales from 1 Oct 2026, 18:00)",
+    "quote": "チケットの購入は東京クリスマスマーケット2026のチケット購入サイト KKday で事前予約チケットをご購入いただけます。",
+    "url": "https://san-tatsu.jp/pressrelease/558555/"
+  },
+  "notes": [
+    {
+      "text": "Entry may be limited to advance ticket holders at busy times",
+      "quote": "混雑時には当日受付の入場を制限する場合があるため",
+      "url": "https://san-tatsu.jp/pressrelease/558555/"
+    }
+  ]
+}

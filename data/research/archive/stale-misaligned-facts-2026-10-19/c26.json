@@ -1,0 +1,37 @@
+{
+  "open": [
+    {
+      "dates": [
+        "2026-12-21",
+        "2026-12-22",
+        "2026-12-23",
+        "2026-12-24",
+        "2026-12-25",
+        "2026-12-26"
+      ],
+      "open": "10:00",
+      "close": "21:00",
+      "quote": "店舗の営業時間は異なり、通常は午前10時から午後9時まで",
+      "url": "https://www.triptojapan.com/ja/places/shinsaibashi-suji-shopping-street/Lp0UVTwvTwmGZfXIho1S8A"
+    }
+  ],
+  "closed": [],
+  "last_entry": null,
+  "prices": [],
+  "fixed_minutes": null,
+  "time_limit": null,
+  "group": null,
+  "booking": null,
+  "notes": [
+    {
+      "text": "Street itself is open 24 hours; shop hours vary (third-party page, official site had no readable text)",
+      "quote": "通り自体は24時間利用可能",
+      "url": "https://www.triptojapan.com/ja/places/shinsaibashi-suji-shopping-street/Lp0UVTwvTwmGZfXIho1S8A"
+    },
+    {
+      "text": "Street open all year; individual shops may have their own closing days",
+      "quote": "通りは年中無休。各店舗ごとに定休日がある場合があります",
+      "url": "https://www.triptojapan.com/ja/places/shinsaibashi-suji-shopping-street/Lp0UVTwvTwmGZfXIho1S8A"
+    }
+  ]
+}

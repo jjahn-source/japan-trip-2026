@@ -1,0 +1,40 @@
+{
+  "open": [
+    {
+      "dates": [
+        "2026-12-21",
+        "2026-12-22",
+        "2026-12-23",
+        "2026-12-24",
+        "2026-12-25",
+        "2026-12-26"
+      ],
+      "open": "17:00",
+      "close": "23:00",
+      "quote": "17:00~23:00(L.O.22:30)",
+      "url": "https://homuraya-2024.com/"
+    }
+  ],
+  "closed": [],
+  "last_entry": {
+    "time": "22:30",
+    "quote": "17:00~23:00(L.O.22:30)",
+    "url": "https://homuraya-2024.com/"
+  },
+  "prices": [],
+  "fixed_minutes": null,
+  "time_limit": null,
+  "group": null,
+  "booking": {
+    "text": "Reserve through the website reservation button, or call 090-6148-0857",
+    "quote": "090-6148-0857",
+    "url": "https://homuraya-2024.com/"
+  },
+  "notes": [
+    {
+      "text": "Official page lists 月曜〜日曜 (every day) 17:00 to 23:00; it gives no closing day and no year-end or New Year hours",
+      "quote": "月曜〜日曜",
+      "url": "https://homuraya-2024.com/"
+    }
+  ]
+}

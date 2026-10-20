@@ -1,0 +1,219 @@
+{
+  "logistics": [
+    "Luggage, Dec 15–18: everything comes from Haneda to Ninja House (Toshima).",
+    "Luggage, Fri 18 Dec: send the big suitcases with Yamato TA-Q-BIN (konbini or front desk) to Kujō House for Mon 21 evening delivery (confirm the host can receive them; otherwise send to a Yamato centre near Kujō). Take only overnight bags to Hakone on Dec 19.",
+    "Luggage, Hakone Dec 19–21: overnight bags only; they ride along to Gotemba and the Shinkansen on Dec 21.",
+    "Luggage, Fri 25 Dec: send suitcases from Kujō House to Garfield House (Shinjuku) for Sat 26 evening delivery (confirm the host can receive them), or carry them on the Shinkansen with an oversized-luggage seat reservation.",
+    "Luggage, Sun 27 Dec → Tue 29 Dec: send the big suitcases from Garfield House to Haneda T3 with Yamato airport delivery on Dec 27 and collect them at the T3 counter on Dec 29; check out by 10:00 with day bags only. Tax-free goods and receipts stay in the carry-on for the customs kiosk, before bag drop.",
+    "Passes: an IC card each (Suica/PASMO, works in Osaka too) for city trains and buses. Hakone Freepass from Shinjuku covers Odakyu one way plus the Hakone trains, cable car, ropeway, pirate ship and most buses for Dec 19–21; Romancecar seats are extra. Osaka: IC card plus single-company day passes only when a day uses them a lot. Kamakura/Enoshima: the Odakyu Enoshima-Kamakura Freepass from Shinjuku. Shinkansen Mishima→Shin-Osaka (Dec 21) and Shin-Osaka→Tokyo (Dec 26): reserve seats for all 8 together in advance.",
+    "Tax-free (since 1 Nov 2026): pay the full price with your own passport at the till; the tax is refunded at departure after customs checks the goods at Haneda T3 (customs kiosk before bag drop). Keep tax-free goods unused, with their receipts, in your carry-on. Purchases can't be pooled between people.",
+    "ID and drinking: the drinking and club age is 20+; clubs and Round1 check the ORIGINAL passport at night.",
+    "Year-end: Christmas markets and illuminations end Dec 25. From about Dec 28 some small shops, museums and gardens close; chains, clubs, karaoke and Round1 run normally through Dec 28. Dec 29 is a peak travel day.",
+    "Trains stop around 00:30; after that it's taxis (2 cars for 8) or the first train around 05:00."
+  ],
+  "days": [
+    {
+      "date": "2026-12-15",
+      "city": "Tokyo",
+      "area": "Haneda → Ikebukuro",
+      "theme": "Arrival night: easy, local, fun",
+      "start": "Land Haneda T3 15:00; out of arrivals about 16:15",
+      "end": "Ninja House (Toshima)",
+      "anchors": [
+        "Arrive Haneda T3 15:00 (ride: true)",
+        "Check in Ninja House from 16:00"
+      ],
+      "notes": "Keikyu/monorail + Yamanote to Ikebukuro. Dinner and first night around Ikebukuro East/West exits (Mutekiya, AYCE yakiniku, Daitokai, Round1 Ikebukuro 24h). Keep it local: jet lag."
+    },
+    {
+      "date": "2026-12-16",
+      "city": "Tokyo",
+      "area": "Setagaya · Shimokitazawa · Shibuya",
+      "theme": "Boro-ichi flea market, vintage, Shibuya Sky sunset, Shibuya night",
+      "start": "Ninja House ~08:00",
+      "end": "Ninja House",
+      "anchors": [
+        "Setagaya Boro-ichi (15–16 Dec only), go early",
+        "Shibuya Sky sunset slot (book)"
+      ],
+      "notes": "Shimokitazawa vintage opens ~12:00. Shibuya night: Shibuya Yokocho / Ebisu Yokocho, karaoke."
+    },
+    {
+      "date": "2026-12-17",
+      "city": "Tokyo",
+      "area": "Tsukiji · Toyosu · Asakusa · Tsukishima",
+      "theme": "East side: market breakfast, teamLab, Asakusa Hagoita-ichi at dusk, monja dinner",
+      "start": "Ninja House ~07:00",
+      "end": "Ninja House",
+      "anchors": [
+        "Asakusa Hagoita-ichi (17–19 Dec) at dusk",
+        "Tsukishima monja dinner for 8 (book)"
+      ],
+      "notes": "Tsukiji outer market breakfast (Thu is fine). teamLab Planets timed slot. Shin-Toyosu Christmas market nearby. Night back toward Ikebukuro or Ueno."
+    },
+    {
+      "date": "2026-12-18",
+      "city": "Tokyo",
+      "area": "Akihabara · Ueno · Roppongi · Shiba · Kabukicho",
+      "theme": "Anime and sneakers, Ameyoko, Christmas markets, ZEROTOKYO big night",
+      "start": "Ninja House ~09:30",
+      "end": "Ninja House (taxi or first train)",
+      "anchors": [
+        "Roppongi Hills Christmas market + Keyakizaka lights",
+        "Shiba Park Christmas market (Tokyo Tower)",
+        "ZEROTOKYO Steve Angello (Fri 18, book)"
+      ],
+      "notes": "Akihabara (Mandarake, Super Potato, Radio Kaikan) + Ueno Ameyoko in the day. Send suitcases to Osaka today (TA-Q-BIN). Biggest bōnenkai night: book any sit-down dinner for 8. Hakone departure tomorrow morning."
+    },
+    {
+      "date": "2026-12-19",
+      "city": "Hakone",
+      "area": "Shinjuku → Hakone-Yumoto · Gora · Sengokuhara",
+      "theme": "Romancecar, onsen, Open-Air Museum, geisha night",
+      "start": "Check out Ninja House by 10:00",
+      "end": "Hot Spring Hakone Villa (Sengokuhara)",
+      "anchors": [
+        "Check out Ninja House 10:00",
+        "Romancecar Shinjuku → Hakone-Yumoto (ride: true, book)",
+        "Check in Hot Spring Hakone Villa from 15:00",
+        "Hakone Yumoto Kenban geisha night if on Sat 19 (3rd Saturday, book)"
+      ],
+      "notes": "Hakone Freepass starts today. Yumoto: soba, shopping street, day onsen; Open-Air Museum; Gora. Taxi cap ¥4,000 pp."
+    },
+    {
+      "date": "2026-12-20",
+      "city": "Hakone",
+      "area": "Lake Ashi loop · Owakudani · Gora",
+      "theme": "Ropeway, pirate ship, torii, lights, onsen",
+      "start": "Hot Spring Hakone Villa ~07:30",
+      "end": "Hot Spring Hakone Villa",
+      "anchors": [
+        "Ropeway Togendai ⇄ Owakudani (Sōunzan section closed 7–24 Dec, replacement bus)",
+        "Pirate ship Togendai → Motohakone"
+      ],
+      "notes": "Hakone Shrine torii, Gora (Open-Air Museum if not day 5, Gora Brewery), Glass no Mori Christmas illumination, dinner near Sengokuhara. Taxi cap ¥4,000 pp."
+    },
+    {
+      "date": "2026-12-21",
+      "city": "Osaka",
+      "area": "Sengokuhara → Gotemba → Mishima → Osaka (Kujō) · Namba/Tenma",
+      "theme": "Outlet haul, Shinkansen to Osaka, first Osaka night",
+      "start": "Check out Hot Spring Hakone Villa by 10:00",
+      "end": "Kujō House (Nishi-ku)",
+      "anchors": [
+        "Check out Hakone villa 10:00",
+        "Gotemba Premium Outlets",
+        "Shinkansen Mishima → Shin-Osaka (ride: true, book)",
+        "Check in Kujō House from 16:00"
+      ],
+      "notes": "Suitcases arrive at Kujō this evening. First Osaka night: Tenma crawl or Dotonbori/Ura-Namba; Kinryu ramen 24h."
+    },
+    {
+      "date": "2026-12-22",
+      "city": "Osaka",
+      "area": "USJ · Minami",
+      "theme": "Universal Studios Japan winter + Minami night",
+      "start": "Kujō House ~07:30",
+      "end": "Kujō House",
+      "anchors": [
+        "Universal Studios Japan all day (tickets + Express Pass bought ahead)"
+      ],
+      "notes": "Kujō → Nishikujō → JR Yumesaki line. Night: Dotonbori / Round1 Sennichimae if energy remains."
+    },
+    {
+      "date": "2026-12-23",
+      "city": "Osaka",
+      "area": "Kyoto: Fushimi Inari · Higashiyama · Gion · Nishiki · Pontocho",
+      "theme": "Kyoto east day into Kyoto night",
+      "start": "Kujō House ~05:45",
+      "end": "Kujō House (leave Kawaramachi by ~23:00)",
+      "anchors": [
+        "Fushimi Inari at dawn"
+      ],
+      "notes": "Kiyomizu/Higashiyama by ~08:30, Gion midday, Nishiki market lunch, Shinkyogoku/Teramachi last 60–90 min of shopping, Pontocho at dusk, Kiyamachi bars, Hankyu or Keihan back."
+    },
+    {
+      "date": "2026-12-24",
+      "city": "Osaka",
+      "area": "Nara · Minami (Den Den Town, Shinsaibashi, Amemura) · Nakanoshima",
+      "theme": "Christmas Eve: Nara deer morning, Minami shopping, Hikari Renaissance lights, club night",
+      "start": "Kujō House ~07:30",
+      "end": "Kujō House",
+      "anchors": [
+        "Nara Park + Todai-ji (Hanshin/Kintetsu direct from Kujō)",
+        "Hikari Renaissance (ends 25 Dec) + Midosuji illumination walk",
+        "Giraffe Japan Christmas night (book)"
+      ],
+      "notes": "Yaekatsu is closed Thursdays. Christmas Eve: book dinner for 8."
+    },
+    {
+      "date": "2026-12-25",
+      "city": "Osaka",
+      "area": "Shinsekai · Tsuruhashi · Osaka Castle/Umeda · Minami",
+      "theme": "Christmas Day: kushikatsu, okonomiyaki, Umeda, biggest party night",
+      "start": "Kujō House ~09:00",
+      "end": "Kujō House (first train or taxi)",
+      "anchors": [
+        "Shinsekai: Yaekatsu or Daruma kushikatsu, Tsutenkaku",
+        "Chitose okonomiyaki (open Fri)"
+      ],
+      "notes": "Send suitcases to Garfield House today. Umeda Sky Christmas ends today. Night: Ura-Namba crawl → club (Giraffe/Circus) → Round1 Sennichimae karaoke till first train. Book dinner for 8."
+    },
+    {
+      "date": "2026-12-26",
+      "city": "Tokyo",
+      "area": "Osaka → Tokyo · Shinjuku · Odaiba · Kabukicho",
+      "theme": "Shinkansen back, Rainbow fireworks, Shinjuku night",
+      "start": "Check out Kujō House by 10:00",
+      "end": "Garfield House (Shinjuku)",
+      "anchors": [
+        "Check out Kujō House 10:00",
+        "Shinkansen Shin-Osaka → Tokyo/Shinagawa (ride: true, book)",
+        "Check in Garfield House from 16:00",
+        "Odaiba Rainbow Fireworks Sat 26 Dec 19:00 (free)",
+        "ZEROTOKYO NEON STARS (Sat 26)"
+      ],
+      "notes": "Lunch on the way (ekiben or Tokyo). Night: Omoide Yokocho, Kabuki Hall (8 walk-in), ZEROTOKYO, Nagi ramen 24h."
+    },
+    {
+      "date": "2026-12-27",
+      "city": "Tokyo",
+      "area": "Kamakura · Enoshima → Shinjuku",
+      "theme": "Coast day trip, Shinjuku night",
+      "start": "Garfield House ~08:00",
+      "end": "Garfield House",
+      "anchors": [
+        "Kamakura Great Buddha + Enoshima (Odakyu Enoshima-Kamakura Freepass)",
+        "Tokyo Metropolitan Government observatory (free, open 26/27 Dec)"
+      ],
+      "notes": "Tsukiji is shut Sun 27. Night: Umi no Ie nomihodai, Golden Gai in fours, karaoke."
+    },
+    {
+      "date": "2026-12-28",
+      "city": "Tokyo",
+      "area": "Koenji · Nakano · Harajuku · Shibuya",
+      "theme": "Vintage and streetwear, last big night",
+      "start": "Garfield House ~10:00",
+      "end": "Garfield House",
+      "anchors": [
+        "Koenji vintage (from 12:00) + Nakano Broadway",
+        "Harajuku Takeshita → Ura-Hara → Cat Street → Shibuya"
+      ],
+      "notes": "Last safe night before year-end closures: ATOM Shibuya or Kabukicho karaoke. Shibuya MEGA Donki late."
+    },
+    {
+      "date": "2026-12-29",
+      "city": "Tokyo",
+      "area": "Shinjuku → Haneda T3",
+      "theme": "Last breakfast, last shopping, fly home",
+      "start": "Check out Garfield House by 10:00",
+      "end": "Haneda T3 (flight 17:20)",
+      "anchors": [
+        "Check out Garfield House 10:00",
+        "At Haneda T3 by 14:00: customs kiosk for the tax-free refund before bag drop",
+        "Flight 17:20 from Haneda T3"
+      ],
+      "notes": "Breakfast Shinpachi Shokudo. Last Shinjuku shopping (Don Quijote, Bic Camera) only near the station. Eat at Haneda T3 Edo Koji before security."
+    }
+  ]
+}

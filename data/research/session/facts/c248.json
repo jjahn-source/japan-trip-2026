@@ -1,0 +1,55 @@
+{
+  "open": [
+    {
+      "dates": [
+        "2026-12-19",
+        "2026-12-20",
+        "2026-12-21"
+      ],
+      "open": "09:00",
+      "close": "16:50",
+      "quote": "9:00〜16:50（時期により変動）",
+      "url": "https://banzokubiology.com/?p=14380"
+    }
+  ],
+  "closed": [],
+  "last_entry": {
+    "time": "16:30",
+    "quote": "上り最終16:30",
+    "url": "https://www.walkerplus.com/spot/ar0314s29974/price.html"
+  },
+  "prices": [
+    {
+      "what": "Round trip, adult (third-party blog, 2025 data)",
+      "yen": 1800,
+      "quote": "大人：1,800円、小学生：900円",
+      "url": "https://banzokubiology.com/?p=14380"
+    }
+  ],
+  "fixed_minutes": null,
+  "time_limit": null,
+  "group": null,
+  "booking": null,
+  "notes": [
+    {
+      "text": "No official operator page was readable; hours and fare come from third-party listings",
+      "quote": "※掲載情報は2025年10月時点のものです。",
+      "url": "https://www.walkerplus.com/spot/ar0314s29974/price.html"
+    },
+    {
+      "text": "One listing says year-round hours 9:00-17:00 (conflicts with 9:00-16:50)",
+      "quote": "※通年 9:00～17:00",
+      "url": "https://www.walkerplus.com/spot/ar0314s29974/price.html"
+    },
+    {
+      "text": "Winter timetable (12月〜1月中旬), upward service 9:00 to 16:30; varies by year",
+      "quote": "上り：9:00〜16:30",
+      "url": "https://banzokubiology.com/?p=14380"
+    },
+    {
+      "text": "No fixed closed day; weather or inspection closures possible",
+      "quote": "なし ※天候不良、点検による整備休業の場合あり",
+      "url": "https://www.walkerplus.com/spot/ar0314s29974/price.html"
+    }
+  ]
+}

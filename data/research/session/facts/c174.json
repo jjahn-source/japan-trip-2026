@@ -1,0 +1,30 @@
+{
+  "open": [],
+  "closed": [],
+  "last_entry": null,
+  "prices": [],
+  "fixed_minutes": null,
+  "time_limit": null,
+  "group": {
+    "text": "Groups of 10 to 1,000 people; under 10 also accepted",
+    "quote": "10名〜最大1,000名対応 10名未満も積極受付中！",
+    "url": "https://kabukihall.com/"
+  },
+  "booking": {
+    "text": "Group and private bookings accepted",
+    "quote": "ご予約・ご相談受付中",
+    "url": "https://kabukihall.com/"
+  },
+  "notes": [
+    {
+      "text": "Open every day of the year; year-end runs as normal",
+      "quote": "※年末年始も通常営業",
+      "url": "https://kabukihall.com/access/"
+    },
+    {
+      "text": "Open 365 days; hours are set per shop",
+      "quote": "年中無休",
+      "url": "https://kabukihall.com/access/"
+    }
+  ]
+}

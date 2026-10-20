@@ -1,0 +1,22 @@
+{
+  "open": [],
+  "closed": [],
+  "last_entry": null,
+  "prices": [],
+  "fixed_minutes": null,
+  "time_limit": null,
+  "group": null,
+  "booking": null,
+  "notes": [
+    {
+      "text": "Photo ID required at entry",
+      "quote": "入場の際に写真付身分証明書の提示をお願い致します。",
+      "url": "http://circus-osaka.com/"
+    },
+    {
+      "text": "Events after 22:00: under-20s refused entry",
+      "quote": "22時以降のイベントに関しましては、20歳未満の方のご入場はお断りさせて頂きます。",
+      "url": "http://circus-osaka.com/"
+    }
+  ]
+}

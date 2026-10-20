@@ -1,5 +1,23 @@
 {
-  "open": [],
+  "open": [
+    {
+      "dates": [
+        "2026-12-15",
+        "2026-12-16",
+        "2026-12-17",
+        "2026-12-18",
+        "2026-12-19",
+        "2026-12-26",
+        "2026-12-27",
+        "2026-12-28",
+        "2026-12-29"
+      ],
+      "open": "09:00",
+      "close": "19:00",
+      "quote": "9:00〜19:00（業種により異なる）",
+      "url": "https://banzokubiology.com/ameyoko-time-guide/"
+    }
+  ],
   "closed": [],
   "last_entry": null,
   "prices": [],
@@ -7,5 +25,16 @@
   "time_limit": null,
   "group": null,
   "booking": null,
-  "notes": []
+  "notes": [
+    {
+      "text": "Hours are a general guide from a third-party blog (not the official site), and vary by shop. Year-end market dates were not found on any fetched page.",
+      "quote": "営業時間の目安",
+      "url": "https://banzokubiology.com/ameyoko-time-guide/"
+    },
+    {
+      "text": "Year-end is the busiest period: many customers buy New Year goods.",
+      "quote": "特に年末は正月用品を求める客で賑わい",
+      "url": "https://banzokubiology.com/ameyoko-time-guide/"
+    }
+  ]
 }

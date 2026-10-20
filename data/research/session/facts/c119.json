@@ -1,21 +1,67 @@
 {
-  "open": [],
+  "open": [
+    {
+      "dates": [
+        "2026-12-15",
+        "2026-12-16",
+        "2026-12-17",
+        "2026-12-18",
+        "2026-12-19",
+        "2026-12-26",
+        "2026-12-27",
+        "2026-12-28",
+        "2026-12-29"
+      ],
+      "open": "11:30",
+      "close": "22:30",
+      "quote": "営業時間：11:30～22:30(L.O.22:00)",
+      "url": "https://www.fashionsnap.com/article/2023-07-16/harajuku-gyoza/"
+    }
+  ],
   "closed": [],
-  "last_entry": null,
-  "prices": [],
+  "last_entry": {
+    "time": "22:00",
+    "quote": "営業時間：11:30～22:30(L.O.22:00)",
+    "url": "https://www.fashionsnap.com/article/2023-07-16/harajuku-gyoza/"
+  },
+  "prices": [
+    {
+      "what": "Weekday-only lunch set B (gyoza, rice, bean sprouts, soup)",
+      "yen": 990,
+      "quote": "平日限定ランチBセット（990円）水餃子は＋50円",
+      "url": "https://www.fashionsnap.com/article/2023-07-16/harajuku-gyoza/"
+    },
+    {
+      "what": "Gyoza, one portion of 6",
+      "yen": 340,
+      "quote": "1人前6個入り340円",
+      "url": "https://www.fashionsnap.com/article/2023-07-16/harajuku-gyoza/"
+    }
+  ],
   "fixed_minutes": null,
   "time_limit": null,
   "group": null,
-  "booking": {
-    "text": "Course menus need booking the day before (chain page, not store-specific)",
-    "quote": "※前日迄の予約が必要となります。",
-    "url": "https://isomaru.jp/"
-  },
+  "booking": null,
   "notes": [
     {
-      "text": "Chain page: 22:00-05:00 bookings and use carry a 10% late-night surcharge",
-      "quote": "22:00 ～翌 5:00 の時間帯にかかるご宴会・ご利用につきましては、深夜料金としてお会計総額の10％を頂戴しております。",
-      "url": "https://isomaru.jp/"
+      "text": "Cash only",
+      "quote": "支払いは現金のみなのでご注意を。",
+      "url": "https://www.fashionsnap.com/article/2023-07-16/harajuku-gyoza/"
+    },
+    {
+      "text": "Open with no closing day; source is a July 2023 article, so hours may be out of date",
+      "quote": "定休日：無休",
+      "url": "https://www.fashionsnap.com/article/2023-07-16/harajuku-gyoza/"
+    },
+    {
+      "text": "Source last updated July 2023; no year-end hours found",
+      "quote": "最終更新日: 2023年07月13日",
+      "url": "https://www.fashionsnap.com/article/2023-07-16/harajuku-gyoza/"
+    },
+    {
+      "text": "Weekend and holiday queues are common",
+      "quote": "土日祝はどちらの店も行列ができることで知られている。",
+      "url": "https://www.fashionsnap.com/article/2023-07-16/harajuku-gyoza/"
     }
   ]
 }

@@ -1,263 +1,224 @@
 {
   "todos": [
     {
-      "due": "2026-11-01",
-      "text": "Buy dated USJ Studio Passes and Express Passes for all 8 for Tue 22 Dec",
-      "detail": "Express Passes for December dates sell out; buy from the official USJ site. Check the park's 22 Dec opening time on the official calendar the week before.",
+      "due": "2026-10-31",
+      "text": "Apply for the DDT RING FINALE 2026 lottery at Korakuen Hall, Sun 27 Dec 11:30, for 8 in one application",
+      "detail": "The lottery (抽選) is on e+ and is open now; check its closing date on the listing. If it fails, spend that afternoon in Kōenji (already in the plan).",
       "stop_names": [
-        "Universal Studios Japan"
+        "DDT RING FINALE 2026 at Korakuen Hall"
+      ]
+    },
+    {
+      "due": "2026-11-05",
+      "text": "Sign all 8 up for the Grand Santa Parade in Umekita (Tue 22 Dec) the day registration opens",
+      "detail": "Sign-up details are due in early November on the GRAND FRONT OSAKA and GRAND GREEN OSAKA official sites; check them weekly from Nov 1. The start time and meeting point are not announced yet, so re-time the afternoon once they are. Whether suits are provided is unconfirmed: if not, buy Santa suits at Don Quijote.",
+      "stop_names": [
+        "Grand Santa Parade in UMEKITA"
       ]
     },
     {
       "due": "2026-11-15",
-      "text": "Book teamLab Planets for 8, 10:30 slot on Thu 17 Dec",
-      "detail": "Tickets are sold online only; there are no on-site sales.",
+      "text": "Book Sushi Kunimitsu's private counter for 8 on Thu 17 Dec, late seating",
+      "detail": "TableCheck, about ¥22,000 pp. Take the later seating (the shop lists 20:00 on one page and 20:30 on another; your confirmation decides). Write 'private counter for 8' in the requests. A card is required.",
+      "stop_names": [
+        "Sushi Kunimitsu"
+      ]
+    },
+    {
+      "due": "2026-11-15",
+      "text": "Book the Harumiya yakatabune shared boat for 8, Sat 26 Dec, 18:00 from Ryōgoku",
+      "detail": "From ¥13,200 pp with unlimited drinks, 150 minutes, arrive 17:45. Shared boats are cancelled if fewer than 15 guests book: check the booking page a week before. Fallback: Funasei shared yakatabune, shared boats from 2 guests, by phone 03-5479-2731 (10:00–19:00), ¥14,000–16,800 pp.",
+      "stop_names": [
+        "Yakatabune Harumiya dinner cruise"
+      ]
+    },
+    {
+      "due": "2026-11-15",
+      "text": "Book teamLab Planets for 8, 10:00 slot on Fri 18 Dec",
+      "detail": "Tickets are online only. The suitcases go to Kujō House first, so the 10:00 slot is the earliest that works.",
       "stop_names": [
         "teamLab Planets"
       ]
     },
     {
+      "due": "2026-11-15",
+      "text": "Phone Uoshin Shibuya for the semi-private room for 8, Wed 16 Dec 18:30",
+      "detail": "Tabelog online booking or ☎ 03-3464-3000. Same-day cancellations can incur a fee. The course with all-you-can-drink is about ¥6,800 pp.",
+      "stop_names": [
+        "Uoshin Shibuya"
+      ]
+    },
+    {
       "due": "2026-11-18",
-      "text": "Book Shibuya Sky for 8, sunset slot from 15:40 on Wed 16 Dec",
-      "detail": "Buy online the moment sales open for that date (check the official site for the release day). The online ticket from 15:00 is ¥3,400.",
+      "text": "Book Shibuya Sky for 8, sunset slot 15:40 on Wed 16 Dec",
+      "detail": "Online tickets from the 15:00 slot are ¥3,400 pp; buy online (the counter is dearer). The roof can close in bad weather with no refund after entry.",
       "stop_names": [
         "Shibuya Sky"
       ]
     },
     {
       "due": "2026-11-19",
-      "text": "Reserve Romancecar seats for 8 (Shinjuku → Hakone-Yumoto, Sat 19 Dec, about 11:00)",
-      "detail": "Seats for all 8 together go on sale one month ahead; buy the 3-day Hakone Freepass from Shinjuku with them.",
+      "text": "Reserve Romancecar seats for 8, Shinjuku → Hakone-Yumoto, Sat 19 Dec about 10:40",
+      "detail": "Buy the Hakone Freepass at the Odakyu Sightseeing Service Center (Shinjuku West Exit) that morning.",
       "stop_names": [
-        "Romancecar"
+        "Romancecar Shinjuku → Hakone-Yumoto"
+      ]
+    },
+    {
+      "due": "2026-11-20",
+      "text": "Check whether Pro Wrestling NOAH Thanksgiving 2026 (Fri 18 Dec, Korakuen Hall) is on sale, and buy 8 seats together",
+      "detail": "Not confirmed on any readable official page. Watch noah.co.jp/schedule and e+ from mid-November. If a foreign card fails, use the Jasumo proxy; some tickets are sold on the day at the 5F counter. Fallback already in the plan: Kabukichō Tower's yokocho hall and Golden Gai.",
+      "stop_names": [
+        "Korakuen Hall"
       ]
     },
     {
       "due": "2026-11-21",
-      "text": "Reserve Shinkansen seats for 8: Hikari 717 Mishima → Shin-Osaka, Mon 21 Dec (15:46)",
-      "detail": "Reserve the day seats open (one month ahead). The time comes from the October timetable; confirm it when booking.",
+      "text": "Reserve Shinkansen seats for 8, Odawara → Kyoto, Mon 21 Dec (Kodama/Hikari)",
+      "detail": "The Tokaido Shinkansen is not covered by the Kansai-Hiroshima Area Pass. smartEX and EX opens one month before.",
       "stop_names": [
-        "Hikari 717"
+        "Shinkansen Odawara → Kyoto"
       ]
     },
     {
-      "due": "2026-11-24",
-      "text": "Book Kingyuen private room for 8 with all-you-can-drink, Tue 15 Dec 18:45",
-      "detail": "Private rooms for 6–8 can be booked online (instant booking until 21:00 on the day; book weeks ahead for a Tuesday night in December).",
+      "due": "2026-11-22",
+      "text": "Book Pontochō Robin kamo-nabe (duck hot-pot) for 8, Tue 22 Dec about 19:15",
+      "detail": "TableCheck. The Santa Parade timing is not fixed yet, so keep the booking flexible.",
+      "stop_names": [
+        "Pontochō Robin"
+      ]
+    },
+    {
+      "due": "2026-11-25",
+      "text": "Check the B.LEAGUE fixtures for Sun 27 Dec (Tokyo Sunrockers at Toyota Arena Tokyo; Kawasaki vs Chiba) on bleague.jp",
+      "detail": "Neither fixture is confirmed on an official page. It is only an alternative to the DDT lottery. Foreign cards often fail on B.LEAGUE ticketing: pick 'pay at convenience store' (コンビニ支払い) or ask the host to buy.",
+      "stop_names": []
+    },
+    {
+      "due": "2026-11-25",
+      "text": "Book Matsusakagyu Yakiniku M for 8, Fri 25 Dec 20:00",
+      "detail": "Online booking; the hall takes groups of up to 30. Open lunch and dinner on Dec 25.",
+      "stop_names": [
+        "Matsusakagyu Yakiniku M"
+      ]
+    },
+    {
+      "due": "2026-11-26",
+      "text": "Reserve Shinkansen seats for 8: Nozomi Shin-Osaka → Tokyo, Sat 26 Dec about 12:50",
+      "detail": "smartEX opens Nov 26 10:00 JST. EX Hayatoku 21 is cheaper and sells until Dec 5 (max 6 per booking, so two bookings of 4). Nozomi is all-reserved Dec 25–Jan 5.",
+      "stop_names": [
+        "Nozomi Shinkansen Shin-Osaka → Tokyo"
+      ]
+    },
+    {
+      "due": "2026-11-30",
+      "text": "Buy dated USJ tickets for 8 for Thu 24 Dec and price the Express Pass",
+      "detail": "USJ's official pages were unreadable to our checker, so confirm the park's Dec 24 hours and the Universal Holiday Wonders details on usj.co.jp. Dynamic pricing: about ¥10,900 pp last year for this date.",
+      "stop_names": [
+        "Universal Studios Japan"
+      ]
+    },
+    {
+      "due": "2026-11-30",
+      "text": "Book Kingyuen private room for 8 with all-you-can-drink, Tue 15 Dec 18:35",
+      "detail": "Online booking; private rooms for 6–8. Open every day.",
       "stop_names": [
         "Kingyuen"
       ]
     },
     {
-      "due": "2026-11-24",
-      "text": "Book Christmas Eve dinner for 8 at Yakiniku Rikimaru Umeda Ohatsutenjin, Thu 24 Dec 18:15",
-      "detail": "Phone 06-6361-3619 or book via SAVOR JAPAN. Christmas Eve fills early.",
+      "due": "2026-11-30",
+      "text": "Book Chanko Kirishima in Ryōgoku for 8 in a private room, Thu 17 Dec 11:30",
+      "detail": "Online booking via gorp.jp / Tabelog or ☎ 050-5590-4484. Ask for a 5–10 person private room (個室).",
       "stop_names": [
-        "Rikimaru"
-      ]
-    },
-    {
-      "due": "2026-11-24",
-      "text": "Book Christmas Day dinner for 8 at Robatayaki Homuraya (Fukushima), Fri 25 Dec 18:15",
-      "detail": "Christmas plus a Friday plus year-end parties: book as early as they accept.",
-      "stop_names": [
-        "Homuraya"
-      ]
-    },
-    {
-      "due": "2026-11-26",
-      "text": "Reserve Shinkansen seats for 8: Nozomi Shin-Osaka → Tokyo, Sat 26 Dec, about 12:30",
-      "detail": "Reserve the day seats open (one month ahead). Any departure between 12:25 and 12:35 keeps the day intact.",
-      "stop_names": [
-        "Nozomi"
+        "Chanko Kirishima"
       ]
     },
     {
       "due": "2026-11-30",
-      "text": "Book Shinjuku Mugen Gyoza private room for 8, Fri 18 Dec 20:40",
-      "detail": "Book via Gurunavi/Rakuten or phone 03-5761-4230. There is a time limit on the all-you-can-eat-and-drink course.",
+      "text": "Book Genpin Fugu for 8, Mon 21 Dec about 19:00",
+      "detail": "Hot Pepper. Winter courses with 2 hours of all-you-can-drink and fin sake: the 8-person tour is about ¥9,800 pp. Check its closed day.",
       "stop_names": [
-        "Mugen Gyoza"
+        "Genpin Fugu"
       ]
     },
     {
-      "due": "2026-12-01",
-      "text": "Buy ZEROTOKYO tickets: Steve Angello (Fri 18 Dec) and NEON STARS (Sat 26 Dec)",
-      "detail": "Advance tickets per event from the ZEROTOKYO site; bring original passports.",
+      "due": "2026-11-30",
+      "text": "Buy or reserve the JR Kansai-Hiroshima Area Pass (¥17,000, 5 days) to start Tue 22 Dec",
+      "detail": "Valid five consecutive days: Dec 22–26. It covers the Sanyo Shinkansen to Hiroshima on Dec 23 including Nozomi and Mizuho (JR West, Jan 2026). Reserve seats together when you exchange it. The cheapest route to Nara is Metro + Kintetsu, not the pass.",
       "stop_names": [
-        "ZEROTOKYO"
+        "Sakura/Hikari Shin-Osaka to Hiroshima"
       ]
     },
     {
-      "due": "2026-12-01",
-      "text": "Buy Giraffe (Thu 24 Dec), Circus (Fri 25 Dec) and OWL (Mon 21 Dec) club tickets",
-      "detail": "Advance foreigner tickets are cheaper than the door; check each club's event page for those nights.",
+      "due": "2026-11-30",
+      "text": "Email or use the party form to book Gonpachi Nishi-Azabu for 8, Mon 28 Dec 18:00",
+      "detail": "Online booking (Toreta) only takes 7 or fewer and about a month ahead. Use the party form on gonpachi.jp/nishi-azabu or gonpachi-nishiazabu@global-dining.com, or ☎ +81 50-5443-1691. Seats are 2 hours; one bill; minimum charge ¥1,650 pp after 17:00.",
       "stop_names": [
-        "Giraffe",
-        "Circus",
-        "OWL"
-      ]
-    },
-    {
-      "due": "2026-12-01",
-      "text": "Book Tokyo Christmas Market (Shiba Park) entry for Fri 18 Dec",
-      "detail": "Advance entry tickets; the market ends 25 Dec.",
-      "stop_names": [
-        "Shiba Park"
-      ]
-    },
-    {
-      "due": "2026-12-01",
-      "text": "Book Tsukishima Monja Moheji for 8, Thu 17 Dec 19:15",
-      "detail": "Phone the main shop; a table for 8 on a December evening needs notice.",
-      "stop_names": [
-        "Moheji"
+        "Gonpachi Nishi-Azabu"
       ]
     },
     {
       "due": "2026-12-01",
       "text": "Check the hosts can receive forwarded suitcases: Kujō House (Mon 21 Dec) and Garfield House (Sat 26 Dec)",
-      "detail": "If not, send them to a Yamato centre near each stay instead.",
-      "stop_names": [
-        "send suitcases"
-      ]
+      "detail": "If not, send to a Yamato centre near the house. Also confirm Yamato airport delivery to Haneda T3 on Sun 27 Dec for the Tue 29 Dec flight.",
+      "stop_names": []
     },
     {
-      "due": "2026-12-01",
-      "text": "Check Hot Spring Hakone Villa allows a late self check-in about 23:25 on Sat 19 Dec",
-      "detail": "The plan checks in after the geisha night in Yumoto. If it doesn't, check in on the way to the villa earlier and come back down.",
+      "due": "2026-12-10",
+      "text": "Phone Aihara Meat Shop (Sengokuhara) to reserve wagyu for the cook-off, pick up Sat 19 Dec before 17:00",
+      "detail": "Open Sat 09:00–17:00, closed Wednesdays. Also buy the villa drinks at A-Coop.",
       "stop_names": [
-        "Hot Spring Hakone Villa"
-      ]
-    },
-    {
-      "due": "2026-12-05",
-      "text": "Book the Hakone dinners and bars for 8: Gora Brewery, Izakaya Hakoneji (19 Dec), Flying Chicken (19 Dec), Albergo Bamboo private room, Hakone Sushi tatami room 0460-84-7890 (20 Dec), Snack Takachan (20 Dec)",
-      "detail": "Ask Flying Chicken and Snack Takachan about their pick-up and lift home.",
-      "stop_names": [
-        "Gora Brewery",
-        "Hakoneji",
-        "Flying Chicken",
-        "Albergo Bamboo",
-        "Hakone Sushi",
-        "Takachan"
-      ]
-    },
-    {
-      "due": "2026-12-05",
-      "text": "Book two taxis for 22:50 Sat 19 Dec, Yumoto → Sengokuhara",
-      "detail": "Last trains and buses up the mountain have gone by then; book through the villa or a Hakone taxi company.",
-      "stop_names": [
-        "Flying Chicken"
-      ]
-    },
-    {
-      "due": "2026-12-05",
-      "text": "Book Sakanaya Juggler Tenma for 8, Mon 21 Dec 20:00",
-      "detail": "Phone 06-6948-8662.",
-      "stop_names": [
-        "Juggler"
+        "Aihara Meat Shop"
       ]
     },
     {
       "due": "2026-12-10",
-      "text": "Book Kitsune Kyoto entry for Wed 23 Dec and an izakaya for 8 on Kiyamachi",
-      "detail": "Kitsune's foreigner entry is booked online.",
+      "text": "Phone Arashio-beya the week before to ask whether morning practice on Thu 17 Dec can be watched",
+      "detail": "Not confirmed: the official page only mentions a membership course. The Grand Sumo winter tour at Hasuda is Wed 16 Dec (sold out; watch e+ resale). Fallback in the plan: the Ryōgoku Kokugikan area and the museums.",
       "stop_names": [
-        "Kitsune",
-        "Kiyamachi"
+        "Arashio-beya"
       ]
     },
     {
-      "due": "2026-12-10",
-      "text": "Book Omoide Yokocho Torien for 8 at about 20:10, Sat 26 Dec",
-      "detail": "Small counter shop: confirm they can seat 8 together or in two groups.",
+      "due": "2026-12-12",
+      "text": "Reserve the KFC Christmas Party Barrel for pickup on Thu 24 Dec, before the shop closes at 21:00",
+      "detail": "Reservations typically open in early November, and last year ¥500 off applied if reserved by Dec 12. Online preorder often fails for foreigners: ask the Kujō host to help or reserve in person. Pickup is planned for about 20:00 at the KFC near Kujō.",
       "stop_names": [
-        "Torien"
-      ]
-    },
-    {
-      "due": "2026-12-10",
-      "text": "Book Umi no Ie Shinjuku Higashiguchi for 8 (Sun 27 Dec) and Tempura Tsunahachi Tsunohazuan for 8 (Mon 28 Dec 11:30), by phone",
-      "detail": "Tsunahachi's booking calendar didn't yet show late December when checked.",
-      "stop_names": [
-        "Umi no Ie",
-        "Tsunahachi"
-      ]
-    },
-    {
-      "due": "2026-12-10",
-      "text": "Book a Big Echo Ikebukuro room for 8 from 23:20 on Thu 17 Dec",
-      "detail": "Book online; check the late-night rate on the store page.",
-      "stop_names": [
-        "Big Echo"
+        "KFC"
       ]
     },
     {
       "due": "2026-12-14",
-      "text": "Install the free Round1 and Jankara apps",
-      "detail": "Member prices at Round1 and Jankara's ¥500-per-30-min rate need the app.",
+      "text": "Install the free Round1 app and join the membership",
+      "detail": "The app takes ¥200–350 off Spo-Cha packs. Round1 asks students and young guests for ID: carry original passports.",
       "stop_names": [
-        "Round1",
-        "Jankara"
+        "Round1 Stadium Sennichimae"
       ]
     },
     {
-      "due": "2026-12-16",
-      "text": "Phone Onigiri Bongo for a takeaway order for 8, for Fri 18 Dec 10:15",
-      "detail": "Order the day before to skip the queue.",
-      "stop_names": [
-        "Bongo"
-      ]
+      "due": "2026-12-14",
+      "text": "Set up eSIMs and Welcome Suica on the phones",
+      "detail": "Ubigi is best for Hakone signal. Welcome Suica Mobile covers Tokyo and Osaka trains.",
+      "stop_names": []
     },
     {
       "due": "2026-12-18",
-      "text": "Send the big suitcases to Kujō House with Yamato TA-Q-BIN (Fri 18 Dec)",
-      "detail": "From the front desk or a konbini, for Mon 21 Dec evening delivery. Take only overnight bags to Hakone.",
-      "stop_names": [
-        "send suitcases"
-      ]
+      "text": "Send the big suitcases to Kujō House with Yamato TA-Q-BIN (Fri 18 Dec morning)",
+      "detail": "Delivery Mon 21 Dec evening. Take only overnight bags to Hakone.",
+      "stop_names": []
     },
     {
       "due": "2026-12-25",
-      "text": "Send the suitcases to Garfield House with Yamato TA-Q-BIN (Fri 25 Dec)",
-      "detail": "For Sat 26 Dec evening delivery.",
-      "stop_names": [
-        "send suitcases"
-      ]
+      "text": "Send the suitcases to Garfield House with Yamato TA-Q-BIN (Fri 25 Dec morning)",
+      "detail": "Delivery Sat 26 Dec evening.",
+      "stop_names": []
     },
     {
       "due": "2026-12-27",
       "text": "Send the suitcases to Haneda T3 with Yamato airport delivery for the Tue 29 Dec flight",
-      "detail": "Check Yamato's cut-off for Haneda and collect them at the T3 counter before the customs kiosk. Keep tax-free goods and receipts in the carry-on.",
-      "stop_names": [
-        "Tax-free refund"
-      ]
-    },
-    {
-      "due": "2026-12-27",
-      "text": "Check year-end hours for Fuunji (Mon 28 Dec) and the Edo Koji restaurants at Haneda T3 (Tue 29 Dec)",
-      "detail": "Neither has published 2026 year-end hours yet.",
-      "stop_names": [
-        "Fuunji",
-        "Edo"
-      ]
-    },
-    {
-      "due": "2026-12-27",
-      "text": "Check your airline's T3 check-in counter opening time for the 17:20 flight",
-      "detail": "The plan assumes bag drop at 14:35, after the tax-free customs kiosk.",
-      "stop_names": [
-        "Bag drop"
-      ]
-    },
-    {
-      "due": "2026-12-24",
-      "text": "Check Okonomiyaki Chitose's hours on Google Maps for Fri 25 Dec",
-      "detail": "Its usual Friday hours are 11:30–14:30 and 17:00–20:00, but they aren't verified for that date.",
-      "stop_names": [
-        "Chitose"
-      ]
+      "detail": "Then check your airline's T3 check-in counter opening time for the 17:20 flight.",
+      "stop_names": []
     }
   ],
   "budget": [
@@ -270,138 +231,228 @@
     },
     {
       "category": "Transport",
-      "item": "Hakone 3-day Freepass from Shinjuku + Romancecar seat",
-      "group": "about ¥69,600",
-      "per_person": "about ¥8,700",
-      "note": "The plan's figures (¥7,500 Freepass + about ¥1,200 seat); confirm when buying."
+      "item": "Hakone Freepass from Shinjuku + Romancecar seat",
+      "group": "about ¥66,000",
+      "per_person": "about ¥8,300",
+      "note": "Freepass about ¥7,100 plus a Romancecar seat of about ¥1,200; confirm both when buying."
     },
     {
       "category": "Transport",
-      "item": "Shinkansen: Hikari Mishima → Shin-Osaka and Nozomi Shin-Osaka → Tokyo, reserved",
-      "group": "about ¥213,600",
-      "per_person": "about ¥26,700",
-      "note": "The plan's estimates (about ¥12,000 + about ¥14,700); no rail pass pays off for two one-way rides."
+      "item": "Shinkansen: Odawara → Kyoto (Dec 21) and Nozomi Shin-Osaka → Tokyo (Dec 26), reserved",
+      "group": "about ¥210,000",
+      "per_person": "about ¥26,000",
+      "note": "Estimates: roughly ¥11,000 and ¥14,700 per person. EX Hayatoku 21 on the Nozomi saves about ¥1,700 pp if booked by Dec 5."
     },
     {
       "category": "Transport",
-      "item": "Odakyu Enoshima-Kamakura Freepass (Sun 27 Dec)",
-      "group": "¥13,120",
-      "per_person": "¥1,640",
-      "note": "Return must be the same way, Katase-Enoshima → Shinjuku."
+      "item": "JR Kansai-Hiroshima Area Pass (Dec 22–26)",
+      "group": "¥136,000",
+      "per_person": "¥17,000",
+      "note": "Costs less than one Nozomi round trip to Hiroshima (about ¥21,000). Covers Hiroshima, Kyoto and USJ by JR."
     },
     {
       "category": "Transport",
-      "item": "Taxis (late nights, Hakone, Gotemba → Mishima)",
-      "group": "about ¥88,000",
-      "per_person": "about ¥11,000",
-      "note": "Two cars for 8; the sum of the day plans' estimates, under the ¥4,000 pp daily cap every day."
+      "item": "Taxis (late nights, Hakone, Haneda, Kyoto leg on Dec 22)",
+      "group": "about ¥64,000",
+      "per_person": "about ¥8,000",
+      "note": "Two cars for 8; the day plans keep every day under the ¥4,000 pp cap."
     },
     {
       "category": "Transport",
-      "item": "IC card city trains and buses",
+      "item": "IC card city trains and buses, Nara by Metro + Kintetsu",
       "group": "—",
       "per_person": "top up as you go",
-      "note": "Suica/PASMO work in Osaka and Kyoto too."
+      "note": "Suica works in Osaka and Kyoto too."
+    },
+    {
+      "category": "Set pieces",
+      "item": "Sushi Kunimitsu private omakase (Dec 17) and Harumiya yakatabune with unlimited drinks (Dec 26)",
+      "group": "about ¥281,600",
+      "per_person": "about ¥35,200",
+      "note": "¥22,000 + ¥13,200 pp. The fallback cruise Funasei is ¥14,000–16,800 pp."
+    },
+    {
+      "category": "Set pieces",
+      "item": "Wrestling tickets (NOAH Dec 18 or DDT Dec 27) and Santa-suit gear",
+      "group": "about ¥56,000",
+      "per_person": "about ¥7,000",
+      "note": "Ticket prices are not published until sale. A planning figure only."
     },
     {
       "category": "Tickets",
-      "item": "USJ Studio Pass + Express Pass",
-      "group": "about ¥197,600+",
-      "per_person": "about ¥24,700+",
-      "note": "Dynamic prices: Studio Pass about ¥9,900–11,900, Express from about ¥14,800."
+      "item": "USJ Studio Pass (Dec 24)",
+      "group": "about ¥87,200+",
+      "per_person": "about ¥10,900+",
+      "note": "Dynamic pricing; last year's Dec 24 price. Add Express Pass if you want it."
     },
     {
       "category": "Tickets",
-      "item": "Sights and experiences (teamLab, Shibuya Sky, Hakone museums, geisha night, Manyo Club, Osaka Castle, Umeda Sky, temples, Christmas markets)",
-      "group": "about ¥196,000",
-      "per_person": "about ¥24,500",
-      "note": "Sum of the day plans' prices."
+      "item": "Sights (teamLab, Shibuya Sky, Open-Air Museum, Yunessun, Manyo Club, Spa World, Nara, Umeda Sky, museums)",
+      "group": "about ¥160,000",
+      "per_person": "about ¥20,000",
+      "note": "Rough planning figure carried over from the previous plan, not re-summed from the new day plans."
     },
     {
       "category": "Food",
-      "item": "Meals, 15 days",
+      "item": "Meals, 15 days (all-you-can-drink courses counted here)",
       "group": "about ¥552,000",
       "per_person": "about ¥69,000",
-      "note": "Sum of the day plans' per-person prices, low end; all-you-can-drink courses counted here."
+      "note": "Rough planning figure carried over from the previous plan (low end); all-you-can-drink courses are counted here. Not re-summed from the new day plans."
     },
     {
       "category": "Nightlife",
-      "item": "Bars, clubs, karaoke and Round1",
-      "group": "about ¥344,000",
-      "per_person": "about ¥43,000",
-      "note": "Sum of the day plans' entries at the low end; club doors and drinks vary by night."
+      "item": "Bars, yokocho, karaoke and Round1 (no clubs)",
+      "group": "about ¥280,000",
+      "per_person": "about ¥35,000",
+      "note": "Rough planning figure with the club nights removed; Round1 and karaoke prices change at year-end, so check the venues."
     },
     {
       "category": "Shopping",
-      "item": "Outlets, vintage, Donki, Akihabara",
+      "item": "Harajuku, Koenji, Ameyoko, Ginza, Donki",
       "group": "—",
       "per_person": "your call",
-      "note": "Tax-free from ¥5,000 (tax excluded) per shop per day, refunded at Haneda T3 after the customs check."
+      "note": "Tax-free from ¥5,000 per shop per day: keep your passport, finish at the Haneda T3 customs kiosk."
     },
     {
       "category": "Total",
       "item": "Everything above except stays and shopping",
-      "group": "about ¥1,674,000",
-      "per_person": "about ¥209,000",
-      "note": "Planning figure from the day plans; prices marked 'check' in the plan may move it."
+      "group": "about ¥1,840,000",
+      "per_person": "about ¥230,000",
+      "note": "Rough planning figure. Several inputs are estimates or carried over; prices marked check in the plan may move it."
     }
   ],
   "coverage": [
     {
       "wish_id": "w1",
-      "how": "Osaka base at Kujō House with day trips: USJ (22 Dec), Kyoto from Fushimi Inari to Kiyamachi (23 Dec), Nara Park and Todai-ji (24 Dec)."
+      "how": "Osaka is the base Dec 21–26: Kyoto on Dec 22 (Fushimi Inari, Kiyomizu, Nishiki), Hiroshima and Miyajima on Dec 23, Nara on Dec 25."
     },
     {
       "wish_id": "w2",
-      "how": "Every Osaka night ends in Osaka: Tenma and OWL (21), Dotonbori and Jankara (22), Giraffe and Kinryu ramen (24), Ura-Namba, Circus and Round1 to the first train (25). The Kyoto night returns on the 23:00 Keihan."
+      "how": "Every Osaka night ends in Osaka: Ura-Namba (21), Kyoto night back by the last train (22), Shinsekai and Spa World (23), the house party (24), the Round1 all-nighter (25)."
     },
     {
       "wish_id": "w3",
-      "how": "Kyoto nightlife on 23 Dec: Pontocho at dusk, Kiyamachi izakaya and bars, then Kitsune Kyoto before the last train. Hakone nights: Gora Brewery, the geisha night and Flying Chicken (19), snack-bar karaoke (20)."
+      "how": "Kyoto nightlife on Dec 22 (Pontochō duck hot-pot, Gion lanterns, Kiyamachi bars) and Hakone nights (snack-bar karaoke, villa cook-off)."
     },
     {
       "wish_id": "w4",
-      "how": "Drinking every night: all-you-can-drink courses (Kingyuen, Mugen Gyoza, Kiyamachi, Umi no Ie), yokocho crawls (Shibuya, Ebisu, Ameyoko, Ura-Tenma, Ura-Namba, Omoide, Golden Gai), five club nights (ZEROTOKYO twice, OWL, Giraffe, Circus, ATOM)."
+      "how": "Drinking every night: Kingyuen and Uoshin all-you-can-drink, yokocho and Golden Gai, fugu with fin sake, Harumiya with unlimited drinks, Ameyoko highballs."
     },
     {
       "wish_id": "w5",
-      "how": "Packed days from early starts to late nights on all 15 dates, routed one area at a time with measured travel so no time is lost doubling back; the arrival evening and departure morning are used too."
+      "how": "Early starts and late nights with measured travel; Dec 25 and Dec 28 are deliberate all-nighters; arrival evening and departure morning are used."
     },
     {
       "wish_id": "w6",
-      "how": "Round1 Ikebukuro on the first night (15 Dec) and Round1 Sennichimae until the first train on Christmas night (25 Dec)."
+      "how": "Round1 Ikebukuro on Dec 15, Round1 Sennichimae until the first train on Christmas night, Round1 DiverCity farewell on Dec 28."
     },
     {
       "wish_id": "w7",
-      "how": "Boro-ichi and Shimokitazawa (16), Akihabara and Ameyoko (18), Gotemba Premium Outlets (21), Kyoto arcades and Nintendo KYOTO (23), Den Den Town, Shinsaibashi and Ame-mura (24), Koenji, Nakano Broadway, Harajuku, MEGA Donki (28), Isetan and Donki (29)."
+      "how": "Harajuku streetwear, Kōenji vintage, Ameyoko, Ginza flagships, Amerikamura, Don Quijote, tax-free refund at Haneda."
     },
     {
       "wish_id": "w8",
-      "how": "A bit of everything: theme park, onsen (Manyo Club, the villa), geisha games, ropeway and pirate ship, shrines and temples, Christmas markets and illuminations, fireworks, food crawls, clubs and karaoke."
+      "how": "Sumo, wrestling, onsen, cruise, parades, USJ and shrines are all in; nothing repeats."
     },
     {
       "wish_id": "w9",
-      "how": "No go-karts anywhere in the plan."
+      "how": "No go-karts anywhere."
     },
     {
       "wish_id": "w10",
-      "how": "Savings: Hakone Freepass (transport plus museum discounts), Enoshima-Kamakura Freepass, Round1 and Jankara app prices, online-only cheaper Shibuya Sky ticket, advance club tickets, all-you-can-drink courses, tax-free refunds at Haneda. Booking dates are in the to-dos."
+      "how": "Hakone Freepass, JR Kansai-Hiroshima Area Pass (cheaper than one Nozomi return), EX Hayatoku 21 for the Dec 26 Nozomi, and booking deadlines in the to-do list."
     },
     {
       "wish_id": "w11",
-      "how": "All four stays are used as booked: Ninja House 15–19, Hot Spring Hakone Villa 19–21, Kujō House 21–26, Garfield House 26–29 Dec."
+      "how": "Each night is built around the four booked stays; luggage forwarding is set in the logistics."
+    },
+    {
+      "wish_id": "w12",
+      "how": "Christmas Day (Dec 25) is in Santa suits from the first stop, ending at Round1 Sennichimae."
+    },
+    {
+      "wish_id": "w13",
+      "how": "The Grand Santa Parade in Umekita is Tue Dec 22; sign-up opens early November and the start time is unconfirmed. Fallback in the plan: Santa suits plus the Umeda Christmas lights."
+    },
+    {
+      "wish_id": "w14",
+      "how": "Pro Wrestling NOAH at Korakuen Hall on Fri Dec 18 is in the plan but unconfirmed; the fallback is Kabukichō Tower and Golden Gai. The DDT year-end show (Dec 27, lottery) is the second wrestling chance."
+    },
+    {
+      "wish_id": "w15",
+      "how": "Not planned: no B.LEAGUE fixture for Dec 26–27 is confirmed on an official page. Sunday Dec 27 is held for the DDT lottery instead; the to-do list says to re-check bleague.jp."
+    },
+    {
+      "wish_id": "w16",
+      "how": "Harumiya yakatabune dinner cruise on Sat Dec 26 under the Odaiba fireworks, with Funasei as the fallback if the shared boat is cancelled."
+    },
+    {
+      "wish_id": "w17",
+      "how": "Hiroshima and Miyajima on Wed Dec 23 with the torii floating at the 09:29 high tide, on the Kansai-Hiroshima pass."
+    },
+    {
+      "wish_id": "w18",
+      "how": "Yunessun's wine, sake and coffee baths on Sun Dec 20 (the sake-pouring show only starts Dec 26); the villa wagyu cook-off on Dec 19 with Aihara Meat Shop wagyu."
+    },
+    {
+      "wish_id": "w19",
+      "how": "KFC Christmas Party Barrel at Kujō House on Dec 24; pickup is planned for 20:00 because the shop closes at 21:00."
+    },
+    {
+      "wish_id": "w20",
+      "how": "Genpin Fugu in Osaka on Mon Dec 21."
+    },
+    {
+      "wish_id": "w21",
+      "how": "Morning sumo practice at Arashio-beya on Thu Dec 17 is unconfirmed (fallback in the plan); the private omakase counter at Sushi Kunimitsu is that evening."
+    },
+    {
+      "wish_id": "w22",
+      "how": "Spa World on Dec 23 and the Kabukichō Thermae-yu soak on Dec 27, with Manyo Club Toyosu on Dec 18."
+    },
+    {
+      "wish_id": "w23",
+      "how": "Harajuku crawl on Dec 16, Shimokitazawa and Kōenji vintage, Amerikamura, Ameyoko and the Ginza flagships."
+    },
+    {
+      "wish_id": "w24",
+      "how": "Karaoke (Manekineko, Karaokekan), yokocho and Golden Gai nights, Hozenji and Ura-Namba, standing bars."
+    },
+    {
+      "wish_id": "w25",
+      "how": "No nightclubs anywhere in the plan."
+    },
+    {
+      "wish_id": "w26",
+      "how": "Generic page-one stops are cut or reduced; every day has a moment of its own."
+    },
+    {
+      "wish_id": "w27",
+      "how": "Hard-to-book items each carry a named fallback: sumo practice, NOAH, the Santa Parade, the cruise, the KFC barrel and the DDT lottery."
+    },
+    {
+      "wish_id": "w28",
+      "how": "Two deliberate short nights: Dec 25 (all-nighter) and Dec 28 (Round1 farewell)."
+    },
+    {
+      "wish_id": "w29",
+      "how": "Every booking is for 8 at one table or private room; the to-do list says how to ask for it."
+    },
+    {
+      "wish_id": "w30",
+      "how": "Plan C is the spine: its surviving places are kept. Dropped or changed: the Unicorn Gundam statue (display ended Aug 31 2026), Meiji Jingū (no time slot that works), and any place whose verified hours clash with its date."
     }
   ],
   "logistics": [
     "Luggage, Dec 15–18: everything comes from Haneda to Ninja House (Toshima).",
-    "Luggage, Fri 18 Dec: send the big suitcases with Yamato TA-Q-BIN (konbini or front desk) to Kujō House for Mon 21 evening delivery (confirm the host can receive them; otherwise send to a Yamato centre near Kujō). Take only overnight bags to Hakone on Dec 19.",
-    "Luggage, Hakone Dec 19–21: overnight bags only; they ride along to Gotemba and the Shinkansen on Dec 21.",
-    "Luggage, Fri 25 Dec: send suitcases from Kujō House to Garfield House (Shinjuku) for Sat 26 evening delivery (confirm the host can receive them), or carry them on the Shinkansen with an oversized-luggage seat reservation.",
-    "Luggage, Sun 27 Dec → Tue 29 Dec: send the big suitcases from Garfield House to Haneda T3 with Yamato airport delivery on Dec 27 and collect them at the T3 counter on Dec 29; check out by 10:00 with day bags only. Tax-free goods and receipts stay in the carry-on for the customs kiosk, before bag drop.",
-    "Passes: an IC card each (Suica/PASMO, works in Osaka too) for city trains and buses. Hakone Freepass from Shinjuku covers Odakyu one way plus the Hakone trains, cable car, ropeway, pirate ship and most buses for Dec 19–21; Romancecar seats are extra. Osaka: IC card plus single-company day passes only when a day uses them a lot. Kamakura/Enoshima: the Odakyu Enoshima-Kamakura Freepass from Shinjuku. Shinkansen Mishima→Shin-Osaka (Dec 21) and Shin-Osaka→Tokyo (Dec 26): reserve seats for all 8 together in advance.",
-    "Tax-free (since 1 Nov 2026): pay the full price with your own passport at the till; the tax is refunded at departure after customs checks the goods at Haneda T3 (customs kiosk before bag drop). Keep tax-free goods unused, with their receipts, in your carry-on. Purchases can't be pooled between people.",
-    "ID and drinking: the drinking and club age is 20+; clubs and Round1 check the ORIGINAL passport at night.",
-    "Year-end: Christmas markets and illuminations end Dec 25. From about Dec 28 some small shops, museums and gardens close; chains, clubs, karaoke and Round1 run normally through Dec 28. Dec 29 is a peak travel day.",
-    "Trains stop around 00:30; after that it's taxis (2 cars for 8) or the first train around 05:00."
+    "Luggage, Fri 18 Dec: send the big suitcases with Yamato TA-Q-BIN (konbini or front desk) to Kujō House for Mon 21 evening delivery (confirm the host can receive them). Take only overnight bags to Hakone on Dec 19; they ride along to Odawara, Kyoto and Osaka on Dec 21.",
+    "Luggage, Fri 25 Dec: send the suitcases from Kujō House to Garfield House (Shinjuku) by TA-Q-BIN for Sat 26 evening delivery (confirm the host can receive them). Dec 26 travel with overnight bags only.",
+    "Luggage, Sun 27 Dec: send the big suitcases from Garfield House to Haneda T3 with Yamato airport delivery so Tue 29 Dec is bag-free until the airline bag drop.",
+    "Passes: Hakone Freepass (from Shinjuku, Dec 19–20) covers the Odakyu base fare to Hakone-Yumoto, the Tozan trains and buses, ropeway, the pirate ship and discounts at the Open-Air Museum and Glass no Mori. The Romancecar itself needs a separate limited-express ticket (about ¥1,200). The JR Kansai-Hiroshima Area Pass (¥17,000 adult, five consecutive days) should start on Tue 22 Dec (Kyoto by JR) and run to Sat 26 Dec: it covers the Hiroshima day on Dec 23 (Nozomi, Mizuho, Sakura and Hikari are all covered between Shin-Osaka and Hiroshima, per JR West), USJ by JR on Dec 24 and Nara on Dec 25, but not the Tokaido Shinkansen to Tokyo on Dec 26. Dec 21 (Odawara to Kyoto on the Tokaido Shinkansen) is outside the pass.",
+    "Transit cards: Welcome Suica on the phone covers Tokyo and, as an IC card, Osaka and Kyoto trains and buses as well. Load enough for a few days so nobody holds up a gate.",
+    "Money: pay in yen (decline pay in USD); carry about ¥10,000 cash each for markets, small izakaya, the flea markets and cash-only ramen. Tax-free shopping is a refund system: keep the passports with you at every shop, spend ¥5,000 or more per shop per day, and finish the paperwork at the Haneda T3 customs kiosk before bag drop on Dec 29.",
+    "Ages and ID: the drinking age is 20 and some places refuse under-20s (Umi no Ie in Shinjuku, some Round1 night rules). Carry the original passports every night.",
+    "Year-end: many shops and attractions shorten or close from Dec 29. The Tokyo Metropolitan Government observatory is closed on both sides on Dec 29 and the north side on Dec 28, so use it on Dec 27 if at all. Odaiba Rainbow Fireworks are on Sat Dec 26 at 19:00 (cancelled in bad weather).",
+    "Unconfirmed event items to re-check before spending: Pro Wrestling NOAH Thanksgiving 2026 on Dec 18 (tickets expected mid-November), the Tokyo Sunrockers game on Dec 27 and the Kawasaki–Chiba game (fixtures not on any official page yet), live sumo practice at Arashio-beya on Dec 17 (the winter sumo tour at Hasuda is Dec 16), and the Santa Parade sign-up (opens early November)."
   ]
 }

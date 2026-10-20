@@ -1,0 +1,83 @@
+{
+  "open": [],
+  "closed": [],
+  "last_entry": null,
+  "prices": [
+    {
+      "what": "Shared boat (乗合), ふりそで御膳 set, per adult, tax incl.",
+      "yen": 13200,
+      "quote": "大人1名様 12,000円（税込13,200円）～",
+      "url": "https://www.harumiya.co.jp/schedule/"
+    },
+    {
+      "what": "Shared boat, かちどき御膳 set, per adult, tax incl.",
+      "yen": 15400,
+      "quote": "大人1名様 14,000円（税込15,400円）",
+      "url": "https://www.harumiya.co.jp/schedule/"
+    }
+  ],
+  "fixed_minutes": {
+    "minutes": 150,
+    "what": "Boat ride (乗船料150分)",
+    "quote": "乗船料150分",
+    "url": "https://www.harumiya.co.jp/schedule/"
+  },
+  "time_limit": null,
+  "group": {
+    "text": "Private boat from 20 adults; from 25 adults on Fri, Sat, Sun, holidays and holiday eves",
+    "quote": "大人 20 名様から貸切可能",
+    "url": "https://www.harumiya.co.jp/"
+  },
+  "booking": {
+    "text": "Shared boats from 2 guests; book online and pay in advance by card",
+    "quote": "2 名様からご予約可能",
+    "url": "https://www.harumiya.co.jp/"
+  },
+  "notes": [
+    {
+      "text": "Shared boat departs 19:00 on weekdays (arrive 18:45)",
+      "quote": "平日　19：00（18：45集合）",
+      "url": "https://www.harumiya.co.jp/schedule/"
+    },
+    {
+      "text": "Shared boat on weekends and holidays: lunch departs 11:30 (arrive 11:15), dinner 18:00 (arrive 17:45)",
+      "quote": "土日祝日　ランチ11：30（11：15集合）/ディナー18：00（17：45集合）",
+      "url": "https://www.harumiya.co.jp/schedule/"
+    },
+    {
+      "text": "Private boat needs 25 adults on Friday, Saturday, Sunday, holidays and holiday eves; shared boat runs only with 15 guests (20 on Fri/Sat/Sun in July and August)",
+      "quote": "※ご予約が15名様に満たない場合は、出船中止となります。",
+      "url": "https://www.harumiya.co.jp/schedule/"
+    },
+    {
+      "text": "Shared boat cancellation is free if cancelled 11 days before boarding by 17:00",
+      "quote": "乗船日の11日前の17：00までのご連絡：無料",
+      "url": "https://www.harumiya.co.jp/schedule/"
+    },
+    {
+      "text": "Shared boat cancellation costs 20% if cancelled 8 days before boarding by 17:00",
+      "quote": "乗船日の8日前の17：00までのご連絡：20％",
+      "url": "https://www.harumiya.co.jp/schedule/"
+    },
+    {
+      "text": "Shared boat: arriving after the gathering time means no boarding and no refund",
+      "quote": "当日ご集合時間に間に合わない場合、ご乗船いただけません。",
+      "url": "https://www.harumiya.co.jp/schedule/"
+    },
+    {
+      "text": "No parking at the boarding pier",
+      "quote": "乗船場には駐車場がございません。",
+      "url": "https://www.harumiya.co.jp/schedule/"
+    },
+    {
+      "text": "Year-end: the newest listed 年末年始 closure notice is dated 2025.12.20; no 2026-27 year-end dates appear in the fetched text",
+      "quote": "年末年始休業お知らせ",
+      "url": "https://www.harumiya.co.jp/news/"
+    },
+    {
+      "text": "Schedule page says bookings from February onward open in early December (line is dated to Jan 2026, so may be out of date)",
+      "quote": "2月以降のご予約は12月上旬ごろより予約を開始いたします",
+      "url": "https://www.harumiya.co.jp/schedule/"
+    }
+  ]
+}

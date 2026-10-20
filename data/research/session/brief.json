@@ -1,7 +1,7 @@
 {
   "title": "Japan, Dec 2026 · 8 friends",
   "people": 8,
-  "who": "A group of 8, all around 20 years old, all Asian; they love to drink, want to maximise every moment, and love to do it all — Round1, shopping and more.",
+  "who": "A group of 8, all around 20 years old, all Asian; eight degenerates who love to drink, want to maximise every moment and love to do it all: Round1, streetwear and vintage, karaoke, izakaya nights, and one-of-a-kind group moments (Santa suits, wrestling, a dinner cruise). Plan C (data/japan-plan-c.md) is the real them.",
   "legs": [
     {
       "city": "Tokyo",
@@ -74,7 +74,83 @@
     {
       "id": "w11",
       "text": "Stays already booked: Ninja House in Toshima (Tokyo), Hot Spring Hakone Villa in Sengokuhara, Kujō House in Nishi-ku (Osaka), Garfield House in Shinjuku (Tokyo)"
+    },
+    {
+      "id": "w12",
+      "text": "Christmas Day in Santa suits, the whole group, ending in a Round1 all-nighter in Osaka"
+    },
+    {
+      "id": "w13",
+      "text": "The Grand Santa Parade in Umekita, Osaka (about 500 Santas, suits provided and yours to keep; needs a sign-up; Plan C had it on Tue 22 Dec)"
+    },
+    {
+      "id": "w14",
+      "text": "Pro wrestling: Pro Wrestling NOAH Thanksgiving 2026 at Korakuen Hall (Plan C had Fri 18 Dec)"
+    },
+    {
+      "id": "w15",
+      "text": "A B.LEAGUE basketball game: Tokyo Sunrockers at Toyota Arena Tokyo (Plan C had Sun 27 Dec)"
+    },
+    {
+      "id": "w16",
+      "text": "A yakatabune dinner cruise with unlimited drinks on Sat 26 Dec, the night of the Odaiba fireworks"
+    },
+    {
+      "id": "w17",
+      "text": "Hiroshima and Miyajima (floating torii, grilled oysters, okonomiyaki) if a day can be spared; otherwise Kyoto and Nara carry the Kansai days"
+    },
+    {
+      "id": "w18",
+      "text": "Yunessun wine, sake and coffee baths in Hakone, and a villa wagyu cook-off on the Hakone night"
+    },
+    {
+      "id": "w19",
+      "text": "A KFC Christmas party barrel on Christmas Eve"
+    },
+    {
+      "id": "w20",
+      "text": "Fugu in Osaka"
+    },
+    {
+      "id": "w21",
+      "text": "Morning sumo practice at a stable (Plan C: Arashio-beya in Ryōgoku) and a private omakase counter"
+    },
+    {
+      "id": "w22",
+      "text": "A 24-hour onsen night (Thermae-yu in Kabukichō or Spa World in Shinsekai)"
+    },
+    {
+      "id": "w23",
+      "text": "Streetwear, sneakers and vintage (Harajuku, Koenji, Shimokitazawa, Ameyoko, Amerikamura), Don Quijote and tax-free hauls"
+    },
+    {
+      "id": "w24",
+      "text": "Karaoke (Manekineko, Big Echo, Karaokekan), arcades, izakaya and yokocho nights, standing bars, and the last-train problem solved properly"
+    },
+    {
+      "id": "w25",
+      "text": "No nightclubs (a group rule from Plan C; ignore touts and bar invites in Kabukichō)"
+    },
+    {
+      "id": "w26",
+      "text": "Legendary, not generic: nothing only there because it is on page one of every Tokyo or Kyoto itinerary, and no sit-down sightseeing filler between the big moments"
+    },
+    {
+      "id": "w27",
+      "text": "Be bold: prefer one-of-a-kind, local-run, hard-to-book and group-scale things, and name a safe fallback beside every hard-to-book thing"
+    },
+    {
+      "id": "w28",
+      "text": "At most two deliberate nights under 4 hours' sleep; any early start after a late night needs a reason (rope-drop at USJ, first light at Fushimi Inari)"
+    },
+    {
+      "id": "w29",
+      "text": "Everyone stays together; every booking is for 8 at the same table or private room (8名で、同じテーブル/個室)"
+    },
+    {
+      "id": "w30",
+      "text": "Plan C is the spine: keep what survives checking and replace what does not with something equally special"
     }
   ],
-  "pace": "Packed — maximise every day, including late nights out drinking"
+  "pace": "Packed — maximise every day, including late nights out drinking, but at most two deliberate nights under 4 hours' sleep"
 }

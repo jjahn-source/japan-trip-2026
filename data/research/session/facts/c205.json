@@ -1,0 +1,50 @@
+{
+  "open": [
+    {
+      "dates": [
+        "2026-12-15",
+        "2026-12-16",
+        "2026-12-17",
+        "2026-12-18",
+        "2026-12-19",
+        "2026-12-26",
+        "2026-12-27",
+        "2026-12-28",
+        "2026-12-29"
+      ],
+      "open": "12:00",
+      "close": "20:00",
+      "quote": "12:00〜20:00",
+      "url": "https://san-tatsu.jp/spots/537054/"
+    }
+  ],
+  "closed": [],
+  "last_entry": null,
+  "prices": [],
+  "fixed_minutes": null,
+  "time_limit": null,
+  "group": null,
+  "booking": null,
+  "notes": [
+    {
+      "text": "Hours from listing (secondary); the listing omits year-end and temporary closures",
+      "quote": "年末年始、お盆、臨時休業などは省略してあります。",
+      "url": "https://san-tatsu.jp/spots/537054/"
+    },
+    {
+      "text": "Official site has a year-end hours notice (dated 2025.12.24; body not retrieved)",
+      "quote": "【年末年始の営業時間について】",
+      "url": "http://newyorkjoeexchange.com/"
+    },
+    {
+      "text": "Shimokitazawa shop phone (per listing)",
+      "quote": "03-5738-2077",
+      "url": "https://san-tatsu.jp/spots/537054/"
+    },
+    {
+      "text": "Shimokitazawa branch access",
+      "quote": "下北沢駅北口より徒歩5分！下北沢一番街沿いにあります。",
+      "url": "http://newyorkjoeexchange.com/access.php"
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "open": [
+    {
+      "dates": [
+        "2026-12-15",
+        "2026-12-16",
+        "2026-12-17",
+        "2026-12-18",
+        "2026-12-19",
+        "2026-12-26",
+        "2026-12-27",
+        "2026-12-28",
+        "2026-12-29"
+      ],
+      "open": "11:30",
+      "close": "23:30",
+      "quote": "居酒屋タイム　11:30～23:30",
+      "url": "https://r.gnavi.co.jp/ga3y900/"
+    }
+  ],
+  "closed": [],
+  "last_entry": {
+    "time": "23:00",
+    "quote": "（L.O.23:00、ドリンクL.O.23:00）",
+    "url": "https://r.gnavi.co.jp/ga3y900/"
+  },
+  "prices": [],
+  "fixed_minutes": null,
+  "time_limit": null,
+  "group": {
+    "text": "Private hire for 40-100 people; banquet max 100 seated; zashiki private rooms 40-50 people, table private rooms 4-30 (ask the shop)",
+    "quote": "100名様（着席時）",
+    "url": "https://r.gnavi.co.jp/ga3y900/"
+  },
+  "booking": {
+    "text": "Online booking via gnavi",
+    "quote": "ネット予約はこちらから",
+    "url": "https://r.gnavi.co.jp/ga3y900/"
+  },
+  "notes": [
+    {
+      "text": "Closed on 元日 (Jan 1), not a trip date",
+      "quote": "元旦はお休みです。",
+      "url": "https://r.gnavi.co.jp/ga3y900/"
+    }
+  ]
+}

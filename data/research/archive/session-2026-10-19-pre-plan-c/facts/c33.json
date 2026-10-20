@@ -1,0 +1,47 @@
+{
+  "open": [
+    {
+      "dates": [
+        "2026-12-21",
+        "2026-12-22",
+        "2026-12-23",
+        "2026-12-24",
+        "2026-12-25",
+        "2026-12-26"
+      ],
+      "open": "00:00",
+      "close": "24:00",
+      "quote": "24時間 (8:45～10:00は受付中止)",
+      "url": "https://www.spaworld.co.jp/event/riyouannai/"
+    }
+  ],
+  "closed": [],
+  "last_entry": null,
+  "prices": [],
+  "fixed_minutes": null,
+  "time_limit": null,
+  "group": null,
+  "booking": null,
+  "notes": [
+    {
+      "text": "Entry reception stopped 8:45 to 10:00",
+      "quote": "24時間 (8:45～10:00は受付中止)",
+      "url": "https://www.spaworld.co.jp/event/riyouannai/"
+    },
+    {
+      "text": "Some locations may close temporarily for maintenance",
+      "quote": "※場所によりメンテナンスのため、臨時休止する場合がございます。",
+      "url": "https://www.spaworld.co.jp/event/riyouannai/"
+    },
+    {
+      "text": "Under-elementary-age children cannot enter alone",
+      "quote": "小人（小学生以下）のみでのご入館はお断りしております。",
+      "url": "https://www.spaworld.co.jp/event/riyouannai/"
+    },
+    {
+      "text": "Visitors with tattoos are refused entry",
+      "quote": "タトゥー・イレズミのある方の入館はお断りしております。",
+      "url": "https://www.spaworld.co.jp/event/riyouannai/"
+    }
+  ]
+}

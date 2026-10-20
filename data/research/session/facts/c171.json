@@ -1,0 +1,100 @@
+{
+  "open": [
+    {
+      "dates": [
+        "2026-12-15"
+      ],
+      "open": "09:30",
+      "close": "17:00",
+      "quote": "入室可能時間：9時30分～17時00分",
+      "url": "https://www.zaimu.metro.tokyo.lg.jp/tochousha/goannai/tenbou"
+    },
+    {
+      "dates": [
+        "2026-12-16",
+        "2026-12-17",
+        "2026-12-18",
+        "2026-12-19",
+        "2026-12-26",
+        "2026-12-27",
+        "2026-12-28"
+      ],
+      "open": "09:30",
+      "close": "21:30",
+      "quote": "入室可能時間：9時30分～21時30分",
+      "url": "https://www.zaimu.metro.tokyo.lg.jp/tochousha/goannai/tenbou"
+    }
+  ],
+  "closed": [
+    {
+      "dates": [
+        "2026-12-15"
+      ],
+      "why": "Rest day on the 1st and 3rd Tuesday (south observatory)",
+      "what": "South observatory only; north observatory open",
+      "whole_place": false,
+      "quote": "第1及び第3火曜日（南展望室）",
+      "url": "https://www.zaimu.metro.tokyo.lg.jp/tochousha/goannai/tenbou"
+    },
+    {
+      "dates": [
+        "2026-12-28"
+      ],
+      "why": "Rest day on the 2nd and 4th Monday (north observatory)",
+      "what": "North observatory only; south observatory open",
+      "whole_place": false,
+      "quote": "※毎月第２及び第４月曜日(祝日の場合は翌平日）は休室日です。",
+      "url": "https://www.zaimu.metro.tokyo.lg.jp/tochousha/goannai/tenbou"
+    },
+    {
+      "dates": [
+        "2026-12-29"
+      ],
+      "why": "Year-end closure",
+      "what": "Both observatories closed (whole observation deck)",
+      "whole_place": true,
+      "quote": "年末年始（12月29日～31日、1月2日及び3日）及び都庁舎点検日は両展望室とも休室となります。",
+      "url": "https://www.zaimu.metro.tokyo.lg.jp/tochousha/goannai/tenbou"
+    }
+  ],
+  "last_entry": {
+    "time": "21:30",
+    "quote": "入室可能時間：9時30分～21時30分",
+    "url": "https://www.zaimu.metro.tokyo.lg.jp/tochousha/goannai/tenbou"
+  },
+  "prices": [],
+  "fixed_minutes": null,
+  "time_limit": null,
+  "group": {
+    "text": "Group reservations not accepted",
+    "quote": "事前予約、団体予約は受け付けしておりません。",
+    "url": "https://www.zaimu.metro.tokyo.lg.jp/tochousha/goannai/tenbou"
+  },
+  "booking": {
+    "text": "No advance booking; walk-in queue about 20-30 minutes",
+    "quote": "入室まで20～30分お並びいただいております。",
+    "url": "https://www.zaimu.metro.tokyo.lg.jp/tochousha/goannai/tenbou"
+  },
+  "notes": [
+    {
+      "text": "North observatory 9:30-17:00 when open with the south",
+      "quote": "入室可能時間：9時30分～17時00分",
+      "url": "https://www.zaimu.metro.tokyo.lg.jp/tochousha/goannai/tenbou"
+    },
+    {
+      "text": "Page conflicts: north open until 22:00 when south is closed (Dec 15), but north entry listed to 17:00",
+      "quote": "北展望室の開室時間は17時30分まで（南展望室が休室の場合は22時まで）です。",
+      "url": "https://www.zaimu.metro.tokyo.lg.jp/tochousha/goannai/tenbou"
+    },
+    {
+      "text": "Page also lists site hours 9:30-22:00",
+      "quote": "開室時間　9時30分～22時00分",
+      "url": "https://www.zaimu.metro.tokyo.lg.jp/tochousha/goannai/tenbou"
+    },
+    {
+      "text": "May close suddenly in bad weather; check the tocho_tenbou X account",
+      "quote": "悪天候などの理由により急遽、閉室する場合があります。",
+      "url": "https://www.zaimu.metro.tokyo.lg.jp/tochousha/goannai/tenbou"
+    }
+  ]
+}

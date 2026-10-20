@@ -1,0 +1,33 @@
+{
+  "open": [
+    {
+      "dates": [
+        "2026-12-15",
+        "2026-12-16",
+        "2026-12-17",
+        "2026-12-18",
+        "2026-12-19",
+        "2026-12-26",
+        "2026-12-27",
+        "2026-12-28",
+        "2026-12-29"
+      ],
+      "open": "09:00",
+      "close": "17:00",
+      "quote": "9:00〜17:00 年中無休",
+      "url": "https://www.hakone-oam.or.jp/info/"
+    }
+  ],
+  "closed": [],
+  "last_entry": null,
+  "prices": [],
+  "fixed_minutes": null,
+  "time_limit": null,
+  "group": {
+    "text": "Group admission rate for 15 or more; bus parking needs an advance reservation by FAX",
+    "quote": "バスの駐車場をご利用の方は、必ずFAXで予約をお願いします。",
+    "url": "https://www.hakone-oam.or.jp/info/"
+  },
+  "booking": null,
+  "notes": []
+}

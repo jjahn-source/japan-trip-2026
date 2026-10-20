@@ -1,0 +1,36 @@
+{
+  "open": [
+    {
+      "dates": [
+        "2026-12-21",
+        "2026-12-22",
+        "2026-12-23",
+        "2026-12-24",
+        "2026-12-25",
+        "2026-12-26"
+      ],
+      "open": "21:00",
+      "close": "29:00",
+      "quote": "OPEN-CLOSE / 21:00 - 5:00",
+      "url": "http://owl-osaka.net/"
+    }
+  ],
+  "closed": [],
+  "last_entry": null,
+  "prices": [],
+  "fixed_minutes": null,
+  "time_limit": null,
+  "group": null,
+  "booking": {
+    "text": "VIP reservations open 1 week ahead; tel 06-6362-0822",
+    "quote": "ご予約は1週間前から！06-6362-0822",
+    "url": "http://owl-osaka.net/"
+  },
+  "notes": [
+    {
+      "text": "Bag inspection at entry for all guests",
+      "quote": "ご入場の際、全てのお客様に手荷物検査を実施しております。",
+      "url": "http://owl-osaka.net/"
+    }
+  ]
+}

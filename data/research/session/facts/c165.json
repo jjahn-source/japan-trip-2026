@@ -1,5 +1,23 @@
 {
-  "open": [],
+  "open": [
+    {
+      "dates": [
+        "2026-12-15",
+        "2026-12-16",
+        "2026-12-17",
+        "2026-12-18",
+        "2026-12-19",
+        "2026-12-26",
+        "2026-12-27",
+        "2026-12-28",
+        "2026-12-29"
+      ],
+      "open": "12:00",
+      "close": "20:00",
+      "quote": "12:00pm - 8:00pm",
+      "url": "https://www.gltjp.com/en/directory/item/14501/"
+    }
+  ],
   "closed": [],
   "last_entry": null,
   "prices": [],
@@ -7,5 +25,16 @@
   "time_limit": null,
   "group": null,
   "booking": null,
-  "notes": []
+  "notes": [
+    {
+      "text": "Third-party listing, not the official site; open every day",
+      "quote": "Open every day",
+      "url": "https://www.gltjp.com/en/directory/item/14501/"
+    },
+    {
+      "text": "Buy-back counter closes at 7:30pm",
+      "quote": "(Reception for buy back stand closes at 7:30pm)",
+      "url": "https://www.gltjp.com/en/directory/item/14501/"
+    }
+  ]
 }

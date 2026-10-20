@@ -1,0 +1,40 @@
+{
+  "open": [
+    {
+      "dates": [
+        "2026-12-19",
+        "2026-12-20"
+      ],
+      "open": "17:00",
+      "close": "24:00",
+      "quote": "営業時間　17:00~24:00",
+      "url": "https://funnys.jp/"
+    }
+  ],
+  "closed": [
+    {
+      "dates": [
+        "2026-12-21"
+      ],
+      "why": "Regular closing day (Monday)",
+      "what": "whole restaurant",
+      "whole_place": true,
+      "quote": "定休日　月曜日・火曜日（祝日を除く）",
+      "url": "https://funnys.jp/"
+    }
+  ],
+  "last_entry": null,
+  "prices": [
+    {
+      "what": "Basic burger (Los Angeles), tax included",
+      "yen": 1870,
+      "quote": "￥1,870税込",
+      "url": "https://funnys.jp/"
+    }
+  ],
+  "fixed_minutes": null,
+  "time_limit": null,
+  "group": null,
+  "booking": null,
+  "notes": []
+}

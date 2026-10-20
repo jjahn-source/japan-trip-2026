@@ -1,0 +1,37 @@
+{
+  "open": [
+    {
+      "dates": [
+        "2026-12-19",
+        "2026-12-20",
+        "2026-12-21"
+      ],
+      "open": "11:00",
+      "close": "14:30",
+      "quote": "11:00～14:30(受付終了)",
+      "url": "http://www.ginkatsutei.jp/"
+    }
+  ],
+  "closed": [],
+  "last_entry": {
+    "time": "19:00",
+    "quote": "17:00～19:00(受付終了)",
+    "url": "http://www.ginkatsutei.jp/"
+  },
+  "prices": [],
+  "fixed_minutes": null,
+  "time_limit": null,
+  "group": null,
+  "booking": {
+    "text": "Reservations are not accepted at the honten (Gora)",
+    "quote": "＊ご予約は承っておりません。",
+    "url": "http://www.ginkatsutei.jp/"
+  },
+  "notes": [
+    {
+      "text": "Honten (Gora) phone 0460-82-1440",
+      "quote": "tel.0460-82-1440",
+      "url": "http://www.ginkatsutei.jp/"
+    }
+  ]
+}

@@ -1,0 +1,333 @@
+{
+  "candidates": [
+    {
+      "name": "Aihara Meat Shop (wagyu for the villa cook-off)",
+      "name_ja": "相原精肉店",
+      "city": "Hakone",
+      "area": "Sengokuhara 226 (old Otomeya Shopping Mart building; car park behind)",
+      "kind": "shopping",
+      "why": "The only proper butcher in Sengokuhara, 3 minutes from the villa: a locally run shop known for its house 'Monjiro' roast beef (about ¥1,050-1,250/100 g in 2024 listings) and deli fry-ups. Phone ahead and pre-order wagyu steaks/yakiniku cuts for 8 (plan about 300 g a head, 2.4 kg) so the cook-off night starts with a Sengokuhara local's meat, not supermarket packs. The Otomeya mini-mart around it now shows as permanently closed on Google, but the butcher itself is listed operational with 400+ reviews. Pair with Yamakawaya (craft beer, beer-server rental) and A-Coop Sengokuhara for drinks and veg.",
+      "best_time": "Sat 19 Dec, buy on arrival before 16:30 (closes 17:00); mornings have the most deli items",
+      "dates": "Sat 2026-12-19 (open); closed Wednesdays (one source also says two Tuesdays a month)",
+      "price": "Wagyu cuts roughly ¥1,500-3,000/100 g (ask by phone); roast beef ~¥1,050-1,250/100 g",
+      "booking": "Call 0460-84-8429 a few days ahead (Japanese) to reserve wagyu for 8: '12月19日（土）に和牛ステーキ／焼肉用を8人分、約2.4kg取り置きお願いします'. Fallback: buy wagyu at a Shinjuku depachika (Isetan/Keio B1 meat counters) the morning of 19 Dec with ice packs, or Yamazaki Seinikuten in Gotemba (phone orders 0120-122-986, Kinkaton pork) ; last resort A-Coop Sengokuhara.",
+      "group_of_8": "Takeaway only; no table needed. One person plus phone pre-order covers all 8.",
+      "hours": "9:00-17:00",
+      "visit_minutes": 15,
+      "first_last": null,
+      "lat": 35.2712484,
+      "lng": 139.0102606,
+      "wish_ids": [
+        "w18",
+        "w29"
+      ],
+      "evidence": [
+        {
+          "source": "Google Maps (Aihara Meat Shop)",
+          "url": "https://maps.google.com/?cid=6757753907281673083",
+          "note": "Operational, 4.3 from 426 reviews, 9:00-17:00, closed Wednesday"
+        },
+        {
+          "source": "Yukoyuko spot guide",
+          "url": "https://www.yukoyuko.net/onsen/spot/s0001072",
+          "note": "Butcher in Sengokuhara, Monjiro roast beef, tel 0460-84-8429, takeaway only"
+        },
+        {
+          "source": "Hoshino Resorts Hakone takeout guide",
+          "url": "https://hoshinoresorts.com/jp/guide/area/kanto/kanagawa/hakone/hakone-takeout/",
+          "note": "Lists the shop, 9:00-17:00, closed Wednesday and two Tuesdays a month"
+        }
+      ],
+      "confidence": 0.8
+    },
+    {
+      "name": "Nihonsakari sake bath + renewed wine bath at Yunessun",
+      "name_ja": "箱根小涌園ユネッサン「日本盛風呂」（シン・酒風呂）／リニューアル「ワイン風呂」",
+      "city": "Hakone",
+      "area": "Ninotaira / Kowakudani (Kowakien)",
+      "kind": "event",
+      "why": "Verifies the brief's set piece (w18) for the exact dates. The wine bath was rebuilt as an immersive 'winery' room (vines, wine barrels) and reopened on 18 Sep 2026 for the 25th anniversary; the sake bath this season is a dated collaboration, 'Nihonsakari-buro', using Nihonsakari daiginjo nama-genshu, running 20 Oct 2026 to 4 Jan 2027 in the indoor swimsuit area. The staff pouring sake into the bath is only 26 Dec-4 Jan, so the group will miss that show on 20 Dec; the wine pours by staff run daily (times not published, ask at entry). The coffee bath still appears in 2026 guides but is not on the official news pages: confirm at the gate. Phones are allowed for photos and video.",
+      "best_time": "Sun 20 Dec at 9:00 opening (Sunday queues of an hour or more are reported); 2-3 hours",
+      "dates": "Sake bath 2026-10-20 to 2027-01-04; wine bath year-round since 2026-09-18; sake pouring show only 2026-12-26 to 2027-01-04",
+      "price": "Swimsuit area from ¥2,500 adult (date-dependent pricing up to ~¥3,000); combo with bare-skin Mori no Yu ~¥3,500; swimsuit rental from ¥1,250; towels extra; Freepass holders get a discount",
+      "booking": "Buy e-tickets on yunessun.com in advance (date-specific). No reservation needed for 8. Fallback if closed or packed: Hakone Yuryo private open-air rooms (tattoo-OK) or Tenseien in Hakone-Yumoto.",
+      "group_of_8": "Fine; mixed-gender swimsuit zone so all 8 stay together. Tattoos must be covered (rash guard).",
+      "hours": "Sat/Sun/hol 9:00-19:00 (last entry 18:00); weekdays 10:00-18:00 (last entry 17:00); Mori no Yu 11:00-20:00",
+      "visit_minutes": 150,
+      "first_last": "Bus from Sengokuhara via Gora or Tozan train to Kowakudani; last entry 18:00 on Sunday",
+      "lat": 35.2394224,
+      "lng": 139.0453369,
+      "wish_ids": [
+        "w18",
+        "w4",
+        "w8"
+      ],
+      "evidence": [
+        {
+          "source": "Nihonsakari x Yunessun press release",
+          "url": "https://san-tatsu.jp/pressrelease/560812/",
+          "note": "Sake bath 2026-10-20 to 2027-01-04, pouring show 12/26-1/4, hours and prices"
+        },
+        {
+          "source": "Fujita Kanko press release (wine bath renewal)",
+          "url": "https://www.oricon.co.jp/pressrelease/2999249/",
+          "note": "Wine bath renewal opened 2026-09-18, year-round, ¥2,500 adult"
+        },
+        {
+          "source": "Yunessun official site",
+          "url": "https://www.yunessun.com/",
+          "note": "Hours, swimsuit zone, phones allowed, tattoo cover rule, Yamanone closed for maintenance"
+        },
+        {
+          "source": "2026 English guide",
+          "url": "https://samuraicarjapanjdm.jp/yunessun-hakone-hot-spring-theme-park-guide/",
+          "note": "Lists wine, coffee, green tea and sake baths; swimsuit rental ¥1,250+; long holiday queues"
+        }
+      ],
+      "confidence": 0.85
+    },
+    {
+      "name": "Otome Pass Fuji viewpoint (Otome no Kane) on the way out",
+      "name_ja": "乙女峠 乙女の鐘展望台／FUJIMI CAFE GOTEMBA",
+      "city": "Hakone",
+      "area": "Otome Pass, Sengokuhara-Gotemba border (Route 138)",
+      "kind": "sight",
+      "why": "One of the 'three Fuji-viewing passes': Fuji fills the frame over Gotemba from a bell platform a few minutes' walk above the Fujimi Cafe. It sits right on the Sengokuhara to Gotemba road, so it costs the group about 20 minutes on check-out morning and gives them their Fuji photo at its clearest (December mornings before cloud builds). No early alarm needed after a late night: 9:00-10:30 is ideal. Dawn option for the brave: sunrise is about 6:47 on 21 Dec and Fuji turns pink 6:40-7:10, a 10-minute taxi from the villa.",
+      "best_time": "Mon 21 Dec 9:00-10:30 en route to Gotemba (or 6:40 for the pink Fuji)",
+      "dates": "Any day; Fujimi Cafe closed Thursdays",
+      "price": "Free",
+      "booking": "None. Book two 9-seat jumbo taxis or a 10-seater van for check-out (Hakone Tozan Taxi / MK) with a 20-min stop here, luggage included. Fallback if Fuji is clouded: skip and go straight to Gotemba; Fuji from the GPO Hill Side bridge later in the day.",
+      "group_of_8": "Open viewpoint; fine for 8. Bus stop 'Otome-toge' on the Sengokuhara-Gotemba bus line if not taxiing.",
+      "hours": "Viewpoint 24 h; Fujimi Cafe 10:30-16:30 (closed Thu)",
+      "visit_minutes": 25,
+      "first_last": "Buses Sengokuhara-Gotemba about twice an hour in daytime",
+      "lat": 35.282723,
+      "lng": 138.983013,
+      "wish_ids": [
+        "w5",
+        "w26"
+      ],
+      "evidence": [
+        {
+          "source": "Tabi-mag (Otome Pass)",
+          "url": "https://tabi-mag.jp/sz363/",
+          "note": "Otome no Kane platform above Fujimi Cafe, one of the three Fuji-viewing passes, 1,005 m"
+        },
+        {
+          "source": "Rurubu spot page",
+          "url": "https://rurubu.jp/andmore/spot/80014538",
+          "note": "Otome Pass Fuji view and access on Route 138"
+        },
+        {
+          "source": "Google Maps (Fujimi Cafe)",
+          "url": "https://www.fujimi-cafe.com/",
+          "note": "Operational, 4.1 from 1,298 reviews, 10:30-16:30, closed Thursday"
+        }
+      ],
+      "confidence": 0.75
+    },
+    {
+      "name": "Gotemba Premium Outlets on check-out day (verdict: yes, if they want the haul)",
+      "name_ja": "御殿場プレミアム・アウトレット",
+      "city": "Hakone",
+      "area": "Gotemba (Fukasawa 1312)",
+      "kind": "shopping",
+      "why": "The honest call: it is not one-of-a-kind (Rinku Premium Outlets near Osaka is similar), but for a streetwear/sneaker group it is the best use of a dead check-out morning: Nike, adidas, New Balance, Onitsuka Tiger, Beams and United Arrows outlets with tax-free, Fuji over the car park, and Monday 21 Dec is a weekday so crowds are lighter than any weekend. It sits directly on the way out (direct bus from Sengoku). Plan 10:00-13:30, then bus to Mishima for the Shinkansen and reach Osaka for the night. Skip it if the group already hauled in Harajuku and would rather drink: then take the Odawara route (Suzuhiro/Hakone Beer).",
+      "best_time": "Mon 21 Dec 10:00 opening to about 13:30",
+      "dates": "Mon 2026-12-21; winter hours Dec-Feb 10:00-19:00",
+      "price": "Free entry; Shinjuku-version Freepass holders get the Gotemba highway bus at a discount and GPO is in the Freepass benefits list",
+      "booking": "None. Luggage: use the outlet's coin lockers/luggage service (confirm at Information Center) or have the taxi drop bags at Gotemba/Mishima station lockers. Out: GPO to Mishima Station direct bus ~50 min, then Tokaido Shinkansen Hikari/Kodama to Shin-Osaka (~2 h). Aim for a 14:30-15:30 Mishima departure; latest through-trains to Shin-Osaka leave Mishima around 21:00 (check JR timetable). Fallback: free shuttle to JR Gotemba Station then Gotemba Line to Kozu/Numazu for the Shinkansen.",
+      "group_of_8": "Split into pairs by store, regroup at the food court; no booking needed",
+      "hours": "10:00-19:00 (Dec-Feb)",
+      "visit_minutes": 210,
+      "first_last": "Direct bus Sengoku to GPO ~30 min; GPO to Mishima Station ~50 min",
+      "lat": 35.306230545,
+      "lng": 138.962028503,
+      "wish_ids": [
+        "w7",
+        "w23",
+        "w5"
+      ],
+      "evidence": [
+        {
+          "source": "Gotemba Premium Outlets access page",
+          "url": "https://www.premiumoutlets.co.jp/en/gotemba/access/",
+          "note": "Dec-Feb 10:00-19:00; direct buses from Sengoku, Gora, Hakone-Yumoto, Mishima, Shinjuku"
+        },
+        {
+          "source": "Hakone Navi Freepass page",
+          "url": "https://www.hakonenavi.jp/transportation/ticket/freepass/",
+          "note": "Shinjuku-Gotemba highway bus ¥1,400 for Freepass holders; GPO among benefit facilities"
+        },
+        {
+          "source": "Willer outlet feature",
+          "url": "https://travel.willer.co.jp/campaign/outlet/",
+          "note": "Winter hours 10:00-19:00"
+        }
+      ],
+      "confidence": 0.7
+    },
+    {
+      "name": "Hikari no Sumika illumination + Gotemba Kogen Beer at Tokinosumika",
+      "name_ja": "御殿場高原 時之栖「ひかりのすみか」／御殿場高原ビール",
+      "city": "Hakone",
+      "area": "Gotemba Kogen (Kōyama 719), ~30 min by taxi from Sengokuhara",
+      "kind": "event",
+      "why": "The big-scale winter light show near Hakone (tunnel of light, 'Versailles' fountain laser show on Ōkyū no Oka) on a resort that also has its own brewery, Gotemba Kogen Beer, with a beer hall restaurant: drink fresh house lagers, then walk the lights. Far bigger than the Glass no Mori illumination already in the plan, and a better fit for a drinking group. Costs a 30-min taxi each way, so it competes with the cook-off night: best as an early evening (16:30-19:30) on Sat 19 Dec with the cook-off pushed to 20:30, or as a replacement for Glass no Mori.",
+      "best_time": "16:30-19:30, lights on from 16:30",
+      "dates": "Period 2: 2026-11-01 to 2027-01-11, nightly 16:30-22:00",
+      "price": "Ōkyū no Oka ¥1,300, Mori no Sumika ¥700, both ¥1,800 (some free areas); in past years the paid area cost more from 22 Dec, so 19-20 Dec dodges that",
+      "booking": "No booking for the lights. Beer hall: phone Tokinosumika (0550-87-3700) for a table of 8. Transport: two jumbo taxis (book ahead); free shuttle from JR Gotemba Station otherwise. Fallback: Glass no Mori Christmas illumination in Sengokuhara (walkable).",
+      "group_of_8": "Large beer hall and outdoor site; 8 is easy",
+      "hours": "Lights 16:30-22:00",
+      "visit_minutes": 150,
+      "first_last": "Last taxis back to Sengokuhara must be pre-booked; no late bus",
+      "lat": 35.2357818,
+      "lng": 138.9247722,
+      "wish_ids": [
+        "w4",
+        "w8",
+        "w27"
+      ],
+      "evidence": [
+        {
+          "source": "Jorudan illumination news",
+          "url": "https://sp.jorudan.co.jp/illumi/news/jrd_260909_1.html",
+          "note": "2026-27 dates and lighting times"
+        },
+        {
+          "source": "iwafu event page",
+          "url": "https://www.iwafu.com/jp/events/1163932",
+          "note": "Periods, ¥1,300/¥700/¥1,800 prices"
+        },
+        {
+          "source": "Hakone Navi winter illumination feature",
+          "url": "https://www.hakonenavi.jp/feature/16807",
+          "note": "Tokinosumika named among the Hakone/Gotemba winter lights; Versailles fountain laser show; higher price over the holidays"
+        }
+      ],
+      "confidence": 0.7
+    },
+    {
+      "name": "Kirin Fuji Gotemba Distillery tour and whisky tasting (Sunday only)",
+      "name_ja": "キリンディスティラリー 富士御殿場蒸溜所 見学ツアー",
+      "city": "Hakone",
+      "area": "Gotemba (Shibanta 970), ~35 min by taxi from Sengokuhara",
+      "kind": "experience",
+      "why": "A working whisky distillery at the foot of Fuji with an 80-minute tour (60 min of distilling floor, 20 min tasting of Fuji single grain and Riku). For a group that loves to drink it beats another museum. Catch: it is closed Mondays, so check-out day (Mon 21 Dec) does not work; only Sun 20 Dec, which collides with Yunessun and the ropeway. Treat it as a swap-in if the weather kills Owakudani.",
+      "best_time": "Sun 20 Dec morning tour",
+      "dates": "Sun 2026-12-20 only (closed Mon 21 Dec; closed for year-end later)",
+      "price": "About ¥500 per person (older listings), tasting 20+ only, bring ID",
+      "booking": "Tours by advance online reservation on fujigotemba-distillery.com (or 0550-89-4909); book 8 places together as soon as December slots open. Anyone under 20 tours without tasting. Fallback: Gotemba Kogen Beer brewery hall at Tokinosumika.",
+      "group_of_8": "Tours take small groups; 8 should fit one slot if booked early",
+      "hours": "9:30-16:00, closed Mondays",
+      "visit_minutes": 80,
+      "first_last": "Free shuttle from JR Gotemba Station",
+      "lat": 35.3366322,
+      "lng": 138.8968073,
+      "wish_ids": [
+        "w4",
+        "w27"
+      ],
+      "evidence": [
+        {
+          "source": "at-s spot page",
+          "url": "https://www.at-s.com/spot/article/138132",
+          "note": "Closed Mondays, reception 9:30-16:00, ¥500 adults 20+, shuttle from Gotemba Station"
+        },
+        {
+          "source": "Mynavi news",
+          "url": "https://news.mynavi.jp/article/20230729-2737844/",
+          "note": "Reservation-only tours, 80 min (60 + 20 tasting)"
+        },
+        {
+          "source": "Google Maps",
+          "url": "https://www.fujigotemba-distillery.com/",
+          "note": "Operational, 4.3 from 485 reviews, Tue-Sun 9:30-16:00"
+        }
+      ],
+      "confidence": 0.55
+    },
+    {
+      "name": "Komagatake Ropeway to Hakone Mototsumiya (Owakudani fallback, Fuji over Lake Ashi)",
+      "name_ja": "箱根 駒ヶ岳ロープウェー／箱根元宮",
+      "city": "Hakone",
+      "area": "Hakone-en, Motohakone (east shore of Lake Ashi)",
+      "kind": "sight",
+      "why": "The named fallback if Owakudani is shut by volcanic gas or wind: a 7-minute 101-person gondola from the lake shore to the 1,327 m summit of Komagatake with the inner shrine of Hakone Shrine (Mototsumiya), a 360-degree view of Fuji, Lake Ashi and Sagami Bay. Far emptier than Owakudani and pairs with Hakone Shrine and Ashinoko Chaya already in the plan.",
+      "best_time": "Before 14:00 on a clear day; Sun 20 Dec",
+      "dates": "Winter timetable Dec to mid-Jan: up 9:00-16:30, last down 16:50; suspends in strong wind",
+      "price": "Round trip ¥2,200 adult (not covered by the Hakone Freepass; Prince/Izu-Hakone line)",
+      "booking": "None. Fallback: Hakone Shrine and the Moto-Hakone lakeside instead.",
+      "group_of_8": "Large gondola, easy for 8",
+      "hours": "9:00-16:50 (winter)",
+      "visit_minutes": 75,
+      "first_last": "Bus Moto-Hakone to Hakone-en ~10 min",
+      "lat": 35.21256,
+      "lng": 139.00988,
+      "wish_ids": [
+        "w26",
+        "w5"
+      ],
+      "evidence": [
+        {
+          "source": "Banzoku Biology (Komagatake Ropeway year-end)",
+          "url": "https://banzokubiology.com/?p=14380",
+          "note": "Winter hours, year-end crowding"
+        },
+        {
+          "source": "Tabi-mag",
+          "url": "https://tabi-mag.jp/kn0176/",
+          "note": "Ropeway, Mototsumiya summit, Fuji view"
+        },
+        {
+          "source": "Prince Hotels Hakone area",
+          "url": "https://www.princehotels.co.jp/hakone-area/hakone_komagatake/enjoy/",
+          "note": "Operator page for the summit"
+        }
+      ],
+      "confidence": 0.65
+    },
+    {
+      "name": "Suzuhiro Kamaboko no Sato + Hakone Beer (Odawara exit route)",
+      "name_ja": "鈴廣かまぼこの里／箱根ビール",
+      "city": "Hakone",
+      "area": "Kazamatsuri, Odawara (Hakone Tozan line, 1 stop from Iriuda / 2 from Hakone-Yumoto)",
+      "kind": "experience",
+      "why": "The named alternative to the outlet on check-out day: hand-make your own kamaboko and chikuwa at Odawara's 160-year-old fishcake house, then drink Hakone Beer, which Suzuhiro brews, at its beer restaurant next door, before an Odawara Shinkansen (more Hikari stops than Mishima). Silly, local and drink-friendly.",
+      "best_time": "Mon 21 Dec 11:00-14:00",
+      "dates": "Mon 2026-12-21 (open daily except year-end)",
+      "price": "Kamaboko-chikuwa making about ¥1,760 per person (2025 listing)",
+      "booking": "Reserve 8 places on the kamaboko.com experience page (weekends fill a month out; Monday easier). Fallback: Odawara Castle plus a station-area izakaya lunch.",
+      "group_of_8": "Experience sessions take groups; book one session for 8",
+      "hours": "About 9:00-18:00 (museum to 17:30)",
+      "visit_minutes": 150,
+      "first_last": "Kazamatsuri Station is on the Hakone Tozan line; Odawara Shinkansen to Shin-Osaka about 2 h",
+      "lat": 35.2459153,
+      "lng": 139.1298412,
+      "wish_ids": [
+        "w4",
+        "w8"
+      ],
+      "evidence": [
+        {
+          "source": "Mapple",
+          "url": "https://www.mapple.net/article/27520/",
+          "note": "Hands-on kamaboko making, reservation, prices"
+        },
+        {
+          "source": "Iko-yo report",
+          "url": "https://report.iko-yo.net/articles/32162",
+          "note": "Experience details and sessions"
+        },
+        {
+          "source": "Jeepe guide",
+          "url": "https://www.jeepe.jp/ja/articles/suzuhiro-kamaboko-village-2807",
+          "note": "Kamaboko no Sato overview"
+        }
+      ],
+      "confidence": 0.55
+    }
+  ],
+  "notes": "Hakone · only: Hakone 19-21 Dec 2026 (Sat-Mon), only-here pass.\n1) Ropeway: Sounzan-Owakudani is suspended 7-24 Dec 2026 for inspection (replacement bus ~10 min); Togendai-Ubako-Owakudani still runs, so from Sengokuhara do bus to Togendai, ropeway up to Owakudani for black eggs, back down, pirate ship Togendai to Moto-Hakone. Volcanic or wind closure fallback: pirate ship + Komagatake Ropeway. Check hakonenavi.jp/hakone-ropeway the morning of 20 Dec.\n2) Pirate ship: 25-40 min Togendai to Moto-Hakone; last winter sailings around 16:00 (timetable is an image on hakonenavi). Round trip ¥3,000, covered by the Freepass.\n3) Freepass 2-day from Shinjuku ¥7,100, from Odawara ¥6,000 (since Oct 2025). Because they leave westbound via Gotemba/Mishima, the Shinjuku version's return leg is wasted: buy the Odawara version + a single Odakyu ticket (~¥900) to save a little, digitally on EMot (sale opens one month before). Sengokuhara-Gotemba bus coverage is unclear; Tozan Bus cut 'some routes' from 30 Sep 2026 (PDF not read), so check the Sengoku-Gotemba/GPO line.\n4) Yunessun on Sun 20 Dec: arrive at 9:00; sake bath runs, but its pouring show starts only 26 Dec; wine bath renewed Sep 2026.\n5) Nights: MONTA (Sengokuhara) is closed Sun and Mon, so only Sat 19 Dec (after the cook-off, open to midnight, shuttle up to 7). Snack Takachan open Sat/Sun 19:30-2:00 (closed Wed). Aihara butcher closes 17:00 Sat, so buy the wagyu before check-in.\n6) Check-out Mon 21 Dec: villa to Otome Pass (Fuji, 20 min) to Gotemba Premium Outlets 10:00-13:30 to Mishima Shinkansen; or Odawara route via Suzuhiro/Hakone Beer. Kirin distillery is closed Mondays.\n7) Drinking age is 20: anyone 19 cannot taste at Kirin or order at bars."
+}

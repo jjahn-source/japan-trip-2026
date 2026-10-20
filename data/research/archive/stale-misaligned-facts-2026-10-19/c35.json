@@ -1,0 +1,21 @@
+{
+  "open": [],
+  "closed": [],
+  "last_entry": null,
+  "prices": [],
+  "fixed_minutes": null,
+  "time_limit": null,
+  "group": null,
+  "booking": {
+    "text": "VIP tables via Book Vip; tickets via Buy Tickets (per event)",
+    "quote": "Book Vip",
+    "url": "https://zerotokyo.jp/?utm_source=gbp"
+  },
+  "notes": [
+    {
+      "text": "Event on 12/18 (Fri): THE ONE Presents Steve Angello",
+      "quote": "THE ONE Presents Steve Angello",
+      "url": "https://zerotokyo.jp/?utm_source=gbp"
+    }
+  ]
+}

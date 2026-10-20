@@ -1,56 +1,27 @@
 {
-  "open": [
-    {
-      "dates": [
-        "2026-12-19"
-      ],
-      "open": "17:00",
-      "close": "24:00",
-      "quote": "17:00〜0:00（L.O.23:00 ドリンクL.O.23:30）",
-      "url": "http://hakone-monta.com/"
-    }
-  ],
-  "closed": [
-    {
-      "dates": [
-        "2026-12-20",
-        "2026-12-21"
-      ],
-      "why": "Regular closing days (日曜日・月曜日)",
-      "what": "the whole restaurant",
-      "whole_place": true,
-      "quote": "【日曜/月曜を除く全日】",
-      "url": "http://hakone-monta.com/"
-    }
-  ],
-  "last_entry": {
-    "time": "23:00",
-    "quote": "17:00〜0:00（L.O.23:00 ドリンクL.O.23:30）",
-    "url": "http://hakone-monta.com/"
-  },
+  "open": [],
+  "closed": [],
+  "last_entry": null,
   "prices": [],
   "fixed_minutes": null,
   "time_limit": null,
-  "group": {
-    "text": "Seats can be joined for large parties; semi-private tables",
-    "quote": "席をつなげて大人数にも対応",
-    "url": "http://hakone-monta.com/"
-  },
-  "booking": {
-    "text": "Online booking available",
-    "quote": "ネットでご予約",
-    "url": "http://hakone-monta.com/"
-  },
+  "group": null,
+  "booking": null,
   "notes": [
     {
-      "text": "Free shuttle is reservation-only, max 7 people, not offered 17:30-21:00 peak or after 23:00",
-      "quote": "原則、17時30分～21時の繁忙時間帯、及び23時以降は送迎対応しておりません。",
-      "url": "http://hakone-monta.com/"
+      "text": "Hours and closing days vary by shop; no market-wide hours listed",
+      "quote": "店舗により異なる",
+      "url": "https://rurubu.jp/andmore/spot/80026505"
     },
     {
-      "text": "A New Year holiday notice is posted; its dates are not in the captured text",
-      "quote": "年末年始の営業のお知らせ",
-      "url": "http://hakone-monta.com/"
+      "text": "Listing omits year-end and New Year closures, so 12-21 to 12-26 closures are unconfirmed",
+      "quote": "※店舗・施設の定休日は原則として年末年始・お盆休み・ゴールデンウィーク・臨時休業を省略しています。",
+      "url": "https://rurubu.jp/andmore/spot/80026505"
+    },
+    {
+      "text": "Mapple article (undated): most shops close Wednesday, open 10:00-17:00; a general statement, not place-wide. Trip date 12-23 is a Wednesday",
+      "quote": "水曜休み、10:00～17:00営業の店が多い。",
+      "url": "https://www.mapple.net/article/37026/"
     }
   ]
 }

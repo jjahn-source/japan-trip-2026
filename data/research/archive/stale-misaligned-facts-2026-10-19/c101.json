@@ -1,0 +1,98 @@
+{
+  "open": [
+    {
+      "dates": [
+        "2026-12-15",
+        "2026-12-16",
+        "2026-12-17",
+        "2026-12-18"
+      ],
+      "open": "15:00",
+      "close": "23:30",
+      "quote": "15:00～23:30",
+      "url": "https://r.gnavi.co.jp/ggzf408/"
+    },
+    {
+      "dates": [
+        "2026-12-19",
+        "2026-12-26",
+        "2026-12-27"
+      ],
+      "open": "12:00",
+      "close": "23:30",
+      "quote": "12:00～23:30",
+      "url": "https://r.gnavi.co.jp/ggzf408/"
+    }
+  ],
+  "closed": [],
+  "last_entry": {
+    "time": "23:00",
+    "quote": "（L.O.23:00、ドリンクL.O.23:00）",
+    "url": "https://r.gnavi.co.jp/ggzf408/"
+  },
+  "prices": [
+    {
+      "what": "無限食べ飲み放題コース (3h 食べ飲み放題, per person)",
+      "yen": 3250,
+      "quote": "『無限食べ飲み放題コース』3時間食べ飲み放題　3,250円",
+      "url": "https://r.gnavi.co.jp/ggzf408/"
+    },
+    {
+      "what": "プレミアム食べ飲み放題コース (per person)",
+      "yen": 3750,
+      "quote": "『プレミアム食べ飲み放題コース』3時間食べ飲み放題　3,750円",
+      "url": "https://r.gnavi.co.jp/ggzf408/"
+    },
+    {
+      "what": "極プレミアム食べ飲み放題コース (per person)",
+      "yen": 4500,
+      "quote": "『極プレミアム食べ飲み放題コース』3時間食べ飲み放題　4,500円",
+      "url": "https://r.gnavi.co.jp/ggzf408/"
+    },
+    {
+      "what": "無限早割り食べ飲み放題コース (2h, before 18:00 entry)",
+      "yen": 2750,
+      "quote": "『無限早割り食べ飲み放題コース』2時間食べ飲み放題　2,750円",
+      "url": "https://r.gnavi.co.jp/ggzf408/"
+    },
+    {
+      "what": "2h single drinks (limited period)",
+      "yen": 1500,
+      "quote": "2時間の単品飲み放題が期間限定で1500円（税込）！",
+      "url": "https://r.gnavi.co.jp/ggzf408/"
+    }
+  ],
+  "fixed_minutes": null,
+  "time_limit": {
+    "minutes": 120,
+    "quote": "2H食べ放題+3H飲み放題付き3250円",
+    "url": "https://r.gnavi.co.jp/ggzf408/"
+  },
+  "group": {
+    "text": "Private rooms from small parties; private hire for 20 to 150 people; ask by phone",
+    "quote": "優雅な個室は少人数様からご利用可。ご希望の場合はお問い合わせください。",
+    "url": "https://r.gnavi.co.jp/ggzf408/"
+  },
+  "booking": {
+    "text": "Online booking via Gurunavi/Rakuten, or phone 03-5761-4230",
+    "quote": "TEL 03-5761-4230",
+    "url": "https://r.gnavi.co.jp/ggzf408/"
+  },
+  "notes": [
+    {
+      "text": "12:00-15:00 visits need advance booking",
+      "quote": "※12時～15時のご来店は要事前予約となります。10名様よりご予約承っております。",
+      "url": "https://r.gnavi.co.jp/ggzf408/"
+    },
+    {
+      "text": "Course cancellation: 50% charge if cancelled the day before",
+      "quote": "前日キャンセル -- 50%",
+      "url": "https://r.gnavi.co.jp/ggzf408/"
+    },
+    {
+      "text": "Listing shows 3h and 2H+3H for the same course; check when booking",
+      "quote": "2H食べ放題+3H飲み放題付き3250円",
+      "url": "https://r.gnavi.co.jp/ggzf408/"
+    }
+  ]
+}

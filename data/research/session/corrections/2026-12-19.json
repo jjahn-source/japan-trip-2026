@@ -1,1 +1,10 @@
-[]
+[
+  {
+    "stop": 1,
+    "claim": "The Freepass covers the Romancecar to Yumoto, the Tozan trains and buses, the ropeway and the pirate ship, plus discounts at the Open-Air Museum and Glass no Mori.",
+    "fix": "The Freepass covers the Odakyu line fare to Odawara (one round trip), the Tozan trains and buses, the ropeway and the pirate ship, plus discounts at the Open-Air Museum and Glass no Mori. The Romancecar limited-express ticket (about ¥1,200 pp Shinjuku to Hakone-Yumoto) is a separate charge.",
+    "source_url": "https://www.hakonenavi.jp/transportation/ticket/freepass/",
+    "source_quote": "特急ロマンスカーは別途料金が必要です",
+    "schedule": false
+  }
+]

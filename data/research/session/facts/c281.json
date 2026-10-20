@@ -1,0 +1,59 @@
+{
+  "open": [
+    {
+      "dates": [
+        "2026-12-19",
+        "2026-12-20",
+        "2026-12-21"
+      ],
+      "open": "09:00",
+      "close": "18:00",
+      "quote": "【鈴廣蒲鉾本店・鈴なり市場】9:00～18:00",
+      "url": "https://iko-yo.net/facilities/452"
+    },
+    {
+      "dates": [
+        "2026-12-19",
+        "2026-12-20",
+        "2026-12-21"
+      ],
+      "open": "09:00",
+      "close": "17:00",
+      "quote": "【かまぼこ博物館】9:00～17:00",
+      "url": "https://iko-yo.net/facilities/452"
+    }
+  ],
+  "closed": [],
+  "last_entry": null,
+  "prices": [],
+  "fixed_minutes": null,
+  "time_limit": null,
+  "group": null,
+  "booking": {
+    "text": "Kamaboko museum experience classes: book on the web, booking recommended",
+    "quote": "予約方法：WEBにて",
+    "url": "https://iko-yo.net/facilities/452"
+  },
+  "notes": [
+    {
+      "text": "Regular holiday: none, except year-end and temporary closures",
+      "quote": "無休（年末年始、臨時休業日を除く）",
+      "url": "https://iko-yo.net/facilities/452"
+    },
+    {
+      "text": "Hours differ by facility; some shops and restaurants list hours only on the official site",
+      "quote": "【そばと板わさ 美藏・名水甘味 且座・ギャラリー＆ショップ 千惠・会席 大清水】HPにてご確認ください。",
+      "url": "https://iko-yo.net/facilities/452"
+    },
+    {
+      "text": "Official site lists hours by facility",
+      "quote": "各施設の営業時間・お問合せ",
+      "url": "https://www.kamaboko.com/sato/"
+    },
+    {
+      "text": "Experience class takes about 2 hours in total",
+      "quote": "体験時間は50分間。かまぼこの蒸し上がりまでに、更に70分ほどかかります。",
+      "url": "https://iko-yo.net/facilities/452"
+    }
+  ]
+}

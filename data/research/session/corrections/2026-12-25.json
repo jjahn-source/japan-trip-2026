@@ -1,26 +1,10 @@
 [
   {
-    "stop": 10,
-    "claim": "first Hanshin Namba line train to Kujō (2 stops)",
-    "fix": "first Hanshin Namba line train to Kujō (3 stops: Sakuragawa, Dome-mae, Kujō)",
-    "source_url": "https://rosen-zu.net/hanshin/hanshin_namba-top/hanshin_namba-rosenzu/",
-    "source_quote": "阪神なんば線「普通」の停車駅は、大阪難波、桜川、ドーム前、九条、西九条、千鳥橋、伝法、福、出来島、大物、尼崎駅です。",
-    "schedule": false
-  },
-  {
-    "stop": 3,
-    "claim": "Chitose is where nikusui was born: beef and tofu in a deep broth, the soup Osaka drinkers swear by the morning after.",
-    "fix": "Nikusui was born at the separate Chitose udon shop in Namba Sennichimae; this Chitose, in Taishi, is a neighbourhood okonomiyaki shop known for its okonomiyaki and yakisoba, so do not count on nikusui here.",
-    "source_url": "https://macaro-ni.jp/42905?page=4",
-    "source_quote": "難波グランド花月の側にある老舗うどん店「千とせ」独自のメニューです。",
-    "schedule": false
-  },
-  {
-    "stop": 7,
-    "claim": "almost everything on the menu, drinks included, is ¥300",
-    "fix": "almost everything on the menu, drinks included, is ¥330",
-    "source_url": "https://homuraya-2024.com",
-    "source_quote": "JPY 330",
+    "stop": 2,
+    "claim": "Open 07:30–17:30. The cold morning is the time to beat the tour buses.",
+    "fix": "Open 08:00–17:00 from November to March, so the hall opens at 08:00 in December. The cold morning is the time to beat the tour buses.",
+    "source_url": "https://www.todaiji.or.jp/information/haikan/",
+    "source_quote": "8：00～17：00",
     "schedule": false
   }
 ]

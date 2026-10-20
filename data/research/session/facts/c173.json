@@ -1,0 +1,32 @@
+{
+  "open": [
+    {
+      "dates": [
+        "2026-12-15",
+        "2026-12-16",
+        "2026-12-17",
+        "2026-12-18",
+        "2026-12-28",
+        "2026-12-29"
+      ],
+      "open": "17:00",
+      "close": "23:00",
+      "quote": "ディナー　17:00～23:00",
+      "url": "https://r.gnavi.co.jp/2t5cvya20000/"
+    }
+  ],
+  "closed": [],
+  "last_entry": null,
+  "prices": [],
+  "fixed_minutes": null,
+  "time_limit": null,
+  "group": null,
+  "booking": null,
+  "notes": [
+    {
+      "text": "Weekend hours line is unlabelled on the page (10:30-23:00); confirm for Dec 19, 26, 27",
+      "quote": "10:30～23:00",
+      "url": "https://r.gnavi.co.jp/2t5cvya20000/"
+    }
+  ]
+}

@@ -2,24 +2,30 @@
   "open": [
     {
       "dates": [
+        "2026-12-15",
+        "2026-12-16",
+        "2026-12-17",
+        "2026-12-18",
         "2026-12-19",
-        "2026-12-20",
-        "2026-12-21"
+        "2026-12-26",
+        "2026-12-27",
+        "2026-12-28",
+        "2026-12-29"
       ],
-      "open": "08:15",
-      "close": "17:00",
-      "quote": "お札所・御神印の受付時間 　8:15 ～ 17:00",
-      "url": "https://kanagawa-kankou.or.jp/spot/197"
+      "open": "10:00",
+      "close": "28:00",
+      "quote": "AM10:00～AM4:00",
+      "url": "https://www.battingcenter.com/tokyo/3838/"
     }
   ],
   "closed": [],
   "last_entry": null,
   "prices": [
     {
-      "what": "Treasure hall (宝物殿) adult admission",
-      "yen": 500,
-      "quote": "大人(中学生以上)：500円／税込",
-      "url": "https://www.hakonenavi.jp/spot/1231"
+      "what": "All-LED batting cage, 25 balls",
+      "yen": 400,
+      "quote": "全LED打席：400円（球数：25球）",
+      "url": "https://www.battingcenter.com/tokyo/3838/"
     }
   ],
   "fixed_minutes": null,
@@ -28,14 +34,24 @@
   "booking": null,
   "notes": [
     {
-      "text": "Treasure hall reception 9:00-16:00 (hakonenavi lists 9:00-16:30, entry until 16:00)",
-      "quote": "宝物殿の拝観受付時間 9:00 ～ 16:00",
-      "url": "https://kanagawa-kankou.or.jp/spot/197"
+      "text": "Open every day of the year (no year-end closure stated); close 04:00 next day",
+      "quote": "年中無休",
+      "url": "https://www.battingcenter.com/tokyo/3838/"
     },
     {
-      "text": "Treasure hall may close temporarily; no regular closing day for the shrine",
-      "quote": "※但し宝物殿は展示替等による臨時休館あり",
-      "url": "https://kanagawa-kankou.or.jp/spot/197"
+      "text": "Cash, 400 yen per game from one game",
+      "quote": "現金400円で1ゲームからお気軽に遊べます。",
+      "url": "https://www.battingcenter.com/tokyo/3838/"
+    },
+    {
+      "text": "Wednesday (Dec 16) ladies day: free batting until 13:00, then 500 yen for 2 games",
+      "quote": "水曜日「レディースデー」打ち放題(開店～13時)＆500円で2ゲーム(13時～閉店)",
+      "url": "https://www.battingcenter.com/tokyo/3838/"
+    },
+    {
+      "text": "Tuesday (Dec 15, Dec 29) ball count up: 25 to 28 balls",
+      "quote": "火曜日「球数アップデー」25球が28球に3球アップ",
+      "url": "https://www.battingcenter.com/tokyo/3838/"
     }
   ]
 }

@@ -1,0 +1,48 @@
+{
+  "open": [
+    {
+      "dates": [
+        "2026-12-19",
+        "2026-12-20",
+        "2026-12-21"
+      ],
+      "open": "11:30",
+      "close": "14:30",
+      "quote": "Lunch ： 11：30～14：30（L.O)",
+      "url": "http://www.bamboo.co.jp/albergo/"
+    },
+    {
+      "dates": [
+        "2026-12-19",
+        "2026-12-20",
+        "2026-12-21"
+      ],
+      "open": "17:30",
+      "close": "20:30",
+      "quote": "Dinner ： 17：30～20：30（L.O)",
+      "url": "http://www.bamboo.co.jp/albergo/"
+    }
+  ],
+  "closed": [],
+  "last_entry": {
+    "time": "20:30",
+    "quote": "Dinner ： 17：30～20：30（L.O)",
+    "url": "http://www.bamboo.co.jp/albergo/"
+  },
+  "prices": [],
+  "fixed_minutes": null,
+  "time_limit": null,
+  "group": null,
+  "booking": {
+    "text": "Restaurant reservations via the site booking form or by phone 0460-84-3311",
+    "quote": "レストランの予約はこちらから",
+    "url": "http://www.bamboo.co.jp/albergo/"
+  },
+  "notes": [
+    {
+      "text": "Closed on Tuesdays; no Tuesday falls on the trip dates for this place (19, 20, 21 Dec)",
+      "quote": "tel： 0460-84-3311 （火曜日定休）",
+      "url": "http://www.bamboo.co.jp/albergo/"
+    }
+  ]
+}

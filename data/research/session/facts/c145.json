@@ -2,25 +2,20 @@
   "open": [
     {
       "dates": [
+        "2026-12-15",
+        "2026-12-16",
+        "2026-12-17",
+        "2026-12-18",
         "2026-12-19",
-        "2026-12-20",
-        "2026-12-21"
+        "2026-12-26",
+        "2026-12-27",
+        "2026-12-28",
+        "2026-12-29"
       ],
-      "open": "11:00",
-      "close": "14:30",
-      "quote": "時間：11：00～14：30、17：00 ～20：30 (LO各30分前)",
-      "url": "https://www.walkerplus.com/article/224009/"
-    },
-    {
-      "dates": [
-        "2026-12-19",
-        "2026-12-20",
-        "2026-12-21"
-      ],
-      "open": "17:00",
-      "close": "20:30",
-      "quote": "時間：11：00～14：30、17：00 ～20：30 (LO各30分前)",
-      "url": "https://www.walkerplus.com/article/224009/"
+      "open": "10:00",
+      "close": "20:00",
+      "quote": "営業時間：午前10時～午後8時",
+      "url": "http://www.imn.jp/"
     }
   ],
   "closed": [],
@@ -30,16 +25,5 @@
   "time_limit": null,
   "group": null,
   "booking": null,
-  "notes": [
-    {
-      "text": "Regular closing day is Wednesday; no trip date is a Wednesday. Last orders are 30 minutes before each closing time.",
-      "quote": "休み：水",
-      "url": "https://www.walkerplus.com/article/224009/"
-    },
-    {
-      "text": "Phone 0460-83-8366",
-      "quote": "電話：0460・83・8366",
-      "url": "https://www.walkerplus.com/article/224009/"
-    }
-  ]
+  "notes": []
 }

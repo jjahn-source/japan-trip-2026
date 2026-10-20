@@ -1,0 +1,69 @@
+{
+  "open": [
+    {
+      "dates": [
+        "2026-12-15",
+        "2026-12-16",
+        "2026-12-17",
+        "2026-12-18",
+        "2026-12-19",
+        "2026-12-26",
+        "2026-12-27",
+        "2026-12-28",
+        "2026-12-29"
+      ],
+      "open": "11:30",
+      "close": "15:00",
+      "quote": "月～日、祝日、祝前日: 11:30～15:00 （料理L.O. 14:30 ドリンクL.O. 14:30）",
+      "url": "https://www.hotpepper.jp/strJ004509938/"
+    },
+    {
+      "dates": [
+        "2026-12-15",
+        "2026-12-16",
+        "2026-12-17",
+        "2026-12-18",
+        "2026-12-19",
+        "2026-12-26",
+        "2026-12-27",
+        "2026-12-28",
+        "2026-12-29"
+      ],
+      "open": "17:00",
+      "close": "23:30",
+      "quote": "17:00～23:30 （料理L.O. 23:00 ドリンクL.O. 23:00）",
+      "url": "https://www.hotpepper.jp/strJ004509938/"
+    }
+  ],
+  "closed": [],
+  "last_entry": {
+    "time": "23:00",
+    "quote": "17:00～23:30 （料理L.O. 23:00 ドリンクL.O. 23:00）",
+    "url": "https://www.hotpepper.jp/strJ004509938/"
+  },
+  "prices": [],
+  "fixed_minutes": null,
+  "time_limit": null,
+  "group": {
+    "text": "Course orders: 10 guests gets 1 organiser free (course only)",
+    "quote": "【コースご利用限定！】10名様で幹事様1名様無料！20名は2名無料！MAXは5名無料！",
+    "url": "https://www.hotpepper.jp/strJ004509938/"
+  },
+  "booking": {
+    "text": "Online booking available",
+    "quote": "＜ネット予約可＞",
+    "url": "https://www.hotpepper.jp/strJ004509938/"
+  },
+  "notes": [
+    {
+      "text": "No regular closing day (年中無休)",
+      "quote": "定休日： 年中無休",
+      "url": "https://www.hotpepper.jp/strJ004509938/"
+    },
+    {
+      "text": "Private rooms for 6-8 people",
+      "quote": "周りを気にせずに焼肉をお楽しみように6名様～8名様用の個室をご用意。",
+      "url": "https://www.hotpepper.jp/strJ004509938/"
+    }
+  ]
+}

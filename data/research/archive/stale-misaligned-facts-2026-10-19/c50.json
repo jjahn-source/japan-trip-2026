@@ -1,0 +1,74 @@
+{
+  "open": [
+    {
+      "dates": [
+        "2026-12-15",
+        "2026-12-16",
+        "2026-12-17",
+        "2026-12-18",
+        "2026-12-19",
+        "2026-12-26",
+        "2026-12-27",
+        "2026-12-28",
+        "2026-12-29"
+      ],
+      "open": "11:00",
+      "close": "15:00",
+      "quote": "11：00～15：00、17：00～21：00",
+      "url": "https://www.fu-unji.com/?utm_source=gbp?utm_medium=organic"
+    },
+    {
+      "dates": [
+        "2026-12-15",
+        "2026-12-16",
+        "2026-12-17",
+        "2026-12-18",
+        "2026-12-19",
+        "2026-12-26",
+        "2026-12-27",
+        "2026-12-28",
+        "2026-12-29"
+      ],
+      "open": "17:00",
+      "close": "21:00",
+      "quote": "11：00～15：00、17：00～21：00",
+      "url": "https://www.fu-unji.com/?utm_source=gbp?utm_medium=organic"
+    }
+  ],
+  "closed": [],
+  "last_entry": null,
+  "prices": [
+    {
+      "what": "Tsukemen",
+      "yen": 1000,
+      "quote": "つけめん ¥1,000",
+      "url": "https://www.fu-unji.com/?utm_source=gbp?utm_medium=organic"
+    },
+    {
+      "what": "Ramen",
+      "yen": 950,
+      "quote": "らーめん ¥950",
+      "url": "https://www.fu-unji.com/?utm_source=gbp?utm_medium=organic"
+    }
+  ],
+  "fixed_minutes": null,
+  "time_limit": null,
+  "group": null,
+  "booking": {
+    "text": "No reservations accepted",
+    "quote": "※予約受付はしておりません。",
+    "url": "https://www.fu-unji.com/?utm_source=gbp?utm_medium=organic"
+  },
+  "notes": [
+    {
+      "text": "Year-end notice on this page is for 2025 only; no 2026 year-end notice found",
+      "quote": "【年末年始】営業時間変更のお知らせ",
+      "url": "https://www.fu-unji.com/?utm_source=gbp?utm_medium=organic"
+    },
+    {
+      "text": "Open every day (soup can sell out)",
+      "quote": "（年中無休、スープ売り切れ次第終了）",
+      "url": "https://www.fu-unji.com/?utm_source=gbp?utm_medium=organic"
+    }
+  ]
+}

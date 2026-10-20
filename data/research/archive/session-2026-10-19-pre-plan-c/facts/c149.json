@@ -1,0 +1,27 @@
+{
+  "open": [],
+  "closed": [],
+  "last_entry": null,
+  "prices": [],
+  "fixed_minutes": null,
+  "time_limit": null,
+  "group": null,
+  "booking": null,
+  "notes": [
+    {
+      "text": "Open until 3:00 a.m. (closing time only; the opening time is not given).",
+      "quote": "深夜3時まで営業する「鶏とハイボール フライングチキン」は、箱根湯本の地元民から愛されるアットホームな居酒屋です。",
+      "url": "https://www.hakonenavi.jp/feature/7420"
+    },
+    {
+      "text": "Another article says it opens in the evening only (source is dated older).",
+      "quote": "居酒屋だけに夕方からの営業ですが",
+      "url": "https://aumo.jp/articles/43897"
+    },
+    {
+      "text": "Phone the shop from Hakone-Yumoto station and staff will pick you up by car; free service.",
+      "quote": "箱根湯本駅からお店に電話すればスタッフが車で迎えに来てくれる「無料送迎サービス」",
+      "url": "https://www.hakonenavi.jp/feature/7420"
+    }
+  ]
+}

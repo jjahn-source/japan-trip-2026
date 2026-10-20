@@ -1,23 +1,5 @@
 {
-  "open": [
-    {
-      "dates": [
-        "2026-12-15",
-        "2026-12-16",
-        "2026-12-17",
-        "2026-12-18",
-        "2026-12-19",
-        "2026-12-26",
-        "2026-12-27",
-        "2026-12-28",
-        "2026-12-29"
-      ],
-      "open": "00:00",
-      "close": "24:00",
-      "quote": "24時間営業",
-      "url": "https://n-nagi.com/shop/%E6%96%B0%E5%AE%BF%E3%82%B4%E3%83%BC%E3%83%AB%E3%83%87%E3%83%B3%E8%A1%97-%E6%9C%AC%E9%A4%A8-3-2-2/"
-    }
-  ],
+  "open": [],
   "closed": [],
   "last_entry": null,
   "prices": [],
@@ -27,9 +9,9 @@
   "booking": null,
   "notes": [
     {
-      "text": "10 seats, L-shaped counter.",
-      "quote": "10席（Ｌ字型カウンター10席）",
-      "url": "https://n-nagi.com/shop/%E6%96%B0%E5%AE%BF%E3%82%B4%E3%83%BC%E3%83%AB%E3%83%87%E3%83%B3%E8%A1%97-%E6%9C%AC%E9%A4%A8-3-2-2/"
+      "text": "Opened as HUMAN MADE's first global flagship in Harajuku",
+      "quote": "原宿に「HUMAN MADE TOKYO」初の旗艦店が9月26日にオープン",
+      "url": "https://www.timeout.jp/tokyo/ja/news/human-made-tokyo-harajuku-092526"
     }
   ]
 }

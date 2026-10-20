@@ -1,0 +1,39 @@
+{
+  "open": [
+    {
+      "dates": [
+        "2026-12-19",
+        "2026-12-20",
+        "2026-12-21"
+      ],
+      "open": "00:00",
+      "close": "24:00",
+      "quote": "箱根神社は24時間参拝が可能ですが、",
+      "url": "https://banzokubiology.com/hakonejinja-nenmatsunenshi/"
+    }
+  ],
+  "closed": [],
+  "last_entry": null,
+  "prices": [],
+  "fixed_minutes": null,
+  "time_limit": null,
+  "group": null,
+  "booking": null,
+  "notes": [
+    {
+      "text": "Source is a non-official travel blog, not the shrine; the Peace Torii was closed for year-end crowds from 2024-12-28 to 2025-02-09 (previous season, not a trip date)",
+      "quote": "2024年12月28日〜2025年2月9日",
+      "url": "https://banzokubiology.com/hakonejinja-heiwa-torii-2025/"
+    },
+    {
+      "text": "Peace Torii is usually open to walk in, but the blog says it can be closed during year-end and specific periods",
+      "quote": "普段は自由に立ち入れますが、年末年始や特定期間は安全対策のため立入禁止となります。",
+      "url": "https://banzokubiology.com/hakonejinja-heiwa-torii-2025/"
+    },
+    {
+      "text": "Blog table: お札所・御守所 open 8:15 to 17:00 (non-official)",
+      "quote": "8:15〜17:00",
+      "url": "https://banzokubiology.com/hakonejinja-nenmatsunenshi/"
+    }
+  ]
+}

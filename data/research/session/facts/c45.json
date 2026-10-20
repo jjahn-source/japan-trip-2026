@@ -1,0 +1,50 @@
+{
+  "open": [
+    {
+      "dates": [
+        "2026-12-21",
+        "2026-12-22",
+        "2026-12-23",
+        "2026-12-24",
+        "2026-12-25",
+        "2026-12-26"
+      ],
+      "open": "09:30",
+      "close": "22:30",
+      "quote": "9:30〜22:30 (最終入場22:00)",
+      "url": "https://www.skybldg.co.jp/"
+    }
+  ],
+  "closed": [],
+  "last_entry": {
+    "time": "22:00",
+    "quote": "9:30〜22:30 (最終入場22:00)",
+    "url": "https://www.skybldg.co.jp/"
+  },
+  "prices": [],
+  "fixed_minutes": null,
+  "time_limit": null,
+  "group": null,
+  "booking": {
+    "text": "Heart Lock (ハートロック) purchase is offered on the official site",
+    "quote": "ハートロック購入",
+    "url": "https://www.skybldg.co.jp/"
+  },
+  "notes": [
+    {
+      "text": "Special operating days exist; the official site links to a list of them",
+      "quote": "※特別営業日あり",
+      "url": "https://www.skybldg.co.jp/"
+    },
+    {
+      "text": "Weekend and holiday closure line appears on the page; mixed with older text, so confirm for Sat 26 Dec before going",
+      "quote": "土日祝：臨時休業",
+      "url": "https://www.skybldg.co.jp/"
+    },
+    {
+      "text": "Temporary closure from 4/25 (Sun) until further notice is shown; the year is not clear, so confirm on the site",
+      "quote": "4/25(日)より当面の間 臨時休業",
+      "url": "https://www.skybldg.co.jp/"
+    }
+  ]
+}

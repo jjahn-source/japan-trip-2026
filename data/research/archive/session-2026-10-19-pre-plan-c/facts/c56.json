@@ -1,0 +1,22 @@
+{
+  "open": [],
+  "closed": [],
+  "last_entry": null,
+  "prices": [],
+  "fixed_minutes": null,
+  "time_limit": null,
+  "group": null,
+  "booking": null,
+  "notes": [
+    {
+      "text": "Only a single shop (Kicks Lab, undated Time Out listing) has hours; no walk-wide hours found. Weekday hours",
+      "quote": "1pm-7.30pm",
+      "url": "https://www.timeout.com/tokyo/shopping/kicks-lab"
+    },
+    {
+      "text": "Weekend hours for the same listing",
+      "quote": "Sat & Sun 12noon-7.30pm",
+      "url": "https://www.timeout.com/tokyo/shopping/kicks-lab"
+    }
+  ]
+}

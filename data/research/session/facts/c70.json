@@ -1,5 +1,20 @@
 {
-  "open": [],
+  "open": [
+    {
+      "dates": [
+        "2026-12-21",
+        "2026-12-22",
+        "2026-12-23",
+        "2026-12-24",
+        "2026-12-25",
+        "2026-12-26"
+      ],
+      "open": "17:00",
+      "close": "25:00",
+      "quote": "開催時間：17時頃から25時まで",
+      "url": "https://www.city.osaka.lg.jp/hodoshiryo/keizaisenryaku/0000687506.html"
+    }
+  ],
   "closed": [],
   "last_entry": null,
   "prices": [],
@@ -7,5 +22,21 @@
   "time_limit": null,
   "group": null,
   "booking": null,
-  "notes": []
+  "notes": [
+    {
+      "text": "Event period 3 Nov to 31 Dec 2026 (令和8年 = 2026); all trip dates fall inside it",
+      "quote": "開催日程：令和8年11月3日（火曜日・祝日）から12月31日（木曜日）まで",
+      "url": "https://www.city.osaka.lg.jp/hodoshiryo/keizaisenryaku/0000687506.html"
+    },
+    {
+      "text": "Venue: Midosuji, Hanshin-mae intersection to Namba Nishiguchi intersection",
+      "quote": "開催場所：御堂筋（阪神前交差点から難波西口交差点まで）",
+      "url": "https://www.city.osaka.lg.jp/hodoshiryo/keizaisenryaku/0000687506.html"
+    },
+    {
+      "text": "Nearest stations: Osaka Metro Umeda to Namba stations, JR Osaka Station",
+      "quote": "最寄り駅：Osaka Metro「梅田駅」から「なんば駅」までの各駅、JR「大阪駅」他",
+      "url": "https://www.city.osaka.lg.jp/hodoshiryo/keizaisenryaku/0000687506.html"
+    }
+  ]
 }

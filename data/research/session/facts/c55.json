@@ -1,5 +1,17 @@
 {
-  "open": [],
+  "open": [
+    {
+      "dates": [
+        "2026-12-19",
+        "2026-12-20",
+        "2026-12-21"
+      ],
+      "open": "09:00",
+      "close": "17:00",
+      "quote": "Fax 0460-84-3434 営業時間 9:00～17：00",
+      "url": "http://aiharanikuya.gourmet.coocan.jp"
+    }
+  ],
   "closed": [],
   "last_entry": null,
   "prices": [],
@@ -9,9 +21,9 @@
   "booking": null,
   "notes": [
     {
-      "text": "Official site lists shops by category; no operating hours on this page",
-      "quote": "カテゴリ別店舗情報",
-      "url": "https://nakano-broadway.com/"
+      "text": "Year-end mail-order shipping (年末分の発送) reception has ended for 2026; regular shipping still open. Shop's December closing days are not on the page (only the September list is)",
+      "quote": "今年（2026年）の 年末分の発送受付は終了 いたしました。",
+      "url": "http://aiharanikuya.gourmet.coocan.jp"
     }
   ]
 }

@@ -12,10 +12,10 @@
         "2026-12-28",
         "2026-12-29"
       ],
-      "open": "00:00",
-      "close": "24:00",
-      "quote": "年中無休/24時間営業",
-      "url": "https://tokyo-toyosu.manyo.co.jp/"
+      "open": "17:00",
+      "close": "23:00",
+      "quote": "17:00 - 23:00",
+      "url": "https://uoshins.com/shibuya/"
     }
   ],
   "closed": [],
@@ -24,27 +24,26 @@
   "fixed_minutes": null,
   "time_limit": null,
   "group": null,
-  "booking": null,
+  "booking": {
+    "text": "Reservations accepted; reserve by phone at 03-3464-3000",
+    "quote": "TEL：03-3464-3000",
+    "url": "https://uoshins.com/shibuya/"
+  },
   "notes": [
     {
-      "text": "Under-18s (high-school students alone) cannot enter without a guardian.",
-      "quote": "18歳未満の方（高校生のみ）のみでのご入館はご遠慮いただいております。",
-      "url": "https://tokyo-toyosu.manyo.co.jp/"
+      "text": "No regular closing day except Obon and New Year; hours and closing days may change, confirm with the shop",
+      "quote": "なし（お盆と正月を除く）、営業時間・定休日は変更となる場合がございますので、ご来店前に店舗にご確認ください",
+      "url": "https://uoshins.com/shibuya/"
     },
     {
-      "text": "Tattooed guests are refused entry unless they follow the facility rules; ask staff before visiting.",
-      "quote": "入れ墨あるいは入れ墨類似シール（タトゥーシール）・ボディペイントをされている方のご入館は固くお断りしております。",
-      "url": "https://tokyo-toyosu.manyo.co.jp/"
+      "text": "Same-day cancellation or no-show of party size can incur a cancellation fee; changes by phone to the shop",
+      "quote": "当日に予約のキャンセルをされたり、実際の人数が揃わなかったり、",
+      "url": "https://uoshins.com/shibuya/"
     },
     {
-      "text": "Children aged 7 and over use the same-sex large bath by Tokyo ordinance.",
-      "quote": "東京都の条例により、7歳以上の大浴場のご利用は、男の子は男性・女の子は女性の各大浴場のご利用となります。",
-      "url": "https://tokyo-toyosu.manyo.co.jp/"
-    },
-    {
-      "text": "Outside food and drink not allowed (allergy and baby food excepted).",
-      "quote": "※館外からの飲食物のお持ち込みは固くお断りします。",
-      "url": "https://tokyo-toyosu.manyo.co.jp/"
+      "text": "Stay may be shortened depending on conditions",
+      "quote": "状況によって、滞在時間が短くなる事がございます。",
+      "url": "https://uoshins.com/shibuya/"
     }
   ]
 }

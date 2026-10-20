@@ -2,17 +2,20 @@
   "open": [
     {
       "dates": [
-        "2026-12-21",
-        "2026-12-22",
-        "2026-12-23",
-        "2026-12-24",
-        "2026-12-25",
-        "2026-12-26"
+        "2026-12-15",
+        "2026-12-16",
+        "2026-12-17",
+        "2026-12-18",
+        "2026-12-19",
+        "2026-12-26",
+        "2026-12-27",
+        "2026-12-28",
+        "2026-12-29"
       ],
-      "open": "22:00",
-      "close": "28:00",
-      "quote": "クラブの営業時間は22:00から翌4:00までです。",
-      "url": "https://www.waug.com/ja/activities/162252"
+      "open": "08:00",
+      "close": "22:00",
+      "quote": "8:00 - 22:00",
+      "url": "https://www.teamlab.art/jp/e/planets/"
     }
   ],
   "closed": [],
@@ -21,17 +24,21 @@
   "fixed_minutes": null,
   "time_limit": null,
   "group": null,
-  "booking": null,
+  "booking": {
+    "text": "Tickets sold online only, no on-site sales",
+    "quote": "現地でチケット販売は行っておりません。",
+    "url": "https://www.teamlab.art/jp/e/planets/"
+  },
   "notes": [
     {
-      "text": "Official site shows an unlabeled 12:30-17:30 block; it does not state nightclub hours",
-      "quote": "12:30-17:30",
-      "url": "https://giraffe-japan.com/?utm_source=google&utm_medium=maps"
+      "text": "Last entry is 1 hour before closing",
+      "quote": "* 最終入館は閉館の1時間前",
+      "url": "https://www.teamlab.art/jp/e/planets/"
     },
     {
-      "text": "Night show produced by EBIKEN",
-      "quote": "夜は世界的なパフォーマー・EBIKENがプロデュースするショーを楽しめ",
-      "url": "https://giraffe-japan.com/?utm_source=google&utm_medium=maps"
+      "text": "Exhibition period runs through end of 2027",
+      "quote": "2018.7.07(土) – 2027年末",
+      "url": "https://www.teamlab.art/jp/e/planets/"
     }
   ]
 }

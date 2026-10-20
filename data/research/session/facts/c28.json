@@ -2,31 +2,47 @@
   "open": [
     {
       "dates": [
-        "2026-12-21",
-        "2026-12-22",
-        "2026-12-23",
-        "2026-12-24",
-        "2026-12-25",
-        "2026-12-26"
+        "2026-12-15",
+        "2026-12-16",
+        "2026-12-17",
+        "2026-12-18",
+        "2026-12-19",
+        "2026-12-26",
+        "2026-12-27",
+        "2026-12-28",
+        "2026-12-29"
       ],
-      "open": "00:00",
-      "close": "24:00",
-      "quote": "24時間営業",
-      "url": "https://www.donki.com/store/shop_detail.php?shop_id=110"
+      "open": "11:00",
+      "close": "23:00",
+      "quote": "11:00 ～ 23:00（LO22:00）",
+      "url": "https://www.sushi-hanamaru.com/store/details/ikebukuro.html?p=b"
     }
   ],
   "closed": [],
-  "last_entry": null,
+  "last_entry": {
+    "time": "22:00",
+    "quote": "11:00 ～ 23:00（LO22:00）",
+    "url": "https://www.sushi-hanamaru.com/store/details/ikebukuro.html?p=b"
+  },
   "prices": [],
   "fixed_minutes": null,
   "time_limit": null,
   "group": null,
-  "booking": null,
+  "booking": {
+    "text": "No seat reservations; take a ticket from the machine on arrival",
+    "quote": "不可（お席のご予約は承っておりません）",
+    "url": "https://www.sushi-hanamaru.com/store/details/ikebukuro.html?p=b"
+  },
   "notes": [
     {
-      "text": "Tenant (specialty) shops may change hours or close suddenly",
-      "quote": "テナント（専門店）については、当面の間、急な営業時間の変更",
-      "url": "https://www.donki.com/store/shop_detail.php?shop_id=110"
+      "text": "Closure days are listed only for Sept and Oct 2026; December closure days not stated",
+      "quote": "【2026年10月】なし",
+      "url": "https://www.sushi-hanamaru.com/store/details/ikebukuro.html?p=b"
+    },
+    {
+      "text": "Call-in rule: arrive within 15 minutes or the entry is cancelled",
+      "quote": "お呼び出し時にご不在の場合「15分以内」にご来店いただければ調整してご案内しております",
+      "url": "https://www.sushi-hanamaru.com/store/details/ikebukuro.html?p=b"
     }
   ]
 }

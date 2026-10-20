@@ -9,9 +9,14 @@
   "booking": null,
   "notes": [
     {
-      "text": "Arcade directory says hours and closing days vary by shop; no shop hours or year-end schedule for the arcade were found. Arcade contact: 075-223-2426.",
-      "quote": "店舗により異なる",
-      "url": "https://www.gltjp.com/ja/directory/item/15422/"
+      "text": "Special exhibition runs through the trip period (Maruyama Okyo) from 28 Nov 2026 to 24 Jan 2027",
+      "quote": "2026年11月28日（土） - 2027年1月24日（日）",
+      "url": "https://www.edo-tokyo-museum.or.jp/"
+    },
+    {
+      "text": "Special exhibition title",
+      "quote": "江戸東京博物館リニューアル記念特別展「円山応挙　リアルの先へ 空間革命」",
+      "url": "https://www.edo-tokyo-museum.or.jp/"
     }
   ]
 }

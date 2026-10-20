@@ -2,39 +2,39 @@
   "open": [
     {
       "dates": [
-        "2026-12-15",
-        "2026-12-16",
-        "2026-12-17",
-        "2026-12-18",
         "2026-12-19",
-        "2026-12-26",
-        "2026-12-27",
-        "2026-12-28",
-        "2026-12-29"
+        "2026-12-20",
+        "2026-12-21"
       ],
-      "open": "10:00",
-      "close": "20:30",
-      "quote": "10：00～20：30",
-      "url": "https://www.tokyoeki-1bangai.co.jp/en/"
+      "open": "09:00",
+      "close": "16:00",
+      "quote": "12〜1月 9:00〜16:00（大涌谷駐車場）",
+      "url": "https://www.hakonenavi.jp/hakone-japan/spot/nature/owakudani"
     }
   ],
   "closed": [],
   "last_entry": null,
-  "prices": [],
+  "prices": [
+    {
+      "what": "Shizen Kenkyuro (nature trail), online advance booking required",
+      "yen": 800,
+      "quote": "自然研究路への入場は 公式サイト よりオンラインでの事前予約制です。（800円/税込）",
+      "url": "https://www.hakonenavi.jp/hakone-japan/spot/nature/owakudani"
+    }
+  ],
   "fixed_minutes": null,
   "time_limit": null,
   "group": null,
-  "booking": null,
+  "booking": {
+    "text": "Nature trail (自然研究路) entry needs online advance booking via the official site",
+    "quote": "自然研究路への入場は 公式サイト よりオンラインでの事前予約制です。",
+    "url": "https://www.hakonenavi.jp/hakone-japan/spot/nature/owakudani"
+  },
   "notes": [
     {
-      "text": "Tokyo Okashi Land hours (same building)",
-      "quote": "9：00～21：00",
-      "url": "https://www.tokyoeki-1bangai.co.jp/en/"
-    },
-    {
-      "text": "Hours differ by store",
-      "quote": "Operating hours differ between stores.",
-      "url": "https://www.tokyoeki-1bangai.co.jp/en/"
+      "text": "No regular closing day for Owakudani; hours are the 12-1 Jan line (the same entry labels it as the Owakudani parking lot; the 16:00 end matches the parking-lot hours)",
+      "quote": "[定休日]\nなし",
+      "url": "https://www.hakonenavi.jp/hakone-japan/spot/nature/owakudani"
     }
   ]
 }

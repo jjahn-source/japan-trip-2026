@@ -12,31 +12,53 @@
         "2026-12-28",
         "2026-12-29"
       ],
-      "open": "00:00",
-      "close": "24:00",
-      "quote": "営業時間:24時間営業",
-      "url": "https://www.enjoytokyo.jp/article/108469/"
+      "open": "11:30",
+      "close": "27:30",
+      "quote": "EVERYDAY 11:30～27:30",
+      "url": "https://gonpachi.jp/nishi-azabu/"
     }
   ],
   "closed": [],
-  "last_entry": null,
+  "last_entry": {
+    "time": "26:45",
+    "quote": "Food 26:45/Drink 27:00",
+    "url": "https://gonpachi.jp/nishi-azabu/"
+  },
   "prices": [
     {
-      "what": "every item, per item (listing, 2 years old possibly)",
-      "yen": 335,
-      "quote": "なんと「全品335円」というすごいお店！",
-      "url": "https://www.enjoytokyo.jp/article/108469/"
+      "what": "Minimum charge per person after 17:00 (incl. tax)",
+      "yen": 1650,
+      "quote": "17時以降お一人様最低1,500円(税込1,650円)のご飲食代を頂戴します。",
+      "url": "https://gonpachi.jp/nishi-azabu/"
     }
   ],
   "fixed_minutes": null,
   "time_limit": null,
-  "group": null,
-  "booking": null,
+  "group": {
+    "text": "Private hire (貸切) possible; 260 seats, up to 204 seated when hired; group enquiries via PARTY RESERVATION / INQUIRY FORM; no group-size threshold on the page",
+    "quote": "貸切 – 可能",
+    "url": "https://gonpachi.jp/nishi-azabu/"
+  },
+  "booking": {
+    "text": "Phone 050-5443-1691 (reservations taken 11:30-22:00); WEB RESERVATION and PARTY RESERVATION forms on the page",
+    "quote": "TEL 050-5443-1691",
+    "url": "https://gonpachi.jp/nishi-azabu/"
+  },
   "notes": [
     {
-      "text": "Listed as 若大将 まつしま, 西池袋1-26-5; name match with the trip entry not confirmed on an official page",
-      "quote": "住所:東京都豊島区西池袋1-26-5",
-      "url": "https://www.enjoytokyo.jp/article/108469/"
+      "text": "Open every day, 定休日 none",
+      "quote": "定休日 – 無休",
+      "url": "https://gonpachi.jp/nishi-azabu/"
+    },
+    {
+      "text": "Seats 260; 最大着席 204名 when hired",
+      "quote": "座席数 – 260席 ※貸切時 最大着席 204名",
+      "url": "https://gonpachi.jp/nishi-azabu/"
+    },
+    {
+      "text": "Lunch 11:30-15:00",
+      "quote": "LUNCHTIME 11:30～15:00",
+      "url": "https://gonpachi.jp/nishi-azabu/"
     }
   ]
 }

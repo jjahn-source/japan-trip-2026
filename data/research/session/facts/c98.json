@@ -7,5 +7,11 @@
   "time_limit": null,
   "group": null,
   "booking": null,
-  "notes": []
+  "notes": [
+    {
+      "text": "Advance admission tickets can be bought through a booking site (hours and prices not on the fetched page)",
+      "quote": "予約サイトを通じて入館券の事前購入が可能です。",
+      "url": "https://www.osakacastle.net/"
+    }
+  ]
 }

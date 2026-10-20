@@ -1,0 +1,62 @@
+{
+  "open": [
+    {
+      "dates": [
+        "2026-12-19",
+        "2026-12-20",
+        "2026-12-21"
+      ],
+      "open": "10:00",
+      "close": "33:00",
+      "quote": "10:00～翌朝9:00 (最終入館受付：翌朝8:00)",
+      "url": "https://www.walkerplus.com/spot/ar0314s82985/data.html"
+    }
+  ],
+  "closed": [],
+  "last_entry": {
+    "time": "32:00",
+    "quote": "最終入館受付：翌朝8:00",
+    "url": "https://www.walkerplus.com/spot/ar0314s82985/data.html"
+  },
+  "prices": [
+    {
+      "what": "Set admission (yukata, bath towel and hand towel included), adult",
+      "yen": 2730,
+      "quote": "セット入館料(館内着、バスタオル、ハンドタオルセット) 大人(中学生以上)2730円",
+      "url": "https://koyo.walkerplus.com/onsen/detail/ar0314s82985/data.html"
+    },
+    {
+      "what": "Morning bath (5:00-9:00), adult",
+      "yen": 1850,
+      "quote": "朝風呂入館料(5:00～9:00 最終受付8:00) 大人(中学生以上)1850円",
+      "url": "https://koyo.walkerplus.com/onsen/detail/ar0314s82985/data.html"
+    },
+    {
+      "what": "Extra charge for entry after midnight, adult",
+      "yen": 1650,
+      "quote": "深夜0時以降 大人1650円、子ども990円別途必要",
+      "url": "https://koyo.walkerplus.com/onsen/detail/ar0314s82985/data.html"
+    }
+  ],
+  "fixed_minutes": null,
+  "time_limit": null,
+  "group": null,
+  "booking": null,
+  "notes": [
+    {
+      "text": "No regular closing day; closed only for whole-building maintenance (dates not listed).",
+      "quote": "全館メンテ時休業",
+      "url": "https://www.walkerplus.com/spot/ar0314s82985/data.html"
+    },
+    {
+      "text": "Phone 0460-83-8511",
+      "quote": "0460-83-8511",
+      "url": "https://koyo.walkerplus.com/onsen/detail/ar0314s82985/data.html"
+    },
+    {
+      "text": "Yukata, bath towel and face towel are included in admission.",
+      "quote": "※浴衣、バスタオル、フェイスタオルが入館料に含まれる",
+      "url": "https://koyo.walkerplus.com/onsen/detail/ar0314s82985/data.html"
+    }
+  ]
+}

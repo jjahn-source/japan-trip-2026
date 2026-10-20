@@ -2,32 +2,32 @@
   "notes": [
     {
       "kind": "WEATHER",
-      "text": "A cold, bright December day: dress in layers for a morning standing outside at the market and a windy open-air rooftop at dusk. It gets dark early."
+      "text": "Cold morning outdoors, then dark around 16:30 while you are on the Shibuya Sky roof. Layers and gloves; trees are bare, the city lights are the show."
     },
     {
       "kind": "MONEY",
-      "text": "Carry cash for the flea-market stalls and the yokocho bars. Shopping tax-free means each person pays at the till with their own passport, then keeps the goods unused, with receipts, in their carry-on."
+      "text": "Cash for the flea market, the lucky cats and Gyōza Rō (cash only). Passports on you all day: tax-free needs ¥5,000+ per shop per day, paperwork at Haneda on Dec 29."
     },
     {
       "kind": "CHECK",
-      "text": "Ebisu ends with the last Yamanote train at 23:47. If you miss it, take 2 taxis home."
+      "text": "Check before the day: Shibuya Sky sunset tickets (release mid-November, all 8 in one order), the Uoshin room for 8, and KICKS LAB's opening time."
     }
   ],
   "stops": [
     {
       "index": 0,
-      "summary": "Onigiri and hot coffee from the konbini, then three trains and a tram out to Setagaya's flea market.",
-      "story": "No sit-down breakfast today: the market is best before the crowds arrive, so you eat on the move. The ride ends on the Tokyu Setagaya line, a two-car tram rattling through quiet residential streets, a world away from the Shinjuku bustle.",
+      "summary": "Out the door at 07:20 with konbini coffee in hand; the cat temple beats the crowds.",
+      "story": "Yes, it is early after a ramen-at-midnight first night, and that is the point: the temple and the flea market are at their best before the day-trippers wake up. Grab onigiri and hot coffee from the konbini on the walk.",
       "how": [
-        "Grab onigiri and a hot can of coffee at the nearest konbini.",
-        "Walk to Ochiai-minami-nagasaki for the 08:15 Oedo line.",
-        "Change at Aoyama-itchome, Shibuya and Sangen-jaya, then ride the Setagaya line to Kamimachi (arrive 09:05)."
+        "Walk to Ochiai-minami-nagasaki for the Toei Oedo line 07:45 → Higashi-Nakano.",
+        "JR Chuo-Sobu local 07:59 → Shinjuku, then Odakyu line 08:12 → Gōtokuji 08:30.",
+        "76 min door to door, ¥540 on Suica."
       ],
       "tips": [
-        "The whole run is 79 min door to door and ¥630 on your IC card.",
-        "Change at Sangen-jaya with a few minutes to spare: walk to the Setagaya line platform and take the tram."
+        "Passports and cash in pockets before you lock the door: you will not be back until night.",
+        "Taxi fallback is 34 min if the morning falls apart."
       ],
-      "cost": "about ¥500 pp breakfast; ¥630 train",
+      "cost": "¥540 train",
       "booking": null,
       "hours": null,
       "source_urls": [],
@@ -37,124 +37,236 @@
     },
     {
       "index": 1,
-      "summary": "A 440-year-old street market on its last day of the year: about 700 stalls of antiques, kimono and junk.",
-      "story": "Setagaya Boro-ichi happens only on 15–16 Dec and 15–16 Jan, and today is the final December day: about 700 stalls run along Boro-ichi-dori around the old Daikan Yashiki, selling old kimono, ceramics, tin toys, vintage clothes and outright junk. In the morning cold you'll share the street with grandmothers haggling over lacquerware and collectors digging through boxes. The snack to queue for is daikan-mochi, rice cakes pounded right there.",
+      "summary": "The birthplace of the lucky cat: a wall of white maneki-neko, and you each buy one for the trip.",
+      "story": "Gōtokuji is where the beckoning-cat legend started, and the proof is thousands of white cat figurines stacked beside the Shōfukuden hall, all waving the same paw. Look up at the three-storey pagoda: there are cats hidden in its carvings. Free, quiet on a cold weekday morning, and very funny in a group photo.",
       "how": [
-        "From Kamimachi, follow the crowd onto Boro-ichi-dori.",
-        "Split into pairs; the street is narrow and packed.",
-        "Queue early for daikan-mochi before the line grows.",
-        "Regroup at the Daikan Yashiki and leave for the 11:29 tram from Kamimachi."
+        "Walk from Gōtokuji station to the temple.",
+        "Go straight to the cat figurines beside the Shōfukuden hall.",
+        "Hunt the cats in the pagoda carvings.",
+        "Buy your own maneki-neko at the temple office, then walk 14 min to Boro-ichi."
       ],
       "tips": [
-        "Eating in the market is discouraged, so step off the main street to eat your mochi.",
-        "The Daikan procession isn't held in 2026, so don't wait around for it.",
-        "Stalls open 09:00; arriving around then beats the lunchtime crush."
+        "Figurines run ¥300–1,500; cash.",
+        "The office selling them opens at 8:00 and supplies can be limited, so buy now, not later."
+      ],
+      "cost": "Free; ¥300–1,500 pp for a maneki-neko",
+      "booking": null,
+      "hours": "Grounds 06:00–17:00",
+      "source_urls": [
+        "https://www.google.com/maps/search/Gotokuji+Temple+Setagaya"
+      ],
+      "wishes": [
+        "Legendary, not generic: nothing only there because it is on page one of every Tokyo or Kyoto itinerary, and no sit-down sightseeing filler between the big moments"
+      ]
+    },
+    {
+      "index": 2,
+      "summary": "A 440-year-old flea market that only happens four days a year, and today is one of them.",
+      "story": "Setagaya Boro-ichi fills a whole street around the Daikan Yashiki with about 700 stalls of antiques, junk, old kimono and vintage clothes, and it only runs on 15–16 Dec and 15–16 Jan. It is pure local Tokyo: grandmas haggling over teacups next to racks of worn workwear. Queue for daikan-mochi, rice cakes pounded on the spot, as second breakfast.",
+      "how": [
+        "Daikan-mochi first, before the line grows.",
+        "Split into pairs: the street is narrow and packed.",
+        "Meet at the Daikan Yashiki at 10:45.",
+        "Tokyu Setagaya line from Kamimachi 11:09, then Odakyu and Chiyoda lines to Meiji-jingumae: 48 min, ¥490."
+      ],
+      "tips": [
+        "Cash only in practice; small notes and coins make haggling easier.",
+        "Best before the lunchtime crush, which is exactly when you are there.",
+        "Bad weather can cut hours or cancel it: check the Setagaya city site that morning."
       ],
       "cost": "Free; ¥500–1,500 pp for snacks",
       "booking": null,
-      "hours": "09:00–20:00",
+      "hours": "09:00–20:00 (Dec 15–16 only)",
       "source_urls": [
         "https://www.city.setagaya.lg.jp/02072/10108.html",
         "https://www.gotokyo.org/jp/spot/ev114/index.html",
         "https://kaibutsu-blog.com/?p=3420"
       ],
       "wishes": [
-        "Shopping",
-        "We love to do it all",
-        "We want to maximise all the time we've got in the country"
-      ]
-    },
-    {
-      "index": 2,
-      "summary": "Fast curry or ramen by Shimokitazawa station while the vintage shops open their shutters.",
-      "story": "Shimokitazawa is packed with small curry and ramen counters around the station, perfect for refuelling eight people fast. Eat quickly: the vintage shops open at 12:00 and the best racks get picked over first.",
-      "how": [
-        "Split across two or three counters near the station if one can't seat 8.",
-        "Order something warming and be out in time for the shops."
-      ],
-      "tips": [
-        "Many small counters use ticket machines by the door, so have cash ready."
-      ],
-      "cost": "about ¥1,200 pp",
-      "booking": null,
-      "hours": null,
-      "source_urls": [],
-      "wishes": [
-        "We want to maximise all the time we've got in the country"
+        "Streetwear, sneakers and vintage (Harajuku, Koenji, Shimokitazawa, Ameyoko, Amerikamura), Don Quijote and tax-free hauls",
+        "Be bold: prefer one-of-a-kind, local-run, hard-to-book and group-scale things, and name a safe fallback beside every hard-to-book thing"
       ]
     },
     {
       "index": 3,
-      "summary": "Tokyo's vintage village: dig New York Joe's cheap racks in an old bathhouse, then Flamingo and reload.",
-      "story": "New York Joe Exchange is a former public bathhouse turned trade-in thrift store, with the cheapest racks in the neighbourhood at ¥1,000–3,000. Flamingo is the classic for American vintage, and reload is the newer low-rise mall built along the old rail line, with curated shops and cafés. Locals say the main streets have become pricier and more touristy, so the real finds are in the side streets.",
+      "summary": "Kick off the Harajuku crawl at the atmos flagship and ask for the Japan-only pairs.",
+      "story": "atmos is the Tokyo sneaker shop that does collabs you cannot buy at home. A quick stop, one question to staff, and you know if anything here is coming home with you.",
       "how": [
-        "Start at New York Joe Exchange for bargain racks.",
-        "Hit Flamingo, then wander the side streets in small groups.",
-        "Regroup at reload and catch the 15:19 Inokashira line to Shibuya."
+        "Ask staff for Japan-exclusive pairs.",
+        "Check the atmos app raffles a week ahead for any drop.",
+        "Walk 5 min to HUMAN MADE."
       ],
       "tips": [
-        "Skip the main-street shops if prices look inflated; the backstreet independents are better value.",
-        "Curated pieces run ¥3,000–10,000 each, so set a budget before you start."
+        "Passport ready if you cross ¥5,000 in one shop."
       ],
-      "cost": "¥1,000–10,000 pp",
+      "cost": null,
       "booking": null,
-      "hours": "12:00–20:00",
+      "hours": "11:00–20:00",
       "source_urls": [
-        "https://www.xiaohongshu.com/explore/6ab093c100000000260317f0",
-        "https://www.reddit.com/r/Tokyo/comments/1icjhxi/good_thrift_stores_in_shimokita/",
-        "https://www.google.com/maps/search/?api=1&query=New+York+Joe+Exchange+Shimokitazawa"
+        "https://www.atmos-tokyo.com/shop/store/shoplist/26"
       ],
       "wishes": [
-        "Shopping",
-        "We love to do it all"
+        "Streetwear, sneakers and vintage (Harajuku, Koenji, Shimokitazawa, Ameyoko, Amerikamura), Don Quijote and tax-free hauls",
+        "Shopping"
       ]
     },
     {
       "index": 4,
-      "summary": "An open-air rooftop 229 m above the Scramble: Fuji in daylight, sunset, then Tokyo lighting up.",
-      "story": "Shibuya Sky's roof is open to the sky, with nothing between you and the whole city. December has the clearest air of the year, so on a good day Mt Fuji stands out on the horizon before the sun drops around 16:30. Stay on and watch the Scramble crossing below turn into a river of headlights.",
+      "summary": "HUMAN MADE's first global flagship: three floors, and the Tokyo-only pieces vanish first.",
+      "story": "NIGO's brand finally built its biggest store, and it is three floors of hearts, ducks and heavyweight tees in Harajuku. The Tokyo-only stuff goes early, which is why you are here before lunch.",
       "how": [
-        "Enter at your booked 15:40 slot, all 8 together.",
-        "Put bags, food and drinks in the 46F lockers before the roof.",
-        "Go straight to the west side for Fuji, then hold your spot for sunset."
+        "Go straight for the Tokyo-only pieces.",
+        "Pay together per person to clear ¥5,000 for tax-free.",
+        "Walk 4 min to Gyōza Rō."
       ],
       "tips": [
-        "There's no time limit, so stay on into the night view.",
-        "The roof closes in rain or strong wind; check the weather that morning.",
-        "It's freezing and windy up there: wear gloves and a hat."
+        "Weekday close is 19:00, earlier than the other shops: do not leave it for later."
       ],
-      "cost": "¥3,400 pp (online, from 15:00)",
-      "booking": "Booked: 15:40 entry for all 8",
-      "hours": "10:00–22:30; last entry 21:20",
+      "cost": null,
+      "booking": null,
+      "hours": "Weekdays 11:00–19:00",
       "source_urls": [
-        "https://www.shibuya-scramble-square.com/sky/",
-        "https://flipjapanguide.com/shibuya-sky/"
+        "https://humanmade.co.jp/"
       ],
       "wishes": [
-        "We love to do it all",
-        "Look for money we can save by booking early or buying passes"
+        "Streetwear, sneakers and vintage (Harajuku, Koenji, Shimokitazawa, Ameyoko, Amerikamura), Don Quijote and tax-free hauls"
       ]
     },
     {
       "index": 5,
-      "summary": "One floor of Nintendo TOKYO, Pokémon Center, Capcom and Jump Shop, right by the Shibuya lights.",
-      "story": "PARCO's 6th floor is a run of game and anime flagships: Nintendo TOKYO, Pokémon Center Shibuya, Capcom Store and Jump Shop, all next to each other. The other floors carry Japanese designer and streetwear labels if anyone is still shopping.",
+      "summary": "Cheap, fast, legendary: plates of fried and boiled gyoza and a beer in the middle of the crawl.",
+      "story": "Harajuku Gyōza Rō has been feeding shoppers forever with basically one thing, done right: gyoza, fried or boiled, six to a plate. It is loud, quick and costs almost nothing, which leaves more yen for sneakers.",
       "how": [
-        "Head up to 6F first.",
-        "Split by fandom and regroup at the escalators.",
-        "Walk on to MIYASHITA PARK for dinner."
+        "Queue; it moves fast.",
+        "Order both fried and boiled: ¥340 for a plate of 6.",
+        "Weekday lunch set B (gyoza, rice, bean sprouts, soup) is ¥990.",
+        "Beers, then walk 6 min to KICKS LAB."
       ],
       "tips": [
-        "Nintendo TOKYO sometimes uses timed entry when busy; check at the door.",
-        "No sales in December: PARCO's big sale starts in January, after the trip.",
-        "To shop tax-free, each person pays with their own passport; keep goods unused, with receipts, in your carry-on."
+        "Cash only.",
+        "Our hours come from an older article, so check it is open on the day."
       ],
-      "cost": "Browse; merch ¥1,500+",
+      "cost": "about ¥1,000 pp",
       "booking": null,
-      "hours": "11:00–21:00 (varies by shop)",
+      "hours": "11:30–22:30, last entry 22:00 (check)",
       "source_urls": [
-        "https://www.google.com/maps/search/?api=1&query=Shibuya+PARCO",
-        "https://www.timeout.jp/tokyo/ja/shopping/newyearsale-2026"
+        "https://tabelog.com/tokyo/A1306/A130601/13001284/"
+      ],
+      "wishes": [
+        "We love to drink"
+      ]
+    },
+    {
+      "index": 6,
+      "summary": "Rare and deadstock sneakers: the shop for pairs nobody back home has.",
+      "story": "KICKS LAB is a curated sneaker boutique heavy on rare and deadstock pairs. A quick hit to see what the Japanese collectors are hoarding.",
+      "how": [
+        "Browse the rare and deadstock wall.",
+        "Walk 9 min to Cat Street."
+      ],
+      "tips": [
+        "Sources disagree on the weekday opening time; check before you go, though by 13:35 it should be open."
+      ],
+      "cost": null,
+      "booking": null,
+      "hours": "Check: listed as 12:00–20:00, closed Sundays",
+      "source_urls": [
+        "https://www.kickslab.com/"
+      ],
+      "wishes": [
+        "Streetwear, sneakers and vintage (Harajuku, Koenji, Shimokitazawa, Ameyoko, Amerikamura), Don Quijote and tax-free hauls"
+      ]
+    },
+    {
+      "index": 7,
+      "summary": "Free roam down Cat Street and the Ura-Hara backstreets for vintage and indie labels.",
+      "story": "Ura-Harajuku is where the actual style lives: small vintage shops, indie labels and 2nd Street for resale finds, along a car-free lane toward Shibuya. Spread out, find something weird, show the group.",
+      "how": [
+        "Split up along Cat Street and the side alleys.",
+        "Hit 2nd Street for resale bargains.",
+        "Meet at the Cat Street end at 14:45, then walk 6 min to BAPE."
+      ],
+      "tips": [
+        "Keep receipts per shop for tax-free."
+      ],
+      "cost": null,
+      "booking": null,
+      "hours": null,
+      "source_urls": [
+        "https://www.google.com/maps/search/?api=1&query=Cat+Street+Harajuku"
+      ],
+      "wishes": [
+        "Streetwear, sneakers and vintage (Harajuku, Koenji, Shimokitazawa, Ameyoko, Amerikamura), Don Quijote and tax-free hauls"
+      ]
+    },
+    {
+      "index": 8,
+      "summary": "Last shop of the crawl: BAPE camo and the Harajuku-only tees.",
+      "story": "The BAPE store in Harajuku is the mothership for the camo you grew up seeing on everyone's older cousin. Grab the Harajuku-only tee as proof you were here.",
+      "how": [
+        "Ask for the Japan-exclusive pieces.",
+        "Keep it to ¥5,000+ per person per shop for tax-free, passport in hand.",
+        "Walk to Omotesando for the Ginza line 15:28 → Shibuya 15:31, ¥180; 17 min door to door."
+      ],
+      "tips": [
+        "Do not dawdle: the Shibuya Sky slot will not wait.",
+        "Taxi fallback is 8 min."
+      ],
+      "cost": null,
+      "booking": null,
+      "hours": "11:00–20:00",
+      "source_urls": [
+        "https://jp.bape.com/pages/store-list/harajuku"
+      ],
+      "wishes": [
+        "Streetwear, sneakers and vintage (Harajuku, Koenji, Shimokitazawa, Ameyoko, Amerikamura), Don Quijote and tax-free hauls"
+      ]
+    },
+    {
+      "index": 9,
+      "summary": "Open-air roof 229 m above the Scramble: Fuji in the last light, sunset, then Tokyo switches on.",
+      "story": "Shibuya Sky is the one paid deck worth it: you are outside on the roof, not behind glass. December air is the clearest of the year, so on a good day Mt Fuji sits on the horizon as the sun drops around 16:30, then the whole city lights up under your feet.",
+      "how": [
+        "Enter at 15:40 with tickets bought for all 8 in one order.",
+        "Big bags into the 46F lockers; no food or drink on the roof.",
+        "Find the Fuji side for sunset, then stay for the lights.",
+        "Walk 10 min to PARCO via the Scramble Crossing."
+      ],
+      "tips": [
+        "Check the official page in mid-November and buy the second sunset slots open: they go within minutes.",
+        "Online from 15:00 is ¥3,400 vs ¥3,700 at the counter, if any are left.",
+        "Rain or strong wind closes the roof; tickets refund only if you have not entered."
+      ],
+      "cost": "¥3,400 pp online",
+      "booking": "Check: not bought until release (official site or Klook), all 8 in one order",
+      "hours": "10:00–22:30, last entry 21:20",
+      "source_urls": [
+        "https://www.shibuya-scramble-square.com/sky/",
+        "https://flipjapanguide.com/shibuya-sky/",
+        "https://www.agoda.com/travel-guides/japan/tokyo/when-do-shibuya-sky-tickets-go-on-sale-find-out-now"
+      ],
+      "wishes": [
+        "Be bold: prefer one-of-a-kind, local-run, hard-to-book and group-scale things, and name a safe fallback beside every hard-to-book thing"
+      ]
+    },
+    {
+      "index": 10,
+      "summary": "Nintendo TOKYO, Pokémon Center, Capcom and Jump Shop, all on one floor of PARCO.",
+      "story": "PARCO's sixth floor is a single corridor of childhood: Nintendo TOKYO, Pokémon Center Shibuya, the Capcom Store and Jump Shop, back to back. Time here disappears.",
+      "how": [
+        "Straight up to 6F.",
+        "Nintendo TOKYO sometimes runs timed entry when busy; check at the door.",
+        "Walk 6 min to Uoshin."
+      ],
+      "tips": [
+        "December is full price: PARCO's big sale starts in January, after you leave.",
+        "Merch tax-free still needs ¥5,000+ in one shop."
+      ],
+      "cost": null,
+      "booking": null,
+      "hours": "6F 10:00–21:00",
+      "source_urls": [
+        "https://www.google.com/maps/search/?api=1&query=Shibuya+PARCO"
       ],
       "wishes": [
         "Shopping",
@@ -162,56 +274,52 @@
       ]
     },
     {
-      "index": 6,
-      "summary": "A loud food-stall alley under MIYASHITA PARK: regional dishes from all over Japan at shared tables.",
-      "story": "Shibuya Yokocho packs 19 small shops under MIYASHITA PARK, each cooking a different region of Japan, with festival-style shared tables in between. It's noisy and full of young crowds, and eight people can walk in without a booking.",
+      "index": 11,
+      "summary": "Fishmonger-run izakaya: sashimi spilling off the plate, crab, overflowing nokke-zushi, free-flow drinks.",
+      "story": "Uoshin is run by fishmongers and has been since 1983, so the seafood arrives in piles, not portions. The star is nokke-zushi, sushi buried under so much uni and crab it slides off the rice. The course is ten dishes with all-you-can-drink, in a semi-private room for the eight of you.",
       "how": [
-        "Grab a shared table first, then send people out to order from different stalls.",
-        "Mix dishes from several regions and share everything.",
-        "Leave for the 20:56 Yamanote line to Ebisu."
+        "Arrive on time for 18:30.",
+        "¥6,800 course: ten dishes including crab and nokke-zushi, all-you-can-drink.",
+        "Film the nokke-zushi pour.",
+        "Walk 5 min to Manekineko."
       ],
       "tips": [
-        "Walk-in only, so grab the first big table you see.",
-        "Hours vary by shop, so order the dishes you most want first."
+        "Same-day cancellations or a smaller group can mean a fee; changes by phone only.",
+        "Check the booking says 半個室 (semi-private room) for 8."
       ],
-      "cost": "about ¥3,000 pp with drinks",
-      "booking": "Walk in",
-      "hours": "Varies by shop",
+      "cost": "¥6,800 pp",
+      "booking": "Check it is booked: phone 03-3464-3000, ¥6,800 course, 半個室 for 8",
+      "hours": "17:00–23:00",
       "source_urls": [
-        "https://www.shibuya-yokocho.com/",
-        "https://www.gotokyo.org/jp/spot/1844/index.html"
+        "https://tabelog.com/tokyo/A1303/A130301/13001781/"
       ],
       "wishes": [
         "We love to drink",
-        "We love to do it all"
+        "Everyone stays together; every booking is for 8 at the same table or private room (8名で、同じテーブル/個室)"
       ]
     },
     {
-      "index": 7,
-      "summary": "A covered lantern-lit alley of tiny izakaya where strangers end up talking across the counters.",
-      "story": "Ebisu Yokocho is about 20 small izakaya squeezed into a covered alley, red lanterns overhead and stools jammed shoulder to shoulder. It's more local than Shibuya, and on a weeknight like tonight you have a real chance of fitting in.",
+      "index": 12,
+      "summary": "One room, eight people, free-drink plan, the anthems, and a hard stop at 23:40 for the last train.",
+      "story": "Manekineko is Japan's karaoke chain built for exactly this: a room for the whole group, a phone to order drinks without stopping the song, and a free-drink plan to make the duets worse. Leave on time and you get home by train; miss it and it's two taxis.",
       "how": [
-        "Walk the whole alley once and see which bigger stalls have space.",
-        "Split 4+4 across two neighbouring stalls if no single counter fits 8.",
-        "Leave by 23:30 for the 23:47 Yamanote line to Ikebukuro."
+        "Phone-book one room for 8 (3+ people can book), or book on the shop page.",
+        "Join at the desk (members only) and take the free-drink plan.",
+        "Leave at 23:40: JR Yamanote 23:59 → Ikebukuro 00:14, Seibu 00:23 → Higashi-Nagasaki 00:28, ¥380."
       ],
       "tips": [
-        "Wednesday is the right night: Fridays fill up with bōnenkai parties.",
-        "It stays open until 05:00, but the trains don't. Missing the last one means 2 taxis home.",
-        "Shin Nikuzushiman inside the alley takes online bookings on Hot Pepper if you want a guaranteed seat."
+        "Joining asks for photo ID: bring your passport and check it is accepted.",
+        "Billing starts at 1 hour, then 30-minute steps; one drink each (¥451 or more) on top.",
+        "Missed the train? Taxi is 21 min home."
       ],
-      "cost": "about ¥3,000–4,000 pp",
-      "booking": "Walk in; Hot Pepper for Shin Nikuzushiman",
-      "hours": "Per shop; Google lists 17:00–05:00",
+      "cost": "about ¥2,000 pp",
+      "booking": "Phone or 来店予約 on the shop page",
+      "hours": "24 hours",
       "source_urls": [
-        "http://www.ebisu-yokocho.com/",
-        "https://maps.google.com/?cid=9513230481716724681",
-        "https://www.hotpepper.jp/strJ000795389/",
-        "https://macaroni.jp/articles/19541"
+        "https://www.karaokemanekineko.jp/locations/tokyo/shibuya-ku/shibuya-centergai-store/"
       ],
       "wishes": [
-        "We love to drink",
-        "We want to maximise all the time we've got in the country"
+        "Karaoke (Manekineko, Big Echo, Karaokekan), arcades, izakaya and yokocho nights, standing bars, and the last-train problem solved properly"
       ]
     }
   ]

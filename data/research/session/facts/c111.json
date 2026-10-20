@@ -2,35 +2,66 @@
   "open": [
     {
       "dates": [
-        "2026-12-21",
-        "2026-12-22",
-        "2026-12-23",
-        "2026-12-24",
-        "2026-12-25",
+        "2026-12-15",
+        "2026-12-16",
+        "2026-12-17",
+        "2026-12-27",
+        "2026-12-28",
+        "2026-12-29"
+      ],
+      "open": "11:30",
+      "close": "23:30",
+      "quote": "居酒屋タイム　11:30～23:30",
+      "url": "https://r.gnavi.co.jp/ga3y900/"
+    },
+    {
+      "dates": [
+        "2026-12-18",
+        "2026-12-19",
         "2026-12-26"
       ],
-      "open": "21:00",
-      "close": "29:00",
-      "quote": "OPEN-CLOSE / 21:00 - 5:00",
-      "url": "http://owl-osaka.net/"
+      "open": "11:30",
+      "close": "23:30",
+      "quote": "居酒屋タイム　11:30～23:30",
+      "url": "https://r.gnavi.co.jp/ga3y900/"
     }
   ],
   "closed": [],
-  "last_entry": null,
-  "prices": [],
+  "last_entry": {
+    "time": "23:00",
+    "quote": "（L.O.23:00、ドリンクL.O.23:00）",
+    "url": "https://r.gnavi.co.jp/ga3y900/"
+  },
+  "prices": [
+    {
+      "what": "Otoshi table charge, tax included (per guest)",
+      "yen": 324,
+      "quote": "チャージ料金：お通し 324円(税込)",
+      "url": "https://r.gnavi.co.jp/ga3y900/"
+    }
+  ],
   "fixed_minutes": null,
   "time_limit": null,
-  "group": null,
+  "group": {
+    "text": "Banquets up to 100 guests seated",
+    "quote": "100名様（着席時）",
+    "url": "https://r.gnavi.co.jp/ga3y900/"
+  },
   "booking": {
-    "text": "VIP reservations open 1 week ahead; tel 06-6362-0822",
-    "quote": "ご予約は1週間前から！06-6362-0822",
-    "url": "http://owl-osaka.net/"
+    "text": "Online booking via Gurunavi listing; same-day no-show counts as 100% for course bookings",
+    "quote": "当日キャンセル（連絡なし） -- 100%",
+    "url": "https://r.gnavi.co.jp/ga3y900/"
   },
   "notes": [
     {
-      "text": "Bag inspection at entry for all guests",
-      "quote": "ご入場の際、全てのお客様に手荷物検査を実施しております。",
-      "url": "http://owl-osaka.net/"
+      "text": "Table rooms for 4 to 30 guests",
+      "quote": "テーブル個室あり（4名～30名様用）",
+      "url": "https://r.gnavi.co.jp/ga3y900/"
+    },
+    {
+      "text": "Source is the Gurunavi listing, not the shop's own site; private-room details from the shop",
+      "quote": "※個室の詳細はお店にお問い合わせください",
+      "url": "https://r.gnavi.co.jp/ga3y900/"
     }
   ]
 }

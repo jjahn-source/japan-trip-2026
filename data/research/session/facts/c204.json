@@ -1,0 +1,50 @@
+{
+  "open": [
+    {
+      "dates": [
+        "2026-12-15",
+        "2026-12-16",
+        "2026-12-17",
+        "2026-12-18",
+        "2026-12-19",
+        "2026-12-26",
+        "2026-12-27",
+        "2026-12-28",
+        "2026-12-29"
+      ],
+      "open": "11:00",
+      "close": "21:00",
+      "quote": "＜物販＞ 　11:00-21:00",
+      "url": "https://shibuya.parco.jp/info/"
+    }
+  ],
+  "closed": [],
+  "last_entry": null,
+  "prices": [],
+  "fixed_minutes": null,
+  "time_limit": null,
+  "group": null,
+  "booking": null,
+  "notes": [
+    {
+      "text": "6F (Nintendo Tokyo, Pokémon Center and others) 10:00-21:00",
+      "quote": "※6F（Nintendo Tokyo、ポケモンセンター他）10:00-21:00",
+      "url": "https://shibuya.parco.jp/info/"
+    },
+    {
+      "text": "7F restaurants 11:00-23:00",
+      "quote": "※7F（レストラン）11:00-23:00",
+      "url": "https://shibuya.parco.jp/info/"
+    },
+    {
+      "text": "Hours are not fixed; year-end hours differ and 2026 year-end hours were not published on this page",
+      "quote": "※不定休となります。年末年始は営業時間が異なります。",
+      "url": "https://shibuya.parco.jp/info/"
+    },
+    {
+      "text": "Some shops closed or on different hours",
+      "quote": "※一部、休業店舗また営業時間が異なる店舗がございます。",
+      "url": "https://shibuya.parco.jp/info/"
+    }
+  ]
+}

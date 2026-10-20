@@ -2,67 +2,64 @@
   "notes": [
     {
       "kind": "CHECK",
-      "text": "USJ hours for 22 Dec aren't published yet: check the official calendar the week before and set the alarm from the opening time."
+      "text": "Santa Parade: the start time and meeting point are not announced yet, and sign-up only opens in early November. Register all 8 the day it opens, then move the afternoon to the real slot."
     },
     {
       "kind": "BRING",
-      "text": "Original passports (bars and karaoke at night), phones charged, USJ and Jankara apps installed and logged in."
+      "text": "Passports and the JR Kansai-Hiroshima Area Pass: today is day 1, so it starts at the first JR gate. The Hankyu and Keihan rides are not JR, so top up your Suica."
     },
     {
       "kind": "WEATHER",
-      "text": "December cold all day and dark well before the evening show; wear layers, gloves and shoes you can stand in all day."
+      "text": "A freezing start at Inari and dark well before dinner. Wear layers you can pull a Santa suit over."
     }
   ],
   "stops": [
     {
       "index": 1,
-      "summary": "USJ's 25th-anniversary winter: rope-drop to Super Nintendo World, then Christmas lights after dark.",
-      "story": "It's the 25th-anniversary Universal Holiday Wonders season, running 13 Nov 2026 to 17 Jan 2027, and you're here on a quiet Tuesday before the Christmas Eve price jump and crowds. After dark, Gramercy Park gets the new 'Light Up the Night ~Christmas Celebration~' show and Joy of Lights is back after 9 years. The Universal Food Festival is the park's biggest yet, so lunch and dinner sort themselves out.",
+      "summary": "Thousands of red gates and nobody in them: climb the torii tunnel while the tour buses are still asleep.",
+      "story": "Fushimi Inari is a whole mountain lined with vermilion torii, each one paid for by a business hoping for good luck. Get there early in winter and the low sun comes through the gates sideways, the paths are empty and your breath fogs up. Get there late and it's a queue of selfie sticks.",
       "how": [
-        "Be at the gate 45 min before opening and walk straight to Super Nintendo World.",
-        "No Express? Grab the free timed-entry ticket for Super Nintendo World in the app the moment you're in.",
-        "Use your Express slots for Mario Kart and Harry Potter; eat lunch and an early dinner at the Universal Food Festival.",
-        "Catch the 17:30 night show in Gramercy Park and Joy of Lights, then leave: the train out of Universal City is at 19:24."
+        "Walk out of JR Inari straight through the Rōmon gate and keep going uphill into the Senbon Torii.",
+        "Push up to the Yotsutsuji crossroads for the view over Kyoto, then turn back. The full mountain loop is about 4 km and takes 2h+, which you don't have time for.",
+        "Be back at the bottom in time for the 2 taxis to Kiyomizu (21 min)."
       ],
       "tips": [
-        "Buy all 8 in one order so your Express Pass ride times line up.",
-        "Only Express Pass 5 and Pass 7 include Mario Kart; Pass 4 doesn't.",
-        "The Joy of Lights viewing area is a separate ticket from ¥1,700 on top of park admission; the show itself is visible without it."
+        "It's quietest from 6 to 9am, and weekends peak 10–16, so the early alarm actually buys you something.",
+        "The side paths off the main gate tunnel are where the empty-gate photos are.",
+        "It's open 24h and free, so nothing opens late on you."
       ],
-      "cost": "Studio Pass ~¥9,900–11,900 pp (dynamic, dated) + Express Pass from ~¥14,800 pp; show viewing area from ¥1,700",
-      "booking": "Buy dated tickets and Express Passes now on the official USJ web store; Express sells out.",
-      "hours": "Varies by day (check the USJ calendar)",
+      "cost": "Free",
+      "booking": null,
+      "hours": "24h, free",
       "source_urls": [
-        "https://www.usj.co.jp/web/ja/jp/events/christmas-2026/universal-holiday-wonders/light-up-the-night",
-        "https://happyell.co.jp/world/expresspass/",
-        "https://bestcalendar.jp/press/152774",
-        "https://castel.jp/p/10287"
+        "https://inari.jp/",
+        "https://banzokubiology.com/fushimiinari-konzatsu/",
+        "https://maps.google.com/?cid=8870624639634301673"
       ],
       "wishes": [
-        "We love to do it all",
         "We want to maximise all the time we've got in the country",
-        "Look for money we can save by booking early or buying passes"
+        "At most two deliberate nights under 4 hours' sleep; any early start after a late night needs a reason (rope-drop at USJ, first light at Fushimi Inari)"
       ]
     },
     {
       "index": 2,
-      "summary": "First Osaka bite of the night: crisp, molten takoyaki and the osenbei rice-cracker sandwich.",
-      "story": "Wanaka's flagship on Sennichimae is the safe bet for great takoyaki in Minami: crisp shells, molten centres, steam you can see in the cold night air. The move is the 'osenbei' — takoyaki pressed between a big rice cracker, a crunchy hand-held you can only really get in Osaka.",
+      "summary": "A wooden stage hanging over a ravine of bare winter maples, with all of Kyoto spread out below.",
+      "story": "Kiyomizu's main hall sits on a huge wooden scaffold sticking out over the hillside. In December the maples underneath are bare, so you get a clear view all the way across the city. On the way out, the Otowa waterfall splits into three streams, each supposedly good for something different, so pick one and don't be greedy.",
       "how": [
-        "Come straight from Namba station; it may close at 21:00.",
-        "Order a box or two to share plus a couple of osenbei sandwiches.",
-        "Eat at the seats or by the takeaway window, then walk 6 min north to Hozenji."
+        "Pay ¥500 at the gate and head straight for the stage.",
+        "Do the main view, then loop down to Otowa-no-taki for one sip each.",
+        "Exit downhill. Sannenzaka is an 8-minute walk from the gate."
       ],
       "tips": [
-        "Listings disagree on closing time (21:00 or 23:00), so don't leave it for later in the night.",
-        "Let them cool a minute: the inside is properly molten."
+        "Open 06:00–18:00 on the trip dates.",
+        "A group photo with all 8 is fine, but organised group shoots technically need notice and permission, so keep it quick and don't block the stage.",
+        "There's no group discount, so don't bother asking."
       ],
-      "cost": "¥600–800 per box",
+      "cost": "¥500 pp",
       "booking": null,
-      "hours": "Listed 10:30–21:00 (another listing says to 23:00)",
+      "hours": "06:00–18:00",
       "source_urls": [
-        "http://takoyaki-wanaka.com/",
-        "https://www.google.com/maps/search/?api=1&query=34.6652167,135.5033629"
+        "https://www.kiyomizudera.or.jp/"
       ],
       "wishes": [
         "We love to do it all"
@@ -70,53 +67,177 @@
     },
     {
       "index": 3,
-      "summary": "Splash the moss-furred Fudo statue, then first drinks in Osaka's lantern-lit stone lane.",
-      "story": "One minute from Dotonbori's neon, Hozenji Yokocho goes quiet: a narrow flagstone alley of paper lanterns and about a dozen tiny izakaya and bars. At its heart, Fudo Myoo is so coated in moss from people splashing water on him that he looks green and furry. On a cold December night the lanterns and steamy windows make it feel like old Osaka.",
+      "summary": "Stone-stepped lanes of old wooden shops: snack, grab souvenirs, keep walking.",
+      "story": "Sannenzaka and Ninenzaka are the steep stone lanes that wind down from Kiyomizu toward Yasaka, lined with wooden townhouses that now sell sweets and trinkets. They're touristy, but the shape of the old town is real, and in winter the shopfronts steam with fresh snacks.",
       "how": [
-        "Ladle water over the Fudo statue and make a wish.",
-        "Split into twos and fours: most places only seat 4–6.",
-        "One or two drinks each, then regroup at the statue and walk 1 min to Jankara."
+        "Walk down from Kiyomizu and follow the slope toward Yasaka Shrine.",
+        "Grab yatsuhashi (cinnamon rice-dough sweets) and look into the Starbucks in an old townhouse, with tatami rooms upstairs.",
+        "Carry on via Yasaka and Shijō-dōri, over the Kamo river, to Nishiki."
       ],
       "tips": [
-        "Expect a seat charge (otoshi) of ¥300–500 with a small dish.",
-        "Lanterns are lit for the photos until about 21:00."
+        "This is a snack-and-go stop, not a shopping stop. The real shopping is in Osaka.",
+        "Legend says if you trip on Sannenzaka you'll have bad luck, so watch the steps."
       ],
-      "cost": "¥700–1,200 per drink (+¥300–500 seat charge)",
-      "booking": "Walk in",
-      "hours": "Varies by bar; most ~17:00–24:00",
+      "cost": null,
+      "booking": null,
+      "hours": null,
       "source_urls": [
-        "https://tablejourney.com/japan/osaka/nightlife/hozenji-yokocho-dive/",
-        "https://maps.google.com/?q=Hozenji+Yokocho"
+        "https://www.google.com/maps/search/?api=1&query=34.99655723571777,135.78094482421875"
       ],
       "wishes": [
-        "We love to drink",
-        "Ending the night/nightlife in Osaka"
+        "We love to do it all"
       ]
     },
     {
       "index": 4,
-      "summary": "Close the night at Osaka's own karaoke chain: all-you-can-drink BAL UTAO or one big room for all of you.",
-      "story": "Jankara is Osaka's homegrown cheap karaoke chain, and this Dotonbori flagship is its biggest: 51 rooms on B1–5F, open 24 hours. BAL UTAO is its all-you-can-drink karaoke lounge, a livelier and cheaper night than Round1 karaoke.",
+      "summary": "Kyoto's 400m food street: lunch is whatever you point at, stall by stall.",
+      "story": "Nishiki is a narrow covered arcade packed with stalls that have fed Kyoto kitchens for generations: rolled tamagoyaki, baby octopus with a quail egg stuffed in its head, soy-milk doughnuts, pickles of every colour. Eight people splitting skewers down the length of it is the best lunch in the city.",
       "how": [
-        "Reception is on 1F; ask for BAL UTAO or a room for 4 to 14 people.",
-        "Show the Jankara app to get the member rate, and order 1 food item each.",
-        "Leave by 23:05 for the 23:22 Hanshin Namba line from Osaka-Namba to Kujō (¥220)."
+        "Go in from one end and work your way along. Most bites cost ¥300–800.",
+        "Eat at the stall where you bought it. Walking while eating is frowned on here.",
+        "Leave from Karasuma for the Hankyu limited express at 13:31, which reaches Osaka-umeda at 14:13 (¥410, on Suica, not the JR pass)."
       ],
       "tips": [
-        "Join the free Jankara app before you go: BAL UTAO drops from ¥1,000 to ¥500 per 30 min.",
-        "Rooms can be booked online through すぐカラ.",
-        "Don't stay late: alcohol stops at 00:00 and tomorrow is an early Kyoto start."
+        "Budget about ¥2,000 each and stop before you're full. The Santa Parade comes next.",
+        "Stall hours vary, roughly 10:00–17:00, and some close Wednesdays and Sundays. Tuesday is fine.",
+        "Must-try: tako-tamago and the soy-milk doughnuts."
       ],
-      "cost": "BAL UTAO ¥500 per 30 min with the app (¥1,000 without) + 1 food item each",
-      "booking": "Download the Jankara app; rooms bookable online",
-      "hours": "Open 24 hours",
+      "cost": "¥2,000 pp (¥300–800 per bite)",
+      "booking": null,
+      "hours": "About 10:00–17:00, varies by stall",
       "source_urls": [
-        "https://jankara.ne.jp/open/109/en",
-        "https://maps.google.com/?q=Jankara+Dotonbori"
+        "https://www.kyoto-nishiki.or.jp/",
+        "https://www.google.com/maps/search/?api=1&query=35.0050258,135.764723"
+      ],
+      "wishes": [
+        "We love to do it all",
+        "We want to maximise all the time we've got in the country"
+      ]
+    },
+    {
+      "index": 5,
+      "summary": "Eight of you join a horde of Santas parading through Umeda, and you keep the suits.",
+      "story": "Every December the Umekita district behind Osaka Station fills with hundreds of people in Santa suits, mostly office workers from the two big complexes, handing out presents and cleaning the streets as they go. It's free, the costume is yours to keep, and nobody at home will believe you. The parade is confirmed for Tuesday 22 December 2026.",
+      "how": [
+        "Sign up: recruitment opens in early November on the GRAND FRONT OSAKA and GRAND GREEN OSAKA sites. Register all 8 on day one.",
+        "The start time and meeting point are not announced yet. Don't trust the time on this card until the confirmation comes through.",
+        "Check in, suit up, parade through Umekita handing out presents, and keep the suits for Christmas Day."
+      ],
+      "tips": [
+        "In 2025 it was free with 500 public places, first come first served, and sign-up closed on 15 Dec or when full. Assume it will fill early.",
+        "If you miss out, buy Santa suits at Donki and spend this time at LUCUA and Nintendo OSAKA, then the tree show.",
+        "Keep the suits clean: they're your Christmas Day outfit."
+      ],
+      "cost": "Free (2025 terms; suit is yours to keep)",
+      "booking": "Sign-up opens early November on the GRAND FRONT OSAKA / GRAND GREEN OSAKA sites; register all 8 the day it opens",
+      "hours": "Start time and meeting point not yet announced",
+      "source_urls": [
+        "https://san-tatsu.jp/pressrelease/558449/",
+        "https://www.haveagood-holiday.com/en/articles/grand-front-osaka-grand-wish-christmas-2026",
+        "https://www.timeout.com/osaka/things-to-do/grand-santa-parade-in-umekita"
+      ],
+      "wishes": [
+        "The Grand Santa Parade in Umekita, Osaka (about 500 Santas, suits provided and yours to keep; needs a sign-up; Plan C had it on Tue 22 Dec)",
+        "Christmas Day in Santa suits, the whole group, ending in a Round1 all-nighter in Osaka",
+        "Be bold: prefer one-of-a-kind, local-run, hard-to-book and group-scale things, and name a safe fallback beside every hard-to-book thing"
+      ]
+    },
+    {
+      "index": 6,
+      "summary": "Still in the suits: a light show on the giant tree and the group photo under gold-lit Umekita.",
+      "story": "It's already dark by now, and Grand Front's North Building tree runs a light show while the Umekita lawn glows champagne gold. On its own it's just a mall tree. With eight sweaty Santas in front of it, it's the photo of the trip.",
+      "how": [
+        "Walk 4 min from the parade to the North Building tree.",
+        "Shows run on the hour and at 15, 30 and 45 past, so you'll never wait long.",
+        "Take the group photo, then head to Hankyu Osaka-umeda for the 17:44 limited express, which reaches Kyoto-kawaramachi at 18:28 (¥410)."
+      ],
+      "tips": [
+        "The lights run 16:00–24:00 today, so if the parade runs late you won't miss them.",
+        "The show times come from a third-party event site, so take whatever slot you get."
+      ],
+      "cost": "Free",
+      "booking": null,
+      "hours": "16:00–24:00 (last entry 23:45)",
+      "source_urls": [
+        "https://www.haveagood-holiday.com/en/articles/grand-front-osaka-grand-wish-christmas-2026",
+        "https://san-tatsu.jp/pressrelease/558449/"
+      ],
+      "wishes": [
+        "Christmas Day in Santa suits, the whole group, ending in a Round1 all-nighter in Osaka"
+      ]
+    },
+    {
+      "index": 7,
+      "summary": "Willows, a stone canal and teahouse lanterns: Kyoto's prettiest street, after dark.",
+      "story": "Shirakawa is a short stretch of canal lined with willows and wooden teahouses, with little Tatsumi Bridge and its shrine in the middle. The glow comes from the teahouse lanterns and street lamps, not a festival, and on a December night it's cold, quiet and almost too pretty to be real.",
+      "how": [
+        "From Kawaramachi, cross the Shijō bridge into Gion and find Tatsumi-bashi.",
+        "Group photo on the bridge, then walk the canal.",
+        "Cut down Hanamikoji and over Shijō-ōhashi into Pontochō, a 9-minute walk."
+      ],
+      "tips": [
+        "People live in these teahouses, so keep the noise way down.",
+        "Don't chase or close-up photograph geiko or maiko."
+      ],
+      "cost": "Free",
+      "booking": null,
+      "hours": null,
+      "source_urls": [
+        "https://www.google.com/maps/search/Tatsumi+Bridge+Gion+Shirakawa+Kyoto"
+      ],
+      "wishes": [
+        "If there are cool nightlife things to do in the neighbouring cities as well, include them"
+      ]
+    },
+    {
+      "index": 8,
+      "summary": "Duck hot-pot for 8 on tatami in an old Pontochō townhouse.",
+      "story": "Robin serves kamo-nabe, duck simmered at the table in a rich broth, inside a 150-year-old townhouse on Kyoto's lantern-lit drinking alley. After a day of Santa suits and stairs, sitting on the floor around a bubbling pot is exactly right.",
+      "how": [
+        "Book the 19:15 slot on TableCheck: duck hot-pot course ¥9,200 pp, plus ¥550 pp for the private room.",
+        "Ask for the zashiki (tatami room) for all 8, because the table rooms only seat 2–6.",
+        "Order your last drinks before the 20:30 last order."
+      ],
+      "tips": [
+        "If you can't get the zashiki, don't split up. Fall back to walk-in izakaya on Kiyamachi.",
+        "Kiyamachi is a 4-minute walk away once you're done."
+      ],
+      "cost": "¥9,200 pp (+¥550 pp private room)",
+      "booking": "TableCheck, duck hot-pot course; request the zashiki for 8 (8名で、個室)",
+      "hours": "Mon–Fri 17:00–21:30, LO 20:30",
+      "source_urls": [
+        "https://www.tablecheck.com/shops/robin-kyoto/reserve"
       ],
       "wishes": [
         "We love to drink",
-        "Ending the night/nightlife in Osaka"
+        "Everyone stays together; every booking is for 8 at the same table or private room (8名で、同じテーブル/個室)"
+      ]
+    },
+    {
+      "index": 9,
+      "summary": "Kyoto's cheap, young canal-side bar strip: two rounds, then the last good train home.",
+      "story": "Pontochō is where Kyoto drinks expensively. One block west, Kiyamachi is where it drinks cheaply: standing bars, chain bars, international bars and karaoke along a narrow canal between Shijō and Sanjō. It's the student end of town, which makes it your end of town.",
+      "how": [
+        "Walk one block west, 4 min.",
+        "Do two rounds. Beers are about ¥500–700 and cocktails about ¥800–1,200.",
+        "Leave by 22:30 and walk to Sanjō for the 22:50 Keihan to Kitahama, then Metro via Sakaisuji-Hommachi to Kujō at 23:57 (¥730)."
+      ],
+      "tips": [
+        "It's cheaper than Pontochō for the same drinks.",
+        "Small bars might not seat 8, so split across two next door to each other rather than leave anyone behind.",
+        "Miss the 22:50 and the backup is Hankyu from Kawaramachi to Umeda. A taxi straight home takes 60 min and costs a lot."
+      ],
+      "cost": "¥3,000 pp",
+      "booking": "Walk in",
+      "hours": "Most bars 17:00–24:00",
+      "source_urls": [
+        "https://www.nomadotravel.app/en/guides/kyoto-nightlife-guide",
+        "https://maps.google.com/?q=Kiyamachi-dori+Kyoto"
+      ],
+      "wishes": [
+        "If there are cool nightlife things to do in the neighbouring cities as well, include them",
+        "We love to drink",
+        "Karaoke (Manekineko, Big Echo, Karaokekan), arcades, izakaya and yokocho nights, standing bars, and the last-train problem solved properly"
       ]
     }
   ]

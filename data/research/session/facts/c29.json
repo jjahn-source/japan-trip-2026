@@ -2,31 +2,55 @@
   "open": [
     {
       "dates": [
-        "2026-12-21",
-        "2026-12-22",
-        "2026-12-23",
-        "2026-12-24",
-        "2026-12-25",
-        "2026-12-26"
+        "2026-12-19"
       ],
-      "open": "00:00",
+      "open": "17:00",
       "close": "24:00",
-      "quote": "24時間開放",
-      "url": "https://banzokubiology.com/?p=22312"
+      "quote": "17:00〜0:00（L.O.23:00 ドリンクL.O.23:30）",
+      "url": "http://hakone-monta.com/"
     }
   ],
-  "closed": [],
-  "last_entry": null,
+  "closed": [
+    {
+      "dates": [
+        "2026-12-20",
+        "2026-12-21"
+      ],
+      "why": "Regular closing days (日曜日・月曜日)",
+      "what": "the whole restaurant",
+      "whole_place": true,
+      "quote": "【日曜/月曜を除く全日】",
+      "url": "http://hakone-monta.com/"
+    }
+  ],
+  "last_entry": {
+    "time": "23:00",
+    "quote": "17:00〜0:00（L.O.23:00 ドリンクL.O.23:30）",
+    "url": "http://hakone-monta.com/"
+  },
   "prices": [],
   "fixed_minutes": null,
   "time_limit": null,
-  "group": null,
-  "booking": null,
+  "group": {
+    "text": "Seats can be joined for large parties; semi-private tables",
+    "quote": "席をつなげて大人数にも対応",
+    "url": "http://hakone-monta.com/"
+  },
+  "booking": {
+    "text": "Online booking available",
+    "quote": "ネットでご予約",
+    "url": "http://hakone-monta.com/"
+  },
   "notes": [
     {
-      "text": "Bamboo grove stays open 24 hours over the New Year period (blog source, no official page read)",
-      "quote": "京都・嵐山の竹林の小径は年末年始も24時間散策可能。",
-      "url": "https://banzokubiology.com/?p=22312"
+      "text": "Free shuttle is reservation-only, max 7 people, not offered 17:30-21:00 peak or after 23:00",
+      "quote": "原則、17時30分～21時の繁忙時間帯、及び23時以降は送迎対応しておりません。",
+      "url": "http://hakone-monta.com/"
+    },
+    {
+      "text": "A New Year holiday notice is posted; its dates are not in the captured text",
+      "quote": "年末年始の営業のお知らせ",
+      "url": "http://hakone-monta.com/"
     }
   ]
 }

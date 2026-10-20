@@ -1,0 +1,85 @@
+{
+  "open": [
+    {
+      "dates": [
+        "2026-12-15",
+        "2026-12-16",
+        "2026-12-17",
+        "2026-12-18",
+        "2026-12-19",
+        "2026-12-26",
+        "2026-12-27",
+        "2026-12-28",
+        "2026-12-29"
+      ],
+      "open": "11:00",
+      "close": "15:00",
+      "quote": "11：00～15：00、17：00～21：00",
+      "url": "https://www.fu-unji.com/"
+    },
+    {
+      "dates": [
+        "2026-12-15",
+        "2026-12-16",
+        "2026-12-17",
+        "2026-12-18",
+        "2026-12-19",
+        "2026-12-26",
+        "2026-12-27",
+        "2026-12-28",
+        "2026-12-29"
+      ],
+      "open": "17:00",
+      "close": "21:00",
+      "quote": "11：00～15：00、17：00～21：00",
+      "url": "https://www.fu-unji.com/"
+    }
+  ],
+  "closed": [],
+  "last_entry": null,
+  "prices": [
+    {
+      "what": "つけめん",
+      "yen": 1000,
+      "quote": "つけめん ¥1,000",
+      "url": "https://www.fu-unji.com/"
+    },
+    {
+      "what": "らーめん",
+      "yen": 950,
+      "quote": "らーめん ¥950",
+      "url": "https://www.fu-unji.com/"
+    },
+    {
+      "what": "得製つけめん",
+      "yen": 1300,
+      "quote": "得製つけめん ￥1,300",
+      "url": "https://www.fu-unji.com/"
+    }
+  ],
+  "fixed_minutes": null,
+  "time_limit": null,
+  "group": null,
+  "booking": {
+    "text": "No reservations accepted",
+    "quote": "※予約受付はしておりません。",
+    "url": "https://www.fu-unji.com/"
+  },
+  "notes": [
+    {
+      "text": "Address: 東京都渋谷区代々木2-14-3 北斗第一ビル 1F",
+      "quote": "東京都渋谷区代々木2-14-3 北斗第一ビル 1F",
+      "url": "https://www.fu-unji.com/"
+    },
+    {
+      "text": "Open every day of the year; service ends early when the soup sells out",
+      "quote": "（年中無休、スープ売り切れ次第終了）",
+      "url": "https://www.fu-unji.com/"
+    },
+    {
+      "text": "Year-end: the page lists a 2025 year-end hours notice only; no 2026-27 year-end hours are shown",
+      "quote": "【年末年始】営業時間変更のお知らせ",
+      "url": "https://www.fu-unji.com/"
+    }
+  ]
+}

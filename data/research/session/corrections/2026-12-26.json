@@ -1,18 +1,1 @@
-[
-  {
-    "stop": 2,
-    "claim": "Sit on the E side (seats on the right-hand side heading to Tokyo) for the Fuji view.",
-    "fix": "Sit on the E side (the left-hand side heading to Tokyo, since Fuji lies north of the line) for the Fuji view.",
-    "source_url": "https://trafficnews.jp/post/62565",
-    "source_quote": "富士山が見える座席は新大阪駅に向かって右側、席でいうとE席",
-    "schedule": false
-  },
-  {
-    "stop": 2,
-    "claim": "In late December the rice paddies are cut to brown stubble, and on a clear day the snow-capped cone of Fuji shows up on the right-hand side of the train.",
-    "fix": "In late December the rice paddies are cut to brown stubble, and on a clear day the snow-capped cone of Fuji shows up on the left-hand side of the train (the E-seat side) heading to Tokyo.",
-    "source_url": "https://trafficnews.jp/post/62565",
-    "source_quote": "富士山がそびえるのは、その線路の北側です。",
-    "schedule": false
-  }
-]
+[]

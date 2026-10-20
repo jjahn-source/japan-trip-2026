@@ -1,0 +1,23 @@
+{
+  "open": [
+    {
+      "dates": [
+        "2026-12-19",
+        "2026-12-20",
+        "2026-12-21"
+      ],
+      "open": "10:00",
+      "close": "20:00",
+      "quote": "OPENING HOURS 10:00～20:00",
+      "url": "https://www.premiumoutlets.co.jp/gotemba/"
+    }
+  ],
+  "closed": [],
+  "last_entry": null,
+  "prices": [],
+  "fixed_minutes": null,
+  "time_limit": null,
+  "group": null,
+  "booking": null,
+  "notes": []
+}

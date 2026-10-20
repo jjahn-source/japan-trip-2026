@@ -1,17 +1,68 @@
 {
-  "open": [],
+  "open": [
+    {
+      "dates": [
+        "2026-12-15",
+        "2026-12-16",
+        "2026-12-17",
+        "2026-12-18",
+        "2026-12-19",
+        "2026-12-26",
+        "2026-12-27",
+        "2026-12-28",
+        "2026-12-29"
+      ],
+      "open": "00:00",
+      "close": "24:00",
+      "quote": "24時間営業",
+      "url": "https://www.karaokemanekineko.jp/locations/tokyo/shibuya-ku/shibuya-honten-store/"
+    }
+  ],
   "closed": [],
   "last_entry": null,
   "prices": [],
   "fixed_minutes": null,
   "time_limit": null,
-  "group": null,
-  "booking": null,
+  "group": {
+    "text": "Phone reservations are taken from 3 or more people; rooms up to 70 people, large rooms for 20+",
+    "quote": "ご予約について当店では、電話でのご予約の際、3名様以上からのご案内とさせていただいております。",
+    "url": "https://www.karaokemanekineko.jp/locations/tokyo/shibuya-ku/shibuya-honten-store/"
+  },
+  "booking": {
+    "text": "Phone reservation (3+ people) or 来店予約 on the shop page",
+    "quote": "電話でのご予約の際、3名様以上からのご案内",
+    "url": "https://www.karaokemanekineko.jp/locations/tokyo/shibuya-ku/shibuya-honten-store/"
+  },
   "notes": [
     {
-      "text": "The shop's official page (mori-toku.com) shows no opening hours, prices or year-end schedule; only a contact note pointing to Facebook.",
-      "quote": "お問い合わせは、Facebookよりお願いいたします",
-      "url": "http://mori-toku.com/"
+      "text": "Open all year (年中無休)",
+      "quote": "年中無休",
+      "url": "https://www.karaokemanekineko.jp/locations/tokyo/shibuya-ku/shibuya-honten-store/"
+    },
+    {
+      "text": "Year-end and New Year are special periods where prices may differ; no year-end price is given on the page",
+      "quote": "ゴールデンウィーク・夏休み期間・年末年始などの特別期間は料金が異なる場合がございます。",
+      "url": "https://www.karaokemanekineko.jp/locations/tokyo/shibuya-ku/shibuya-honten-store/"
+    },
+    {
+      "text": "Billing starts at 1 hour, extensions in 30-minute steps",
+      "quote": "ご利用は1時間からとなります。(延長は30分単位で可能)",
+      "url": "https://www.karaokemanekineko.jp/locations/tokyo/shibuya-ku/shibuya-honten-store/"
+    },
+    {
+      "text": "One-drink order required on top of the room fee (451 yen or more)",
+      "quote": "ワンドリンクオーダー制は、室料とは別に４５１円（税込）以上のドリンクを１品ご注文いただきます。",
+      "url": "https://www.karaokemanekineko.jp/locations/tokyo/shibuya-ku/shibuya-honten-store/"
+    },
+    {
+      "text": "Members-only chain; photo ID (driver's licence or health insurance card) needed to join",
+      "quote": "カラオケまねきねこは全店会員制でございます。",
+      "url": "https://www.karaokemanekineko.jp/locations/tokyo/shibuya-ku/shibuya-honten-store/"
+    },
+    {
+      "text": "Stay time may be limited at busy times, including free-time plans",
+      "quote": "混雑時には、ご利用時間を制限させていただく場合がございます。(フリータイムを含む。)",
+      "url": "https://www.karaokemanekineko.jp/locations/tokyo/shibuya-ku/shibuya-honten-store/"
     }
   ]
 }

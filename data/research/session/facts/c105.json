@@ -1,34 +1,64 @@
 {
-  "open": [
+  "open": [],
+  "closed": [],
+  "last_entry": null,
+  "prices": [
     {
-      "dates": [
-        "2026-12-21",
-        "2026-12-22",
-        "2026-12-23",
-        "2026-12-24",
-        "2026-12-25",
-        "2026-12-26"
-      ],
-      "open": "17:00",
-      "close": "23:00",
-      "quote": "17:00~23:00(L.O.22:30)",
-      "url": "https://homuraya-2024.com/"
+      "what": "Adult boarding fare (tax incl.)",
+      "yen": 2000,
+      "quote": "おとな 2,000 円 （税込）",
+      "url": "http://www.ipponmatsu.co.jp/cruise/tombori.html"
+    },
+    {
+      "what": "Student fare (junior high to university/vocational), with student ID",
+      "yen": 1000,
+      "quote": "1,000 円 （税込）",
+      "url": "http://www.ipponmatsu.co.jp/cruise/tombori.html"
+    },
+    {
+      "what": "Child (elementary school) fare",
+      "yen": 500,
+      "quote": "500 円 （税込）",
+      "url": "http://www.ipponmatsu.co.jp/cruise/tombori.html"
     }
   ],
-  "closed": [],
-  "last_entry": {
-    "time": "22:30",
-    "quote": "17:00~23:00(L.O.22:30)",
-    "url": "https://homuraya-2024.com/"
-  },
-  "prices": [],
   "fixed_minutes": null,
   "time_limit": null,
-  "group": null,
-  "booking": {
-    "text": "Reservations available through the website",
-    "quote": "ご予約はこちら",
-    "url": "https://homuraya-2024.com/"
+  "group": {
+    "text": "Groups of 10 or more: reservations by fax only; under 10 can sometimes book on the web (prepaid).",
+    "quote": "10名様以上に限り、FAXにて受け付けております。",
+    "url": "http://www.ipponmatsu.co.jp/cruise/tombori.html"
   },
-  "notes": []
+  "booking": {
+    "text": "Reservations accepted from 3 months ahead; changes or cancellations until 17:00 the day before. Boarding tickets are issued on the day only.",
+    "quote": "※ご変更やお取消しは、前日17時まで承ります。",
+    "url": "http://www.ipponmatsu.co.jp/cruise/tombori.html"
+  },
+  "notes": [
+    {
+      "text": "Boarding tickets are sold on the day only.",
+      "quote": "※乗船券の発券は「 当日のみ 」です。",
+      "url": "http://www.ipponmatsu.co.jp/cruise/tombori.html"
+    },
+    {
+      "text": "Operating hours are not stated on the official page; first and last boat times can change. Operator phone for day-of status.",
+      "quote": "※始発便と最終便の時間が変更となる場合があります。",
+      "url": "http://www.ipponmatsu.co.jp/cruise/tombori.html"
+    },
+    {
+      "text": "Operator line for day-of status: Ippon Matsu Kaiun, 06-6441-0532, 9:00-18:00.",
+      "quote": "一本松海運（TEL.06-6441-0532　9:00～18:00）",
+      "url": "http://www.ipponmatsu.co.jp/cruise/tombori.html"
+    },
+    {
+      "text": "Weather, river works or events can cause cancellation without notice.",
+      "quote": "※気象・海象・潮位等により運休となる場合があります。",
+      "url": "http://www.ipponmatsu.co.jp/cruise/tombori.html"
+    },
+    {
+      "text": "The operator's year-end notice found is for 2025-26 only; no 2026-27 year-end notice was found.",
+      "quote": "【とんぼりリバークルーズ】2025年～2026年の 年末年始につきまして",
+      "url": "http://www.ipponmatsu.co.jp/news/list.php?category_type=tombori"
+    }
+  ]
 }

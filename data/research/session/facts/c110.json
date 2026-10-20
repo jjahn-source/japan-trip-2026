@@ -7,5 +7,11 @@
   "time_limit": null,
   "group": null,
   "booking": null,
-  "notes": []
+  "notes": [
+    {
+      "text": "A year-end and New Year office and business notice is posted, but its dates are not in the fetched page text (observatory closures were supplied by the user, not from a source)",
+      "quote": "令和7～8年　年末年始の窓口・業務状況のご案内",
+      "url": "https://www.metro.tokyo.lg.jp/"
+    }
+  ]
 }

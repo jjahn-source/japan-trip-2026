@@ -1,0 +1,29 @@
+{
+  "open": [
+    {
+      "dates": [
+        "2026-12-19",
+        "2026-12-20",
+        "2026-12-21"
+      ],
+      "open": "09:30",
+      "close": "16:40",
+      "quote": "12月1日〜3月19日 9:30〜16:40",
+      "url": "https://www.hakonenavi.jp/spot/11167"
+    }
+  ],
+  "closed": [],
+  "last_entry": null,
+  "prices": [],
+  "fixed_minutes": null,
+  "time_limit": null,
+  "group": null,
+  "booking": null,
+  "notes": [
+    {
+      "text": "Sailings can be suspended in bad weather",
+      "quote": "天候により運休あり",
+      "url": "https://www.hakonenavi.jp/spot/11167"
+    }
+  ]
+}

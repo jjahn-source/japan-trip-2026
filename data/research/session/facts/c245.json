@@ -1,0 +1,37 @@
+{
+  "open": [],
+  "closed": [
+    {
+      "dates": [
+        "2026-12-28"
+      ],
+      "why": "festival rest day (休止日)",
+      "what": "the whole festival (no event on this day)",
+      "whole_place": true,
+      "quote": "28日（月）は休止日となりますので、お間違えのないようにお気をつけください。",
+      "url": "https://realsound.jp/2026/10/post-2553051.html"
+    }
+  ],
+  "last_entry": null,
+  "prices": [],
+  "fixed_minutes": null,
+  "time_limit": null,
+  "group": null,
+  "booking": {
+    "text": "First-round lottery pre-sale (14 Oct to 20 Oct 2026, 16:00 close), via the official Jフェス app only",
+    "quote": "チケット抽選先行受付は公式アプリ「Jフェス」のみで実施",
+    "url": "https://realsound.jp/2026/10/post-2553051.html"
+  },
+  "notes": [
+    {
+      "text": "Festival days inside the trip: 26 Dec (Sat), 27 Dec (Sun), 29 Dec (Tue); daily times not in the fetched text",
+      "quote": "日程は12月26日（土）、27日（日）、29日（火）、30日（水）、31日（木）です。",
+      "url": "https://realsound.jp/2026/10/post-2553051.html"
+    },
+    {
+      "text": "First-round lottery pre-sale period",
+      "quote": "10月14日（水）12:15〜10月20日（火）16:00",
+      "url": "https://realsound.jp/2026/10/post-2553051.html"
+    }
+  ]
+}

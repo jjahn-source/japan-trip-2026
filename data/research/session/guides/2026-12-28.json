@@ -1,222 +1,242 @@
 {
   "notes": [
     {
-      "kind": "NOTE",
-      "text": "Last full day: suitcases are already on their way to Haneda T3, so every tax-free buy goes in your carry-on, unused, with its receipt, ready for the customs kiosk tomorrow."
-    },
-    {
       "kind": "CHECK",
-      "text": "Year-end closures start around now: check Instagram for the small Koenji and Nakano shops before you go; chains, Donki and clubs run as normal."
+      "text": "Two things nobody has confirmed: Round1 DiverCity's year-end hours and Gabuu's closing days. Check both this morning before you build the night around them."
     },
     {
       "kind": "BRING",
-      "text": "Original passports (ATOM checks, Donki tax-free needs your own), warm layers: it's cold and dark by the time you reach Harajuku."
+      "text": "Original passports on everyone all day: tax-free at every shop, the morning highball, and Round1's age check tonight."
+    },
+    {
+      "kind": "WEATHER",
+      "text": "Cold December day that goes dark around sunset at Shiba Park. Layer up for the street stools and the tower; Ameyoko and Daitoryo want cash."
     }
   ],
   "stops": [
     {
       "index": 0,
-      "summary": "Shinjuku's historic tempura house at lunch prices: the one classic Japanese sit-down meal of the trip.",
-      "story": "Tsunahachi has been frying tempura in Shinjuku for generations, and this branch takes bookings, so all 8 can sit down to crisp prawns and vegetables straight from the oil. Lunch sets are the budget way into what is a proper old-Tokyo meal.",
+      "summary": "Tokyo's year-end market at full roar: graze breakfast down the alley and haggle for New Year snacks.",
+      "story": "Dec 28 is the week Ameyoko turns into a shoving, shouting year-end buying rush, with whole Tokyo families hauling crab and New Year food under the train tracks. Stallholders bark prices, the chocolate guy throws in extra if you play along, and breakfast is whatever is on a stick in front of you. It is chaos, and it is the most Tokyo morning you will get.",
       "how": [
-        "Book ahead: for 8 or more, contact the shop directly (TableCheck for smaller bookings, 03-3358-2788 for questions).",
-        "Order the lunch sets; the tempura and sashimi course is ¥3,850.",
-        "Leave by 12:35 for the 12:49 Chuo rapid to Koenji (¥200)."
+        "Split into pairs and graze: fruit skewers, crab, the shouting chocolate stall.",
+        "Haggle for New Year snacks to take home.",
+        "Regroup at Ueno Station's Shinobazu exit, then walk 2 min up the alley to Daitoryo."
       ],
       "tips": [
-        "The 10% service charge applies at dinner, another reason to come at lunch.",
-        "Online availability for the trip dates wasn't confirmed, so get a booking confirmation in writing."
+        "Fix the meet-up point before you split: phones get useless in this crush.",
+        "Cash is king here; small notes make haggling faster.",
+        "Hours vary shop by shop, so if a stall you want is shuttered, move on."
       ],
-      "cost": "about ¥2,000–3,850 pp",
-      "booking": "For 8 or more, contact the shop directly; TableCheck for online booking",
-      "hours": "Lunch 11:30–15:00",
+      "cost": "¥1,500–3,000 pp grazing",
+      "booking": null,
+      "hours": "Roughly 09:00–19:00, varies by shop",
       "source_urls": [
-        "https://www.tablecheck.com/shops/tunahachi-tunohazu/reserve",
-        "https://maps.google.com/?cid=5110493334561913828"
+        "https://www.ameyoko.net/",
+        "https://en.japantravel.com/tokyo/ameyoko-market-ueno/4686",
+        "https://maps.google.com/?cid=5175330337205471113"
       ],
       "wishes": [
-        "We love to do it all"
+        "Streetwear, sneakers and vintage (Harajuku, Koenji, Shimokitazawa, Ameyoko, Amerikamura), Don Quijote and tax-free hauls",
+        "We want to maximise all the time we've got in the country"
       ]
     },
     {
       "index": 1,
-      "summary": "Tokyo's best vintage digging: cheaper, rougher and more varied than Shimokitazawa, with almost no tourists.",
-      "story": "Koenji is where locals now go for vintage: covered arcades stuffed with tiny shops, bargain racks spilling onto the pavement, and punk and designer-archive dens in the Kita-Kore Building. It's rougher and cheaper than Shimokitazawa, and the hunt is half the fun.",
+      "summary": "Highballs before noon on street stools under the tracks while the year-end crowd surges past.",
+      "story": "Daitoryo is Ameyoko's famous motsu-yaki joint, open-fronted and pouring from 10:00, with skewers from about ¥100–200. It is one round, a few sticks of offal grilled over the coals, and the smug feeling of drinking in public at breakfast. This is the story you tell first.",
       "how": [
-        "Chuo rapid Shinjuku → Koenji, 12:49→12:55; it only stops at Koenji on weekdays, which today is.",
-        "Walk south down Pal into Look arcade toward Shin-Koenji, then cross to the north side for Kita-Kore.",
-        "Split into 2–3 groups and meet back at the station."
+        "Grab whatever stools are free; expect to split 4+4.",
+        "One highball each plus a few skewers, then go.",
+        "Walk to JR Ueno for the train to Akihabara: 24 min door to door, ¥160, or a 6 min taxi."
       ],
       "tips": [
-        "Dig the ¥500–1,000 bargain racks before the main rails.",
-        "Kita-Kore closes earlier than the rest (11:00–18:00), so don't leave it to last.",
-        "Some indie shops close irregularly at year-end: check their Instagram."
+        "They split groups when it is full; take the split rather than wait.",
+        "Some foreign visitors in 2024–25 felt they were seated slower; if the wait drags, try Uokusa's standing seafood bar instead.",
+        "Drinking age is 20: have the passports ready."
       ],
-      "cost": "¥2,000–8,000 per piece; ¥500–1,000 bargain racks",
-      "booking": null,
-      "hours": "Most shops ~12:00–20:00; Kita-Kore 11:00–18:00",
+      "cost": "About ¥1,000 pp for a drink and skewers",
+      "booking": "Walk-in only",
+      "hours": "10:00–24:00",
       "source_urls": [
-        "https://www.xiaohongshu.com/explore/6aa14400000000002601db98",
-        "https://www.xiaohongshu.com/explore/6a89a15f0000000028029f0f",
-        "https://onedayawaytravel.com/?p=1767"
+        "https://www.hotpepper.jp/strJ000724017/",
+        "https://retty.me/area/PRE13/ARE9/SUB901/100000013635/",
+        "https://www.xiaohongshu.com/search_result?keyword=上野%20大统领"
       ],
       "wishes": [
-        "Shopping",
-        "We love to do it all"
+        "We love to drink",
+        "Karaoke (Manekineko, Big Echo, Karaokekan), arcades, izakaya and yokocho nights, standing bars, and the last-train problem solved properly"
       ]
     },
     {
       "index": 2,
-      "summary": "A 1960s arcade crammed with Mandarake: figures, retro toys, cards and idol goods, calmer than Akihabara.",
-      "story": "Nakano Broadway looks like an ordinary 1960s shopping arcade until you climb to floors 2–4, where Mandarake branches and tiny collector shops sell everything from vintage robots to trading cards and idol goods. It's the otaku treasure house locals prefer to Akihabara: calmer and often cheaper.",
+      "summary": "Tabelog Top 100 tonkatsu within ten months of opening: the hangover-proof lunch.",
+      "story": "Gabuu made Tabelog's Tonkatsu Top 100 within 10 months of opening, which in Tokyo's tonkatsu scene is basically a speed record. Thick, juicy cutlets, crunchy panko, and exactly the base layer you need for a day that ends at Round1. Highly rated on Tabelog; see the link.",
       "how": [
-        "JR Chuo line Koenji → Nakano, 15:17→15:19 (¥160), then walk up Sun Mall.",
-        "Head straight to floors 2–4.",
-        "Go in two groups; the corridors are narrow."
+        "Head to the Ueno 1号店; lunch opens at 11:30, walk-in only.",
+        "Get in the line as soon as you arrive and expect to sit 4+4.",
+        "After, walk to Akihabara for the JR Yamanote line to Yurakucho: 29 min door to door, ¥160, or a 12 min taxi."
       ],
       "tips": [
-        "Figures and cards start from ¥500, so set yourselves a budget.",
-        "Keep an eye on the clock: the Fuunji queue starts before 17:00."
+        "Closing days are not published (they point to Instagram): check their Instagram before you go.",
+        "Lunch runs 11:30–15:00, so a slow Daitoryo round won't kill the plan, but the line grows."
       ],
-      "cost": "Browse; figures and cards from ¥500",
-      "booking": null,
-      "hours": "Building ~10:00–20:00; shops mostly 12:00–20:00",
+      "cost": "¥2,500 pp",
+      "booking": "Walk-in at lunch (dinner bookable on Tabelog only)",
+      "hours": "11:30–15:00 and 17:30–21:00; closing days unverified, check",
       "source_urls": [
-        "https://www.gotokyo.org/en/spot/72/index.html",
-        "https://www.kanpai-japan.com/tokyo/nakano-broadway"
+        "https://tabelog.com/tokyo/A1311/A131101/13308066/"
       ],
       "wishes": [
-        "Shopping",
         "We love to do it all"
       ]
     },
     {
       "index": 3,
-      "summary": "Tokyo's benchmark tsukemen: thick noodles dipped in dense chicken-and-fish broth, worth the queue.",
-      "story": "Fuunji's tsukemen is the bowl other Tokyo shops get measured against: chewy, thick noodles you dip into a heavy, smoky chicken-and-fish broth. It's a tiny counter shop where the line forms well before opening, and one of the few famous Shinjuku ramen queues that's genuinely worth it.",
+      "summary": "Twelve floors of Japanese stationery: the cheapest, lightest souvenirs you will buy all trip.",
+      "story": "Itoya is a vertical stationery obsession in the middle of Ginza: New Year cards, washi paper and fountain pens stacked floor after floor. Everything here weighs nothing and packs flat, which matters when the suitcases already left for Haneda yesterday.",
       "how": [
-        "Chuo rapid Nakano → Shinjuku, 16:39→16:43 (¥200), then walk from the South Exit.",
-        "Get in the queue for the 17:00 dinner opening.",
-        "Order the tokusei tsukemen; you'll be seated in waves at the counter."
+        "Ride to the top and work down.",
+        "Hit the New Year cards and washi for gifts.",
+        "Walk 8 min down Chuo-dori to Ginza Komatsu for Dover Street Market."
       ],
       "tips": [
-        "No reservations, and the soup can sell out, so don't arrive late.",
-        "A late-2025 visitor found more than 50 people in line by 11:15 at lunch: the dinner opening is the smarter slot.",
-        "Tsukemen is ¥1,000; ramen is ¥950 if anyone prefers soup."
+        "Your suitcases are already with Yamato heading to Haneda: buy only what fits your carry-on.",
+        "Show your passport at the till if one person's haul clears the tax-free minimum."
       ],
-      "cost": "¥1,000 pp (tsukemen)",
-      "booking": "No reservations; queue",
-      "hours": "11:00–15:00, 17:00–21:00",
+      "cost": null,
+      "booking": null,
+      "hours": "10:00–20:00",
       "source_urls": [
-        "https://maps.google.com/?cid=3272539110311166620",
-        "https://www.ekiten.jp/shop_2960431/review/"
+        "https://www.ito-ya.co.jp/ginza/"
       ],
       "wishes": [
-        "We love to do it all"
+        "Shopping"
       ]
     },
     {
       "index": 4,
-      "summary": "After-dark streetwear run: Takeshita, the Ura-Hara back lanes, then Cat Street's sneaker shops toward Shibuya.",
-      "story": "This is the streetwear and sneaker spine of Tokyo: Takeshita's crepe stands, Ura-Hara's lanes of brand flagships and consignment shops like L.A. Avenue, then Cat Street with atmos, Kicks Lab and 2nd Street. In late December it's already dark, the shop windows glow and the crowds are thinner than by day.",
+      "summary": "Comme des Garçons, Supreme-adjacent drops and archive labels: Ginza's streetwear temple.",
+      "story": "Dover Street Market Ginza is Rei Kawakubo's multi-floor fever dream: Comme des Garçons lines next to archive labels and drops that never make it to your country. Even if you buy nothing, it is the most art-gallery shop in Tokyo.",
       "how": [
-        "JR Yamanote Yoyogi → Harajuku, 18:12→18:15 (¥160).",
-        "Quick pass down Takeshita for a crepe, then cross Meiji-dori into Ura-Hara.",
-        "Walk Cat Street south: atmos and Kicks Lab first, 2nd Street last as it closes later."
+        "Start at the top and work down the stairwells.",
+        "Look for the Japan-only CDG lines.",
+        "UNIQLO's flagship is next door."
       ],
       "tips": [
-        "Most shops shut at 20:00 (2nd Street at 21:00), so hit the must-buys first.",
-        "Set one meet point: Harajuku station, Omotesando exit.",
-        "Ask for tax-free and pay on your own passport; keep it unused in your carry-on."
+        "Pay on your own passport so the tax-free refund lands on your own card.",
+        "Don't pool purchases across people on one receipt: the refund is per person."
       ],
-      "cost": "Secondhand ¥1,000–5,000; new streetwear ¥8,000+",
+      "cost": null,
       "booking": null,
-      "hours": "Most shops 11:00–20:00; 2nd Street 11:00–21:00",
+      "hours": "11:00–20:00",
       "source_urls": [
-        "https://www.complex.com/sneakers/a/brennan-hiro-williams/shop-guide-tokyo",
-        "https://jw-webmagazine.com/tips/sneaker-stores-in-tokyo/",
-        "https://www.google.com/maps/search/?api=1&query=atmos+Harajuku"
+        "https://ginza.doverstreetmarket.com/"
       ],
       "wishes": [
-        "Shopping",
-        "We love to do it all"
+        "Streetwear, sneakers and vintage (Harajuku, Koenji, Shimokitazawa, Ameyoko, Amerikamura), Don Quijote and tax-free hauls",
+        "Shopping"
       ]
     },
     {
       "index": 5,
-      "summary": "The final take-home haul at Tokyo's biggest 24-hour Donki: snacks, KitKats, cosmetics and costumes.",
-      "story": "MEGA Donki Shibuya is a multi-floor maze of snacks, KitKat flavours, cosmetics, costumes, character goods and cheap electronics, with the jingle on a loop. It's the easy place for tax-free shopping now, since Don Quijote waives the refund fee.",
+      "summary": "The 12-floor UNIQLO flagship: Japan-only UT collabs and Heattech for the long flight.",
+      "story": "This is UNIQLO's global flagship, a 12-floor tower of every colourway and the Japan-only UT collab tees you cannot get back home. Grab Heattech now: Shiba Park at sunset in late December is properly cold.",
       "how": [
-        "Hanzomon line Omotesando → Shibuya, 20:34→20:36 (¥180).",
-        "Split into pairs and set a meet-up time at the entrance.",
-        "Each person pays on their own passport, aiming for ¥5,000 ex-tax on one receipt for the refund."
+        "Go straight for the UT floor and the Japan-only collabs.",
+        "Pay per person on your own passport at the tax-free register.",
+        "Then Hibiya line to Hibiya and Mita line to Onarimon: 30 min door to door, ¥290, or an 11 min taxi."
       ],
       "tips": [
-        "Purchases can't be pooled: everyone pays separately.",
-        "Pack tax-free goods unused, with receipts, in your carry-on for the customs kiosk at Haneda T3 tomorrow.",
-        "The refund is fee-free unless you take it as cash at the airport."
+        "Put the Heattech on before Shiba Park, not after.",
+        "Keep every receipt in your carry-on for the Haneda kiosk tomorrow."
       ],
-      "cost": "¥3,000–10,000 pp typical haul",
+      "cost": null,
       "booking": null,
-      "hours": "Open 24 hours",
+      "hours": "11:00–21:00",
       "source_urls": [
-        "https://www.hokkaido-np.co.jp/article/1386454/",
-        "https://www.google.com/maps/search/?api=1&query=MEGA+Don+Quijote+Shibuya"
+        "https://map.uniqlo.com/jp/ja/detail/10101397"
       ],
       "wishes": [
         "Shopping",
-        "We love to do it all"
+        "Streetwear, sneakers and vintage (Harajuku, Koenji, Shimokitazawa, Ameyoko, Amerikamura), Don Quijote and tax-free hauls"
       ]
     },
     {
       "index": 6,
-      "summary": "The last big night: Shibuya's young three-floor club, open even on a Monday, with cheap early entry.",
-      "story": "ATOM is the young mainstream club of Shibuya: three floors, room for 800 and open every night, which makes it the party on a Monday when the bigger clubs are dark. Get in early and the first drink is basically free.",
+      "summary": "Free sunset under Tokyo Tower: temple gate, rows of jizō, then the tower lights flick on.",
+      "story": "Zōjō-ji's huge Sanmon gate frames Tokyo Tower like someone planned it, and behind the hall rows of small stone jizō in red bonnets and pinwheels sit in the cold. Sunset is around 16:30 in late December, then the tower lights up orange against a dark sky. No tower ticket, no queue, best group photo of the trip.",
       "how": [
-        "Walk up Dogenzaka to Maruyamacho (6 min).",
-        "Be in before 23:30 for men ¥900 / women ¥400, 1 drink included.",
-        "Original passports at the door; no jerseys, sport pants or sandals."
+        "Enter through the Sanmon gate and walk past the main hall to the jizō rows.",
+        "Move into Shiba Park for the tower-and-sunset shot.",
+        "Stay until the lights come on, then head for Gonpachi."
       ],
       "tips": [
-        "After 23:30 it's men ¥2,900 / women ¥900, so don't linger at Donki.",
-        "Visible tattoos can get you turned away.",
-        "When you're done, take 2 taxis to Shinjuku 3-chome (20 min)."
+        "The main hall shuts at 17:30; see it first.",
+        "To Gonpachi it is 43 min by train or 11 min by taxi: take two taxis.",
+        "Bare trees and early dark this time of year; bring the layers."
       ],
-      "cost": "Men ¥900 / women ¥400 before 23:30 (1 drink included)",
-      "booking": "Walk in; arrive early for the cheap rate",
-      "hours": "Nightly 22:00–04:30",
+      "cost": "Free",
+      "booking": null,
+      "hours": "Grounds free; main hall 6:00–17:30",
       "source_urls": [
-        "https://www.technoairlines.com/club/atom-tokyo",
-        "https://maps.google.com/?cid=5936297947178422482"
+        "https://www.zojoji.or.jp/en/"
       ],
       "wishes": [
-        "We love to drink",
-        "We want to maximise all the time we've got in the country"
+        "We want to maximise all the time we've got in the country",
+        "Legendary, not generic: nothing only there because it is on page one of every Tokyo or Kyoto itinerary, and no sit-down sightseeing filler between the big moments"
       ]
     },
     {
       "index": 7,
-      "summary": "Grill-your-own scallops and highballs at a 24-hour seafood izakaya: the trip's last feed.",
-      "story": "Isomaru Suisan puts a little grill on your table and you cook scallops, crab-miso shells and squid yourself, with cheap highballs alongside. At this hour it's the after-party and the last supper of the trip in one, over four floors with room for a group of 8.",
+      "summary": "The 'Kill Bill' izakaya: farewell dinner for 8 at one table in a two-storey wooden hall.",
+      "story": "Gonpachi is the wooden, lantern-lit hall that inspired the Crazy 88 fight in Kill Bill, and it still feels like a set. Eight of you at one table, sake raised, two weeks of chaos retold in two hours. This is the farewell toast.",
       "how": [
-        "Taxi from Shibuya to Shinjuku 3-chome.",
-        "Ask for a table for 8; it's easy off-peak.",
-        "Order scallops and crab-miso shells for the grill, then highballs."
+        "Book by the party form or phone (050-5443-1691, reservations 11:30-22:00): online only takes up to 7.",
+        "Ask for 2F, overlooking the hall.",
+        "One bill; the seat is yours for 2 hours.",
+        "After, two taxis to DiverCity: 18 min, against 63 min and three changes by train."
       ],
       "tips": [
-        "A 10% late-night surcharge applies at this hour.",
-        "Course menus need booking the day before; just order à la carte."
+        "There is a ¥1,650 per person minimum after 17:00, which you will clear easily.",
+        "Drinking age is 20 and they can ask: passports on you.",
+        "Grab a photo on the stairs before you leave."
       ],
-      "cost": "about ¥2,500–4,000 pp with drinks (+10% late-night surcharge)",
-      "booking": "Walk in",
-      "hours": "Open 24 hours (year-end not confirmed)",
+      "cost": "¥8,000 pp",
+      "booking": "Party form, email or phone 050-5443-1691; online takes only up to 7",
+      "hours": "11:30–27:30; last entry 26:45",
       "source_urls": [
-        "https://maps.google.com/?cid=8121084490993100929",
-        "https://www.tv-tokyo.co.jp/cambria/backnumber/2016/1013/"
+        "https://gonpachi.jp/nishi-azabu/"
       ],
       "wishes": [
         "We love to drink",
-        "We want to maximise all the time we've got in the country"
+        "Everyone stays together; every booking is for 8 at the same table or private room (8名で、同じテーブル/個室)"
+      ]
+    },
+    {
+      "index": 8,
+      "summary": "Last night in Japan: Spocha, bowling, karaoke and the arcade till 3. Hours unverified: check.",
+      "story": "Round1 Stadium is the indoor-everything megaplex: Spocha's batting cages, roller skates and courts, plus bowling, karaoke booths and floors of arcade. Ending the trip here, at 3am, sweaty and hoarse, is the whole point. This is deliberate short night number two.",
+      "how": [
+        "Check DiverCity's year-end hours on the Round1 page before you go: unverified.",
+        "Show official ID with your age for bowling and karaoke; passports work.",
+        "Get two taxis home to Garfield House when you're done."
+      ],
+      "tips": [
+        "Year-end can change prices and hours; the Spocha price after 20:00 also changed this year, so confirm at the counter.",
+        "The Spocha student price needs a student ID card: bring it if you have one.",
+        "Under-20s can be turned away under night rules: everyone carries the original passport."
+      ],
+      "cost": "¥3,500 pp",
+      "booking": null,
+      "hours": "Normally Mon–Thu 8:00–6:00; year-end hours unverified, check",
+      "source_urls": [
+        "https://www.round1.co.jp/shop/tenpo/tokyo-divercity.html"
+      ],
+      "wishes": [
+        "Round1",
+        "At most two deliberate nights under 4 hours' sleep; any early start after a late night needs a reason (rope-drop at USJ, first light at Fushimi Inari)",
+        "Karaoke (Manekineko, Big Echo, Karaokekan), arcades, izakaya and yokocho nights, standing bars, and the last-train problem solved properly"
       ]
     }
   ]

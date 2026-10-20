@@ -1,5 +1,23 @@
 {
-  "open": [],
+  "open": [
+    {
+      "dates": [
+        "2026-12-15",
+        "2026-12-16",
+        "2026-12-17",
+        "2026-12-18",
+        "2026-12-19",
+        "2026-12-26",
+        "2026-12-27",
+        "2026-12-28",
+        "2026-12-29"
+      ],
+      "open": "06:00",
+      "close": "17:00",
+      "quote": "6：00～17：00",
+      "url": "https://gotokuji.jp/"
+    }
+  ],
   "closed": [],
   "last_entry": null,
   "prices": [],
@@ -7,5 +25,11 @@
   "time_limit": null,
   "group": null,
   "booking": null,
-  "notes": []
+  "notes": [
+    {
+      "text": "Temple office (寺務所) reception hours; the page shows no separate year-end hours",
+      "quote": "※寺務所受付は8：00～15：00",
+      "url": "https://gotokuji.jp/"
+    }
+  ]
 }

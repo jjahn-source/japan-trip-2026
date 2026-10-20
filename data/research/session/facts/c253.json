@@ -1,0 +1,44 @@
+{
+  "open": [
+    {
+      "dates": [
+        "2026-12-15",
+        "2026-12-16",
+        "2026-12-17",
+        "2026-12-18",
+        "2026-12-19",
+        "2026-12-26",
+        "2026-12-27",
+        "2026-12-28",
+        "2026-12-29"
+      ],
+      "open": "11:00",
+      "close": "30:00",
+      "quote": "11：00～翌6：00",
+      "url": "https://karaokekan.jp/shop/detail/23"
+    }
+  ],
+  "closed": [],
+  "last_entry": null,
+  "prices": [],
+  "fixed_minutes": null,
+  "time_limit": null,
+  "group": null,
+  "booking": {
+    "text": "Same-day booking by LINE or phone 03-5285-7007",
+    "quote": "当日のご予約は",
+    "url": "https://karaokekan.jp/shop/detail/23"
+  },
+  "notes": [
+    {
+      "text": "Student rate needs a student ID",
+      "quote": "学生証もしくは学生として証明できる物のご提示をお願いいたします。",
+      "url": "https://karaokekan.jp/shop/detail/23"
+    },
+    {
+      "text": "Shop phone number 03-5285-7007",
+      "quote": "03-5285-7007",
+      "url": "https://karaokekan.jp/shop/detail/23"
+    }
+  ]
+}

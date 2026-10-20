@@ -1,0 +1,32 @@
+{
+  "open": [],
+  "closed": [],
+  "last_entry": null,
+  "prices": [],
+  "fixed_minutes": null,
+  "time_limit": null,
+  "group": null,
+  "booking": null,
+  "notes": [
+    {
+      "text": "Odakyu freepass is collected at the trip's end station",
+      "quote": "※江の島・鎌倉フリーパスは旅行終了駅で回収させていただきます。",
+      "url": "https://www.odakyu-freepass.jp/enokama/"
+    },
+    {
+      "text": "Rides outside the free section are charged separately",
+      "quote": "※指定区間外でのご乗車・乗り越しは、その分の運賃をお支払いください。",
+      "url": "https://www.odakyu-freepass.jp/enokama/"
+    },
+    {
+      "text": "Weather suspensions: refund only for vehicles not yet boarded",
+      "quote": "※悪天候等で運休となった場合、ご乗車できなかった乗り物については旅行終了駅にて払いもどしをいたします。",
+      "url": "https://www.odakyu-freepass.jp/enokama/"
+    },
+    {
+      "text": "Seibu-departing version: Odakyu Shinjuku to Fujisawa usable round trip once only",
+      "quote": "※小田急新宿～藤沢駅間の小田急線のご乗車は、往復１回限りです。",
+      "url": "https://www.seiburailway.jp/railway/ticket/specialticket/enoshima-kamakura-freepass-digital/"
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "open": [],
+  "closed": [],
+  "last_entry": null,
+  "prices": [],
+  "fixed_minutes": null,
+  "time_limit": null,
+  "group": {
+    "text": "Groups from 10 to 1,000 people; under 10 also accepted",
+    "quote": "10名〜最大1,000名対応",
+    "url": "https://kabukihall.com/"
+  },
+  "booking": {
+    "text": "Contact page says seat reservations are not taken at present (scope unclear)",
+    "quote": "現在お席のご予約は承っておりません。",
+    "url": "https://kabukihall.com/contact/?lang=en"
+  },
+  "notes": [
+    {
+      "text": "Open all year, including the New Year period",
+      "quote": "※年末年始も通常営業",
+      "url": "https://kabukihall.com/access/?lang=en"
+    },
+    {
+      "text": "KABUKI CAFE hours shown on the access page (shop-specific)",
+      "quote": "10時から29時",
+      "url": "https://kabukihall.com/access/?lang=en"
+    },
+    {
+      "text": "Open-air terrace BBQ and beer garden on the 2F",
+      "quote": "東急歌舞伎町タワー2F、オープンテラス。",
+      "url": "https://kabukihall.com/"
+    },
+    {
+      "text": "BBQ and beer garden can be rented for 50+ people",
+      "quote": "50名〜貸切OK",
+      "url": "https://kabukihall.com/"
+    }
+  ]
+}

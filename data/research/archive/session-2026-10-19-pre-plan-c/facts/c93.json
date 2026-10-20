@@ -1,0 +1,39 @@
+{
+  "open": [
+    {
+      "dates": [
+        "2026-12-15",
+        "2026-12-16",
+        "2026-12-17",
+        "2026-12-18",
+        "2026-12-19",
+        "2026-12-26",
+        "2026-12-27",
+        "2026-12-28",
+        "2026-12-29"
+      ],
+      "open": "10:00",
+      "close": "23:00",
+      "quote": "10:00~23:00",
+      "url": "https://www.seibu-leisure.co.jp/niwanoyu/index.html"
+    }
+  ],
+  "closed": [],
+  "last_entry": {
+    "time": "22:00",
+    "quote": "（最終受付 22:00）",
+    "url": "https://www.seibu-leisure.co.jp/niwanoyu/index.html"
+  },
+  "prices": [],
+  "fixed_minutes": null,
+  "time_limit": null,
+  "group": null,
+  "booking": null,
+  "notes": [
+    {
+      "text": "Maintenance closure 9-13 Nov 2026 (not a trip date)",
+      "quote": "メンテナンス休業のお知らせ｜2026年11月9日(月)～11月13日(金)",
+      "url": "https://www.seibu-leisure.co.jp/niwanoyu/index.html"
+    }
+  ]
+}

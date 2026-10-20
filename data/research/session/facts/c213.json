@@ -1,0 +1,36 @@
+{
+  "open": [],
+  "closed": [],
+  "last_entry": null,
+  "prices": [],
+  "fixed_minutes": null,
+  "time_limit": null,
+  "group": null,
+  "booking": {
+    "text": "First-come general sale on Lawson Ticket (Lコード 36646); sales run to 2026-12-13 23:59",
+    "quote": "2026/9/5(土) 10:00 ～ 2026/12/13(日) 23:59まで",
+    "url": "https://l-tike.com/order/?gLcode=36646"
+  },
+  "notes": [
+    {
+      "text": "Event listed on Lawson Ticket under this title and code",
+      "quote": "令和八年　冬巡業　大相撲　蓮田場所 Lコード：36646",
+      "url": "https://l-tike.com/order/?gLcode=36646"
+    },
+    {
+      "text": "Web sales end 2026-12-13 22:00",
+      "quote": "※Web（スマートフォン・PC）での受付は、2026/12/13(日) 22:00までとなります。",
+      "url": "https://l-tike.com/order/?gLcode=36646"
+    },
+    {
+      "text": "Bento and souvenir vouchers cannot be used alone to enter",
+      "quote": "※お土産券、お弁当券のみでの入場はできません",
+      "url": "https://l-tike.com/order/?gLcode=36646"
+    },
+    {
+      "text": "Everyone including infants needs a seat on the 1F arena",
+      "quote": "※1階席は幼児も含めすべての入場者に座席が必要です。",
+      "url": "https://l-tike.com/order/?gLcode=36646"
+    }
+  ]
+}

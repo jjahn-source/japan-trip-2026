@@ -1,0 +1,223 @@
+{
+  "candidates": [
+    {
+      "name": "Hakone-Yumoto shopping street",
+      "name_ja": null,
+      "city": "Hakone",
+      "area": "Hakone",
+      "kind": "shopping",
+      "why": "Hakone-Yumoto's onsen-town shopping street. (From Plan C, the group's own plan for Sat Dec 19: \"Tokyo → Hakone · Open-Air Museum · villa wagyu cook-off + onsen\".)",
+      "best_time": "12:10–12:50 in Plan C",
+      "dates": "2026-12-19",
+      "price": "¥1,500 pp",
+      "booking": null,
+      "group_of_8": null,
+      "hours": null,
+      "visit_minutes": 40,
+      "first_last": null,
+      "lat": 35.2326,
+      "lng": 139.1043,
+      "wish_ids": [],
+      "evidence": [
+        {
+          "source": "Plan C (the group's own plan)",
+          "url": "https://www.google.com/maps/search/?api=1&query=Hakone-Yumoto+shopping+street",
+          "note": "Chosen by the group for Sat Dec 19: Snack only — castella manjū ~¥80"
+        }
+      ],
+      "confidence": 0.8
+    },
+    {
+      "name": "Hakone Open-Air Museum",
+      "name_ja": null,
+      "city": "Hakone",
+      "area": "Hakone",
+      "kind": "sight",
+      "why": "Hakone Open-Air Museum — giant sculptures on a hillside. (From Plan C, the group's own plan for Sat Dec 19: \"Tokyo → Hakone · Open-Air Museum · villa wagyu cook-off + onsen\".)",
+      "best_time": "14:25–16:00 in Plan C",
+      "dates": "2026-12-19",
+      "price": "¥2,000 pp",
+      "booking": null,
+      "group_of_8": null,
+      "hours": "9:00–17:00 (last entry 16:30), open every day.",
+      "visit_minutes": 95,
+      "first_last": null,
+      "lat": 35.244284,
+      "lng": 139.052083,
+      "wish_ids": [],
+      "evidence": [
+        {
+          "source": "Plan C (the group's own plan)",
+          "url": "https://www.hakone-oam.or.jp/",
+          "note": "Chosen by the group for Sat Dec 19: Freepass discount · free footbath"
+        }
+      ],
+      "confidence": 0.8
+    },
+    {
+      "name": "Ōwakudani",
+      "name_ja": null,
+      "city": "Hakone",
+      "area": "Hakone",
+      "kind": "sight",
+      "why": "Ōwakudani — volcanic valley; eggs boiled black in the hot springs. (From Plan C, the group's own plan for Sun Dec 20: \"Hakone loop — Fuji views · pirate ship · Yunessun wine baths\".)",
+      "best_time": "09:20–10:05 in Plan C",
+      "dates": "2026-12-20",
+      "price": "¥500 pp",
+      "booking": null,
+      "group_of_8": null,
+      "hours": null,
+      "visit_minutes": 45,
+      "first_last": null,
+      "lat": 35.244551,
+      "lng": 139.019864,
+      "wish_ids": [],
+      "evidence": [
+        {
+          "source": "Plan C (the group's own plan)",
+          "url": "https://owakudani.com/",
+          "note": "Chosen by the group for Sun Dec 20: Black eggs · leave by 10:05"
+        }
+      ],
+      "confidence": 0.8
+    },
+    {
+      "name": "Hakone Shrine",
+      "name_ja": null,
+      "city": "Hakone",
+      "area": "Hakone",
+      "kind": "sight",
+      "why": "Peace Torii. Hakone Shrine and its lakeside Peace Torii. (From Plan C, the group's own plan for Sun Dec 20: \"Hakone loop — Fuji views · pirate ship · Yunessun wine baths\".)",
+      "best_time": "11:30–12:30 in Plan C",
+      "dates": "2026-12-20",
+      "price": null,
+      "booking": null,
+      "group_of_8": null,
+      "hours": null,
+      "visit_minutes": 60,
+      "first_last": null,
+      "lat": 35.204737,
+      "lng": 139.025276,
+      "wish_ids": [],
+      "evidence": [
+        {
+          "source": "Plan C (the group's own plan)",
+          "url": "http://hakonejinja.or.jp/",
+          "note": "Chosen by the group for Sun Dec 20: Skip the torii photo queue"
+        }
+      ],
+      "confidence": 0.8
+    },
+    {
+      "name": "Ashinoko Chaya",
+      "name_ja": null,
+      "city": "Hakone",
+      "area": "Hakone",
+      "kind": "food",
+      "why": "donabe rice + obanzai buffet over Lake Ashi. Ashinoko Chaya — clay-pot rice + side-dish buffet, run by the pirate-ship company. (From Plan C, the group's own plan for Sun Dec 20: \"Hakone loop — Fuji views · pirate ship · Yunessun wine baths\".)",
+      "best_time": "12:30–13:50 in Plan C",
+      "dates": "2026-12-20",
+      "price": "¥2,500 pp",
+      "booking": null,
+      "group_of_8": null,
+      "hours": "restaurant 11:15–16:00 (LO 15:30); closed Thursdays (Sun ✓).",
+      "visit_minutes": 80,
+      "first_last": null,
+      "lat": 35.2048,
+      "lng": 139.0243,
+      "wish_ids": [],
+      "evidence": [
+        {
+          "source": "Plan C (the group's own plan)",
+          "url": "https://www.hakonenavi.jp/ourbrand/ashinokochaya/",
+          "note": "Chosen by the group for Sun Dec 20: Lunch over the lake"
+        }
+      ],
+      "confidence": 0.8
+    },
+    {
+      "name": "Amazake-chaya",
+      "name_ja": null,
+      "city": "Hakone",
+      "area": "Hakone",
+      "kind": "bar",
+      "why": "Amazake-chaya — 400-year-old teahouse on the old Tōkaidō road. (From Plan C, the group's own plan for Sun Dec 20: \"Hakone loop — Fuji views · pirate ship · Yunessun wine baths\".)",
+      "best_time": "14:10–14:33 in Plan C",
+      "dates": "2026-12-20",
+      "price": "¥1,000 pp",
+      "booking": null,
+      "group_of_8": null,
+      "hours": "7:00–17:30 daily.",
+      "visit_minutes": 23,
+      "first_last": null,
+      "lat": 35.20223,
+      "lng": 139.048759,
+      "wish_ids": [],
+      "evidence": [
+        {
+          "source": "Plan C (the group's own plan)",
+          "url": "https://amasake-chaya.com/",
+          "note": "Chosen by the group for Sun Dec 20: K bus ~14:03 there · 14:33 back"
+        }
+      ],
+      "confidence": 0.8
+    },
+    {
+      "name": "Yunessun",
+      "name_ja": null,
+      "city": "Hakone",
+      "area": "Hakone",
+      "kind": "onsen",
+      "why": "wine, sake & coffee baths. Yunessun — onsen theme park with wine, sake and coffee baths (swimsuits). (From Plan C, the group's own plan for Sun Dec 20: \"Hakone loop — Fuji views · pirate ship · Yunessun wine baths\".)",
+      "best_time": "15:20–17:20 in Plan C",
+      "dates": "2026-12-20",
+      "price": "¥2,900 pp",
+      "booking": null,
+      "group_of_8": null,
+      "hours": "9:00–19:00, last entry 18:00. Show the Freepass for the discount.",
+      "visit_minutes": 120,
+      "first_last": null,
+      "lat": 35.2394,
+      "lng": 139.0452,
+      "wish_ids": [
+        "w18"
+      ],
+      "evidence": [
+        {
+          "source": "Plan C (the group's own plan)",
+          "url": "https://www.yunessun.com/",
+          "note": "Chosen by the group for Sun Dec 20: Trunks + towel · leave by 17:15 for the direct bus"
+        }
+      ],
+      "confidence": 0.8
+    },
+    {
+      "name": "Odawara Castle",
+      "name_ja": null,
+      "city": "Hakone",
+      "area": "Hakone",
+      "kind": "sight",
+      "why": "Odawara Castle keep. (From Plan C, the group's own plan for Mon Dec 21: \"Hakone → Kyoto Tō-ji flea market → Osaka · fugu night in Minami\".)",
+      "best_time": "11:20–12:10 in Plan C",
+      "dates": "2026-12-21",
+      "price": "¥1,000 pp",
+      "booking": null,
+      "group_of_8": null,
+      "hours": "9:00–17:00 (last entry 16:30); closed 2nd Wed of Dec (Mon ✓). Adult ¥1,000.",
+      "visit_minutes": 50,
+      "first_last": null,
+      "lat": 35.251055,
+      "lng": 139.153425,
+      "wish_ids": [],
+      "evidence": [
+        {
+          "source": "Plan C (the group's own plan)",
+          "url": "https://odawaracastle.com/",
+          "note": "Chosen by the group for Mon Dec 21: Quick look while waiting for the train"
+        }
+      ],
+      "confidence": 0.8
+    }
+  ],
+  "notes": "Hakone · planc: the group's own Plan C, to verify and keep where it survives. Plan C Sun Dec 20: Hakone loop — Fuji views · pirate ship · Yunessun wine baths | Plan C Mon Dec 21: Hakone → Kyoto Tō-ji flea market → Osaka · fugu night in Minami"
+}

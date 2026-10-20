@@ -1,0 +1,43 @@
+{
+  "open": [
+    {
+      "dates": [
+        "2026-12-19",
+        "2026-12-20",
+        "2026-12-21"
+      ],
+      "open": "13:00",
+      "close": "21:00",
+      "quote": "13:00～21:00",
+      "url": "http://itoh-dining.co.jp/gorabrewery/"
+    }
+  ],
+  "closed": [],
+  "last_entry": null,
+  "prices": [],
+  "fixed_minutes": null,
+  "time_limit": null,
+  "group": null,
+  "booking": {
+    "text": "Same-day reservations by phone only; reservations recommended in advance",
+    "quote": "当日のご予約はお電話のみ承っております。",
+    "url": "http://itoh-dining.co.jp/gorabrewery/"
+  },
+  "notes": [
+    {
+      "text": "No regular closing day",
+      "quote": "定休日なし",
+      "url": "http://itoh-dining.co.jp/gorabrewery/"
+    },
+    {
+      "text": "Seating not guaranteed at busy times without a reservation",
+      "quote": "混雑時はご予約のないお客様をご案内できない場合がございます。",
+      "url": "http://itoh-dining.co.jp/gorabrewery/"
+    },
+    {
+      "text": "Phone 0460-83-8107",
+      "quote": "TEL：0460-83-8107",
+      "url": "http://itoh-dining.co.jp/gorabrewery/"
+    }
+  ]
+}

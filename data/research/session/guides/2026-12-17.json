@@ -1,33 +1,35 @@
 {
   "notes": [
     {
+      "kind": "CHECK",
+      "text": "Sumo practice at Arashio-beya is NOT confirmed: phone the stable the week before. If there's no public keiko, the fallback is a walk around the Kokugikan, the hand-prints and the statues."
+    },
+    {
       "kind": "WEATHER",
-      "text": "December cold, and it's dark before you leave Senso-ji. Layer up, but wear trousers that roll above the knee for teamLab's water rooms."
+      "text": "December cold and dark before you leave Sensō-ji. Layers for the Hoppy Street terrace, which is basically outdoors."
     },
     {
       "kind": "BRING",
-      "text": "Original passports for everyone: Big Echo checks ID at night, and you need them again at ZEROTOKYO tomorrow."
-    },
-    {
-      "kind": "CHECK",
-      "text": "Someone phone Onigiri Bongo today to order tomorrow's takeaway for 8 (number in tomorrow's spread). Phone orders only, first come first served."
+      "text": "Passports all day: tax-free at mita, and ID for the drinking tonight. The omakase TableCheck booking needs a card."
     }
   ],
   "stops": [
     {
       "index": 1,
-      "summary": "Graze Tsukiji's stalls in pairs: tamagoyaki on a stick, grilled scallops, uni and tuna, then Kitsuneya's horumon-don.",
-      "story": "Tsukiji is still Tokyo's best street-food breakfast, steam coming off the grills in the cold morning air. Kitsuneya has been simmering its horumon for 70 years, and the counter is so small you'll eat in shifts. Thursday is a market day, so the stalls are open, unlike yesterday.",
+      "summary": "Breakfast is a crawl: tamagoyaki on a stick, grilled scallops, and Kitsuneya's horumon-don eaten standing up.",
+      "story": "Tsukiji's wholesale market moved out years ago, but the outer market kept the knife shops, the tea sellers and the best street breakfast in Tokyo. Kitsuneya has been simmering offal in the same dark pot for 70 years, and the queue at its tiny counter is half the fun. Go on a cold morning and every grill is steaming.",
       "how": [
-        "Split into pairs, each buying something different, and swap bites.",
-        "Send groups of two or three to Kitsuneya's counter in turn for the horumon-don or gyudon.",
-        "Regroup and walk to Shintomicho for the 10:05 Yurakucho line train toward Toyosu."
+        "Take the 06:55 Oedo line from Ochiai-minami-nagasaki to Tsukijishijo (¥330, arrives 07:28).",
+        "Split into pairs and graze: tamagoyaki, grilled scallops, tuna, uni.",
+        "Kitsuneya is a tiny counter, so eat in shifts. Horumon-don or gyudon, bowls about ¥1,000–1,500.",
+        "Regroup at 08:30 for the Hibiya line."
       ],
       "tips": [
-        "Go early: many stalls sell out well before the 13:30 close.",
-        "Skip the Senkyaku Banrai food hall at Toyosu. Reviews say it isn't worth it."
+        "Trade buyers have priority until 09:00: step aside for the carts and don't block the aisles.",
+        "Kitsuneya is closed Sundays and market holidays. Thursday is safe.",
+        "Skip Toyosu's Senkyaku Banrai food hall for breakfast: reviewers say it isn't worth it."
       ],
-      "cost": "¥2,000–4,000 pp grazing; Kitsuneya bowls about ¥1,000–1,500",
+      "cost": "¥2,000–4,000 pp grazing",
       "booking": "None",
       "hours": "06:30–13:30",
       "source_urls": [
@@ -37,157 +39,196 @@
       ],
       "wishes": [
         "We love to do it all",
-        "We want to maximise all the time we've got in the country"
+        "Legendary, not generic: nothing only there because it is on page one of every Tokyo or Kyoto itinerary, and no sit-down sightseeing filler between the big moments"
       ]
     },
     {
       "index": 2,
-      "summary": "Barefoot through knee-deep water, a room of floating orbs and a mirror koi pond: Tokyo's most photogenic 90 minutes.",
-      "story": "You leave your shoes in a locker and wade through warm, knee-deep water while koi made of light scatter around your legs. Planets is one continuous route, so eight people don't get lost the way they do at Borderless. It's scheduled to close at the end of 2027, so this may be your only chance.",
+      "summary": "Real wrestlers slamming into each other before breakfast. Unconfirmed, so CHECK first, with a Kokugikan walk as the fallback.",
+      "story": "Arashio-beya is a working sumo stable, and for years you could watch morning keiko through the street window: enormous men slapping, shoving and grunting in total silence from the onlookers. Practice viewing is now a course for members of the stable's 俵の会 supporters' club, and the winter tour is at Hasuda on Dec 16, so nothing is guaranteed.",
       "how": [
-        "Show the 10:30 timed tickets bought online. There are no sales at the door.",
-        "Roll trousers above the knee and use the free lockers for bags and phones you don't need.",
-        "Walk to Manyo Club afterwards: it's 13 minutes."
+        "CHECK: phone the stable the week before and ask whether there's public practice on Dec 17.",
+        "Practice traditionally runs about 7:30–9:00, so arriving at 09:10 you may see only the end. Ask about timing when you call.",
+        "If it's on: stand at the window, stay quiet, no flash.",
+        "If it's off: walk the Ryōgoku Kokugikan area instead (the arena, the wrestlers' hand-prints, the statues around the station) on your way to the museum."
       ],
       "tips": [
-        "Weekday slots are the cheap ones. You're on a Thursday, so ¥3,800 rather than ¥4,200.",
-        "Keep one waterproof phone per pair for photos in the orb and koi rooms."
+        "Silence is the rule: the wrestlers are working, not performing.",
+        "Lunch at Chanko Kirishima later keeps the sumo theme going even if practice falls through."
       ],
-      "cost": "¥3,800 pp (weekday)",
-      "booking": "Timed tickets online only, booked ahead for all 8",
-      "hours": "08:00–22:00",
+      "cost": "Free",
+      "booking": "Unconfirmed: phone the stable; viewing is officially a 俵の会 members' course",
+      "hours": null,
       "source_urls": [
-        "https://www.trvlogue.com/en/teamlab-planets-vs-borderless-tokyo-2",
-        "https://mileasia.com/japan/teamlab-planets/",
-        "https://maps.google.com/?q=teamLab+Planets+TOKYO+DMM"
+        "https://arashio.net/tour_e.html"
       ],
       "wishes": [
-        "We love to do it all"
+        "Morning sumo practice at a stable (Plan C: Arashio-beya in Ryōgoku) and a private omakase counter",
+        "Be bold: prefer one-of-a-kind, local-run, hard-to-book and group-scale things, and name a safe fallback beside every hard-to-book thing"
       ]
     },
     {
       "index": 3,
-      "summary": "Lunch, a beer and a long soak in Hakone spring water trucked to Toyosu, then the rooftop foot bath over the bay.",
-      "story": "Manyo Club trucks in spring water from Hakone and Yugawara, so this is a real onsen soak at the edge of Tokyo Bay. After a 06:50 start, the rooftop foot bath with a cold wind off the water and a hot soak underneath is the reset you need. Think of it as a warm-up: the real Hakone onsen come on Dec 19.",
+      "summary": "Edo in miniature: walk a life-size Nihonbashi bridge, then a fast loop of the townscape models before lunch.",
+      "story": "The Edo-Tokyo Museum reopened in 2026 after a long refit, and it's still the quickest way to understand what Tokyo was before the concrete. You walk onto a full-scale chunk of the old Nihonbashi bridge and look down onto tiny Edo streets full of tiny people doing chores.",
       "how": [
-        "Pay for the set at the front desk: it includes a yukata and towels.",
-        "Eat lunch and have a beer in the restaurant first, then split for the gender-separated baths.",
-        "Meet on the rooftop foot-bath deck, then leave for the 15:06 Yurikamome from Shijo-mae."
+        "Walk over from Ryōgoku station: it's next to the Kokugikan.",
+        "Head straight for the Nihonbashi bridge, then the Edo townscape models.",
+        "Keep it to 40 minutes and walk 8 minutes to Chanko Kirishima for 11:30."
       ],
       "tips": [
-        "Tattoos are refused unless you follow the house rules. Ask staff before paying.",
-        "No outside food or drink, so finish any Tsukiji snacks before you go in."
+        "There's a Maruyama Okyo special exhibition running through the trip. Skip it today: you don't have the time."
       ],
-      "cost": "¥3,850 set plus ¥150 bath tax; lunch and drinks extra",
-      "booking": "Walk-in",
-      "hours": "Open 24 hours",
+      "cost": "¥800 pp",
+      "booking": null,
+      "hours": "9:30–17:30, closed Mondays",
       "source_urls": [
-        "https://news.allabout.co.jp/articles/o/110327/",
-        "https://www.walkerplus.com/spot/ar0313s491261/price.html"
+        "https://www.edo-tokyo-museum.or.jp/"
       ],
       "wishes": [
-        "We love to drink",
-        "We love to do it all"
+        "We want to maximise all the time we've got in the country"
       ]
     },
     {
       "index": 4,
-      "summary": "Senso-ji at dusk, then the lit Hagoita-ichi stalls, where sellers clap out every battledore they sell.",
-      "story": "Only on these three days in December, about 30 stalls fill the temple grounds with giant battledores decorated with kabuki faces and padded silk. Whenever one sells, the stall breaks into a rhythmic ceremonial hand-clap for the buyer. In December it's dark early, so the stalls are lit and glowing well before you leave.",
+      "summary": "Sumo hot pot from a former ōzeki's house, in your own private room right at opening.",
+      "story": "Chanko is what sumo wrestlers eat to get huge, and Kirishima's house was founded by a former ōzeki using his Michinoku stable's recipe. Eight of you around a bubbling pot on a cold December day is exactly the right call.",
       "how": [
-        "Come through Kaminarimon and up Nakamise while there's still a little light.",
-        "Go to the main hall first: it closes at 17:00.",
-        "Then work the Hagoita-ichi stalls, which stay open until 19:30, and wait nearby to catch a sale and its clap.",
-        "Walk to Kuramae for the 18:55 Oedo line to Tsukishima."
+        "Booked: 11:30, private room (個室) for 8. Give the booking name at the door.",
+        "Order the house chanko and let the staff run the pot.",
+        "Leave by 12:45 for the JR to Uguisudani."
       ],
       "tips": [
-        "Draw an omikuji fortune for ¥100. If it's bad, tie it to the rack and leave it behind.",
-        "Entry to the fair is free. The big battledores are for looking at unless someone wants a souvenir."
+        "Lunch last order is 14:00, but you're out well before that.",
+        "Closed Mondays only, so Thursday is fine."
       ],
-      "cost": "Free; omikuji ¥100",
-      "booking": null,
-      "hours": "Main hall 06:30–17:00; Hagoita-ichi 09:00–19:30",
+      "cost": "¥2,000 pp",
+      "booking": "Booked 11:30, 個室 for 8",
+      "hours": "Lunch 11:30–15:00 (LO 14:00)",
       "source_urls": [
-        "https://www.gotokyo.org/jp/kanko/taito/event/hagoita.html",
-        "https://kaibutsu-blog.com/?p=3611"
+        "https://yoyaku.toreta.in/chankokirishimahonten/"
       ],
       "wishes": [
-        "We love to do it all"
+        "Everyone stays together; every booking is for 8 at the same table or private room (8名で、同じテーブル/個室)"
       ]
     },
     {
       "index": 5,
-      "summary": "Tokyo-only monjayaki you cook yourselves on two griddles side by side, with beer, at Tsukishima's top-rated shop.",
-      "story": "Monja is a runny, crispy-edged griddle mess that you scrape off with tiny spatulas. It isn't pretty, and that's the fun. Moheji's main shop ranked first in Tsukishima with foreign visitors, and staff show first-timers how to build the batter wall.",
+      "summary": "Skip everything else: straight to the swords and armour, Japan's biggest samurai collection.",
+      "story": "The Tokyo National Museum is huge and you could lose a day in it, so don't. The Honkan's sword and armour rooms are the point: blades that look sharp enough to cut light, and helmets with antlers and demon faces built to terrify people across a battlefield.",
       "how": [
-        "Check in for the 19:15 table for 8 across two griddles.",
-        "Order a classic mentaiko-mochi-cheese monja per griddle, plus beers, and let staff do the first one.",
-        "Leave for the 21:22 Yurakucho line from Tsukishima straight to Ikebukuro."
+        "Enter the Honkan (the main building straight ahead of the gate).",
+        "Go straight to the sword and armour rooms. Ignore everything else.",
+        "At about 14:25, walk 15 minutes through Ueno Park to Ameyoko."
       ],
       "tips": [
-        "Wait until the edges crisp before scraping. That crust is the best bit.",
-        "Kondo, founded in 1950, is the old-school backup if anything goes wrong with the booking."
+        "Ueno Park is bare trees and grey paths in December: walk it briskly, don't sightsee."
       ],
-      "cost": "¥3,500 pp",
-      "booking": "Booked, 19:15 for 8",
-      "hours": "17:00–23:00",
+      "cost": "¥1,000 pp",
+      "booking": null,
+      "hours": "Thu 9:30–17:00",
       "source_urls": [
-        "https://honichi.com/news/2025/02/20/202502_inboundranking_tsukishima/",
-        "https://www.instagram.com/moheji_tsukishima_monja/"
+        "http://www.tnm.jp"
       ],
       "wishes": [
-        "We love to drink",
-        "We love to do it all"
+        "Legendary, not generic: nothing only there because it is on page one of every Tokyo or Kyoto itinerary, and no sit-down sightseeing filler between the big moments"
       ]
     },
     {
       "index": 6,
-      "summary": "Cheap Showa-era second round by Ikebukuro West Exit: flat-price plates, the famous nikomi, highballs.",
-      "story": "A smoky, Showa-style salaryman izakaya that's open until morning, where every plate on the wall costs the same. The stewed offal nikomi is the reason people come. A 2026 video puts the plates at ¥420, and an older listing says ¥335.",
+      "summary": "Ameyoko's sneaker institution: exclusive collabs and hype pairs. Passports out for tax-free.",
+      "story": "mita sneakers sits in the Ameyoko Center Building, inside the loud, cramped market street under the train tracks. It's known for exclusive collabs with Nike, New Balance and Asics that you won't find at home.",
       "how": [
-        "Split into two tables if the room is tight.",
-        "Order the nikomi first, then point at the wall menu, with a highball each.",
-        "Big Echo is a 2-minute walk."
+        "Find the Ameyoko Center Building in the middle of the market.",
+        "Go for the mita-exclusive collabs first.",
+        "Pay with your passport ready for tax-free."
       ],
       "tips": [
-        "It's listed as 若大将 まつしま in Nishi-Ikebukuro. Check that the sign matches.",
-        "If there's no room, phone ahead to ask about seats."
+        "Tax-free is a refund now: keep the receipt and finish the paperwork at the Haneda T3 customs kiosk on Dec 29.",
+        "You have 30 minutes. Decide fast or come back another day."
       ],
-      "cost": "about ¥2,000 pp",
-      "booking": "Phone +81-3-5951-0170",
-      "hours": "Open 24 hours",
+      "cost": null,
+      "booking": null,
+      "hours": "11:00–19:30",
       "source_urls": [
-        "https://www.tiktok.com/@hakkutsu_gourmet97/video/7649002461289663762",
-        "https://maps.google.com/?q=若大将+西池袋1-26-5"
+        "https://www.mita-sneakers.co.jp/",
+        "https://jw-webmagazine.com/tips/sneaker-stores-in-tokyo/"
       ],
       "wishes": [
-        "We love to drink",
-        "We want to maximise all the time we've got in the country"
+        "Streetwear, sneakers and vintage (Harajuku, Koenji, Shimokitazawa, Ameyoko, Amerikamura), Don Quijote and tax-free hauls",
+        "Shopping"
       ]
     },
     {
       "index": 7,
-      "summary": "One big room for all 8 for a 3-hour session with drinks, carrying on well past the last train.",
-      "story": "Big Echo is run by Daiichikosho, who make the DAM machines, so the rooms get the newest system with the full song list. It costs more than other chains, but the rooms are better.",
+      "summary": "Sensō-ji before the hall shuts at 17:00, then the year-end battledore fair lighting up at dusk.",
+      "story": "Hagoita-ichi is Edo's year-end fair: stalls stacked with giant decorated battledores (paddles) covered in kabuki actors and celebrities, sold as good luck for the new year. Buy one and the stallholders do a rhythmic clapping send-off for you right in the crowd.",
       "how": [
-        "Check in for the room booked online. Everyone shows an original passport.",
-        "Order drinks from the room tablet. The session limit is 180 minutes.",
-        "Afterwards take two taxis home to Ninja House: 10 minutes."
+        "Ginza line to Asakusa, up Nakamise to the main hall before 17:00.",
+        "Then work the Hagoita-ichi stalls as it gets dark and the lanterns come on.",
+        "Haggle a little, buy one, and get clapped out."
       ],
       "tips": [
-        "Anyone under 20 can't be served alcohol. Photos or copies of passports won't do.",
-        "Year-end prices can differ from the listed rates. Check the store page before booking."
+        "CHECK the fair dates: it's traditionally held in mid-December, but the temple page doesn't list 2026 dates. If it's not on, it's just Sensō-ji at dusk and straight to Hoppy Street.",
+        "Small hagoita start from about ¥2,000. The big ones are serious money."
       ],
-      "cost": "Late-night rate (check the store page)",
-      "booking": "Booked online, one big room",
-      "hours": null,
+      "cost": "Free; hagoita from about ¥2,000",
+      "booking": null,
+      "hours": "Main hall 6:30–17:00; fair 9:00–19:30",
       "source_urls": [
-        "https://maps.google.com/?cid=11194344274043032063",
-        "https://www.mapple.net/original/371134/"
+        "https://www.senso-ji.jp/"
+      ],
+      "wishes": [
+        "Legendary, not generic: nothing only there because it is on page one of every Tokyo or Kyoto itinerary, and no sit-down sightseeing filler between the big moments"
+      ]
+    },
+    {
+      "index": 8,
+      "summary": "Hoppy and beef-tendon stew on Asakusa's oldest drinking street. Pre-game only, the omakase is waiting.",
+      "story": "Hoppy Street is a row of open-fronted stew bars where old men have been drinking shochu cut with Hoppy, a cheap beer-flavoured mixer, since the post-war years. Okamoto has been there since 1959, seats 100 and can actually fit 8 together on its terrace.",
+      "how": [
+        "Ask Okamoto for the terrace for 8.",
+        "Order Hoppy (it comes as a bottle plus a glass of shochu: mix it yourself) and a couple of bowls of nikomi to share.",
+        "Leave by 18:50 for the train to Higashi-Nakano."
+      ],
+      "tips": [
+        "Don't fill up: there's a ¥22,000 sushi course in two hours.",
+        "Ask for 'naka' to refill just the shochu and keep the same Hoppy bottle going."
+      ],
+      "cost": "¥2,500 pp",
+      "booking": null,
+      "hours": "11:00–23:00",
+      "source_urls": [
+        "https://asakusasakaba-okamoto.owst.jp/"
       ],
       "wishes": [
         "We love to drink",
-        "We want to maximise all the time we've got in the country"
+        "Karaoke (Manekineko, Big Echo, Karaokekan), arcades, izakaya and yokocho nights, standing bars, and the last-train problem solved properly"
+      ]
+    },
+    {
+      "index": 9,
+      "summary": "The headline: a private omakase counter with just the 8 of you and the chef.",
+      "story": "Sushi Kunimitsu runs one group per seating, so tonight the whole counter is yours. Piece by piece, straight from the chef's hands: the kind of dinner you talk about for years.",
+      "how": [
+        "Check your TableCheck confirmation: the seating is 20:00 or 20:30.",
+        "From Hoppy Street: Ginza line to Kanda, Chuo rapid to Shinjuku, local to Higashi-Nakano, 57 min door to door.",
+        "Eat each piece as soon as it's set down, in one bite."
+      ],
+      "tips": [
+        "Running late from Asakusa? A taxi takes 36 min. Don't make the chef wait.",
+        "No strong perfume or cologne at a sushi counter.",
+        "Home: Oedo line 22:53 from Higashi-Nakano to Ochiai-minami-nagasaki (¥180), or a taxi in 11 min."
+      ],
+      "cost": "¥22,000 pp",
+      "booking": "TableCheck Private Counter Course, late seating, private counter for 8; card required",
+      "hours": null,
+      "source_urls": [
+        "https://www.tablecheck.com/en/shops/sushi-kunimitsu/reserve"
+      ],
+      "wishes": [
+        "Morning sumo practice at a stable (Plan C: Arashio-beya in Ryōgoku) and a private omakase counter",
+        "Everyone stays together; every booking is for 8 at the same table or private room (8名で、同じテーブル/個室)"
       ]
     }
   ]

@@ -1,5 +1,20 @@
 {
-  "open": [],
+  "open": [
+    {
+      "dates": [
+        "2026-12-21",
+        "2026-12-22",
+        "2026-12-23",
+        "2026-12-24",
+        "2026-12-25",
+        "2026-12-26"
+      ],
+      "open": "06:00",
+      "close": "11:00",
+      "quote": "早朝の午前６時頃から店舗営業が開始され、午前１１時頃にはほとんどのお店が閉まります。",
+      "url": "https://kizu-ichiba.com/"
+    }
+  ],
   "closed": [],
   "last_entry": null,
   "prices": [],
@@ -9,9 +24,34 @@
   "booking": null,
   "notes": [
     {
-      "text": "Opening hours and closing days are set by each shop; check the shop before going",
-      "quote": "※店舗により異なります。詳細は、公式サイトにてご確認ください。",
-      "url": "https://www.gltjp.com/ja/directory/item/11675/"
+      "text": "Shops open around 06:00 and mostly close around 11:00 (approximate times); recommended shopping window 08:30-10:30",
+      "quote": "お買い物に来られるのでしたら午前８時３０分～１０時３０分頃までがおすすめです。",
+      "url": "https://kizu-ichiba.com/"
+    },
+    {
+      "text": "Sundays and holidays closed, plus irregular Wednesday closures (2026-12-23 is a Wednesday; check the market calendar)",
+      "quote": "日曜日、祝日と不定期に水曜日がお休みです。",
+      "url": "https://kizu-ichiba.com/"
+    },
+    {
+      "text": "Mainly cash only; no card or e-money at shops",
+      "quote": "原則現金精算のみとなっております。",
+      "url": "https://kizu-ichiba.com/"
+    },
+    {
+      "text": "No ATM inside the market; nearest ATM is in a convenience store under the east-side tower condominium",
+      "quote": "市場内にはございませんが、市場の東側タワーマンション下のコンビニエンスストア内にＡＴＭがございます。",
+      "url": "https://kizu-ichiba.com/"
+    },
+    {
+      "text": "Pets not allowed inside (guide dogs, service dogs and hearing dogs are allowed)",
+      "quote": "ペットを連れての入場はできません。",
+      "url": "https://kizu-ichiba.com/"
+    },
+    {
+      "text": "Extra market opening days are possible; check the market calendar",
+      "quote": "臨時開場日もございますので、お越しの際は市場カレンダー 2026年 2025年",
+      "url": "https://kizu-ichiba.com/"
     }
   ]
 }

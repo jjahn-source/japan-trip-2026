@@ -1,52 +1,47 @@
 {
-  "open": [
-    {
-      "dates": [
-        "2026-12-15",
-        "2026-12-16",
-        "2026-12-17",
-        "2026-12-18",
-        "2026-12-19",
-        "2026-12-26",
-        "2026-12-27",
-        "2026-12-28",
-        "2026-12-29"
-      ],
-      "open": "11:45",
-      "close": "30:00",
-      "quote": "11:45 am - 6:00 am",
-      "url": "https://savorjapan.com/0002154070"
-    }
-  ],
+  "open": [],
   "closed": [],
   "last_entry": null,
   "prices": [
     {
-      "what": "average price (listing)",
-      "yen": 750,
-      "quote": "750 JPY",
-      "url": "https://savorjapan.com/0002154070"
+      "what": "Adult fare (おとな), tax included",
+      "yen": 2000,
+      "quote": "おとな 2,000 円 （税込）",
+      "url": "http://www.ipponmatsu.co.jp/cruise/tombori.html"
     }
   ],
-  "fixed_minutes": null,
+  "fixed_minutes": {
+    "minutes": 20,
+    "what": "Dotonbori mini cruise",
+    "quote": "約２０分間の道頓堀ミニクルーズです。",
+    "url": "http://www.ipponmatsu.co.jp/cruise/tombori.html"
+  },
   "time_limit": null,
-  "group": null,
-  "booking": null,
+  "group": {
+    "text": "Groups of 10 or more: reservations accepted by FAX only",
+    "quote": "10名様以上に限り、FAXにて受け付けております。",
+    "url": "http://www.ipponmatsu.co.jp/cruise/tombori.html"
+  },
+  "booking": {
+    "text": "Bookings accepted 3 months ahead; changes or cancellations until 17:00 the day before",
+    "quote": "※ご予約は3ヶ月前より承ります。",
+    "url": "http://www.ipponmatsu.co.jp/cruise/tombori.html"
+  },
   "notes": [
     {
-      "text": "Lunch hours listed as 11:45 am - 5:00 pm",
-      "quote": "Lunch 11:45 am - 5:00 pm",
-      "url": "https://savorjapan.com/0002154070"
+      "text": "Boarding tickets are issued on the day only",
+      "quote": "※乗船券の発券は「 当日のみ 」です。",
+      "url": "http://www.ipponmatsu.co.jp/cruise/tombori.html"
     },
     {
-      "text": "Open until 6:00 am; ramen as the last stop after drinking",
-      "quote": "深夜6:00まで営業しているので、遅くまで飲んでしまっても〆のラーメンが食べられますよ♪",
-      "url": "https://aumo.jp/articles/17469"
+      "text": "Boarding reception at the Dotonbori Don Quijote riverside entrance, next to the Taizaemon Bridge pier",
+      "quote": "乗船受付は、遊歩道「とんぼりリバーウォーク」北岸の「ドン・キホーテ道頓堀店」川側入り口横（東側）",
+      "url": "http://www.ipponmatsu.co.jp/cruise/tombori.html"
     },
     {
-      "text": "Savor Japan lists no closing day; third-party listing only, no official site found",
-      "quote": "Closed none",
-      "url": "https://savorjapan.com/0002154070"
+      "text": "May be cancelled for weather, sea or tide conditions",
+      "quote": "※気象・海象・潮位等により運休となる場合があります。",
+      "url": "http://www.ipponmatsu.co.jp/cruise/tombori.html"
     }
   ]
 }

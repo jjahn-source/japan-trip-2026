@@ -3,35 +3,69 @@
     {
       "dates": [
         "2026-12-19",
-        "2026-12-20",
-        "2026-12-21"
+        "2026-12-20"
       ],
-      "open": "11:00",
-      "close": "14:30",
-      "quote": "11:00～14:30(受付終了)",
-      "url": "http://www.ginkatsutei.jp/"
+      "open": "11:30",
+      "close": "15:00",
+      "quote": "昼11:30〜15:00ラストオーダー14:00",
+      "url": "http://hakone-sushi.com/"
+    },
+    {
+      "dates": [
+        "2026-12-19",
+        "2026-12-20"
+      ],
+      "open": "17:00",
+      "close": "21:00",
+      "quote": "夜17:00〜21:00ラストオーダー20:00",
+      "url": "http://hakone-sushi.com/"
     }
   ],
-  "closed": [],
+  "closed": [
+    {
+      "dates": [
+        "2026-12-21"
+      ],
+      "why": "定休日",
+      "what": "the whole restaurant (weekly Monday and Tuesday closure)",
+      "whole_place": true,
+      "quote": "毎週月曜日・火曜日",
+      "url": "http://hakone-sushi.com/"
+    }
+  ],
   "last_entry": {
-    "time": "19:00",
-    "quote": "17:00～19:00(受付終了)",
-    "url": "http://www.ginkatsutei.jp/"
+    "time": "20:00",
+    "quote": "夜17:00〜21:00ラストオーダー20:00",
+    "url": "http://hakone-sushi.com/"
   },
   "prices": [],
   "fixed_minutes": null,
   "time_limit": null,
-  "group": null,
+  "group": {
+    "text": "Counter 6 seats, tatami 22 seats, 1 private room (個室1部屋)",
+    "quote": "カウンター6席　座敷22席　個室1部屋",
+    "url": "http://hakone-sushi.com/"
+  },
   "booking": {
-    "text": "Reservations are not accepted at the honten (Gora)",
-    "quote": "＊ご予約は承っておりません。",
-    "url": "http://www.ginkatsutei.jp/"
+    "text": "Bookings and orders cannot be taken by DM or comment; call the shop directly at 0460-84-7890",
+    "quote": "※DMやコメントでのご予約やご注文は対応出来きませんので直接お店にお電話下さい。",
+    "url": "http://hakone-sushi.com/"
   },
   "notes": [
     {
-      "text": "Honten (Gora) phone 0460-82-1440",
-      "quote": "tel.0460-82-1440",
-      "url": "http://www.ginkatsutei.jp/"
+      "text": "Average budget 1800 to 3800 yen (平均予算)",
+      "quote": "1800円〜3800円",
+      "url": "http://hakone-sushi.com/"
+    },
+    {
+      "text": "Credit cards accepted",
+      "quote": "クレジットカード可",
+      "url": "http://hakone-sushi.com/"
+    },
+    {
+      "text": "Year-end and New Year: open, but call to confirm hours",
+      "quote": "※年末年始、GW、お盆などは営業致しますのでお電話でご確認下さい",
+      "url": "http://hakone-sushi.com/"
     }
   ]
 }

@@ -2,45 +2,50 @@
   "open": [
     {
       "dates": [
-        "2026-12-19",
-        "2026-12-20"
+        "2026-12-21",
+        "2026-12-22",
+        "2026-12-23",
+        "2026-12-24",
+        "2026-12-25"
       ],
-      "open": "17:00",
-      "close": "24:00",
-      "quote": "営業時間　17:00~24:00",
-      "url": "https://funnys.jp/"
+      "open": "09:30",
+      "close": "22:30",
+      "quote": "9:30〜22:30 (最終入場22:00)",
+      "url": "https://www.skybldg.co.jp/"
     }
   ],
   "closed": [
     {
       "dates": [
-        "2026-12-21"
+        "2026-12-26"
       ],
-      "why": "定休日（月曜日）",
-      "what": "the whole restaurant",
-      "whole_place": true,
-      "quote": "定休日　月曜日・火曜日（祝日を除く）",
-      "url": "https://funnys.jp/"
+      "why": "Weekend and holiday closure shown on the page",
+      "what": "Sky Garden observation deck (空中庭園展望台) only",
+      "whole_place": false,
+      "quote": "土日祝：臨時休業",
+      "url": "https://www.skybldg.co.jp/"
     }
   ],
-  "last_entry": null,
-  "prices": [
-    {
-      "what": "Los Angeles burger (basic Funny's burger)",
-      "yen": 1870,
-      "quote": "￥1,870税込",
-      "url": "https://funnys.jp/"
-    },
-    {
-      "what": "Locomoco",
-      "yen": 1650,
-      "quote": "￥1,650税込",
-      "url": "https://funnys.jp/"
-    }
-  ],
+  "last_entry": {
+    "time": "22:00",
+    "quote": "9:30〜22:30 (最終入場22:00)",
+    "url": "https://www.skybldg.co.jp/"
+  },
+  "prices": [],
   "fixed_minutes": null,
   "time_limit": null,
   "group": null,
   "booking": null,
-  "notes": []
+  "notes": [
+    {
+      "text": "Page also shows an undated indefinite closure; verify before going",
+      "quote": "4/25(日)より当面の間 臨時休業",
+      "url": "https://www.skybldg.co.jp/"
+    },
+    {
+      "text": "Page notes special operating days",
+      "quote": "※特別営業日あり",
+      "url": "https://www.skybldg.co.jp/"
+    }
+  ]
 }

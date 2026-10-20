@@ -6,13 +6,12 @@
         "2026-12-22",
         "2026-12-23",
         "2026-12-24",
-        "2026-12-25",
-        "2026-12-26"
+        "2026-12-25"
       ],
-      "open": "00:00",
-      "close": "24:00",
-      "quote": "全館24時間営業",
-      "url": "https://www.round1.co.jp/shop/tenpo/osaka-sennichimae.html"
+      "open": "17:30",
+      "close": "21:30",
+      "quote": "開催時間：17時30分から21時30分まで",
+      "url": "https://www.city.osaka.lg.jp/hodoshiryo/keizaisenryaku/0000687506.html"
     },
     {
       "dates": [
@@ -20,41 +19,46 @@
         "2026-12-22",
         "2026-12-23",
         "2026-12-24",
-        "2026-12-25",
-        "2026-12-26"
+        "2026-12-25"
       ],
-      "open": "06:00",
-      "close": "24:50",
-      "quote": "※アミューズメントコーナーの営業時間は全日午前6:00～深夜0:50までとなります。",
-      "url": "https://www.round1.co.jp/shop/tenpo/osaka-sennichimae.html"
+      "open": "16:00",
+      "close": "22:00",
+      "quote": "開催時間：16時から22時まで",
+      "url": "https://www.city.osaka.lg.jp/hodoshiryo/keizaisenryaku/0000687506.html"
     }
   ],
-  "closed": [],
-  "last_entry": null,
+  "closed": [
+    {
+      "dates": [
+        "2026-12-26"
+      ],
+      "why": "program period ends 25 December",
+      "what": "the OSAKA光のルネサンス2026 programmes (Chuo Kokaido projection and Hikari Marche)",
+      "whole_place": false,
+      "quote": "令和8年12月11日（金曜日）から12月25日（金曜日）まで",
+      "url": "https://www.city.osaka.lg.jp/hodoshiryo/keizaisenryaku/0000687506.html"
+    }
+  ],
+  "last_entry": {
+    "time": "21:20",
+    "quote": "（注）21時20分から最終上映",
+    "url": "https://www.city.osaka.lg.jp/hodoshiryo/keizaisenryaku/0000687506.html"
+  },
   "prices": [],
   "fixed_minutes": null,
   "time_limit": null,
   "group": null,
-  "booking": {
-    "text": "Reservations through the site's ご予約はコチラ link",
-    "quote": "ご予約はコチラ",
-    "url": "https://www.round1.co.jp/shop/tenpo/osaka-sennichimae.html"
-  },
+  "booking": null,
   "notes": [
     {
-      "text": "Medal corner in the amusement area closes earlier (55 minutes past the hour); check with the shop",
-      "quote": "※尚、アミューズメントコーナー内メダルコーナーは55分までの営業となります。",
-      "url": "https://www.round1.co.jp/shop/tenpo/osaka-sennichimae.html"
+      "text": "Projection mapping at Osaka Central Public Hall: about 10 min every 12 min",
+      "quote": "（注）12分ごとに約10分間",
+      "url": "https://www.city.osaka.lg.jp/hodoshiryo/keizaisenryaku/0000687506.html"
     },
     {
-      "text": "Parking: 30 min 350 yen, 5 hours 2000 yen (basic rates)",
-      "quote": "基本料金：30分350円 / 5時間2000円",
-      "url": "https://www.round1.co.jp/shop/tenpo/osaka-sennichimae.html"
-    },
-    {
-      "text": "Phone 06-4708-2600",
-      "quote": "06-4708-2600",
-      "url": "https://www.round1.co.jp/shop/tenpo/osaka-sennichimae.html"
+      "text": "Programme period 11 Dec to 25 Dec 2026 (the city page gives this period for the projection and market; hours vary by content)",
+      "quote": "令和8年12月11日（金曜日）から12月25日（金曜日）まで",
+      "url": "https://www.city.osaka.lg.jp/hodoshiryo/keizaisenryaku/0000687506.html"
     }
   ]
 }

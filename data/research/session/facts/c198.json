@@ -1,0 +1,66 @@
+{
+  "open": [
+    {
+      "dates": [
+        "2026-12-21",
+        "2026-12-22",
+        "2026-12-23",
+        "2026-12-24",
+        "2026-12-25",
+        "2026-12-26"
+      ],
+      "open": "09:00",
+      "close": "21:45",
+      "quote": "9:00～21:45",
+      "url": "https://www.tsutenkaku.co.jp/annai/index.html"
+    }
+  ],
+  "closed": [],
+  "last_entry": {
+    "time": "21:15",
+    "quote": "(最終入場21:15)",
+    "url": "https://www.tsutenkaku.co.jp/annai/index.html"
+  },
+  "prices": [
+    {
+      "what": "Adult (15+), general observation deck, regular fare (trip dates 12-21 to 12-26)",
+      "yen": 1500,
+      "quote": "1,500円",
+      "url": "https://www.tsutenkaku.co.jp/annai/index.html"
+    }
+  ],
+  "fixed_minutes": null,
+  "time_limit": null,
+  "group": {
+    "text": "Group bookings suspended (団体予約休止中)",
+    "quote": "※団体予約は休止させていただいております。",
+    "url": "https://www.tsutenkaku.co.jp/annai/index.html"
+  },
+  "booking": {
+    "text": "Timed-entry ticketing: entry time must be booked when buying tickets; advance online ticket recommended; evening tickets can sell out",
+    "quote": "※各種ﾁｹｯﾄ購入の際は入場時間予約が必要です。",
+    "url": "https://www.tsutenkaku.co.jp/annai/index.html"
+  },
+  "notes": [
+    {
+      "text": "Special outdoor deck 9:00～21:45, last entry 21:35; sold only as a set with the general deck",
+      "quote": "(最終入場21:35)",
+      "url": "https://www.tsutenkaku.co.jp/annai/index.html"
+    },
+    {
+      "text": "Special outdoor deck can close without notice in bad weather",
+      "quote": "※天候不良により予告なく閉鎖する場合があります。",
+      "url": "https://www.tsutenkaku.co.jp/annai/index.html"
+    },
+    {
+      "text": "Year-end fare 1,800 yen applies only 2026-12-30 to 2027-01-03, not on trip dates",
+      "quote": "1,800円",
+      "url": "https://www.tsutenkaku.co.jp/annai/index.html"
+    },
+    {
+      "text": "Hours changes and temporary closures are announced on the official X account",
+      "quote": "※営業時間変更または臨時休業を決定した場合は通天閣公式X (旧Twitter)でご案内いたします。",
+      "url": "https://www.tsutenkaku.co.jp/annai/index.html"
+    }
+  ]
+}

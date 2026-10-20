@@ -1,0 +1,22 @@
+{
+  "open": [],
+  "closed": [],
+  "last_entry": null,
+  "prices": [],
+  "fixed_minutes": null,
+  "time_limit": null,
+  "group": null,
+  "booking": null,
+  "notes": [
+    {
+      "text": "Promoter schedule lists a Korakuen Hall card on 26 Dec 2026 (Sat); this page does not name the Year-End Party, so confirm it is the same event",
+      "quote": "2026年12月26日 (土)",
+      "url": "https://zaseki.music-mdata.com/event/qxm5ti"
+    },
+    {
+      "text": "Listed times for that 26 Dec card: doors 17:30, start 18:30",
+      "quote": "OPEN: 17:30 START 18:30",
+      "url": "https://zaseki.music-mdata.com/event/qxm5ti"
+    }
+  ]
+}

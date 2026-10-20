@@ -1,34 +1,37 @@
 {
-  "open": [],
-  "closed": [],
-  "last_entry": null,
-  "prices": [
+  "open": [
     {
-      "what": "Joy of Lights special viewing area ticket, from (not park admission)",
-      "yen": 1700,
-      "quote": "価格：1,700円（税込）～",
-      "url": "https://www.fun-japan.jp/jp/articles/14734"
+      "dates": [
+        "2026-12-19",
+        "2026-12-20",
+        "2026-12-21"
+      ],
+      "open": "10:00",
+      "close": "17:30",
+      "quote": "開館時間：午前10時から午後5時30分（ご入館は5時まで）",
+      "url": "http://www.ciao3.com"
     }
   ],
+  "closed": [],
+  "last_entry": {
+    "time": "17:00",
+    "quote": "開館時間：午前10時から午後5時30分（ご入館は5時まで）",
+    "url": "http://www.ciao3.com"
+  },
+  "prices": [],
   "fixed_minutes": null,
   "time_limit": null,
   "group": null,
-  "booking": null,
+  "booking": {
+    "text": "Advance tickets and fusing workshop reservations online",
+    "quote": "お得な前売り券、サンドブラスト・フュージング体験工房のご予約はこちら",
+    "url": "http://www.ciao3.com"
+  },
   "notes": [
     {
-      "text": "Holiday Wonders season runs 13 Nov 2026 to 17 Jan 2027, covering all trip dates",
-      "quote": "＜開催期間＞2026年11月13日（金）～2027年1月17日（日）",
-      "url": "https://www.fun-japan.jp/jp/articles/14734"
-    },
-    {
-      "text": "Joy of Lights viewing ticket valid 25 Nov 2026 to 11 Jan 2027 only",
-      "quote": "対象期間：2026年11月25日（水）～2027年1月11日（月）",
-      "url": "https://www.fun-japan.jp/jp/articles/14734"
-    },
-    {
-      "text": "Holiday Kids Free Pass (kids 4-11 free with an adult, Japan residents) valid to 30 Dec 2026",
-      "quote": "対象入場期間：2026年11月13日（金）～2026年12月30日（水）",
-      "url": "https://www.fun-japan.jp/jp/articles/14734"
+      "text": "Special exhibition runs to 2027-01-11; open every day of the run",
+      "quote": "会期：2026年7月18日（土）から2027年1月11日（祝・月）まで(会期中無休)",
+      "url": "http://www.ciao3.com"
     }
   ]
 }

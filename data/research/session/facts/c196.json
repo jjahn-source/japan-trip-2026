@@ -1,0 +1,33 @@
+{
+  "open": [
+    {
+      "dates": [
+        "2026-12-21",
+        "2026-12-22",
+        "2026-12-23",
+        "2026-12-24",
+        "2026-12-25",
+        "2026-12-26"
+      ],
+      "open": "09:00",
+      "close": "17:00",
+      "quote": "拝観時間 ：9:00～17:00（年中無休）",
+      "url": "https://banzokubiology.com/kinkakuji-time/"
+    }
+  ],
+  "closed": [],
+  "last_entry": null,
+  "prices": [
+    {
+      "what": "Adult admission (high school and up)",
+      "yen": 500,
+      "quote": "拝観料 ：大人（高校生以上）500円、小・中学生 300円",
+      "url": "https://banzokubiology.com/kinkakuji-time/"
+    }
+  ],
+  "fixed_minutes": null,
+  "time_limit": null,
+  "group": null,
+  "booking": null,
+  "notes": []
+}

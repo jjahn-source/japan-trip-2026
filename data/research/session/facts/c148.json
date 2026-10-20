@@ -1,0 +1,68 @@
+{
+  "open": [
+    {
+      "dates": [
+        "2026-12-15",
+        "2026-12-16",
+        "2026-12-17",
+        "2026-12-18",
+        "2026-12-19",
+        "2026-12-26",
+        "2026-12-27",
+        "2026-12-28",
+        "2026-12-29"
+      ],
+      "open": "00:00",
+      "close": "24:00",
+      "quote": "24時間営業",
+      "url": "https://www.karaokemanekineko.jp/locations/tokyo/shinjuku-ku/shinjuku-yasukunidori-store/"
+    }
+  ],
+  "closed": [],
+  "last_entry": null,
+  "prices": [],
+  "fixed_minutes": null,
+  "time_limit": null,
+  "group": {
+    "text": "Up to 60 people per room; large rooms for 20 or more",
+    "quote": "60名様/部屋",
+    "url": "https://www.karaokemanekineko.jp/locations/tokyo/shinjuku-ku/shinjuku-yasukunidori-store/"
+  },
+  "booking": {
+    "text": "Visit reservation through the site (来店予約)",
+    "quote": "予約日時を入力する",
+    "url": "https://www.karaokemanekineko.jp/locations/tokyo/shinjuku-ku/shinjuku-yasukunidori-store/"
+  },
+  "notes": [
+    {
+      "text": "Open every day of the year",
+      "quote": "年中無休",
+      "url": "https://www.karaokemanekineko.jp/locations/tokyo/shinjuku-ku/shinjuku-yasukunidori-store/"
+    },
+    {
+      "text": "Booked by the hour; extensions in 30-minute steps",
+      "quote": "ご利用は1時間からとなります。(延長は30分単位で可能)",
+      "url": "https://www.karaokemanekineko.jp/locations/tokyo/shinjuku-ku/shinjuku-yasukunidori-store/"
+    },
+    {
+      "text": "Prices differ in Golden Week, summer and year-end special periods",
+      "quote": "ゴールデンウィーク・夏休み期間・年末年始などの特別期間は料金が異なる場合がございます。",
+      "url": "https://www.karaokemanekineko.jp/locations/tokyo/shinjuku-ku/shinjuku-yasukunidori-store/"
+    },
+    {
+      "text": "Members-only chain: photo ID needed to join (driver licence or health insurance card)",
+      "quote": "カラオケまねきねこは全店会員制でございます。",
+      "url": "https://www.karaokemanekineko.jp/locations/tokyo/shinjuku-ku/shinjuku-yasukunidori-store/"
+    },
+    {
+      "text": "Drink order: one drink of 451 yen (tax incl.) or more per visit, in addition to the room fee",
+      "quote": "ワンドリンクオーダー制は、室料とは別に４５１円（税込）以上のドリンクを１品ご注文いただきます。",
+      "url": "https://www.karaokemanekineko.jp/locations/tokyo/shinjuku-ku/shinjuku-yasukunidori-store/"
+    },
+    {
+      "text": "At busy times the hours of use may be limited (free-time plans included)",
+      "quote": "混雑時には、ご利用時間を制限させていただく場合がございます。(フリータイムを含む。)",
+      "url": "https://www.karaokemanekineko.jp/locations/tokyo/shinjuku-ku/shinjuku-yasukunidori-store/"
+    }
+  ]
+}

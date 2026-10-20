@@ -1,0 +1,55 @@
+{
+  "open": [
+    {
+      "dates": [
+        "2026-12-15",
+        "2026-12-16",
+        "2026-12-17",
+        "2026-12-18",
+        "2026-12-19",
+        "2026-12-26",
+        "2026-12-27",
+        "2026-12-28",
+        "2026-12-29"
+      ],
+      "open": "11:30",
+      "close": "23:30",
+      "quote": "居酒屋タイム　11:30～23:30",
+      "url": "https://r.gnavi.co.jp/ga3y900/"
+    }
+  ],
+  "closed": [],
+  "last_entry": {
+    "time": "23:00",
+    "quote": "（L.O.23:00、ドリンクL.O.23:00）",
+    "url": "https://r.gnavi.co.jp/ga3y900/"
+  },
+  "prices": [
+    {
+      "what": "Average spend, regular (per person)",
+      "yen": 2500,
+      "quote": "2,500 円（通常平均）",
+      "url": "https://r.gnavi.co.jp/ga3y900/"
+    }
+  ],
+  "fixed_minutes": null,
+  "time_limit": null,
+  "group": {
+    "text": "Tatami private room for 40 to 50 people; party seating up to 100",
+    "quote": "座敷個室あり（40名～50名様用）",
+    "url": "https://r.gnavi.co.jp/ga3y900/"
+  },
+  "booking": null,
+  "notes": [
+    {
+      "text": "Closed on 元日 (1 Jan) only; not a trip date",
+      "quote": "昼飲みも大歓迎です。元旦はお休みです。",
+      "url": "https://r.gnavi.co.jp/ga3y900/"
+    },
+    {
+      "text": "Same-day cancellation without notice on course bookings is charged 100%",
+      "quote": "当日キャンセル（連絡なし） -- 100%",
+      "url": "https://r.gnavi.co.jp/ga3y900/"
+    }
+  ]
+}

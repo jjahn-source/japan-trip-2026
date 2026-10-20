@@ -1,0 +1,27 @@
+{
+  "open": [],
+  "closed": [],
+  "last_entry": null,
+  "prices": [],
+  "fixed_minutes": null,
+  "time_limit": null,
+  "group": null,
+  "booking": null,
+  "notes": [
+    {
+      "text": "Hours vary by shop; no market-wide opening hours listed",
+      "quote": "店舗により異なる",
+      "url": "https://rurubu.jp/andmore/spot/80028577"
+    },
+    {
+      "text": "Listing omits year-end and New Year closures, so 12-21 to 12-26 closures are unconfirmed",
+      "quote": "※店舗・施設の定休日は原則として年末年始・お盆休み・ゴールデンウィーク・臨時休業を省略しています。",
+      "url": "https://rurubu.jp/andmore/spot/80028577"
+    },
+    {
+      "text": "Mapple listing for the market entry: 9:30-18:00, varies by shop",
+      "quote": "9:30～18:00（店舗により異なる）",
+      "url": "https://www.mapple.net/article/4562/"
+    }
+  ]
+}

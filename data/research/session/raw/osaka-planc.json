@@ -1,0 +1,1253 @@
+{
+  "candidates": [
+    {
+      "name": "Tō-ji Shimai-Kōbō (last flea market of the year)",
+      "name_ja": null,
+      "city": "Osaka",
+      "area": "京都市南区",
+      "kind": "event",
+      "why": "Tō-ji 'Shimai-Kōbō' — 1,000+ stalls, Dec 21 only. (From Plan C, the group's own plan for Mon Dec 21: \"Hakone → Kyoto Tō-ji flea market → Osaka · fugu night in Minami\".)",
+      "best_time": "14:40–15:35 in Plan C",
+      "dates": "2026-12-21",
+      "price": null,
+      "booking": null,
+      "group_of_8": null,
+      "hours": "~8:00–16:00 (you're at the tail end, still huge).",
+      "visit_minutes": 55,
+      "first_last": null,
+      "lat": 34.982878,
+      "lng": 135.755394,
+      "wish_ids": [],
+      "evidence": [
+        {
+          "source": "Plan C (the group's own plan)",
+          "url": "https://toji.or.jp/",
+          "note": "Chosen by the group for Mon Dec 21: Last flea market of the year — cash"
+        }
+      ],
+      "confidence": 0.8
+    },
+    {
+      "name": "Supreme Osaka + Orange Street (Minami-Horie)",
+      "name_ja": null,
+      "city": "Osaka",
+      "area": "Nishi-ku",
+      "kind": "shopping",
+      "why": "Supreme Osaka + Orange Street (Minami-Horie). (From Plan C, the group's own plan for Mon Dec 21: \"Hakone → Kyoto Tō-ji flea market → Osaka · fugu night in Minami\".)",
+      "best_time": "17:30–18:10 in Plan C",
+      "dates": "2026-12-21",
+      "price": null,
+      "booking": null,
+      "group_of_8": null,
+      "hours": "11:00–20:00.",
+      "visit_minutes": 40,
+      "first_last": null,
+      "lat": 34.67109,
+      "lng": 135.49581,
+      "wish_ids": [],
+      "evidence": [
+        {
+          "source": "Plan C (the group's own plan)",
+          "url": "https://www.google.com/maps/search/?api=1&query=34.67109,135.49581",
+          "note": "Chosen by the group for Mon Dec 21: Weekday evening = no queue"
+        }
+      ],
+      "confidence": 0.8
+    },
+    {
+      "name": "Amerikamura + Shinsaibashi sneakers",
+      "name_ja": null,
+      "city": "Osaka",
+      "area": "Osaka",
+      "kind": "shopping",
+      "why": "Sports Lab by atmos, vintage. Amerikamura + Shinsaibashi sneakers (Sports Lab by atmos, vintage). (From Plan C, the group's own plan for Mon Dec 21: \"Hakone → Kyoto Tō-ji flea market → Osaka · fugu night in Minami\".)",
+      "best_time": "18:15–18:50 in Plan C",
+      "dates": "2026-12-21",
+      "price": null,
+      "booking": null,
+      "group_of_8": null,
+      "hours": "most shops to ~20:00; Sports Lab 11:00–21:00.",
+      "visit_minutes": 35,
+      "first_last": null,
+      "lat": 34.67053,
+      "lng": 135.50124,
+      "wish_ids": [
+        "w23"
+      ],
+      "evidence": [
+        {
+          "source": "Plan C (the group's own plan)",
+          "url": "https://kougaryu.jp/",
+          "note": "Chosen by the group for Mon Dec 21: Shops close ~20:00 · Kōgaryū takoyaki"
+        }
+      ],
+      "confidence": 0.8
+    },
+    {
+      "name": "Midōsuji Illumination",
+      "name_ja": null,
+      "city": "Osaka",
+      "area": "Osaka",
+      "kind": "event",
+      "why": "Midōsuji Illumination — 4 km of lit avenue (Nov 3–Dec 31). (From Plan C, the group's own plan for Mon Dec 21: \"Hakone → Kyoto Tō-ji flea market → Osaka · fugu night in Minami\".)",
+      "best_time": "18:50–19:05 in Plan C",
+      "dates": "2026-12-21",
+      "price": null,
+      "booking": null,
+      "group_of_8": null,
+      "hours": null,
+      "visit_minutes": 15,
+      "first_last": null,
+      "lat": 34.6745,
+      "lng": 135.5008,
+      "wish_ids": [],
+      "evidence": [
+        {
+          "source": "Plan C (the group's own plan)",
+          "url": "https://www.hikari-kyoen.com/",
+          "note": "Chosen by the group for Mon Dec 21: Free — walk it south to Dōtonbori"
+        }
+      ],
+      "confidence": 0.8
+    },
+    {
+      "name": "Dōtonbori street-food crawl",
+      "name_ja": null,
+      "city": "Osaka",
+      "area": "Osaka",
+      "kind": "food",
+      "why": "Dōtonbori street food. (From Plan C, the group's own plan for Mon Dec 21: \"Hakone → Kyoto Tō-ji flea market → Osaka · fugu night in Minami\".)",
+      "best_time": "19:05–19:30 in Plan C",
+      "dates": "2026-12-21",
+      "price": "¥2,000 pp",
+      "booking": null,
+      "group_of_8": null,
+      "hours": null,
+      "visit_minutes": 25,
+      "first_last": null,
+      "lat": 34.668675,
+      "lng": 135.498998,
+      "wish_ids": [],
+      "evidence": [
+        {
+          "source": "Plan C (the group's own plan)",
+          "url": "https://dotonbori-kukuru.com/",
+          "note": "Chosen by the group for Mon Dec 21: Light snack — fugu is next"
+        }
+      ],
+      "confidence": 0.8
+    },
+    {
+      "name": "Genpin Fugu",
+      "name_ja": null,
+      "city": "Osaka",
+      "area": "中央区",
+      "kind": "food",
+      "why": "Hōzenji Sōhonten. Genpin Fugu Hōzenji — winter tora-fugu (pufferfish) courses. (From Plan C, the group's own plan for Mon Dec 21: \"Hakone → Kyoto Tō-ji flea market → Osaka · fugu night in Minami\".)",
+      "best_time": "19:30–21:30 in Plan C",
+      "dates": "2026-12-21",
+      "price": "¥9,800 pp",
+      "booking": "Hot Pepper — winter 'Fuyu no Utage' courses incl. 2h nomihōdai + fin sake: 5 courses ¥6,900 · 6 ¥8,500 · **8 ¥9,800** (the whole tour: tessa, tecchiri, karaage, porridge).",
+      "group_of_8": null,
+      "hours": "weekdays 12:00–22:30 (food LO 21:30).",
+      "visit_minutes": 120,
+      "first_last": null,
+      "lat": 34.66802,
+      "lng": 135.502342,
+      "wish_ids": [
+        "w20"
+      ],
+      "evidence": [
+        {
+          "source": "Plan C (the group's own plan)",
+          "url": "https://www.hotpepper.jp/strJ000013271/",
+          "note": "Chosen by the group for Mon Dec 21: Booked 19:30 · 8-course fugu + 2h drinks"
+        }
+      ],
+      "confidence": 0.8
+    },
+    {
+      "name": "Hōzenji Yokochō",
+      "name_ja": null,
+      "city": "Osaka",
+      "area": "Osaka",
+      "kind": "sight",
+      "why": "Hōzenji Yokochō — mossy temple lane. (From Plan C, the group's own plan for Mon Dec 21: \"Hakone → Kyoto Tō-ji flea market → Osaka · fugu night in Minami\".)",
+      "best_time": "21:30–21:50 in Plan C",
+      "dates": "2026-12-21",
+      "price": null,
+      "booking": null,
+      "group_of_8": null,
+      "hours": null,
+      "visit_minutes": 20,
+      "first_last": null,
+      "lat": 34.668077,
+      "lng": 135.502632,
+      "wish_ids": [
+        "w24"
+      ],
+      "evidence": [
+        {
+          "source": "Plan C (the group's own plan)",
+          "url": "https://www.google.com/maps/search/?api=1&query=Hozenji+Yokocho+Osaka",
+          "note": "Chosen by the group for Mon Dec 21: Splash water on Fudō-san for luck"
+        }
+      ],
+      "confidence": 0.8
+    },
+    {
+      "name": "Ura-Namba bar crawl",
+      "name_ja": null,
+      "city": "Osaka",
+      "area": "Osaka",
+      "kind": "bar",
+      "why": "Ura-Namba — the locals' standing-bar backstreets. (From Plan C, the group's own plan for Mon Dec 21: \"Hakone → Kyoto Tō-ji flea market → Osaka · fugu night in Minami\".)",
+      "best_time": "22:00–23:45 in Plan C",
+      "dates": "2026-12-21",
+      "price": "¥3,000 pp",
+      "booking": null,
+      "group_of_8": null,
+      "hours": null,
+      "visit_minutes": 105,
+      "first_last": null,
+      "lat": 34.6643,
+      "lng": 135.5048,
+      "wish_ids": [],
+      "evidence": [
+        {
+          "source": "Plan C (the group's own plan)",
+          "url": "https://yusei-uranamba.com/",
+          "note": "Chosen by the group for Mon Dec 21: Yusei (open to 3am) · home by 23:45"
+        }
+      ],
+      "confidence": 0.8
+    },
+    {
+      "name": "Fushimi Inari Taisha",
+      "name_ja": null,
+      "city": "Osaka",
+      "area": "Osaka",
+      "kind": "sight",
+      "why": "Fushimi Inari — thousands of red torii gates. (From Plan C, the group's own plan for Tue Dec 22: \"Kyoto AM — Fushimi Inari · Kiyomizu · Nishiki → Umeda Santa Parade → Gion night · duck hot-pot · Shirakawa lanterns\".)",
+      "best_time": "06:45–08:45 in Plan C",
+      "dates": "2026-12-22",
+      "price": null,
+      "booking": null,
+      "group_of_8": null,
+      "hours": "24h, free.",
+      "visit_minutes": 120,
+      "first_last": null,
+      "lat": 34.967244,
+      "lng": 135.77299,
+      "wish_ids": [],
+      "evidence": [
+        {
+          "source": "Plan C (the group's own plan)",
+          "url": "https://inari.jp/",
+          "note": "Chosen by the group for Tue Dec 22: Arrive 6:45 · take the side path up"
+        }
+      ],
+      "confidence": 0.8
+    },
+    {
+      "name": "Kiyomizu-dera",
+      "name_ja": null,
+      "city": "Osaka",
+      "area": "Osaka",
+      "kind": "sight",
+      "why": "Kiyomizu-dera — the wooden stage temple. (From Plan C, the group's own plan for Tue Dec 22: \"Kyoto AM — Fushimi Inari · Kiyomizu · Nishiki → Umeda Santa Parade → Gion night · duck hot-pot · Shirakawa lanterns\".)",
+      "best_time": "09:10–10:15 in Plan C",
+      "dates": "2026-12-22",
+      "price": "¥500 pp",
+      "booking": null,
+      "group_of_8": null,
+      "hours": "6:00–18:00.",
+      "visit_minutes": 65,
+      "first_last": null,
+      "lat": 34.994303,
+      "lng": 135.784439,
+      "wish_ids": [],
+      "evidence": [
+        {
+          "source": "Plan C (the group's own plan)",
+          "url": "https://www.kiyomizudera.or.jp/",
+          "note": "Chosen by the group for Tue Dec 22: 2 taxis from Inari (~¥2,000 each)"
+        }
+      ],
+      "confidence": 0.8
+    },
+    {
+      "name": "Sannenzaka & Ninenzaka",
+      "name_ja": null,
+      "city": "Osaka",
+      "area": "京都市東山区",
+      "kind": "shopping",
+      "why": "Sannenzaka & Ninenzaka — old stone-stepped lanes. (From Plan C, the group's own plan for Tue Dec 22: \"Kyoto AM — Fushimi Inari · Kiyomizu · Nishiki → Umeda Santa Parade → Gion night · duck hot-pot · Shirakawa lanterns\".)",
+      "best_time": "10:15–11:00 in Plan C",
+      "dates": "2026-12-22",
+      "price": null,
+      "booking": null,
+      "group_of_8": null,
+      "hours": null,
+      "visit_minutes": 45,
+      "first_last": null,
+      "lat": 34.996557,
+      "lng": 135.780945,
+      "wish_ids": [],
+      "evidence": [
+        {
+          "source": "Plan C (the group's own plan)",
+          "url": "https://www.google.com/maps/search/?api=1&query=34.99655723571777,135.78094482421875",
+          "note": "Chosen by the group for Tue Dec 22: Machiya Starbucks + yatsuhashi"
+        }
+      ],
+      "confidence": 0.8
+    },
+    {
+      "name": "Nishiki Market",
+      "name_ja": null,
+      "city": "Osaka",
+      "area": "Osaka",
+      "kind": "food",
+      "why": "Nishiki Market — Kyoto's 400-year-old food street. (From Plan C, the group's own plan for Tue Dec 22: \"Kyoto AM — Fushimi Inari · Kiyomizu · Nishiki → Umeda Santa Parade → Gion night · duck hot-pot · Shirakawa lanterns\".)",
+      "best_time": "11:10–12:10 in Plan C",
+      "dates": "2026-12-22",
+      "price": "¥2,500 pp",
+      "booking": null,
+      "group_of_8": null,
+      "hours": null,
+      "visit_minutes": 60,
+      "first_last": null,
+      "lat": 35.005024,
+      "lng": 135.76557,
+      "wish_ids": [],
+      "evidence": [
+        {
+          "source": "Plan C (the group's own plan)",
+          "url": "https://www.kyoto-nishiki.or.jp/",
+          "note": "Chosen by the group for Tue Dec 22: Miki Keiran + Hiro — eat at the stall"
+        }
+      ],
+      "confidence": 0.8
+    },
+    {
+      "name": "BAPE STORE HANKYU MEN'S OSAKA (5F)",
+      "name_ja": null,
+      "city": "Osaka",
+      "area": "Osaka",
+      "kind": "shopping",
+      "why": "Osaka exclusives. BAPE STORE Hankyu Men's Osaka. (From Plan C, the group's own plan for Tue Dec 22: \"Kyoto AM — Fushimi Inari · Kiyomizu · Nishiki → Umeda Santa Parade → Gion night · duck hot-pot · Shirakawa lanterns\".)",
+      "best_time": "13:30–14:30 in Plan C",
+      "dates": "2026-12-22",
+      "price": null,
+      "booking": null,
+      "group_of_8": null,
+      "hours": "weekdays 11:00–20:00.",
+      "visit_minutes": 60,
+      "first_last": null,
+      "lat": 34.7031,
+      "lng": 135.49981,
+      "wish_ids": [
+        "w23"
+      ],
+      "evidence": [
+        {
+          "source": "Plan C (the group's own plan)",
+          "url": "https://web.hh-online.jp/hankyu-mens/contents/osaka/access/",
+          "note": "Chosen by the group for Tue Dec 22: Osaka-exclusive pieces (5F)"
+        }
+      ],
+      "confidence": 0.8
+    },
+    {
+      "name": "Grand Santa Parade in UMEKITA",
+      "name_ja": null,
+      "city": "Osaka",
+      "area": "Osaka",
+      "kind": "event",
+      "why": "8 Santas. Grand Santa Parade — ~500 Santas through Umekita; suits provided and yours to keep. (From Plan C, the group's own plan for Tue Dec 22: \"Kyoto AM — Fushimi Inari · Kiyomizu · Nishiki → Umeda Santa Parade → Gion night · duck hot-pot · Shirakawa lanterns\".)",
+      "best_time": "14:50–17:00 in Plan C",
+      "dates": "2026-12-22",
+      "price": null,
+      "booking": null,
+      "group_of_8": null,
+      "hours": null,
+      "visit_minutes": 130,
+      "first_last": null,
+      "lat": 34.7046,
+      "lng": 135.4949,
+      "wish_ids": [
+        "w13",
+        "w12"
+      ],
+      "evidence": [
+        {
+          "source": "Plan C (the group's own plan)",
+          "url": "https://www.timeout.com/osaka/things-to-do/grand-santa-parade-in-umekita",
+          "note": "Chosen by the group for Tue Dec 22: SIGN UP ALL 8 the day registration opens"
+        }
+      ],
+      "confidence": 0.8
+    },
+    {
+      "name": "Yasaka Shrine",
+      "name_ja": null,
+      "city": "Osaka",
+      "area": "Osaka",
+      "kind": "sight",
+      "why": "Yasaka Shrine, Gion. (From Plan C, the group's own plan for Tue Dec 22: \"Kyoto AM — Fushimi Inari · Kiyomizu · Nishiki → Umeda Santa Parade → Gion night · duck hot-pot · Shirakawa lanterns\".)",
+      "best_time": "17:50–18:05 in Plan C",
+      "dates": "2026-12-22",
+      "price": null,
+      "booking": null,
+      "group_of_8": null,
+      "hours": null,
+      "visit_minutes": 15,
+      "first_last": null,
+      "lat": 35.003603,
+      "lng": 135.778261,
+      "wish_ids": [],
+      "evidence": [
+        {
+          "source": "Plan C (the group's own plan)",
+          "url": "https://www.yasaka-jinja.or.jp/",
+          "note": "Chosen by the group for Tue Dec 22: Free · lanterns lit all night"
+        }
+      ],
+      "confidence": 0.8
+    },
+    {
+      "name": "Gion Hanamikoji",
+      "name_ja": null,
+      "city": "Osaka",
+      "area": "東山区",
+      "kind": "sight",
+      "why": "Gion Hanamikoji — the geisha district at night. (From Plan C, the group's own plan for Tue Dec 22: \"Kyoto AM — Fushimi Inari · Kiyomizu · Nishiki → Umeda Santa Parade → Gion night · duck hot-pot · Shirakawa lanterns\".)",
+      "best_time": "18:05–18:30 in Plan C",
+      "dates": "2026-12-22",
+      "price": null,
+      "booking": null,
+      "group_of_8": null,
+      "hours": null,
+      "visit_minutes": 25,
+      "first_last": null,
+      "lat": 35.003,
+      "lng": 135.774971,
+      "wish_ids": [],
+      "evidence": [
+        {
+          "source": "Plan C (the group's own plan)",
+          "url": "https://www.google.com/maps/search/?api=1&query=Hanamikoji+Street+Gion",
+          "note": "Chosen by the group for Tue Dec 22: No photos in private lanes (¥10k fine)"
+        }
+      ],
+      "confidence": 0.8
+    },
+    {
+      "name": "Pontochō Robin",
+      "name_ja": null,
+      "city": "Osaka",
+      "area": "中京区",
+      "kind": "food",
+      "why": "kamo-nabe duck hot-pot dinner. Pontochō Robin — duck hot-pot in a 150-year-old townhouse. (From Plan C, the group's own plan for Tue Dec 22: \"Kyoto AM — Fushimi Inari · Kiyomizu · Nishiki → Umeda Santa Parade → Gion night · duck hot-pot · Shirakawa lanterns\".)",
+      "best_time": "18:35–20:30 in Plan C",
+      "dates": "2026-12-22",
+      "price": "¥9,200 pp",
+      "booking": "TableCheck 鴨鍋コース ¥9,200 pp; private room +¥550 pp — ask for the zashiki for 8 (table rooms seat 2–6).",
+      "group_of_8": null,
+      "hours": "Mon–Fri 17:00–21:30, **LO 20:30**.",
+      "visit_minutes": 115,
+      "first_last": null,
+      "lat": 35.007612,
+      "lng": 135.771133,
+      "wish_ids": [],
+      "evidence": [
+        {
+          "source": "Plan C (the group's own plan)",
+          "url": "https://www.tablecheck.com/shops/robin-kyoto/reserve",
+          "note": "Chosen by the group for Tue Dec 22: Booked 18:30 · zashiki room for 8 · order by 20:30"
+        }
+      ],
+      "confidence": 0.8
+    },
+    {
+      "name": "Gion Shirakawa & Tatsumi-bashi",
+      "name_ja": null,
+      "city": "Osaka",
+      "area": "Higashiyama-ku",
+      "kind": "sight",
+      "why": "night stroll (free). Kyoto's prettiest street after dark: a willow-lined canal, stone-paved Shinbashi-dōri, wooden teahouses and the little Tatsumi Bridge with Tatsumi Daimyōjin shrine. The glow comes from the teahouse lanterns and street lamps, not an event. Free, always open. (From Plan C, the group's own plan for Tue Dec 22: \"Kyoto AM — Fushimi Inari · Kiyomizu · Nishiki → Umeda Santa Parade → Gion night · duck hot-pot · Shirakawa lanterns\".)",
+      "best_time": "20:35–20:55 in Plan C",
+      "dates": "2026-12-22",
+      "price": null,
+      "booking": null,
+      "group_of_8": null,
+      "hours": null,
+      "visit_minutes": 20,
+      "first_last": null,
+      "lat": 35.00513,
+      "lng": 135.77423,
+      "wish_ids": [],
+      "evidence": [
+        {
+          "source": "Plan C (the group's own plan)",
+          "url": "https://www.google.com/maps/search/Tatsumi+Bridge+Gion+Shirakawa+Kyoto",
+          "note": "Chosen by the group for Tue Dec 22: Replaces the NAKED Heian show: no 2026 edition is announced (the last one ran Dec 19 2025 – Jan 18 2026). Pontochō → Shijō bridge → Shirakawa is ~7 min on foot. Free, the group photo spot of Kyoto. Quiet residential teahouses, so keep the volume down, and no photos of geiko/maiko up close. Then walk 10 min back over the river to Kiyamachi."
+        }
+      ],
+      "confidence": 0.8
+    },
+    {
+      "name": "Kiyamachi-dōri bars",
+      "name_ja": null,
+      "city": "Osaka",
+      "area": "Osaka",
+      "kind": "bar",
+      "why": "Kiyamachi — Kyoto's late-night bar strip. (From Plan C, the group's own plan for Tue Dec 22: \"Kyoto AM — Fushimi Inari · Kiyomizu · Nishiki → Umeda Santa Parade → Gion night · duck hot-pot · Shirakawa lanterns\".)",
+      "best_time": "21:00–23:00 in Plan C",
+      "dates": "2026-12-22",
+      "price": "¥3,000 pp",
+      "booking": null,
+      "group_of_8": null,
+      "hours": null,
+      "visit_minutes": 120,
+      "first_last": "JR Kyoto → Osaka ~23:30 — be at Kyoto Stn by ~23:15.",
+      "lat": 35.009963,
+      "lng": 135.77054,
+      "wish_ids": [],
+      "evidence": [
+        {
+          "source": "Plan C (the group's own plan)",
+          "url": "https://tabelog.com/kyoto/A2601/A260201/26034846/",
+          "note": "Chosen by the group for Tue Dec 22: Sharp → Kiyokiyo → Zaza · last train ~23:30"
+        }
+      ],
+      "confidence": 0.8
+    },
+    {
+      "name": "Itsukushima Shrine & floating torii (Miyajima)",
+      "name_ja": null,
+      "city": "Osaka",
+      "area": "Osaka",
+      "kind": "sight",
+      "why": "Itsukushima Shrine and the floating torii, Miyajima. (From Plan C, the group's own plan for Wed Dec 23: \"Hiroshima + Miyajima — floating torii · oysters · Hassho okonomiyaki · Shinsekai night\".)",
+      "best_time": "09:30–11:00 in Plan C",
+      "dates": "2026-12-23",
+      "price": "¥300 pp",
+      "booking": null,
+      "group_of_8": null,
+      "hours": "6:30–17:00.",
+      "visit_minutes": 90,
+      "first_last": null,
+      "lat": 34.296527,
+      "lng": 132.319007,
+      "wish_ids": [
+        "w17"
+      ],
+      "evidence": [
+        {
+          "source": "Plan C (the group's own plan)",
+          "url": "https://www.itsukushimajinja.jp/",
+          "note": "Chosen by the group for Wed Dec 23: High tide ~9:10 — torii 'floating'"
+        }
+      ],
+      "confidence": 0.8
+    },
+    {
+      "name": "Miyajima Omotesandō",
+      "name_ja": null,
+      "city": "Osaka",
+      "area": "Osaka",
+      "kind": "food",
+      "why": "grilled oysters & momiji. Kakiya — Michelin-listed oyster specialist on Omotesandō. (From Plan C, the group's own plan for Wed Dec 23: \"Hiroshima + Miyajima — floating torii · oysters · Hassho okonomiyaki · Shinsekai night\".)",
+      "best_time": "11:00–12:15 in Plan C",
+      "dates": "2026-12-23",
+      "price": "¥3,000 pp",
+      "booking": null,
+      "group_of_8": null,
+      "hours": "10:00–18:00, irregular closures — check the day before. No reservations.",
+      "visit_minutes": 75,
+      "first_last": null,
+      "lat": 34.299556,
+      "lng": 132.321961,
+      "wish_ids": [
+        "w17"
+      ],
+      "evidence": [
+        {
+          "source": "Plan C (the group's own plan)",
+          "url": "https://www.kaki-ya.jp/",
+          "note": "Chosen by the group for Wed Dec 23: Kakiya — oysters only"
+        }
+      ],
+      "confidence": 0.8
+    },
+    {
+      "name": "Hiroshima Peace Memorial Museum & Park",
+      "name_ja": null,
+      "city": "Osaka",
+      "area": "Osaka",
+      "kind": "sight",
+      "why": "Hiroshima Peace Memorial Museum & Park. (From Plan C, the group's own plan for Wed Dec 23: \"Hiroshima + Miyajima — floating torii · oysters · Hassho okonomiyaki · Shinsekai night\".)",
+      "best_time": "13:30–15:30 in Plan C",
+      "dates": "2026-12-23",
+      "price": "¥200 pp",
+      "booking": null,
+      "group_of_8": null,
+      "hours": "7:30–18:00. No reservation needed at 13:30 (only 7:30–8:30 and 16:30–17:30 need one).",
+      "visit_minutes": 120,
+      "first_last": null,
+      "lat": 34.391812,
+      "lng": 132.452105,
+      "wish_ids": [
+        "w17"
+      ],
+      "evidence": [
+        {
+          "source": "Plan C (the group's own plan)",
+          "url": "https://hpmmuseum.jp/",
+          "note": "Chosen by the group for Wed Dec 23: Budget the full 2 hours"
+        }
+      ],
+      "confidence": 0.8
+    },
+    {
+      "name": "Atomic Bomb Dome",
+      "name_ja": null,
+      "city": "Osaka",
+      "area": "広島市中区",
+      "kind": "sight",
+      "why": "Atomic Bomb Dome — outside view, free. (From Plan C, the group's own plan for Wed Dec 23: \"Hiroshima + Miyajima — floating torii · oysters · Hassho okonomiyaki · Shinsekai night\".)",
+      "best_time": "15:30–16:00 in Plan C",
+      "dates": "2026-12-23",
+      "price": null,
+      "booking": null,
+      "group_of_8": null,
+      "hours": null,
+      "visit_minutes": 30,
+      "first_last": null,
+      "lat": 34.395491,
+      "lng": 132.453529,
+      "wish_ids": [
+        "w17"
+      ],
+      "evidence": [
+        {
+          "source": "Plan C (the group's own plan)",
+          "url": "http://www.city.hiroshima.lg.jp/toshiseibi/dome/",
+          "note": "Chosen by the group for Wed Dec 23"
+        }
+      ],
+      "confidence": 0.8
+    },
+    {
+      "name": "Okonomiyaki Hassho",
+      "name_ja": "八昌, Yagenbori",
+      "city": "Osaka",
+      "area": "Osaka",
+      "kind": "food",
+      "why": "Hassho Yagenbori — crispy-noodle Hiroshima okonomiyaki (Tabelog Top 100). (From Plan C, the group's own plan for Wed Dec 23: \"Hiroshima + Miyajima — floating torii · oysters · Hassho okonomiyaki · Shinsekai night\".)",
+      "best_time": "16:15–17:45 in Plan C",
+      "dates": "2026-12-23",
+      "price": "¥1,800 pp",
+      "booking": null,
+      "group_of_8": null,
+      "hours": "Tue–Sat 16:00–22:30; **closed Mon and 1st/3rd Tue** (Wed ✓). No reservations.",
+      "visit_minutes": 90,
+      "first_last": null,
+      "lat": 34.3906,
+      "lng": 132.4658,
+      "wish_ids": [
+        "w17"
+      ],
+      "evidence": [
+        {
+          "source": "Plan C (the group's own plan)",
+          "url": "https://y792200.gorp.jp/",
+          "note": "Chosen by the group for Wed Dec 23: Opens 16:00 · send 2 ahead at 15:45"
+        }
+      ],
+      "confidence": 0.8
+    },
+    {
+      "name": "Hiroshima Dreamination",
+      "name_ja": null,
+      "city": "Osaka",
+      "area": "Osaka",
+      "kind": "sight",
+      "why": "Hiroshima Dreamination — 1 km+ of lights on Peace Boulevard. (From Plan C, the group's own plan for Wed Dec 23: \"Hiroshima + Miyajima — floating torii · oysters · Hassho okonomiyaki · Shinsekai night\".)",
+      "best_time": "17:50–18:40 in Plan C",
+      "dates": "2026-12-23",
+      "price": null,
+      "booking": null,
+      "group_of_8": null,
+      "hours": null,
+      "visit_minutes": 50,
+      "first_last": null,
+      "lat": 34.390359,
+      "lng": 132.453693,
+      "wish_ids": [
+        "w17"
+      ],
+      "evidence": [
+        {
+          "source": "Plan C (the group's own plan)",
+          "url": "https://www.dreamination.com/",
+          "note": "Chosen by the group for Wed Dec 23: Free · next to Hassho"
+        }
+      ],
+      "confidence": 0.8
+    },
+    {
+      "name": "Tsūtenkaku & Shinsekai neon walk",
+      "name_ja": null,
+      "city": "Osaka",
+      "area": "Osaka",
+      "kind": "sight",
+      "why": "Tsūtenkaku tower and Shinsekai's Shōwa-era neon. (From Plan C, the group's own plan for Wed Dec 23: \"Hiroshima + Miyajima — floating torii · oysters · Hassho okonomiyaki · Shinsekai night\".)",
+      "best_time": "21:15–21:35 in Plan C",
+      "dates": "2026-12-23",
+      "price": null,
+      "booking": null,
+      "group_of_8": null,
+      "hours": null,
+      "visit_minutes": 20,
+      "first_last": null,
+      "lat": 34.652539,
+      "lng": 135.50631,
+      "wish_ids": [],
+      "evidence": [
+        {
+          "source": "Plan C (the group's own plan)",
+          "url": "https://tsutenkaku.co.jp/",
+          "note": "Chosen by the group for Wed Dec 23: Walk it — deck is closed by now"
+        }
+      ],
+      "confidence": 0.8
+    },
+    {
+      "name": "Kushikatsu Daruma",
+      "name_ja": null,
+      "city": "Osaka",
+      "area": "Naniwa-ku",
+      "kind": "food",
+      "why": "Dōbutsuen-mae branch (tables for groups). Kushikatsu Daruma, Dōbutsuen-mae branch — 50 seats, takes groups. (From Plan C, the group's own plan for Wed Dec 23: \"Hiroshima + Miyajima — floating torii · oysters · Hassho okonomiyaki · Shinsekai night\".)",
+      "best_time": "21:35–22:25 in Plan C",
+      "dates": "2026-12-23",
+      "price": "¥2,000 pp",
+      "booking": null,
+      "group_of_8": null,
+      "hours": "weekdays 11:00–22:30, LO 22:00.",
+      "visit_minutes": 50,
+      "first_last": null,
+      "lat": 34.65098,
+      "lng": 135.50652,
+      "wish_ids": [],
+      "evidence": [
+        {
+          "source": "Plan C (the group's own plan)",
+          "url": "https://www.kushikatu-daruma.com/location/doubutsuenmae",
+          "note": "Chosen by the group for Wed Dec 23: LAST ORDER 22:00 — order everything at once"
+        }
+      ],
+      "confidence": 0.8
+    },
+    {
+      "name": "Spa World",
+      "name_ja": null,
+      "city": "Osaka",
+      "area": "Osaka",
+      "kind": "onsen",
+      "why": "themed onsen floors (Shinsekai). Spa World — themed onsen floors (Asia / Europe). (From Plan C, the group's own plan for Wed Dec 23: \"Hiroshima + Miyajima — floating torii · oysters · Hassho okonomiyaki · Shinsekai night\".)",
+      "best_time": "22:30–23:55 in Plan C",
+      "dates": "2026-12-23",
+      "price": "¥1,500 pp",
+      "booking": null,
+      "group_of_8": null,
+      "hours": "baths 10:00–8:45 next day. ¥1,500 weekday without pool.",
+      "visit_minutes": 85,
+      "first_last": null,
+      "lat": 34.64991,
+      "lng": 135.50561,
+      "wish_ids": [
+        "w22"
+      ],
+      "evidence": [
+        {
+          "source": "Plan C (the group's own plan)",
+          "url": "https://www.spaworld.co.jp/",
+          "note": "Chosen by the group for Wed Dec 23: Leave before midnight (surcharge)"
+        }
+      ],
+      "confidence": 0.8
+    },
+    {
+      "name": "Universal Studios Japan",
+      "name_ja": null,
+      "city": "Osaka",
+      "area": "Osaka",
+      "kind": "experience",
+      "why": "Universal Studios Japan on Christmas Eve. (From Plan C, the group's own plan for Thu Dec 24: \"Christmas Eve — Universal Studios Japan · KFC barrel party\".)",
+      "best_time": "07:00–21:00 in Plan C",
+      "dates": "2026-12-24",
+      "price": "¥29,000 pp",
+      "booking": "each date goes on sale 62 days ahead (Dec 24 → Oct 23 00:00 JST). Prices are dynamic. Express Pass 5 (Mario Kart, Forbidden Journey, Minions + 1) from ¥16,800.",
+      "group_of_8": null,
+      "hours": "8:00–21:30.",
+      "visit_minutes": 840,
+      "first_last": null,
+      "lat": 34.665639,
+      "lng": 135.432453,
+      "wish_ids": [],
+      "evidence": [
+        {
+          "source": "Plan C (the group's own plan)",
+          "url": "https://www.usj.co.jp/web/en/us/tickets",
+          "note": "Chosen by the group for Thu Dec 24: At the gate 7:00 · opens 8:00"
+        }
+      ],
+      "confidence": 0.8
+    },
+    {
+      "name": "Life Bentenchō",
+      "name_ja": null,
+      "city": "Osaka",
+      "area": "Minato-ku",
+      "kind": "shopping",
+      "why": "KFC-party supply run. Life supermarket, Bentenchō. (From Plan C, the group's own plan for Thu Dec 24: \"Christmas Eve — Universal Studios Japan · KFC barrel party\".)",
+      "best_time": "21:15–21:40 in Plan C",
+      "dates": "2026-12-24",
+      "price": null,
+      "booking": null,
+      "group_of_8": null,
+      "hours": "9:30–24:00 (1F).",
+      "visit_minutes": 25,
+      "first_last": null,
+      "lat": 34.66745,
+      "lng": 135.46062,
+      "wish_ids": [
+        "w19"
+      ],
+      "evidence": [
+        {
+          "source": "Plan C (the group's own plan)",
+          "url": "https://store.lifecorp.jp/detail/west232/",
+          "note": "Chosen by the group for Thu Dec 24: Party supplies — open to 24:00"
+        }
+      ],
+      "confidence": 0.8
+    },
+    {
+      "name": "KFC",
+      "name_ja": null,
+      "city": "Osaka",
+      "area": "西区",
+      "kind": "food",
+      "why": "Christmas Party Barrel pickup. KFC Christmas — Japan's Christmas Eve tradition. (From Plan C, the group's own plan for Thu Dec 24: \"Christmas Eve — Universal Studios Japan · KFC barrel party\".)",
+      "best_time": "21:50–22:10 in Plan C",
+      "dates": "2026-12-24",
+      "price": "¥1,000 pp",
+      "booking": "from ~early Nov; last year ¥500 off if reserved by Dec 12. Online preorder often fails for foreigners — ask the Kujō host to help, or reserve in person.",
+      "group_of_8": null,
+      "hours": null,
+      "visit_minutes": 20,
+      "first_last": null,
+      "lat": 34.669468,
+      "lng": 135.475914,
+      "wish_ids": [
+        "w19"
+      ],
+      "evidence": [
+        {
+          "source": "Plan C (the group's own plan)",
+          "url": "https://www.kfc.co.jp/",
+          "note": "Chosen by the group for Thu Dec 24: Party Barrel pickup — reserve early Nov"
+        }
+      ],
+      "confidence": 0.8
+    },
+    {
+      "name": "Tōdai-ji (Great Buddha Hall)",
+      "name_ja": null,
+      "city": "Osaka",
+      "area": "Osaka",
+      "kind": "sight",
+      "why": "Tōdai-ji — the Great Buddha Hall. (From Plan C, the group's own plan for Fri Dec 25: \"Christmas in Santa suits — Nara deer · Amazing Pass blitz · A5 wagyu · Round1 all-nighter\".)",
+      "best_time": "08:30–09:30 in Plan C",
+      "dates": "2026-12-25",
+      "price": "¥800 pp",
+      "booking": null,
+      "group_of_8": null,
+      "hours": "8:00–17:00.",
+      "visit_minutes": 60,
+      "first_last": null,
+      "lat": 34.688494,
+      "lng": 135.840429,
+      "wish_ids": [],
+      "evidence": [
+        {
+          "source": "Plan C (the group's own plan)",
+          "url": "https://www.todaiji.or.jp/",
+          "note": "Chosen by the group for Fri Dec 25: Opens 8:00 · crawl through the pillar"
+        }
+      ],
+      "confidence": 0.8
+    },
+    {
+      "name": "Nara Park deer",
+      "name_ja": null,
+      "city": "Osaka",
+      "area": "Osaka",
+      "kind": "sight",
+      "why": "Nara Park deer. (From Plan C, the group's own plan for Fri Dec 25: \"Christmas in Santa suits — Nara deer · Amazing Pass blitz · A5 wagyu · Round1 all-nighter\".)",
+      "best_time": "09:30–10:15 in Plan C",
+      "dates": "2026-12-25",
+      "price": "¥200 pp",
+      "booking": null,
+      "group_of_8": null,
+      "hours": null,
+      "visit_minutes": 45,
+      "first_last": null,
+      "lat": 34.685423,
+      "lng": 135.843483,
+      "wish_ids": [],
+      "evidence": [
+        {
+          "source": "Plan C (the group's own plan)",
+          "url": "https://nara-park.com",
+          "note": "Chosen by the group for Fri Dec 25: Buy deer crackers deeper in the park"
+        }
+      ],
+      "confidence": 0.8
+    },
+    {
+      "name": "Kasuga Taisha",
+      "name_ja": null,
+      "city": "Osaka",
+      "area": "Osaka",
+      "kind": "sight",
+      "why": "Kasuga Taisha — lantern-lined shrine. (From Plan C, the group's own plan for Fri Dec 25: \"Christmas in Santa suits — Nara deer · Amazing Pass blitz · A5 wagyu · Round1 all-nighter\".)",
+      "best_time": "10:15–11:00 in Plan C",
+      "dates": "2026-12-25",
+      "price": null,
+      "booking": null,
+      "group_of_8": null,
+      "hours": "7:00–17:00. The inner special worship area is closed Dec 20–Jan 7.",
+      "visit_minutes": 45,
+      "first_last": null,
+      "lat": 34.680506,
+      "lng": 135.846075,
+      "wish_ids": [],
+      "evidence": [
+        {
+          "source": "Plan C (the group's own plan)",
+          "url": "https://www.kasugataisha.or.jp/",
+          "note": "Chosen by the group for Fri Dec 25: Outer grounds free"
+        }
+      ],
+      "confidence": 0.8
+    },
+    {
+      "name": "Nakatanidō",
+      "name_ja": null,
+      "city": "Osaka",
+      "area": "Osaka",
+      "kind": "food",
+      "why": "high-speed mochi pounding. Nakatanidō — high-speed mochi pounding. (From Plan C, the group's own plan for Fri Dec 25: \"Christmas in Santa suits — Nara deer · Amazing Pass blitz · A5 wagyu · Round1 all-nighter\".)",
+      "best_time": "11:30–11:50 in Plan C",
+      "dates": "2026-12-25",
+      "price": "¥200 pp",
+      "booking": null,
+      "group_of_8": null,
+      "hours": "10:00–19:00; irregular closed days on Instagram — check that morning.",
+      "visit_minutes": 20,
+      "first_last": null,
+      "lat": 34.681959,
+      "lng": 135.828896,
+      "wish_ids": [],
+      "evidence": [
+        {
+          "source": "Plan C (the group's own plan)",
+          "url": "https://nakatanidou.jp/",
+          "note": "Chosen by the group for Fri Dec 25: Fast mochi pounding · kakinoha-zushi for the train"
+        }
+      ],
+      "confidence": 0.8
+    },
+    {
+      "name": "Okonomiyaki Kiji",
+      "name_ja": null,
+      "city": "Osaka",
+      "area": "Osaka",
+      "kind": "food",
+      "why": "Takimi-kōji (Umeda Sky B1). Okonomiyaki Kiji — Tabelog Top 100, in Umeda Sky's retro B1 alley. (From Plan C, the group's own plan for Fri Dec 25: \"Christmas in Santa suits — Nara deer · Amazing Pass blitz · A5 wagyu · Round1 all-nighter\".)",
+      "best_time": "13:00–13:40 in Plan C",
+      "dates": "2026-12-25",
+      "price": "¥1,500 pp",
+      "booking": null,
+      "group_of_8": null,
+      "hours": "11:30–21:30, **closed Thursdays** (Fri ✓). ~20 seats; peak waits 30–60 min.",
+      "visit_minutes": 40,
+      "first_last": null,
+      "lat": 34.7051,
+      "lng": 135.4903,
+      "wish_ids": [],
+      "evidence": [
+        {
+          "source": "Plan C (the group's own plan)",
+          "url": "http://www.takimikoji.jp/shop/kiji",
+          "note": "Chosen by the group for Fri Dec 25: No reservations · check posted prices"
+        }
+      ],
+      "confidence": 0.8
+    },
+    {
+      "name": "Umeda Sky Building",
+      "name_ja": null,
+      "city": "Osaka",
+      "area": "北区",
+      "kind": "event",
+      "why": "Floating Garden + Christmas market. Umeda Sky Building: Floating Garden observatory + 'Umeda Sky Building Christmas 2026' (Nov 13 – Dec 25). (From Plan C, the group's own plan for Fri Dec 25: \"Christmas in Santa suits — Nara deer · Amazing Pass blitz · A5 wagyu · Round1 all-nighter\".)",
+      "best_time": "13:40–14:45 in Plan C",
+      "dates": "2026-12-25",
+      "price": "¥2,000 pp",
+      "booking": null,
+      "group_of_8": null,
+      "hours": "9:30–22:30. The Amazing Pass covers the observatory only before 15:00.",
+      "visit_minutes": 65,
+      "first_last": null,
+      "lat": 34.705381,
+      "lng": 135.490547,
+      "wish_ids": [],
+      "evidence": [
+        {
+          "source": "Plan C (the group's own plan)",
+          "url": "https://www.skybldg.co.jp/",
+          "note": "Chosen by the group for Fri Dec 25: Amazing Pass — enter before 15:00"
+        }
+      ],
+      "confidence": 0.8
+    },
+    {
+      "name": "Osaka Castle",
+      "name_ja": null,
+      "city": "Osaka",
+      "area": "大阪市中央区",
+      "kind": "sight",
+      "why": "Osaka Castle park and moat. (From Plan C, the group's own plan for Fri Dec 25: \"Christmas in Santa suits — Nara deer · Amazing Pass blitz · A5 wagyu · Round1 all-nighter\".)",
+      "best_time": "15:15–16:05 in Plan C",
+      "dates": "2026-12-25",
+      "price": null,
+      "booking": null,
+      "group_of_8": null,
+      "hours": null,
+      "visit_minutes": 50,
+      "first_last": null,
+      "lat": 34.687281,
+      "lng": 135.525917,
+      "wish_ids": [],
+      "evidence": [
+        {
+          "source": "Plan C (the group's own plan)",
+          "url": "https://www.osakacastle.net/",
+          "note": "Chosen by the group for Fri Dec 25: Grounds only — skip the inside"
+        }
+      ],
+      "confidence": 0.8
+    },
+    {
+      "name": "Tenma standing-bar crawl",
+      "name_ja": null,
+      "city": "Osaka",
+      "area": "大阪市北区",
+      "kind": "bar",
+      "why": "Tenma — Osaka's standing-bar heartland. (From Plan C, the group's own plan for Fri Dec 25: \"Christmas in Santa suits — Nara deer · Amazing Pass blitz · A5 wagyu · Round1 all-nighter\".)",
+      "best_time": "16:15–17:50 in Plan C",
+      "dates": "2026-12-25",
+      "price": "¥3,000 pp",
+      "booking": null,
+      "group_of_8": null,
+      "hours": "Tachinomi Shomin (11:00–21:45, closed Mon — cheap tuna/hamachi sashimi) · Sake no Okuda (U-counter since 1956; 15:00–21:00) · Daiyasu (sashimi; 16:00–23:00).",
+      "visit_minutes": 95,
+      "first_last": null,
+      "lat": 34.706669,
+      "lng": 135.512047,
+      "wish_ids": [
+        "w24"
+      ],
+      "evidence": [
+        {
+          "source": "Plan C (the group's own plan)",
+          "url": "https://www.tachinomishomin.net/",
+          "note": "Chosen by the group for Fri Dec 25: Shomin → Okuda → Daiyasu · one drink each"
+        }
+      ],
+      "confidence": 0.8
+    },
+    {
+      "name": "Osaka Hikari Renaissance (Nakanoshima)",
+      "name_ja": null,
+      "city": "Osaka",
+      "area": "Osaka",
+      "kind": "sight",
+      "why": "Osaka Hikari Renaissance — projection mapping on Central Public Hall. (From Plan C, the group's own plan for Fri Dec 25: \"Christmas in Santa suits — Nara deer · Amazing Pass blitz · A5 wagyu · Round1 all-nighter\".)",
+      "best_time": "18:00–18:40 in Plan C",
+      "dates": "2026-12-25",
+      "price": null,
+      "booking": null,
+      "group_of_8": null,
+      "hours": null,
+      "visit_minutes": 40,
+      "first_last": null,
+      "lat": 34.693434,
+      "lng": 135.504158,
+      "wish_ids": [],
+      "evidence": [
+        {
+          "source": "Plan C (the group's own plan)",
+          "url": "https://www.hikari-kyoen.com/",
+          "note": "Chosen by the group for Fri Dec 25: Last night of the show · free"
+        }
+      ],
+      "confidence": 0.8
+    },
+    {
+      "name": "Tombori River Cruise (Dōtonbori)",
+      "name_ja": null,
+      "city": "Osaka",
+      "area": "Osaka",
+      "kind": "experience",
+      "why": "Tombori River Cruise through Dōtonbori (~20 min). (From Plan C, the group's own plan for Fri Dec 25: \"Christmas in Santa suits — Nara deer · Amazing Pass blitz · A5 wagyu · Round1 all-nighter\".)",
+      "best_time": "19:00–19:20 in Plan C",
+      "dates": "2026-12-25",
+      "price": null,
+      "booking": null,
+      "group_of_8": null,
+      "hours": null,
+      "visit_minutes": 20,
+      "first_last": "every :00 and :30, 11:00–21:00. No advance booking — timed ticket at the counter.",
+      "lat": 34.669136,
+      "lng": 135.502705,
+      "wish_ids": [],
+      "evidence": [
+        {
+          "source": "Plan C (the group's own plan)",
+          "url": "https://www.ipponmatsu.co.jp/cruise/tombori.html",
+          "note": "Chosen by the group for Fri Dec 25: Free with the Amazing Pass · get a timed ticket"
+        }
+      ],
+      "confidence": 0.8
+    },
+    {
+      "name": "Matsusakagyu Yakiniku M",
+      "name_ja": null,
+      "city": "Osaka",
+      "area": "Osaka",
+      "kind": "food",
+      "why": "A5 Christmas dinner. Matsusakagyu Yakiniku M — A5 Matsusaka beef. (From Plan C, the group's own plan for Fri Dec 25: \"Christmas in Santa suits — Nara deer · Amazing Pass blitz · A5 wagyu · Round1 all-nighter\".)",
+      "best_time": "20:00–22:00 in Plan C",
+      "dates": "2026-12-25",
+      "price": "¥14,080 pp",
+      "booking": "Japan Food Guide (English, replies within 48 h) — Premium ¥14,080: beef sushi, 4 grilled cuts, shabu-shabu sukiyaki, garlic rice, dessert. Ask for a private room for 8. Free cancel until the day before; 30+ min late can count as a no-show.",
+      "group_of_8": null,
+      "hours": "17:00–23:00 (last entry 22:00), open daily.",
+      "visit_minutes": 120,
+      "first_last": null,
+      "lat": 34.66777,
+      "lng": 135.502073,
+      "wish_ids": [],
+      "evidence": [
+        {
+          "source": "Plan C (the group's own plan)",
+          "url": "https://japan-food.guide/en/restaurants/1662",
+          "note": "Chosen by the group for Fri Dec 25: Booked 20:00 · Premium course · private room"
+        }
+      ],
+      "confidence": 0.8
+    },
+    {
+      "name": "Amerikamura bars",
+      "name_ja": null,
+      "city": "Osaka",
+      "area": "Osaka",
+      "kind": "bar",
+      "why": "Christmas night. Amerikamura bars on Christmas night. (From Plan C, the group's own plan for Fri Dec 25: \"Christmas in Santa suits — Nara deer · Amazing Pass blitz · A5 wagyu · Round1 all-nighter\".)",
+      "best_time": "22:15–23:45 in Plan C",
+      "dates": "2026-12-25",
+      "price": "¥3,000 pp",
+      "booking": null,
+      "group_of_8": null,
+      "hours": "Balabushka 18:00–5:00 (the biggest) · Moonshine 19:00–5:00 (open karaoke) · Mustang 18:00–5:00.",
+      "visit_minutes": 90,
+      "first_last": null,
+      "lat": 34.671942,
+      "lng": 135.498152,
+      "wish_ids": [],
+      "evidence": [
+        {
+          "source": "Plan C (the group's own plan)",
+          "url": "https://www.timeout.com/osaka/bars-and-pubs/6-best-bars-in-amerikamura",
+          "note": "Chosen by the group for Fri Dec 25: Balabushka · Moonshine karaoke · Mustang"
+        }
+      ],
+      "confidence": 0.8
+    },
+    {
+      "name": "ROUND1 Stadium Sennichimae",
+      "name_ja": null,
+      "city": "Osaka",
+      "area": "Osaka",
+      "kind": "experience",
+      "why": "Christmas all-nighter. ROUND1 Stadium Sennichimae — bowling, Spo-Cha, karaoke, arcade. (From Plan C, the group's own plan for Fri Dec 25: \"Christmas in Santa suits — Nara deer · Amazing Pass blitz · A5 wagyu · Round1 all-nighter\".)",
+      "best_time": "23:45–04:00 in Plan C",
+      "dates": "2026-12-25",
+      "price": "¥3,500 pp",
+      "booking": null,
+      "group_of_8": null,
+      "hours": "24h (arcade 6:00–0:50).",
+      "visit_minutes": 255,
+      "first_last": null,
+      "lat": 34.6655,
+      "lng": 135.504,
+      "wish_ids": [
+        "w6"
+      ],
+      "evidence": [
+        {
+          "source": "Plan C (the group's own plan)",
+          "url": "https://www.round1.co.jp/shop/tenpo/osaka-sennichimae.html",
+          "note": "Chosen by the group for Fri Dec 25: All-nighter · app + LINE coupons"
+        }
+      ],
+      "confidence": 0.8
+    },
+    {
+      "name": "Kizu Market",
+      "name_ja": null,
+      "city": "Osaka",
+      "area": "Naniwa-ku",
+      "kind": "food",
+      "why": "'Kizu no Asaichi' public morning market. Kizu Market: Osaka's historic wholesale market, open to the public. Dec 26 is one of its twice-monthly public 'asaichi' days. (From Plan C, the group's own plan for Sat Dec 26: \"Kizu morning market → Nozomi to Tokyo · yakatabune fireworks · Shinjuku till first train\".)",
+      "best_time": "09:00–10:30 in Plan C",
+      "dates": "2026-12-26",
+      "price": "¥3,000 pp",
+      "booking": null,
+      "group_of_8": null,
+      "hours": null,
+      "visit_minutes": 90,
+      "first_last": null,
+      "lat": 34.65693,
+      "lng": 135.49987,
+      "wish_ids": [],
+      "evidence": [
+        {
+          "source": "Plan C (the group's own plan)",
+          "url": "https://kizu-ichiba.com/",
+          "note": "Chosen by the group for Sat Dec 26: Asaichi day ✓ (last Sat of the month) · 9:00–12:00 · cash"
+        }
+      ],
+      "confidence": 0.8
+    }
+  ],
+  "notes": "Osaka · planc: the group's own Plan C, to verify and keep where it survives. Plan C Tue Dec 22: Kyoto AM — Fushimi Inari · Kiyomizu · Nishiki → Umeda Santa Parade → Gion night · duck hot-pot · Shirakawa lanterns | Plan C Wed Dec 23: Hiroshima + Miyajima — floating torii · oysters · Hassho okonomiyaki · Shinsekai night | Plan C Thu Dec 24: Christmas Eve — Universal Studios Japan · KFC barrel party | Plan C Fri Dec 25: Christmas in Santa suits — Nara deer · Amazing Pass blitz · A5 wagyu · Round1 all-nighter | Plan C Sat Dec 26: Kizu morning market → Nozomi to Tokyo · yakatabune fireworks · Shinjuku till first train"
+}

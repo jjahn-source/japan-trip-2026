@@ -1,0 +1,238 @@
+{
+  "notes": [
+    {
+      "kind": "BRING",
+      "text": "Original passports for everyone: Kitsune needs them for the foreigner ticket and you need them for tax-free at the till. Top up your IC cards before 06:20."
+    },
+    {
+      "kind": "NOTE",
+      "text": "Hard stop: leave Kitsune at 22:40 for the 23:00 Keihan from Sanjo. It's the last connection home to Kujō."
+    },
+    {
+      "kind": "WEATHER",
+      "text": "A cold, dark start and bare trees all day. Lanterns, not autumn leaves, are the show tonight, and it's fully dark by Pontocho."
+    }
+  ],
+  "stops": [
+    {
+      "index": 0,
+      "summary": "Out the door at 06:20. Four trains get you to Inari, and the special rapid does the long stretch.",
+      "story": "You leave Osaka in the dark and arrive in Kyoto as it gets light. The fast JR special rapid does the long leg, so the trip is quicker than it looks.",
+      "how": [
+        "Hanshin from Kujō to Nishikujō.",
+        "JR Loop line 06:45 → Osaka, then the special rapid 07:01 → Kyoto (07:30).",
+        "JR Nara line 07:42 → Inari (07:46). Fare ¥840 on your IC card."
+      ],
+      "tips": [
+        "Get konbini coffee and onigiri before Nishikujō. The changes don't leave time for breakfast.",
+        "Board the special rapid from the front of the Osaka platform as one group of 8."
+      ],
+      "cost": "¥840",
+      "booking": null,
+      "hours": null,
+      "source_urls": [],
+      "wishes": [
+        "Osaka base, but during the day we will commute to Kyoto/Nara as needed",
+        "We want to maximise all the time we've got in the country"
+      ]
+    },
+    {
+      "index": 1,
+      "summary": "Thousands of vermilion torii in the cold morning quiet, climbing to the Yotsutsuji view over Kyoto.",
+      "story": "The Senbon torii gates run up the mountain in tunnels so close-set that the light inside turns orange. This early, before the late-morning crush, you hear crows and your own footsteps instead of tour groups. Yotsutsuji, about 45 min up, looks out over all of Kyoto in the winter haze.",
+      "how": [
+        "Walk straight through the main gate and into the Senbon torii.",
+        "Keep climbing to the Yotsutsuji viewpoint and take the group photo there.",
+        "Turn back at Yotsutsuji. The full loop of the mountain is about 4 km and takes 2h+.",
+        "Take two taxis to Kiyomizu (21 min, about ¥2,500 per car). The train-and-walk route takes 68 min."
+      ],
+      "tips": [
+        "It's free and open 24 hours, so the only thing you're racing is the crowd.",
+        "The paths go single-file at peak, so keep the 8 of you moving together."
+      ],
+      "cost": "Free",
+      "booking": null,
+      "hours": "24 hours",
+      "source_urls": [
+        "https://banzokubiology.com/fushimiinari-konzatsu/",
+        "https://maps.google.com/?cid=8870624639634301673"
+      ],
+      "wishes": [
+        "Osaka base, but during the day we will commute to Kyoto/Nara as needed",
+        "We love to do it all"
+      ]
+    },
+    {
+      "index": 2,
+      "summary": "Kyoto's wooden stage over the bare winter hillside, then down the old stone slopes to Yasaka.",
+      "story": "Kiyomizu's great veranda is built out over the slope on wooden pillars, and in December you look across bare branches to the city below. By mid-morning it's busy, so treat it as a quick, deliberate stop rather than a wander. The fun is the walk down: Sannenzaka and Ninenzaka's stepped lanes of wooden shopfronts, with the Yasaka pagoda rising at the bottom.",
+      "how": [
+        "Go straight to the main hall and the stage for the view first.",
+        "Walk down Sannenzaka, then Ninenzaka, past the Yasaka pagoda.",
+        "Finish at Yasaka Shrine. Gion is a 5-min walk."
+      ],
+      "tips": [
+        "Admission is ¥400–500 (sources disagree), so check the board at the gate.",
+        "The closing time wasn't confirmed, but you'll be well out by noon anyway."
+      ],
+      "cost": "¥400–500 pp",
+      "booking": null,
+      "hours": "Opens 06:00",
+      "source_urls": [
+        "https://kiyomizudera.or.jp/en/location",
+        "https://maps.google.com/?cid=7111013964196361402"
+      ],
+      "wishes": [
+        "We love to do it all"
+      ]
+    },
+    {
+      "index": 3,
+      "summary": "Teahouse lanes and the canal under bare willows: old Kyoto at its most photogenic, then over the Kamo river.",
+      "story": "Hanamikoji is lined with wooden teahouse facades and slatted windows that give nothing away about the parties inside. A few minutes north, the Shirakawa canal runs under stone bridges and leafless winter willows, about as old-Kyoto as it gets.",
+      "how": [
+        "Walk Hanamikoji south from Shijo, then cut over to the Shirakawa canal.",
+        "Cross the Shijo bridge over the Kamo river.",
+        "Head west on Shijo-dori. Nishiki is a 16-min walk."
+      ],
+      "tips": [
+        "No photos on the private side lanes. Gion takes this seriously.",
+        "If you spot a geiko, let her pass. Don't block her way for a shot."
+      ],
+      "cost": null,
+      "booking": null,
+      "hours": null,
+      "source_urls": [],
+      "wishes": [
+        "We love to do it all"
+      ]
+    },
+    {
+      "index": 4,
+      "summary": "Graze lunch down Kyoto's 400m food street. It's Wednesday, so many stalls are shut and the arcade is plan B.",
+      "story": "Nishiki is a narrow covered market of pickles, skewers and steaming tamagoyaki, the one Kyoto food stop worth planning around. Today is a Wednesday, when most shops close, so expect gaps between the shutters.",
+      "how": [
+        "Walk the length of it and buy at whatever's open: tamagoyaki, tako tamago, soy-milk donuts.",
+        "Eat at the stall where you bought it.",
+        "If it's thin, finish lunch in the Shinkyogoku arcade next door. Shinkyogoku/Teramachi is a 7-min walk."
+      ],
+      "tips": [
+        "No eating while walking. Stand at the stall to eat.",
+        "Bites run ¥300–800, so about ¥2,000 pp fills you up."
+      ],
+      "cost": "~¥2,000 pp (¥300–800 per bite)",
+      "booking": null,
+      "hours": "About 10:00–17:00 (stalls vary; many closed Wednesdays)",
+      "source_urls": [
+        "https://www.kyoto-nishiki.or.jp/"
+      ],
+      "wishes": [
+        "We love to do it all"
+      ]
+    },
+    {
+      "index": 5,
+      "summary": "Vintage on Teramachi, souvenirs on Shinkyogoku, and Nintendo KYOTO on 7F of Takashimaya.",
+      "story": "Teramachi is the local, indie half of the covered arcades: vintage racks, SPINNS, SOU・SOU's Kyoto-made clothing and stamp-and-stationery shops. Shinkyogoku next to it is the souvenir strip. Nintendo KYOTO sits on 7F of Takashimaya, right at the Shijo-Kawaramachi crossing.",
+      "how": [
+        "Start with Teramachi vintage and SPINNS, then work through Shinkyogoku.",
+        "Finish at Nintendo KYOTO, 7F of Kyoto Takashimaya S.C. [T8].",
+        "Pontocho is a 4-min walk."
+      ],
+      "tips": [
+        "Tax-free: pay full price with your own passport. You can't pool purchases, and goods stay unused with receipts in your carry-on.",
+        "Pokémon Center Kyoto is a 10-minute walk west at SUINA Muromachi, if anyone insists.",
+        "Osaka has more and cheaper, so save the big shopping for there."
+      ],
+      "cost": "Souvenirs ¥500–3,000",
+      "booking": null,
+      "hours": "Most shops ~10:00/11:00–20:00/21:00",
+      "source_urls": [
+        "https://www.hk01.com/旅遊/749358/京都錦市場旁的隱藏文青秘地-寺町商店街完全是日本人的街道",
+        "https://www.wwdjapan.com/articles/1284474",
+        "https://www.nintendo.com/jp/officialstore/index.html"
+      ],
+      "wishes": [
+        "Shopping",
+        "We love to do it all"
+      ]
+    },
+    {
+      "index": 6,
+      "summary": "A lantern-lit stone lane by the Kamo river just after dark. One good drink here, then cheaper drinking next door.",
+      "story": "Pontocho is barely wider than your outstretched arms: a stone alley of paper lanterns and wooden doorways squeezed between the river and Kiyamachi. In December the summer river decks are packed away, but the lanes glow warm against the early winter dark.",
+      "how": [
+        "Walk the whole lane from end to end first.",
+        "Pick one bar for a single round. Cocktails run ~¥1,200–2,000.",
+        "Kiyamachi is a 7-min walk one block west."
+      ],
+      "tips": [
+        "Many places add a seat charge, so ask before you sit down.",
+        "The bars are tiny. Split into two groups of 4 if needed."
+      ],
+      "cost": "Cocktails ~¥1,200–2,000 plus seat charge",
+      "booking": null,
+      "hours": "Most ~17:00–23:00",
+      "source_urls": [
+        "https://www.nomadotravel.app/en/guides/kyoto-nightlife-guide",
+        "https://maps.google.com/?q=Pontocho+Kyoto"
+      ],
+      "wishes": [
+        "We love to drink",
+        "If there are cool nightlife things to do in the neighbouring cities as well, include them"
+      ]
+    },
+    {
+      "index": 7,
+      "summary": "A nomihodai izakaya dinner along the canal, then a crawl through Kyoto's cheapest standing bars.",
+      "story": "Kiyamachi is where young Kyoto goes out: a canal-side strip between Shijo and Sanjo packed with standing bars, chain izakaya, international bars and karaoke. Beers are ¥500–700, cheaper than Pontocho, and the crowd is younger and louder.",
+      "how": [
+        "Walk into an izakaya with nomihodai for 8. Dinner is ~¥3,500 pp.",
+        "After dinner, bar-hop north along the canal towards Sanjo.",
+        "Kitsune is a 1-min walk."
+      ],
+      "tips": [
+        "Split up for the small standing bars and regroup at Kitsune at 22:00.",
+        "Cocktails here run ~¥800–1,200, so leave the fancy drinks for Pontocho."
+      ],
+      "cost": "Dinner ~¥3,500 pp; drinks ¥500–700",
+      "booking": "Walk in",
+      "hours": "Most 17:00–24:00",
+      "source_urls": [
+        "https://www.nomadotravel.app/en/guides/kyoto-nightlife-guide",
+        "https://maps.google.com/?q=Kiyamachi-dori+Kyoto"
+      ],
+      "wishes": [
+        "We love to drink",
+        "If there are cool nightlife things to do in the neighbouring cities as well, include them",
+        "We want to maximise all the time we've got in the country"
+      ]
+    },
+    {
+      "index": 8,
+      "summary": "A quick taste of Kyoto's busiest club at opening, then out at 22:40 for the last train to Osaka.",
+      "story": "Kitsune is a two-floor club on Kiyamachi that's open every night, with cheap entry for foreign visitors. You're only doing the early session tonight: dance until 22:40, then run for the 23:00 Keihan.",
+      "how": [
+        "Show your original passports with the online foreigner ticket (about US$3).",
+        "Dance until 22:40, then walk to Sanjo for the 23:00 Keihan limited express.",
+        "Change at Kitahama (23:48) to the Sakaisuji line, then at Sakaisuji-Hommachi to the Chuo line, reaching Kujō at 00:07. Fare ¥730."
+      ],
+      "tips": [
+        "Set a group alarm for 22:35. Nobody stays behind.",
+        "If you miss the 23:00, a taxi takes about 60 min. Split 8 people across 2 cars."
+      ],
+      "cost": "About US$3 pp foreigner entry",
+      "booking": "Advance foreigner ticket online",
+      "hours": "Opens 22:00, open every day",
+      "source_urls": [
+        "https://maps.google.com/?q=KITSUNE+KYOTO",
+        "https://www.travelocity.com/things-to-do/kyoto-kitsune-nightclub-admission-ticket-for-foreign.a50793947.activity-details"
+      ],
+      "wishes": [
+        "Ending the night/nightlife in Osaka",
+        "If there are cool nightlife things to do in the neighbouring cities as well, include them",
+        "We love to drink"
+      ]
+    }
+  ]
+}

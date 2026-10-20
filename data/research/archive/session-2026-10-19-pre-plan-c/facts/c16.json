@@ -1,0 +1,45 @@
+{
+  "open": [
+    {
+      "dates": [
+        "2026-12-15",
+        "2026-12-16",
+        "2026-12-17",
+        "2026-12-18",
+        "2026-12-19",
+        "2026-12-26",
+        "2026-12-28",
+        "2026-12-29"
+      ],
+      "open": "06:30",
+      "close": "13:30",
+      "quote": "営業時間 : 6:30-13:30",
+      "url": "http://www.tsukiji.or.jp/search/shoplist/cat-d/cat-14/046.html"
+    }
+  ],
+  "closed": [
+    {
+      "dates": [
+        "2026-12-27"
+      ],
+      "why": "Sunday",
+      "what": "the shop (Sunday closed)",
+      "whole_place": false,
+      "quote": "休業日 : 日曜・祝日・市場休市日",
+      "url": "http://www.tsukiji.or.jp/search/shoplist/cat-d/cat-14/046.html"
+    }
+  ],
+  "last_entry": null,
+  "prices": [],
+  "fixed_minutes": null,
+  "time_limit": null,
+  "group": null,
+  "booking": null,
+  "notes": [
+    {
+      "text": "Market closure days (市場休市日) are not dated on the shop page; check the market calendar for 12/28-12/29",
+      "quote": "市場休市日",
+      "url": "http://www.tsukiji.or.jp/search/shoplist/cat-d/cat-14/046.html"
+    }
+  ]
+}

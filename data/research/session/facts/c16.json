@@ -2,31 +2,28 @@
   "open": [
     {
       "dates": [
-        "2026-12-15",
-        "2026-12-16",
-        "2026-12-17",
-        "2026-12-18",
         "2026-12-19",
-        "2026-12-26",
-        "2026-12-28",
-        "2026-12-29"
+        "2026-12-20",
+        "2026-12-21"
       ],
-      "open": "06:30",
-      "close": "13:30",
-      "quote": "営業時間 : 6:30-13:30",
-      "url": "http://www.tsukiji.or.jp/search/shoplist/cat-d/cat-14/046.html"
+      "open": "09:00",
+      "close": "16:15",
+      "quote": "●12～1月 9:00～16:15",
+      "url": "https://www.hakonenavi.jp/transportation/station/ohwakudani/"
     }
   ],
   "closed": [
     {
       "dates": [
-        "2026-12-27"
+        "2026-12-19",
+        "2026-12-20",
+        "2026-12-21"
       ],
-      "why": "Sunday",
-      "what": "the shop (Sunday closed)",
+      "why": "Periodic inspection; replacement bus on this section",
+      "what": "Only the Owakudani–Sounzan (大涌谷駅～早雲山駅) leg; replacement bus runs. Period 7–24 Dec 2026 per the Odakyu Hakone PDF notice (dates read from that PDF, not from the quoted line).",
       "whole_place": false,
-      "quote": "休業日 : 日曜・祝日・市場休市日",
-      "url": "http://www.tsukiji.or.jp/search/shoplist/cat-d/cat-14/046.html"
+      "quote": "【箱根ロープウェイ】定期点検整備工事等実施に伴う一部区間代行バス輸送について",
+      "url": "https://www.hakonenavi.jp/groupnews/15097/"
     }
   ],
   "last_entry": null,
@@ -37,9 +34,9 @@
   "booking": null,
   "notes": [
     {
-      "text": "Market closure days (市場休市日) are not dated on the shop page; check the market calendar for 12/28-12/29",
-      "quote": "市場休市日",
-      "url": "http://www.tsukiji.or.jp/search/shoplist/cat-d/cat-14/046.html"
+      "text": "Ropeway may be suspended in bad weather or for maintenance.",
+      "quote": "※悪天候や定期点検整備等で運休となる場合がございます。",
+      "url": "https://www.hakonenavi.jp/transportation/station/ohwakudani/"
     }
   ]
 }

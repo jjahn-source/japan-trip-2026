@@ -1,1 +1,10 @@
-[]
+[
+  {
+    "stop": 1,
+    "claim": "Running early? Mizuho 601 at 06:00 reaches Hiroshima at 07:25, and the pass covers it too.",
+    "fix": "Mizuho 601 leaves Shin-Osaka at 06:00, one minute before the Metro arrives at 06:01, so it can't be caught; Sakura 741 at 06:25 is the first train you can take.",
+    "source_url": "https://ekitan.com/timetable/shinkansen/section/901/sf-5429/st-6858",
+    "source_quote": "06:00→07:25 1時間25分 みずほ601号 鹿児島中央",
+    "schedule": false
+  }
+]

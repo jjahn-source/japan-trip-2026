@@ -1,0 +1,22 @@
+{
+  "open": [],
+  "closed": [],
+  "last_entry": null,
+  "prices": [],
+  "fixed_minutes": null,
+  "time_limit": null,
+  "group": null,
+  "booking": null,
+  "notes": [
+    {
+      "text": "Regional guide page lists the bar as open until 3am; the page gives no date for this and no weekday hours, so unverified",
+      "quote": "深夜3時まで営業する「鶏とハイボール フライングチキン」は、箱根湯本の地元民から愛されるアットホームな居酒屋です。",
+      "url": "https://www.hakonenavi.jp/feature/7420"
+    },
+    {
+      "text": "Guide carries a caveat that Covid-era closures or hour changes may apply",
+      "quote": "※新型コロナウイルス感染症の影響で臨時休業・営業時間変更などを行っている場合があります。詳しくは各施設にお問い合わせください。",
+      "url": "https://www.hakonenavi.jp/feature/7420"
+    }
+  ]
+}

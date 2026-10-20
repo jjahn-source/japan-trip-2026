@@ -1,0 +1,27 @@
+{
+  "open": [],
+  "closed": [],
+  "last_entry": null,
+  "prices": [],
+  "fixed_minutes": null,
+  "time_limit": null,
+  "group": null,
+  "booking": null,
+  "notes": [
+    {
+      "text": "Many outer-market shops also close on Tokyo Central Wholesale Market closing days (calendar not read)",
+      "quote": "東京都中央卸売市場の休市日は築地場外市場もお休みのお店が多いです。",
+      "url": "https://www.tsukiji.or.jp/"
+    },
+    {
+      "text": "Information center ぷらっと築地 is closed during 年末年始 (exact dates not stated)",
+      "quote": "休業日／年末年始",
+      "url": "https://www.tsukiji.or.jp/ordinary/plattsukiji/"
+    },
+    {
+      "text": "Shops prioritise trade buyers until 9:00",
+      "quote": "9時までは仕入れの方の優先時間です。",
+      "url": "https://www.tsukiji.or.jp/ordinary/plattsukiji/"
+    }
+  ]
+}

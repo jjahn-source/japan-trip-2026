@@ -1,0 +1,35 @@
+{
+  "open": [
+    {
+      "dates": [
+        "2026-12-15",
+        "2026-12-16",
+        "2026-12-17",
+        "2026-12-18",
+        "2026-12-19",
+        "2026-12-26",
+        "2026-12-27",
+        "2026-12-28",
+        "2026-12-29"
+      ],
+      "open": "10:00",
+      "close": "20:00",
+      "quote": "営業時間：午前10時〜午後8時",
+      "url": "https://www.mistore.jp/store/shinjuku.html"
+    }
+  ],
+  "closed": [],
+  "last_entry": null,
+  "prices": [],
+  "fixed_minutes": null,
+  "time_limit": null,
+  "group": null,
+  "booking": null,
+  "notes": [
+    {
+      "text": "Hours differ by floor; the food floor (depachika) hours are not stated on this page. Year-end schedule not found in search.",
+      "quote": "フロアによって営業時間が異なります。詳しくは こちら 。",
+      "url": "https://www.mistore.jp/store/shinjuku.html"
+    }
+  ]
+}

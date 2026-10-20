@@ -1,0 +1,44 @@
+{
+  "open": [
+    {
+      "dates": [
+        "2026-12-19",
+        "2026-12-21"
+      ],
+      "open": "10:00",
+      "close": "15:00",
+      "quote": "営業時間( 小売部門) 10：00～15：00頃",
+      "url": "https://www.hakone-yamakawaya.net/"
+    }
+  ],
+  "closed": [
+    {
+      "dates": [
+        "2026-12-20"
+      ],
+      "why": "Weekly closed day (毎週 水曜・日曜)",
+      "what": "Retail sales (小売部門); the page does not say whether other services are also closed",
+      "whole_place": false,
+      "quote": "定休日　毎週　水曜・日曜",
+      "url": "https://www.hakone-yamakawaya.net/"
+    }
+  ],
+  "last_entry": null,
+  "prices": [],
+  "fixed_minutes": null,
+  "time_limit": null,
+  "group": null,
+  "booking": null,
+  "notes": [
+    {
+      "text": "Temporary closures can happen",
+      "quote": "※臨時休業あり",
+      "url": "https://www.hakone-yamakawaya.net/"
+    },
+    {
+      "text": "Shop phone number",
+      "quote": "電話：0460-84-8566",
+      "url": "https://www.hakone-yamakawaya.net/"
+    }
+  ]
+}

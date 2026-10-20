@@ -1,0 +1,41 @@
+{
+  "open": [
+    {
+      "dates": [
+        "2026-12-19",
+        "2026-12-20",
+        "2026-12-21"
+      ],
+      "open": "08:15",
+      "close": "17:00",
+      "quote": "お札所・御神印の受付時間 　8:15 ～ 17:00",
+      "url": "https://kanagawa-kankou.or.jp/spot/197"
+    }
+  ],
+  "closed": [],
+  "last_entry": null,
+  "prices": [
+    {
+      "what": "Treasure hall (宝物殿) adult admission",
+      "yen": 500,
+      "quote": "大人(中学生以上)：500円／税込",
+      "url": "https://www.hakonenavi.jp/spot/1231"
+    }
+  ],
+  "fixed_minutes": null,
+  "time_limit": null,
+  "group": null,
+  "booking": null,
+  "notes": [
+    {
+      "text": "Treasure hall reception 9:00-16:00 (hakonenavi lists 9:00-16:30, entry until 16:00)",
+      "quote": "宝物殿の拝観受付時間 9:00 ～ 16:00",
+      "url": "https://kanagawa-kankou.or.jp/spot/197"
+    },
+    {
+      "text": "Treasure hall may close temporarily; no regular closing day for the shrine",
+      "quote": "※但し宝物殿は展示替等による臨時休館あり",
+      "url": "https://kanagawa-kankou.or.jp/spot/197"
+    }
+  ]
+}

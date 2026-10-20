@@ -1,0 +1,22 @@
+{
+  "open": [],
+  "closed": [],
+  "last_entry": null,
+  "prices": [],
+  "fixed_minutes": null,
+  "time_limit": null,
+  "group": null,
+  "booking": null,
+  "notes": [
+    {
+      "text": "27 Dec 2026 (Sun) is the last JRA meeting of the year, at Nakayama and Hanshin; the Arima Kinen race date and time are not stated on the fetched pages",
+      "quote": "年内の最終開催は、12月27日（日曜）【中山・阪神競馬】といたします。",
+      "url": "https://www.jra.go.jp/news/202511/111801.html"
+    },
+    {
+      "text": "Nakayama's 5th meeting of 2026 starts Sat 5 Dec",
+      "quote": "第5回 中山競馬は12月5日（土曜）から開催",
+      "url": "http://www.jra.go.jp/facilities/race/nakayama/index.html"
+    }
+  ]
+}

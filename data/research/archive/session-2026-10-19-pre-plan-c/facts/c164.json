@@ -1,0 +1,37 @@
+{
+  "open": [
+    {
+      "dates": [
+        "2026-12-21",
+        "2026-12-22",
+        "2026-12-23",
+        "2026-12-24",
+        "2026-12-25",
+        "2026-12-26"
+      ],
+      "open": "11:00",
+      "close": "21:00",
+      "quote": "ショップ 11:00〜21:00、レストラン 11:00〜22:00（一部店舗を除く）。パークスガーデン 10:00〜24:00。",
+      "url": "https://happyell.co.jp/spot/nambaparks"
+    }
+  ],
+  "closed": [],
+  "last_entry": null,
+  "prices": [],
+  "fixed_minutes": null,
+  "time_limit": null,
+  "group": null,
+  "booking": null,
+  "notes": [
+    {
+      "text": "Restaurants open until 22:00 (some stores differ); the open time above is for shops",
+      "quote": "ショップ 11:00〜21:00、レストラン 11:00〜22:00（一部店舗を除く）。パークスガーデン 10:00〜24:00。",
+      "url": "https://happyell.co.jp/spot/nambaparks"
+    },
+    {
+      "text": "Closing days vary by facility and store; no year-end hours found in sources",
+      "quote": "施設・店舗により異なります。",
+      "url": "https://happyell.co.jp/spot/nambaparks"
+    }
+  ]
+}

@@ -2,17 +2,20 @@
   "open": [
     {
       "dates": [
-        "2026-12-21",
-        "2026-12-22",
-        "2026-12-23",
-        "2026-12-24",
-        "2026-12-25",
-        "2026-12-26"
+        "2026-12-15",
+        "2026-12-16",
+        "2026-12-17",
+        "2026-12-18",
+        "2026-12-19",
+        "2026-12-26",
+        "2026-12-27",
+        "2026-12-28",
+        "2026-12-29"
       ],
-      "open": "11:00",
-      "close": "21:00",
-      "quote": "ショップ 11:00〜21:00、レストラン 11:00〜22:00（一部店舗を除く）。パークスガーデン 10:00〜24:00。",
-      "url": "https://happyell.co.jp/spot/nambaparks"
+      "open": "10:00",
+      "close": "20:00",
+      "quote": "午前10時～午後8時",
+      "url": "http://www.mistore.jp/store/shinjuku/access.html"
     }
   ],
   "closed": [],
@@ -24,14 +27,14 @@
   "booking": null,
   "notes": [
     {
-      "text": "Restaurants open until 22:00 (some stores differ); the open time above is for shops",
-      "quote": "ショップ 11:00〜21:00、レストラン 11:00〜22:00（一部店舗を除く）。パークスガーデン 10:00〜24:00。",
-      "url": "https://happyell.co.jp/spot/nambaparks"
+      "text": "Restaurant floor 7F (Eat Paradise) is open 11:00 to 22:00",
+      "quote": "※本館7階 レストラン街「イートパラダイス」営業時間：午前11時～午後10時",
+      "url": "http://www.mistore.jp/store/shinjuku/access.html"
     },
     {
-      "text": "Closing days vary by facility and store; no year-end hours found in sources",
-      "quote": "施設・店舗により異なります。",
-      "url": "https://happyell.co.jp/spot/nambaparks"
+      "text": "Hours differ by floor",
+      "quote": "フロアによって営業時間が異なります。",
+      "url": "https://www.mistore.jp/store/shinjuku.html"
     }
   ]
 }

@@ -1,0 +1,43 @@
+{
+  "open": [
+    {
+      "dates": [
+        "2026-12-19",
+        "2026-12-20",
+        "2026-12-21"
+      ],
+      "open": "08:00",
+      "close": "23:00",
+      "quote": "8:00 〜 23:00 L.O. 22:30",
+      "url": "https://retty.me/restaurant/100000087834/"
+    }
+  ],
+  "closed": [],
+  "last_entry": {
+    "time": "22:30",
+    "quote": "8:00 〜 23:00 L.O. 22:30",
+    "url": "https://retty.me/restaurant/100000087834/"
+  },
+  "prices": [],
+  "fixed_minutes": null,
+  "time_limit": null,
+  "group": null,
+  "booking": null,
+  "notes": [
+    {
+      "text": "Year-end closures change each year (not stated for the trip dates).",
+      "quote": "年末年始のみ毎年変動あり",
+      "url": "https://retty.me/restaurant/100000087834/"
+    },
+    {
+      "text": "Hours may differ by day. This is an aggregator listing last updated 2024-07-25, so confirm before going.",
+      "quote": "営業時間は日によって異なる場合あり",
+      "url": "https://retty.me/restaurant/100000087834/"
+    },
+    {
+      "text": "Phone 06-6211-3474",
+      "quote": "06-6211-3474",
+      "url": "https://retty.me/restaurant/100000087834/"
+    }
+  ]
+}

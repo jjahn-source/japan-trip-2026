@@ -2,37 +2,52 @@
   "open": [
     {
       "dates": [
-        "2026-12-15",
-        "2026-12-16"
+        "2026-12-19",
+        "2026-12-20",
+        "2026-12-21"
       ],
-      "open": "09:00",
-      "close": "20:00",
-      "quote": "開催時間：午前9時～午後8時",
-      "url": "https://www.city.setagaya.lg.jp/setagaya/001/003/d00125000.html"
+      "open": "08:15",
+      "close": "17:00",
+      "quote": "お札所・御神印の受付時間 　8:15 ～ 17:00",
+      "url": "https://kanagawa-kankou.or.jp/spot/197"
     }
   ],
-  "closed": [],
+  "closed": [
+    {
+      "dates": [
+        "2026-12-19",
+        "2026-12-20",
+        "2026-12-21"
+      ],
+      "why": "temporary closures of the treasure house (宝物殿) for exhibition changes",
+      "what": "only the treasure house (宝物殿), not the shrine",
+      "whole_place": false,
+      "quote": "※但し宝物殿は展示替等による臨時休館あり",
+      "url": "https://kanagawa-kankou.or.jp/spot/197"
+    }
+  ],
   "last_entry": null,
-  "prices": [],
+  "prices": [
+    {
+      "what": "Treasure house (宝物殿) adult",
+      "yen": 500,
+      "quote": "（宝物殿 大人500円 小人300円 団体割引25名以上）",
+      "url": "https://kanagawa-kankou.or.jp/spot/197"
+    }
+  ],
   "fixed_minutes": null,
   "time_limit": null,
-  "group": null,
+  "group": {
+    "text": "Group discount for 25 or more at the treasure house",
+    "quote": "（宝物殿 大人500円 小人300円 団体割引25名以上）",
+    "url": "https://kanagawa-kankou.or.jp/spot/197"
+  },
   "booking": null,
   "notes": [
     {
-      "text": "No parking; use train or bus",
-      "quote": "(1)駐車場はありません。電車・バスをご利用下さい。",
-      "url": "https://www.city.setagaya.lg.jp/setagaya/001/003/d00125000.html"
-    },
-    {
-      "text": "Eating in the venue discouraged",
-      "quote": "会場内での食事は可能な限りお控えください。",
-      "url": "https://www.city.setagaya.lg.jp/02072/20607.html"
-    },
-    {
-      "text": "Daikan procession not held in 2026; next in 令和9年度",
-      "quote": "代官行列の歴史（次回は令和9年度予定）",
-      "url": "https://www.city.setagaya.lg.jp/setagaya/001/003/d00125000.html"
+      "text": "Source is the Kanagawa Tourism Association listing (undated); the official hakonejinja.or.jp page was not readable, so year-end hours are not confirmed",
+      "quote": "※情報は変更されている場合があります。各公式サイト等にて最新の情報をご確認ください。",
+      "url": "https://kanagawa-kankou.or.jp/spot/197"
     }
   ]
 }

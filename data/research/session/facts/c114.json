@@ -1,20 +1,5 @@
 {
-  "open": [
-    {
-      "dates": [
-        "2026-12-21",
-        "2026-12-22",
-        "2026-12-23",
-        "2026-12-24",
-        "2026-12-25",
-        "2026-12-26"
-      ],
-      "open": "10:30",
-      "close": "20:30",
-      "quote": "ショッピングフロア10:30～20:30",
-      "url": "https://www.walkerplus.com/spot/ar0727s04569/map.html"
-    }
-  ],
+  "open": [],
   "closed": [],
   "last_entry": null,
   "prices": [],
@@ -24,14 +9,9 @@
   "booking": null,
   "notes": [
     {
-      "text": "Dining floor (10F) hours, April 2026 listing; some hours were changing",
-      "quote": "10Fルクアダイニング11:00～23:00",
-      "url": "https://www.walkerplus.com/spot/ar0727s04569/map.html"
-    },
-    {
-      "text": "Walker lists the closing day as irregular (不定休); no year-end hours found",
-      "quote": "LUCUA osaka (ルクア大阪)の定休日は？",
-      "url": "https://www.walkerplus.com/spot/ar0727s04569/map.html"
+      "text": "The official city page fetched covers the January 2026 event (Jan 16), not the December dates; December 2026 dates and hours are not on any fetched page",
+      "quote": "2026年1月16日（金曜日）9時00分から2026年1月16日（金曜日）20時00分",
+      "url": "https://www.city.setagaya.lg.jp/02072/20607.html"
     }
   ]
 }

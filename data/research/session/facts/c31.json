@@ -1,68 +1,71 @@
 {
-  "open": [
-    {
-      "dates": [
-        "2026-12-21",
-        "2026-12-22",
-        "2026-12-23",
-        "2026-12-24",
-        "2026-12-25"
-      ],
-      "open": "09:30",
-      "close": "22:30",
-      "quote": "9:30〜 22:30 (最終入場22:00)",
-      "url": "https://www.skybldg.co.jp/observatory/information/"
-    }
-  ],
-  "closed": [
-    {
-      "dates": [
-        "2026-12-26"
-      ],
-      "why": "Official page lists weekend/holiday temporary closure (conflicts with other official entries, verify)",
-      "what": "Sky Garden observatory (空中庭園展望台)",
-      "whole_place": true,
-      "quote": "土日祝：臨時休業",
-      "url": "https://www.skybldg.co.jp/observatory/information/"
-    }
-  ],
-  "last_entry": {
-    "time": "22:00",
-    "quote": "(最終入場22:00)",
-    "url": "https://www.skybldg.co.jp/observatory/information/"
-  },
+  "open": [],
+  "closed": [],
+  "last_entry": null,
   "prices": [
     {
-      "what": "Adult",
-      "yen": 2000,
-      "quote": "2,000円",
-      "url": "https://www.skybldg.co.jp/observatory/information/"
+      "what": "Adult (middle school and up), weekday, main bath, low end",
+      "yen": 1700,
+      "quote": "平　日 1,700 円〜 1,800 円",
+      "url": "https://www.hakoneyuryo.jp/price/"
     },
     {
-      "what": "Age 4 to elementary school",
-      "yen": 500,
-      "quote": "500円",
-      "url": "https://www.skybldg.co.jp/observatory/information/"
+      "what": "Adult, weekend and holiday, main bath, low end",
+      "yen": 2000,
+      "quote": "土休日 2,000 円〜 2,200 円",
+      "url": "https://www.hakoneyuryo.jp/price/"
+    },
+    {
+      "what": "Child (elementary), main bath",
+      "yen": 1000,
+      "quote": "こども（小学生） 1,000 円",
+      "url": "https://www.hakoneyuryo.jp/price/"
+    },
+    {
+      "what": "Private room 壱ノ巻 (2 people), 120 min, weekday",
+      "yen": 10400,
+      "quote": "平日:10,400円",
+      "url": "https://www.hakoneyuryo.jp/price/"
+    },
+    {
+      "what": "Private room 壱ノ巻 (2 people), 120 min, weekend and holiday",
+      "yen": 11400,
+      "quote": "土休日:11,400円",
+      "url": "https://www.hakoneyuryo.jp/price/"
     }
   ],
   "fixed_minutes": null,
   "time_limit": null,
-  "group": null,
+  "group": {
+    "text": "Private rooms for 2 to 4 people",
+    "quote": "２名〜４名様までご利用できる３タイプの個室がございます。",
+    "url": "https://www.hakoneyuryo.jp/price/"
+  },
   "booking": {
-    "text": "Advance WEB tickets or same-day tickets (buy at 39F on the day)",
-    "quote": "チケットは、事前購入のWEBチケットと、当日券がございます。",
-    "url": "https://www.skybldg.co.jp/observatory/information/"
+    "text": "Online booking from 1 month before until 15:00 the day before; after 15:00 call 0460-85-8411",
+    "quote": "ご利用日の1ヶ月前から前日15時まで",
+    "url": "https://www.hakoneyuryo.jp/price/"
   },
   "notes": [
     {
-      "text": "Observatory cannot be entered by the tower east/west elevators; use the dedicated entrance",
-      "quote": "空中庭園展望台へは、タワーイースト／タワーウエストのエレベーターからはご入場いただけません。",
-      "url": "https://www.skybldg.co.jp/observatory/information/"
+      "text": "Private room price is per 120 minutes per room; extension 30 min",
+      "quote": "※120分1室あたり",
+      "url": "https://www.hakoneyuryo.jp/price/"
     },
     {
-      "text": "Hours may change without notice",
-      "quote": "※営業時間は予告なく変更となる場合があります",
-      "url": "https://www.skybldg.co.jp/observatory/information/"
+      "text": "Holiday rates apply to private rooms 2026-12-26 to 2027-01-03",
+      "quote": "2026年4月29日〜5月6日 / 8月8日〜16日 / 12月26日〜2027年1月3日",
+      "url": "https://www.hakoneyuryo.jp/price/"
+    },
+    {
+      "text": "Children under elementary age cannot use the main bath",
+      "quote": "※小学生未満のお子様は、大浴場棟をご利用いただけません。",
+      "url": "https://www.hakoneyuryo.jp/price/"
+    },
+    {
+      "text": "Diaper users refused entry",
+      "quote": "おむつを使用されている方のご入浴はお断りいたします。",
+      "url": "https://www.hakoneyuryo.jp/price/"
     }
   ]
 }

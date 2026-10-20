@@ -1,55 +1,6 @@
 {
-  "open": [
-    {
-      "dates": [
-        "2026-12-15",
-        "2026-12-16",
-        "2026-12-17",
-        "2026-12-18",
-        "2026-12-19",
-        "2026-12-26",
-        "2026-12-27",
-        "2026-12-28",
-        "2026-12-29"
-      ],
-      "open": "00:00",
-      "close": "24:00",
-      "quote": "全館24時間営業",
-      "url": "https://www.round1.co.jp/shop/tenpo/tokyo-ikebukuro.html"
-    }
-  ],
-  "closed": [
-    {
-      "dates": [
-        "2026-12-15",
-        "2026-12-16",
-        "2026-12-17",
-        "2026-12-18",
-        "2026-12-19",
-        "2026-12-26",
-        "2026-12-27",
-        "2026-12-28",
-        "2026-12-29"
-      ],
-      "why": "Amusement corner hours",
-      "what": "Amusement corner only open 10:00 to 00:50 daily, not 24 hours",
-      "whole_place": false,
-      "quote": "※アミューズメントコーナーは全日午前10:00〜深夜0:50までの営業となります。",
-      "url": "https://www.round1.co.jp/shop/tenpo/tokyo-ikebukuro.html"
-    },
-    {
-      "dates": [
-        "2026-12-19",
-        "2026-12-26",
-        "2026-12-27"
-      ],
-      "why": "Parking closed on weekends and holidays",
-      "what": "Ikebukuro Square parking lot only",
-      "whole_place": false,
-      "quote": "【平日】7:30-22:30 【土日祝】休業",
-      "url": "https://www.round1.co.jp/shop/tenpo/tokyo-ikebukuro.html"
-    }
-  ],
+  "open": [],
+  "closed": [],
   "last_entry": null,
   "prices": [],
   "fixed_minutes": null,

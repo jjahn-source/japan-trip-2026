@@ -1,0 +1,64 @@
+{
+  "open": [
+    {
+      "dates": [
+        "2026-12-15",
+        "2026-12-16",
+        "2026-12-18",
+        "2026-12-28",
+        "2026-12-29"
+      ],
+      "open": "14:00",
+      "close": "25:30",
+      "quote": "14時〜25時30分（土・日曜は8時〜25時30分）／入場は閉館の15分前まで／定休日は木曜",
+      "url": "https://www.timeout.jp/tokyo/ja/things-to-do/kosugiyu"
+    },
+    {
+      "dates": [
+        "2026-12-19",
+        "2026-12-26",
+        "2026-12-27"
+      ],
+      "open": "08:00",
+      "close": "25:30",
+      "quote": "14時〜25時30分（土・日曜は8時〜25時30分）／入場は閉館の15分前まで／定休日は木曜",
+      "url": "https://www.timeout.jp/tokyo/ja/things-to-do/kosugiyu"
+    }
+  ],
+  "closed": [
+    {
+      "dates": [
+        "2026-12-17"
+      ],
+      "why": "定休日 (Thursday)",
+      "what": "the whole bath house",
+      "whole_place": true,
+      "quote": "14時〜25時30分（土・日曜は8時〜25時30分）／入場は閉館の15分前まで／定休日は木曜",
+      "url": "https://www.timeout.jp/tokyo/ja/things-to-do/kosugiyu"
+    }
+  ],
+  "last_entry": {
+    "time": "25:00",
+    "quote": "（受付終了 25:00）",
+    "url": "https://yuru-to.net/detail.php?oid=16495"
+  },
+  "prices": [
+    {
+      "what": "Adult admission",
+      "yen": 600,
+      "quote": "大人 600 円 小学生 200 円",
+      "url": "https://yuru-to.net/detail.php?oid=16495"
+    }
+  ],
+  "fixed_minutes": null,
+  "time_limit": null,
+  "group": null,
+  "booking": null,
+  "notes": [
+    {
+      "text": "Listing says hours and prices may change; check the official site or phone first",
+      "quote": "※営業時間や料金などに変更がある場合があります。施設のHPや電話で確認してからご利用ください。",
+      "url": "https://yuru-to.net/detail.php?oid=16495"
+    }
+  ]
+}

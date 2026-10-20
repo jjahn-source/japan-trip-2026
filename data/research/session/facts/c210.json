@@ -1,0 +1,72 @@
+{
+  "open": [
+    {
+      "dates": [
+        "2026-12-15",
+        "2026-12-16",
+        "2026-12-17",
+        "2026-12-18",
+        "2026-12-28",
+        "2026-12-29"
+      ],
+      "open": "17:00",
+      "close": "29:00",
+      "quote": "月～金、祝前日: 17:00～翌5:00",
+      "url": "https://www.hotpepper.jp/strJ000005812/"
+    },
+    {
+      "dates": [
+        "2026-12-19",
+        "2026-12-26",
+        "2026-12-27"
+      ],
+      "open": "12:00",
+      "close": "29:00",
+      "quote": "土、日、祝日: 12:00～翌5:00",
+      "url": "https://www.hotpepper.jp/strJ000005812/"
+    }
+  ],
+  "closed": [],
+  "last_entry": {
+    "time": "28:00",
+    "quote": "料理L.O. 翌4:00 ドリンクL.O. 翌4:30",
+    "url": "https://www.hotpepper.jp/strJ000005812/"
+  },
+  "prices": [
+    {
+      "what": "All-you-can-drink plan, up to 7 hours (per adult)",
+      "yen": 1480,
+      "quote": "無制限飲み放題1480円！",
+      "url": "https://www.hotpepper.jp/strJ000005812/"
+    }
+  ],
+  "fixed_minutes": null,
+  "time_limit": null,
+  "group": {
+    "text": "Tatami-floor private hire for 30 to 120 guests",
+    "quote": "30名様～最大120名様までお座敷席のフロア貸切OK！！",
+    "url": "https://www.hotpepper.jp/strJ000005812/"
+  },
+  "booking": {
+    "text": "Online booking accepted on HotPepper",
+    "quote": "＜ネット予約可＞",
+    "url": "https://www.hotpepper.jp/strJ000005812/"
+  },
+  "notes": [
+    {
+      "text": "Under-20s not admitted, even with a companion",
+      "quote": "20歳未満の方は入店不可（同伴の方も含む）",
+      "url": "https://www.hotpepper.jp/strJ000005812/"
+    },
+    {
+      "text": "No regular closing day (year-end hours not stated on this listing)",
+      "quote": "定休日： 年中無休！！土日祝日は昼飲みやってます！",
+      "url": "https://www.hotpepper.jp/strJ000005812/"
+    },
+    {
+      "text": "Drink plan runs up to 7 hours, drinks OPEN to 24:00",
+      "quote": "最大７時間（OPEN~24時まで）無制限飲み放題！",
+      "url": "https://www.hotpepper.jp/strJ000005812/"
+    }
+  ]
+}

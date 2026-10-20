@@ -2,34 +2,51 @@
   "open": [
     {
       "dates": [
-        "2026-12-15",
-        "2026-12-16",
-        "2026-12-17",
-        "2026-12-18",
-        "2026-12-19",
-        "2026-12-26",
-        "2026-12-27",
-        "2026-12-28",
-        "2026-12-29"
+        "2026-12-21",
+        "2026-12-22",
+        "2026-12-23",
+        "2026-12-24",
+        "2026-12-25",
+        "2026-12-26"
       ],
-      "open": "07:00",
-      "close": "23:00",
-      "quote": "7:00～23:00 / 定休日なし",
-      "url": "https://www.shinpachi-shokudo.com/"
+      "open": "07:30",
+      "close": "18:00",
+      "quote": "【12月－2月】7:30－18:00",
+      "url": "https://hpmmuseum.jp/"
     }
   ],
   "closed": [],
   "last_entry": null,
-  "prices": [],
+  "prices": [
+    {
+      "what": "Adult (university and up), permanent exhibits",
+      "yen": 200,
+      "quote": "●大人（大学生以上） 200円（30人以上の場合、1人当たり160円）",
+      "url": "https://hpmmuseum.jp/"
+    }
+  ],
   "fixed_minutes": null,
   "time_limit": null,
-  "group": null,
-  "booking": null,
+  "group": {
+    "text": "30 or more people pay 160 yen each for permanent exhibits",
+    "quote": "（30人以上の場合、1人当たり160円）",
+    "url": "https://hpmmuseum.jp/"
+  },
+  "booking": {
+    "text": "Online advance booking required for permanent exhibits in the early-morning and late-afternoon slots (Dec-Feb: 7:30-8:30 and 16:30-18:00)",
+    "quote": "※7:30－8:30および以下の時間帯に常設展示室に入場するにはオンラインでの事前予約が必要です。",
+    "url": "https://hpmmuseum.jp/"
+  },
   "notes": [
     {
-      "text": "Nishi-Shinjuku store address",
-      "quote": "東京都新宿区西新宿1-15-9　KCビル1階",
-      "url": "https://www.shinpachi-shokudo.com/"
+      "text": "Closed 30 and 31 December (outside the trip dates)",
+      "quote": "12月30日及び31日および",
+      "url": "https://hpmmuseum.jp/"
+    },
+    {
+      "text": "Same-day tickets can take time; WEB ticket advised",
+      "quote": "当日券購入に時間がかかる場合があるため、WEBによる事前予約をお済ませのうえ来館されることをお勧めします。",
+      "url": "https://hpmmuseum.jp/"
     }
   ]
 }

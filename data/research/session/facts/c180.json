@@ -1,0 +1,37 @@
+{
+  "open": [
+    {
+      "dates": [
+        "2026-12-19",
+        "2026-12-20",
+        "2026-12-21"
+      ],
+      "open": "10:30",
+      "close": "16:30",
+      "quote": "10:30 ～ 16:30 (L.O.16:00)",
+      "url": "https://fujimi-cafe.com/"
+    }
+  ],
+  "closed": [],
+  "last_entry": {
+    "time": "16:00",
+    "quote": "10:30 ～ 16:30 (L.O.16:00)",
+    "url": "https://fujimi-cafe.com/"
+  },
+  "prices": [],
+  "fixed_minutes": null,
+  "time_limit": null,
+  "group": null,
+  "booking": {
+    "text": "No reservations accepted",
+    "quote": "※申し訳ございません が、当店は ご予約を承っておりません。",
+    "url": "https://fujimi-cafe.com/"
+  },
+  "notes": [
+    {
+      "text": "Regular closing day is Thursday (none of the trip dates); weekend and holiday hours can change",
+      "quote": "※土休日の営業時間・定休日は 変動する場合がございます。",
+      "url": "https://fujimi-cafe.com/"
+    }
+  ]
+}

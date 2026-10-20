@@ -2,39 +2,17 @@
   "open": [
     {
       "dates": [
-        "2026-12-17",
-        "2026-12-18"
+        "2026-12-21",
+        "2026-12-22",
+        "2026-12-23",
+        "2026-12-24",
+        "2026-12-25",
+        "2026-12-26"
       ],
-      "open": "09:00",
-      "close": "19:30",
-      "quote": "9:00～19:30（最終日は19:00まで）",
-      "url": "https://www.gotokyo.org/jp/kanko/taito/event/hagoita.html"
-    },
-    {
-      "dates": [
-        "2026-12-19"
-      ],
-      "open": "09:00",
-      "close": "19:00",
-      "quote": "9:00～19:30（最終日は19:00まで）",
-      "url": "https://www.gotokyo.org/jp/kanko/taito/event/hagoita.html"
-    },
-    {
-      "dates": [
-        "2026-12-15",
-        "2026-12-16",
-        "2026-12-17",
-        "2026-12-18",
-        "2026-12-19",
-        "2026-12-26",
-        "2026-12-27",
-        "2026-12-28",
-        "2026-12-29"
-      ],
-      "open": "06:30",
-      "close": "17:00",
-      "quote": "6:30〜17:00 (10月〜3月)",
-      "url": "https://www.gltjp.com/ja/directory/item/10012/"
+      "open": "10:00",
+      "close": "21:00",
+      "quote": "店舗の営業時間は異なり、通常は午前10時から午後9時まで",
+      "url": "https://www.triptojapan.com/ja/places/shinsaibashi-suji-shopping-street/Lp0UVTwvTwmGZfXIho1S8A"
     }
   ],
   "closed": [],
@@ -46,19 +24,14 @@
   "booking": null,
   "notes": [
     {
-      "text": "Hagoita-ichi fair runs 12/17 to 12/19 2026 (blog); the main hall opening hours are listed for the grounds",
-      "quote": "2026年12月17日（木）・18日（金）・19日（土）",
-      "url": "https://kaibutsu-blog.com/?p=3611"
+      "text": "Street itself is open 24 hours; shop hours vary (third-party page, official site had no readable text)",
+      "quote": "通り自体は24時間利用可能",
+      "url": "https://www.triptojapan.com/ja/places/shinsaibashi-suji-shopping-street/Lp0UVTwvTwmGZfXIho1S8A"
     },
     {
-      "text": "Hagoita-ichi fair admission is free",
-      "quote": "入場は無料",
-      "url": "https://kaibutsu-blog.com/?p=3611"
-    },
-    {
-      "text": "Hagoita memorial service reception times; last day ends 14:30",
-      "quote": "※羽子板供養（10:00～17:00受付、最終日は14:30まで）",
-      "url": "https://www.gotokyo.org/jp/kanko/taito/event/hagoita.html"
+      "text": "Street open all year; individual shops may have their own closing days",
+      "quote": "通りは年中無休。各店舗ごとに定休日がある場合があります",
+      "url": "https://www.triptojapan.com/ja/places/shinsaibashi-suji-shopping-street/Lp0UVTwvTwmGZfXIho1S8A"
     }
   ]
 }

@@ -1,0 +1,33 @@
+{
+  "open": [
+    {
+      "dates": [
+        "2026-12-19",
+        "2026-12-20",
+        "2026-12-21"
+      ],
+      "open": "18:00",
+      "close": "24:00",
+      "quote": "18:00～24:00（L.O23：00）",
+      "url": "https://www.hakonenavi.jp/spot/1032"
+    }
+  ],
+  "closed": [],
+  "last_entry": {
+    "time": "23:00",
+    "quote": "18:00～24:00（L.O23：00）",
+    "url": "https://www.hakonenavi.jp/spot/1032"
+  },
+  "prices": [],
+  "fixed_minutes": null,
+  "time_limit": null,
+  "group": null,
+  "booking": null,
+  "notes": [
+    {
+      "text": "About 3 min walk from Hakone-Yumoto station",
+      "quote": "箱根湯本駅から、徒歩約3分",
+      "url": "https://www.hakonenavi.jp/spot/1032"
+    }
+  ]
+}

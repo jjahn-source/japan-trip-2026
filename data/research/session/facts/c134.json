@@ -1,33 +1,27 @@
 {
-  "open": [
-    {
-      "dates": [
-        "2026-12-15",
-        "2026-12-16",
-        "2026-12-17",
-        "2026-12-18",
-        "2026-12-19",
-        "2026-12-26",
-        "2026-12-27",
-        "2026-12-28",
-        "2026-12-29"
-      ],
-      "open": "11:00",
-      "close": "30:00",
-      "quote": "11：00～翌6：00",
-      "url": "https://karaokekan.jp/shop/detail/23"
-    }
-  ],
+  "open": [],
   "closed": [],
   "last_entry": null,
   "prices": [],
   "fixed_minutes": null,
   "time_limit": null,
   "group": null,
-  "booking": {
-    "text": "LINEで予約 (LINE booking)",
-    "quote": "LINEで予約",
-    "url": "https://karaokekan.jp/shop/detail/23"
-  },
-  "notes": []
+  "booking": null,
+  "notes": [
+    {
+      "text": "Main hall (本堂) hours 6:00-17:00, 6:30 from Oct to Mar (Dec falls in Oct-Mar)",
+      "quote": "本堂の開堂時間は",
+      "url": "https://www.senso-ji.jp/"
+    },
+    {
+      "text": "Hagoita-ichi (歳の市) hours 9:00-19:30, last day 19:00; this page gives no 2026 dates",
+      "quote": "9:00～19:30（最終日は19:00まで）",
+      "url": "https://www.gotokyo.org/jp/spot/ev152/index.html"
+    },
+    {
+      "text": "Hagoita kuyo reception 10:00-17:00, last day 14:30",
+      "quote": "羽子板供養（10:00～17:00受付、最終日は14:30まで）",
+      "url": "https://www.gotokyo.org/jp/spot/ev152/index.html"
+    }
+  ]
 }

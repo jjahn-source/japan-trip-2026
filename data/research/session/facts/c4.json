@@ -1,49 +1,60 @@
 {
-  "open": [],
-  "closed": [],
-  "last_entry": null,
-  "prices": [
+  "open": [
     {
-      "what": "Hakone Freepass, from Shinjuku, first figure in the table (fares from 2025-10-01; page does not label the column)",
-      "yen": 7100,
-      "quote": "7,100円",
-      "url": "https://www.hakonenavi.jp/freepass/"
+      "dates": [
+        "2026-12-21",
+        "2026-12-22",
+        "2026-12-23",
+        "2026-12-24",
+        "2026-12-25",
+        "2026-12-26"
+      ],
+      "open": "00:00",
+      "close": "24:00",
+      "quote": "全館24時間営業",
+      "url": "https://www.round1.co.jp/shop/tenpo/osaka-sennichimae.html"
     },
     {
-      "what": "Hakone Freepass, from Odawara, first figure in the table (fares from 2025-10-01; page does not label the column)",
-      "yen": 6000,
-      "quote": "6,000円",
-      "url": "https://www.hakonenavi.jp/freepass/"
+      "dates": [
+        "2026-12-21",
+        "2026-12-22",
+        "2026-12-23",
+        "2026-12-24",
+        "2026-12-25",
+        "2026-12-26"
+      ],
+      "open": "06:00",
+      "close": "24:50",
+      "quote": "※アミューズメントコーナーの営業時間は全日午前6:00～深夜0:50までとなります。",
+      "url": "https://www.round1.co.jp/shop/tenpo/osaka-sennichimae.html"
     }
   ],
+  "closed": [],
+  "last_entry": null,
+  "prices": [],
   "fixed_minutes": null,
   "time_limit": null,
   "group": null,
   "booking": {
-    "text": "Buy via the 購入はこちら link or the 特設ページ; ticket machines sell only passes valid from the same day",
-    "quote": "※自動券売機は当日から有効分のみ購入可能です。",
-    "url": "https://www.hakonenavi.jp/freepass/"
+    "text": "Reservations through the site's ご予約はコチラ link",
+    "quote": "ご予約はコチラ",
+    "url": "https://www.round1.co.jp/shop/tenpo/osaka-sennichimae.html"
   },
   "notes": [
     {
-      "text": "Limited Romancecar fare is extra",
-      "quote": "※特急ロマンスカーは別途料金が必要です。",
-      "url": "https://www.hakonenavi.jp/freepass/"
+      "text": "Medal corner in the amusement area closes earlier (55 minutes past the hour); check with the shop",
+      "quote": "※尚、アミューズメントコーナー内メダルコーナーは55分までの営業となります。",
+      "url": "https://www.round1.co.jp/shop/tenpo/osaka-sennichimae.html"
     },
     {
-      "text": "Odakyu line section (departure to Odawara) may be ridden only once round trip (no limit on mid-trip stops)",
-      "quote": "※小田急線区間（発駅～小田原駅）のご乗車は往復1回に限ります。",
-      "url": "https://www.hakonenavi.jp/freepass/"
+      "text": "Parking: 30 min 350 yen, 5 hours 2000 yen (basic rates)",
+      "quote": "基本料金：30分350円 / 5時間2000円",
+      "url": "https://www.round1.co.jp/shop/tenpo/osaka-sennichimae.html"
     },
     {
-      "text": "Pass is collected at the trip's end station; Izu-Hakone buses cannot be used",
-      "quote": "※箱根フリーパスは旅行終了駅で回収させていただきます。",
-      "url": "https://www.hakonenavi.jp/freepass/"
-    },
-    {
-      "text": "Prices changed on 1 Oct 2025 (old fares listed above this line)",
-      "quote": "2025年10月1日～",
-      "url": "https://www.hakonenavi.jp/freepass/"
+      "text": "Phone 06-4708-2600",
+      "quote": "06-4708-2600",
+      "url": "https://www.round1.co.jp/shop/tenpo/osaka-sennichimae.html"
     }
   ]
 }

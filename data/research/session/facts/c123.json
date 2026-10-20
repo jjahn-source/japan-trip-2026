@@ -1,17 +1,88 @@
 {
-  "open": [],
+  "open": [
+    {
+      "dates": [
+        "2026-12-15",
+        "2026-12-16",
+        "2026-12-17",
+        "2026-12-18",
+        "2026-12-19",
+        "2026-12-26",
+        "2026-12-27",
+        "2026-12-28",
+        "2026-12-29"
+      ],
+      "open": "10:00",
+      "close": "22:30",
+      "quote": "10:00～22:30（最終入場は21:20）",
+      "url": "https://www.gotokyo.org/jp/spot/1749/index.html"
+    }
+  ],
   "closed": [],
-  "last_entry": null,
-  "prices": [],
+  "last_entry": {
+    "time": "21:20",
+    "quote": "10:00～22:30（最終入場は21:20）",
+    "url": "https://www.gotokyo.org/jp/spot/1749/index.html"
+  },
+  "prices": [
+    {
+      "what": "Online adult ticket, before 15:00",
+      "yen": 2700,
+      "quote": "大人：2,700円（～14:59）｜3400円（15:00～）",
+      "url": "https://www.gotokyo.org/jp/spot/1749/index.html"
+    },
+    {
+      "what": "Online adult ticket, from 15:00 (sunset slot)",
+      "yen": 3400,
+      "quote": "大人：2,700円（～14:59）｜3400円（15:00～）",
+      "url": "https://www.gotokyo.org/jp/spot/1749/index.html"
+    },
+    {
+      "what": "Counter adult ticket, before 15:00 (subject to availability)",
+      "yen": 3000,
+      "quote": "大人：3,000円（～14:59）｜3700円（15:00～）",
+      "url": "https://www.gotokyo.org/jp/spot/1749/index.html"
+    },
+    {
+      "what": "Counter adult ticket, from 15:00",
+      "yen": 3700,
+      "quote": "大人：3,000円（～14:59）｜3700円（15:00～）",
+      "url": "https://www.gotokyo.org/jp/spot/1749/index.html"
+    }
+  ],
   "fixed_minutes": null,
   "time_limit": null,
   "group": null,
-  "booking": null,
+  "booking": {
+    "text": "Buy online (WEB ticket); counter sales depend on availability; adult tickets sold out online are also sold out at the counter",
+    "quote": "オンラインで購入する",
+    "url": "https://www.gotokyo.org/jp/spot/1749/index.html"
+  },
   "notes": [
     {
-      "text": "Official site shows event nights only (example: 10/22 23:00-4:30); no regular opening hours and no year-end schedule were found on the page.",
-      "quote": "10 / 22 THU 23:00-4:30",
-      "url": "http://www.womb.co.jp/"
+      "text": "Recommended time is about 30 minutes before sunset; Tokyo sunset in early December is about 16:30",
+      "quote": "東京の日没は、最も早い12月上旬では16:30頃、最も遅い6月下旬～7月上旬では19:00頃です。",
+      "url": "https://www.gotokyo.org/jp/spot/1749/index.html"
+    },
+    {
+      "text": "Recommended time: about 30 minutes before sunset",
+      "quote": "とくにおすすめの時刻は、日没の30分前頃です。",
+      "url": "https://www.gotokyo.org/jp/spot/1749/index.html"
+    },
+    {
+      "text": "No time limit on the stay within opening hours",
+      "quote": "時間制限はなく、営業時間内であれば好きなだけ滞在できます。",
+      "url": "https://www.gotokyo.org/jp/spot/1749/index.html"
+    },
+    {
+      "text": "Roof can close in bad weather; no refund after entry",
+      "quote": "荒天や強風などの悪天候時は、屋上が閉鎖される場合があります。入場後の払い戻しはできません。",
+      "url": "https://www.gotokyo.org/jp/spot/1749/index.html"
+    },
+    {
+      "text": "Closed on New Year's Day; other temporary closures or shortened hours possible",
+      "quote": "渋谷スカイは元旦は休館で、その他に臨時休業や営業時間短縮となる場合があります。",
+      "url": "https://www.gotokyo.org/jp/spot/1749/index.html"
     }
   ]
 }

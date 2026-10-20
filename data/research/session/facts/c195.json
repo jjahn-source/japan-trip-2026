@@ -1,0 +1,32 @@
+{
+  "open": [
+    {
+      "dates": [
+        "2026-12-21",
+        "2026-12-22",
+        "2026-12-23",
+        "2026-12-24",
+        "2026-12-25",
+        "2026-12-26"
+      ],
+      "open": "10:00",
+      "close": "20:00",
+      "quote": "10時〜20時",
+      "url": "https://www.daimaru.co.jp/shinsaibashi/hours.html"
+    }
+  ],
+  "closed": [],
+  "last_entry": null,
+  "prices": [],
+  "fixed_minutes": null,
+  "time_limit": null,
+  "group": null,
+  "booking": null,
+  "notes": [
+    {
+      "text": "Store open every day except 1 Jan and 2 Jan (the store page gives no 2026 year-end timetable)",
+      "quote": "元日・1月2日を除き、休まず営業いたします。",
+      "url": "https://www.daimaru.co.jp/shinsaibashi/hours.html"
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "open": [],
+  "closed": [
+    {
+      "dates": [
+        "2026-12-22"
+      ],
+      "why": "Regular closing day (毎週火曜日)",
+      "what": "the 鶴橋店 for the day",
+      "whole_place": true,
+      "quote": "7月より定休日を毎週火曜日のみとし、水曜日は通常営業いたします。",
+      "url": "http://www.yakinikusora.jp/"
+    }
+  ],
+  "last_entry": null,
+  "prices": [],
+  "fixed_minutes": null,
+  "time_limit": {
+    "minutes": 90,
+    "quote": "お席は「 時間制90分 」となっております",
+    "url": "http://www.yakinikusora.jp/"
+  },
+  "group": null,
+  "booking": null,
+  "notes": [
+    {
+      "text": "Holiday closures in long breaks are announced case by case on SNS; check before the year-end",
+      "quote": "大型連休間の休業日につきましては、その都度SNSなどで告知させていただきます。",
+      "url": "http://www.yakinikusora.jp/"
+    }
+  ]
+}

@@ -1,0 +1,84 @@
+{
+  "open": [
+    {
+      "dates": [
+        "2026-12-15",
+        "2026-12-16",
+        "2026-12-17",
+        "2026-12-18",
+        "2026-12-28",
+        "2026-12-29"
+      ],
+      "open": "17:00",
+      "close": "29:00",
+      "quote": "月～金、祝前日: 17:00～翌5:00 （料理L.O. 翌4:00 ドリンクL.O. 翌4:30）",
+      "url": "https://www.hotpepper.jp/strJ000005812/"
+    },
+    {
+      "dates": [
+        "2026-12-19",
+        "2026-12-26",
+        "2026-12-27"
+      ],
+      "open": "12:00",
+      "close": "29:00",
+      "quote": "土、日、祝日: 12:00～翌5:00 （料理L.O. 翌4:00 ドリンクL.O. 翌4:30）",
+      "url": "https://www.hotpepper.jp/strJ000005812/"
+    }
+  ],
+  "closed": [],
+  "last_entry": {
+    "time": "28:00",
+    "quote": "料理L.O. 翌4:00 ドリンクL.O. 翌4:30",
+    "url": "https://www.hotpepper.jp/strJ000005812/"
+  },
+  "prices": [
+    {
+      "what": "Cover charge (お通し代), not included in courses",
+      "yen": 450,
+      "quote": "お通し代450円（※コースは除く）",
+      "url": "https://www.hotpepper.jp/strJ000005812/"
+    },
+    {
+      "what": "Unlimited all-you-can-drink (coupon price, per person)",
+      "yen": 1480,
+      "quote": "無制限飲み放題が1480円！新宿最安値！",
+      "url": "https://www.hotpepper.jp/strJ000005812/"
+    },
+    {
+      "what": "Pain-gout hotpot (痛風鍋), per serving, 2+ servings to order",
+      "yen": 3850,
+      "quote": "3,850円（税込）",
+      "url": "https://www.hotpepper.jp/strJ000005812/"
+    }
+  ],
+  "fixed_minutes": null,
+  "time_limit": null,
+  "group": {
+    "text": "Groups of 8 or more: book by phone for 1 person free (online booking not eligible). Tatami floor hire for 30 to 120 people; private rooms for 2 to 120.",
+    "quote": "8名様以上の電話でのご予約は1名様無料！（ネット予約は対象外）",
+    "url": "https://www.hotpepper.jp/strJ000005812/"
+  },
+  "booking": {
+    "text": "Instant online booking until 04:00 the next morning on the visit date; request booking until 17:00 the day before.",
+    "quote": "即予約 来店日の翌4時まで受付",
+    "url": "https://www.hotpepper.jp/strJ000005812/"
+  },
+  "notes": [
+    {
+      "text": "Under-20s not admitted, even with a companion.",
+      "quote": "20歳未満の方は入店不可（同伴の方も含む）",
+      "url": "https://www.hotpepper.jp/strJ000005812/"
+    },
+    {
+      "text": "Listing says open all year round; no year-end closure or hours found on the listing (search found none either).",
+      "quote": "定休日： 年中無休！！土日祝日は昼飲みやってます！",
+      "url": "https://www.hotpepper.jp/strJ000005812/"
+    },
+    {
+      "text": "Unlimited drink plan is up to 7 hours; this is a drink-plan length, not a seating time limit.",
+      "quote": "≪最大7時間OK≫",
+      "url": "https://www.hotpepper.jp/strJ000005812/"
+    }
+  ]
+}

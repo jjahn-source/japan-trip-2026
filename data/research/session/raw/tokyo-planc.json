@@ -1,0 +1,1702 @@
+{
+  "candidates": [
+    {
+      "name": "Tokyo Metropolitan Government Building",
+      "name_ja": null,
+      "city": "Tokyo",
+      "area": "新宿区",
+      "kind": "sight",
+      "why": "North Observatory. Free 45F observation deck over Shinjuku. (From Plan C, the group's own plan for Tue Dec 15: \"Land HND → Ninja House · Shinjuku first night\".)",
+      "best_time": "18:45–19:45 in Plan C",
+      "dates": "2026-12-15",
+      "price": null,
+      "booking": null,
+      "group_of_8": null,
+      "hours": "Google says the North closes 17:30 — normally true. But the South tower is closed on the 1st/3rd Tuesday (Dec 15 = 3rd Tue), and on those days the North stays open to **22:00, last entry 21:30**.",
+      "visit_minutes": 60,
+      "first_last": null,
+      "lat": 35.689482,
+      "lng": 139.691658,
+      "wish_ids": [],
+      "evidence": [
+        {
+          "source": "Plan C (the group's own plan)",
+          "url": "https://www.zaimu.metro.tokyo.lg.jp/tochousha/goannai/tenbou",
+          "note": "Chosen by the group for Tue Dec 15: Free night view — North tower open late tonight"
+        }
+      ],
+      "confidence": 0.8
+    },
+    {
+      "name": "Torien",
+      "name_ja": "鳥園",
+      "city": "Tokyo",
+      "area": "新宿区",
+      "kind": "food",
+      "why": "Omoide Yokochō yakitori, 2F booked for 8. The biggest yakitori house in Omoide Yokochō (Memory Lane). (From Plan C, the group's own plan for Tue Dec 15: \"Land HND → Ninja House · Shinjuku first night\".)",
+      "best_time": "20:00–21:15 in Plan C",
+      "dates": "2026-12-15",
+      "price": "¥4,000 pp",
+      "booking": "Gurunavi link or ☎ — 2F for 8, course with 2h nomihōdai ~¥3,480–4,000.",
+      "group_of_8": null,
+      "hours": "11:30–23:30 (closed only Dec 31 & Jan 1).",
+      "visit_minutes": 75,
+      "first_last": null,
+      "lat": 35.693186,
+      "lng": 139.69944,
+      "wish_ids": [
+        "w24"
+      ],
+      "evidence": [
+        {
+          "source": "Plan C (the group's own plan)",
+          "url": "https://r.gnavi.co.jp/ga3y900/",
+          "note": "Chosen by the group for Tue Dec 15: Booked 20:00 · 2F for 8 · 2h all-you-can-drink"
+        }
+      ],
+      "confidence": 0.8
+    },
+    {
+      "name": "Kabukichō neon walk + Godzilla Head",
+      "name_ja": null,
+      "city": "Tokyo",
+      "area": "Tokyo",
+      "kind": "sight",
+      "why": "Neon walk past the Godzilla head on Hotel Gracery. (From Plan C, the group's own plan for Tue Dec 15: \"Land HND → Ninja House · Shinjuku first night\".)",
+      "best_time": "21:15–21:45 in Plan C",
+      "dates": "2026-12-15",
+      "price": null,
+      "booking": null,
+      "group_of_8": null,
+      "hours": null,
+      "visit_minutes": 30,
+      "first_last": null,
+      "lat": 35.695563,
+      "lng": 139.702277,
+      "wish_ids": [],
+      "evidence": [
+        {
+          "source": "Plan C (the group's own plan)",
+          "url": "https://www.google.com/maps/search/?api=1&query=35.6955627,139.7022767",
+          "note": "Chosen by the group for Tue Dec 15: Walk it, then head home (jet lag)"
+        }
+      ],
+      "confidence": 0.8
+    },
+    {
+      "name": "Gōtokuji",
+      "name_ja": "豪徳寺",
+      "city": "Tokyo",
+      "area": "Setagaya-ku",
+      "kind": "sight",
+      "why": "the maneki-neko 'lucky cat' temple. Birthplace of the maneki-neko legend: thousands of white beckoning-cat figurines stacked beside the Shōfukuden hall, plus a three-storey pagoda with cats hidden in its carvings. Free. (From Plan C, the group's own plan for Wed Dec 16: \"Cat temple · Boro-ichi · Harajuku streetwear crawl · Shibuya Sky sunset · karaoke\".)",
+      "best_time": "08:10–08:40 in Plan C",
+      "dates": "2026-12-16",
+      "price": null,
+      "booking": null,
+      "group_of_8": null,
+      "hours": null,
+      "visit_minutes": 30,
+      "first_last": null,
+      "lat": 35.648882,
+      "lng": 139.647476,
+      "wish_ids": [],
+      "evidence": [
+        {
+          "source": "Plan C (the group's own plan)",
+          "url": "https://www.google.com/maps/search/Gotokuji+Temple+Setagaya",
+          "note": "Chosen by the group for Wed Dec 16: Grounds open ~6:00–17:00, free. The office that sells the cat figurines is 8:00–15:00 (limits may apply), so buy one now if you want one. Get there: Ōedo → Shinjuku → Odakyū local to Gōtokuji stn, ~10 min walk (Suica). Leave Ninja House ~7:20. Then walk ~15 min (or Setagaya line Miyanosaka → Setagaya) to Boro-ichi by 9:00."
+        }
+      ],
+      "confidence": 0.8
+    },
+    {
+      "name": "Setagaya Boro-ichi (440-year-old flea market)",
+      "name_ja": null,
+      "city": "Tokyo",
+      "area": "世田谷区",
+      "kind": "event",
+      "why": "440-year-old flea market, only Dec 15–16 and Jan 15–16. (From Plan C, the group's own plan for Wed Dec 16: \"Cat temple · Boro-ichi · Harajuku streetwear crawl · Shibuya Sky sunset · karaoke\".)",
+      "best_time": "09:00–10:25 in Plan C",
+      "dates": "2026-12-16",
+      "price": null,
+      "booking": null,
+      "group_of_8": null,
+      "hours": "9:00–20:00 (cancelled only in a storm).",
+      "visit_minutes": 85,
+      "first_last": null,
+      "lat": 35.641726,
+      "lng": 139.648064,
+      "wish_ids": [],
+      "evidence": [
+        {
+          "source": "Plan C (the group's own plan)",
+          "url": "https://www.city.setagaya.lg.jp/02072/10108.html",
+          "note": "Chosen by the group for Wed Dec 16: Boro-ichi flea market — get the daikan mochi"
+        }
+      ],
+      "confidence": 0.8
+    },
+    {
+      "name": "Meiji Jingū",
+      "name_ja": null,
+      "city": "Tokyo",
+      "area": "Tokyo",
+      "kind": "sight",
+      "why": "Tokyo's grandest Shinto shrine in a forest. (From Plan C, the group's own plan for Wed Dec 16: \"Cat temple · Boro-ichi · Harajuku streetwear crawl · Shibuya Sky sunset · karaoke\".)",
+      "best_time": "11:00–11:35 in Plan C",
+      "dates": "2026-12-16",
+      "price": null,
+      "booking": null,
+      "group_of_8": null,
+      "hours": "gates 6:40–16:00. Free.",
+      "visit_minutes": 35,
+      "first_last": null,
+      "lat": 35.674842,
+      "lng": 139.699627,
+      "wish_ids": [],
+      "evidence": [
+        {
+          "source": "Plan C (the group's own plan)",
+          "url": "https://www.meijijingu.or.jp/en/",
+          "note": "Chosen by the group for Wed Dec 16: Free — the forest shrine"
+        }
+      ],
+      "confidence": 0.8
+    },
+    {
+      "name": "Takeshita-dōri",
+      "name_ja": null,
+      "city": "Tokyo",
+      "area": "渋谷区",
+      "kind": "shopping",
+      "why": "Harajuku's teen-pop shopping lane. (From Plan C, the group's own plan for Wed Dec 16: \"Cat temple · Boro-ichi · Harajuku streetwear crawl · Shibuya Sky sunset · karaoke\".)",
+      "best_time": "11:40–12:00 in Plan C",
+      "dates": "2026-12-16",
+      "price": null,
+      "booking": null,
+      "group_of_8": null,
+      "hours": null,
+      "visit_minutes": 20,
+      "first_last": null,
+      "lat": 35.67132,
+      "lng": 139.704437,
+      "wish_ids": [],
+      "evidence": [
+        {
+          "source": "Plan C (the group's own plan)",
+          "url": "http://www.takeshita-street.com",
+          "note": "Chosen by the group for Wed Dec 16: Crêpe stop — Marion Crepes"
+        }
+      ],
+      "confidence": 0.8
+    },
+    {
+      "name": "atmos Harajuku (sneakers)",
+      "name_ja": null,
+      "city": "Tokyo",
+      "area": "Tokyo",
+      "kind": "shopping",
+      "why": "atmos flagship — sneakers. (From Plan C, the group's own plan for Wed Dec 16: \"Cat temple · Boro-ichi · Harajuku streetwear crawl · Shibuya Sky sunset · karaoke\".)",
+      "best_time": "12:00–12:15 in Plan C",
+      "dates": "2026-12-16",
+      "price": null,
+      "booking": null,
+      "group_of_8": null,
+      "hours": "11:00–20:00.",
+      "visit_minutes": 15,
+      "first_last": null,
+      "lat": 35.6716,
+      "lng": 139.7057,
+      "wish_ids": [
+        "w23"
+      ],
+      "evidence": [
+        {
+          "source": "Plan C (the group's own plan)",
+          "url": "https://www.atmos-tokyo.com/shop/store/shoplist/26",
+          "note": "Chosen by the group for Wed Dec 16: Ask for Japan-exclusive pairs"
+        }
+      ],
+      "confidence": 0.8
+    },
+    {
+      "name": "KICKS LAB. (Pino Harajuku)",
+      "name_ja": null,
+      "city": "Tokyo",
+      "area": "Tokyo",
+      "kind": "shopping",
+      "why": "KICKS LAB — curated sneakers. (From Plan C, the group's own plan for Wed Dec 16: \"Cat temple · Boro-ichi · Harajuku streetwear crawl · Shibuya Sky sunset · karaoke\".)",
+      "best_time": "12:15–12:35 in Plan C",
+      "dates": "2026-12-16",
+      "price": null,
+      "booking": null,
+      "group_of_8": null,
+      "hours": "12:00–20:00, **closed Sundays** (Wed ✓).",
+      "visit_minutes": 20,
+      "first_last": null,
+      "lat": 35.6705,
+      "lng": 139.7066,
+      "wish_ids": [
+        "w23"
+      ],
+      "evidence": [
+        {
+          "source": "Plan C (the group's own plan)",
+          "url": "https://www.kickslab.com/",
+          "note": "Chosen by the group for Wed Dec 16: Sneaker boutique — opens 12:00"
+        }
+      ],
+      "confidence": 0.8
+    },
+    {
+      "name": "Harajuku Gyōza Rō",
+      "name_ja": null,
+      "city": "Tokyo",
+      "area": "渋谷区",
+      "kind": "food",
+      "why": "Harajuku's classic cheap gyōza house. (From Plan C, the group's own plan for Wed Dec 16: \"Cat temple · Boro-ichi · Harajuku streetwear crawl · Shibuya Sky sunset · karaoke\".)",
+      "best_time": "12:35–13:05 in Plan C",
+      "dates": "2026-12-16",
+      "price": "¥1,000 pp",
+      "booking": null,
+      "group_of_8": null,
+      "hours": "11:30–22:00 daily.",
+      "visit_minutes": 30,
+      "first_last": null,
+      "lat": 35.667496,
+      "lng": 139.7061,
+      "wish_ids": [],
+      "evidence": [
+        {
+          "source": "Plan C (the group's own plan)",
+          "url": "https://tabelog.com/tokyo/A1306/A130601/13001284/",
+          "note": "Chosen by the group for Wed Dec 16: Cash only — fried + steamed gyōza"
+        }
+      ],
+      "confidence": 0.8
+    },
+    {
+      "name": "BAPE STORE Harajuku",
+      "name_ja": null,
+      "city": "Tokyo",
+      "area": "渋谷区",
+      "kind": "shopping",
+      "why": "BAPE STORE Harajuku. (From Plan C, the group's own plan for Wed Dec 16: \"Cat temple · Boro-ichi · Harajuku streetwear crawl · Shibuya Sky sunset · karaoke\".)",
+      "best_time": "13:05–13:25 in Plan C",
+      "dates": "2026-12-16",
+      "price": null,
+      "booking": null,
+      "group_of_8": null,
+      "hours": "11:00–20:00.",
+      "visit_minutes": 20,
+      "first_last": null,
+      "lat": 35.668043,
+      "lng": 139.708382,
+      "wish_ids": [
+        "w23"
+      ],
+      "evidence": [
+        {
+          "source": "Plan C (the group's own plan)",
+          "url": "https://jp.bape.com/pages/store-list/harajuku",
+          "note": "Chosen by the group for Wed Dec 16: Japan-exclusive pieces"
+        }
+      ],
+      "confidence": 0.8
+    },
+    {
+      "name": "Cat Street / Ura-Hara",
+      "name_ja": null,
+      "city": "Tokyo",
+      "area": "渋谷区",
+      "kind": "shopping",
+      "why": "Cat Street / Ura-Harajuku — vintage and indie labels. (From Plan C, the group's own plan for Wed Dec 16: \"Cat temple · Boro-ichi · Harajuku streetwear crawl · Shibuya Sky sunset · karaoke\".)",
+      "best_time": "13:25–13:55 in Plan C",
+      "dates": "2026-12-16",
+      "price": null,
+      "booking": null,
+      "group_of_8": null,
+      "hours": null,
+      "visit_minutes": 30,
+      "first_last": null,
+      "lat": 35.666708,
+      "lng": 139.706337,
+      "wish_ids": [],
+      "evidence": [
+        {
+          "source": "Plan C (the group's own plan)",
+          "url": "https://www.google.com/maps/search/?api=1&query=Cat+Street+Harajuku",
+          "note": "Chosen by the group for Wed Dec 16: Walk south toward Shibuya"
+        }
+      ],
+      "confidence": 0.8
+    },
+    {
+      "name": "HUMAN MADE TOKYO (global flagship)",
+      "name_ja": null,
+      "city": "Tokyo",
+      "area": "Tokyo",
+      "kind": "shopping",
+      "why": "HUMAN MADE TOKYO — the brand's biggest store, 3 floors. (From Plan C, the group's own plan for Wed Dec 16: \"Cat temple · Boro-ichi · Harajuku streetwear crawl · Shibuya Sky sunset · karaoke\".)",
+      "best_time": "13:55–14:25 in Plan C",
+      "dates": "2026-12-16",
+      "price": null,
+      "booking": null,
+      "group_of_8": null,
+      "hours": "weekdays 11:00–19:00, weekends 11:00–20:00.",
+      "visit_minutes": 30,
+      "first_last": null,
+      "lat": 35.6645,
+      "lng": 139.7045,
+      "wish_ids": [
+        "w23"
+      ],
+      "evidence": [
+        {
+          "source": "Plan C (the group's own plan)",
+          "url": "https://humanmade.co.jp/",
+          "note": "Chosen by the group for Wed Dec 16: New global flagship (opened Sep 2026)"
+        }
+      ],
+      "confidence": 0.8
+    },
+    {
+      "name": "SHIBUYA SKY",
+      "name_ja": null,
+      "city": "Tokyo",
+      "area": "Tokyo",
+      "kind": "sight",
+      "why": "Open-air rooftop 230 m over Shibuya Crossing. (From Plan C, the group's own plan for Wed Dec 16: \"Cat temple · Boro-ichi · Harajuku streetwear crawl · Shibuya Sky sunset · karaoke\".)",
+      "best_time": "14:40–16:45 in Plan C",
+      "dates": "2026-12-16",
+      "price": "¥2,700 pp",
+      "booking": "official site only, on sale **14 days ahead at 00:00 JST** (Dec 2 = Dec 1, 10:00am ET). Pre-15:00 slots ¥2,700 vs ¥3,400 after. No time limit once up.",
+      "group_of_8": null,
+      "hours": "10:00–22:30 (last entry 21:20).",
+      "visit_minutes": 125,
+      "first_last": null,
+      "lat": 35.658286,
+      "lng": 139.702262,
+      "wish_ids": [],
+      "evidence": [
+        {
+          "source": "Plan C (the group's own plan)",
+          "url": "https://www.shibuya-scramble-square.com/sky/ticket/",
+          "note": "Chosen by the group for Wed Dec 16: 14:40 slot · stay through sunset (~16:29)"
+        }
+      ],
+      "confidence": 0.8
+    },
+    {
+      "name": "Shibuya Scramble Crossing",
+      "name_ja": null,
+      "city": "Tokyo",
+      "area": "渋谷区",
+      "kind": "sight",
+      "why": "The world's busiest crossing. (From Plan C, the group's own plan for Wed Dec 16: \"Cat temple · Boro-ichi · Harajuku streetwear crawl · Shibuya Sky sunset · karaoke\".)",
+      "best_time": "16:45–17:15 in Plan C",
+      "dates": "2026-12-16",
+      "price": null,
+      "booking": null,
+      "group_of_8": null,
+      "hours": null,
+      "visit_minutes": 30,
+      "first_last": null,
+      "lat": 35.659315,
+      "lng": 139.701065,
+      "wish_ids": [],
+      "evidence": [
+        {
+          "source": "Plan C (the group's own plan)",
+          "url": "https://www.google.com/maps/search/?api=1&query=Shibuya+Scramble+Crossing",
+          "note": "Chosen by the group for Wed Dec 16"
+        }
+      ],
+      "confidence": 0.8
+    },
+    {
+      "name": "Ao no Dōkutsu 'Blue Cave' illumination",
+      "name_ja": null,
+      "city": "Tokyo",
+      "area": "Tokyo",
+      "kind": "event",
+      "why": "'Blue Cave' illumination along Kōen-dōri to Yoyogi Park. (From Plan C, the group's own plan for Wed Dec 16: \"Cat temple · Boro-ichi · Harajuku streetwear crawl · Shibuya Sky sunset · karaoke\".)",
+      "best_time": "17:15–18:00 in Plan C",
+      "dates": "2026-12-16",
+      "price": null,
+      "booking": null,
+      "group_of_8": null,
+      "hours": null,
+      "visit_minutes": 45,
+      "first_last": null,
+      "lat": 35.665,
+      "lng": 139.6975,
+      "wish_ids": [],
+      "evidence": [
+        {
+          "source": "Plan C (the group's own plan)",
+          "url": "https://shibuya-aonodokutsu.jp/",
+          "note": "Chosen by the group for Wed Dec 16: Free lights (if running — 2026 dates TBA)"
+        }
+      ],
+      "confidence": 0.8
+    },
+    {
+      "name": "Shibuya PARCO (Nintendo Tokyo · Pokémon Center · Jump Shop)",
+      "name_ja": null,
+      "city": "Tokyo",
+      "area": "渋谷区",
+      "kind": "shopping",
+      "why": "Shibuya PARCO. (From Plan C, the group's own plan for Wed Dec 16: \"Cat temple · Boro-ichi · Harajuku streetwear crawl · Shibuya Sky sunset · karaoke\".)",
+      "best_time": "18:00–18:45 in Plan C",
+      "dates": "2026-12-16",
+      "price": null,
+      "booking": null,
+      "group_of_8": null,
+      "hours": "6F 10:00–21:00.",
+      "visit_minutes": 45,
+      "first_last": null,
+      "lat": 35.662075,
+      "lng": 139.698799,
+      "wish_ids": [],
+      "evidence": [
+        {
+          "source": "Plan C (the group's own plan)",
+          "url": "https://shibuya.parco.jp/",
+          "note": "Chosen by the group for Wed Dec 16: Nintendo Tokyo · Pokémon Center · Jump Shop (6F)"
+        }
+      ],
+      "confidence": 0.8
+    },
+    {
+      "name": "Uoshin Shibuya",
+      "name_ja": "魚真",
+      "city": "Tokyo",
+      "area": "Tokyo",
+      "kind": "food",
+      "why": "seafood izakaya, nokke-zushi course for 8. Fishmonger-run seafood izakaya (since 1983) — sashimi heaped over the plate, uni-and-crab 'nokke-zushi'. (From Plan C, the group's own plan for Wed Dec 16: \"Cat temple · Boro-ichi · Harajuku streetwear crawl · Shibuya Sky sunset · karaoke\".)",
+      "best_time": "18:50–21:15 in Plan C",
+      "dates": "2026-12-16",
+      "price": "¥6,800 pp",
+      "booking": "Tabelog or ☎ — ¥6,800 course (10 dishes incl. crab + nokke-zushi, all-you-can-drink). Ask for the 半個室 (semi-private, 7–10).",
+      "group_of_8": null,
+      "hours": "17:00–23:00 daily.",
+      "visit_minutes": 145,
+      "first_last": null,
+      "lat": 35.6578,
+      "lng": 139.6962,
+      "wish_ids": [
+        "w24"
+      ],
+      "evidence": [
+        {
+          "source": "Plan C (the group's own plan)",
+          "url": "https://tabelog.com/tokyo/A1303/A130301/13001781/",
+          "note": "Chosen by the group for Wed Dec 16: Book 18:50 · ¥6,800 course · semi-private room"
+        }
+      ],
+      "confidence": 0.8
+    },
+    {
+      "name": "Karaoke Manekineko (Shibuya)",
+      "name_ja": null,
+      "city": "Tokyo",
+      "area": "Tokyo",
+      "kind": "experience",
+      "why": "Manekineko Center-gai — 24h karaoke, rooms up to 35. (From Plan C, the group's own plan for Wed Dec 16: \"Cat temple · Boro-ichi · Harajuku streetwear crawl · Shibuya Sky sunset · karaoke\".)",
+      "best_time": "21:30–01:00 in Plan C",
+      "dates": "2026-12-16",
+      "price": "¥2,000 pp",
+      "booking": null,
+      "group_of_8": null,
+      "hours": "24h.",
+      "visit_minutes": 210,
+      "first_last": null,
+      "lat": 35.660728,
+      "lng": 139.69842,
+      "wish_ids": [
+        "w24"
+      ],
+      "evidence": [
+        {
+          "source": "Plan C (the group's own plan)",
+          "url": "https://www.karaokemanekineko.jp/locations/tokyo/shibuya-ku/shibuya-centergai-store/",
+          "note": "Chosen by the group for Wed Dec 16: Party room · free time · bring your own drinks"
+        }
+      ],
+      "confidence": 0.8
+    },
+    {
+      "name": "Arashio-beya",
+      "name_ja": null,
+      "city": "Tokyo",
+      "area": "Tokyo",
+      "kind": "sight",
+      "why": "live sumo morning practice (free, through the window). Active sumo stable — watch real morning practice from the street. (From Plan C, the group's own plan for Thu Dec 17: \"Old Tokyo — Tsukiji · Ryōgoku · National Museum · mita sneakers · Hagoita-ichi · private sushi\".)",
+      "best_time": "07:30–08:25 in Plan C",
+      "dates": "2026-12-17",
+      "price": null,
+      "booking": null,
+      "group_of_8": null,
+      "hours": "~7:30–9:00, free, no booking.",
+      "visit_minutes": 55,
+      "first_last": null,
+      "lat": 35.6878,
+      "lng": 139.7869,
+      "wish_ids": [
+        "w21"
+      ],
+      "evidence": [
+        {
+          "source": "Plan C (the group's own plan)",
+          "url": "https://arashio.net/tour_e.html",
+          "note": "Chosen by the group for Thu Dec 17: Leave 6:45 · free sumo practice through the window"
+        }
+      ],
+      "confidence": 0.8
+    },
+    {
+      "name": "Tsukiji Outer Market",
+      "name_ja": null,
+      "city": "Tokyo",
+      "area": "Tokyo",
+      "kind": "food",
+      "why": "Tsukiji Outer Market. (From Plan C, the group's own plan for Thu Dec 17: \"Old Tokyo — Tsukiji · Ryōgoku · National Museum · mita sneakers · Hagoita-ichi · private sushi\".)",
+      "best_time": "08:45–09:45 in Plan C",
+      "dates": "2026-12-17",
+      "price": "¥3,000 pp",
+      "booking": null,
+      "group_of_8": null,
+      "hours": "Dec 17 is a market day (Dec closures: 2/9/16/23 + Sundays).",
+      "visit_minutes": 60,
+      "first_last": null,
+      "lat": 35.665388,
+      "lng": 139.770473,
+      "wish_ids": [],
+      "evidence": [
+        {
+          "source": "Plan C (the group's own plan)",
+          "url": "https://www.tsukiji.or.jp/",
+          "note": "Chosen by the group for Thu Dec 17: Eat standing — Kitsuneya horumon-don"
+        }
+      ],
+      "confidence": 0.8
+    },
+    {
+      "name": "Edo-Tokyo Museum",
+      "name_ja": null,
+      "city": "Tokyo",
+      "area": "Tokyo",
+      "kind": "sight",
+      "why": "Edo-Tokyo Museum — reopened 2026. (From Plan C, the group's own plan for Thu Dec 17: \"Old Tokyo — Tsukiji · Ryōgoku · National Museum · mita sneakers · Hagoita-ichi · private sushi\".)",
+      "best_time": "10:05–11:20 in Plan C",
+      "dates": "2026-12-17",
+      "price": "¥800 pp",
+      "booking": null,
+      "group_of_8": null,
+      "hours": "9:30–17:30, closed Mondays (Thu ✓).",
+      "visit_minutes": 75,
+      "first_last": null,
+      "lat": 35.696445,
+      "lng": 139.796078,
+      "wish_ids": [],
+      "evidence": [
+        {
+          "source": "Plan C (the group's own plan)",
+          "url": "https://www.edo-tokyo-museum.or.jp/",
+          "note": "Chosen by the group for Thu Dec 17"
+        }
+      ],
+      "confidence": 0.8
+    },
+    {
+      "name": "Chanko Kirishima",
+      "name_ja": "ちゃんこ霧島",
+      "city": "Tokyo",
+      "area": "Tokyo",
+      "kind": "food",
+      "why": "Ryōgoku honten, chanko lunch. Chanko hot-pot house founded by former ōzeki Kirishima — Michinoku stable recipe. (From Plan C, the group's own plan for Thu Dec 17: \"Old Tokyo — Tsukiji · Ryōgoku · National Museum · mita sneakers · Hagoita-ichi · private sushi\".)",
+      "best_time": "11:30–12:30 in Plan C",
+      "dates": "2026-12-17",
+      "price": "¥2,000 pp",
+      "booking": "online (link) or ☎ — ask for a 5–10 person 個室.",
+      "group_of_8": null,
+      "hours": "lunch 11:30–15:00 (LO 14:00); closed Mondays only (Thu ✓).",
+      "visit_minutes": 60,
+      "first_last": null,
+      "lat": 35.6957,
+      "lng": 139.7929,
+      "wish_ids": [],
+      "evidence": [
+        {
+          "source": "Plan C (the group's own plan)",
+          "url": "https://yoyaku.toreta.in/chankokirishimahonten/",
+          "note": "Chosen by the group for Thu Dec 17: Booked 11:30 · private room · Kirishima house chanko"
+        }
+      ],
+      "confidence": 0.8
+    },
+    {
+      "name": "Tokyo National Museum (samurai swords & armor)",
+      "name_ja": null,
+      "city": "Tokyo",
+      "area": "台東区",
+      "kind": "sight",
+      "why": "Tokyo National Museum — Japan's biggest samurai collection. (From Plan C, the group's own plan for Thu Dec 17: \"Old Tokyo — Tsukiji · Ryōgoku · National Museum · mita sneakers · Hagoita-ichi · private sushi\".)",
+      "best_time": "13:00–14:40 in Plan C",
+      "dates": "2026-12-17",
+      "price": "¥1,000 pp",
+      "booking": null,
+      "group_of_8": null,
+      "hours": "Thu 9:30–17:00, closed Mondays.",
+      "visit_minutes": 100,
+      "first_last": null,
+      "lat": 35.718908,
+      "lng": 139.776512,
+      "wish_ids": [],
+      "evidence": [
+        {
+          "source": "Plan C (the group's own plan)",
+          "url": "http://www.tnm.jp",
+          "note": "Chosen by the group for Thu Dec 17: Go straight to the swords & armor"
+        }
+      ],
+      "confidence": 0.8
+    },
+    {
+      "name": "mita sneakers (Ameyoko)",
+      "name_ja": null,
+      "city": "Tokyo",
+      "area": "Tokyo",
+      "kind": "shopping",
+      "why": "mita sneakers, Ameyoko Center Bldg. (From Plan C, the group's own plan for Thu Dec 17: \"Old Tokyo — Tsukiji · Ryōgoku · National Museum · mita sneakers · Hagoita-ichi · private sushi\".)",
+      "best_time": "14:50–15:25 in Plan C",
+      "dates": "2026-12-17",
+      "price": null,
+      "booking": null,
+      "group_of_8": null,
+      "hours": "weekdays 11:00–19:30; closed 3rd Wednesday (Thu ✓).",
+      "visit_minutes": 35,
+      "first_last": null,
+      "lat": 35.7092,
+      "lng": 139.7745,
+      "wish_ids": [
+        "w23"
+      ],
+      "evidence": [
+        {
+          "source": "Plan C (the group's own plan)",
+          "url": "https://www.mita-sneakers.co.jp/",
+          "note": "Chosen by the group for Thu Dec 17: Hype pairs + cheap GRs in Ameyoko"
+        }
+      ],
+      "confidence": 0.8
+    },
+    {
+      "name": "Nakamise-dōri",
+      "name_ja": null,
+      "city": "Tokyo",
+      "area": "台東区",
+      "kind": "shopping",
+      "why": "Nakamise — the shopping street up to Sensō-ji. (From Plan C, the group's own plan for Thu Dec 17: \"Old Tokyo — Tsukiji · Ryōgoku · National Museum · mita sneakers · Hagoita-ichi · private sushi\".)",
+      "best_time": "15:45–16:15 in Plan C",
+      "dates": "2026-12-17",
+      "price": "¥1,000 pp",
+      "booking": null,
+      "group_of_8": null,
+      "hours": null,
+      "visit_minutes": 30,
+      "first_last": null,
+      "lat": 35.711882,
+      "lng": 139.796379,
+      "wish_ids": [],
+      "evidence": [
+        {
+          "source": "Plan C (the group's own plan)",
+          "url": "https://www.google.com/maps/search/?api=1&query=Nakamise-dori+Asakusa",
+          "note": "Chosen by the group for Thu Dec 17: Snacks — eat standing at the stall"
+        }
+      ],
+      "confidence": 0.8
+    },
+    {
+      "name": "Sensō-ji + Hagoita-ichi (year-end battledore fair)",
+      "name_ja": null,
+      "city": "Tokyo",
+      "area": "Tokyo",
+      "kind": "event",
+      "why": "Tokyo's oldest temple — with the year-end battledore fair. (From Plan C, the group's own plan for Thu Dec 17: \"Old Tokyo — Tsukiji · Ryōgoku · National Museum · mita sneakers · Hagoita-ichi · private sushi\".)",
+      "best_time": "16:15–17:35 in Plan C",
+      "dates": "2026-12-17",
+      "price": null,
+      "booking": null,
+      "group_of_8": null,
+      "hours": "main hall 6:30–17:00 (Oct–Mar).",
+      "visit_minutes": 80,
+      "first_last": null,
+      "lat": 35.7148,
+      "lng": 139.7967,
+      "wish_ids": [],
+      "evidence": [
+        {
+          "source": "Plan C (the group's own plan)",
+          "url": "https://www.senso-ji.jp/",
+          "note": "Chosen by the group for Thu Dec 17: Main hall closes 17:00 · Hagoita-ichi fair"
+        }
+      ],
+      "confidence": 0.8
+    },
+    {
+      "name": "Asakusa Hoppy Street",
+      "name_ja": null,
+      "city": "Tokyo",
+      "area": "Tokyo",
+      "kind": "bar",
+      "why": "Okamoto (stew + Hoppy, terrace for 8). Okamoto — the oldest bar on Asakusa's Hoppy Street (since 1959), 100 seats. (From Plan C, the group's own plan for Thu Dec 17: \"Old Tokyo — Tsukiji · Ryōgoku · National Museum · mita sneakers · Hagoita-ichi · private sushi\".)",
+      "best_time": "17:40–19:05 in Plan C",
+      "dates": "2026-12-17",
+      "price": "¥2,500 pp",
+      "booking": null,
+      "group_of_8": null,
+      "hours": "11:00–23:00, no closed day.",
+      "visit_minutes": 85,
+      "first_last": null,
+      "lat": 35.7134,
+      "lng": 139.7935,
+      "wish_ids": [],
+      "evidence": [
+        {
+          "source": "Plan C (the group's own plan)",
+          "url": "https://asakusasakaba-okamoto.owst.jp/",
+          "note": "Chosen by the group for Thu Dec 17: Stew + Hoppy, terrace for 8 · leave 19:05"
+        }
+      ],
+      "confidence": 0.8
+    },
+    {
+      "name": "Sushi Kunimitsu",
+      "name_ja": null,
+      "city": "Tokyo",
+      "area": "東京都中野区",
+      "kind": "food",
+      "why": "private omakase counter (splurge). Sushi Kunimitsu — one-group-per-seating private omakase counter. (From Plan C, the group's own plan for Thu Dec 17: \"Old Tokyo — Tsukiji · Ryōgoku · National Museum · mita sneakers · Hagoita-ichi · private sushi\".)",
+      "best_time": "20:00–22:30 in Plan C",
+      "dates": "2026-12-17",
+      "price": "¥22,000 pp",
+      "booking": "TableCheck 'Private Counter Course' ¥22,000 pp — take the LATE seating (the shop lists it as 20:00 on one page and 20:30 on another; your confirmation decides). Write 'private counter for 8' in Requests. Card required.",
+      "group_of_8": null,
+      "hours": null,
+      "visit_minutes": 150,
+      "first_last": null,
+      "lat": 35.707064,
+      "lng": 139.686363,
+      "wish_ids": [
+        "w21"
+      ],
+      "evidence": [
+        {
+          "source": "Plan C (the group's own plan)",
+          "url": "https://www.tablecheck.com/en/shops/sushi-kunimitsu/reserve",
+          "note": "Chosen by the group for Thu Dec 17: SPLURGE · late seating · private counter for 8"
+        }
+      ],
+      "confidence": 0.8
+    },
+    {
+      "name": "teamLab Planets TOKYO",
+      "name_ja": null,
+      "city": "Tokyo",
+      "area": "Tokyo",
+      "kind": "sight",
+      "why": "teamLab Planets — walk-through digital art, partly knee-deep in water. (From Plan C, the group's own plan for Fri Dec 18: \"Next-gen Tokyo — teamLab · Toyosu · Odaiba Gundam · Fuunji · NOAH wrestling · Golden Gai Friday\".)",
+      "best_time": "09:00–10:45 in Plan C",
+      "dates": "2026-12-18",
+      "price": "¥4,000 pp",
+      "booking": "dynamic pricing (~¥3,800+), earlier is cheaper. Compare Klook codes vs official (Klook usually non-refundable).",
+      "group_of_8": null,
+      "hours": "8:00–22:00.",
+      "visit_minutes": 105,
+      "first_last": null,
+      "lat": 35.64938,
+      "lng": 139.789728,
+      "wish_ids": [],
+      "evidence": [
+        {
+          "source": "Plan C (the group's own plan)",
+          "url": "https://teamlabplanets.dmm.com/en/ticket",
+          "note": "Chosen by the group for Fri Dec 18: 9:00 slot · roll pants above the knee"
+        }
+      ],
+      "confidence": 0.8
+    },
+    {
+      "name": "Toyosu Senkyaku Banrai",
+      "name_ja": null,
+      "city": "Tokyo",
+      "area": "Tokyo",
+      "kind": "food",
+      "why": "Toyosu Senkyaku Banrai — market-side food hall + 8F footbath garden. (From Plan C, the group's own plan for Fri Dec 18: \"Next-gen Tokyo — teamLab · Toyosu · Odaiba Gundam · Fuunji · NOAH wrestling · Golden Gai Friday\".)",
+      "best_time": "11:00–13:15 in Plan C",
+      "dates": "2026-12-18",
+      "price": "¥4,000 pp",
+      "booking": null,
+      "group_of_8": null,
+      "hours": "Mekiki Yokochō (2F) 10:00–18:00; footbath free.",
+      "visit_minutes": 135,
+      "first_last": null,
+      "lat": 35.645463,
+      "lng": 139.783662,
+      "wish_ids": [],
+      "evidence": [
+        {
+          "source": "Plan C (the group's own plan)",
+          "url": "https://www.toyosu-senkyakubanrai.jp/",
+          "note": "Chosen by the group for Fri Dec 18: Market tuna lunch + free rooftop footbath"
+        }
+      ],
+      "confidence": 0.8
+    },
+    {
+      "name": "Unicorn Gundam statue (DiverCity Tokyo Plaza)",
+      "name_ja": null,
+      "city": "Tokyo",
+      "area": "江東区",
+      "kind": "sight",
+      "why": "Life-size Unicorn Gundam + THE GUNDAM BASE (2,000 Gunpla kits). (From Plan C, the group's own plan for Fri Dec 18: \"Next-gen Tokyo — teamLab · Toyosu · Odaiba Gundam · Fuunji · NOAH wrestling · Golden Gai Friday\".)",
+      "best_time": "13:40–14:30 in Plan C",
+      "dates": "2026-12-18",
+      "price": null,
+      "booking": null,
+      "group_of_8": null,
+      "hours": "Gundam Base weekdays 11:00–20:00. Statue shows at set times — check the board.",
+      "visit_minutes": 50,
+      "first_last": null,
+      "lat": 35.625319,
+      "lng": 139.775948,
+      "wish_ids": [],
+      "evidence": [
+        {
+          "source": "Plan C (the group's own plan)",
+          "url": "https://www.gundam-base.net/tokyo/",
+          "note": "Chosen by the group for Fri Dec 18: Gundam Base 7F · leave by 14:30"
+        }
+      ],
+      "confidence": 0.8
+    },
+    {
+      "name": "Tokyo Aqua Symphony",
+      "name_ja": null,
+      "city": "Tokyo",
+      "area": "Tokyo",
+      "kind": "sight",
+      "why": "150 m fountain show (free). Tokyo Aqua Symphony — 150 m fountain show set to music, free. (From Plan C, the group's own plan for Fri Dec 18: \"Next-gen Tokyo — teamLab · Toyosu · Odaiba Gundam · Fuunji · NOAH wrestling · Golden Gai Friday\".)",
+      "best_time": "14:45–15:15 in Plan C",
+      "dates": "2026-12-18",
+      "price": null,
+      "booking": null,
+      "group_of_8": null,
+      "hours": null,
+      "visit_minutes": 30,
+      "first_last": "from ~15:00, ~10 min each. The official schedule sometimes moves 15:00 → 14:55; wind cancels shows — check the Dec 18 schedule that morning.",
+      "lat": 35.6293,
+      "lng": 139.7738,
+      "wish_ids": [],
+      "evidence": [
+        {
+          "source": "Plan C (the group's own plan)",
+          "url": "https://tokyoaquasymphony.jp/schedule/",
+          "note": "Chosen by the group for Fri Dec 18: On the deck by 14:50 (show may start 14:55)"
+        }
+      ],
+      "confidence": 0.8
+    },
+    {
+      "name": "Fuunji",
+      "name_ja": "風雲児",
+      "city": "Tokyo",
+      "area": "Tokyo",
+      "kind": "food",
+      "why": "tsukemen. Fuunji — famous chicken-and-fish tsukemen. (From Plan C, the group's own plan for Fri Dec 18: \"Next-gen Tokyo — teamLab · Toyosu · Odaiba Gundam · Fuunji · NOAH wrestling · Golden Gai Friday\".)",
+      "best_time": "16:40–17:40 in Plan C",
+      "dates": "2026-12-18",
+      "price": "¥1,100 pp",
+      "booking": null,
+      "group_of_8": null,
+      "hours": "11:00–15:00, 17:00–21:00, open daily. 15 counter seats.",
+      "visit_minutes": 60,
+      "first_last": null,
+      "lat": 35.6857,
+      "lng": 139.6966,
+      "wish_ids": [],
+      "evidence": [
+        {
+          "source": "Plan C (the group's own plan)",
+          "url": "https://www.fu-unji.com/",
+          "note": "Chosen by the group for Fri Dec 18: In line by 16:40 for the 17:00 first seating"
+        }
+      ],
+      "confidence": 0.8
+    },
+    {
+      "name": "Korakuen Hall",
+      "name_ja": null,
+      "city": "Tokyo",
+      "area": "Tokyo",
+      "kind": "event",
+      "why": "Pro Wrestling NOAH 'THANKSGIVING 2026'. Korakuen Hall — the 'holy land' of Japanese pro wrestling. NOAH's year-end show. (From Plan C, the group's own plan for Fri Dec 18: \"Next-gen Tokyo — teamLab · Toyosu · Odaiba Gundam · Fuunji · NOAH wrestling · Golden Gai Friday\".)",
+      "best_time": "18:00–21:00 in Plan C",
+      "dates": "2026-12-18",
+      "price": "¥6,000 pp",
+      "booking": "on sale ~mid-Nov (usually e+). If a foreign card fails, use Jasumo (English proxy). Leftovers sometimes sold at the 5F counter on the day.",
+      "group_of_8": null,
+      "hours": null,
+      "visit_minutes": 180,
+      "first_last": null,
+      "lat": 35.7051,
+      "lng": 139.7536,
+      "wish_ids": [
+        "w14"
+      ],
+      "evidence": [
+        {
+          "source": "Plan C (the group's own plan)",
+          "url": "https://www.noah.co.jp/schedule/",
+          "note": "Chosen by the group for Fri Dec 18: CONFIRMED on noah.co.jp: 'ザ・リーヴ Presents THANKSGIVING 2026' · doors 17:30 · bell 18:30 · tickets ×8"
+        }
+      ],
+      "confidence": 0.8
+    },
+    {
+      "name": "Kabukichō Tower",
+      "name_ja": null,
+      "city": "Tokyo",
+      "area": "新宿区",
+      "kind": "food",
+      "why": "Yokochō food hall + Namco arcade. Shinjuku Kabuki Hall — regional food stalls in Kabukichō Tower. (From Plan C, the group's own plan for Fri Dec 18: \"Next-gen Tokyo — teamLab · Toyosu · Odaiba Gundam · Fuunji · NOAH wrestling · Golden Gai Friday\".)",
+      "best_time": "21:30–22:30 in Plan C",
+      "dates": "2026-12-18",
+      "price": "¥3,500 pp",
+      "booking": null,
+      "group_of_8": null,
+      "hours": "6:00–5:00, open every day.",
+      "visit_minutes": 60,
+      "first_last": null,
+      "lat": 35.69589,
+      "lng": 139.700645,
+      "wish_ids": [
+        "w24"
+      ],
+      "evidence": [
+        {
+          "source": "Plan C (the group's own plan)",
+          "url": "https://kabukihall.com/",
+          "note": "Chosen by the group for Fri Dec 18: Dinner #2 + arcade"
+        }
+      ],
+      "confidence": 0.8
+    },
+    {
+      "name": "Shinjuku Batting Center",
+      "name_ja": null,
+      "city": "Tokyo",
+      "area": "Tokyo",
+      "kind": "experience",
+      "why": "Shinjuku Batting Center. (From Plan C, the group's own plan for Fri Dec 18: \"Next-gen Tokyo — teamLab · Toyosu · Odaiba Gundam · Fuunji · NOAH wrestling · Golden Gai Friday\".)",
+      "best_time": "22:30–23:00 in Plan C",
+      "dates": "2026-12-18",
+      "price": "¥600 pp",
+      "booking": null,
+      "group_of_8": null,
+      "hours": "10:00–4:00, no closed day.",
+      "visit_minutes": 30,
+      "first_last": null,
+      "lat": 35.696647,
+      "lng": 139.704418,
+      "wish_ids": [],
+      "evidence": [
+        {
+          "source": "Plan C (the group's own plan)",
+          "url": "https://www.battingcenter.com/tokyo/3838/",
+          "note": "Chosen by the group for Fri Dec 18: ¥300 a game — pick your speed (80–140 km/h)"
+        }
+      ],
+      "confidence": 0.8
+    },
+    {
+      "name": "Ramen Nagi (Golden Gai)",
+      "name_ja": null,
+      "city": "Tokyo",
+      "area": "Tokyo",
+      "kind": "food",
+      "why": "late niboshi ramen. Ramen Nagi Golden Gai — the original 'sugoi niboshi' sardine ramen. (From Plan C, the group's own plan for Fri Dec 18: \"Next-gen Tokyo — teamLab · Toyosu · Odaiba Gundam · Fuunji · NOAH wrestling · Golden Gai Friday\".)",
+      "best_time": "23:00–23:40 in Plan C",
+      "dates": "2026-12-18",
+      "price": "¥1,100 pp",
+      "booking": null,
+      "group_of_8": null,
+      "hours": "24 hours.",
+      "visit_minutes": 40,
+      "first_last": null,
+      "lat": 35.694,
+      "lng": 139.7043,
+      "wish_ids": [],
+      "evidence": [
+        {
+          "source": "Plan C (the group's own plan)",
+          "url": "https://n-nagi.com/",
+          "note": "Chosen by the group for Fri Dec 18: Open 24h · 10 seats — expect a short line"
+        }
+      ],
+      "confidence": 0.8
+    },
+    {
+      "name": "Golden Gai round 2",
+      "name_ja": null,
+      "city": "Tokyo",
+      "area": "Tokyo",
+      "kind": "bar",
+      "why": "Albatross G (2 floors) → Champion karaoke bar. Golden Gai — 200 tiny bars; only a few take 8 at once. (From Plan C, the group's own plan for Fri Dec 18: \"Next-gen Tokyo — teamLab · Toyosu · Odaiba Gundam · Fuunji · NOAH wrestling · Golden Gai Friday\".)",
+      "best_time": "23:45–02:45 in Plan C",
+      "dates": "2026-12-18",
+      "price": "¥4,000 pp",
+      "booking": null,
+      "group_of_8": null,
+      "hours": "Albatross G 18:00–5:00 · Champion 18:00–5:00.",
+      "visit_minutes": 180,
+      "first_last": null,
+      "lat": 35.6944,
+      "lng": 139.7049,
+      "wish_ids": [
+        "w24"
+      ],
+      "evidence": [
+        {
+          "source": "Plan C (the group's own plan)",
+          "url": "https://www.hotpepper.jp/strJ000839548/",
+          "note": "Chosen by the group for Fri Dec 18: Big bars only: Albatross G → Champion"
+        }
+      ],
+      "confidence": 0.8
+    },
+    {
+      "name": "Odakyu Department Store Shinjuku",
+      "name_ja": null,
+      "city": "Tokyo",
+      "area": "新宿区",
+      "kind": "shopping",
+      "why": "B2 food hall. Odakyu Dept. Store food hall — buy the villa cook-off groceries here. (From Plan C, the group's own plan for Sat Dec 19: \"Tokyo → Hakone · Open-Air Museum · villa wagyu cook-off + onsen\".)",
+      "best_time": "10:00–10:30 in Plan C",
+      "dates": "2026-12-19",
+      "price": "¥6,000 pp",
+      "booking": null,
+      "group_of_8": null,
+      "hours": "B2 opens 10:00.",
+      "visit_minutes": 30,
+      "first_last": null,
+      "lat": 35.692547,
+      "lng": 139.698959,
+      "wish_ids": [],
+      "evidence": [
+        {
+          "source": "Plan C (the group's own plan)",
+          "url": "https://www.odakyu-dept.co.jp/shinjuku/",
+          "note": "Chosen by the group for Sat Dec 19: Villa dinner haul (B2 food hall)"
+        }
+      ],
+      "confidence": 0.8
+    },
+    {
+      "name": "Isetan Shinjuku Men's",
+      "name_ja": null,
+      "city": "Tokyo",
+      "area": "Tokyo",
+      "kind": "sight",
+      "why": "Japan's best menswear department store. Isetan Shinjuku Men's — Japan's best menswear department store. (From Plan C, the group's own plan for Sat Dec 26: \"Kizu morning market → Nozomi to Tokyo · yakatabune fireworks · Shinjuku till first train\".)",
+      "best_time": "14:45–15:45 in Plan C",
+      "dates": "2026-12-26",
+      "price": null,
+      "booking": null,
+      "group_of_8": null,
+      "hours": "10:00–20:00.",
+      "visit_minutes": 60,
+      "first_last": null,
+      "lat": 35.69246,
+      "lng": 139.70417,
+      "wish_ids": [],
+      "evidence": [
+        {
+          "source": "Plan C (the group's own plan)",
+          "url": "https://www.mistore.jp/store/shinjuku.html",
+          "note": "Chosen by the group for Sat Dec 26: One tax-free checkout per person"
+        }
+      ],
+      "confidence": 0.8
+    },
+    {
+      "name": "Yakatabune Harumiya",
+      "name_ja": null,
+      "city": "Tokyo",
+      "area": "Sumida-ku",
+      "kind": "event",
+      "why": "shared dinner cruise (Odaiba fireworks night). Yakatabune Harumiya — dinner cruise with on-board tempura and unlimited drinks. (From Plan C, the group's own plan for Sat Dec 26: \"Kizu morning market → Nozomi to Tokyo · yakatabune fireworks · Shinjuku till first train\".)",
+      "best_time": "17:45–20:30 in Plan C",
+      "dates": "2026-12-26",
+      "price": "¥13,200 pp",
+      "booking": "'Furisode Gozen' ¥13,200, 18:00 departure for 8, ~150 min, Odaiba & Skytree course.",
+      "group_of_8": null,
+      "hours": null,
+      "visit_minutes": 165,
+      "first_last": null,
+      "lat": 35.6969,
+      "lng": 139.7929,
+      "wish_ids": [
+        "w16"
+      ],
+      "evidence": [
+        {
+          "source": "Plan C (the group's own plan)",
+          "url": "https://reservation.harumiya.co.jp/products/5b420723-6c20-569a-a54f-9470eb7ac37c",
+          "note": "Chosen by the group for Sat Dec 26: Board at Ryōgoku pier by 17:45 · fireworks 19:00"
+        }
+      ],
+      "confidence": 0.8
+    },
+    {
+      "name": "Shinjuku San-chōme izakaya alleys",
+      "name_ja": null,
+      "city": "Tokyo",
+      "area": "Tokyo",
+      "kind": "bar",
+      "why": "Shinjuku San-chōme — the locals' izakaya blocks. (From Plan C, the group's own plan for Sat Dec 26: \"Kizu morning market → Nozomi to Tokyo · yakatabune fireworks · Shinjuku till first train\".)",
+      "best_time": "21:00–00:30 in Plan C",
+      "dates": "2026-12-26",
+      "price": "¥3,000 pp",
+      "booking": null,
+      "group_of_8": null,
+      "hours": "Nihon Saisei Sakaba 15:00–23:30 (standing motsu-yaki) · Tachinomi Arigatou 17:00–5:00 · Sanchōme no Yūta (yakiton) 12:00–23:00.",
+      "visit_minutes": 210,
+      "first_last": null,
+      "lat": 35.690713,
+      "lng": 139.704828,
+      "wish_ids": [
+        "w24"
+      ],
+      "evidence": [
+        {
+          "source": "Plan C (the group's own plan)",
+          "url": "https://shops.alwayssaisei.co.jp/detail/1440002/",
+          "note": "Chosen by the group for Sat Dec 26: Nihon Saisei Sakaba → Arigatou (to 5am)"
+        }
+      ],
+      "confidence": 0.8
+    },
+    {
+      "name": "Karaoke Manekineko (Kabukichō)",
+      "name_ja": null,
+      "city": "Tokyo",
+      "area": "Tokyo",
+      "kind": "experience",
+      "why": "all-nighter till first train. Manekineko Kabukichō — 24h karaoke. (From Plan C, the group's own plan for Sat Dec 26: \"Kizu morning market → Nozomi to Tokyo · yakatabune fireworks · Shinjuku till first train\".)",
+      "best_time": "00:30–05:00 in Plan C",
+      "dates": "2026-12-26",
+      "price": "¥2,000 pp",
+      "booking": null,
+      "group_of_8": null,
+      "hours": null,
+      "visit_minutes": 270,
+      "first_last": null,
+      "lat": 35.69354,
+      "lng": 139.70261,
+      "wish_ids": [
+        "w24"
+      ],
+      "evidence": [
+        {
+          "source": "Plan C (the group's own plan)",
+          "url": "https://www.karaokemanekineko.jp/locations/tokyo/shinjuku-ku/shinjuku-kabukicho-chuo-store/",
+          "note": "Chosen by the group for Sat Dec 26: Free time till ~5:00 · bring the Maruetsu haul"
+        }
+      ],
+      "confidence": 0.8
+    },
+    {
+      "name": "Rojiura Curry SAMURAI (Shimokitazawa)",
+      "name_ja": null,
+      "city": "Tokyo",
+      "area": "世田谷区",
+      "kind": "food",
+      "why": "soup curry. Rojiura Curry SAMURAI — Sapporo-style soup curry. (From Plan C, the group's own plan for Sun Dec 27: \"Sunday — rockabillies · Shimokita · B.LEAGUE at Toyota Arena · Kōenji vintage · Thermae-yu\".)",
+      "best_time": "11:30–12:10 in Plan C",
+      "dates": "2026-12-27",
+      "price": "¥1,600 pp",
+      "booking": null,
+      "group_of_8": null,
+      "hours": "11:00–21:00 (LO 20:15).",
+      "visit_minutes": 40,
+      "first_last": null,
+      "lat": 35.664686,
+      "lng": 139.667046,
+      "wish_ids": [],
+      "evidence": [
+        {
+          "source": "Plan C (the group's own plan)",
+          "url": "https://samurai-curry.com/shop_shimokitazawa/",
+          "note": "Chosen by the group for Sun Dec 27: Opens 11:00 · first seating"
+        }
+      ],
+      "confidence": 0.8
+    },
+    {
+      "name": "Shimokitazawa vintage",
+      "name_ja": null,
+      "city": "Tokyo",
+      "area": "Tokyo",
+      "kind": "shopping",
+      "why": "Shimokitazawa vintage. (From Plan C, the group's own plan for Sun Dec 27: \"Sunday — rockabillies · Shimokita · B.LEAGUE at Toyota Arena · Kōenji vintage · Thermae-yu\".)",
+      "best_time": "12:10–12:50 in Plan C",
+      "dates": "2026-12-27",
+      "price": null,
+      "booking": null,
+      "group_of_8": null,
+      "hours": "Flamingo 11:00–21:00 (weekends) · New York Joe Exchange 12:00–20:00.",
+      "visit_minutes": 40,
+      "first_last": null,
+      "lat": 35.6616,
+      "lng": 139.668,
+      "wish_ids": [
+        "w23"
+      ],
+      "evidence": [
+        {
+          "source": "Plan C (the group's own plan)",
+          "url": "https://www.flamingo-online.jp/f/shoplist",
+          "note": "Chosen by the group for Sun Dec 27: Quick look — buy in Kōenji"
+        }
+      ],
+      "confidence": 0.8
+    },
+    {
+      "name": "B.LEAGUE: Tokyo Sunrockers vs Ibaraki Robots",
+      "name_ja": null,
+      "city": "Tokyo",
+      "area": "江東区",
+      "kind": "event",
+      "why": "TOYOTA ARENA TOKYO. B.LEAGUE: Tokyo Sunrockers vs Ibaraki Robots at the new Toyota Arena Tokyo. (From Plan C, the group's own plan for Sun Dec 27: \"Sunday — rockabillies · Shimokita · B.LEAGUE at Toyota Arena · Kōenji vintage · Thermae-yu\".)",
+      "best_time": "13:50–16:15 in Plan C",
+      "dates": "2026-12-27",
+      "price": "¥4,000 pp",
+      "booking": "foreign cards often fail on B.LEAGUE ticketing — choose コンビニ支払い (pay at a 7-Eleven/FamilyMart) or ask the Airbnb host to buy.",
+      "group_of_8": null,
+      "hours": null,
+      "visit_minutes": 145,
+      "first_last": null,
+      "lat": 35.626375,
+      "lng": 139.782997,
+      "wish_ids": [
+        "w15"
+      ],
+      "evidence": [
+        {
+          "source": "Plan C (the group's own plan)",
+          "url": "https://www.toyota-arena-tokyo.jp",
+          "note": "Chosen by the group for Sun Dec 27: Tip-off 14:05 · tickets via convenience-store pay"
+        }
+      ],
+      "confidence": 0.8
+    },
+    {
+      "name": "Kōenji vintage clothing crawl",
+      "name_ja": null,
+      "city": "Tokyo",
+      "area": "Tokyo",
+      "kind": "shopping",
+      "why": "Kōenji vintage — cheaper than Shimokita. (From Plan C, the group's own plan for Sun Dec 27: \"Sunday — rockabillies · Shimokita · B.LEAGUE at Toyota Arena · Kōenji vintage · Thermae-yu\".)",
+      "best_time": "17:10–19:00 in Plan C",
+      "dates": "2026-12-27",
+      "price": null,
+      "booking": null,
+      "group_of_8": null,
+      "hours": "Whistler 12:00–21:00 (heritage/workwear) · 2nd Street 11:00–21:00 · Trefac Style 10:00–21:00.",
+      "visit_minutes": 110,
+      "first_last": null,
+      "lat": 35.704,
+      "lng": 139.6495,
+      "wish_ids": [
+        "w23"
+      ],
+      "evidence": [
+        {
+          "source": "Plan C (the group's own plan)",
+          "url": "https://www.instagram.com/whistler_chart/",
+          "note": "Chosen by the group for Sun Dec 27: Spend the shopping money here"
+        }
+      ],
+      "confidence": 0.8
+    },
+    {
+      "name": "Kōenji",
+      "name_ja": null,
+      "city": "Tokyo",
+      "area": "杉並区",
+      "kind": "bar",
+      "why": "jazz kissa & gādo-shita izakaya. Kōenji night: cheap yakitori under the JR tracks, then live music. (From Plan C, the group's own plan for Sun Dec 27: \"Sunday — rockabillies · Shimokita · B.LEAGUE at Toyota Arena · Kōenji vintage · Thermae-yu\".)",
+      "best_time": "19:00–22:00 in Plan C",
+      "dates": "2026-12-27",
+      "price": "¥6,500 pp",
+      "booking": null,
+      "group_of_8": null,
+      "hours": null,
+      "visit_minutes": 180,
+      "first_last": null,
+      "lat": 35.705339,
+      "lng": 139.649864,
+      "wish_ids": [
+        "w24"
+      ],
+      "evidence": [
+        {
+          "source": "Plan C (the group's own plan)",
+          "url": "https://jirokichi.net/",
+          "note": "Chosen by the group for Sun Dec 27: Bariki under the tracks → JIROKICHI live"
+        }
+      ],
+      "confidence": 0.8
+    },
+    {
+      "name": "Thermae-yu (24h onsen, Kabukichō)",
+      "name_ja": null,
+      "city": "Tokyo",
+      "area": "Tokyo",
+      "kind": "onsen",
+      "why": "Thermae-yu — 24h natural-spring onsen in Kabukichō. (From Plan C, the group's own plan for Sun Dec 27: \"Sunday — rockabillies · Shimokita · B.LEAGUE at Toyota Arena · Kōenji vintage · Thermae-yu\".)",
+      "best_time": "22:30–00:00 in Plan C",
+      "dates": "2026-12-27",
+      "price": "¥2,800 pp",
+      "booking": null,
+      "group_of_8": null,
+      "hours": "24h. Online tickets are cheaper than the door. Late-night surcharge after midnight.",
+      "visit_minutes": 90,
+      "first_last": null,
+      "lat": 35.694514,
+      "lng": 139.705016,
+      "wish_ids": [
+        "w22"
+      ],
+      "evidence": [
+        {
+          "source": "Plan C (the group's own plan)",
+          "url": "https://thermae-yu.jp/",
+          "note": "Chosen by the group for Sun Dec 27: Buy online · leave before midnight"
+        }
+      ],
+      "confidence": 0.8
+    },
+    {
+      "name": "Ameyoko year-end market",
+      "name_ja": null,
+      "city": "Tokyo",
+      "area": "Tokyo",
+      "kind": "event",
+      "why": "Ameyoko — Tokyo's year-end market street. (From Plan C, the group's own plan for Mon Dec 28: \"Year-end Tokyo — Ameyoko · Ginza · Tokyo Tower · Gonpachi farewell · Round1 till 3am\".)",
+      "best_time": "09:30–11:15 in Plan C",
+      "dates": "2026-12-28",
+      "price": null,
+      "booking": null,
+      "group_of_8": null,
+      "hours": null,
+      "visit_minutes": 105,
+      "first_last": null,
+      "lat": 35.709991,
+      "lng": 139.774602,
+      "wish_ids": [],
+      "evidence": [
+        {
+          "source": "Plan C (the group's own plan)",
+          "url": "https://www.ameyoko.net/",
+          "note": "Chosen by the group for Mon Dec 28: Year-end rush — pick a meet-up point"
+        }
+      ],
+      "confidence": 0.8
+    },
+    {
+      "name": "Tokyo Tonkatsu Gabuu",
+      "name_ja": "東京とんかつ がぶう",
+      "city": "Tokyo",
+      "area": "Tokyo",
+      "kind": "food",
+      "why": "Ueno. Tokyo Tonkatsu Gabuu — Tabelog Tonkatsu Top 100 within 10 months of opening. (From Plan C, the group's own plan for Mon Dec 28: \"Year-end Tokyo — Ameyoko · Ginza · Tokyo Tower · Gonpachi farewell · Round1 till 3am\".)",
+      "best_time": "11:20–12:20 in Plan C",
+      "dates": "2026-12-28",
+      "price": "¥2,500 pp",
+      "booking": null,
+      "group_of_8": null,
+      "hours": "lunch 11:30–15:00 (LO 14:00), no lunch reservations. Irregular closures posted on Instagram — check the week before.",
+      "visit_minutes": 60,
+      "first_last": null,
+      "lat": 35.7083,
+      "lng": 139.7735,
+      "wish_ids": [],
+      "evidence": [
+        {
+          "source": "Plan C (the group's own plan)",
+          "url": "https://tabelog.com/tokyo/A1311/A131101/13308066/",
+          "note": "Chosen by the group for Mon Dec 28: At the door by 11:20 for the 11:30 opening"
+        }
+      ],
+      "confidence": 0.8
+    },
+    {
+      "name": "UNIQLO Ginza (12-floor flagship)",
+      "name_ja": null,
+      "city": "Tokyo",
+      "area": "Tokyo",
+      "kind": "shopping",
+      "why": "UNIQLO Ginza — 12-floor flagship. (From Plan C, the group's own plan for Mon Dec 28: \"Year-end Tokyo — Ameyoko · Ginza · Tokyo Tower · Gonpachi farewell · Round1 till 3am\".)",
+      "best_time": "12:40–13:25 in Plan C",
+      "dates": "2026-12-28",
+      "price": null,
+      "booking": null,
+      "group_of_8": null,
+      "hours": "11:00–21:00.",
+      "visit_minutes": 45,
+      "first_last": null,
+      "lat": 35.670198,
+      "lng": 139.763425,
+      "wish_ids": [
+        "w23"
+      ],
+      "evidence": [
+        {
+          "source": "Plan C (the group's own plan)",
+          "url": "https://map.uniqlo.com/jp/ja/detail/10101397",
+          "note": "Chosen by the group for Mon Dec 28: Tax-free register in store"
+        }
+      ],
+      "confidence": 0.8
+    },
+    {
+      "name": "Itoya Ginza",
+      "name_ja": null,
+      "city": "Tokyo",
+      "area": "Tokyo",
+      "kind": "shopping",
+      "why": "Itoya — 12-floor stationery store. (From Plan C, the group's own plan for Mon Dec 28: \"Year-end Tokyo — Ameyoko · Ginza · Tokyo Tower · Gonpachi farewell · Round1 till 3am\".)",
+      "best_time": "13:25–13:55 in Plan C",
+      "dates": "2026-12-28",
+      "price": null,
+      "booking": null,
+      "group_of_8": null,
+      "hours": "Mon–Sat 10:00–20:00.",
+      "visit_minutes": 30,
+      "first_last": null,
+      "lat": 35.672957,
+      "lng": 139.767425,
+      "wish_ids": [],
+      "evidence": [
+        {
+          "source": "Plan C (the group's own plan)",
+          "url": "https://www.ito-ya.co.jp/ginza/",
+          "note": "Chosen by the group for Mon Dec 28"
+        }
+      ],
+      "confidence": 0.8
+    },
+    {
+      "name": "Dover Street Market Ginza",
+      "name_ja": null,
+      "city": "Tokyo",
+      "area": "東京都中央区",
+      "kind": "shopping",
+      "why": "Dover Street Market Ginza. (From Plan C, the group's own plan for Mon Dec 28: \"Year-end Tokyo — Ameyoko · Ginza · Tokyo Tower · Gonpachi farewell · Round1 till 3am\".)",
+      "best_time": "13:55–14:40 in Plan C",
+      "dates": "2026-12-28",
+      "price": null,
+      "booking": null,
+      "group_of_8": null,
+      "hours": "11:00–20:00.",
+      "visit_minutes": 45,
+      "first_last": null,
+      "lat": 35.670244,
+      "lng": 139.763466,
+      "wish_ids": [
+        "w23"
+      ],
+      "evidence": [
+        {
+          "source": "Plan C (the group's own plan)",
+          "url": "https://ginza.doverstreetmarket.com/",
+          "note": "Chosen by the group for Mon Dec 28"
+        }
+      ],
+      "confidence": 0.8
+    },
+    {
+      "name": "Azabudai Hills",
+      "name_ja": null,
+      "city": "Tokyo",
+      "area": "港区",
+      "kind": "shopping",
+      "why": "Azabudai Hills. (From Plan C, the group's own plan for Mon Dec 28: \"Year-end Tokyo — Ameyoko · Ginza · Tokyo Tower · Gonpachi farewell · Round1 till 3am\".)",
+      "best_time": "15:00–15:40 in Plan C",
+      "dates": "2026-12-28",
+      "price": null,
+      "booking": null,
+      "group_of_8": null,
+      "hours": null,
+      "visit_minutes": 40,
+      "first_last": null,
+      "lat": 35.661154,
+      "lng": 139.740791,
+      "wish_ids": [],
+      "evidence": [
+        {
+          "source": "Plan C (the group's own plan)",
+          "url": "https://www.azabudai-hills.com/",
+          "note": "Chosen by the group for Mon Dec 28: Free · great food basement"
+        }
+      ],
+      "confidence": 0.8
+    },
+    {
+      "name": "Zōjō-ji + Shiba Park",
+      "name_ja": null,
+      "city": "Tokyo",
+      "area": "Minato-ku",
+      "kind": "sight",
+      "why": "Tokyo Tower at sunset (free). Zōjō-ji temple + Shiba Park with Tokyo Tower behind. (From Plan C, the group's own plan for Mon Dec 28: \"Year-end Tokyo — Ameyoko · Ginza · Tokyo Tower · Gonpachi farewell · Round1 till 3am\".)",
+      "best_time": "15:45–17:00 in Plan C",
+      "dates": "2026-12-28",
+      "price": null,
+      "booking": null,
+      "group_of_8": null,
+      "hours": "grounds free; main hall 6:00–17:30.",
+      "visit_minutes": 75,
+      "first_last": null,
+      "lat": 35.65728,
+      "lng": 139.74834,
+      "wish_ids": [],
+      "evidence": [
+        {
+          "source": "Plan C (the group's own plan)",
+          "url": "https://www.zojoji.or.jp/en/",
+          "note": "Chosen by the group for Mon Dec 28: Free sunset under Tokyo Tower (~16:35)"
+        }
+      ],
+      "confidence": 0.8
+    },
+    {
+      "name": "Gonpachi Nishi-Azabu",
+      "name_ja": null,
+      "city": "Tokyo",
+      "area": "東京都港区",
+      "kind": "food",
+      "why": "farewell dinner. Gonpachi Nishi-Azabu — the 'Kill Bill' izakaya. (From Plan C, the group's own plan for Mon Dec 28: \"Year-end Tokyo — Ameyoko · Ginza · Tokyo Tower · Gonpachi farewell · Round1 till 3am\".)",
+      "best_time": "18:00–20:30 in Plan C",
+      "dates": "2026-12-28",
+      "price": "¥8,000 pp",
+      "booking": "online only takes ≤7 → email or the party form.",
+      "group_of_8": null,
+      "hours": "11:30–27:30, no closed day.",
+      "visit_minutes": 150,
+      "first_last": null,
+      "lat": 35.656984,
+      "lng": 139.726738,
+      "wish_ids": [],
+      "evidence": [
+        {
+          "source": "Plan C (the group's own plan)",
+          "url": "https://gonpachi.jp/nishi-azabu/",
+          "note": "Chosen by the group for Mon Dec 28: Booked 18:00 by email · ask for 2F"
+        }
+      ],
+      "confidence": 0.8
+    },
+    {
+      "name": "ROUND1 Stadium DiverCity",
+      "name_ja": null,
+      "city": "Tokyo",
+      "area": "Tokyo",
+      "kind": "experience",
+      "why": "farewell night. ROUND1 Stadium DiverCity. (From Plan C, the group's own plan for Mon Dec 28: \"Year-end Tokyo — Ameyoko · Ginza · Tokyo Tower · Gonpachi farewell · Round1 till 3am\".)",
+      "best_time": "21:15–03:00 in Plan C",
+      "dates": "2026-12-28",
+      "price": "¥3,500 pp",
+      "booking": null,
+      "group_of_8": null,
+      "hours": "normally Mon–Thu 8:00–6:00 — re-check year-end hours.",
+      "visit_minutes": 345,
+      "first_last": null,
+      "lat": 35.6253,
+      "lng": 139.7754,
+      "wish_ids": [
+        "w6"
+      ],
+      "evidence": [
+        {
+          "source": "Plan C (the group's own plan)",
+          "url": "https://www.round1.co.jp/shop/tenpo/tokyo-divercity.html",
+          "note": "Chosen by the group for Mon Dec 28: Farewell all-nighter · 2 taxis back"
+        }
+      ],
+      "confidence": 0.8
+    },
+    {
+      "name": "MEGA Don Quijote Shinjuku Higashiguchi",
+      "name_ja": null,
+      "city": "Tokyo",
+      "area": "Tokyo",
+      "kind": "shopping",
+      "why": "MEGA Don Quijote Shinjuku — 24h. (From Plan C, the group's own plan for Tue Dec 29: \"Last haul → Haneda · fly 17:20\".)",
+      "best_time": "10:15–11:45 in Plan C",
+      "dates": "2026-12-29",
+      "price": null,
+      "booking": null,
+      "group_of_8": null,
+      "hours": null,
+      "visit_minutes": 90,
+      "first_last": null,
+      "lat": 35.6934,
+      "lng": 139.7025,
+      "wish_ids": [
+        "w23"
+      ],
+      "evidence": [
+        {
+          "source": "Plan C (the group's own plan)",
+          "url": "https://www.donki.com/store/shop_detail.php?shop_id=449",
+          "note": "Chosen by the group for Tue Dec 29: Tourist coupon + tax-free"
+        }
+      ],
+      "confidence": 0.8
+    },
+    {
+      "name": "Isetan Shinjuku",
+      "name_ja": null,
+      "city": "Tokyo",
+      "area": "Tokyo",
+      "kind": "food",
+      "why": "depachika lunch. Isetan Shinjuku depachika (food hall). (From Plan C, the group's own plan for Tue Dec 29: \"Last haul → Haneda · fly 17:20\".)",
+      "best_time": "11:45–12:45 in Plan C",
+      "dates": "2026-12-29",
+      "price": "¥3,000 pp",
+      "booking": null,
+      "group_of_8": null,
+      "hours": "last year Dec 27–30 were 10:00–20:00. Year-end market = at its best.",
+      "visit_minutes": 60,
+      "first_last": null,
+      "lat": 35.6918,
+      "lng": 139.7047,
+      "wish_ids": [],
+      "evidence": [
+        {
+          "source": "Plan C (the group's own plan)",
+          "url": "https://www.mistore.jp/store/shinjuku.html",
+          "note": "Chosen by the group for Tue Dec 29: Buy bentos — eat on the bus"
+        }
+      ],
+      "confidence": 0.8
+    }
+  ],
+  "notes": "Tokyo · planc: the group's own Plan C, to verify and keep where it survives. Plan C Mon Dec 14: Fly to Japan — booking checklist day | Plan C Tue Dec 15: Land HND → Ninja House · Shinjuku first night | Plan C Wed Dec 16: Cat temple · Boro-ichi · Harajuku streetwear crawl · Shibuya Sky sunset · karaoke | Plan C Thu Dec 17: Old Tokyo — Tsukiji · Ryōgoku · National Museum · mita sneakers · Hagoita-ichi · private sushi | Plan C Fri Dec 18: Next-gen Tokyo — teamLab · Toyosu · Odaiba Gundam · Fuunji · NOAH wrestling · Golden Gai Friday | Plan C Sat Dec 19: Tokyo → Hakone · Open-Air Museum · villa wagyu cook-off + onsen | Plan C Sun Dec 27: Sunday — rockabillies · Shimokita · B.LEAGUE at Toyota Arena · Kōenji vintage · Thermae-yu | Plan C Mon Dec 28: Year-end Tokyo — Ameyoko · Ginza · Tokyo Tower · Gonpachi farewell · Round1 till 3am | Plan C Tue Dec 29: Last haul → Haneda · fly 17:20"
+}

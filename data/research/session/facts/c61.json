@@ -2,70 +2,41 @@
   "open": [
     {
       "dates": [
-        "2026-12-15",
-        "2026-12-16",
-        "2026-12-17",
-        "2026-12-18",
         "2026-12-19",
-        "2026-12-26",
-        "2026-12-27",
-        "2026-12-28",
-        "2026-12-29"
+        "2026-12-20"
       ],
-      "open": "11:30",
-      "close": "15:00",
-      "quote": "11:30～15:00",
-      "url": "https://www.hotpepper.jp/strJ004509938/"
+      "open": "09:00",
+      "close": "19:00",
+      "quote": "土日祝　9：00～19：00（最終入場18：00）",
+      "url": "https://www.yunessun.com/"
     },
     {
       "dates": [
-        "2026-12-15",
-        "2026-12-16",
-        "2026-12-17",
-        "2026-12-18",
-        "2026-12-19",
-        "2026-12-26",
-        "2026-12-27",
-        "2026-12-28",
-        "2026-12-29"
+        "2026-12-21"
       ],
-      "open": "17:00",
-      "close": "23:30",
-      "quote": "17:00～23:30",
-      "url": "https://www.hotpepper.jp/strJ004509938/"
+      "open": "10:00",
+      "close": "18:00",
+      "quote": "平日　10：00～18：00（最終入場17：00）",
+      "url": "https://www.yunessun.com/"
     }
   ],
   "closed": [],
-  "last_entry": {
-    "time": "23:00",
-    "quote": "料理L.O. 23:00",
-    "url": "https://www.hotpepper.jp/strJ004509938/"
-  },
-  "prices": [
-    {
-      "what": "Banquet course, range 6000-8500 (per course, by menu)",
-      "yen": 6000,
-      "quote": "選べるコースは6000円～8500円まで用意",
-      "url": "https://www.hotpepper.jp/strJ004509938/"
-    }
-  ],
+  "last_entry": null,
+  "prices": [],
   "fixed_minutes": null,
   "time_limit": null,
-  "group": {
-    "text": "Private rooms for 6-8 people, booking preferred; 貸切 space for 10-45 people",
-    "quote": "6名様～8名様用の個室をご用意",
-    "url": "https://www.hotpepper.jp/strJ004509938/"
-  },
-  "booking": {
-    "text": "Online booking: instant booking until 21:00 on the day of visit; request booking until 17:00 the day before",
-    "quote": "即予約 来店日の当日21時まで受付",
-    "url": "https://www.hotpepper.jp/strJ004509938/"
-  },
+  "group": null,
+  "booking": null,
   "notes": [
     {
-      "text": "No regular closing day (年中無休); no year-end or New Year hours shown on the page",
-      "quote": "定休日： 年中無休",
-      "url": "https://www.hotpepper.jp/strJ004509938/"
+      "text": "Guests with tattoos are generally not admitted; Mori no Yu only if fully covered by two designated cover seals",
+      "quote": "刺青(タトゥー・ワンポイント)を入れたお客様のご入場は原則お断りしております。",
+      "url": "https://www.yunessun.com/"
+    },
+    {
+      "text": "Weekday last entry is 17:00 (Mon 21 Dec); weekend last entry is 18:00",
+      "quote": "平日　10：00～18：00（最終入場17：00）",
+      "url": "https://www.yunessun.com/"
     }
   ]
 }

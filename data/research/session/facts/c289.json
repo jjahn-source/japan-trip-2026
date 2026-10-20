@@ -1,0 +1,27 @@
+{
+  "open": [],
+  "closed": [],
+  "last_entry": null,
+  "prices": [],
+  "fixed_minutes": null,
+  "time_limit": null,
+  "group": null,
+  "booking": null,
+  "notes": [
+    {
+      "text": "Regular closing days: none (年中無休); shop hours and holidays vary by shop",
+      "quote": "年中無休",
+      "url": "https://www.gotokyo.org/jp/kanko/taito/spot/y_001.html"
+    },
+    {
+      "text": "Shop hours and holidays vary by shop",
+      "quote": "※店舗により異なる",
+      "url": "https://www.gotokyo.org/jp/kanko/taito/spot/y_001.html"
+    },
+    {
+      "text": "Hours and holidays must be checked with the official site or the shop; no year-end hours on this page",
+      "quote": "営業時間・定休日・料金等の最新情報については、公式ウェブサイトまたは施設へ直接ご確認ください。",
+      "url": "https://www.gotokyo.org/jp/kanko/taito/spot/y_001.html"
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "open": [
+    {
+      "dates": [
+        "2026-12-15",
+        "2026-12-16",
+        "2026-12-17",
+        "2026-12-18",
+        "2026-12-19",
+        "2026-12-26",
+        "2026-12-27",
+        "2026-12-28",
+        "2026-12-29"
+      ],
+      "open": "10:00",
+      "close": "20:00",
+      "quote": "月曜日 - 日曜日 10:00 - 20:00",
+      "url": "https://www.pokemon.co.jp/shop/pokecen/megatokyo/"
+    }
+  ],
+  "closed": [],
+  "last_entry": null,
+  "prices": [],
+  "fixed_minutes": null,
+  "time_limit": null,
+  "group": null,
+  "booking": null,
+  "notes": [
+    {
+      "text": "Hours may change or the shop may close temporarily; year-end hours not listed on this page",
+      "quote": "※営業時間の変更や臨時休業をしている場合がございます。",
+      "url": "https://www.pokemon.co.jp/shop/pokecen/megatokyo/"
+    }
+  ]
+}

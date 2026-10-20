@@ -1,0 +1,61 @@
+{
+  "open": [
+    {
+      "dates": [
+        "2026-12-21"
+      ],
+      "open": "16:00",
+      "close": "24:00",
+      "quote": "[Monday] 4:00 pm - 12:00 am (L.O.11:30 pm)",
+      "url": "https://savorjapan.com/0031557218/map"
+    },
+    {
+      "dates": [
+        "2026-12-22",
+        "2026-12-23",
+        "2026-12-24",
+        "2026-12-25",
+        "2026-12-26"
+      ],
+      "open": "11:30",
+      "close": "24:00",
+      "quote": "[Tuesday-Sunday] 11:30 am - 12:00 am (L.O. 11:30 pm)",
+      "url": "https://savorjapan.com/0031557218/map"
+    }
+  ],
+  "closed": [],
+  "last_entry": {
+    "time": "23:30",
+    "quote": "[Tuesday-Sunday] 11:30 am - 12:00 am (L.O. 11:30 pm)",
+    "url": "https://savorjapan.com/0031557218/map"
+  },
+  "prices": [
+    {
+      "what": "Select Wagyu all-you-can-eat course, 90 minutes",
+      "yen": 5478,
+      "quote": "90 minutes: 5478 yen; 120 minutes: 5808 yen",
+      "url": "https://savorjapan.com/0031557218/menus"
+    },
+    {
+      "what": "Standard all-you-can-eat course, 90 minutes",
+      "yen": 3498,
+      "quote": "90 minutes: 3498 yen; 120 minutes: 3828 yen",
+      "url": "https://savorjapan.com/0031557218/menus"
+    }
+  ],
+  "fixed_minutes": null,
+  "time_limit": null,
+  "group": null,
+  "booking": {
+    "text": "All reservations via the web form on the Savor Japan listing; shop phone 06-6361-3619",
+    "quote": "All reservations will be accepted via web form to ensure a smooth reservation process.",
+    "url": "https://savorjapan.com/0031557218/map"
+  },
+  "notes": [
+    {
+      "text": "Located on the basement level of the Hachiko Building, about 4 minutes walk from Higashi-Umeda Station",
+      "quote": "Located on the basement level of the Hachiko Building",
+      "url": "https://savorjapan.com/0031557218/map"
+    }
+  ]
+}
