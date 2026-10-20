@@ -119,8 +119,15 @@ or add `open now`. Names match the way they're typed (Tōkyō = tokyo = toukyou,
 `src/lib/textmatch.ts`). Picking a stop opens it; picking a place drops a pin on the map with a Go
 button (Google Maps transit directions).
 
-Rebuild the pack when the plan changes: `npm run places` (about 5–15 minutes; Overpass is slow,
-and its answers are cached for a day in `data/.places-cache.json`).
+Rebuild the pack when the plan changes: `npm run places`. About a minute with the local OpenStreetMap
+extracts, which come from Geofabrik (Kantō, Kansai and Chūgoku, ~1 GB, refreshed daily) and are read
+with `osmium`: `brew install osmium-tool`, then `npm run osm` once (and again to refresh them; it only
+downloads what is newer). The category table's own Overpass selectors run as predicates on the extract
+(`src/lib/osmselect.ts`, `scripts/osm-local.mjs`), so the result matches what an Overpass query returns,
+and it is fresher: the Overpass mirror we used was missing edits from August and September 2026 (shops closed since were still listed).
+Without the extracts, or with `PLACES_OSM=overpass`, it asks the public Overpass servers instead: 15
+minutes to an hour, and it fails when they are down (answers are cached for a day in
+`data/.places-cache.json`). An area outside the three regions falls back to Overpass by itself.
 
 | What | Source | Key |
 |---|---|---|

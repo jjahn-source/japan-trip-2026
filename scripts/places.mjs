@@ -10,10 +10,13 @@
 // index (Overture: far more restaurants and bars in Japan, with websites). Categories come from
 // src/lib/categories.ts, the same table the search box reads.
 //
-// Run: npm run places (builds first, because the stops are read from the built site). ~3 minutes.
+// Run: npm run places (builds first, because the stops are read from the built site). With the local OSM
+// extracts (npm run osm, once) about a minute; asking Overpass instead is 15 minutes to an hour, and fails
+// when the servers are down. PLACES_OSM=local|overpass forces one; the default uses the extracts if present.
 import { readFile, writeFile, mkdir, stat } from 'node:fs/promises';
 import { CATS, catsOfTags, catsOfTrek } from '../src/lib/categories.ts';
 import { fold, words } from '../src/lib/textmatch.ts';
+import { available as localAvailable, localOsm } from './osm-local.mjs';
 
 const UA = 'japan-plan-c-trip-site/1.0 (private trip planner; build-time place pack)';
 const RADIUS = 900; // metres from a stop: about an 11-minute walk
@@ -61,7 +64,9 @@ const sels = CATS.flatMap((c) => c.osm ?? []);
 async function overpass(box) {
   const key = `osm:${box.join(',')}`;
   if (cache[key]) return cache[key];
-  const q = `[out:json][timeout:120][bbox:${box.join(',')}];(${sels.map((s) => `nwr${s};`).join('')});out center tags;`;
+  // Declared limits count against the server's budget (a request is admitted only if they fit in half of what
+  // is free), so ask for what an area needs: the densest one, Shinjuku, is under 20,000 elements.
+  const q = `[out:json][timeout:60][maxsize:134217728][bbox:${box.join(',')}];(${sels.map((s) => `nwr${s};`).join('')});out center tags;`;
   for (let attempt = 0; attempt < 6; attempt++) {
     const url = OVERPASS[attempt % OVERPASS.length];
     try {
@@ -76,14 +81,36 @@ async function overpass(box) {
     if (attempt % OVERPASS.length === OVERPASS.length - 1) await sleep(30000); // the Overpass wiki: after a 429 or 406, pause 30 s
   }
   console.log(`  gave up on area ${box.join(',')}`);
-  return [];
+  return null; // not []: an area that failed must not look like an area with nothing in it
 }
 const osm = [];
-for (const [i, box] of boxes.entries()) {
+let todo = boxes;
+// The local Geofabrik extracts when they are there (seconds, repeatable, no server to depend on); Overpass
+// for an area they don't cover, or when asked: PLACES_OSM=overpass. `npm run osm` fetches the extracts.
+const mode = process.env.PLACES_OSM ?? 'auto';
+if (mode !== 'overpass') {
+  if (await localAvailable()) {
+    const local = await localOsm(boxes, sels);
+    osm.push(...local.elements);
+    todo = local.missing;
+  } else if (mode === 'local') throw new Error('PLACES_OSM=local, but osmium or the extracts are missing: brew install osmium-tool && npm run osm');
+  else console.log('no local OSM extracts (npm run osm); asking Overpass');
+}
+const failed = [];
+for (const [i, box] of todo.entries()) {
   const els = await overpass(box);
-  console.log(`OSM area ${i + 1}/${boxes.length}: ${els.length} elements`);
-  osm.push(...els);
+  console.log(`OSM area ${i + 1}/${todo.length}: ${els ? els.length : 'failed'} elements`);
+  if (els) osm.push(...els); else failed.push(box);
   await sleep(1500);
+}
+// One more go at the areas that failed, after the servers have had time to recover.
+if (failed.length) {
+  await sleep(60000);
+  for (const box of failed) {
+    const els = await overpass(box);
+    console.log(`OSM retry ${box.join(',')}: ${els ? els.length : 'failed again'} elements`);
+    if (els) osm.push(...els);
+  }
 }
 
 // ── 3. TREK Places: nearest by category around each distinct stop ──
