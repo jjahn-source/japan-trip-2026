@@ -124,6 +124,16 @@ test('hostile input is refused without harm', async () => {
   assert.equal((await call('/debug/alerts', undefined, { method: 'GET' })).status, 404);
 });
 
+test('a burst from one address is slowed down; another address is unaffected', async () => {
+  const stop = plan.stops[1].id;
+  const send = (ip) => fetch(`${LIVE}/api/changes`, { method: 'POST', headers: { 'content-type': 'application/json', 'x-test-limits': '1', 'x-test-ip': ip }, body: JSON.stringify({ kind: 'stop', target: stop, author: 'Spam', patch: { note: 'x' } }) }).then((r) => r.status);
+  const codes = []; for (let i = 0; i < 70; i++) codes.push(await send('203.0.113.9'));
+  console.log(`  70 saves in a burst from one address: ${codes.filter((c) => c === 200).length} saved, ${codes.filter((c) => c === 429).length} told to slow down`);
+  assert.equal(codes.filter((c) => c === 200).length, 60);
+  assert.equal(codes.filter((c) => c === 429).length, 10);
+  assert.equal(await send('198.51.100.7'), 200);
+});
+
 test('forty phones at most; twenty pushes a run, the rest the next minute', async () => {
   sql('DELETE FROM subs; DELETE FROM sent;');
   for (let i = 0; i < 40; i++) assert.equal((await subscribe(`cap${i}`, 'Asia/Tokyo')).status, 200);

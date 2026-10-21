@@ -9,7 +9,8 @@
   import { TripMap, phaseAt } from './map';
   import { sunHeight } from './lines';
   import { alerts, type Alert } from './alerts';
-  import { startLive } from './live.svelte';
+  import { live, startLive } from './live.svelte';
+  import { keepZone } from './notify';
   import TripHome from './TripHome.svelte';
   import DayView from './DayView.svelte';
   import Lists from './Lists.svelte';
@@ -41,7 +42,7 @@
     const unbind = bindHistory();
     const loaded = load();
     let stopLive: (() => void) | null = null;
-    loaded.then((d) => { stopLive = startLive(d); return alerts(d, todayN()).then((a) => (alertList = a)); }).catch(() => (loadError = true));
+    loaded.then((d) => { stopLive = startLive(d); keepZone(live.name); return alerts(d, todayN()).then((a) => (alertList = a)); }).catch(() => (loadError = true));
     let cancelled = false;
     // The map starts once the trip is on screen (or after 2 s), so the day's text is readable before
     // the 3D city's 1.8 MB engine competes for the phone's processor.

@@ -1,13 +1,12 @@
 {
-  "name": "Japan Plan C · Dec 14–29 2026",
-  "short_name": "Japan C",
-  "description": "Eight friends, sixteen days, one stamp card.",
+  "name": "Japan · Dec 15–29 2026",
+  "short_name": "Japan",
+  "description": "The Japan trip for eight: every day hour by hour, the last train home, and alerts on your phone.",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",
-  "orientation": "portrait",
-  "background_color": "#f6f7f9",
-  "theme_color": "#3a2f8f",
+  "background_color": "#0e112a",
+  "theme_color": "#0e112a",
   "lang": "en",
   "icons": [
     { "src": "icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any maskable" },

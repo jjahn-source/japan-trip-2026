@@ -205,8 +205,11 @@ Sized for Cloudflare's free plan, and tested at its limits (`npm run stress:live
   from the version it was read at. 1,000 saves, 40 at a time, all land and match the full history.
 - **CPU (10 ms a run).** Alerts for the whole plan take ~0.4 ms per time zone; a run sends at most 20
   pushes (~0.4 ms each) and the rest follow a minute later, inside the 15-minute window.
-- **Abuse.** Bodies over 8 KB, or without a declared length, are refused unread; at most 40 phones can
-  turn alerts on; subscriptions must point at Apple's, Google's, Mozilla's or Microsoft's push service.
+- **Abuse.** Bodies over 8 KB, or without a declared length, are refused unread; one address can save at
+  most 60 changes a minute (counted in D1 against a hash of the address, so it holds across every
+  Cloudflare instance; an in-memory count and Cloudflare's rate-limit binding both let bursts through);
+  at most 40 phones can turn alerts on; subscriptions must point at Apple's, Google's, Mozilla's or
+  Microsoft's push service. Anything not in the trip gets a proper 404 page.
 - **Phones.** Requests give up after 10 s (a tunnel can't jam later checks); repeated edits made
   offline to the same thing merge into one.
 - **Alerts.** From today to the end of the trip, in three time zones, with the cron running only every

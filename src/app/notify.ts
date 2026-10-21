@@ -32,9 +32,21 @@ async function post(path: string, body: unknown) {
   if (!r.ok) throw new Error(j.error ?? `The server said ${r.status}`);
   return j;
 }
+const zone = () => Intl.DateTimeFormat().resolvedOptions().timeZone;
 async function register(sub: PushSubscription, prefs: Prefs, name: string) {
-  await post('/subscribe', { subscription: sub.toJSON(), device, name, tz: Intl.DateTimeFormat().resolvedOptions().timeZone, prefs });
+  await post('/subscribe', { subscription: sub.toJSON(), device, name, tz: zone(), prefs });
   keepPrefs(prefs);
+  try { localStorage.setItem('jt:alert-tz', zone()); } catch { /* fine */ }
+}
+
+/** Deadline reminders go out at 9am where the phone is: after a flight to Japan, tell the server the
+ *  new time zone (on the next app open with signal). */
+export async function keepZone(name: string) {
+  try {
+    if (localStorage.getItem('jt:alert-tz') === zone()) return;
+    const sub = await subscription();
+    if (sub && Notification.permission === 'granted') await register(sub, savedPrefs(), name);
+  } catch { /* offline: next time */ }
 }
 
 /** Asks for permission (must run from a tap) and subscribes this phone. */

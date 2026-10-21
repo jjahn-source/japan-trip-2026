@@ -25,7 +25,9 @@ export const live = $state({
   state: store.get<Live>('jt:live', EMPTY),
   outbox: store.get<Pending[]>('jt:outbox', []),
   name: store.get('jt:name', ''),
+  /** The last change the server turned down, and which stop, to-do or day it was for. */
   error: '',
+  errorFor: '',
   syncedAt: 0,
 });
 
@@ -115,7 +117,8 @@ async function flush() {
       try { res = await call('/changes', { method: 'POST', body: JSON.stringify({ ...p, author: live.name || 'Someone', device }) }); }
       catch { break; } // no signal: try again later
       if (res.r.ok && res.j) { live.state = res.j; store.set('jt:live', res.j); }
-      else if (res.r.status >= 400 && res.r.status < 500) live.error = res.j?.error ?? "That change couldn't be saved.";
+      else if (res.r.status === 429) break; // asked to slow down: keep it and send it later
+      else if (res.r.status >= 400 && res.r.status < 500) { live.error = res.j?.error ?? "That change couldn't be saved."; live.errorFor = `${p.kind}:${p.target}`; }
       else break; // server trouble: keep it for later
       live.outbox = live.outbox.slice(1);
       store.set('jt:outbox', live.outbox);
@@ -125,7 +128,7 @@ async function flush() {
 
 /** Saves a change: on screen at once, on the server when there's signal. */
 export function change(kind: Kind, target: string, patch: Record<string, unknown>) {
-  live.error = '';
+  live.error = ''; live.errorFor = '';
   // Another unsent change to the same thing (a tick toggled on and off in a tunnel) merges into it,
   // unless that one is on its way to the server right now.
   const i = live.outbox.findLastIndex((p) => p.kind === kind && p.target === target);

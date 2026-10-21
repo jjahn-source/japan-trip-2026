@@ -3,21 +3,26 @@
   // Saved on this phone at once and sent to everyone (src/app/live.svelte.ts); "Back to the plan" undoes it.
   import { icon } from '../lib/icons';
   import { ago, change, live, setName } from './live.svelte';
+  import { isoNear } from '../lib/live';
   import type { AppStop } from './types';
 
   let { stop }: { stop: AppStop } = $props();
   let editing = $state(false);
   let start = $state(''), end = $state(''), note = $state(''), cancelled = $state(false), name = $state('');
   const planned = $derived((stop.live?.planned ?? `${stop.start}–${stop.end}`).split('–'));
-  $effect(() => { void stop.id; editing = false; });
+  $effect(() => { void stop.id; editing = false; problem = ''; });
 
   function open() {
     start = stop.start; end = stop.end; note = stop.live?.note ?? ''; cancelled = !!stop.live?.cancelled; name = live.name;
     editing = true;
   }
+  let problem = $state('');
   function save(e: Event) {
     e.preventDefault();
     if (!live.name && !name.trim()) return;
+    // Times as the day reads them (after midnight is the night before's): the end comes after the start.
+    if (Date.parse(isoNear(end, stop.endISO)) <= Date.parse(isoNear(start, stop.startISO))) { problem = 'The end has to be after the start.'; return; }
+    problem = '';
     if (name.trim() && name.trim() !== live.name) setName(name);
     const patch: Record<string, unknown> = {};
     // A time back at the plan's clears the change instead of storing the same time.
@@ -51,6 +56,7 @@
       <label class="wide">Note for the group<textarea bind:value={note} rows="2" maxlength="280" placeholder="Running 20 min late, meet at the north exit"></textarea></label>
       <label class="check"><input type="checkbox" bind:checked={cancelled} /><span class="box" aria-hidden="true">{@html icon('check')}</span>Cancelled: skip this stop</label>
       {#if !live.name}<label class="wide">Your name<input bind:value={name} maxlength="40" required autocomplete="given-name" placeholder="So the group knows who changed it" /></label>{/if}
+      {#if problem}<p class="err" role="alert">{problem}</p>{/if}
       <div class="btns">
         <button type="submit" class="primary">Save for everyone</button>
         {#if stop.live}<button type="button" onclick={reset}>Back to the plan</button>{/if}
@@ -60,7 +66,7 @@
   {:else}
     <button type="button" class="pencil" onclick={open}>{@html icon('pencil')}<span>Change time, add a note or cancel</span></button>
   {/if}
-  {#if live.error}<p class="err" role="alert">{live.error}</p>{/if}
+  {#if live.error && live.errorFor === `stop:${stop.id}`}<p class="err" role="alert">{live.error}</p>{/if}
 {/if}
 
 <style>

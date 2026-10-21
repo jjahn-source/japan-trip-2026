@@ -33,6 +33,20 @@ const MAX_PUSH = 20;
 const MAX_SUBS = 40;
 const MAX_BODY = 8192;
 
+/** Saves one address may make a minute: generous for eight phones (an offline queue sends in a burst),
+ *  tight enough that a script can't spend the day's free D1 writes. Counted in D1 against a hash of the
+ *  address, so it holds across every Cloudflare instance (an in-memory count doesn't: requests spread). */
+const SAVES_PER_MINUTE = 60;
+const hashIp = async (ip: string) => [...new Uint8Array(await crypto.subtle.digest('SHA-256', new TextEncoder().encode(`jt:${ip}`)))].slice(0, 8).map((b) => b.toString(16).padStart(2, '0')).join('');
+/** Alert sign-ups and test pushes: a looser count in this instance (an unchanged sign-up writes nothing). */
+const buckets = new Map<string, { n: number; reset: number }>();
+function allow(key: string, max: number): boolean {
+  const now = Date.now(), b = buckets.get(key);
+  if (!b || now > b.reset) { if (buckets.size > 5000) buckets.clear(); buckets.set(key, { n: 1, reset: now + 60e3 }); return true; }
+  return ++b.n <= max;
+}
+const slowDown = () => json({ error: 'too many changes at once: try again in a minute' }, 429, { 'retry-after': '60' });
+
 /** Counts D1's rows read for this request (shown as x-rows-read when DEV). */
 function metered(db: DB, count: { rows: number }): DB {
   const raw = new WeakMap<Stmt, Stmt>(); // batch() only takes D1's own statements
@@ -132,6 +146,10 @@ const str = (v: unknown, max: number) => (typeof v === 'string' && v.trim() && v
 
 async function api(req: Request, env: Env, ctx: Ctx, path: string): Promise<Response> {
   const method = req.method;
+  // Locally the limits apply only when a test asks for them (the stress test saves 1,000 at once).
+  const limited = env.DEV !== '1' || req.headers.get('x-test-limits') === '1';
+  const ip = (env.DEV === '1' && req.headers.get('x-test-ip')) || req.headers.get('cf-connecting-ip') || 'local';
+  if (limited && method === 'POST' && /^\/api\/(subscribe|unsubscribe|push-test)$/.test(path) && !allow(`s:${ip}`, 10)) return slowDown();
   if (path === '/api/state' && method === 'GET') {
     const s = await current(env);
     // A phone that already has this version gets a few bytes back.
@@ -150,7 +168,12 @@ async function api(req: Request, env: Env, ctx: Ctx, path: string): Promise<Resp
     if (typeof patch === 'string') return json({ error: patch }, 400);
     const device = str(b.device, 64);
     const at = Date.now();
-    const r = await env.DB.prepare('INSERT INTO changes (kind, target, patch, author, device, at) VALUES (?, ?, ?, ?, ?, ?)').bind(kind, target, JSON.stringify(patch), author, device, at).run();
+    const who = await hashIp(ip);
+    if (limited) {
+      const recent = await env.DB.prepare('SELECT COUNT(*) AS n FROM changes WHERE ip = ? AND at > ?').bind(who, at - 60e3).first<{ n: number }>();
+      if ((recent?.n ?? 0) >= SAVES_PER_MINUTE) return slowDown();
+    }
+    const r = await env.DB.prepare('INSERT INTO changes (kind, target, patch, author, device, at, ip) VALUES (?, ?, ?, ?, ?, ?, ?)').bind(kind, target, JSON.stringify(patch), author, device, at, who).run();
     const change: Change = { id: r.meta.last_row_id, kind, target, patch, author, device, at };
     const state = await current(env);
     ctx.waitUntil((async () => {
@@ -179,7 +202,8 @@ async function api(req: Request, env: Env, ctx: Ctx, path: string): Promise<Resp
     const raw = (b?.prefs ?? {}) as Record<string, unknown>;
     const prefs = Object.fromEntries(ALERTS.map((k) => [k, raw[k] !== false]));
     await env.DB.prepare(`INSERT INTO subs (endpoint, p256dh, auth, device, name, tz, prefs, at) VALUES (?, ?, ?, ?, ?, ?, ?, ?)
-      ON CONFLICT(endpoint) DO UPDATE SET p256dh = excluded.p256dh, auth = excluded.auth, device = excluded.device, name = excluded.name, tz = excluded.tz, prefs = excluded.prefs`)
+      ON CONFLICT(endpoint) DO UPDATE SET p256dh = excluded.p256dh, auth = excluded.auth, device = excluded.device, name = excluded.name, tz = excluded.tz, prefs = excluded.prefs
+      WHERE subs.p256dh IS NOT excluded.p256dh OR subs.auth IS NOT excluded.auth OR subs.device IS NOT excluded.device OR subs.name IS NOT excluded.name OR subs.tz IS NOT excluded.tz OR subs.prefs IS NOT excluded.prefs`)
       .bind(sub.endpoint, p256dh, auth, str(b?.device, 64), str(b?.name, 40), str(b?.tz, 64), JSON.stringify(prefs), Date.now()).run();
     return json({ ok: true, prefs });
   }
