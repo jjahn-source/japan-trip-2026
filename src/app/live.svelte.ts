@@ -58,7 +58,7 @@ export function applyLive(base: AppData, it: Record<string, LiveItem>): AppData 
         const p = x.patch as StopPatch;
         return {
           ...s, start: p.start ?? s.start, end: p.end ?? s.end,
-          startISO: p.start ? isoNear(p.start, s.startISO) : s.startISO, endISO: p.end ? isoNear(p.end, s.endISO) : s.endISO,
+          startISO: p.start ? isoNear(p.start, s.startISO, d.date) : s.startISO, endISO: p.end ? isoNear(p.end, s.endISO, d.date) : s.endISO,
           live: { note: p.note ?? null, cancelled: !!p.cancelled, moved: !!(p.start || p.end), planned: `${s.start}–${s.end}`, by: x.by, at: x.at },
         };
       });

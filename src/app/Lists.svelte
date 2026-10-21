@@ -14,10 +14,14 @@
   const groups = $derived.by(() => {
     const due = (x: { due: string | null }) => (x.due ? Date.parse(`${x.due}T23:59:59+09:00`) : Infinity);
     const sorted = [...data.todos].sort((a, b) => (a.due ?? '9').localeCompare(b.due ?? '9'));
+    // After this week, a month at a time ("November"), so a long list reads as a calendar.
+    const later = sorted.filter((x) => !ticks[x.id] && due(x) >= t + week);
+    const months = [...new Set(later.map((x) => x.due?.slice(0, 7) ?? 'any'))];
+    const monthName = (ym: string) => (ym === 'any' ? 'Any time' : new Date(`${ym}-01T12:00:00Z`).toLocaleString('en-US', { month: 'long', timeZone: 'UTC' }));
     return [
       { key: 'late', title: 'Overdue', items: sorted.filter((x) => !ticks[x.id] && due(x) < t) },
       { key: 'soon', title: 'This week', items: sorted.filter((x) => !ticks[x.id] && due(x) >= t && due(x) < t + week) },
-      { key: 'later', title: 'Later', items: sorted.filter((x) => !ticks[x.id] && due(x) >= t + week) },
+      ...months.map((m) => ({ key: `later-${m}`, title: monthName(m), items: later.filter((x) => (x.due?.slice(0, 7) ?? 'any') === m) })),
       { key: 'done', title: 'Done', items: sorted.filter((x) => ticks[x.id]) },
     ].filter((g) => g.items.length);
   });

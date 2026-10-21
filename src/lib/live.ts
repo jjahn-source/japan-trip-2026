@@ -57,12 +57,18 @@ export function fold(rows: Change[]): Live {
   return [...rows].sort((a, b) => a.id - b.id).reduce(applyChange, EMPTY);
 }
 
-/** The ISO time (Japan) of HH:MM nearest to a reference time, so 00:30 after a 23:00 stop is the next
- *  calendar day and 05:00 on an all-nighter stays the morning after. */
-export function isoNear(hm: string, refISO: string): string {
+/** The ISO time (Japan) of HH:MM for a stop now at `refISO`. With the stop's trip day (`dayDate`; a trip
+ *  day runs 5am to 5am), the time stays on that day: a 23:00 stop moved to 10:00 is that morning, and
+ *  00:30 is after midnight. A stop already outside its day (05:00 ramen after an all-nighter), or no
+ *  day given, takes the occurrence nearest to where it was. */
+export function isoNear(hm: string, refISO: string, dayDate?: string): string {
   const ref = Date.parse(refISO);
   const day = Date.parse(`${new Date(ref + 9 * 3600e3).toISOString().slice(0, 10)}T${hm}:00+09:00`);
-  const t = [day - 864e5, day, day + 864e5].sort((a, b) => Math.abs(a - ref) - Math.abs(b - ref))[0];
+  const all = [day - 864e5, day, day + 864e5];
+  const from = dayDate ? Date.parse(`${dayDate}T05:00:00+09:00`) : NaN, to = from + 864e5;
+  const inDay = (t: number) => t >= from && t < to;
+  const pool = dayDate && inDay(ref) ? all.filter(inDay) : all;
+  const t = pool.sort((a, b) => Math.abs(a - ref) - Math.abs(b - ref))[0];
   return `${new Date(t + 9 * 3600e3).toISOString().slice(0, 19)}+09:00`;
 }
 /** HH:MM of a night-time train on a trip day (before noon is the morning after). */
@@ -86,11 +92,12 @@ export function exists(plan: LivePlan, kind: Kind, target: string): boolean {
 /** The plan with the group's changes on it. */
 export function applyPlan(plan: LivePlan, live: Live): LivePlan {
   const item = (k: string) => live.items[k]?.patch ?? {};
+  const dateOf = new Map(plan.days.map((d) => [d.n, d.date]));
   return {
     ...plan,
     stops: plan.stops.map((s) => {
-      const p = item(`stop:${s.id}`) as StopPatch;
-      return { ...s, s: p.start ? isoNear(p.start, s.s) : s.s, e: p.end ? isoNear(p.end, s.e) : s.e, cancelled: !!p.cancelled, note: p.note ?? null };
+      const p = item(`stop:${s.id}`) as StopPatch, date = dateOf.get(s.d);
+      return { ...s, s: p.start ? isoNear(p.start, s.s, date) : s.s, e: p.end ? isoNear(p.end, s.e, date) : s.e, cancelled: !!p.cancelled, note: p.note ?? null };
     }),
     todos: plan.todos.map((t) => ({ ...t, done: (item(`todo:${t.id}`) as TodoPatch).done ?? t.done ?? false })),
     days: plan.days.map((d) => ({ ...d, lastTrain: (item(`day:${d.n}`) as DayPatch).lastTrain ?? d.lastTrain })),

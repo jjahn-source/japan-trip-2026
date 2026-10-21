@@ -148,7 +148,7 @@
         {/if}
       </header>
 
-      <div class="livebox"><LiveEdit {stop} /></div>
+      <div class="livebox"><LiveEdit {stop} date={day.date} /></div>
 
       <div class="actions">
         {#if stop.lat != null}<a class="act primary" href={directions(stop)} target="_blank" rel="noopener">{@html icon('navigation')}<span>Directions</span></a>{/if}

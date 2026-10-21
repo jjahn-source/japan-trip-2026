@@ -87,10 +87,21 @@ export function stopOf(id: string): { day: AppDay; stop: AppStop } | null {
 
 /** ?now=2026-12-20T14:00 previews the app at a moment of the trip (Japan time). */
 export function preview(): string | null { try { return new URLSearchParams(location.search).get('now'); } catch { return null; } }
+/** The current moment as state, so everything that reads now() (the Now chip, Now/Next, the "now"
+ *  line, today's day) moves on while the app stays open: startClock() ticks it twice a minute and
+ *  whenever the app comes back to the front. */
+const clock = $state({ t: Date.now() });
+export function startClock() {
+  const tick = () => { clock.t = Date.now(); };
+  const id = setInterval(tick, 30e3);
+  const back = () => { if (document.visibilityState === 'visible') tick(); };
+  document.addEventListener('visibilitychange', back);
+  return () => { clearInterval(id); document.removeEventListener('visibilitychange', back); };
+}
 export function now(): number {
   const p = preview();
   const t = p ? Date.parse(/[+Z]/.test(p.slice(10)) ? p : `${p}${p.length <= 16 ? ':00' : ''}+09:00`) : NaN;
-  return Number.isFinite(t) ? t : Date.now();
+  return Number.isFinite(t) ? t : clock.t;
 }
 /** The day of the trip it is in Japan right now (the night counts until 5am), or null outside it. */
 export function todayN(): number | null {

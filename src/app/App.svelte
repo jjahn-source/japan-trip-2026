@@ -4,7 +4,7 @@
   // URL, the back button, the map and the pane always agree.
   import { onMount, tick, untrack } from 'svelte';
   import { icon } from '../lib/icons';
-  import { app, bindHistory, dayOf, go, href, load, now, openSheet, stopOf, ticks, todayN, type View } from './state.svelte';
+  import { app, bindHistory, dayOf, go, href, load, now, openSheet, startClock, stopOf, ticks, todayN, type View } from './state.svelte';
   import { hhmm, legTimes, minutesOf } from './types';
   import { TripMap, phaseAt } from './map';
   import { sunHeight } from './lines';
@@ -40,6 +40,7 @@
 
   onMount(() => {
     const unbind = bindHistory();
+    const stopClock = startClock();
     const loaded = load();
     let stopLive: (() => void) | null = null;
     loaded.then((d) => { stopLive = startLive(d); keepZone(live.name); return alerts(d, todayN()).then((a) => (alertList = a)); }).catch(() => (loadError = true));
@@ -55,7 +56,7 @@
     const idle = (window as { requestIdleCallback?: (f: () => void, o?: { timeout: number }) => number }).requestIdleCallback;
     const later = () => (idle ? idle(start, { timeout: 500 }) : setTimeout(start, 1));
     Promise.race([loaded.catch(() => null), new Promise((r) => setTimeout(r, 2000))]).then(() => requestAnimationFrame(later));
-    return () => { cancelled = true; unbind(); stopLive?.(); map?.stop(); map?.map?.remove(); map = null; };
+    return () => { cancelled = true; unbind(); stopClock(); stopLive?.(); map?.stop(); map?.map?.remove(); map = null; };
   });
   // The map redraws whenever its box changes (the bigger-map pill, rotation, a desktop resize). The box
   // only exists once the live app has drawn, so watch it from then on.

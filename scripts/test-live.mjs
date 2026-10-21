@@ -42,6 +42,12 @@ test('times land on the right night', () => {
   assert.equal(isoNear('00:30', '2026-12-16T23:00:00+09:00'), '2026-12-17T00:30:00+09:00');
   assert.equal(isoNear('05:00', '2026-12-26T05:00:00+09:00'), '2026-12-26T05:00:00+09:00'); // an all-nighter's morning
   assert.equal(isoNear('19:30', '2026-12-16T19:00:00+09:00'), '2026-12-16T19:30:00+09:00');
+  // With the stop's day: a late stop moved to the morning stays on its day (nearest would be the next).
+  assert.equal(isoNear('10:00', '2026-12-16T23:00:00+09:00', '2026-12-16'), '2026-12-16T10:00:00+09:00');
+  assert.equal(isoNear('00:30', '2026-12-16T23:00:00+09:00', '2026-12-16'), '2026-12-17T00:30:00+09:00');
+  assert.equal(isoNear('04:30', '2026-12-16T09:00:00+09:00', '2026-12-16'), '2026-12-17T04:30:00+09:00');
+  // A stop outside its day (the ramen at 05:00 after an all-nighter on day 11) keeps the nearest.
+  assert.equal(isoNear('05:30', '2026-12-26T05:00:00+09:00', '2026-12-25'), '2026-12-26T05:30:00+09:00');
 });
 
 test('leave-now alerts: 10 min before each ride, none for a short walk or a cancelled stop', () => {

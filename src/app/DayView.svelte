@@ -42,8 +42,7 @@
 
   // The night on the rail: where the last-train cutoff falls, a bell on each ride a phone alert goes
   // out for (by the live layer's own rules, src/lib/live.ts), and a "now" line on the day itself.
-  let clock = $state(now());
-  $effect(() => { const t = setInterval(() => (clock = now()), 30e3); return () => clearInterval(t); });
+  const clock = $derived(now());
   const night = $derived.by(() => {
     const plan: LivePlan = {
       generated: '', todos: [], days: [{ n: day.n, date: day.date, lastTrain: day.lastTrain }],

@@ -6,7 +6,7 @@
   import { isoNear } from '../lib/live';
   import type { AppStop } from './types';
 
-  let { stop }: { stop: AppStop } = $props();
+  let { stop, date }: { stop: AppStop; date: string } = $props();
   let editing = $state(false);
   let start = $state(''), end = $state(''), note = $state(''), cancelled = $state(false), name = $state('');
   const planned = $derived((stop.live?.planned ?? `${stop.start}–${stop.end}`).split('–'));
@@ -21,7 +21,7 @@
     e.preventDefault();
     if (!live.name && !name.trim()) return;
     // Times as the day reads them (after midnight is the night before's): the end comes after the start.
-    if (Date.parse(isoNear(end, stop.endISO)) <= Date.parse(isoNear(start, stop.startISO))) { problem = 'The end has to be after the start.'; return; }
+    if (Date.parse(isoNear(end, stop.endISO, date)) <= Date.parse(isoNear(start, stop.startISO, date))) { problem = 'The end has to be after the start.'; return; }
     problem = '';
     if (name.trim() && name.trim() !== live.name) setName(name);
     const patch: Record<string, unknown> = {};
