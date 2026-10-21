@@ -1,0 +1,9 @@
+# Cloudflare static assets (and Netlify): files whose names change with their content are kept for a
+# year; pages, the trip data and sw.js stay fresh (the host's default: revalidate every time).
+/_astro/*
+  Cache-Control: public, max-age=31536000, immutable
+/thumbs/*
+  Cache-Control: public, max-age=31536000, immutable
+/*
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin

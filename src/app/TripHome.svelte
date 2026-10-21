@@ -4,6 +4,7 @@
   import { icon } from '../lib/icons';
   import { app, go, now, openSheet, ticks, todayN } from './state.svelte';
   import { budgetOf } from './types';
+  import PhoneAlerts from './PhoneAlerts.svelte';
 
   const data = $derived(app.data!);
   const today = $derived(todayN());
@@ -12,7 +13,7 @@
   const t = $derived(now());
   const phase = $derived(!first ? 'before' : t < Date.parse(first.startISO) ? 'before' : last && t > Date.parse(last.endISO) ? 'after' : 'during');
   const daysLeft = $derived(first ? Math.ceil((Date.parse(first.startISO) - t) / 864e5) : 0);
-  const allStops = $derived(data.days.flatMap((d) => d.stops.map((s) => ({ d, s }))));
+  const allStops = $derived(data.days.flatMap((d) => d.stops.filter((s) => !s.live?.cancelled).map((s) => ({ d, s }))));
   const cur = $derived(allStops.find(({ s }) => Date.parse(s.startISO) <= t && t < Date.parse(s.endISO)) ?? null);
   const next = $derived(allStops.find(({ s }) => Date.parse(s.startISO) > t) ?? null);
   const open = $derived(data.todos.filter((x) => x.due && !ticks[x.id]).sort((a, b) => a.due!.localeCompare(b.due!)));
@@ -52,6 +53,8 @@
       </ul>
     </section>
   {/if}
+
+  <PhoneAlerts />
 
   <section aria-labelledby="days-h">
     <h2 id="days-h" class="sh">The days</h2>

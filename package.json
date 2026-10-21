@@ -9,8 +9,10 @@
     "build": "astro build",
     "preview": "astro preview",
     "check": "astro check",
-    "test": "node --test scripts/test-search.mjs scripts/test-itinerary.mjs scripts/test-app.mjs scripts/test-places.mjs",
+    "test": "node --test scripts/test-search.mjs scripts/test-itinerary.mjs scripts/test-app.mjs scripts/test-places.mjs scripts/test-live.mjs",
     "e2e": "node --test scripts/e2e.mjs",
+    "e2e:live": "node --test scripts/e2e-live.mjs",
+    "stress:live": "node --test --test-timeout=1800000 scripts/stress-live.mjs",
     "fonts": "astro build && node scripts/subset-fonts.mjs && astro build",
     "trending": "astro build && node scripts/trending.mjs && astro build",
     "transit": "astro build && node scripts/transit.mjs && astro build",
@@ -29,7 +31,11 @@
     "perf": "node scripts/perf.mjs",
     "sweep": "node scripts/sweep.mjs",
     "frames": "node scripts/frames.mjs",
-    "map-theme": "node scripts/map-theme.mjs"
+    "map-theme": "node scripts/map-theme.mjs",
+    "last-trains": "astro build && node scripts/last-trains.mjs && astro build",
+    "live:setup": "node scripts/live-setup.mjs",
+    "live:dev": "astro build && wrangler d1 migrations apply japan-plan-c --local && wrangler dev",
+    "live:deploy": "astro build && wrangler d1 migrations apply japan-plan-c --remote && wrangler deploy"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "0.135.0",
@@ -44,8 +50,10 @@
   "devDependencies": {
     "@astrojs/check": "0.9.10",
     "@types/node": "24.19.0",
+    "http_ece": "1.2.0",
     "playwright": "1.63.0",
     "subset-font": "2.9.0",
-    "typescript": "6.0.3"
+    "typescript": "6.0.3",
+    "wrangler": "4.147.0"
   }
 }

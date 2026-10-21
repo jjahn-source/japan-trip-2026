@@ -99,9 +99,12 @@ export function todayN(): number | null {
   return app.data?.days.find((d) => d.date === date)?.n ?? null;
 }
 
-/** Ticks of things done, saved on this phone only. */
+/** Ticks of things done: saved on this phone, and shared with the group by the live layer
+ *  (src/app/live.svelte.ts sets hooks.tick and keeps `ticks` in step with everyone's). */
 export const ticks = $state<Record<string, boolean>>((() => { try { return JSON.parse(localStorage.getItem('jt:ticks') ?? '{}'); } catch { return {}; } })());
+export const hooks: { tick: ((id: string, on: boolean) => void) | null } = { tick: null };
 export function tick(id: string, on: boolean) {
   ticks[id] = on;
   try { localStorage.setItem('jt:ticks', JSON.stringify(ticks)); } catch { /* private mode: the tick still shows this session */ }
+  hooks.tick?.(id, on);
 }

@@ -9,6 +9,19 @@ export { colourOf, inkOn, phaseAt } from './lines';
 type MB = typeof import('mapbox-gl').default;
 type MbMap = import('mapbox-gl').Map;
 type Marker = import('mapbox-gl').Marker;
+type Spot = { stops: AppStop[]; at: LngLat };
+/** A pin's numbers: runs shortened ("3–6"), a long scatter kept short ("2 +4"). */
+function pinLabel(ns: number[]): string {
+  const parts: string[] = [];
+  for (let i = 0; i < ns.length;) {
+    let j = i;
+    while (j + 1 < ns.length && ns[j + 1] === ns[j] + 1) j++;
+    parts.push(j - i >= 2 ? `${ns[i]}–${ns[j]}` : ns.slice(i, j + 1).join('·'));
+    i = j + 1;
+  }
+  const s = parts.join('·');
+  return s.length <= 7 ? s : `${ns[0]} +${ns.length - 1}`;
+}
 type Popup = import('mapbox-gl').Popup;
 type LngLat = [number, number];
 
@@ -47,6 +60,12 @@ export class TripMap {
   private wantPhase: Phase = 'dusk';
   private anim = 0;
   private run = 0;
+  /** The day's places (stops at one spot together), the stop selected, and a playing ride's two ends:
+   *  what layoutPins() groups into pins for the current zoom. */
+  private spots: Spot[] = [];
+  private picked: string | null = null;
+  private riding = new Set<string>();
+  private layoutKey = '';
   private styled = false;
   private pinMarker: Marker | null = null;
   private dot: Marker | null = null;
@@ -95,6 +114,8 @@ export class TripMap {
       map.addLayer({ id: 'play', type: 'line', source: 'play', slot: 'top', layout: { 'line-cap': 'round', 'line-join': 'round' }, paint: { 'line-color': ['get', 'colour'], 'line-width': 5.5, 'line-emissive-strength': 1 } } as never);
       // Light changes only when the camera rests, never mid-flight.
       map.on('idle', () => this.applyPhase());
+      // Pins regroup once the camera rests (zoom, rotate, a flight), never frame by frame in a ride.
+      map.on('moveend', () => { if (!this.anim) this.layoutPins(); });
       map.on('mousedown', () => this.stop());
       map.on('touchstart', () => this.stop());
     } catch (e) {
@@ -141,6 +162,7 @@ export class TripMap {
   /** The whole trip: a dashed lantern line between the places it sleeps, one marker per run of days. */
   showTrip(days: AppDay[], todayN: number | null) {
     if (!this.map || !this.mb) return;
+    this.spots = []; // no day pins to regroup on the trip view
     this.stop(); this.clearMarkers();
     this.set('day', { type: 'FeatureCollection', features: [] });
     const groups: { days: AppDay[]; at: LngLat }[] = [];
@@ -185,29 +207,74 @@ export class TripMap {
     this.set('trip', { type: 'FeatureCollection', features: [] });
     this.set('day', { type: 'FeatureCollection', features: this.dayFeatures(day) });
     const located = day.stops.filter((s) => s.lat != null);
-    // Stops at the same spot share one pin ("3·4").
-    const groups: { stops: AppStop[]; at: LngLat }[] = [];
+    // Stops at the same spot (a building, a station) are one place for good ("3·4").
+    this.spots = [];
     for (const s of located) {
-      const g = groups.find((x) => Math.hypot(x.at[0] - s.lng!, x.at[1] - s.lat!) < 0.00035);
-      if (g) g.stops.push(s); else groups.push({ stops: [s], at: [s.lng!, s.lat!] });
+      const g = this.spots.find((x) => Math.hypot(x.at[0] - s.lng!, x.at[1] - s.lat!) < 0.00035);
+      if (g) g.stops.push(s); else this.spots.push({ stops: [s], at: [s.lng!, s.lat!] });
     }
-    for (const g of groups) {
-      const el = document.createElement('button');
-      el.className = `mk-stop${g.stops.some((s) => s.cat === 'stay') ? ' is-stay' : ''}`;
-      el.dataset.ids = g.stops.map((s) => s.id).join(' ');
-      el.innerHTML = `<span class="num">${g.stops.map((s) => s.i).join('·')}</span><span class="sr-only"> ${g.stops.map((s) => esc(s.name)).join(', ')}</span>`;
-      el.addEventListener('click', (e) => { e.stopPropagation(); this.onPick(g.stops[0].id); });
-      this.markers.push(new this.mb.Marker({ element: el, anchor: 'center' }).setLngLat(g.at).addTo(this.map));
-      el.setAttribute('role', 'button'); el.removeAttribute('aria-label'); // Mapbox labels markers as images called "Map marker"; these are buttons named by their text
-    }
-    this.highlight(selected);
+    this.picked = selected;
+    this.layoutKey = '';
+    this.layoutPins();
     const sel = located.find((s) => s.id === selected);
     if (sel) this.focus(sel);
     else this.fit(located.map((s) => [s.lng!, s.lat!] as LngLat), { pad: 64, pitch: 38, bearing: -12, max: 15 });
   }
 
   highlight(id: string | null) {
-    for (const m of this.markers) { const el = m.getElement(); el.classList.toggle('is-selected', !!id && (el.dataset.ids ?? '').split(' ').includes(id)); }
+    this.picked = id;
+    this.layoutPins();
+  }
+
+  /** The day's pins as they fit the screen right now: places closer than a lantern's width at this
+   *  zoom share one pin ("3–6"); zooming in splits them, and tapping one zooms in to split it. The stop
+   *  that's selected, and the two ends of a ride playing, always keep a pin of their own; during a ride
+   *  every other pin steps back. Redone when the camera comes to rest, not while it moves. */
+  private layoutPins() {
+    if (!this.map || !this.mb || !this.spots.length) return;
+    const map = this.map;
+    const own = (sp: Spot) => sp.stops.some((s) => s.id === this.picked || this.riding.has(s.id));
+    type Group = { spots: Spot[]; x: number; y: number; own: boolean };
+    // A pin is 28 px tall and as wide as its label ("3" is round, "4–11" a pill): two touch when their
+    // boxes would, with a little air.
+    const label = (g: Group) => pinLabel(g.spots.flatMap((s) => s.stops.map((x) => x.i)).sort((a, b) => a - b));
+    const width = (g: Group) => 28 + Math.max(0, label(g).length - 2) * 7;
+    const touch = (a: Group, b: Group) => Math.abs(a.x - b.x) < (width(a) + width(b)) / 2 + 4 && Math.abs(a.y - b.y) < 32;
+    const groups: Group[] = this.spots.map((sp) => { const p = map.project(sp.at); return { spots: [sp], x: p.x, y: p.y, own: own(sp) }; });
+    // Merge touching pins until none touch (a merged pin is wider, so it can reach a new neighbour).
+    for (let merged = true; merged;) {
+      merged = false;
+      outer: for (let i = 0; i < groups.length; i++) for (let j = i + 1; j < groups.length; j++) {
+        const a = groups[i], b = groups[j];
+        if (a.own || b.own || !touch(a, b)) continue;
+        const n = a.spots.length + b.spots.length;
+        a.x = (a.x * a.spots.length + b.x * b.spots.length) / n; a.y = (a.y * a.spots.length + b.y * b.spots.length) / n;
+        a.spots.push(...b.spots); groups.splice(j, 1); merged = true;
+        break outer;
+      }
+    }
+    const key = `${groups.map((g) => g.spots.map((s) => s.stops[0].id).join(',')).join('|')}/${[...this.riding].join()}`;
+    if (key !== this.layoutKey) {
+      this.layoutKey = key;
+      this.clearMarkers();
+      for (const g of groups) {
+        const stops = g.spots.flatMap((s) => s.stops).sort((a, b) => a.i - b.i);
+        const at: LngLat = g.spots.length === 1 ? g.spots[0].at
+          : [g.spots.reduce((n, s) => n + s.at[0], 0) / g.spots.length, g.spots.reduce((n, s) => n + s.at[1], 0) / g.spots.length];
+        const el = document.createElement('button');
+        el.className = `mk-stop${stops.some((s) => s.cat === 'stay') ? ' is-stay' : ''}${g.spots.length > 1 ? ' is-group' : ''}${this.riding.size && !stops.some((s) => this.riding.has(s.id)) ? ' is-quiet' : ''}`;
+        el.dataset.ids = stops.map((s) => s.id).join(' ');
+        el.innerHTML = `<span class="num">${pinLabel(stops.map((s) => s.i))}</span><span class="sr-only"> ${stops.map((s) => esc(s.name)).join(', ')}${g.spots.length > 1 ? ' (zooms in)' : ''}</span>`;
+        el.addEventListener('click', (e) => {
+          e.stopPropagation();
+          if (g.spots.length > 1) this.fit(g.spots.map((s) => s.at), { pad: 90, pitch: map.getPitch(), bearing: map.getBearing(), max: 17.5, duration: 700 });
+          else this.onPick(stops[0].id);
+        });
+        this.markers.push(new this.mb.Marker({ element: el, anchor: 'center' }).setLngLat(at).addTo(map));
+        el.setAttribute('role', 'button'); el.removeAttribute('aria-label'); // Mapbox labels markers as images called "Map marker"; these are buttons named by their text
+      }
+    }
+    for (const m of this.markers) { const el = m.getElement(); el.classList.toggle('is-selected', !!this.picked && (el.dataset.ids ?? '').split(' ').includes(this.picked)); }
   }
   /** How much of the map's right edge is covered (the laptop details panel); centring uses the rest. */
   /** The camera moves that follow (a stop, a ride, a day) carry it as padding, so the panel and the
@@ -233,6 +300,9 @@ export class TripMap {
       pts.push({ c, seg: si, d });
     }));
     if (pts.length < 2) return false;
+    // The ride's two ends keep their pins, lit; the rest of the day steps back while it plays.
+    this.riding = new Set([leg.from, leg.to]);
+    this.layoutPins();
     const total = pts.at(-1)!.d || 1;
     const all = pts.map((p) => p.c);
     this.fit(all, { pad: 72, pitch: 50, bearing: -15, max: 15.8, duration: 900 });
@@ -313,6 +383,7 @@ export class TripMap {
     this.tags = [];
     this.set('play', { type: 'FeatureCollection', features: [] });
     this.dot?.remove(); this.dot = null;
+    if (this.riding.size) { this.riding = new Set(); this.layoutPins(); }
   }
   resize() { this.map?.resize(); }
 

@@ -9,6 +9,7 @@
   import { TripMap, phaseAt } from './map';
   import { sunHeight } from './lines';
   import { alerts, type Alert } from './alerts';
+  import { startLive } from './live.svelte';
   import TripHome from './TripHome.svelte';
   import DayView from './DayView.svelte';
   import Lists from './Lists.svelte';
@@ -39,7 +40,8 @@
   onMount(() => {
     const unbind = bindHistory();
     const loaded = load();
-    loaded.then((d) => alerts(d, todayN()).then((a) => (alertList = a))).catch(() => (loadError = true));
+    let stopLive: (() => void) | null = null;
+    loaded.then((d) => { stopLive = startLive(d); return alerts(d, todayN()).then((a) => (alertList = a)); }).catch(() => (loadError = true));
     let cancelled = false;
     // The map starts once the trip is on screen (or after 2 s), so the day's text is readable before
     // the 3D city's 1.8 MB engine competes for the phone's processor.
@@ -52,7 +54,7 @@
     const idle = (window as { requestIdleCallback?: (f: () => void, o?: { timeout: number }) => number }).requestIdleCallback;
     const later = () => (idle ? idle(start, { timeout: 500 }) : setTimeout(start, 1));
     Promise.race([loaded.catch(() => null), new Promise((r) => setTimeout(r, 2000))]).then(() => requestAnimationFrame(later));
-    return () => { cancelled = true; unbind(); map?.stop(); map?.map?.remove(); map = null; };
+    return () => { cancelled = true; unbind(); stopLive?.(); map?.stop(); map?.map?.remove(); map = null; };
   });
   // The map redraws whenever its box changes (the bigger-map pill, rotation, a desktop resize). The box
   // only exists once the live app has drawn, so watch it from then on.

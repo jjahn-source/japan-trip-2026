@@ -14,7 +14,12 @@ export interface AppStop {
   transport: string | null; guide: AppGuide | null;
   details: { label: string | null; text: string }[]; extra: string[];
   confirmation: string | null;
+  /** The group's change to this stop, if anyone made one (src/app/live.svelte.ts). */
+  live?: { note: string | null; cancelled: boolean; moved: boolean; planned: string; by: string; at: number };
 }
+/** The last train home for a night (data/last-trains.json from Yahoo!乗換案内's last-train search, or
+ *  the group's correction): leave the stop by, the train, in bed by; `url` is the search to check it. */
+export interface AppLastTrain { leave: string; dep: string; arr: string; from: string; line: string; url?: string }
 export type SegMode = 'walk' | 'rail' | 'bus' | 'car' | 'ropeway' | 'funicular' | 'boat';
 export interface AppSeg { m: SegMode; line?: string; colour?: string; on?: string; off?: string; coords: [number, number][] }
 export interface AppLeg { from: string; to: string; mode: string; minutes: number; km: number; text: string; segs: AppSeg[] }
@@ -26,6 +31,11 @@ export interface AppDay {
   sun: { sunrise: string; sunset: string; lat: number; lng: number } | null;
   climate: { hi: number; lo: number; wet: number } | null;
   stops: AppStop[]; legs: Record<string, AppLeg>; picks: AppPick[];
+  lastTrain: AppLastTrain | null;
+  /** Why a night has no last train (a walk home, a taxi night), when the search found none. */
+  lastTrainWhy: string | null;
+  /** The night's ride home (last stop out → the bed), when it's more than a walk. */
+  home: { from: { name: string; lat: number; lng: number }; to: { name: string; lat: number; lng: number } } | null;
 }
 export interface AppTodo { id: string; due: string | null; dueLabel: string | null; text: string; detail: string | null; kind: string; stops: string[] }
 export interface AppData {

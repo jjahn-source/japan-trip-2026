@@ -14,7 +14,9 @@ URL, the back button, the map and the view share one store). Mapbox GL 3 with th
 for the 3D night map and leg playback. Hand-authored CSS with oklch tokens, self-hosted subset
 fonts, local WebP copies of photos, and a hand-written service worker for offline use. Trip data
 comes from the itinerary agent (`data/itinerary.json`), so a new plan rebuilds the site.
-Deploys as static files to any host.
+A live layer on Cloudflare (a Worker, D1 and a cron trigger) holds the group's changes on top of
+the built plan: moved or cancelled stops, notes, booking ticks and last trains. It also sends Web
+Push alerts. Without it, the site still deploys as static files to any host.
 
 ## Users
 

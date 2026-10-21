@@ -39,6 +39,7 @@ export const LINE: Record<string, string> = {
   ＪＲ中央線: 'JR Chūō Line', ＪＲ中央総武線: 'JR Chūō–Sōbu Line', ＪＲ総武線: 'JR Sōbu Line', ＪＲ埼京線: 'JR Saikyō Line', ＪＲ山手線: 'JR Yamanote Line', ＪＲ京浜東北線: 'JR Keihin-Tōhoku Line',
   ＪＲ湘南新宿ライン: 'JR Shōnan-Shinjuku Line', ＪＲ東海道本線: 'JR Tōkaidō Line', ＪＲ京都線: 'JR Kyoto Line', ＪＲ神戸線: 'JR Kobe Line', ＪＲ大阪環状線: 'JR Osaka Loop Line', ＪＲゆめ咲線: 'JR Yumesaki Line',
   ＪＲ山陽本線: "JR San'yō Line", ＪＲ宮島航路: 'JR Miyajima Ferry', ＪＲ奈良線: 'JR Nara Line', ＪＲ嵯峨野線: 'JR Sagano Line', ＪＲ大和路線: 'JR Yamatoji Line', ＪＲ東西線: 'JR Tōzai Line',
+  西武池袋線: 'Seibu Ikebukuro Line', 西武新宿線: 'Seibu Shinjuku Line',
   りんかい線: 'Rinkai Line', ゆりかもめ: 'Yurikamome', 箱根登山線: 'Hakone Tozan Line', 箱根登山ケーブルカー: 'Hakone Tozan Cable Car', 箱根ロープウェイ: 'Hakone Ropeway',
   京阪本線: 'Keihan Main Line', 阪急京都本線: 'Hankyu Kyoto Line', 阪神なんば線: 'Hanshin Namba Line', 阪神本線: 'Hanshin Main Line', 近鉄奈良線: 'Kintetsu Nara Line', 近鉄京都線: 'Kintetsu Kyoto Line',
   OsakaMetro御堂筋線: 'Osaka Metro Midōsuji Line', OsakaMetro中央線: 'Osaka Metro Chūō Line', OsakaMetro堺筋線: 'Osaka Metro Sakaisuji Line', OsakaMetro四つ橋線: 'Osaka Metro Yotsubashi Line', OsakaMetro長堀鶴見緑地線: 'Osaka Metro Nagahori Tsurumi-ryokuchi Line',

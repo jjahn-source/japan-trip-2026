@@ -19,7 +19,7 @@ async function walk(dir) {
 // The place pack (~2 MB gzipped) is not forced onto a phone at install: each day is fetched when it's
 // needed (or on Wi-Fi), then kept by the PLACES cache below. A stop's large photo is cached the first
 // time its sheet opens; the small list thumbnails are precached.
-const SKIP = /(vietnamese.*\.woff2$|\.woff$|\.map$|^sw\.js$|\.DS_Store$|^places\/day-\d+\.json$|^thumbs\/.*-l\.webp$|^trip-data\.json$)/;
+const SKIP = /(vietnamese.*\.woff2$|\.woff$|\.map$|^sw\.js$|\.DS_Store$|^_headers$|^live-plan\.json$|^places\/day-\d+\.json$|^thumbs\/.*-l\.webp$|^trip-data\.json$)/;
 
 export function serviceWorker() {
   let base = '/';
@@ -119,6 +119,7 @@ self.addEventListener('fetch', (event) => {
   if (request.method !== 'GET') return;
   const url = new URL(request.url);
   if (url.origin === self.location.origin) {
+    if (url.pathname.startsWith(BASE + 'api/')) return; // the live layer: always the network (the app keeps its own copy)
     if (url.pathname.startsWith(BASE + 'places/day-')) event.respondWith(staleWhileRevalidate(request, PLACES, 100));
     else if (request.mode === 'navigate') event.respondWith(networkFirst(request));
     else event.respondWith(cacheFirst(request, RUNTIME));
@@ -127,5 +128,26 @@ self.addEventListener('fetch', (event) => {
   } else if (url.hostname === 'places.liketrek.com' || url.hostname === 'photon.komoot.io') {
     event.respondWith(staleWhileRevalidate(request, SEARCH, SEARCH_LIMIT));
   }
+});
+
+// Phone alerts from the live layer (worker/index.ts): leave now, last train, deadlines, plan changes.
+self.addEventListener('push', (event) => {
+  let m = {};
+  try { m = event.data ? event.data.json() : {}; } catch { m = { body: event.data && event.data.text() }; }
+  event.waitUntil(self.registration.showNotification(m.title || 'Japan trip', {
+    body: m.body || '', tag: m.tag, renotify: !!m.tag, icon: BASE + 'icon-192.png', badge: BASE + 'icon-192.png',
+    data: { url: BASE + String(m.url || '/').replace(/^\//, '') },
+  }));
+});
+// Tapping one opens the app at that day or stop (an open window moves there instead of a new one).
+self.addEventListener('notificationclick', (event) => {
+  event.notification.close();
+  const target = new URL(event.notification.data?.url || BASE, self.location.origin).href;
+  event.waitUntil((async () => {
+    for (const c of await self.clients.matchAll({ type: 'window', includeUncontrolled: true })) {
+      if ('navigate' in c) { await c.focus(); return c.navigate(target); }
+    }
+    return self.clients.openWindow(target);
+  })());
 });
 `;

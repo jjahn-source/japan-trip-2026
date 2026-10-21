@@ -160,9 +160,71 @@ npm run build
 In the Mapbox account, restrict the token to the site's URL. The free tier (about 50,000 map loads
 a month) is far more than eight people need.
 
+## The live layer
+
+On Cloudflare, one Worker (`worker/index.ts`) serves the built site and a small API on D1 (SQLite),
+so the plan can change after it's built:
+
+- **Shared edits.** Anyone with the link can move a stop's time, add a note for the group or cancel
+  it, from the stop's details. "Back to the plan" undoes it. Every phone shows the change within
+  30 seconds, with who made it, and the trip page lists recent changes.
+- **Shared bookings.** A tick on the Bookings page shows on everyone's phone.
+- **Last train home.** Each night out has a panel under the day's briefing: leave by, the train, in
+  bed by. `npm run last-trains` finds them with Yahoo!乗換案内's own last-train (終電) search on the
+  trip's dates (real timetables; NAVITIME's free plan only averages late-night intervals and Google's
+  API has no Japanese transit). It starts from where the plan has the group at 23:30, tries the two
+  stations nearest that stop and the bed, checks Yahoo matched the right station by its coordinates,
+  and keeps the train that lets the group leave latest, walk included. About 40 searches, 2.5 s apart.
+  Nights a walk from bed, and Hakone (no station near the villa: a taxi night), get none. Operators
+  publish year-end timetables in December, so run it again a week before the trip. Anyone can
+  correct a night on the site.
+- **Phone alerts (Web Push).** Turned on per phone from the trip page: leave now (10 min before each
+  ride), last train (20 min before you must leave), booking deadlines (9am local, 3 days before and on
+  the day) and plan changes (as they happen, not to the phone that made them). A cron run every minute
+  sends what's due, once. On an iPhone, alerts only work from the Home Screen app (iOS 16.4+).
+
+Offline, a phone keeps the last state it saw and queues its own edits until there's signal. On a
+plain static host (no Worker) the site works as before: no edit buttons, ticks saved on the phone.
+The rules shared by the Worker and the app are in `src/lib/live.ts`; push encryption and signing
+(WebCrypto, no dependencies) are in `worker/push.ts`.
+
+```sh
+npm run live:setup      # once: local push keys in .dev.vars (never committed)
+npm run live:dev        # build, local database, Worker + site on http://localhost:8787
+npm run e2e:live        # end to end against it (a stand-in push service decrypts the real pushes)
+npm run stress:live     # its limits: 1,000 saves at once, 50 phones checking, hostile input, every alert of the trip
+```
+
+Sized for Cloudflare's free plan, and tested at its limits (`npm run stress:live`):
+
+- **Reads.** The current state is kept in one row (`snapshot`), updated with only the new changes on each
+  save, so a phone's check and a cron run read 2 rows, not the history. A phone that already has the
+  latest version gets 22 bytes back. A worst day (8 phones open 16 hours, checking every 30 s) is about
+  48,000 rows read of the 5,000,000 free, and about 17,000 requests of the 100,000.
+- **Saves.** Two people saving at once can't overwrite each other: the snapshot only moves forward
+  from the version it was read at. 1,000 saves, 40 at a time, all land and match the full history.
+- **CPU (10 ms a run).** Alerts for the whole plan take ~0.4 ms per time zone; a run sends at most 20
+  pushes (~0.4 ms each) and the rest follow a minute later, inside the 15-minute window.
+- **Abuse.** Bodies over 8 KB, or without a declared length, are refused unread; at most 40 phones can
+  turn alerts on; subscriptions must point at Apple's, Google's, Mozilla's or Microsoft's push service.
+- **Phones.** Requests give up after 10 s (a tunnel can't jam later checks); repeated edits made
+  offline to the same thing merge into one.
+- **Alerts.** From today to the end of the trip, in three time zones, with the cron running only every
+  13 minutes, every alert goes out exactly once and on time.
+
+`npm run dev` works beside `npx wrangler dev` (the dev server sends `/api` to port 8787).
+
 ## Deploy
 
-`dist/` is plain static files: drag it into Netlify or Cloudflare Pages, or `vercel deploy dist`.
+With the live layer (Cloudflare's free plan is enough):
+
+```sh
+npx wrangler login
+npm run live:setup -- --remote   # once: creates the database, publishes, stores push keys as secrets
+npm run live:deploy              # every later update
+```
+
+Without it, `dist/` is plain static files: drag it into Netlify or Cloudflare Pages, or `vercel deploy dist`.
 To share from this Mac, `npm run serve` serves it with compression and the right cache headers
 (hashed files cached for a year, pages and trip data always fresh).
 Build shared copies with `PUBLIC_RAPIDAPI_KEY=` empty, so no key ends up in the page.
@@ -177,4 +239,5 @@ Astro 7.3 (static output, every view pre-rendered with the real trip), Svelte 5 
 app, Mapbox GL 3 (Standard style) for the map, hand-written CSS with oklch tokens
 (`src/app/theme.css`), a build-generated service worker (`scripts/service-worker.mjs`), and
 self-hosted fonts subset to what the trip shows: Zen Kaku Gothic New and Dela Gothic One
-(`npm run fonts`). Tests: `node --test` units and Playwright end-to-end.
+(`npm run fonts`). The live layer is a Cloudflare Worker with static assets, D1 and a cron trigger
+(`wrangler.jsonc`), with Web Push written on WebCrypto. Tests: `node --test` units and Playwright end-to-end.

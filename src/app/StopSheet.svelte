@@ -7,6 +7,8 @@
   import { icon } from '../lib/icons';
   import { app, BASE, closeSheet } from './state.svelte';
   import type { AppDay, AppStop } from './types';
+  import LiveEdit from './LiveEdit.svelte';
+  import { loadRate, usd } from './fx.svelte';
 
   let { stop, day, onstep }: { stop: AppStop; day: AppDay; onstep?: (dir: 1 | -1) => void } = $props();
   // The stops either side, and the hop to the next one ("Next: Gion · 15 min walk").
@@ -63,16 +65,8 @@
   const host = (u: string) => { try { return new URL(u).hostname.replace(/^www\./, ''); } catch { return 'source'; } };
   const directions = (s: AppStop) => `https://www.google.com/maps/dir/?api=1&destination=${s.lat},${s.lng}&travelmode=transit`;
 
-  // Yen at today's rate, once per session.
-  let rate = $state<number | null>(null);
-  $effect(() => {
-    let live = true;
-    const cached = (() => { try { return Number(sessionStorage.getItem('jt:fx')) || null; } catch { return null; } })();
-    if (cached) { rate = cached; return; }
-    fetch('https://api.frankfurter.dev/v1/latest?from=USD&to=JPY').then((r) => r.json()).then((j) => { if (!live) return; rate = j.rates.JPY; try { sessionStorage.setItem('jt:fx', String(rate)); } catch { /* fine */ } }).catch(() => {});
-    return () => { live = false; };
-  });
-  const usd = (s: string | null) => { const m = s?.match(/¥\s?([\d,]+)/); if (!m || !rate) return null; const v = Number(m[1].replace(/,/g, '')) / rate; return v < 10 ? v.toFixed(1) : Math.round(v).toLocaleString('en-US'); };
+  // Yen at today's rate (a range stays a range: "¥500–1,500" ≈ "$3.2–9.6").
+  $effect(() => loadRate());
 
   async function copy(text: string, what: string) {
     try { await navigator.clipboard.writeText(text); copied = what; setTimeout(() => (copied = ''), 1600); } catch { /* the text is on screen to select */ }
@@ -153,6 +147,8 @@
           </p>
         {/if}
       </header>
+
+      <div class="livebox"><LiveEdit {stop} /></div>
 
       <div class="actions">
         {#if stop.lat != null}<a class="act primary" href={directions(stop)} target="_blank" rel="noopener">{@html icon('navigation')}<span>Directions</span></a>{/if}
@@ -251,6 +247,9 @@
   .tags .check { background: var(--noren-wash); color: oklch(82% 0.11 35); }
   .hook { font-size: 1rem; line-height: 1.5; color: var(--washi); font-weight: 500; }
   .actions { display: flex; flex-wrap: wrap; gap: 8px; }
+  .livebox { display: grid; gap: 10px; }
+  .livebox:empty { display: none; }
+  .panel.peek .livebox { display: none; }
   .act { display: inline-flex; align-items: center; gap: 7px; min-height: 44px; padding: 0 16px; border-radius: 99px; border: 1px solid var(--rule-strong); color: var(--washi); text-decoration: none; font-weight: 600; font-size: 0.9rem; }
   .act :global(svg) { width: 17px; height: 17px; }
   .act.primary { background: var(--lantern); border-color: var(--lantern); color: oklch(20% 0.05 276); }

@@ -4,6 +4,9 @@
   import { icon } from '../lib/icons';
   import { app, BASE, go, openSheet, todayN, now } from './state.svelte';
   import JourneyStrip from './JourneyStrip.svelte';
+  import LastTrain from './LastTrain.svelte';
+  import { live } from './live.svelte';
+  import { alertsFor, hmOf, nightISO, type LivePlan } from '../lib/live';
   import type { AppDay, AppStop } from './types';
 
   let { day, onplay, onpick }: { day: AppDay; onplay: (fromId: string) => void; onpick: (lat: number, lng: number, name: string) => void } = $props();
@@ -33,8 +36,55 @@
   const nowId = $derived.by(() => {
     if (today !== day.n) return null;
     const t = now();
-    return day.stops.find((s) => Date.parse(s.startISO) <= t && t < Date.parse(s.endISO))?.id ?? day.stops.find((s) => Date.parse(s.startISO) > t)?.id ?? null;
+    const on = day.stops.filter((s) => !s.live?.cancelled);
+    return on.find((s) => Date.parse(s.startISO) <= t && t < Date.parse(s.endISO))?.id ?? on.find((s) => Date.parse(s.startISO) > t)?.id ?? null;
   });
+
+  // The night on the rail: where the last-train cutoff falls, a bell on each ride a phone alert goes
+  // out for (by the live layer's own rules, src/lib/live.ts), and a "now" line on the day itself.
+  let clock = $state(now());
+  $effect(() => { const t = setInterval(() => (clock = now()), 30e3); return () => clearInterval(t); });
+  const night = $derived.by(() => {
+    const plan: LivePlan = {
+      generated: '', todos: [], days: [{ n: day.n, date: day.date, lastTrain: day.lastTrain }],
+      stops: day.stops.map((s) => ({ id: s.id, d: day.n, name: s.name, cat: s.cat, s: s.startISO, e: s.endISO, cancelled: !!s.live?.cancelled })),
+      legs: Object.values(day.legs).map((l) => ({ from: l.from, to: l.to, minutes: l.minutes, mode: l.mode, text: l.text })),
+    };
+    const alerts = live.on ? alertsFor(plan, 'Asia/Tokyo') : [];
+    const t = day.lastTrain;
+    return {
+      bell: new Map(alerts.filter((a) => a.kind === 'leave').map((a) => [a.key.split(':')[1], a.at])),
+      lastAlert: alerts.find((a) => a.kind === 'last')?.at ?? null,
+      leave: t ? Date.parse(nightISO(day.date, t.leave)) : null,
+      dep: t ? Date.parse(nightISO(day.date, t.dep)) : null,
+      bed: t ? Date.parse(nightISO(day.date, t.arr)) : null,
+    };
+  });
+  // Each marker goes before the first row (a stop at its start, a ride at its departure) that comes
+  // after it, or at the end while the day's last stop is still on (an all-nighter). The cutoff only
+  // inside the night: before the first stop or after everyone's home, the panel above says it.
+  type Mark = { k: 'cut' | 'now'; t: number };
+  const marks = $derived.by(() => {
+    const rows: [string, number][] = [];
+    day.stops.forEach((s, i) => { rows.push([`s${s.id}`, Date.parse(s.startISO)]); if (day.stops[i + 1]) rows.push([`h${s.id}`, Date.parse(s.endISO)]); });
+    const last = day.stops.at(-1);
+    const at = new Map<string, Mark[]>();
+    const add = (key: string, m: Mark) => at.set(key, [...(at.get(key) ?? []), m].sort((a, b) => a.t - b.t));
+    const put = (m: Mark, atTop: boolean) => {
+      const i = rows.findIndex(([, t]) => t > m.t);
+      if (i > 0 || (i === 0 && atTop)) add(rows[i][0], m);
+      else if (i < 0 && last && m.t < Date.parse(last.endISO)) add('end', m);
+    };
+    if (night.leave) put({ k: 'cut', t: night.leave }, false);
+    if (today === day.n) put({ k: 'now', t: clock }, true);
+    return at;
+  });
+  // A stop that starts after the last train has gone, except getting into bed on that very train.
+  const late = (s: AppStop) => {
+    if (night.dep == null || s.live?.cancelled || Date.parse(s.startISO) <= night.dep) return false;
+    return !(s.cat === 'stay' && night.bed != null && Date.parse(s.startISO) <= night.bed + 30 * 60e3);
+  };
+  const hm = (t: number) => hmOf(new Date(t).toISOString());
 
   let strip = $state<HTMLElement>();
   // Centre today's chip in the strip after the day has painted (it needs layout).
@@ -79,19 +129,37 @@
     </ul>
   {/if}
 
+  {#if day.home || day.lastTrain}<LastTrain {day} />{/if}
+
   <p id="open-hint" class="sr-only">Opens the stop's details</p>
+  {#snippet markers(key: string)}
+    {#each marks.get(key) ?? [] as m (m.k)}
+      {#if m.k === 'cut' && day.lastTrain}
+        <li class="cut">
+          <span class="ct num">{day.lastTrain.leave}</span><span class="dot" aria-hidden="true"></span>
+          <span class="cl"><b>Leave for the last train</b><span class="num">{day.lastTrain.dep} from {day.lastTrain.from}, in bed {day.lastTrain.arr}</span>{#if night.lastAlert}<small>{@html icon('bell')}<span class="num">Phones buzz at {hm(night.lastAlert)}</span></small>{/if}</span>
+        </li>
+      {:else if m.k === 'now'}
+        <li class="nowline"><span class="ct num">{hm(m.t)}</span><span class="dot" aria-hidden="true"></span><span class="nl">Now</span></li>
+      {/if}
+    {/each}
+  {/snippet}
   <ol class="timeline">
     {#each day.stops as s, i (s.id)}
-      <li class="stop" class:sel={app.selected === s.id} class:now={nowId === s.id} data-id={s.id} style:--i={i}>
+      {@render markers(`s${s.id}`)}
+      <li class="stop" class:sel={app.selected === s.id} class:now={nowId === s.id} class:off={s.live?.cancelled} class:late={late(s)} data-id={s.id} style:--i={i}>
         <button class="hit" type="button" onclick={() => openSheet(s.id)} onmouseenter={() => (app.selected = s.id)} aria-describedby="open-hint">
           <span class="time num"><b>{s.start}</b><small>{s.end}</small></span>
           <span class="no num" aria-hidden="true">{s.i}</span>
           <span class="body">
             <span class="name">{s.name}</span>
             {#if s.ja}<span class="ja" lang="ja">{s.ja}</span>{/if}
+            {#if s.live?.note}<span class="lnote">{s.live.note} <small>· {s.live.by}</small></span>{/if}
             {#if s.hook ?? s.plan}<span class="hook">{s.hook ?? s.plan}</span>{/if}
             <span class="chips">
+              {#if s.live?.cancelled}<span class="chip-s book">Cancelled</span>{:else if s.live?.moved}<span class="chip-s moved">Moved · was {s.live.planned}</span>{/if}
               {#if nowId === s.id}<span class="chip-s nowc">Now</span>{/if}
+              {#if late(s)}<span class="chip-s late">After the last train</span>{/if}
               {#if s.mark === 'tobook'}<span class="chip-s book">Book</span>{:else if s.mark === 'tocheck'}<span class="chip-s check">Check</span>{/if}
               {#if s.price}<span class="chip-s">{s.price}</span>{/if}
               {#if cash(s)}<span class="chip-s">Cash only</span>{/if}
@@ -102,11 +170,14 @@
         </button>
       </li>
       {#if day.stops[i + 1]}
+        {@render markers(`h${s.id}`)}
         <li class="hop">
+          {#if night.bell.get(s.id)}{@const at = night.bell.get(s.id)!}<span class="bell num" title={`Phone alert at ${hm(at)}: time to leave for ${day.stops[i + 1].name}`}>{@html icon('bell')}{hm(at)}<span class="sr-only">: phone alert to leave</span></span>{/if}
           <JourneyStrip leg={day.legs[s.id]} from={s} to={day.stops[i + 1]} date={day.date} active={app.playing === s.id} progress={app.playing === s.id ? app.progress : 0} clock={app.playing === s.id ? app.clock : ''} onplay={day.legs[s.id] ? () => onplay(s.id) : undefined} />
         </li>
       {/if}
     {/each}
+    {@render markers('end')}
   </ol>
 
   {#if day.picks.length}
@@ -179,8 +250,37 @@
   .chip-s.book, .chip-s.nowc { background: var(--noren); color: var(--on-noren); }
   .chip-s.check { background: var(--noren-wash); color: oklch(82% 0.11 35); }
   .chip-s.ok { background: oklch(79% 0.13 155 / 0.16); color: var(--ok); }
+  .chip-s.moved { background: var(--lantern-wash); color: var(--lantern); }
+  .lnote { font-size: 0.88rem; line-height: 1.4; color: var(--washi); padding-left: 8px; border-left: 2px solid var(--lantern); }
+  .lnote small { color: var(--washi-3); font-size: 0.76rem; }
+  /* A cancelled stop stays in the list (so nobody wonders where it went), dimmed and struck through. */
+  .off .name { text-decoration: line-through; text-decoration-color: var(--noren); color: var(--washi-3); }
+  .off .time, .off .thumb, .off .hook { opacity: 0.45; }
   .thumb { width: 64px; height: 64px; border-radius: 12px; object-fit: cover; background: var(--night-3); }
-  .hop { list-style: none; padding: 2px 0 6px; }
+  .hop { position: relative; list-style: none; padding: 2px 0 6px; }
+
+  /* The night on the rail: the last-train cutoff (noren: something to do), the "now" line (lantern),
+     and the bell in the time column where a ride's phone alert goes out. */
+  .cut, .nowline { list-style: none; display: grid; grid-template-columns: 58px 22px 1fr; gap: 0 12px; align-items: start; padding: 4px 6px 10px 0; }
+  .ct { justify-self: end; font-size: 0.9rem; font-weight: 700; line-height: 1.2; padding-top: 3px; }
+  .dot { position: relative; z-index: 1; justify-self: center; width: 12px; height: 12px; margin-top: 5px; border-radius: 50%; }
+  .cl, .nl { display: grid; gap: 2px; margin-top: 10px; padding-top: 6px; font-size: 0.84rem; color: var(--washi-2); }
+  .cut .ct { color: var(--noren); }
+  .cut .dot { background: var(--noren); box-shadow: 0 0 0 4px var(--noren-wash); }
+  .cl { border-top: 1.5px dashed var(--noren); }
+  .cl b { color: var(--washi); font-weight: 700; }
+  .cl small { display: inline-flex; align-items: center; gap: 5px; margin-top: 2px; color: var(--washi-3); font-size: 0.76rem; }
+  .cl small :global(svg) { width: 12px; height: 12px; color: var(--lantern); }
+  .nowline .ct { color: var(--lantern); }
+  .nowline .dot { background: var(--lantern); box-shadow: var(--lantern-halo); animation: glow 1.8s var(--ease-in-out) infinite alternate; }
+  .nl { border-top: 2px solid var(--lantern); color: var(--lantern); font-weight: 700; }
+  @keyframes glow { to { box-shadow: 0 0 0 6px var(--lantern-wash); } }
+  @media (prefers-reduced-motion: reduce) { .nowline .dot { animation: none; } }
+  .bell { position: absolute; z-index: 1; left: 0; top: 50%; width: 58px; translate: 0 -50%; display: inline-flex; justify-content: flex-end; align-items: center; gap: 3px; font-size: 0.7rem; font-weight: 700; color: var(--lantern); }
+  .bell :global(svg) { width: 11px; height: 11px; flex: none; }
+  /* Past the last train: the stop's lantern goes dashed (off the rail network), with a chip in words. */
+  .stop.late .no { border-style: dashed; }
+  .chip-s.late { background: var(--noren-wash); color: oklch(82% 0.11 35); }
 
   .picks { margin-top: 28px; }
   .picks h2 { font-size: 1rem; font-weight: 700; margin-bottom: 10px; }

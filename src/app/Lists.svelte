@@ -3,6 +3,9 @@
   import { icon } from '../lib/icons';
   import { app, go, now, openSheet, stopOf, tick, ticks } from './state.svelte';
   import { budgetOf, yen } from './types';
+  import { ago, itemOf, live } from './live.svelte';
+  import { loadRate, usd } from './fx.svelte';
+  $effect(() => { if (mode === 'budget') loadRate(); });
 
   let { mode }: { mode: 'bookings' | 'budget' } = $props();
   const data = $derived(app.data!);
@@ -28,7 +31,7 @@
 
 {#if mode === 'bookings'}
   <section class="list" aria-labelledby="bk-title">
-    <header><h1 id="bk-title">Bookings and to-dos</h1><p class="sub">{data.todos.filter((x) => !ticks[x.id]).length} open · ticks are saved on this phone</p></header>
+    <header><h1 id="bk-title">Bookings and to-dos</h1><p class="sub">{data.todos.filter((x) => !ticks[x.id]).length} open · {live.on ? 'a tick shows on everyone’s phone' : 'ticks are saved on this phone'}</p></header>
     {#each groups as g (g.key)}
       <section class="grp" data-k={g.key} aria-labelledby={`g-${g.key}`}>
         <h2 id={`g-${g.key}`}>{g.title} <span class="num">{g.items.length}</span></h2>
@@ -39,7 +42,7 @@
                 <input type="checkbox" checked={!!ticks[x.id]} onchange={(e) => tick(x.id, (e.currentTarget as HTMLInputElement).checked)} />
                 <span class="box" aria-hidden="true">{@html icon('check')}</span>
                 <span class="due num">{x.dueLabel ?? x.due ?? 'Any time'}</span>
-                <span class="txt">{x.text}{#if x.detail}<small>{x.detail}</small>{/if}</span>
+                <span class="txt">{x.text}{#if x.detail}<small>{x.detail}</small>{/if}{#if ticks[x.id] && itemOf(`todo:${x.id}`)}{@const by = itemOf(`todo:${x.id}`)!}<small class="by">Done · {by.by}, {ago(by.at)}</small>{/if}</span>
               </label>
               {#if x.stops.length}
                 <div class="links">{#each x.stops as id}{@const f = stopOf(id)}{#if f}<button type="button" onclick={() => openStop(id)}>Day {f.day.n} · {f.stop.name} {@html icon('next')}</button>{/if}{/each}</div>
@@ -52,7 +55,7 @@
   </section>
 {:else}
   <section class="list" aria-labelledby="bg-title">
-    <header><h1 id="bg-title">Budget</h1><p class="sub"><span class="display num total">¥{sum.toLocaleString('en-US')}</span> per person</p></header>
+    <header><h1 id="bg-title">Budget</h1><p class="sub"><span class="display num total">¥{sum.toLocaleString('en-US')}</span> per person{#if usd(`¥${sum}`)}<span class="usd num">≈ ${usd(`¥${sum}`)} at today’s rate</span>{/if}</p></header>
     <ul class="bars">
       {#each totals as b, i}
         <li style:--w="{(b.v / max) * 100}%" style:--i={i}><span class="cat">{b.category}</span><span class="v num">¥{b.v.toLocaleString('en-US')}</span><span class="bar" aria-hidden="true"></span></li>
@@ -61,7 +64,8 @@
     <h2 class="sh">Every item</h2>
     <ul class="items">
       {#each rows as r}
-        <li><span class="it">{r.item}<small>{r.category}{r.note ? ` · ${r.note}` : ''}</small></span><span class="pp num">{r.perPerson}</span><span class="gp num">{r.group}</span></li>
+        <!-- A row without an amount (the stays, already paid) shows none rather than two dashes. -->
+        <li><span class="it">{r.item}<small>{r.category}{r.note ? ` · ${r.note}` : ''}</small></span>{#if /\d/.test(r.perPerson)}<span class="pp num">{r.perPerson}{#if usd(r.perPerson)}<small>≈ ${usd(r.perPerson)}</small>{/if}</span>{/if}{#if /\d/.test(r.group)}<span class="gp num">{r.group} group</span>{/if}</li>
       {/each}
     </ul>
   </section>
@@ -90,6 +94,7 @@
   .grp[data-k='late'] .due { color: var(--noren); }
   .txt { display: grid; gap: 3px; font-size: 0.92rem; }
   .txt small { color: var(--washi-3); font-size: 0.8rem; line-height: 1.45; }
+  .txt small.by { color: var(--ok); text-decoration: none; display: inline-block; }
   .done .txt { color: var(--washi-3); text-decoration: line-through; text-decoration-color: var(--rule-strong); }
   .links { display: flex; flex-wrap: wrap; gap: 6px; padding: 2px 6px 4px 46px; }
   .links button { display: inline-flex; align-items: center; gap: 4px; text-align: left; min-height: 32px; padding: 0 10px; border-radius: 99px; border: 1px solid var(--rule); background: none; color: var(--lantern); font-size: 0.78rem; font-weight: 600; cursor: pointer; }
@@ -105,6 +110,9 @@
   .items li { display: grid; grid-template-columns: 1fr auto; gap: 2px 12px; padding: 10px 0; border-bottom: 1px solid var(--rule); font-size: 0.88rem; }
   .it { display: grid; gap: 2px; }
   .it small { color: var(--washi-3); font-size: 0.76rem; }
-  .pp { color: var(--washi); font-weight: 700; text-align: right; }
+  .pp { color: var(--washi); font-weight: 700; text-align: right; display: grid; }
+  .pp small { color: var(--washi-3); font-weight: 500; font-size: 0.74rem; }
+  .usd { flex-basis: 100%; margin-top: -2px; color: var(--washi-3); font-size: 0.82rem; }
+  .sub:has(.usd) { flex-wrap: wrap; }
   .gp { grid-column: 2; color: var(--washi-3); font-size: 0.76rem; text-align: right; }
 </style>

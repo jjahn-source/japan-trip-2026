@@ -1,0 +1,24 @@
+// The live layer on Cloudflare: the built site as static assets, the API Worker for /api/*, the D1
+// database and a cron run every minute for alerts. `npm run live:setup` fills in database_id and the
+// push keys; `npm run live:deploy` builds and publishes.
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "japan-plan-c",
+  "main": "worker/index.ts",
+  "compatibility_date": "2026-09-25",
+  "assets": {
+    "directory": "./dist",
+    "binding": "ASSETS",
+    "run_worker_first": ["/api/*"]
+  },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "japan-plan-c",
+      "database_id": "8f54c39d-b62d-4bf7-bed4-7d2d0d0d8917",
+      "migrations_dir": "worker/migrations"
+    }
+  ],
+  "triggers": { "crons": ["* * * * *"] },
+  "observability": { "enabled": true }
+}

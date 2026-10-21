@@ -49,6 +49,8 @@ import alert from 'lucide-static/icons/triangle-alert.svg?raw';
 import clock3 from 'lucide-static/icons/clock-3.svg?raw';
 import radio from 'lucide-static/icons/radio-tower.svg?raw';
 import mic from 'lucide-static/icons/mic.svg?raw';
+import pencil from 'lucide-static/icons/pencil.svg?raw';
+import bell from 'lucide-static/icons/bell.svg?raw';
 
 const RAW = {
   transport: trainFront, stay: house, restaurant: utensils, attraction: landmark,
@@ -57,7 +59,7 @@ const RAW = {
   checklist: listChecks, wallet, info, plane, bed, copy, check, map, moon, clock, play, pause,
   rotate3d, trendingUp, plus, share, x, snowflake, mountain, footprints,
   search, sun, cloud, cloudSun, cloudRain, cloudSnow, cloudFog, alert, clock3, radio, mic,
-  car: carTaxiFront, bus, ship,
+  car: carTaxiFront, bus, ship, pencil, bell,
 } as const;
 
 export type IconName = keyof typeof RAW;

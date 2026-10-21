@@ -31,7 +31,15 @@ app.data ??= appData();
     <link rel="manifest" href={url('/manifest.webmanifest')} />
     <link rel="icon" href={url('/icon.svg')} type="image/svg+xml" />
     <link rel="apple-touch-icon" href={url('/icon-180.png')} />
-    <link rel="preload" href={url('/app-data.json')} as="fetch" crossorigin="anonymous" />
+    <!-- The trip data early on a first visit only: once the service worker has it, a preload made
+         outside the worker can't be used and the 500 KB would come down twice. -->
+    <script is:inline define:vars={{ dataUrl: url('/app-data.json') }}>
+      if (!navigator.serviceWorker?.controller) {
+        const l = document.createElement('link');
+        l.rel = 'preload'; l.as = 'fetch'; l.crossOrigin = 'anonymous'; l.href = dataUrl;
+        document.head.append(l);
+      }
+    </script>
     <link rel="preload" href={bodyFont} as="font" type="font/woff2" crossorigin="anonymous" />
     <link rel="preload" href={displayFont} as="font" type="font/woff2" crossorigin="anonymous" />
     <link rel="preconnect" href="https://api.mapbox.com" crossorigin />
@@ -42,7 +50,17 @@ app.data ??= appData();
     <App client:only="svelte" initial={view} />
     <script>
       if ('serviceWorker' in navigator && import.meta.env.PROD) {
-        addEventListener('load', () => navigator.serviceWorker.register(`${import.meta.env.BASE_URL}sw.js`));
+        // A Home Screen app can stay open for days: look for a new version whenever it comes back to
+        // the front, and once one has taken over, switch to it the next time it does (never mid-tap).
+        const updating = !!navigator.serviceWorker.controller;
+        navigator.serviceWorker.addEventListener('controllerchange', () => {
+          if (!updating) return; // the first install, not an update
+          document.addEventListener('visibilitychange', () => { if (document.visibilityState === 'visible') location.reload(); });
+        });
+        addEventListener('load', async () => {
+          const reg = await navigator.serviceWorker.register(`${import.meta.env.BASE_URL}sw.js`);
+          document.addEventListener('visibilitychange', () => { if (document.visibilityState === 'visible') reg.update().catch(() => {}); });
+        });
       }
     </script>
   </body>

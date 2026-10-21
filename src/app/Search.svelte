@@ -74,7 +74,16 @@
       if (wantsOpen && !open?.open) continue;
       out.push({ r: x.r, at: x.at, d, score, open });
     }
-    return out.sort((a, b) => (s ? b.score - a.score || a.d - b.d : a.d - b.d)).slice(0, 12);
+    // The map data often has one shop twice ("らーめん 山頭火" and "らーめん山頭火" a few metres apart):
+    // the same name, spaces and punctuation aside, within 100 m is one place.
+    const bare = (n: string) => n.toLowerCase().replace(/[\s・·.,'’()（）\-–]/g, '');
+    const kept: typeof out = [];
+    for (const x of out.sort((a, b) => (s ? b.score - a.score || a.d - b.d : a.d - b.d))) {
+      if (kept.some((k) => bare(k.r[0]) === bare(x.r[0]) && km(k.at, x.at) < 0.1)) continue;
+      kept.push(x);
+      if (kept.length === 12) break;
+    }
+    return kept;
   });
   const total = $derived(stops.length + places.length);
 

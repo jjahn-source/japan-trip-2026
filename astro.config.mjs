@@ -14,4 +14,6 @@ export default defineConfig({
   build: { format: 'directory', inlineStylesheets: 'auto' },
   prefetch: { prefetchAll: true, defaultStrategy: "hover" },
   integrations: [svelte(), dedupeCss(), serviceWorker()],
+  // `npm run dev` beside `npx wrangler dev`: the live layer's API answers on :8787.
+  vite: { server: { proxy: { '/api': 'http://localhost:8787' } } },
 });

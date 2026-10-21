@@ -34,7 +34,11 @@ for (const url of [...urls].sort()) {
     const raw = join(cache, id);
     if (!existsSync(raw)) {
       await new Promise((r) => setTimeout(r, 1200)); // Wikimedia rate-limits bursts
-      const res = await fetch(url, { headers: { 'user-agent': UA, accept: 'image/*' }, redirect: 'follow', signal: AbortSignal.timeout(20000) });
+      // Wikimedia's file server turns away scripts (429); its Special:FilePath route serves the same
+      // picture at the size asked for.
+      const wm = url.match(/^https:\/\/upload\.wikimedia\.org\/wikipedia\/commons\/(?:thumb\/)?[0-9a-f]\/[0-9a-f]{2}\/([^/?]+)/);
+      const src = wm ? `https://commons.wikimedia.org/wiki/Special:FilePath/${wm[1]}?width=1200` : url;
+      const res = await fetch(src, { headers: { 'user-agent': UA, accept: 'image/*' }, redirect: 'follow', signal: AbortSignal.timeout(20000) });
       if (!res.ok || !/^image\//.test(res.headers.get('content-type') ?? '')) throw new Error(`${res.status} ${res.headers.get('content-type')}`);
       writeFileSync(raw, Buffer.from(await res.arrayBuffer()));
     }

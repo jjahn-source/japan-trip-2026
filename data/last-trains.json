@@ -1,0 +1,95 @@
+{
+  "days": {
+    "1": {
+      "origin": "d01-s05",
+      "leave": "00:13",
+      "dep": "00:18",
+      "arr": "00:32",
+      "from": "Ikebukuro",
+      "line": "Seibu Ikebukuro Line",
+      "url": "https://transit.yahoo.co.jp/search/result?from=%E6%B1%A0%E8%A2%8B&to=%E6%9D%B1%E9%95%B7%E5%B4%8E&y=2026&m=12&d=15&hh=23&m1=0&m2=0&type=2&ticket=ic&expkind=1&ws=3&s=0&al=0&shin=0&ex=1&hb=0&lb=0&sr=0"
+    },
+    "2": {
+      "origin": "d02-s13",
+      "leave": "00:04",
+      "dep": "00:13",
+      "arr": "00:55",
+      "from": "Shibuya",
+      "line": "JR Yamanote Line → Toei Ōedo Line",
+      "url": "https://transit.yahoo.co.jp/search/result?from=%E6%B8%8B%E8%B0%B7&to=%E8%90%BD%E5%90%88%E5%8D%97%E9%95%B7%E5%B4%8E&y=2026&m=12&d=16&hh=23&m1=0&m2=0&type=2&ticket=ic&expkind=1&ws=3&s=0&al=0&shin=0&ex=1&hb=0&lb=0&sr=0"
+    },
+    "3": {
+      "origin": "d03-s10",
+      "leave": "00:35",
+      "dep": "00:43",
+      "arr": "00:55",
+      "from": "Higashi-nakano",
+      "line": "Toei Ōedo Line",
+      "url": "https://transit.yahoo.co.jp/search/result?from=%E6%9D%B1%E4%B8%AD%E9%87%8E&to=%E8%90%BD%E5%90%88%E5%8D%97%E9%95%B7%E5%B4%8E&y=2026&m=12&d=17&hh=23&m1=0&m2=0&type=2&ticket=ic&expkind=1&ws=3&s=0&al=0&shin=0&ex=1&hb=0&lb=0&sr=0"
+    },
+    "4": {
+      "origin": "d04-s09",
+      "leave": "00:24",
+      "dep": "00:34",
+      "arr": "00:55",
+      "from": "Shinjuku",
+      "line": "Toei Ōedo Line",
+      "url": "https://transit.yahoo.co.jp/search/result?from=%E6%96%B0%E5%AE%BF&to=%E8%90%BD%E5%90%88%E5%8D%97%E9%95%B7%E5%B4%8E&y=2026&m=12&d=18&hh=23&m1=0&m2=0&type=2&ticket=ic&expkind=1&ws=3&s=0&al=0&shin=0&ex=1&hb=0&lb=0&sr=0"
+    },
+    "7": {
+      "origin": "d07-s09",
+      "leave": "23:57",
+      "dep": "00:03",
+      "arr": "00:30",
+      "from": "Namba",
+      "line": "Osaka Metro Yotsubashi Line → Osaka Metro Chūō Line",
+      "url": "https://transit.yahoo.co.jp/search/result?from=%E9%9B%A3%E6%B3%A2&to=%E4%B9%9D%E6%9D%A1&y=2026&m=12&d=21&hh=23&m1=0&m2=0&type=2&ticket=ic&expkind=1&ws=3&s=0&al=0&shin=0&ex=1&hb=0&lb=0&sr=0"
+    },
+    "8": {
+      "origin": "d08-s10",
+      "leave": "23:07",
+      "dep": "23:13",
+      "arr": "00:30",
+      "from": "Sanjo",
+      "line": "Keihan Main Line (Rapid Express) → Osaka Metro Sakaisuji Line → Osaka Metro Chūō Line",
+      "url": "https://transit.yahoo.co.jp/search/result?from=%E4%B8%89%E6%9D%A1&to=%E4%B9%9D%E6%9D%A1&y=2026&m=12&d=22&hh=23&m1=0&m2=0&type=2&ticket=ic&expkind=1&ws=3&s=0&al=0&shin=0&ex=1&hb=0&lb=0&sr=0"
+    },
+    "9": {
+      "origin": "d09-s12",
+      "leave": "23:52",
+      "dep": "23:58",
+      "arr": "00:30",
+      "from": "Dobutsuen-mae",
+      "line": "Osaka Metro Sakaisuji Line → Osaka Metro Chūō Line",
+      "url": "https://transit.yahoo.co.jp/search/result?from=%E5%8B%95%E7%89%A9%E5%9C%92%E5%89%8D&to=%E4%B9%9D%E6%9D%A1&y=2026&m=12&d=23&hh=23&m1=0&m2=0&type=2&ticket=ic&expkind=1&ws=3&s=0&al=0&shin=0&ex=1&hb=0&lb=0&sr=0"
+    },
+    "11": {
+      "origin": "d11-s13",
+      "leave": "00:01",
+      "dep": "00:08",
+      "arr": "00:30",
+      "from": "Yotsubashi",
+      "line": "Osaka Metro Yotsubashi Line → Osaka Metro Chūō Line",
+      "url": "https://transit.yahoo.co.jp/search/result?from=%E5%9B%9B%E3%83%84%E6%A9%8B&to=%E4%B9%9D%E6%9D%A1&y=2026&m=12&d=25&hh=23&m1=0&m2=0&type=2&ticket=ic&expkind=1&ws=3&s=0&al=0&shin=0&ex=1&hb=0&lb=0&sr=0"
+    },
+    "14": {
+      "origin": "d14-s09",
+      "leave": "23:30",
+      "dep": "23:39",
+      "arr": "00:29",
+      "from": "Daiba",
+      "line": "Yurikamome → Tokyo Metro Ginza Line → Tokyo Metro Marunouchi Line",
+      "url": "https://transit.yahoo.co.jp/search/result?from=%E5%8F%B0%E5%A0%B4&to=%E6%96%B0%E5%AE%BF%E4%B8%89%E4%B8%81%E7%9B%AE&y=2026&m=12&d=28&hh=23&m1=0&m2=0&type=2&ticket=ic&expkind=1&ws=3&s=0&al=0&shin=0&ex=1&hb=0&lb=0&sr=0"
+    }
+  },
+  "skipped": {
+    "5": "Villa private onsen and piano night is a walk from Hot Spring Hakone Villa",
+    "6": "no station within 1.5 km of Snack Takachan & Maron (スナック たかちゃん&まろん): a taxi night",
+    "10": "KFC (Kujō) – Christmas Party Barrel pickup is a walk from Kujō House",
+    "12": "Karaokekan Kabukicho Honten (カラオケ館 歌舞伎町本店) is a walk from Garfield House",
+    "13": "Shinjuku Golden Gai (新宿ゴールデン街) is a walk from Garfield House",
+    "15": "no night in a bed (travel day)"
+  },
+  "generated": "2026-10-21T04:46:30.323Z",
+  "source": "Yahoo!乗換案内 last-train (終電) search, transit.yahoo.co.jp"
+}
