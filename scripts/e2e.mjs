@@ -7,7 +7,7 @@ import { createServer } from 'node:http';
 import { readFile, stat } from 'node:fs/promises';
 import { extname, join, normalize } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { chromium } from 'playwright';
+import { chromium, webkit } from 'playwright'; // BROWSER=webkit runs them in Safari's engine
 
 const DIST = fileURLToPath(new URL('../dist/', import.meta.url));
 const TYPES = { '.html': 'text/html', '.js': 'text/javascript', '.css': 'text/css', '.json': 'application/json', '.svg': 'image/svg+xml', '.png': 'image/png', '.woff2': 'font/woff2', '.webmanifest': 'application/manifest+json' };
@@ -26,7 +26,7 @@ before(async () => {
   });
   await new Promise((r) => server.listen(0, '127.0.0.1', r));
   base = `http://127.0.0.1:${server.address().port}`;
-  browser = await chromium.launch();
+  browser = await (process.env.BROWSER === 'webkit' ? webkit : chromium).launch();
 });
 after(async () => { await browser?.close(); server?.close(); });
 

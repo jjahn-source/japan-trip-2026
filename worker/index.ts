@@ -26,8 +26,12 @@ const KINDS: Kind[] = ['stop', 'todo', 'day'];
 const ALERTS: AlertKind[] = ['leave', 'last', 'due', 'changes'];
 /** Where a phone's push subscription can point: the browsers' own push services, nothing else. */
 const PUSH_HOSTS = /(^|\.)(push\.apple\.com|fcm\.googleapis\.com|push\.services\.mozilla\.com|notify\.windows\.com)$/;
-/** A cron run sends what fell due since the last few runs (a missed run still sends). */
+/** A cron run sends what fell due since the last few runs (a missed run still sends): a quarter of an
+ *  hour for the time-critical alerts, six hours for a deadline reminder (late beats never). */
 const WINDOW = 15 * 60e3;
+const windowFor = (k: AlertKind) => (k === 'due' ? 6 * 3600e3 : WINDOW);
+/** When a run can't send everything, the ones that can't wait go first. */
+const URGENCY: Record<AlertKind, number> = { leave: 0, last: 0, changes: 1, due: 2 };
 /** Pushes one run may send (~0.4 ms of CPU each); the rest go a minute later, still in the window. */
 const MAX_PUSH = 20;
 const MAX_SUBS = 40;
@@ -114,7 +118,7 @@ async function runAlerts(env: Env, now: number): Promise<{ sub: number; key: str
   const due: { sub: SubRow; alert: Alert }[] = [];
   for (const sub of subs) {
     const tz = sub.tz || 'Asia/Tokyo';
-    if (!byTz.has(tz)) byTz.set(tz, alertsFor(live, tz).filter((a) => a.at <= now && a.at > now - WINDOW));
+    if (!byTz.has(tz)) byTz.set(tz, alertsFor(live, tz).filter((a) => a.at <= now && a.at > now - windowFor(a.kind)));
     const prefs = prefsOf(sub);
     for (const alert of byTz.get(tz)!) if (prefs[alert.kind]) due.push({ sub, alert });
   }
@@ -127,7 +131,8 @@ async function runAlerts(env: Env, now: number): Promise<{ sub: number; key: str
     const { results } = await env.DB.prepare(`SELECT key FROM sent WHERE key IN (${chunk.map(() => '?').join(',')})`).bind(...chunk).all<{ key: string }>();
     for (const r of results) sent.add(r.key);
   }
-  const todo = due.filter((_, i) => !sent.has(keys[i])).slice(0, MAX_PUSH);
+  const todo = due.filter((_, i) => !sent.has(keys[i]))
+    .sort((a, b) => URGENCY[a.alert.kind] - URGENCY[b.alert.kind] || a.alert.at - b.alert.at).slice(0, MAX_PUSH);
   if (!todo.length) return [];
   // Marked sent first, so an overlapping run can't send it twice.
   await env.DB.batch(todo.map((d) => env.DB.prepare('INSERT OR IGNORE INTO sent (key, at) VALUES (?, ?)').bind(`${d.alert.key}|${d.sub.id}`, now)));

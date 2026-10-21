@@ -18,8 +18,12 @@ export function savedPrefs(): Prefs {
 }
 const keepPrefs = (p: Prefs) => { try { localStorage.setItem('jt:alert-prefs', JSON.stringify(p)); } catch { /* fine */ } };
 
+/** Whether alerts were ever turned on on this phone. Until they are, the app never asks the browser for
+ *  a subscription: that call can stall a browser where push isn't set up (WebKit froze on it), and a
+ *  phone that never turned alerts on has nothing to find. */
+const everOn = () => { try { return !!localStorage.getItem('jt:alert-tz'); } catch { return false; } };
 async function subscription(): Promise<PushSubscription | null> {
-  if (!supported()) return null;
+  if (!supported() || !everOn()) return null;
   const reg = await navigator.serviceWorker.getRegistration(`${BASE}/`);
   return (await reg?.pushManager.getSubscription()) ?? null;
 }
@@ -43,7 +47,8 @@ async function register(sub: PushSubscription, prefs: Prefs, name: string) {
  *  new time zone (on the next app open with signal). */
 export async function keepZone(name: string) {
   try {
-    if (localStorage.getItem('jt:alert-tz') === zone()) return;
+    const saved = localStorage.getItem('jt:alert-tz');
+    if (!saved || saved === zone()) return; // never turned on here, or no new time zone
     const sub = await subscription();
     if (sub && Notification.permission === 'granted') await register(sub, savedPrefs(), name);
   } catch { /* offline: next time */ }
@@ -70,6 +75,7 @@ export async function turnOff() {
   if (!sub) return;
   await post('/unsubscribe', { endpoint: sub.endpoint }).catch(() => {});
   await sub.unsubscribe();
+  try { localStorage.removeItem('jt:alert-tz'); } catch { /* fine */ }
 }
 export async function test() {
   const sub = await subscription();

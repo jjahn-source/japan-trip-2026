@@ -1,7 +1,8 @@
 // npm run sweep (with npm run serve running): every stop sheet, every ride, search, back/forward and resizing, at phone and desktop sizes; prints anything wrong.
-// Uses Chromium with the Mac's GPU. BASE_URL picks the server (default http://127.0.0.1:4326).
-import { chromium } from 'playwright';
-const b = await chromium.launch({ channel: 'chromium', args: ['--enable-gpu', '--use-angle=metal', '--ignore-gpu-blocklist'] });
+// Uses Chromium with the Mac's GPU, or Safari's engine with BROWSER=webkit (npx playwright install webkit).
+// BASE_URL picks the server (default http://127.0.0.1:4326).
+import { chromium, webkit } from 'playwright';
+const b = process.env.BROWSER === 'webkit' ? await webkit.launch() : await chromium.launch({ channel: 'chromium', args: ['--enable-gpu', '--use-angle=metal', '--ignore-gpu-blocklist'] });
 const issues = [];
 for (const [w, h] of [[390, 844], [1440, 900]]) {
   const ctx = await b.newContext({ viewport: { width: w, height: h }, hasTouch: w < 900, isMobile: w < 900 });

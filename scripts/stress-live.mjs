@@ -158,18 +158,20 @@ test('every alert from today to the end of the trip goes out once, on time, in t
   const live = applyPlan(plan, (await call('/state')).j);
   const start = Date.now(), end = Date.parse('2026-12-30T00:00:00+09:00');
   const expected = new Map();
-  for (const [n, tz, p] of who) for (const a of alertsFor(live, tz)) if (a.at > start && a.at <= end && p[a.kind] !== false) expected.set(`${n}|${a.key}`, a.at);
+  for (const [n, tz, p] of who) for (const a of alertsFor(live, tz)) if (a.at > start && a.at <= end && p[a.kind] !== false) expected.set(`${n}|${a.key}`, { at: a.at, late: a.kind === 'due' ? 6 * 3600e3 : 15 * 60e3 });
+  // wrangler's local proxy now and then drops one of thousands of requests: ask again.
+  const run = async (now) => { for (let i = 0; i < 3; i++) { const r = await call('/debug/alerts', { now }); if (r.j) return r.j; } throw new Error('local server kept failing'); };
   const got = new Map(), wrong = [];
   // An irregular cron: runs 13 minutes apart (as if most were missed), inside the 15-minute window.
   let runs = 0;
   for (let now = start; now <= end + 15 * 60e3; now += 13 * 60e3) {
-    const { j } = await call('/debug/alerts', { now });
+    const j = await run(now);
     runs++;
     for (const s of j.sent) {
       const k = `${nameOf.get(s.sub)}|${s.key}`;
       got.set(k, (got.get(k) ?? 0) + 1);
-      const at = expected.get(k);
-      if (at === undefined || now < at || now - at >= 15 * 60e3) wrong.push({ k, now, at });
+      const e = expected.get(k);
+      if (!e || now < e.at || now - e.at >= e.late) wrong.push({ k, now, at: e?.at });
     }
   }
   console.log(`  ${runs} cron runs: ${expected.size} alerts expected, ${got.size} sent`);

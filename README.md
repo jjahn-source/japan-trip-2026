@@ -243,4 +243,6 @@ app, Mapbox GL 3 (Standard style) for the map, hand-written CSS with oklch token
 (`src/app/theme.css`), a build-generated service worker (`scripts/service-worker.mjs`), and
 self-hosted fonts subset to what the trip shows: Zen Kaku Gothic New and Dela Gothic One
 (`npm run fonts`). The live layer is a Cloudflare Worker with static assets, D1 and a cron trigger
-(`wrangler.jsonc`), with Web Push written on WebCrypto. Tests: `node --test` units and Playwright end-to-end.
+(`wrangler.jsonc`), with Web Push written on WebCrypto. Tests: `node --test` units and Playwright end-to-end,
+in Chromium or, with `BROWSER=webkit` (after `npx playwright install webkit`), in Safari's engine: `npm run e2e`
+and `npm run sweep` both take it.
