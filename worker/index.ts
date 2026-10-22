@@ -3,13 +3,15 @@
 // alert subscription. It pushes a notification when someone changes the plan, and a cron run every
 // minute sends what's due: leave now, the last train home, booking deadlines. On the trip's mornings it
 // also asks Google Maps about the next two days' stops and warns when one will be closed (runGoogle).
-// And the search box's "open now near us" asks Google Places through it (/api/nearby), so the key stays here.
+// And the search box's "open now near us" asks Google Places through it (/api/nearby), and "Ask" puts a
+// question to Gemini grounded in Google Maps (/api/ask), so the keys stay here.
 //
 // Sized for Cloudflare's free plan: a phone's check and the cron run read one row (the snapshot) rather
 // than the history; a check that has the latest state gets a few bytes back; pushes per run, phones,
 // and request bodies are capped so no run can go past 10 ms of CPU or 50 outgoing requests.
 import { alertsFor, applyChange, applyPlan, clean, describe, EMPTY, exists, type Alert, type AlertKind, type Change, type Kind, type Live, type LivePlan } from '../src/lib/live';
 import { closedNews, LIVE_FIELDS, type LiveDetails } from '../src/lib/google-hours';
+import { ASK_MAX, ASK_MODEL, askBody, parseAnswer } from '../src/lib/ask';
 import { calendar } from '../src/lib/ics';
 import { weatherNews, type JmaAlert } from '../src/lib/jma';
 import { NEARBY_FIELDS, NEARBY_M, nearbyQuery, nearbyRows, type GPlace } from '../src/lib/nearby';
@@ -24,6 +26,8 @@ interface Env {
   VAPID_PUBLIC_KEY?: string; VAPID_PRIVATE_KEY?: string; VAPID_SUBJECT?: string;
   /** The morning hours check (runGoogle); without it the check is off. A secret: `wrangler secret put`. */
   GOOGLE_MAPS_API_KEY?: string;
+  /** Gemini, with Google Maps grounding (paid tier), for /api/ask. A secret. */
+  GEMINI_API_KEY?: string;
   /** "1" in .dev.vars: allows local push endpoints, the /api/debug routes and the rows-read header. */
   DEV?: string;
 }
@@ -195,6 +199,25 @@ const NEARBY_PER_DAY = 250;
 const NEARBY_PER_MINUTE = 8;
 /** The same search from the same block (~100 m) within five minutes is answered from the cache. */
 const NEARBY_TTL = 300;
+/** Questions to Gemini a day for everyone, and per phone address a minute. */
+const ASK_PER_DAY = 150;
+const ASK_PER_MINUTE = 5;
+
+/** A recent answer to the same request (D1: Cloudflare's cache does nothing on workers.dev). */
+async function cached(env: Env, k: string, ttl: number): Promise<Response | null> {
+  const row = await env.DB.prepare('SELECT body, at FROM gcache WHERE k = ?').bind(k).first<{ body: string; at: number }>();
+  return row && Date.now() - row.at < ttl * 1000 ? new Response(row.body, { headers: { 'content-type': 'application/json; charset=utf-8', 'cache-control': 'no-store', 'x-cache': 'hit' } }) : null;
+}
+const keep = (env: Env, k: string, body: string) => env.DB.batch([
+  env.DB.prepare('INSERT INTO gcache (k, body, at) VALUES (?, ?, ?) ON CONFLICT(k) DO UPDATE SET body = excluded.body, at = excluded.at').bind(k, body, Date.now()),
+  env.DB.prepare('DELETE FROM gcache WHERE at < ?').bind(Date.now() - 3600e3),
+]);
+/** Counts one paid call against today's (Japan date) allowance for `what`; false once it's used up. */
+async function spend(env: Env, what: string, max: number): Promise<boolean> {
+  const day = `${what}${new Date(Date.now() + 9 * 3600e3).toISOString().slice(0, 10)}`;
+  const used = await env.DB.prepare('INSERT INTO gquota (day, n) VALUES (?, 1) ON CONFLICT(day) DO UPDATE SET n = n + 1 RETURNING n').bind(day).first<{ n: number }>();
+  return (used?.n ?? 0) <= max;
+}
 
 async function nearby(req: Request, env: Env, ctx: Ctx, ip: string, limited: boolean): Promise<Response> {
   if (!env.GOOGLE_MAPS_API_KEY) return json({ error: 'live Google search is off on this server' }, 503);
@@ -202,14 +225,11 @@ async function nearby(req: Request, env: Env, ctx: Ctx, ip: string, limited: boo
   const want = nearbyQuery(u.searchParams.get('q'), Number(u.searchParams.get('lat')), Number(u.searchParams.get('lng')));
   if (!want) return json({ error: 'send q, and a lat and lng in Japan' }, 400);
   const group = u.searchParams.get('group') !== '0';
-  const cacheKey = new Request(`https://nearby.local/?q=${encodeURIComponent(want.q.toLowerCase())}&lat=${want.lat}&lng=${want.lng}&g=${group ? 1 : 0}`);
-  const cache = (globalThis as unknown as { caches?: { default: { match(r: Request): Promise<Response | undefined>; put(r: Request, res: Response): Promise<void> } } }).caches?.default;
-  const hit = await cache?.match(cacheKey);
+  const k = `nearby|${want.q.toLowerCase()}|${want.lat}|${want.lng}|${group ? 1 : 0}`;
+  const hit = await cached(env, k, NEARBY_TTL);
   if (hit) return hit;
   if (limited && !allow(`n:${ip}`, NEARBY_PER_MINUTE)) return slowDown();
-  const day = new Date(Date.now() + 9 * 3600e3).toISOString().slice(0, 10);
-  const used = await env.DB.prepare('INSERT INTO gquota (day, n) VALUES (?, 1) ON CONFLICT(day) DO UPDATE SET n = n + 1 RETURNING n').bind(day).first<{ n: number }>();
-  if ((used?.n ?? 0) > NEARBY_PER_DAY) return json({ error: `the group has used today's ${NEARBY_PER_DAY} Google searches: the offline search still works` }, 429);
+  if (!(await spend(env, '', NEARBY_PER_DAY))) return json({ error: `the group has used today's ${NEARBY_PER_DAY} Google searches: the offline search still works` }, 429);
   const at = { lat: want.lat, lng: want.lng };
   const r = await fetch('https://places.googleapis.com/v1/places:searchText', {
     method: 'POST',
@@ -218,9 +238,36 @@ async function nearby(req: Request, env: Env, ctx: Ctx, ip: string, limited: boo
   });
   if (!r.ok) return json({ error: 'Google Maps did not answer: try again' }, 502);
   const rows = nearbyRows(((await r.json()) as { places?: GPlace[] }).places, at, group);
-  const res = json({ q: want.q, rows }, 200, { 'cache-control': `public, max-age=${NEARBY_TTL}` });
-  if (cache) ctx.waitUntil(cache.put(cacheKey, res.clone()));
-  return res;
+  const body = JSON.stringify({ q: want.q, rows });
+  ctx.waitUntil(keep(env, k, body));
+  return new Response(body, { headers: { 'content-type': 'application/json; charset=utf-8', 'cache-control': 'no-store' } });
+}
+
+/** A question to Gemini, grounded in Google Maps near the phone, with today's plan as context. */
+async function ask(req: Request, env: Env, ctx: Ctx, ip: string, limited: boolean): Promise<Response> {
+  if (!env.GEMINI_API_KEY) return json({ error: 'Ask is off on this server' }, 503);
+  const b = await body(req);
+  const q = str(b?.q, ASK_MAX);
+  const lat = Number(b?.lat), lng = Number(b?.lng);
+  if (!q || !Number.isFinite(lat) || !Number.isFinite(lng) || lat < 24 || lat > 46 || lng < 122 || lng > 146) return json({ error: 'send a question and a lat and lng in Japan' }, 400);
+  const at = { lat: Math.round(lat * 1e3) / 1e3, lng: Math.round(lng * 1e3) / 1e3 };
+  const k = `ask|${q.toLowerCase().replace(/\s+/g, ' ')}|${at.lat}|${at.lng}`;
+  const hit = await cached(env, k, NEARBY_TTL);
+  if (hit) return hit;
+  if (limited && !allow(`a:${ip}`, ASK_PER_MINUTE)) return slowDown();
+  if (!(await spend(env, 'ask:', ASK_PER_DAY))) return json({ error: `the group has asked today's ${ASK_PER_DAY} questions: the search still works` }, 429);
+  const now = Date.now();
+  const stops = applyPlan(await plan(env), await current(env)).stops;
+  const r = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${ASK_MODEL}:generateContent`, {
+    method: 'POST', headers: { 'content-type': 'application/json', 'x-goog-api-key': env.GEMINI_API_KEY },
+    body: JSON.stringify(askBody(q, at, now, stops)),
+  });
+  if (!r.ok) return json({ error: 'Gemini did not answer: try again in a minute' }, 502);
+  const a = parseAnswer(await r.json());
+  if (!a.text) return json({ error: 'no answer this time: try asking another way' }, 502);
+  const out = JSON.stringify(a);
+  ctx.waitUntil(keep(env, k, out));
+  return new Response(out, { headers: { 'content-type': 'application/json; charset=utf-8', 'cache-control': 'no-store' } });
 }
 
 /** Sends each alert once to every phone that wants its kind (the morning checks' news), up to MAX_PUSH. */
@@ -319,6 +366,7 @@ async function api(req: Request, env: Env, ctx: Ctx, path: string): Promise<Resp
   if (path === '/api/push-key' && method === 'GET') return json({ key: env.VAPID_PUBLIC_KEY ?? null });
 
   if (path === '/api/nearby' && method === 'GET') return nearby(req, env, ctx, ip, limited);
+  if (path === '/api/ask' && method === 'POST') return ask(req, env, ctx, ip, limited);
 
   // The trip as a calendar to subscribe to (Google Calendar: "From URL"), with the group's changes on it.
   if (path === '/api/calendar.ics' && method === 'GET') {

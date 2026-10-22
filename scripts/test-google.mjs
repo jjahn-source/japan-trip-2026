@@ -180,3 +180,29 @@ test('the calendar feed: one event a stop at its (moved) time, cancelled and sta
   assert.match(ics.replace(/\r\n /g, ''), /LOCATION:1-chōme-17-1 Minamiikebukuro\\, Toshima City/);
   assert.ok(ics.endsWith('END:VCALENDAR\r\n'));
 });
+
+test('ask: today\'s plan as context with the stop on now, Google Maps on, sources de-duplicated', async () => {
+  const { askBody, parseAnswer, planLines } = await import('../src/lib/ask.ts');
+  const stops = [
+    { id: 'a', d: 4, name: 'Korakuen Hall', cat: 'activity', s: '2026-12-18T18:30:00+09:00', e: '2026-12-18T21:00:00+09:00' },
+    { id: 'b', d: 4, name: 'Golden Gai', cat: 'bar', s: '2026-12-18T23:00:00+09:00', e: '2026-12-19T02:20:00+09:00' },
+    { id: 'c', d: 4, name: 'Cancelled bar', cat: 'bar', s: '2026-12-18T22:00:00+09:00', e: '2026-12-18T23:00:00+09:00', cancelled: true },
+    { id: 'd', d: 5, name: 'Romancecar', cat: 'transport', s: '2026-12-19T10:40:00+09:00', e: '2026-12-19T12:10:00+09:00' },
+  ];
+  const now = Date.parse('2026-12-19T01:00:00+09:00');
+  assert.deepEqual(planLines(stops, now), ['18:30–21:00 Korakuen Hall', '23:00–02:20 Golden Gai (now)']);
+  assert.deepEqual(planLines(stops, Date.parse('2026-12-10T12:00:00+09:00')), []);
+  const b = askBody('late ramen for 8?', { lat: 35.694, lng: 139.705 }, now, stops);
+  assert.match(b.contents[0].parts[0].text, /^It is Sat 19 Dec 01:00 in Japan\./);
+  assert.match(b.contents[0].parts[0].text, /Question: late ramen for 8\?$/);
+  assert.deepEqual(b.tools, [{ googleMaps: {} }]);
+  assert.deepEqual(b.toolConfig.retrievalConfig.latLng, { latitude: 35.694, longitude: 139.705 });
+  const a = parseAnswer({ candidates: [{ content: { parts: [{ text: '**Mensho** – open late\n' }] }, groundingMetadata: { groundingChunks: [
+    { maps: { uri: 'https://maps.google.com/?cid=1', title: 'Mensho - Google Maps' } },
+    { maps: { uri: 'https://maps.google.com/?cid=1&r', title: 'Review of Mensho - Google Maps' } },
+    { web: { uri: 'https://x' } },
+  ] } }] });
+  assert.equal(a.text, 'Mensho – open late');
+  assert.deepEqual(a.sources, [{ title: 'Mensho', uri: 'https://maps.google.com/?cid=1' }]);
+  assert.deepEqual(parseAnswer({}), { text: '', sources: [] });
+});

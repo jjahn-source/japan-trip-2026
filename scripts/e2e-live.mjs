@@ -44,7 +44,7 @@ const phone = async (name, device) => {
 const settle = () => new Promise((r) => setTimeout(r, 600));
 after(() => {
   server.close();
-  execFileSync('npx', ['wrangler', 'd1', 'execute', 'japan-plan-c', '--local', '--command', `DELETE FROM changes; DELETE FROM subs; DELETE FROM sent; DELETE FROM gchecks; DELETE FROM gquota; UPDATE snapshot SET v = 0, state = '{"v":0,"items":{},"log":[]}' WHERE id = 1;`], { stdio: 'ignore' });
+  execFileSync('npx', ['wrangler', 'd1', 'execute', 'japan-plan-c', '--local', '--command', `DELETE FROM changes; DELETE FROM subs; DELETE FROM sent; DELETE FROM gchecks; DELETE FROM gquota; DELETE FROM gcache; UPDATE snapshot SET v = 0, state = '{"v":0,"items":{},"log":[]}' WHERE id = 1;`], { stdio: 'ignore' });
 });
 
 const plan = await fetch(`${LIVE}/live-plan.json`).then((r) => r.json());
@@ -148,6 +148,13 @@ test('open-now search refuses bad input and says when Google is off', async () =
   assert.ok([400, 503].includes(r.status));
   const ok = await api('/nearby?q=ramen&lat=35.694&lng=139.705');
   assert.ok(ok.status === 200 ? Array.isArray(ok.j.rows) : ok.status === 503, JSON.stringify(ok.j));
+});
+
+test('ask refuses bad input and says when Gemini is off', async () => {
+  const bad = await api('/ask', { q: 'ramen?', lat: 40.7, lng: -74 });
+  assert.ok([400, 503].includes(bad.status));
+  const r = await api('/ask', { q: 'late ramen for 8 near here?', lat: 35.694, lng: 139.705 });
+  assert.ok(r.status === 200 ? typeof r.j.text === 'string' : r.status === 503, JSON.stringify(r.j));
 });
 
 test('a ticked booking is shared, and a phone that has gone is forgotten', async () => {

@@ -1,7 +1,8 @@
 <script lang="ts">
   // One search for everything: the trip's own stops first, then places around the day in view
   // ("ramen", "izakaya open now", "Don Quijote"). Keyboard: / or ⌘K opens it, arrows move, Enter opens.
-  // With signal and the live layer, one tap more asks Google Maps what's open right now near the phone.
+  // With signal and the live layer, one tap more asks Google Maps what's open right now near the phone, or
+  // asks Gemini the question itself, answered from Google Maps with today's plan in mind.
   import { icon } from '../lib/icons';
   import { CATS } from '../lib/categories';
   import { hoursAt, parseHours, type Hours } from '../lib/hours';
@@ -92,7 +93,7 @@
 
   // Open now on Google Maps (the Worker's /api/nearby): only when asked, since each search is a paid call.
   let gRows = $state<NearbyRow[] | null>(null), gBusy = $state(false), gErr = $state(''), gFor = $state('');
-  $effect(() => { void q; gRows = null; gErr = ''; });
+  $effect(() => { void q; gRows = null; gErr = ''; answer = null; aErr = ''; });
   const inJapan = (lat: number, lng: number) => lat > 24 && lat < 46 && lng > 122 && lng < 146;
   /** The phone's position when it's in Japan; otherwise the stop picked on the map, or the day's first. */
   const where = () => new Promise<{ lat: number; lng: number; from: string } | null>((done) => {
@@ -111,6 +112,19 @@
       if (!r.ok) { gErr = j.error ?? 'Google Maps did not answer.'; return; }
       gRows = j.rows; gFor = at.from;
     } catch { gErr = 'No signal for Google Maps right now: the places above work offline.'; } finally { gBusy = false; }
+  }
+  // Ask: the question in plain words, to Gemini with Google Maps (the Worker's /api/ask). About 10 s.
+  let answer = $state<{ text: string; sources: { title: string; uri: string }[] } | null>(null), aBusy = $state(false), aErr = $state('');
+  async function askGemini() {
+    aBusy = true; aErr = '';
+    try {
+      const at = await where();
+      if (!at) { aErr = 'No place to ask about.'; return; }
+      const r = await fetch(`${BASE}/api/ask`, { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ q: q.trim(), lat: at.lat, lng: at.lng }), signal: AbortSignal.timeout(45e3) });
+      const j = await r.json();
+      if (!r.ok) { aErr = j.error ?? 'Gemini did not answer.'; return; }
+      answer = j;
+    } catch { aErr = 'No answer: check the signal and try again.'; } finally { aBusy = false; }
   }
   function pickGoogle(g: NearbyRow) {
     app.search = false;
@@ -175,6 +189,16 @@
             <button type="button" class="ask" onclick={askGoogle} disabled={gBusy}>{@html icon('globe')}<span>{gBusy ? 'Asking Google Maps…' : `What's open now near you: ask Google Maps`}</span></button>
           {/if}
           {#if gErr}<p class="note" role="status">{gErr}</p>{/if}
+          {#if answer}
+            <div class="answer" aria-live="polite">
+              <p class="grp">Gemini, from Google Maps</p>
+              <p class="atext">{answer.text}</p>
+              {#if answer.sources.length}<p class="asrc">Sources: {#each answer.sources as x, k}{k ? ' · ' : ''}<a href={x.uri} target="_blank" rel="noopener">{x.title}</a>{/each} <span>(Google Maps)</span></p>{/if}
+            </div>
+          {:else if q.trim().length >= 4}
+            <button type="button" class="ask gem" onclick={askGemini} disabled={aBusy}>{@html icon('mic')}<span>{aBusy ? 'Asking Gemini… about 10 seconds' : `Ask Gemini: “${q.trim()}”`}</span></button>
+          {/if}
+          {#if aErr}<p class="note" role="status">{aErr}</p>{/if}
         {/if}
       </div>
     {:else}
@@ -207,6 +231,13 @@
   .ask { display: flex; align-items: center; gap: 10px; width: 100%; margin-top: 6px; padding: 11px 12px; border: 1px dashed oklch(83% 0.145 76 / 0.45); border-radius: var(--r-m); background: none; color: var(--lantern); font: 600 0.88rem var(--f-body); text-align: left; cursor: pointer; }
   .ask:disabled { opacity: 0.7; cursor: progress; }
   .ask :global(svg) { width: 16px; height: 16px; flex: none; }
+  .ask.gem { border-style: solid; border-color: var(--rule-strong); color: var(--washi); }
+  .ask.gem :global(svg) { color: var(--lantern); }
+  .ask span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .answer { margin-top: 6px; padding: 4px 6px 10px; border-radius: var(--r-m); background: var(--night-3); }
+  .atext { padding: 0 6px; white-space: pre-line; font-size: 0.9rem; line-height: 1.5; color: var(--washi); }
+  .asrc { padding: 8px 6px 0; font-size: 0.76rem; color: var(--washi-3); }
+  .asrc a { color: var(--lantern); }
   .badge.g { background: oklch(79% 0.13 155 / 0.16); color: var(--ok); }
   .note { padding: 8px 10px 6px; color: var(--washi-3); font-size: 0.8rem; }
   .empty, .hint { padding: 16px; color: var(--washi-2); font-size: 0.88rem; line-height: 1.5; }
