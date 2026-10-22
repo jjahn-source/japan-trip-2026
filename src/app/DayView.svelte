@@ -1,5 +1,5 @@
 <script lang="ts">
-  // One day: who, where and when at a glance. The timeline runs down a lantern-lit hour rail; every
+  // One day: who, where and when at a glance. The timeline runs down the day in order; every
   // stop keeps the same furniture in the same places; the hop to the next stop sits between them.
   import { icon } from '../lib/icons';
   import { app, BASE, go, openSheet, todayN, now } from './state.svelte';
@@ -227,7 +227,6 @@
   .brief b { color: var(--washi); font-weight: 700; }
 
   .timeline { list-style: none; padding: 0; position: relative; }
-  .timeline::before { content: ''; position: absolute; left: 75px; top: 14px; bottom: 14px; width: 1px; background: linear-gradient(var(--rule-strong), var(--rule) 30%, var(--rule)); }
   .stop { position: relative; }
   /* Rows below the fold are laid out when they scroll near, not when the day opens. */
   .stop, .hop { content-visibility: auto; contain-intrinsic-size: auto 104px; }
