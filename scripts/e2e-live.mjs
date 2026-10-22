@@ -157,6 +157,17 @@ test('ask refuses bad input and says when Gemini is off', async () => {
   assert.ok(r.status === 200 ? typeof r.j.text === 'string' : r.status === 503, JSON.stringify(r.j));
 });
 
+test('live search routes: a kind of place is a list, a question with a condition asks Gemini too', async () => {
+  const at = { lat: 35.694, lng: 139.705 };
+  const list = await api('/find', { q: 'ramen', ...at });
+  assert.equal(list.status, 200);
+  assert.equal(list.j.route.route, 'maps');
+  const judge = await api('/find', { q: 'late ramen that takes cards for 8?', ...at });
+  assert.equal(judge.j.route.route, 'gemini');
+  assert.ok(['jev', 'words'].includes(judge.j.route.via));
+  assert.equal((await api('/find', { q: '', ...at })).status, 400);
+});
+
 test('a ticked booking is shared, and a phone that has gone is forgotten', async () => {
   const todo = plan.todos[0];
   const r = await api('/changes', { kind: 'todo', target: todo.id, patch: { done: true }, author: 'Ann', device: 'dev-ann' });

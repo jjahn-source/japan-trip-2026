@@ -1,8 +1,9 @@
 <script lang="ts">
   // One search for everything: the trip's own stops first, then places around the day in view
   // ("ramen", "izakaya open now", "Don Quijote"). Keyboard: / or ⌘K opens it, arrows move, Enter opens.
-  // With signal and the live layer, one tap more asks Google Maps what's open right now near the phone, or
-  // asks Gemini the question itself, answered from Google Maps with today's plan in mind.
+  // With signal and the live layer, one tap (or Enter) searches live: Google Maps' open-now list near the phone,
+  // and, when the search needs judgement the list can't give, Gemini's answer from Google Maps on top. The Worker
+  // decides which (src/lib/route.ts: TypeSafe's Jev, or a word check); "Ask Gemini too" overrides it.
   import { icon } from '../lib/icons';
   import { CATS } from '../lib/categories';
   import { hoursAt, parseHours, type Hours } from '../lib/hours';
@@ -92,8 +93,8 @@
   const total = $derived(stops.length + places.length);
 
   // Open now on Google Maps (the Worker's /api/nearby): only when asked, since each search is a paid call.
-  let gRows = $state<NearbyRow[] | null>(null), gBusy = $state(false), gErr = $state(''), gFor = $state('');
-  $effect(() => { void q; gRows = null; gErr = ''; answer = null; aErr = ''; });
+  let gRows = $state<NearbyRow[] | null>(null), gBusy = $state(false), gErr = $state(''), gFor = $state(''), gemini = $state(false);
+  $effect(() => { void q; gRows = null; gErr = ''; answer = null; aErr = ''; gemini = false; });
   const inJapan = (lat: number, lng: number) => lat > 24 && lat < 46 && lng > 122 && lng < 146;
   /** The phone's position when it's in Japan; otherwise the stop picked on the map, or the day's first. */
   const where = () => new Promise<{ lat: number; lng: number; from: string } | null>((done) => {
@@ -109,23 +110,26 @@
       settled = true; done({ lat: p.coords.latitude, lng: p.coords.longitude, from: 'near you' });
     }, fallback, { timeout: 6000, maximumAge: 120e3 });
   });
-  async function askGoogle() {
+  async function searchLive() {
+    if (gBusy) return;
     gBusy = true; gErr = '';
     try {
       const at = await where();
       if (!at) { gErr = 'No place to search around.'; return; }
-      const r = await fetch(`${BASE}/api/nearby?q=${encodeURIComponent(q)}&lat=${at.lat}&lng=${at.lng}`, { signal: AbortSignal.timeout(12e3) });
+      const r = await fetch(`${BASE}/api/find`, { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ q: q.trim(), lat: at.lat, lng: at.lng }), signal: AbortSignal.timeout(12e3) });
       const j = await r.json();
-      if (!r.ok) { gErr = j.error ?? 'Google Maps did not answer.'; return; }
-      gRows = j.rows; gFor = at.from;
+      gFor = at.from;
+      if (j.rows) gRows = j.rows; else gErr = j.error ?? 'Google Maps did not answer.';
+      // The search needs judgement the list can't give: Gemini answers too, on top.
+      if (j.route?.route === 'gemini') { gemini = true; askGemini(at); }
     } catch { gErr = 'No signal for Google Maps right now: the places above work offline.'; } finally { gBusy = false; }
   }
   // Ask: the question in plain words, to Gemini with Google Maps (the Worker's /api/ask). About 10 s.
   let answer = $state<{ text: string; sources: { title: string; uri: string }[] } | null>(null), aBusy = $state(false), aErr = $state('');
-  async function askGemini() {
-    aBusy = true; aErr = '';
+  async function askGemini(near?: { lat: number; lng: number } | null) {
+    aBusy = true; aErr = ''; gemini = true;
     try {
-      const at = await where();
+      const at = near ?? (await where());
       if (!at) { aErr = 'No place to ask about.'; return; }
       const r = await fetch(`${BASE}/api/ask`, { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ q: q.trim(), lat: at.lat, lng: at.lng }), signal: AbortSignal.timeout(45e3) });
       const j = await r.json();
@@ -149,6 +153,7 @@
     if (e.key === 'ArrowDown') { e.preventDefault(); active = Math.min(total - 1, active + 1); }
     else if (e.key === 'ArrowUp') { e.preventDefault(); active = Math.max(0, active - 1); }
     else if (e.key === 'Enter' && total) { e.preventDefault(); if (active < stops.length) pickStop(active); else pickPlace(active - stops.length); }
+    else if (e.key === 'Enter' && live.on && q.trim().length >= 2) { e.preventDefault(); searchLive(); }
   }
 </script>
 
@@ -183,6 +188,15 @@
         {#if total && !places.length && cats.length}<p class="note">No {cats.map(({ c }) => c.label.toLowerCase()).join(' or ')} within 3 km of day {dayN}'s stops{wantsOpen ? ' open now' : ''}.</p>{/if}
         {#if !total && q.trim().split(/\s+/).length < 4}<p class="empty">Nothing matches “{q}” in the trip or near day {dayN}. Try a kind of place, like ramen, karaoke or konbini.</p>{/if}
         {#if live.on}
+          {#if aBusy}<p class="note thinking" role="status">{@html icon('mic')} Gemini is looking into “{q.trim()}”… about 10 seconds</p>{/if}
+          {#if answer}
+            <div class="answer" aria-live="polite">
+              <p class="grp">Gemini, from Google Maps</p>
+              <p class="atext">{answer.text}</p>
+              {#if answer.sources.length}<p class="asrc">Sources: {#each answer.sources as x, k}{k ? ' · ' : ''}<a href={x.uri} target="_blank" rel="noopener">{x.title}</a>{/each} <span>(Google Maps)</span></p>{/if}
+            </div>
+          {/if}
+          {#if aErr}<p class="note" role="status">{aErr}</p>{/if}
           {#if gRows}
             <p class="grp">Open now on Google Maps · {gFor}</p>
             {#each gRows as g (g.id)}
@@ -193,19 +207,10 @@
             {/each}
             {#if !gRows.length}<p class="note">Nothing open on Google Maps for that within a 15-minute walk.</p>{/if}
           {:else}
-            <button type="button" class="ask" onclick={askGoogle} disabled={gBusy}>{@html icon('globe')}<span>{gBusy ? 'Asking Google Maps…' : `What's open now near you: ask Google Maps`}</span></button>
+            <button type="button" class="ask" onclick={searchLive} disabled={gBusy}>{@html icon('globe')}<span>{gBusy ? 'Searching Google Maps…' : `Search live near you: “${q.trim()}”`}</span></button>
           {/if}
           {#if gErr}<p class="note" role="status">{gErr}</p>{/if}
-          {#if answer}
-            <div class="answer" aria-live="polite">
-              <p class="grp">Gemini, from Google Maps</p>
-              <p class="atext">{answer.text}</p>
-              {#if answer.sources.length}<p class="asrc">Sources: {#each answer.sources as x, k}{k ? ' · ' : ''}<a href={x.uri} target="_blank" rel="noopener">{x.title}</a>{/each} <span>(Google Maps)</span></p>{/if}
-            </div>
-          {:else if q.trim().length >= 4}
-            <button type="button" class="ask gem" onclick={askGemini} disabled={aBusy}>{@html icon('mic')}<span>{aBusy ? 'Asking Gemini… about 10 seconds' : `Ask Gemini: “${q.trim()}”`}</span></button>
-          {/if}
-          {#if aErr}<p class="note" role="status">{aErr}</p>{/if}
+          {#if (gRows || gErr) && !gemini}<button type="button" class="more" onclick={() => askGemini()}>Not what you need? Ask Gemini too</button>{/if}
         {/if}
       </div>
     {:else}
@@ -238,8 +243,9 @@
   .ask { display: flex; align-items: center; gap: 10px; width: 100%; margin-top: 6px; padding: 11px 12px; border: 1px dashed oklch(83% 0.145 76 / 0.45); border-radius: var(--r-m); background: none; color: var(--lantern); font: 600 0.88rem var(--f-body); text-align: left; cursor: pointer; }
   .ask:disabled { opacity: 0.7; cursor: progress; }
   .ask :global(svg) { width: 16px; height: 16px; flex: none; }
-  .ask.gem { border-style: solid; border-color: var(--rule-strong); color: var(--washi); }
-  .ask.gem :global(svg) { color: var(--lantern); }
+  .thinking { display: flex; align-items: center; gap: 8px; color: var(--washi-2); }
+  .thinking :global(svg) { width: 15px; height: 15px; color: var(--lantern); }
+  .more { margin: 4px 10px 6px; padding: 0; border: 0; background: none; color: var(--lantern); font: 600 0.82rem var(--f-body); text-decoration: underline; text-underline-offset: 2px; cursor: pointer; }
   .ask span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
   .answer { margin-top: 6px; padding: 4px 6px 10px; border-radius: var(--r-m); background: var(--night-3); }
   .atext { padding: 0 6px; white-space: pre-line; font-size: 0.9rem; line-height: 1.5; color: var(--washi); }

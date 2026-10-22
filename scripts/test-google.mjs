@@ -206,3 +206,18 @@ test('ask: today\'s plan as context with the stop on now, Google Maps on, source
   assert.deepEqual(a.sources, [{ title: 'Mensho', uri: 'https://maps.google.com/?cid=1' }]);
   assert.deepEqual(parseAnswer({}), { text: '', sources: [] });
 });
+
+test('routing: a list answers kinds of places; judgement, conditions and questions go to Gemini too', async () => {
+  const { jevBody, readJev, wordsRoute, JEV_CONFIDENT } = await import('../src/lib/route.ts');
+  for (const q of ['ramen', 'izakaya open now', 'konbini', 'Don Quijote', 'coin lockers', 'karaoke near me']) assert.equal(wordsRoute(q), 'maps', q);
+  for (const q of ['late ramen that takes cards', 'somewhere quiet to sit', 'is Uoshin good for 8?', 'izakaya with a private room', 'what should we do before the last train', 'where can all of us eat right now', 'ラーメン 個室']) assert.equal(wordsRoute(q), 'gemini', q);
+  const b = jevBody('late ramen that takes cards', '2026-12-18 23:40', ['23:00–23:40 Ramen Nagi (now)']);
+  assert.equal(b.questions.route.type, 'choice');
+  assert.deepEqual(Object.keys(b.questions.route.criteria), ['list', 'judgement']);
+  assert.equal(b.state.search, 'late ramen that takes cards');
+  assert.deepEqual(readJev({ answers: { route: { choice: 'list', confidence: 0.9 } } }), { route: 'maps', via: 'jev', confidence: 0.9 });
+  assert.equal(readJev({ answers: { route: { choice: 'list', confidence: JEV_CONFIDENT - 0.01 } } }).route, 'gemini');
+  assert.equal(readJev({ answers: { route: { choice: 'judgement', confidence: 0.95 } } }).route, 'gemini');
+  assert.equal(readJev({}), null);
+  assert.equal(readJev(null), null);
+});

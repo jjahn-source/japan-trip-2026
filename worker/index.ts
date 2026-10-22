@@ -11,7 +11,8 @@
 // and request bodies are capped so no run can go past 10 ms of CPU or 50 outgoing requests.
 import { alertsFor, applyChange, applyPlan, clean, describe, EMPTY, exists, type Alert, type AlertKind, type Change, type Kind, type Live, type LivePlan } from '../src/lib/live';
 import { closedNews, LIVE_FIELDS, type LiveDetails } from '../src/lib/google-hours';
-import { ASK_MAX, ASK_MODEL, askBody, parseAnswer } from '../src/lib/ask';
+import { ASK_MAX, ASK_MODEL, askBody, parseAnswer, planLines } from '../src/lib/ask';
+import { jevBody, readJev, wordsRoute, type RouteAnswer } from '../src/lib/route';
 import { calendar } from '../src/lib/ics';
 import { weatherNews, type JmaAlert } from '../src/lib/jma';
 import { NEARBY_FIELDS, NEARBY_M, nearbyQuery, nearbyRows, type GPlace } from '../src/lib/nearby';
@@ -28,6 +29,8 @@ interface Env {
   GOOGLE_MAPS_API_KEY?: string;
   /** Gemini, with Google Maps grounding (paid tier), for /api/ask. A secret. */
   GEMINI_API_KEY?: string;
+  /** TypeSafe's Jev, deciding whether a search needs Gemini too (/api/find); without it, a word check. A secret. */
+  TYPESAFE_API_KEY?: string;
   /** "1" in .dev.vars: allows local push endpoints, the /api/debug routes and the rows-read header. */
   DEV?: string;
 }
@@ -220,27 +223,59 @@ async function spend(env: Env, what: string, max: number): Promise<boolean> {
 }
 
 async function nearby(req: Request, env: Env, ctx: Ctx, ip: string, limited: boolean): Promise<Response> {
-  if (!env.GOOGLE_MAPS_API_KEY) return json({ error: 'live Google search is off on this server' }, 503);
   const u = new URL(req.url);
-  const want = nearbyQuery(u.searchParams.get('q'), Number(u.searchParams.get('lat')), Number(u.searchParams.get('lng')));
-  if (!want) return json({ error: 'send q, and a lat and lng in Japan' }, 400);
-  const group = u.searchParams.get('group') !== '0';
+  const r = await mapsSearch(env, ctx, u.searchParams.get('q'), Number(u.searchParams.get('lat')), Number(u.searchParams.get('lng')), u.searchParams.get('group') !== '0', ip, limited);
+  return new Response(r.body, { status: r.status, headers: { 'content-type': 'application/json; charset=utf-8', 'cache-control': 'no-store' } });
+}
+
+/** Google Places, open now near a point: the JSON answer and its status (cached, capped, rate-limited). */
+async function mapsSearch(env: Env, ctx: Ctx, q: string | null, lat: number, lng: number, group: boolean, ip: string, limited: boolean): Promise<{ status: number; body: string }> {
+  const fail = (status: number, error: string) => ({ status, body: JSON.stringify({ error }) });
+  if (!env.GOOGLE_MAPS_API_KEY) return fail(503, 'live Google search is off on this server');
+  const want = nearbyQuery(q, lat, lng);
+  if (!want) return fail(400, 'send q, and a lat and lng in Japan');
   const k = `nearby|${want.q.toLowerCase()}|${want.lat}|${want.lng}|${group ? 1 : 0}`;
   const hit = await cached(env, k, NEARBY_TTL);
-  if (hit) return hit;
-  if (limited && !allow(`n:${ip}`, NEARBY_PER_MINUTE)) return slowDown();
-  if (!(await spend(env, '', NEARBY_PER_DAY))) return json({ error: `the group has used today's ${NEARBY_PER_DAY} Google searches: the offline search still works` }, 429);
+  if (hit) return { status: 200, body: await hit.text() };
+  if (limited && !allow(`n:${ip}`, NEARBY_PER_MINUTE)) return fail(429, 'too many searches at once: try again in a minute');
+  if (!(await spend(env, '', NEARBY_PER_DAY))) return fail(429, `the group has used today's ${NEARBY_PER_DAY} Google searches: the offline search still works`);
   const at = { lat: want.lat, lng: want.lng };
   const r = await fetch('https://places.googleapis.com/v1/places:searchText', {
     method: 'POST',
     headers: { 'X-Goog-Api-Key': env.GOOGLE_MAPS_API_KEY, 'Content-Type': 'application/json', 'X-Goog-FieldMask': NEARBY_FIELDS },
     body: JSON.stringify({ textQuery: want.q, openNow: true, pageSize: 15, languageCode: 'en', regionCode: 'JP', locationBias: { circle: { center: { latitude: at.lat, longitude: at.lng }, radius: NEARBY_M / 2 } } }),
   });
-  if (!r.ok) return json({ error: 'Google Maps did not answer: try again' }, 502);
+  if (!r.ok) return fail(502, 'Google Maps did not answer: try again');
   const rows = nearbyRows(((await r.json()) as { places?: GPlace[] }).places, at, group);
   const body = JSON.stringify({ q: want.q, rows });
   ctx.waitUntil(keep(env, k, body));
-  return new Response(body, { headers: { 'content-type': 'application/json; charset=utf-8', 'cache-control': 'no-store' } });
+  return { status: 200, body };
+}
+
+/** Does this search need Gemini as well as the Maps list? Jev when the key is set (1.5 s at most), else words. */
+const JEV_TIMEOUT = 1500;
+async function decideRoute(env: Env, q: string, now: number): Promise<RouteAnswer> {
+  const words: RouteAnswer = { route: wordsRoute(q), via: 'words', confidence: null };
+  if (!env.TYPESAFE_API_KEY) return words;
+  try {
+    const jst = new Date(now + 9 * 3600e3);
+    const today = planLines(applyPlan(await plan(env), await current(env)).stops, now);
+    const r = await fetch('https://api.typesafe.ai/v1/systemone', {
+      method: 'POST', headers: { authorization: `Bearer ${env.TYPESAFE_API_KEY}`, 'content-type': 'application/json' },
+      body: JSON.stringify(jevBody(q, `${jst.toISOString().slice(0, 10)} ${jst.toISOString().slice(11, 16)}`, today)), signal: AbortSignal.timeout(JEV_TIMEOUT),
+    });
+    return (r.ok && readJev(await r.json())) || words;
+  } catch { return words; }
+}
+
+/** The search box's live search: the Maps list and whether Gemini should answer too, decided together. */
+async function find(req: Request, env: Env, ctx: Ctx, ip: string, limited: boolean): Promise<Response> {
+  const b = await body(req);
+  const q = str(b?.q, ASK_MAX);
+  if (!q) return json({ error: 'send a search' }, 400);
+  const [maps, route] = await Promise.all([mapsSearch(env, ctx, q, Number(b?.lat), Number(b?.lng), true, ip, limited), decideRoute(env, q, Date.now())]);
+  const m = JSON.parse(maps.body) as Record<string, unknown>;
+  return json({ ...m, route }, maps.status === 400 ? 400 : 200);
 }
 
 /** A question to Gemini, grounded in Google Maps near the phone, with today's plan as context. */
@@ -367,6 +402,7 @@ async function api(req: Request, env: Env, ctx: Ctx, path: string): Promise<Resp
 
   if (path === '/api/nearby' && method === 'GET') return nearby(req, env, ctx, ip, limited);
   if (path === '/api/ask' && method === 'POST') return ask(req, env, ctx, ip, limited);
+  if (path === '/api/find' && method === 'POST') return find(req, env, ctx, ip, limited);
 
   // The trip as a calendar to subscribe to (Google Calendar: "From URL"), with the group's changes on it.
   if (path === '/api/calendar.ics' && method === 'GET') {
