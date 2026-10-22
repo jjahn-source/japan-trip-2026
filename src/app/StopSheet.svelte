@@ -63,6 +63,8 @@
       return ds.every((v, i) => !i || v === ds[i - 1] + 1) ? `${mon} ${ds[0]}–${ds.at(-1)}` : `${mon} ${ds.join(', ')}`;
     });
   const host = (u: string) => { try { return new URL(u).hostname.replace(/^www\./, ''); } catch { return 'source'; } };
+  /** "2020-03" → "Mar 2020": how old the street photo is. */
+  const monthOf = (ym: string) => new Date(`${ym}-01T00:00:00Z`).toLocaleDateString('en-GB', { month: 'short', year: 'numeric', timeZone: 'UTC' });
   const directions = (s: AppStop) => `https://www.google.com/maps/dir/?api=1&destination=${s.lat},${s.lng}&travelmode=transit`;
 
   // Yen at today's rate (a range stays a range: "¥500–1,500" ≈ "$3.2–9.6").
@@ -156,6 +158,14 @@
         {#if stop.phone}<a class="act" href={`tel:${stop.phone.replace(/[^\d+]/g, '')}`}>{@html icon('phone')}<span>{stop.phone}</span></a>{/if}
       </div>
 
+      {#if stop.street}
+        <!-- What the pin looks like from the street, to spot the door; tap to look around in Google Maps. -->
+        <figure class="street">
+          <a href={stop.street.url} target="_blank" rel="noopener"><img src={BASE + stop.street.src} alt={`The street outside ${stop.name}`} loading="lazy" decoding="async" onerror={(e) => (e.currentTarget as HTMLElement).closest('figure')?.remove()} /></a>
+          <figcaption>From the street{#if stop.street.date}, {monthOf(stop.street.date)}{/if} · <a href={stop.street.url} target="_blank" rel="noopener">Look around</a></figcaption>
+        </figure>
+      {/if}
+
       {#if stop.confirmation}
         <section class="box conf"><span>Confirmation</span><code>{stop.confirmation}</code><button type="button" onclick={() => copy(stop.confirmation!, 'conf')}>{@html icon(copied === 'conf' ? 'check' : 'copy')}<span class="sr-only">Copy confirmation</span></button></section>
       {/if}
@@ -235,6 +245,10 @@
   .hero { margin: 0 calc(-1 * max(18px, env(safe-area-inset-left, 0px))); }
   .hero img { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; }
   .hero figcaption { font-size: 0.72rem; color: var(--washi-3); padding: 4px 18px 0; }
+  .street { display: grid; gap: 5px; margin: 0; }
+  .street img { display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: cover; border-radius: var(--r-m); background: var(--night-3); }
+  .street figcaption { font-size: 0.78rem; color: var(--washi-3); }
+  .street figcaption a { color: var(--lantern); font-weight: 600; }
   .top { display: grid; grid-template-columns: minmax(0, 1fr); gap: 5px; min-width: 0; }
   .when { font-size: 0.82rem; color: var(--washi-2); }
   .when b { color: var(--lantern); font-weight: 700; font-size: 0.95rem; }

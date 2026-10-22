@@ -9,7 +9,13 @@ import { splitJa } from './types';
 
 const read = <T>(p: string, fallback: T): T => { const f = resolve(process.cwd(), p); return existsSync(f) ? (JSON.parse(readFileSync(f, 'utf8')) as T) : fallback; };
 const THUMBS = read<Record<string, { s: string; l: string }>>('data/thumbs.json', {});
-const withCopies = (m: AppMedia): AppMedia => (m.kind === 'image' && THUMBS[m.url] ? { ...m, small: THUMBS[m.url].s, large: THUMBS[m.url].l } : m);
+// Keyed by the pin to 5 places (scripts/streetview.mjs), so a re-planned stop at the same place keeps its photo.
+const STREET = read<Record<string, { src?: string; date?: string | null; url?: string }>>('data/streetview.json', {});
+const streetOf = (lat: number | null, lng: number | null): AppStop['street'] => {
+  const v = lat != null && lng != null ? STREET[`${lat.toFixed(5)},${lng.toFixed(5)}`] : undefined;
+  return v?.src && v.url ? { src: v.src, date: v.date ?? null, url: v.url } : null;
+};
+const withCopies =(m: AppMedia): AppMedia => (m.kind === 'image' && THUMBS[m.url] ? { ...m, small: THUMBS[m.url].s, large: THUMBS[m.url].l } : m);
 /** Pictures of the place only: not a map or diagram (SVG), and not a Facebook link (it expires). */
 const isPhoto = (url: string) => !/\.svg(\?|$)|\/Map_|fbcdn\.net/i.test(url);
 
@@ -40,7 +46,7 @@ export function appData(): AppData {
         hook: s.summary ?? null, plan: s.plan, lat: s.lat, lng: s.lng, address: s.address, website: s.website, phone: s.phone, map: s.map,
         mark: s.mark, todoId: s.todoId, transport: s.transport ?? null,
         guide: g ? { story: g.story, how: g.how, tips: g.tips, cost: g.cost, booking: g.booking, hours: g.hours, facts: g.facts ?? [], sources: g.sources, media: (g.media as AppMedia[]).filter((m) => m.kind !== 'image' || isPhoto(m.url)).map(withCopies), wishes: g.wishes } : null,
-        details: s.details, extra: s.extra, confirmation: stay?.confirmation ?? null,
+        details: s.details, extra: s.extra, confirmation: stay?.confirmation ?? null, street: streetOf(s.lat, s.lng),
       };
     });
     // Only legs that still join this day's stops in order (route files can lag a re-plan).

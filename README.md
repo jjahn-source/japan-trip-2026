@@ -34,8 +34,19 @@ Re-export from TREK, then:
 npm run sync       # copies /Users/jjahn/TREK/japan-plan-c.md into data/
 npm run fonts      # only if the plan gained new Japanese text (re-subsets the fonts)
 npm run thumbs     # only if the plan gained new photos (makes small local copies)
+npm run streetview # only if the plan gained new places (street photo of each pin, see below)
 npm run build
 ```
+
+**Street photos** (`npm run streetview`, writes `public/streetview/` and `data/streetview.json`): for
+each stop, the nearest Google Street View panorama within 60 m of the place (Google Places' own location
+for it when `GOOGLE_MAPS_API_KEY` is set, else the pin), aimed at it, so the group can spot the door on
+arrival; the stop sheet shows it with a link to look around in Google Maps. Airports, stations and parks
+are skipped. Look the photos over after a run: one that shows a wall, a shutter or the shop next door gets
+`{ "hide": "why" }` as its entry in `data/streetview.json`, and reruns leave it hidden. It uses Google Maps' own web endpoints (the method from
+[Aleph](https://github.com/Belluxx/Aleph)), which aren't a public API and may change or rate-limit, and
+Google's terms don't allow downloading the imagery, so it's for this private site only. The photos are
+fetched once and served from the site, so the app never calls Google for them.
 
 The parser (`src/lib/plan.ts`) reads the export's structure directly: days, timed stops, notes,
 stays, the booking schedule and the budget. Known export quirks are corrected in

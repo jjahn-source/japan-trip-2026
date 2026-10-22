@@ -1,0 +1,661 @@
+{
+ "34.29653,132.31901": {
+  "src": "/streetview/fd7ebedf6597.webp",
+  "date": "2021-07",
+  "m": 49,
+  "t": "34.29653,132.31901",
+  "at": "pin",
+  "url": "https://www.google.com/maps/@?api=1&map_action=pano&pano=-DCGWnhjcKlOxE5A3xkwgg&heading=218&pitch=0&fov=90"
+ },
+ "34.29897,132.32184": {
+  "src": "/streetview/3a6a9c367493.webp",
+  "date": "2021-07",
+  "m": 1,
+  "t": "34.29897,132.32184",
+  "at": "google",
+  "url": "https://www.google.com/maps/@?api=1&map_action=pano&pano=V1KqW2oQyrraHiXuu4I4UA&heading=357&pitch=0&fov=90"
+ },
+ "34.38981,132.45579": {
+  "src": "/streetview/f854f4647c19.webp",
+  "date": "2025-04",
+  "m": 4,
+  "t": "34.38981,132.45579",
+  "at": "pin",
+  "url": "https://www.google.com/maps/@?api=1&map_action=pano&pano=XsW4bQP5IJYsWEZPOgciUg&heading=21&pitch=0&fov=90"
+ },
+ "34.39133,132.46192": {
+  "src": "/streetview/aa1da34e20a4.webp",
+  "date": "2024-09",
+  "m": 5,
+  "t": "34.38942,132.46522",
+  "at": "google",
+  "url": "https://www.google.com/maps/@?api=1&map_action=pano&pano=HeZNbb8KjnfxYCUaiKzdgQ&heading=2&pitch=0&fov=90"
+ },
+ "34.39150,132.45316": {
+  "none": "no Street View within 60 m",
+  "t": "34.39150,132.45316"
+ },
+ "34.39548,132.45359": {
+  "none": "no Street View within 60 m",
+  "t": "34.39548,132.45359"
+ },
+ "34.64985,135.50558": {
+  "hide": "the photo shows a wall, shutter or the shop next door, not the place (looked at 2026-10-22)"
+ },
+ "34.65157,135.50620": {
+  "src": "/streetview/cf4fd8e1f642.webp",
+  "date": "2022-08",
+  "m": 7,
+  "t": "34.65157,135.50620",
+  "at": "google",
+  "url": "https://www.google.com/maps/@?api=1&map_action=pano&pano=2JM5lKF-2M5DBs1vzxapDQ&heading=316&pitch=0&fov=90"
+ },
+ "34.65254,135.50631": {
+  "src": "/streetview/d8aaa2b74b1d.webp",
+  "date": "2024-06",
+  "m": 3,
+  "t": "34.65254,135.50631",
+  "at": "pin",
+  "url": "https://www.google.com/maps/@?api=1&map_action=pano&pano=24x13k-bKSCjS9FpWmms0w&heading=47&pitch=0&fov=90"
+ },
+ "34.66340,135.50343": {
+  "hide": "the photo shows a wall, shutter or the shop next door, not the place (looked at 2026-10-22)"
+ },
+ "34.66568,135.43232": {
+  "none": "no Street View within 60 m",
+  "t": "34.66568,135.43232"
+ },
+ "34.66580,135.50628": {
+  "hide": "the photo shows a wall, shutter or the shop next door, not the place (looked at 2026-10-22)"
+ },
+ "34.66751,135.50286": {
+  "hide": "the photo shows a wall, shutter or the shop next door, not the place (looked at 2026-10-22)"
+ },
+ "34.66754,135.46104": {
+  "hide": "the photo shows a wall, shutter or the shop next door, not the place (looked at 2026-10-22)"
+ },
+ "34.66780,135.50218": {
+  "src": "/streetview/75bae9b7aa22.webp",
+  "date": "2022-08",
+  "m": 8,
+  "t": "34.66780,135.50218",
+  "at": "google",
+  "url": "https://www.google.com/maps/@?api=1&map_action=pano&pano=g1qaHQ8bNlYfERqoTawrHg&heading=174&pitch=0&fov=90"
+ },
+ "34.66812,135.50261": {
+  "src": "/streetview/5462cd0c2aff.webp",
+  "date": "2023-08",
+  "m": 0,
+  "t": "34.66819,135.50276",
+  "at": "google",
+  "url": "https://www.google.com/maps/@?api=1&map_action=pano&pano=8OpWc4ZAQ7FnT1uTFzlzOw&heading=296&pitch=0&fov=90"
+ },
+ "34.66867,135.50305": {
+  "src": "/streetview/ddbf3fb6e218.webp",
+  "date": "2023-08",
+  "m": 4,
+  "t": "34.66867,135.50305",
+  "at": "google",
+  "url": "https://www.google.com/maps/@?api=1&map_action=pano&pano=bgzKtS-ZbacdFOK83Y4mRg&heading=177&pitch=0&fov=90"
+ },
+ "34.67005,135.49800": {
+  "src": "/streetview/bd37112de7ee.webp",
+  "date": "2024-06",
+  "m": 6,
+  "t": "34.67005,135.49800",
+  "at": "google",
+  "url": "https://www.google.com/maps/@?api=1&map_action=pano&pano=kPV54500X8WOe4RlvmW7Kg&heading=234&pitch=0&fov=90"
+ },
+ "34.67027,135.47792": {
+  "hide": "the photo shows a wall, shutter or the shop next door, not the place (looked at 2026-10-22)"
+ },
+ "34.67034,135.50035": {
+  "src": "/streetview/9c22cfc0273d.webp",
+  "date": "2024-08",
+  "m": 3,
+  "t": "34.67034,135.50035",
+  "at": "pin",
+  "url": "https://www.google.com/maps/@?api=1&map_action=pano&pano=4GxrKFzb5Q-DC8neTt9x4w&heading=351&pitch=0&fov=90"
+ },
+ "34.67207,135.49792": {
+  "src": "/streetview/1013b912bd68.webp",
+  "date": "2023-08",
+  "m": 5,
+  "t": "34.67207,135.49792",
+  "at": "google",
+  "url": "https://www.google.com/maps/@?api=1&map_action=pano&pano=fgm3I3CBJWAaGRQQfUEaeg&heading=8&pitch=0&fov=90"
+ },
+ "34.67530,135.47340": {
+  "hide": "the photo shows a wall, shutter or the shop next door, not the place (looked at 2026-10-22)"
+ },
+ "34.67659,135.46863": {
+  "src": "/streetview/b4a98d0e83cd.webp",
+  "date": "2026-08",
+  "m": 10,
+  "t": "34.67659,135.46863",
+  "at": "pin",
+  "url": "https://www.google.com/maps/@?api=1&map_action=pano&pano=PKCsaxzXBTqrysOekVM_8Q&heading=3&pitch=0&fov=90"
+ },
+ "34.68196,135.82890": {
+  "src": "/streetview/51d1148df9c4.webp",
+  "date": "2025-12",
+  "m": 3,
+  "t": "34.68196,135.82890",
+  "at": "pin",
+  "url": "https://www.google.com/maps/@?api=1&map_action=pano&pano=Xy8aVw-wE3Kgo4JZv87zcQ&heading=215&pitch=0&fov=90"
+ },
+ "34.68421,135.47953": {
+  "hide": "the photo shows a wall, shutter or the shop next door, not the place (looked at 2026-10-22)"
+ },
+ "34.68887,135.83982": {
+  "none": "no Street View within 60 m",
+  "t": "34.68899,135.83982"
+ },
+ "34.69343,135.50416": {
+  "src": "/streetview/9d0a27335d23.webp",
+  "date": "2024-08",
+  "m": 26,
+  "t": "34.69343,135.50416",
+  "at": "pin",
+  "url": "https://www.google.com/maps/@?api=1&map_action=pano&pano=dQTWsMgZNUJEzcckHXP5SA&heading=10&pitch=0&fov=90"
+ },
+ "34.70271,135.49477": {
+  "src": "/streetview/a2d365dda21c.webp",
+  "date": "2017-09",
+  "m": 48,
+  "t": "34.70179,135.49658",
+  "at": "google",
+  "url": "https://www.google.com/maps/@?api=1&map_action=pano&pano=Xiu6jhw5-tYrvthMpPZUKw&heading=232&pitch=0&fov=90"
+ },
+ "34.70460,135.49490": {
+  "hide": "the photo shows a wall, shutter or the shop next door, not the place (looked at 2026-10-22)"
+ },
+ "34.70473,135.49060": {
+  "hide": "the photo shows a wall, shutter or the shop next door, not the place (looked at 2026-10-22)"
+ },
+ "34.70529,135.48965": {
+  "hide": "the photo shows a wall, shutter or the shop next door, not the place (looked at 2026-10-22)"
+ },
+ "34.70590,135.49446": {
+  "src": "/streetview/fc94b2055838.webp",
+  "date": "2022-04",
+  "m": 50,
+  "t": "34.70590,135.49446",
+  "at": "pin",
+  "url": "https://www.google.com/maps/@?api=1&map_action=pano&pano=5TM3mkQXt1rQcUuwXk-WPg&heading=70&pitch=0&fov=90"
+ },
+ "34.96769,135.77919": {
+  "none": "no Street View within 60 m",
+  "t": "34.96769,135.77919"
+ },
+ "34.98288,135.75539": {
+  "hide": "the photo shows a wall, shutter or the shop next door, not the place (looked at 2026-10-22)"
+ },
+ "34.99430,135.78444": {
+  "none": "no Street View within 60 m",
+  "t": "34.99430,135.78444"
+ },
+ "34.99656,135.78095": {
+  "src": "/streetview/097a8015b6eb.webp",
+  "date": "2025-09",
+  "m": 6,
+  "t": "34.99840,135.78084",
+  "at": "google",
+  "url": "https://www.google.com/maps/@?api=1&map_action=pano&pano=e4jVLKGHNh0AXUjq3Z1jQA&heading=351&pitch=0&fov=90"
+ },
+ "35.00503,135.76472": {
+  "src": "/streetview/07588f92a5bc.webp",
+  "date": "2018-10",
+  "m": 2,
+  "t": "35.00503,135.76472",
+  "at": "google",
+  "url": "https://www.google.com/maps/@?api=1&map_action=pano&pano=Vma-TnL2gohDMm0Vke46jg&heading=68&pitch=0&fov=90"
+ },
+ "35.00515,135.77354": {
+  "hide": "the photo shows a wall, shutter or the shop next door, not the place (looked at 2026-10-22)"
+ },
+ "35.00598,135.77109": {
+  "src": "/streetview/4eb16137341e.webp",
+  "date": "2023-07",
+  "m": 13,
+  "t": "35.00761,135.77118",
+  "at": "google",
+  "url": "https://www.google.com/maps/@?api=1&map_action=pano&pano=1pg7XhkDb-LUUssmrqGKvA&heading=106&pitch=0&fov=90"
+ },
+ "35.00844,135.77049": {
+  "src": "/streetview/42c1328489a8.webp",
+  "date": "2022-06",
+  "m": 3,
+  "t": "35.00577,135.77054",
+  "at": "google",
+  "url": "https://www.google.com/maps/@?api=1&map_action=pano&pano=wiIlkXAmajzv2xaH4RGPsQ&heading=355&pitch=0&fov=90"
+ },
+ "35.20155,139.03116": {
+  "src": "/streetview/4038500772a0.webp",
+  "date": "2025-02",
+  "m": 12,
+  "t": "35.20155,139.03116",
+  "at": "google",
+  "url": "https://www.google.com/maps/@?api=1&map_action=pano&pano=Tt9F2TWwaaagmSHdUAeORQ&heading=117&pitch=0&fov=90"
+ },
+ "35.20278,139.02574": {
+  "hide": "the photo shows a wall, shutter or the shop next door, not the place (looked at 2026-10-22)"
+ },
+ "35.23942,139.04534": {
+  "none": "no Street View within 60 m",
+  "t": "35.23942,139.04534"
+ },
+ "35.24516,139.05073": {
+  "src": "/streetview/4f7a06467f85.webp",
+  "date": "2025-11",
+  "m": 9,
+  "t": "35.24516,139.05073",
+  "at": "google",
+  "url": "https://www.google.com/maps/@?api=1&map_action=pano&pano=6bxGSTaAjpGOxe3MgaQX5Q&heading=91&pitch=0&fov=90"
+ },
+ "35.24665,139.04789": {
+  "src": "/streetview/464491110f40.webp",
+  "date": "2025-11",
+  "m": 7,
+  "t": "35.24669,139.04785",
+  "at": "google",
+  "url": "https://www.google.com/maps/@?api=1&map_action=pano&pano=r8Eu-aomUjPkA5L_kd6sQA&heading=259&pitch=0&fov=90"
+ },
+ "35.25095,139.15351": {
+  "none": "no Street View within 60 m",
+  "t": "35.25095,139.15351"
+ },
+ "35.25587,138.99892": {
+  "src": "/streetview/39115a07d815.webp",
+  "date": "2023-04",
+  "m": 19,
+  "t": "35.25587,138.99892",
+  "at": "pin",
+  "url": "https://www.google.com/maps/@?api=1&map_action=pano&pano=6qdJC5GvTlTvVv7oThFHiA&heading=176&pitch=0&fov=90"
+ },
+ "35.26605,139.01022": {
+  "src": "/streetview/c9594c175515.webp",
+  "date": "2025-11",
+  "m": 6,
+  "t": "35.26605,139.01022",
+  "at": "google",
+  "url": "https://www.google.com/maps/@?api=1&map_action=pano&pano=5lXIdJaQM6q8gldBe2_uGw&heading=335&pitch=0&fov=90"
+ },
+ "35.26626,139.01772": {
+  "src": "/streetview/9eda2451c378.webp",
+  "date": "2025-11",
+  "m": 30,
+  "t": "35.26626,139.01772",
+  "at": "pin",
+  "url": "https://www.google.com/maps/@?api=1&map_action=pano&pano=eUosS47Hm321tQMT0v-gGg&heading=247&pitch=0&fov=90"
+ },
+ "35.27124,139.01033": {
+  "src": "/streetview/ecb1f940decb.webp",
+  "date": "2025-05",
+  "m": 7,
+  "t": "35.27125,139.01026",
+  "at": "google",
+  "url": "https://www.google.com/maps/@?api=1&map_action=pano&pano=KKfUY35W3Gwy0wbgB2cB3g&heading=127&pitch=0&fov=90"
+ },
+ "35.27221,139.01020": {
+  "hide": "the photo shows a wall, shutter or the shop next door, not the place (looked at 2026-10-22)"
+ },
+ "35.27236,139.01182": {
+  "src": "/streetview/b4c3402b28b1.webp",
+  "date": "2025-05",
+  "m": 22,
+  "t": "35.27236,139.01182",
+  "at": "google",
+  "url": "https://www.google.com/maps/@?api=1&map_action=pano&pano=oqmOfTYfiGz8JrA2gwLOmQ&heading=238&pitch=0&fov=90"
+ },
+ "35.54389,139.76865": {
+  "hide": "the photo shows a wall, shutter or the shop next door, not the place (looked at 2026-10-22)"
+ },
+ "35.54481,139.76846": {
+  "src": "/streetview/a9756688fd15.webp",
+  "date": "2025-09",
+  "m": 29,
+  "t": "35.54481,139.76846",
+  "at": "pin",
+  "url": "https://www.google.com/maps/@?api=1&map_action=pano&pano=WtqPQkEiINCEHGT4Rg-liA&heading=59&pitch=0&fov=90"
+ },
+ "35.62530,139.77540": {
+  "hide": "the photo shows a wall, shutter or the shop next door, not the place (looked at 2026-10-22)"
+ },
+ "35.62896,139.77036": {
+  "none": "no Street View within 60 m",
+  "t": "35.62896,139.77036"
+ },
+ "35.64166,139.64805": {
+  "src": "/streetview/54723df3bb1f.webp",
+  "date": "2022-10",
+  "m": 3,
+  "t": "35.64166,139.64805",
+  "at": "google",
+  "url": "https://www.google.com/maps/@?api=1&map_action=pano&pano=25AX7kXVP9GMgUZMdxGnRw&heading=297&pitch=0&fov=90"
+ },
+ "35.64619,139.78316": {
+  "hide": "the photo shows a wall, shutter or the shop next door, not the place (looked at 2026-10-22)"
+ },
+ "35.64888,139.64748": {
+  "none": "no Street View within 60 m",
+  "t": "35.64888,139.64748"
+ },
+ "35.64895,139.78661": {
+  "src": "/streetview/bc8492e8470d.webp",
+  "date": "2023-09",
+  "m": 6,
+  "t": "35.64873,139.79017",
+  "at": "google",
+  "url": "https://www.google.com/maps/@?api=1&map_action=pano&pano=02C6hIUQNyeYp2uR4c9gTA&heading=151&pitch=0&fov=90"
+ },
+ "35.64912,139.78977": {
+  "src": "/streetview/6c1e2ab7725c.webp",
+  "date": "2023-09",
+  "m": 50,
+  "t": "35.64912,139.78977",
+  "at": "google",
+  "url": "https://www.google.com/maps/@?api=1&map_action=pano&pano=02C6hIUQNyeYp2uR4c9gTA&heading=319&pitch=0&fov=90"
+ },
+ "35.65728,139.74834": {
+  "none": "no Street View within 60 m",
+  "t": "35.65728,139.74834"
+ },
+ "35.65867,139.70198": {
+  "hide": "the photo shows a wall, shutter or the shop next door, not the place (looked at 2026-10-22)"
+ },
+ "35.65950,139.69828": {
+  "hide": "the photo shows a wall, shutter or the shop next door, not the place (looked at 2026-10-22)"
+ },
+ "35.66017,139.69648": {
+  "hide": "the photo shows a wall, shutter or the shop next door, not the place (looked at 2026-10-22)"
+ },
+ "35.66017,139.72358": {
+  "hide": "the photo shows a wall, shutter or the shop next door, not the place (looked at 2026-10-22)"
+ },
+ "35.66205,139.69878": {
+  "src": "/streetview/00de8aae33bd.webp",
+  "date": "2024-12",
+  "m": 35,
+  "t": "35.66205,139.69878",
+  "at": "google",
+  "url": "https://www.google.com/maps/@?api=1&map_action=pano&pano=TzoifEX9CbfllrhjYpYhXg&heading=171&pitch=0&fov=90"
+ },
+ "35.66567,139.76994": {
+  "src": "/streetview/2619b3d074b2.webp",
+  "date": "2022-09",
+  "m": 18,
+  "t": "35.66567,139.76994",
+  "at": "pin",
+  "url": "https://www.google.com/maps/@?api=1&map_action=pano&pano=YemSjlyvSB7Vg7oj5gm5PQ&heading=301&pitch=0&fov=90"
+ },
+ "35.66671,139.70634": {
+  "src": "/streetview/a8a259a64b16.webp",
+  "date": "2021-05",
+  "m": 4,
+  "t": "35.66993,139.70828",
+  "at": "google",
+  "url": "https://www.google.com/maps/@?api=1&map_action=pano&pano=mfLV94K-prQbIGm-ty4c1w&heading=351&pitch=0&fov=90"
+ },
+ "35.66750,139.70610": {
+  "src": "/streetview/40e554cf551b.webp",
+  "date": "2022-10",
+  "m": 4,
+  "t": "35.66750,139.70610",
+  "at": "pin",
+  "url": "https://www.google.com/maps/@?api=1&map_action=pano&pano=2Ar9P-c0Kw83gVIzHGhRFQ&heading=78&pitch=0&fov=90"
+ },
+ "35.66804,139.70838": {
+  "src": "/streetview/908acd9814d6.webp",
+  "date": "2018-04",
+  "m": 9,
+  "t": "35.66797,139.70852",
+  "at": "google",
+  "url": "https://www.google.com/maps/@?api=1&map_action=pano&pano=IgPvIi7QsgvrN_WdeUSPgQ&heading=334&pitch=0&fov=90"
+ },
+ "35.66916,139.70563": {
+  "hide": "the photo shows a wall, shutter or the shop next door, not the place (looked at 2026-10-22)"
+ },
+ "35.67024,139.76347": {
+  "src": "/streetview/6bc443122ce1.webp",
+  "date": "2022-09",
+  "m": 15,
+  "t": "35.67024,139.76347",
+  "at": "google",
+  "url": "https://www.google.com/maps/@?api=1&map_action=pano&pano=vgBSlwjkqtRUjmuWBBK_kg&heading=115&pitch=0&fov=90"
+ },
+ "35.67043,139.76314": {
+  "hide": "the photo shows a wall, shutter or the shop next door, not the place (looked at 2026-10-22)"
+ },
+ "35.67050,139.70660": {
+  "src": "/streetview/721194a151f8.webp",
+  "date": "2021-05",
+  "m": 7,
+  "t": "35.66877,139.70659",
+  "at": "google",
+  "url": "https://www.google.com/maps/@?api=1&map_action=pano&pano=NowLw65qk_sw7UBtbAn-QQ&heading=97&pitch=0&fov=90"
+ },
+ "35.67160,139.70570": {
+  "hide": "the photo shows a wall, shutter or the shop next door, not the place (looked at 2026-10-22)"
+ },
+ "35.67313,139.76721": {
+  "hide": "the photo shows a wall, shutter or the shop next door, not the place (looked at 2026-10-22)"
+ },
+ "35.68683,139.69664": {
+  "src": "/streetview/2bba247ce688.webp",
+  "date": "2025-12",
+  "m": 13,
+  "t": "35.68683,139.69664",
+  "at": "google",
+  "url": "https://www.google.com/maps/@?api=1&map_action=pano&pano=6gBz7xdct2NjTKRlU7HR7Q&heading=155&pitch=0&fov=90"
+ },
+ "35.68683,139.78847": {
+  "src": "/streetview/9d3b43b7b6c4.webp",
+  "date": "2022-09",
+  "m": 9,
+  "t": "35.68683,139.78847",
+  "at": "google",
+  "url": "https://www.google.com/maps/@?api=1&map_action=pano&pano=go1CJzpLHlvqrYrK3-rmXw&heading=116&pitch=0&fov=90"
+ },
+ "35.68903,139.69714": {
+  "src": "/streetview/0623038dfeef.webp",
+  "date": "2024-12",
+  "m": 5,
+  "t": "35.68903,139.69714",
+  "at": "google",
+  "url": "https://www.google.com/maps/@?api=1&map_action=pano&pano=Xthb_ZaKHltIIX-CvEDc_w&heading=76&pitch=0&fov=90"
+ },
+ "35.68932,139.69181": {
+  "hide": "the photo shows a wall, shutter or the shop next door, not the place (looked at 2026-10-22)"
+ },
+ "35.69010,139.70200": {
+  "src": "/streetview/f131324d4e6a.webp",
+  "date": "2024-12",
+  "m": 16,
+  "t": "35.69010,139.70200",
+  "at": "google",
+  "url": "https://www.google.com/maps/@?api=1&map_action=pano&pano=1Ee92pBDxwMhZwLm2214fQ&heading=270&pitch=0&fov=90"
+ },
+ "35.69071,139.70483": {
+  "src": "/streetview/895ac2335b44.webp",
+  "date": "2025-12",
+  "m": 3,
+  "t": "35.69071,139.70483",
+  "at": "pin",
+  "url": "https://www.google.com/maps/@?api=1&map_action=pano&pano=B0cMh_2HXBgzgowgKR1N2A&heading=207&pitch=0&fov=90"
+ },
+ "35.69157,139.70465": {
+  "src": "/streetview/98fb0d5aba39.webp",
+  "date": "2025-12",
+  "m": 51,
+  "t": "35.69157,139.70465",
+  "at": "google",
+  "url": "https://www.google.com/maps/@?api=1&map_action=pano&pano=NcLCCMziCBXS3FdkqnBNIw&heading=294&pitch=0&fov=90"
+ },
+ "35.69254,139.70305": {
+  "src": "/streetview/ca2dafa33d01.webp",
+  "date": "2024-12",
+  "m": 12,
+  "t": "35.69254,139.70305",
+  "at": "google",
+  "url": "https://www.google.com/maps/@?api=1&map_action=pano&pano=YH1kMJFDlgkdn8cbETLfPQ&heading=150&pitch=0&fov=90"
+ },
+ "35.69370,139.70450": {
+  "src": "/streetview/0c4fd5161ca0.webp",
+  "date": "2024-12",
+  "m": 6,
+  "t": "35.69370,139.70450",
+  "at": "google",
+  "url": "https://www.google.com/maps/@?api=1&map_action=pano&pano=mUNM-z5jkvqrTMb64lnZCg&heading=42&pitch=0&fov=90"
+ },
+ "35.69390,139.70964": {
+  "src": "/streetview/417226cc583b.webp",
+  "date": "2022-10",
+  "m": 6,
+  "t": "35.69390,139.70964",
+  "at": "pin",
+  "url": "https://www.google.com/maps/@?api=1&map_action=pano&pano=zCawSB-qaINVAuqoY9w0Zw&heading=111&pitch=0&fov=90"
+ },
+ "35.69411,139.70476": {
+  "src": "/streetview/dd1166a26f8f.webp",
+  "date": "2024-07",
+  "m": 5,
+  "t": "35.69411,139.70476",
+  "at": "google",
+  "url": "https://www.google.com/maps/@?api=1&map_action=pano&pano=fJbqISs_xGB7XFMwF1lwGA&heading=87&pitch=0&fov=90"
+ },
+ "35.69435,139.70162": {
+  "src": "/streetview/e3509906e735.webp",
+  "date": "2024-12",
+  "m": 11,
+  "t": "35.69435,139.70162",
+  "at": "google",
+  "url": "https://www.google.com/maps/@?api=1&map_action=pano&pano=U_fOswa6durSPR3czZWEUQ&heading=230&pitch=0&fov=90"
+ },
+ "35.69453,139.70514": {
+  "hide": "the photo shows a wall, shutter or the shop next door, not the place (looked at 2026-10-22)"
+ },
+ "35.69565,139.79160": {
+  "hide": "the photo shows a wall, shutter or the shop next door, not the place (looked at 2026-10-22)"
+ },
+ "35.69575,139.70059": {
+  "hide": "the photo shows a wall, shutter or the shop next door, not the place (looked at 2026-10-22)"
+ },
+ "35.69590,139.70065": {
+  "src": "/streetview/8329dade770f.webp",
+  "date": "2024-12",
+  "m": 36,
+  "t": "35.69590,139.70065",
+  "at": "google",
+  "url": "https://www.google.com/maps/@?api=1&map_action=pano&pano=24VzrQCUaWksfPXiSN9imA&heading=284&pitch=0&fov=90"
+ },
+ "35.69660,139.79573": {
+  "none": "no Street View within 60 m",
+  "t": "35.69660,139.79573"
+ },
+ "35.69742,139.79170": {
+  "hide": "the photo shows a wall, shutter or the shop next door, not the place (looked at 2026-10-22)"
+ },
+ "35.69886,139.76973": {
+  "hide": "the photo shows a wall, shutter or the shop next door, not the place (looked at 2026-10-22)"
+ },
+ "35.70353,139.64861": {
+  "src": "/streetview/49debc62f91f.webp",
+  "date": "2022-08",
+  "m": 10,
+  "t": "35.70353,139.64861",
+  "at": "pin",
+  "url": "https://www.google.com/maps/@?api=1&map_action=pano&pano=Apsiw45qJRbrVdvB79fGow&heading=319&pitch=0&fov=90"
+ },
+ "35.70426,139.75207": {
+  "none": "no Street View within 60 m",
+  "t": "35.70426,139.75207"
+ },
+ "35.70464,139.75341": {
+  "none": "no Street View within 60 m",
+  "t": "35.70464,139.75341"
+ },
+ "35.70494,139.64991": {
+  "src": "/streetview/d2377f8f61c8.webp",
+  "date": "2022-08",
+  "m": 5,
+  "t": "35.70494,139.64991",
+  "at": "pin",
+  "url": "https://www.google.com/maps/@?api=1&map_action=pano&pano=CoyCRxozHFGM2U72WkPq3g&heading=209&pitch=0&fov=90"
+ },
+ "35.70714,139.68632": {
+  "hide": "the photo shows a wall, shutter or the shop next door, not the place (looked at 2026-10-22)"
+ },
+ "35.70963,139.77452": {
+  "src": "/streetview/17f824ade031.webp",
+  "date": "2022-07",
+  "m": 15,
+  "t": "35.70963,139.77452",
+  "at": "google",
+  "url": "https://www.google.com/maps/@?api=1&map_action=pano&pano=FBJp-FyVNe4CLl5U207dLQ&heading=266&pitch=0&fov=90"
+ },
+ "35.71007,139.77460": {
+  "src": "/streetview/2a952dc86f42.webp",
+  "date": "2022-07",
+  "m": 3,
+  "t": "35.71007,139.77460",
+  "at": "google",
+  "url": "https://www.google.com/maps/@?api=1&map_action=pano&pano=CQhnILQ5lzyF9ZwgxGK_Ow&heading=359&pitch=0&fov=90"
+ },
+ "35.71070,139.77410": {
+  "src": "/streetview/037031a04bf9.webp",
+  "date": "2022-07",
+  "m": 21,
+  "t": "35.71070,139.77410",
+  "at": "pin",
+  "url": "https://www.google.com/maps/@?api=1&map_action=pano&pano=6b3uxqGX704MS7v_vudISg&heading=25&pitch=0&fov=90"
+ },
+ "35.71399,139.79416": {
+  "src": "/streetview/d077451183a7.webp",
+  "date": "2022-07",
+  "m": 4,
+  "t": "35.71399,139.79416",
+  "at": "google",
+  "url": "https://www.google.com/maps/@?api=1&map_action=pano&pano=8W1a3TxmObA6h4onNQG9vw&heading=174&pitch=0&fov=90"
+ },
+ "35.71480,139.79670": {
+  "none": "no Street View within 60 m",
+  "t": "35.71480,139.79670"
+ },
+ "35.71891,139.77651": {
+  "none": "no Street View within 60 m",
+  "t": "35.71884,139.77652"
+ },
+ "35.72672,139.68764": {
+  "src": "/streetview/c35d7b0dbd0b.webp",
+  "date": "2020-03",
+  "m": 11,
+  "t": "35.72672,139.68764",
+  "at": "pin",
+  "url": "https://www.google.com/maps/@?api=1&map_action=pano&pano=0TSx_AB6yXuQX8-rrCjNZw&heading=125&pitch=0&fov=90"
+ },
+ "35.72690,139.71166": {
+  "src": "/streetview/113a93dd153e.webp",
+  "date": "2025-11",
+  "m": 6,
+  "t": "35.72690,139.71166",
+  "at": "google",
+  "url": "https://www.google.com/maps/@?api=1&map_action=pano&pano=GJn9MnR07yAYc7KjdaTqIw&heading=313&pitch=0&fov=90"
+ },
+ "35.72726,139.71175": {
+  "src": "/streetview/7e88953db34f.webp",
+  "date": "2025-11",
+  "m": 12,
+  "t": "35.72726,139.71175",
+  "at": "google",
+  "url": "https://www.google.com/maps/@?api=1&map_action=pano&pano=vKp202S41RRjdRTMkR_4EQ&heading=293&pitch=0&fov=90"
+ },
+ "35.73007,139.71517": {
+  "src": "/streetview/7f8a237a212d.webp",
+  "date": "2025-11",
+  "m": 18,
+  "t": "35.73007,139.71517",
+  "at": "google",
+  "url": "https://www.google.com/maps/@?api=1&map_action=pano&pano=34eN8NnRn9OO27JSZjnr4A&heading=259&pitch=0&fov=90"
+ }
+}

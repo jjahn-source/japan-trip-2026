@@ -14,6 +14,9 @@ export interface AppStop {
   transport: string | null; guide: AppGuide | null;
   details: { label: string | null; text: string }[]; extra: string[];
   confirmation: string | null;
+  /** The street-level view of the stop's pin (scripts/streetview.mjs): local photo, capture month, a
+   *  Google Maps link to look around from there. */
+  street?: { src: string; date: string | null; url: string } | null;
   /** The group's change to this stop, if anyone made one (src/app/live.svelte.ts). */
   live?: { note: string | null; cancelled: boolean; moved: boolean; planned: string; by: string; at: number };
 }
