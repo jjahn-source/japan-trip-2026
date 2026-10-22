@@ -37,16 +37,6 @@ const cityNear = ([lng, lat]: LngLat) => {
   for (const [name, x, y] of CITIES) { const d = Math.hypot((x - lng) * 0.82, y - lat); if (d < bd) { bd = d; best = name; } }
   return best;
 };
-// The city in the app's own night palette: indigo land, deep water, muted parks, slate roads with
-// lantern-warm motorways, pale labels. The light still follows the hour (day is brighter than night),
-// but daytime no longer turns the map stark white next to the dark app.
-const PALETTE = {
-  colorLand: 'hsl(234, 26%, 27%)', colorWater: 'hsl(219, 46%, 19%)', colorGreenspace: 'hsl(152, 20%, 27%)',
-  colorCommercial: 'hsl(248, 20%, 31%)', colorEducation: 'hsl(240, 18%, 31%)', colorMedical: 'hsl(250, 18%, 32%)', colorIndustrial: 'hsl(232, 16%, 29%)',
-  colorRoads: 'hsl(232, 18%, 43%)', colorHdRoads: 'hsl(232, 18%, 43%)', colorTrunks: 'hsl(232, 20%, 50%)', colorMotorways: 'hsl(36, 32%, 52%)',
-  colorBuildings: 'hsl(238, 18%, 40%)', colorBuildingHighlight: 'hsl(238, 20%, 48%)',
-  colorPlaceLabels: 'hsl(40, 30%, 92%)', colorRoadLabels: 'hsl(230, 20%, 82%)', colorAdminBoundaries: 'hsl(262, 30%, 62%)',
-};
 const reduce = () => matchMedia('(prefers-reduced-motion: reduce)').matches;
 const esc = (s: string) => s.replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]!);
 
@@ -96,7 +86,7 @@ export class TripMap {
         // work for the GPU, which is what keeps flights and rides smooth on a phone.
         pixelRatio: Math.min(devicePixelRatio || 1, 2),
         performanceMetricsCollection: false,
-        config: { basemap: { lightPreset: this.wantPhase, show3dObjects: true, showPointOfInterestLabels: false, showTransitLabels: true, showRoadLabels: false, showPlaceLabels: true, ...PALETTE } },
+        config: { basemap: { lightPreset: this.wantPhase, show3dObjects: true, showPointOfInterestLabels: false, showTransitLabels: true, showRoadLabels: false, showPlaceLabels: true } },
       } as never);
       map.addControl(new mb.AttributionControl({ compact: true }), 'bottom-right');
       this.map = map;
