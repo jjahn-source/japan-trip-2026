@@ -44,7 +44,7 @@ const phone = async (name, device) => {
 const settle = () => new Promise((r) => setTimeout(r, 600));
 after(() => {
   server.close();
-  execFileSync('npx', ['wrangler', 'd1', 'execute', 'japan-plan-c', '--local', '--command', `DELETE FROM changes; DELETE FROM subs; DELETE FROM sent; UPDATE snapshot SET v = 0, state = '{"v":0,"items":{},"log":[]}' WHERE id = 1;`], { stdio: 'ignore' });
+  execFileSync('npx', ['wrangler', 'd1', 'execute', 'japan-plan-c', '--local', '--command', `DELETE FROM changes; DELETE FROM subs; DELETE FROM sent; DELETE FROM gchecks; UPDATE snapshot SET v = 0, state = '{"v":0,"items":{},"log":[]}' WHERE id = 1;`], { stdio: 'ignore' });
 });
 
 const plan = await fetch(`${LIVE}/live-plan.json`).then((r) => r.json());
@@ -87,6 +87,36 @@ test('the cron run sends a due alert once to each phone, then never again', asyn
   assert.ok(inbox.ben.some((m) => m.msg.title === leave.title && m.ttl === '900'));
   const again = (await api('/debug/alerts', { now: leave.at + 120e3 })).j.sent;
   assert.equal(again.filter((s) => s.key === leave.key).length, 0);
+});
+
+test('the morning hours check pushes a closure Google shows for the day, once, and asks each stop once a day', async () => {
+  // A stop with a Google place, and 07:05 in Japan the day before it.
+  const target = plan.stops.find((s) => s.g && s.id !== stop.id && +s.s.slice(11, 13) >= 10);
+  const day = new Date(Date.parse(target.s.slice(0, 10) + 'T00:00:00Z') - 864e5).toISOString().slice(0, 10);
+  const now = Date.parse(`${day}T07:05:00+09:00`);
+  // Google's answers: every other place says nothing about hours; the target is open all week but has
+  // no hours on any date of the coming week (a holiday closure).
+  const google = Object.fromEntries(plan.stops.filter((s) => s.g).map((s) => [s.g, {}]));
+  google[target.g] = { regularOpeningHours: { periods: [{ open: { day: 0, hour: 0, minute: 0 } }] }, currentOpeningHours: { periods: [] } };
+  inbox.ann = []; inbox.ben = [];
+  // Ten stops a run: a few runs cover the next 48 hours.
+  const checked = [];
+  for (let m = 0; m < 6; m++) checked.push(...(await api('/debug/google', { now: now + m * 60e3, google })).j.checked);
+  const mine = checked.filter((c) => c.stop === target.id);
+  assert.deepEqual(mine, [{ stop: target.id, news: 'closed' }]);
+  assert.equal(new Set(checked.map((c) => c.stop)).size, checked.length); // each stop asked once
+  await settle();
+  for (const who of ['ann', 'ben']) {
+    const m = inbox[who].filter((x) => x.msg.title.startsWith(target.name));
+    assert.equal(m.length, 1, who);
+    assert.match(m[0].msg.title, /looks closed on/);
+    assert.equal(m[0].msg.url, `/day/${target.d}/#${target.id}`);
+  }
+  // Later the same morning: nothing new is asked or sent; outside 07:00 nothing runs at all.
+  assert.deepEqual((await api('/debug/google', { now: now + 40 * 60e3, google })).j.checked, []);
+  assert.deepEqual((await api('/debug/google', { now: now + 3 * 3600e3, google })).j.checked, []);
+  await settle();
+  assert.equal(inbox.ann.filter((x) => x.msg.title.startsWith(target.name)).length, 1);
 });
 
 test('a ticked booking is shared, and a phone that has gone is forgotten', async () => {

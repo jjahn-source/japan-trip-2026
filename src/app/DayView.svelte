@@ -13,7 +13,7 @@
 
   const days = $derived(app.data?.days ?? []);
   const today = $derived(todayN());
-  const cash = (s: AppStop) => !!s.guide && [...s.guide.tips, ...s.guide.facts.map((f) => f.text), s.guide.cost ?? ''].some((x) => /cash only|cash-only|現金のみ/i.test(x));
+  const cash = (s: AppStop) => s.google?.pay === 'cash' || !!s.guide && [...s.guide.tips, ...s.guide.facts.map((f) => f.text), s.guide.cost ?? ''].some((x) => /cash only|cash-only|現金のみ/i.test(x));
   // The local 160 px copy when there is one (scripts/thumbs.mjs), else the original.
   const photo = (s: AppStop) => { const m = s.guide?.media.find((x) => x.kind === 'image'); return m ? (m.small ? BASE + m.small : m.url) : null; };
   const NOTE: Record<string, string> = { BRING: 'Bring', MONEY: 'Money', CHECK: 'Check', WEATHER: 'Weather', NOTE: 'Note', BOOK: 'Book' };
@@ -159,6 +159,7 @@
               {#if s.live?.cancelled}<span class="chip-s book">Cancelled</span>{:else if s.live?.moved}<span class="chip-s moved">Moved · was {s.live.planned}</span>{/if}
               {#if nowId === s.id}<span class="chip-s nowc">Now</span>{/if}
               {#if late(s)}<span class="chip-s late">After the last train</span>{/if}
+              {#if s.google?.closed}<span class="chip-s late">Closed {s.google.closed}</span>{:else if s.google?.clash?.kind === 'closed'}<span class="chip-s late">Closed then</span>{/if}
               {#if s.mark === 'tobook'}<span class="chip-s book">Book</span>{:else if s.mark === 'tocheck'}<span class="chip-s check">Check</span>{/if}
               {#if s.price}<span class="chip-s">{s.price}</span>{/if}
               {#if cash(s)}<span class="chip-s">Cash only</span>{/if}

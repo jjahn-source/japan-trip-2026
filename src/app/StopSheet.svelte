@@ -65,7 +65,11 @@
   const host = (u: string) => { try { return new URL(u).hostname.replace(/^www\./, ''); } catch { return 'source'; } };
   /** "2020-03" → "Mar 2020": how old the street photo is. */
   const monthOf = (ym: string) => new Date(`${ym}-01T00:00:00Z`).toLocaleDateString('en-GB', { month: 'short', year: 'numeric', timeZone: 'UTC' });
-  const directions = (s: AppStop) => `https://www.google.com/maps/dir/?api=1&destination=${s.lat},${s.lng}&travelmode=transit`;
+  // With Google's place ID, Maps routes to the place itself (its name, its entrance), not a dropped pin.
+  const directions = (s: AppStop) => `https://www.google.com/maps/dir/?api=1&destination=${s.lat},${s.lng}${s.google ? `&destination_place_id=${encodeURIComponent(s.google.id)}` : ''}&travelmode=transit`;
+  const gm = $derived(stop.google ?? null);
+  /** "Dec 8": when the Google facts were fetched. */
+  const checkedOn = (ymd: string) => (ymd ? `${MON[+ymd.slice(5, 7) - 1]} ${+ymd.slice(8, 10)}` : '');
 
   // Yen at today's rate (a range stays a range: "¥500–1,500" ≈ "$3.2–9.6").
   $effect(() => loadRate());
@@ -158,6 +162,25 @@
         {#if stop.phone}<a class="act" href={`tel:${stop.phone.replace(/[^\d+]/g, '')}`}>{@html icon('phone')}<span>{stop.phone}</span></a>{/if}
       </div>
 
+      {#if gm?.closed || gm?.clash}
+        <p class="box warn" class:soft={!gm.closed && gm.clash?.kind !== 'closed'}>{@html icon('alert')}<span>{gm.closed ? `Google Maps says it's closed ${gm.closed}.` : gm.clash!.text}{#if gm.checked}{' '}<small>Checked {checkedOn(gm.checked)}.</small>{/if}</span></p>
+      {/if}
+
+      {#if gm && (gm.rating || gm.summary || gm.pay || gm.book || gm.groups)}
+        <!-- Google's review summary must carry its Gemini disclosure and a link to the reviews. -->
+        <section class="box gmaps">
+          {#if gm.rating}<p class="stars"><b class="num">{gm.rating.toFixed(1)}</b><span class="st" aria-hidden="true" style:--r={gm.rating}></span>{#if gm.ratings}<span class="num">{gm.ratings.toLocaleString('en-US')} reviews</span>{/if}{#if gm.maps}<a href={gm.maps} target="_blank" rel="noopener">Google Maps</a>{/if}</p>{/if}
+          {#if gm.pay || gm.book || gm.groups}
+            <p class="gtags">
+              {#if gm.pay === 'cash'}<span class="cash">Cash only</span>{:else if gm.pay === 'cards'}<span>Takes cards</span>{/if}
+              {#if gm.book}<span>Takes reservations</span>{/if}
+              {#if gm.groups}<span>Good for groups</span>{/if}
+            </p>
+          {/if}
+          {#if gm.summary}<p class="gsum">{gm.summary.text}</p><p class="gby">Summarized with Gemini{#if gm.summary.uri}{' · '}<a href={gm.summary.uri} target="_blank" rel="noopener">Read the reviews</a>{/if}</p>{/if}
+        </section>
+      {/if}
+
       {#if stop.street}
         <!-- What the pin looks like from the street, to spot the door; tap to look around in Google Maps. -->
         <figure class="street">
@@ -245,6 +268,24 @@
   .hero { margin: 0 calc(-1 * max(18px, env(safe-area-inset-left, 0px))); }
   .hero img { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; }
   .hero figcaption { font-size: 0.72rem; color: var(--washi-3); padding: 4px 18px 0; }
+  .warn { display: flex; gap: 10px; align-items: flex-start; background: var(--noren-wash); color: oklch(86% 0.09 35); font-size: 0.88rem; line-height: 1.45; font-weight: 600; }
+  .warn.soft { background: var(--night-3); color: var(--washi-2); font-weight: 500; }
+  .warn :global(svg) { flex: none; width: 17px; height: 17px; margin-top: 1px; color: oklch(78% 0.13 35); }
+  .warn.soft :global(svg) { color: var(--lantern); }
+  .warn small { color: var(--washi-3); font-weight: 500; }
+  .gmaps { display: grid; gap: 8px; font-size: 0.86rem; }
+  .stars { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; color: var(--washi-2); }
+  .stars b { color: var(--washi); font-size: 1rem; }
+  /* Five stars filled to the rating: a gold mask over a dim one. */
+  .st { --star: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 2l2.9 6.9 7.1.6-5.4 4.7 1.6 7.3L12 17.8 5.8 21.5l1.6-7.3L2 9.5l7.1-.6z'/%3E%3C/svg%3E");
+    width: 75px; height: 14px; background: linear-gradient(90deg, var(--lantern) calc(var(--r) / 5 * 100%), var(--night-4) 0); mask: var(--star) 0 0 / 15px 14px repeat-x; -webkit-mask: var(--star) 0 0 / 15px 14px repeat-x; }
+  .stars a { margin-left: auto; color: var(--lantern); font-weight: 600; }
+  .gtags { display: flex; flex-wrap: wrap; gap: 6px; font-size: 0.76rem; }
+  .gtags span { padding: 2px 9px 3px; border-radius: 99px; background: var(--night-2); color: var(--washi-2); font-weight: 600; }
+  .gtags .cash { background: var(--noren-wash); color: oklch(82% 0.11 35); }
+  .gsum { color: var(--washi); line-height: 1.5; }
+  .gby { font-size: 0.74rem; color: var(--washi-3); }
+  .gby a { color: var(--lantern); font-weight: 600; }
   .street { display: grid; gap: 5px; margin: 0; }
   .street img { display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: cover; border-radius: var(--r-m); background: var(--night-3); }
   .street figcaption { font-size: 0.78rem; color: var(--washi-3); }
@@ -298,7 +339,7 @@
   .src, .extra { font-size: 0.8rem; color: var(--washi-3); }
 
   /* Phone: the half sheet leads with what and when (name, tags, Directions); the photo follows. */
-  @media (max-width: 899px) { .hero { order: 1; margin-top: 4px; } .story, .scroll > section, .scroll > .box, .scroll > p, .scroll > dl { order: 2; } }
+  @media (max-width: 899px) { .hero { order: 1; margin-top: 4px; } .story, .scroll > section, .scroll > .box, .scroll > p, .scroll > dl { order: 2; } .scroll > .warn { order: 0; } }
   @media (min-width: 900px) {
     /* Beside the map, under the top bar (search stays in reach). */
     .sheet { inset: var(--bar-h) 0 0 auto; width: min(460px, 38vw); height: auto; max-height: none; }

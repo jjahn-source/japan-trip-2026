@@ -13,6 +13,7 @@
     { k: 'last', label: 'Last train', sub: '20 min before you must leave' },
     { k: 'due', label: 'Booking deadlines', sub: '3 days before and on the day, 9am' },
     { k: 'changes', label: 'Plan changes', sub: 'when someone changes a stop' },
+    { k: 'closed', label: 'Closed on the day', sub: 'Google Maps holiday hours, checked each morning' },
   ];
   let on = $state(false), busy = $state(false), msg = $state(''), err = $state('');
   let prefs = $state<Prefs>({ ...DEFAULT_PREFS });

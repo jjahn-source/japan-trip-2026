@@ -1,12 +1,14 @@
 // The live layer: one Cloudflare Worker in front of the built site (dist/, served as static assets).
 // A small API on D1 keeps the group's changes to the plan, the shared booking ticks and each phone's
 // alert subscription. It pushes a notification when someone changes the plan, and a cron run every
-// minute sends what's due: leave now, the last train home, booking deadlines.
+// minute sends what's due: leave now, the last train home, booking deadlines. On the trip's mornings it
+// also asks Google Maps about the next two days' stops and warns when one will be closed (runGoogle).
 //
 // Sized for Cloudflare's free plan: a phone's check and the cron run read one row (the snapshot) rather
 // than the history; a check that has the latest state gets a few bytes back; pushes per run, phones,
 // and request bodies are capped so no run can go past 10 ms of CPU or 50 outgoing requests.
 import { alertsFor, applyChange, applyPlan, clean, describe, EMPTY, exists, type Alert, type AlertKind, type Change, type Kind, type Live, type LivePlan } from '../src/lib/live';
+import { closedNews, LIVE_FIELDS, type LiveDetails } from '../src/lib/google-hours';
 import { send, type Message, type Vapid } from './push';
 
 interface Meta { last_row_id: number; changes: number; rows_read?: number }
@@ -16,6 +18,8 @@ interface Env {
   ASSETS: { fetch(req: Request): Promise<Response> };
   DB: DB;
   VAPID_PUBLIC_KEY?: string; VAPID_PRIVATE_KEY?: string; VAPID_SUBJECT?: string;
+  /** The morning hours check (runGoogle); without it the check is off. A secret: `wrangler secret put`. */
+  GOOGLE_MAPS_API_KEY?: string;
   /** "1" in .dev.vars: allows local push endpoints, the /api/debug routes and the rows-read header. */
   DEV?: string;
 }
@@ -23,7 +27,7 @@ interface Ctx { waitUntil(p: Promise<unknown>): void }
 interface SubRow { id: number; endpoint: string; p256dh: string; auth: string; device: string | null; name: string | null; tz: string | null; prefs: string }
 
 const KINDS: Kind[] = ['stop', 'todo', 'day'];
-const ALERTS: AlertKind[] = ['leave', 'last', 'due', 'changes'];
+const ALERTS: AlertKind[] = ['leave', 'last', 'due', 'changes', 'closed'];
 /** Where a phone's push subscription can point: the browsers' own push services, nothing else. */
 const PUSH_HOSTS = /(^|\.)(push\.apple\.com|fcm\.googleapis\.com|push\.services\.mozilla\.com|notify\.windows\.com)$/;
 /** A cron run sends what fell due since the last few runs (a missed run still sends): a quarter of an
@@ -31,7 +35,7 @@ const PUSH_HOSTS = /(^|\.)(push\.apple\.com|fcm\.googleapis\.com|push\.services\
 const WINDOW = 15 * 60e3;
 const windowFor = (k: AlertKind) => (k === 'due' ? 6 * 3600e3 : WINDOW);
 /** When a run can't send everything, the ones that can't wait go first. */
-const URGENCY: Record<AlertKind, number> = { leave: 0, last: 0, changes: 1, due: 2 };
+const URGENCY: Record<AlertKind, number> = { leave: 0, last: 0, changes: 1, closed: 1, due: 2 };
 /** Pushes one run may send (~0.4 ms of CPU each); the rest go a minute later, still in the window. */
 const MAX_PUSH = 20;
 const MAX_SUBS = 40;
@@ -94,7 +98,8 @@ async function current(env: Env): Promise<Live> {
 }
 
 const vapid = (env: Env): Vapid | null => env.VAPID_PUBLIC_KEY && env.VAPID_PRIVATE_KEY ? { publicKey: env.VAPID_PUBLIC_KEY, privateKey: env.VAPID_PRIVATE_KEY, subject: env.VAPID_SUBJECT || 'https://github.com/' } : null;
-const prefsOf = (s: SubRow): Record<AlertKind, boolean> => { try { return { leave: true, last: true, due: true, changes: true, ...JSON.parse(s.prefs) }; } catch { return { leave: true, last: true, due: true, changes: true }; } };
+const ALL_ON: Record<AlertKind, boolean> = { leave: true, last: true, due: true, changes: true, closed: true };
+const prefsOf = (s: SubRow): Record<AlertKind, boolean> => { try { return { ...ALL_ON, ...JSON.parse(s.prefs) }; } catch { return { ...ALL_ON }; } };
 
 /** Sends to each phone; forgets the ones that have gone. */
 async function deliver(env: Env, jobs: { sub: SubRow; msg: Message; ttl?: number }[]): Promise<number> {
@@ -139,6 +144,59 @@ async function runAlerts(env: Env, now: number): Promise<{ sub: number; key: str
   await deliver(env, todo.map(({ sub, alert }) => ({ sub, msg: { title: alert.title, body: alert.body, url: alert.url, tag: alert.key }, ttl: alert.kind === 'due' ? 12 * 3600 : 15 * 60 })));
   await env.DB.prepare('DELETE FROM sent WHERE at < ?').bind(now - 7 * 864e5).run();
   return todo.map((d) => ({ sub: d.sub.id, key: d.alert.key }));
+}
+
+// ── The morning hours check: Google Maps' real hours for the next two days ──
+// Google gives a place's dated hours (holidays, the year end) only for the coming week, so the build can't
+// see them in October. Each morning of the trip, between 07:00 and 08:00 Japan time, the cron asks Google
+// about every stop starting in the next 48 hours (moved and cancelled stops as the group left them), a
+// few a run, each stop once a day, and pushes only news: closed, closing early, or gone.
+const CHECK_HOUR = 7;
+const AHEAD = 48 * 3600e3;
+/** Google calls a run may make: with MAX_PUSH, well under the 50 outgoing requests a run may use. */
+const CHECKS_PER_RUN = 10;
+export type Lookup = (placeId: string) => Promise<LiveDetails | null>;
+const googleLookup = (key: string): Lookup => async (id) => {
+  const r = await fetch(`https://places.googleapis.com/v1/places/${encodeURIComponent(id)}`, { headers: { 'X-Goog-Api-Key': key, 'X-Goog-FieldMask': LIVE_FIELDS } });
+  return r.ok ? (r.json() as Promise<LiveDetails>) : null;
+};
+
+async function runGoogle(env: Env, now: number, lookup?: Lookup): Promise<{ stop: string; news: string | null }[]> {
+  const ask = lookup ?? (env.GOOGLE_MAPS_API_KEY ? googleLookup(env.GOOGLE_MAPS_API_KEY) : null);
+  const jst = new Date(now + 9 * 3600e3);
+  if (!ask || jst.getUTCHours() !== CHECK_HOUR) return [];
+  const p = await plan(env);
+  const soon = p.stops.filter((s) => s.g && Date.parse(s.s) > now && Date.parse(s.s) < now + AHEAD);
+  if (!soon.length) return [];
+  const today = jst.toISOString().slice(0, 10);
+  const done = new Set((await env.DB.prepare('SELECT stop FROM gchecks WHERE day = ?').bind(today).all<{ stop: string }>()).results.map((r) => r.stop));
+  if (soon.every((s) => done.has(s.id))) return [];
+  const live = applyPlan(p, await current(env));
+  const todo = live.stops.filter((s) => s.g && !s.cancelled && !done.has(s.id) && Date.parse(s.s) > now && Date.parse(s.s) < now + AHEAD).slice(0, CHECKS_PER_RUN);
+  const found = await Promise.all(todo.map(async (s) => {
+    const d = await ask(s.g!).catch(() => null);
+    return { s, d, news: d ? closedNews(s, d, today) : null };
+  }));
+  // A failed lookup isn't recorded, so the next run tries it again.
+  const asked = found.filter((x) => x.d);
+  if (asked.length) await env.DB.batch(asked.map((x) => env.DB.prepare('INSERT OR IGNORE INTO gchecks (day, stop, news, at) VALUES (?, ?, ?, ?)').bind(today, x.s.id, x.news?.kind ?? null, now)));
+  const alerts: Alert[] = found.filter((x) => x.news).map(({ s, news }) => ({ key: `closed:${s.id}:${s.s.slice(0, 10)}:${news!.kind}`, kind: 'closed', at: now, title: news!.title, body: news!.body, url: `/day/${s.d}/#${s.id}` }));
+  if (alerts.length) {
+    const subs = (await env.DB.prepare('SELECT * FROM subs').all<SubRow>()).results.filter((x) => prefsOf(x).closed);
+    const jobs = subs.flatMap((sub) => alerts.map((alert) => ({ sub, alert, key: `${alert.key}|${sub.id}` })));
+    const sent = new Set<string>();
+    for (let i = 0; i < jobs.length; i += 90) {
+      const chunk = jobs.slice(i, i + 90).map((j) => j.key);
+      for (const r of (await env.DB.prepare(`SELECT key FROM sent WHERE key IN (${chunk.map(() => '?').join(',')})`).bind(...chunk).all<{ key: string }>()).results) sent.add(r.key);
+    }
+    const out = jobs.filter((j) => !sent.has(j.key)).slice(0, MAX_PUSH);
+    if (out.length) {
+      await env.DB.batch(out.map((j) => env.DB.prepare('INSERT OR IGNORE INTO sent (key, at) VALUES (?, ?)').bind(j.key, now)));
+      await deliver(env, out.map(({ sub, alert }) => ({ sub, msg: { title: alert.title, body: alert.body, url: alert.url, tag: alert.key }, ttl: 12 * 3600 })));
+    }
+  }
+  await env.DB.prepare('DELETE FROM gchecks WHERE at < ?').bind(now - 7 * 864e5).run();
+  return found.map((x) => ({ stop: x.s.id, news: x.news?.kind ?? (x.d ? null : 'lookup failed') }));
 }
 
 /** A JSON body of at most 8 KB (a body without a declared length is refused, not read). */
@@ -234,6 +292,13 @@ async function api(req: Request, env: Env, ctx: Ctx, path: string): Promise<Resp
     return json({ sent: await runAlerts(env, now) });
   }
 
+  // Local testing only: the morning hours check as if it were `now`, with Google's answers given per place ID.
+  if (path === '/api/debug/google' && method === 'POST' && env.DEV === '1') {
+    const b = await body(req);
+    const fake = (b?.google ?? {}) as Record<string, LiveDetails>;
+    return json({ checked: await runGoogle(env, Number(b?.now ?? Date.now()), async (id) => fake[id] ?? null) });
+  }
+
   return json({ error: 'not found' }, 404);
 }
 
@@ -251,5 +316,6 @@ export default {
   },
   async scheduled(event: { scheduledTime: number }, env: Env, ctx: Ctx) {
     ctx.waitUntil(runAlerts(env, event.scheduledTime).then((s) => { if (s.length) console.log(`sent ${s.length} alerts`); }));
+    ctx.waitUntil(runGoogle(env, event.scheduledTime).then((c) => { if (c.length) console.log(`checked ${c.length} stops on Google`, c.filter((x) => x.news)); }));
   },
 };

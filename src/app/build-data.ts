@@ -4,7 +4,8 @@ import { existsSync, readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { trip } from '../lib/trip';
 import { trending } from '../lib/client';
-import type { AppData, AppDay, AppLastTrain, AppLeg, AppMedia, AppStop } from './types';
+import { hoursClash, type GoogleHours } from '../lib/google-hours';
+import type { AppData, AppDay, AppGoogle, AppLastTrain, AppLeg, AppMedia, AppStop } from './types';
 import { splitJa } from './types';
 
 const read = <T>(p: string, fallback: T): T => { const f = resolve(process.cwd(), p); return existsSync(f) ? (JSON.parse(readFileSync(f, 'utf8')) as T) : fallback; };
@@ -24,6 +25,18 @@ const placePhoto = (lat: number | null, lng: number | null): AppMedia | null => 
 const withPlacePhoto = (media: AppMedia[], lat: number | null, lng: number | null) => {
   const p = media.some((m) => m.kind === 'image') ? null : placePhoto(lat, lng);
   return p ? [p, ...media] : media;
+};
+// Google Maps' facts on each place (scripts/google-places.mjs), keyed by the pin; hidden or unmatched pins have no id.
+const GOOGLE = read<Record<string, (GoogleHours & { id?: string; maps?: string | null; rating?: number | null; ratings?: number | null; status?: string | null; pay?: AppGoogle['pay']; groups?: boolean | null; book?: boolean | null; summary?: AppGoogle['summary']; noHours?: string; fetched?: string })>>('data/google-places.json', {});
+const googleOf = (lat: number | null, lng: number | null, startISO: string, endISO: string): AppGoogle | null => {
+  const v = lat != null && lng != null ? GOOGLE[`${lat.toFixed(5)},${lng.toFixed(5)}`] : undefined;
+  if (!v?.id) return null;
+  return {
+    id: v.id, maps: v.maps ?? null, rating: v.rating ?? null, ratings: v.ratings ?? null, summary: v.summary ?? null,
+    pay: v.pay ?? null, groups: v.groups ?? null, book: v.book ?? null,
+    closed: v.status === 'CLOSED_PERMANENTLY' ? 'for good' : v.status === 'CLOSED_TEMPORARILY' ? 'for now' : null,
+    hours: !v.noHours, clash: v.noHours ? null : hoursClash(v, startISO, endISO), checked: v.fetched ?? '',
+  };
 };
 const withCopies = (m: AppMedia): AppMedia => (m.kind === 'image' && THUMBS[m.url] ? { ...m, small: THUMBS[m.url].s, large: THUMBS[m.url].l } : m);
 /** Pictures of the place only: not a map or diagram (SVG), and not a Facebook link (it expires). */
@@ -57,6 +70,7 @@ export function appData(): AppData {
         mark: s.mark, todoId: s.todoId, transport: s.transport ?? null,
         guide: g ? { story: g.story, how: g.how, tips: g.tips, cost: g.cost, booking: g.booking, hours: g.hours, facts: g.facts ?? [], sources: g.sources, media: withPlacePhoto((g.media as AppMedia[]).filter((m) => m.kind !== 'image' || isPhoto(m.url)).map(withCopies), s.lat, s.lng), wishes: g.wishes } : null,
         details: s.details, extra: s.extra, confirmation: stay?.confirmation ?? null, street: streetOf(s.lat, s.lng),
+        google: s.category === 'stay' || s.category === 'transport' ? null : googleOf(s.lat, s.lng, s.startISO, s.endISO),
       };
     });
     // Only legs that still join this day's stops in order (route files can lag a re-plan).

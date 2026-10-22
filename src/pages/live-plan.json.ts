@@ -9,7 +9,7 @@ export const GET: APIRoute = () => {
   const plan: LivePlan = {
     generated: d.generated,
     days: d.days.map((x) => ({ n: x.n, date: x.date, lastTrain: x.lastTrain })),
-    stops: d.days.flatMap((x) => x.stops.map((s) => ({ id: s.id, d: x.n, name: s.name, cat: s.cat, s: s.startISO, e: s.endISO }))),
+    stops: d.days.flatMap((x) => x.stops.map((s) => ({ id: s.id, d: x.n, name: s.name, cat: s.cat, s: s.startISO, e: s.endISO, ...(s.google?.hours ? { g: s.google.id } : {}) }))),
     legs: d.days.flatMap((x) => Object.values(x.legs).map((l) => ({ from: l.from, to: l.to, minutes: l.minutes, mode: l.mode, text: l.text }))),
     todos: d.todos.map((t) => ({ id: t.id, due: t.due, text: t.text })),
   };

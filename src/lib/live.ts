@@ -76,7 +76,8 @@ export const nightISO = (date: string, hm: string) => isoNear(hm, `${date}T${+hm
 export const hmOf = (iso: string) => new Date(Date.parse(iso) + 9 * 3600e3).toISOString().slice(11, 16);
 
 // ── The compact plan the Worker reads (/live-plan.json, written at build time) ──
-export interface PlanStop { id: string; d: number; name: string; cat: string; s: string; e: string; cancelled?: boolean; note?: string | null }
+/** `g`: the Google Maps place ID, when its hours are this visit's (the trip's morning hours check). */
+export interface PlanStop { id: string; d: number; name: string; cat: string; s: string; e: string; g?: string; cancelled?: boolean; note?: string | null }
 export interface PlanLeg { from: string; to: string; minutes: number; mode: string; text: string }
 export interface PlanDay { n: number; date: string; lastTrain: LastTrain | null }
 export interface PlanTodo { id: string; due: string | null; text: string; done?: boolean }
@@ -105,7 +106,8 @@ export function applyPlan(plan: LivePlan, live: Live): LivePlan {
 }
 
 // ── Alerts ──
-export type AlertKind = 'leave' | 'last' | 'due' | 'changes';
+/** `closed`: the morning check of Google's hours during the trip (worker/index.ts), not built here. */
+export type AlertKind = 'leave' | 'last' | 'due' | 'changes' | 'closed';
 export interface Alert { key: string; kind: AlertKind; at: number; title: string; body: string; url: string }
 export const LEAD = { leave: 10, last: 20 } as const; // minutes of warning
 

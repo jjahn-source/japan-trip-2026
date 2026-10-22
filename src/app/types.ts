@@ -5,6 +5,19 @@ export interface AppGuide {
   story: string; how: string[]; tips: string[]; cost: string | null; booking: string | null; hours: string | null;
   facts: AppFact[]; sources: { label: string; url: string }[]; media: AppMedia[]; wishes: string[];
 }
+/** Google Maps on a stop: rating, Google's review summary (Gemini; shown with its disclosure and the
+ *  reviews link Google requires), cards or cash, bookings, groups, and a clash between the visit and
+ *  Google's hours (dated hours for the coming week when it has them). `checked` is the fetch date. */
+export interface AppGoogle {
+  id: string; maps: string | null; rating: number | null; ratings: number | null;
+  summary: { text: string; uri: string | null } | null;
+  pay: 'cash' | 'cards' | null; groups: boolean | null; book: boolean | null;
+  closed: 'for good' | 'for now' | null;
+  /** Whether Google's hours are this visit's (not a walk past it at night): the build and the live check use them. */
+  hours: boolean;
+  clash: { kind: 'closed' | 'opens' | 'closes'; text: string } | null;
+  checked: string;
+}
 export interface AppStop {
   id: string; i: number; start: string; end: string; startISO: string; endISO: string;
   name: string; ja: string | null; cat: string; catLabel: string; price: string | null;
@@ -17,6 +30,8 @@ export interface AppStop {
   /** The street-level view of the stop's pin (scripts/streetview.mjs): local photo, capture month, a
    *  Google Maps link to look around from there. */
   street?: { src: string; date: string | null; url: string } | null;
+  /** What Google Maps knows about the place (scripts/google-places.mjs), checked against this visit. */
+  google?: AppGoogle | null;
   /** The group's change to this stop, if anyone made one (src/app/live.svelte.ts). */
   live?: { note: string | null; cancelled: boolean; moved: boolean; planned: string; by: string; at: number };
 }
