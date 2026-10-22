@@ -6,6 +6,7 @@
   import { ago, change, itemOf, live, setName } from './live.svelte';
   import { nightISO } from '../lib/live';
   import type { AppDay } from './types';
+  import { app } from './state.svelte';
 
   let { day }: { day: AppDay } = $props();
   const t = $derived(day.lastTrain);
@@ -34,7 +35,7 @@
 </script>
 
 <section class="lt" aria-labelledby={`lt-${day.n}`}>
-  <h2 id={`lt-${day.n}`}>{@html icon('transport')}<span>Last train home</span></h2>
+  <h2 id={`lt-${day.n}`}>{@html icon('transport')}<span>Last {t?.bus ? 'bus' : 'train'} home</span></h2>
   {#if day.home}<p class="route">{day.home.from.name} → {day.home.to.name}</p>{/if}
   {#if editing}
     <form onsubmit={save}>
@@ -69,6 +70,12 @@
       {#if live.on}<button type="button" class="primary" onclick={open}>Add it</button>{/if}
     </div>
   {/if}
+  {#if day.taxi && day.home && !editing}
+    <!-- Missed it: the taxi home at that hour (Google's traffic-aware drive time, the meter with the
+         late-night surcharge), and Uber, which calls ordinary taxis in Tokyo and Osaka. -->
+    <p class="taxi">{@html icon('car')}<span>Miss it? Taxi home <b class="num">{day.taxi.minutes} min</b>, about <b class="num">¥{day.taxi.fare[0].toLocaleString('en-US')}–{day.taxi.fare[1].toLocaleString('en-US')}</b> a car{#if day.taxi.cars > 1}{` · ${day.taxi.cars} cars for ${app.data?.people ?? 8}`}{/if}{#if day.taxi.km > 20}{' · plus expressway tolls'}{/if}.
+      <a href={`https://m.uber.com/ul/?action=setPickup&pickup=my_location&dropoff[latitude]=${day.home.to.lat}&dropoff[longitude]=${day.home.to.lng}&dropoff[nickname]=${encodeURIComponent(day.home.to.name)}`} target="_blank" rel="noopener">Call one in Uber</a></span></p>
+  {/if}
   {#if live.error && live.errorFor === `day:${day.n}`}<p class="err" role="alert">{live.error}</p>{/if}
 </section>
 
@@ -83,6 +90,10 @@
   .sub b { color: var(--washi); }
   .meta { font-size: 0.76rem; color: var(--washi-3); }
   .meta a { color: var(--washi-2); }
+  .taxi { display: flex; gap: 8px; align-items: flex-start; margin-top: 4px; padding-top: 8px; border-top: 1px solid var(--rule); font-size: 0.82rem; line-height: 1.45; color: var(--washi-2); }
+  .taxi :global(svg) { flex: none; width: 16px; height: 16px; margin-top: 1px; color: var(--lantern); }
+  .taxi b { color: var(--washi); }
+  .taxi a { color: var(--lantern); font-weight: 700; }
   .err { color: oklch(82% 0.11 35); font-size: 0.84rem; }
   .hint { font-size: 0.82rem; color: var(--washi-2); }
   .link { border: 0; background: none; padding: 0 2px; color: var(--lantern); font: inherit; font-weight: 700; cursor: pointer; text-decoration: underline; text-underline-offset: 2px; }

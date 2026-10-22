@@ -6,7 +6,7 @@
     },
     {
       "kind": "CHECK",
-      "text": "Check the wagyu is actually reserved at Aihara Meat Shop and the 8 Romancecar seats are booked together. If either isn't done, today's plan falls over."
+      "text": "Check that Albergo Bamboo's private room for 8 is booked for 17:45 and that the 8 Romancecar seats are together. If either isn't done, today's plan falls over."
     },
     {
       "kind": "WEATHER",
@@ -107,37 +107,12 @@
     },
     {
       "index": 5,
-      "summary": "The village butcher: pick up 2.4 kg of wagyu for tonight's cook-off before it shuts at 17:00.",
-      "story": "Aihara is the only proper butcher in Sengokuhara, a local shop known for its house 'Monjiro' roast beef and deli fry-ups. Tonight's cook-off runs on a local's wagyu, not supermarket packs.",
+      "summary": "Sengokuhara's only supermarket: load up on beer, sake, chuhai and breakfast for the villa before it closes at 18:00.",
+      "story": "A-Coop is the only supermarket in Sengokuhara, which makes it tonight's bar after dinner and tomorrow's breakfast in one stop. It's cheap, and it sells out.",
       "how": [
-        "One person collects the reserved order. Everyone else can head on to A-Coop.",
-        "If it wasn't reserved, ask for steak and yakiniku cuts for 8 and take what they have."
-      ],
-      "tips": [
-        "CHECK: confirm the reservation by phone (0460-84-8429). The script: '12月19日（土）に和牛ステーキ／焼肉用を8人分、約2.4kg取り置きお願いします'.",
-        "Wagyu cuts run roughly ¥1,500-3,000/100 g. Ask the price when you call.",
-        "Fallback if it falls through: a Shinjuku depachika meat counter that morning, with ice packs."
-      ],
-      "cost": "about ¥6,000 pp",
-      "booking": "Phone 0460-84-8429 a few days ahead",
-      "hours": "09:00–17:00",
-      "source_urls": [
-        "https://maps.google.com/?cid=6757753907281673083",
-        "https://www.yukoyuko.net/onsen/spot/s0001072",
-        "https://hoshinoresorts.com/jp/guide/area/kanto/kanagawa/hakone/hakone-takeout/"
-      ],
-      "wishes": [
-        "Yunessun wine, sake and coffee baths in Hakone, and a villa wagyu cook-off on the Hakone night"
-      ]
-    },
-    {
-      "index": 6,
-      "summary": "The only supermarket for miles: load up on beer, sake, chuhai and breakfast before it closes at 18:00.",
-      "story": "A-Coop is Sengokuhara's only supermarket. That makes it tonight's bar, tomorrow's breakfast and the cook-off's side dishes all at once. It's cheap, and it sells out.",
-      "how": [
-        "Split up: one pair on drinks, one on rice and veg, one on breakfast.",
-        "Buy more ice and drinks than you think you need. There's nowhere else to go later.",
-        "Get two taxis to the villa."
+        "Split up: one pair on drinks, one on ice, one on breakfast.",
+        "Buy more drinks than you think you need: after dinner there's nowhere else to go.",
+        "Get two taxis to the villa and fridge everything before dinner."
       ],
       "tips": [
         "Drinks run about ¥200–300 a can.",
@@ -155,31 +130,37 @@
       ]
     },
     {
-      "index": 8,
-      "summary": "Wagyu cook-off: steak team vs yakiniku team, four judges with drinks, loser does the dishes.",
-      "story": "Two teams of two cooks each go head to head over a grill: one team does steak, the other does yakiniku. The other four judge, pour and heckle. This is the night people will still be arguing about years later.",
+      "index": 7,
+      "summary": "Dinner in a castle: an upstairs private room for the 8 of you, uni and lemon cream pasta, winter game and prosecco.",
+      "story": "Albergo Bamboo looks like a small European castle dropped into the Sengokuhara hills, and it has been used for TV drama shoots. Diners report an upstairs private room that seats about 9, which would give the 8 of you a room to yourselves for a dressed-up dinner. People who post about it rave about the uni and lemon cream pasta, and in winter the kitchen does boar and venison.",
       "how": [
-        "Pick teams and a cooking order, then get the grill hot.",
-        "Judges score on taste, presentation and trash talk.",
-        "The losing team cleans up."
+        "Book by phone on 0460-84-3311 or through the booking form on the site, ask for the upstairs private room (8名・個室) and confirm it fits 8, and ask the dinner course price.",
+        "Arrive for 17:45 by taxi from the villa; last order is 20:30.",
+        "Order the uni and lemon cream pasta to share and a round of prosecco, then the winter game.",
+        "Two taxis back to the villa for the onsen."
       ],
       "tips": [
-        "Fridge the wagyu as soon as you check in.",
-        "Keep some meat back for tomorrow's breakfast rice bowls."
+        "Lunch courses run ¥5,000–8,000 pp, so expect dinner to be more: settle the course price when you book.",
+        "Dress up a little: this is the group photo of the Hakone trip, and it's dark outside, so take it in the room.",
+        "Fallback if the room is taken: Dining Yamaboushi in Sengokuhara takes banquets for 8."
       ],
-      "cost": null,
-      "booking": null,
-      "hours": null,
-      "source_urls": [],
+      "cost": "Dinner course, price on booking (lunch courses ¥5,000–8,000 pp)",
+      "booking": "Phone 0460-84-3311 or the site's booking form, two to three weeks ahead; ask for the private room for 8",
+      "hours": "Dinner 17:30–20:30 (last order)",
+      "source_urls": [
+        "http://www.bamboo.co.jp/albergo/",
+        "https://www.instagram.com/p/DVht-FmD9NK/",
+        "https://www.instagram.com/p/DVJBWxMkyVr/"
+      ],
       "wishes": [
-        "Yunessun wine, sake and coffee baths in Hakone, and a villa wagyu cook-off on the Hakone night",
+        "Yunessun wine, sake and coffee baths in Hakone, and a special group dinner out on the Hakone night (no cooking at the villa)",
         "We love to drink"
       ]
     },
     {
-      "index": 9,
+      "index": 8,
       "summary": "Your own hot spring in the cold mountain air, then a piano singalong. Get to bed before the early ropeway.",
-      "story": "The villa has its own hot spring, so the soak is just you eight, steam rising into the freezing dark. After that it's the piano and whatever the group can still sing.",
+      "story": "The villa has its own hot spring, so after dinner the soak is just you eight, steam rising into the freezing dark. After that it's the piano and whatever the group can still sing.",
       "how": [
         "Take turns in the villa onsen with drinks from A-Coop.",
         "Piano singalong in the living room.",

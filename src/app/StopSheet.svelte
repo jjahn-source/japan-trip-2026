@@ -181,6 +181,23 @@
         </section>
       {/if}
 
+      {#if gm?.door && (gm.door.building || gm.door.floor || /restaurant|bar|shopping|activity/.test(stop.cat))}
+        <!-- Restaurants and bars sit on upper floors of buildings known by their sign: match the sign. -->
+        <p class="box door"><span class="dl">Find the door</span><span>
+          {#if gm.door.building}<b lang="ja">{gm.door.building}</b>{/if}{#if gm.door.floor}<b class="num">{gm.door.floor}</b>{/if}{#if gm.door.near}<span>{gm.door.near}</span>{/if}
+        </span></p>
+      {/if}
+
+      {#if gm?.swaps.length}
+        <!-- Plan B: if it's full, shut or the queue is silly. Open for this visit's whole slot (Google's hours). -->
+        <section class="swaps"><h3>Plan B nearby</h3><ul>
+          {#each gm.swaps as w}
+            <li><a href={w.maps ?? `https://www.google.com/maps/search/?api=1&query=${w.lat},${w.lng}&query_place_id=${encodeURIComponent(w.id)}`} target="_blank" rel="noopener"><b>{w.name}</b><small>{[w.kind, `${w.rating.toFixed(1)}★ ${w.ratings.toLocaleString('en-US')}`, w.book ? 'takes bookings' : null].filter(Boolean).join(' · ')}</small></a>
+              <a class="wgo num" href={`https://www.google.com/maps/dir/?api=1&destination=${w.lat},${w.lng}&destination_place_id=${encodeURIComponent(w.id)}&travelmode=walking`} target="_blank" rel="noopener" aria-label={`Walk to ${w.name}, ${w.walk} minutes`}>{@html icon('navigation')}{w.walk} min</a></li>
+          {/each}
+        </ul><p class="gby">Open during your slot by Google Maps' hours.</p></section>
+      {/if}
+
       {#if stop.street}
         <!-- What the pin looks like from the street, to spot the door; tap to look around in Google Maps. -->
         <figure class="street">
@@ -286,6 +303,19 @@
   .gsum { color: var(--washi); line-height: 1.5; }
   .gby { font-size: 0.74rem; color: var(--washi-3); }
   .gby a { color: var(--lantern); font-weight: 600; }
+  .door { display: grid; gap: 4px; font-size: 0.88rem; }
+  .door > span:last-child { display: flex; flex-wrap: wrap; gap: 4px 10px; align-items: baseline; color: var(--washi-2); }
+  .door b { color: var(--washi); font-weight: 700; }
+  .door b[lang='ja'] { font-size: 1rem; }
+  .dl { font-size: 0.74rem; font-weight: 700; color: var(--lantern); }
+  .swaps ul { list-style: none; padding: 0; display: grid; gap: 6px; }
+  .swaps li { display: flex; align-items: center; gap: 10px; padding: 8px 8px 8px 12px; border-radius: var(--r-m); background: var(--night-3); }
+  .swaps li > a:first-child { flex: 1; min-width: 0; display: grid; gap: 1px; color: var(--washi); text-decoration: none; font-size: 0.9rem; }
+  .swaps b { font-weight: 700; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .swaps small { color: var(--washi-3); font-size: 0.76rem; }
+  .wgo { flex: none; display: inline-flex; align-items: center; gap: 4px; height: 34px; padding: 0 12px; border-radius: 99px; border: 1px solid var(--rule-strong); color: var(--washi); font-weight: 700; font-size: 0.8rem; text-decoration: none; }
+  .wgo :global(svg) { width: 14px; height: 14px; }
+  .swaps .gby { margin-top: 6px; }
   .street { display: grid; gap: 5px; margin: 0; }
   .street img { display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: cover; border-radius: var(--r-m); background: var(--night-3); }
   .street figcaption { font-size: 0.78rem; color: var(--washi-3); }

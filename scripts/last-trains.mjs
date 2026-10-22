@@ -3,6 +3,11 @@
 // (last-train) search on the trip's dates, which uses the operators' real timetables (NAVITIME's free
 // plan only averages late-night intervals, and Google's API has no Japanese transit).
 //
+// Where no station is near (Hakone's Sengokuhara), the night's last bus instead: the bus stops nearest each
+// end (from Google Places, by name), searched as Yahoo names them ("仙石/箱根登山バス") with local buses on,
+// and kept only when Yahoo's stop is the one we meant (its coordinates are checked, as for stations). A
+// last bus that leaves before the night there ends makes it a taxi night, and the reason says when it went.
+//
 // For each night: the night's last stop out and the bed; the two stations nearest each (by our rail
 // data, public/transit.json); a 終電 search for each pair. A result only counts when Yahoo picked the
 // station we meant (Kujō in Osaka, not Kujō in Kyoto: its coordinates are checked). The night's answer
@@ -35,10 +40,45 @@ const near = (p, max = 1.5, n = 2) => {
 const english = (railName) => tr.line(railName.replace(/(外回り|内回り)$/, '').trim());
 
 let calls = 0;
-async function lastTrains(from, to, date) {
+
+// ── Buses, where there's no station ──
+/** Local bus companies to try a stop's name with, as Yahoo writes them. */
+const BUS_OPS = ['箱根登山バス', '伊豆箱根バス'];
+const BUS_EN = { '箱根登山バス': 'Hakone Tozan Bus', '伊豆箱根バス': 'Izuhakone Bus' };
+const L = await import('../planner/lib.ts');
+const gkey = L.key('GOOGLE_MAPS_API_KEY');
+/** Bus stops within 500 m of a point, nearest first, by their Japanese name (Yahoo's) and English one. */
+async function busStops(p) {
+  if (!gkey) return [];
+  const ask = (languageCode) => L.cached('busstops', [p.lat.toFixed(4), p.lng.toFixed(4), languageCode], () => L.http('https://places.googleapis.com/v1/places:searchNearby', {
+    method: 'POST', headers: { 'X-Goog-Api-Key': gkey, 'Content-Type': 'application/json', 'X-Goog-FieldMask': 'places.id,places.displayName,places.location' },
+    body: JSON.stringify({ includedTypes: ['bus_stop', 'bus_station'], maxResultCount: 8, rankPreference: 'DISTANCE', languageCode, locationRestriction: { circle: { center: { latitude: p.lat, longitude: p.lng }, radius: 500 } } }),
+  }), 30);
+  const [ja, en] = await Promise.all([ask('ja'), ask('en')]);
+  const enOf = new Map((en?.places ?? []).map((x) => [x.id, x.displayName?.text]));
+  const seen = new Set();
+  return (ja?.places ?? []).map((x) => ({ ja: x.displayName.text.replace(/[（(]バス[）)]$/, '').trim(), name: (enOf.get(x.id) ?? x.displayName.text).replace(/\s*[（(](Bus|バス)[）)]$/i, ''), lat: x.location.latitude, lng: x.location.longitude }))
+    .filter((x) => !seen.has(x.ja) && seen.add(x.ja)).slice(0, 2);
+}
+/** The night's last bus between the stops nearest each end, or null. */
+async function lastBus(origin, bed, date) {
+  const starts = await busStops(origin), ends = await busStops(bed);
+  let best = null;
+  for (const a of starts) for (const b of ends) for (const op of BUS_OPS) {
+    if (a.ja === b.ja) continue;
+    const found = await lastTrains({ ...a, ja: `${a.ja}/${op}` }, { ...b, ja: `${b.ja}/${op}` }, date, true);
+    for (const r of found) {
+      const leave = toMin(r.dep) - walkMin(km(origin, a)) + 3, home = toMin(r.arr) + walkMin(km(b, bed)) - 3;
+      if (!best || leave > best.leaveMin) best = { ...r, a, b, op, leaveMin: leave, homeMin: home };
+    }
+    if (found.length) break; // this stop pair is that company's
+  }
+  return best;
+}
+async function lastTrains(from, to, date, bus = false) {
   const [y, m, d] = date.split('-');
   const u = new URL('https://transit.yahoo.co.jp/search/result');
-  Object.entries({ from: from.ja, to: to.ja, y, m, d, hh: '23', m1: '0', m2: '0', type: '2', ticket: 'ic', expkind: '1', ws: '3', s: '0', al: '0', shin: '0', ex: '1', hb: '0', lb: '0', sr: '0' })
+  Object.entries({ from: from.ja, to: to.ja, y, m, d, hh: '23', m1: '0', m2: '0', type: '2', ticket: 'ic', expkind: '1', ws: '3', s: '0', al: '0', shin: '0', ex: '1', hb: '0', lb: bus ? '1' : '0', sr: '0' })
     .forEach(([k, v]) => u.searchParams.set(k, v));
   if (calls++) await sleep(2500);
   const res = await fetch(u, { headers: { 'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0 Safari/537.36', 'accept-language': 'ja' } });
@@ -74,8 +114,20 @@ for (const day of trip.days) {
   if (!bed || !origin) { skip('no night in a bed (travel day)'); continue; }
   if (km(origin, bed) < 1.2) { skip(`${origin.name} is a walk from ${bed.name}`); continue; }
   const starts = near(origin), ends = near(bed);
-  if (!starts.length) { skip(`no station within 1.5 km of ${origin.name}: a taxi night`); continue; }
-  if (!ends.length) { skip(`no station within 1.5 km of ${bed.name}: a taxi night`); continue; }
+  if (!starts.length || !ends.length) {
+    const far = !starts.length ? origin : bed;
+    const bus = await lastBus(origin, bed, day.date);
+    if (!bus) { skip(`no station within 1.5 km of ${far.name}, and no bus found: a taxi night`); continue; }
+    const by = `the last bus from ${bus.a.name} (${bus.a.ja}) leaves ${bus.dep} (${BUS_EN[bus.op] ?? bus.op}, to ${bus.b.name} by ${bus.arr})`;
+    // Gone before the night there ends: say when, and it's a taxi.
+    if (bus.leaveMin < toMin(origin.e.slice(11, 16))) { skip(`${by}, before ${origin.name} ends at ${origin.e.slice(11, 16)}: a taxi night`); continue; }
+    out.days[day.n] = {
+      origin: origin.id, leave: hm(bus.leaveMin), dep: bus.dep, arr: hm(bus.homeMin),
+      from: bus.a.name, line: BUS_EN[bus.op] ?? bus.op, url: bus.url, bus: true,
+    };
+    console.log(`Day ${day.n}: last bus ${bus.dep} from ${bus.a.name} · in bed ${hm(bus.homeMin)}`);
+    continue;
+  }
   let best = null;
   for (const a of starts) for (const b of ends) {
     if (a.ja === b.ja) continue;

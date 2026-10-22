@@ -54,9 +54,9 @@
   "src": "/streetview/d8aaa2b74b1d.webp",
   "date": "2024-06",
   "m": 3,
-  "t": "34.65254,135.50631",
-  "at": "pin",
-  "url": "https://www.google.com/maps/@?api=1&map_action=pano&pano=24x13k-bKSCjS9FpWmms0w&heading=47&pitch=0&fov=90"
+  "t": "34.65250,135.50631",
+  "at": "google",
+  "url": "https://www.google.com/maps/@?api=1&map_action=pano&pano=24x13k-bKSCjS9FpWmms0w&heading=135&pitch=0&fov=90"
  },
  "34.66340,135.50343": {
   "hide": "the photo shows a wall, shutter or the shop next door, not the place (looked at 2026-10-22)"
@@ -139,10 +139,10 @@
  "34.68196,135.82890": {
   "src": "/streetview/51d1148df9c4.webp",
   "date": "2025-12",
-  "m": 3,
-  "t": "34.68196,135.82890",
-  "at": "pin",
-  "url": "https://www.google.com/maps/@?api=1&map_action=pano&pano=Xy8aVw-wE3Kgo4JZv87zcQ&heading=215&pitch=0&fov=90"
+  "m": 4,
+  "t": "34.68194,135.82890",
+  "at": "google",
+  "url": "https://www.google.com/maps/@?api=1&map_action=pano&pano=Xy8aVw-wE3Kgo4JZv87zcQ&heading=197&pitch=0&fov=90"
  },
  "34.68421,135.47953": {
   "hide": "the photo shows a wall, shutter or the shop next door, not the place (looked at 2026-10-22)"
@@ -284,18 +284,18 @@
  "35.26626,139.01772": {
   "src": "/streetview/9eda2451c378.webp",
   "date": "2025-11",
-  "m": 30,
-  "t": "35.26626,139.01772",
-  "at": "pin",
-  "url": "https://www.google.com/maps/@?api=1&map_action=pano&pano=eUosS47Hm321tQMT0v-gGg&heading=247&pitch=0&fov=90"
- },
- "35.27124,139.01033": {
-  "src": "/streetview/ecb1f940decb.webp",
-  "date": "2025-05",
-  "m": 7,
-  "t": "35.27125,139.01026",
+  "m": 32,
+  "t": "35.26620,139.01774",
   "at": "google",
-  "url": "https://www.google.com/maps/@?api=1&map_action=pano&pano=KKfUY35W3Gwy0wbgB2cB3g&heading=127&pitch=0&fov=90"
+  "url": "https://www.google.com/maps/@?api=1&map_action=pano&pano=eUosS47Hm321tQMT0v-gGg&heading=237&pitch=0&fov=90"
+ },
+ "35.26969,139.01519": {
+  "src": "/streetview/32a390bec01d.webp",
+  "date": "2023-04",
+  "m": 26,
+  "t": "35.26969,139.01519",
+  "at": "google",
+  "url": "https://www.google.com/maps/@?api=1&map_action=pano&pano=3mMEaeKq5tXzeLRfFy7iKQ&heading=42&pitch=0&fov=90"
  },
  "35.27221,139.01020": {
   "hide": "the photo shows a wall, shutter or the shop next door, not the place (looked at 2026-10-22)"
@@ -338,8 +338,7 @@
   "hide": "the photo shows a wall, shutter or the shop next door, not the place (looked at 2026-10-22)"
  },
  "35.64888,139.64748": {
-  "none": "no Street View within 60 m",
-  "t": "35.64888,139.64748"
+  "hide": "a residential street 200 m from the temple, from 2016 (looked at 2026-10-22)"
  },
  "35.64895,139.78661": {
   "src": "/streetview/bc8492e8470d.webp",
@@ -384,10 +383,10 @@
  "35.66567,139.76994": {
   "src": "/streetview/2619b3d074b2.webp",
   "date": "2022-09",
-  "m": 18,
-  "t": "35.66567,139.76994",
-  "at": "pin",
-  "url": "https://www.google.com/maps/@?api=1&map_action=pano&pano=YemSjlyvSB7Vg7oj5gm5PQ&heading=301&pitch=0&fov=90"
+  "m": 19,
+  "t": "35.66528,139.77014",
+  "at": "google",
+  "url": "https://www.google.com/maps/@?api=1&map_action=pano&pano=VObHBlIWcA3_gGe1-wR9gw&heading=316&pitch=0&fov=90"
  },
  "35.66671,139.70634": {
   "src": "/streetview/a8a259a64b16.webp",
@@ -560,12 +559,7 @@
   "hide": "the photo shows a wall, shutter or the shop next door, not the place (looked at 2026-10-22)"
  },
  "35.70353,139.64861": {
-  "src": "/streetview/49debc62f91f.webp",
-  "date": "2022-08",
-  "m": 10,
-  "t": "35.70353,139.64861",
-  "at": "pin",
-  "url": "https://www.google.com/maps/@?api=1&map_action=pano&pano=Apsiw45qJRbrVdvB79fGow&heading=319&pitch=0&fov=90"
+  "hide": "aimed at one eyewear shop, not the crawl (looked at 2026-10-22)"
  },
  "35.70426,139.75207": {
   "none": "no Street View within 60 m",
@@ -605,10 +599,10 @@
  "35.71070,139.77410": {
   "src": "/streetview/037031a04bf9.webp",
   "date": "2022-07",
-  "m": 21,
-  "t": "35.71070,139.77410",
-  "at": "pin",
-  "url": "https://www.google.com/maps/@?api=1&map_action=pano&pano=6b3uxqGX704MS7v_vudISg&heading=25&pitch=0&fov=90"
+  "m": 3,
+  "t": "35.71007,139.77460",
+  "at": "google",
+  "url": "https://www.google.com/maps/@?api=1&map_action=pano&pano=CQhnILQ5lzyF9ZwgxGK_Ow&heading=359&pitch=0&fov=90"
  },
  "35.71399,139.79416": {
   "src": "/streetview/d077451183a7.webp",
@@ -620,7 +614,7 @@
  },
  "35.71480,139.79670": {
   "none": "no Street View within 60 m",
-  "t": "35.71480,139.79670"
+  "t": "35.71476,139.79666"
  },
  "35.71891,139.77651": {
   "none": "no Street View within 60 m",

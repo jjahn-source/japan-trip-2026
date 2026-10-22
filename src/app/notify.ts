@@ -5,7 +5,7 @@ import { device } from './live.svelte';
 import type { AlertKind } from '../lib/live';
 
 export type Prefs = Record<AlertKind, boolean>;
-export const DEFAULT_PREFS: Prefs = { leave: true, last: true, due: true, changes: true, closed: true };
+export const DEFAULT_PREFS: Prefs = { leave: true, last: true, due: true, changes: true, closed: true, weather: true };
 const API = `${BASE}/api`;
 
 export const supported = () => typeof window !== 'undefined' && 'serviceWorker' in navigator && 'PushManager' in window && 'Notification' in window;

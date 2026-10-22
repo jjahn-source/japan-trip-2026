@@ -1,0 +1,122 @@
+{
+ "1": {
+  "from": "Mutekiya",
+  "to": "Ninja House",
+  "at": "00:18",
+  "minutes": 11,
+  "km": 3.1,
+  "fare": [
+   1600,
+   1900
+  ],
+  "cars": 2
+ },
+ "2": {
+  "from": "Karaoke Manekineko (Shibuya)",
+  "to": "Ninja House",
+  "at": "00:13",
+  "minutes": 20,
+  "km": 11.1,
+  "fare": [
+   5600,
+   6800
+  ],
+  "cars": 2
+ },
+ "3": {
+  "from": "Sushi Kunimitsu",
+  "to": "Ninja House",
+  "at": "00:43",
+  "minutes": 10,
+  "km": 3.3,
+  "fare": [
+   1700,
+   2100
+  ],
+  "cars": 2
+ },
+ "4": {
+  "from": "Ramen Nagi (Golden Gai)",
+  "to": "Ninja House",
+  "at": "00:34",
+  "minutes": 19,
+  "km": 6.9,
+  "fare": [
+   3500,
+   4300
+  ],
+  "cars": 2
+ },
+ "6": {
+  "from": "Snack Takachan & Maron",
+  "to": "Hot Spring Hakone Villa",
+  "at": "00:30",
+  "minutes": 6,
+  "km": 2.7,
+  "fare": [
+   1500,
+   1800
+  ],
+  "cars": 2
+ },
+ "7": {
+  "from": "Ura-Namba bar crawl",
+  "to": "Kujō House",
+  "at": "00:03",
+  "minutes": 15,
+  "km": 6.6,
+  "fare": [
+   3400,
+   4100
+  ],
+  "cars": 2
+ },
+ "8": {
+  "from": "Kiyamachi-dori bar strip",
+  "to": "Kujō House",
+  "at": "23:13",
+  "minutes": 56,
+  "km": 56.4,
+  "fare": [
+   28000,
+   33900
+  ],
+  "cars": 2
+ },
+ "9": {
+  "from": "Spa World",
+  "to": "Kujō House",
+  "at": "23:58",
+  "minutes": 12,
+  "km": 7.4,
+  "fare": [
+   3800,
+   4600
+  ],
+  "cars": 2
+ },
+ "11": {
+  "from": "Amerikamura & Triangle Park bars",
+  "to": "Kujō House",
+  "at": "00:08",
+  "minutes": 10,
+  "km": 4.7,
+  "fare": [
+   2500,
+   3000
+  ],
+  "cars": 2
+ },
+ "14": {
+  "from": "ROUND1 Stadium DiverCity",
+  "to": "Garfield House",
+  "at": "23:39",
+  "minutes": 24,
+  "km": 16.1,
+  "fare": [
+   8100,
+   9800
+  ],
+  "cars": 2
+ }
+}

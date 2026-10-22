@@ -5,7 +5,8 @@
 export type Kind = 'stop' | 'todo' | 'day';
 /** A train home: the time to leave the last stop, the train's departure and arrival (HH:MM, Japan
  *  time), the station it leaves from and the line. */
-export interface LastTrain { leave: string; dep: string; arr: string; from: string; line: string }
+/** The night's last service home; `bus` when it's a bus (no station near, scripts/last-trains.mjs). */
+export interface LastTrain { leave: string; dep: string; arr: string; from: string; line: string; bus?: boolean }
 export interface StopPatch { start?: string; end?: string; note?: string; cancelled?: boolean }
 export interface TodoPatch { done?: boolean }
 export interface DayPatch { lastTrain?: LastTrain }
@@ -76,10 +77,12 @@ export const nightISO = (date: string, hm: string) => isoNear(hm, `${date}T${+hm
 export const hmOf = (iso: string) => new Date(Date.parse(iso) + 9 * 3600e3).toISOString().slice(11, 16);
 
 // ── The compact plan the Worker reads (/live-plan.json, written at build time) ──
-/** `g`: the Google Maps place ID, when its hours are this visit's (the trip's morning hours check). */
-export interface PlanStop { id: string; d: number; name: string; cat: string; s: string; e: string; g?: string; cancelled?: boolean; note?: string | null }
+/** `g`: the Google Maps place ID, when its hours are this visit's (the trip's morning hours check); `a`: the
+ *  address, for the calendar feed. */
+export interface PlanStop { id: string; d: number; name: string; cat: string; s: string; e: string; g?: string; a?: string; cancelled?: boolean; note?: string | null }
 export interface PlanLeg { from: string; to: string; minutes: number; mode: string; text: string }
-export interface PlanDay { n: number; date: string; lastTrain: LastTrain | null }
+/** `city` and `at` (lat, lng): where the group is that day, for the morning weather-warning check. */
+export interface PlanDay { n: number; date: string; lastTrain: LastTrain | null; city?: string; at?: [number, number] }
 export interface PlanTodo { id: string; due: string | null; text: string; done?: boolean }
 export interface LivePlan { generated: string; days: PlanDay[]; stops: PlanStop[]; legs: PlanLeg[]; todos: PlanTodo[] }
 
@@ -106,8 +109,9 @@ export function applyPlan(plan: LivePlan, live: Live): LivePlan {
 }
 
 // ── Alerts ──
-/** `closed`: the morning check of Google's hours during the trip (worker/index.ts), not built here. */
-export type AlertKind = 'leave' | 'last' | 'due' | 'changes' | 'closed';
+/** `closed` and `weather`: the trip's morning checks of Google's hours and Japan's weather warnings
+ *  (worker/index.ts), not built here. */
+export type AlertKind = 'leave' | 'last' | 'due' | 'changes' | 'closed' | 'weather';
 export interface Alert { key: string; kind: AlertKind; at: number; title: string; body: string; url: string }
 export const LEAD = { leave: 10, last: 20 } as const; // minutes of warning
 
@@ -162,7 +166,7 @@ export function alertsFor(plan: LivePlan, tz: string): Alert[] {
     if (lastOut && lastOut < leave - 60 * 60e3) continue;
     out.push({
       key: `last:${d.n}:${t.dep}`, kind: 'last', at: leave - LEAD.last * 60e3,
-      title: `Last train home ${t.dep}${t.from ? ` from ${t.from}` : ''}`,
+      title: `Last ${t.bus ? 'bus' : 'train'} home ${t.dep}${t.from ? ` from ${t.from}` : ''}`,
       body: `Leave by ${t.leave}${t.line ? ` · ${t.line}` : ''}, in bed ${t.arr}. After that it's a taxi or the first train.`,
       url: `/day/${d.n}/`,
     });

@@ -3,12 +3,16 @@
 // alert subscription. It pushes a notification when someone changes the plan, and a cron run every
 // minute sends what's due: leave now, the last train home, booking deadlines. On the trip's mornings it
 // also asks Google Maps about the next two days' stops and warns when one will be closed (runGoogle).
+// And the search box's "open now near us" asks Google Places through it (/api/nearby), so the key stays here.
 //
 // Sized for Cloudflare's free plan: a phone's check and the cron run read one row (the snapshot) rather
 // than the history; a check that has the latest state gets a few bytes back; pushes per run, phones,
 // and request bodies are capped so no run can go past 10 ms of CPU or 50 outgoing requests.
 import { alertsFor, applyChange, applyPlan, clean, describe, EMPTY, exists, type Alert, type AlertKind, type Change, type Kind, type Live, type LivePlan } from '../src/lib/live';
 import { closedNews, LIVE_FIELDS, type LiveDetails } from '../src/lib/google-hours';
+import { calendar } from '../src/lib/ics';
+import { weatherNews, type JmaAlert } from '../src/lib/jma';
+import { NEARBY_FIELDS, NEARBY_M, nearbyQuery, nearbyRows, type GPlace } from '../src/lib/nearby';
 import { send, type Message, type Vapid } from './push';
 
 interface Meta { last_row_id: number; changes: number; rows_read?: number }
@@ -27,7 +31,7 @@ interface Ctx { waitUntil(p: Promise<unknown>): void }
 interface SubRow { id: number; endpoint: string; p256dh: string; auth: string; device: string | null; name: string | null; tz: string | null; prefs: string }
 
 const KINDS: Kind[] = ['stop', 'todo', 'day'];
-const ALERTS: AlertKind[] = ['leave', 'last', 'due', 'changes', 'closed'];
+const ALERTS: AlertKind[] = ['leave', 'last', 'due', 'changes', 'closed', 'weather'];
 /** Where a phone's push subscription can point: the browsers' own push services, nothing else. */
 const PUSH_HOSTS = /(^|\.)(push\.apple\.com|fcm\.googleapis\.com|push\.services\.mozilla\.com|notify\.windows\.com)$/;
 /** A cron run sends what fell due since the last few runs (a missed run still sends): a quarter of an
@@ -35,7 +39,7 @@ const PUSH_HOSTS = /(^|\.)(push\.apple\.com|fcm\.googleapis\.com|push\.services\
 const WINDOW = 15 * 60e3;
 const windowFor = (k: AlertKind) => (k === 'due' ? 6 * 3600e3 : WINDOW);
 /** When a run can't send everything, the ones that can't wait go first. */
-const URGENCY: Record<AlertKind, number> = { leave: 0, last: 0, changes: 1, closed: 1, due: 2 };
+const URGENCY: Record<AlertKind, number> = { leave: 0, last: 0, changes: 1, closed: 1, weather: 1, due: 2 };
 /** Pushes one run may send (~0.4 ms of CPU each); the rest go a minute later, still in the window. */
 const MAX_PUSH = 20;
 const MAX_SUBS = 40;
@@ -98,7 +102,7 @@ async function current(env: Env): Promise<Live> {
 }
 
 const vapid = (env: Env): Vapid | null => env.VAPID_PUBLIC_KEY && env.VAPID_PRIVATE_KEY ? { publicKey: env.VAPID_PUBLIC_KEY, privateKey: env.VAPID_PRIVATE_KEY, subject: env.VAPID_SUBJECT || 'https://github.com/' } : null;
-const ALL_ON: Record<AlertKind, boolean> = { leave: true, last: true, due: true, changes: true, closed: true };
+const ALL_ON: Record<AlertKind, boolean> = { leave: true, last: true, due: true, changes: true, closed: true, weather: true };
 const prefsOf = (s: SubRow): Record<AlertKind, boolean> => { try { return { ...ALL_ON, ...JSON.parse(s.prefs) }; } catch { return { ...ALL_ON }; } };
 
 /** Sends to each phone; forgets the ones that have gone. */
@@ -180,23 +184,88 @@ async function runGoogle(env: Env, now: number, lookup?: Lookup): Promise<{ stop
   // A failed lookup isn't recorded, so the next run tries it again.
   const asked = found.filter((x) => x.d);
   if (asked.length) await env.DB.batch(asked.map((x) => env.DB.prepare('INSERT OR IGNORE INTO gchecks (day, stop, news, at) VALUES (?, ?, ?, ?)').bind(today, x.s.id, x.news?.kind ?? null, now)));
-  const alerts: Alert[] = found.filter((x) => x.news).map(({ s, news }) => ({ key: `closed:${s.id}:${s.s.slice(0, 10)}:${news!.kind}`, kind: 'closed', at: now, title: news!.title, body: news!.body, url: `/day/${s.d}/#${s.id}` }));
-  if (alerts.length) {
-    const subs = (await env.DB.prepare('SELECT * FROM subs').all<SubRow>()).results.filter((x) => prefsOf(x).closed);
-    const jobs = subs.flatMap((sub) => alerts.map((alert) => ({ sub, alert, key: `${alert.key}|${sub.id}` })));
-    const sent = new Set<string>();
-    for (let i = 0; i < jobs.length; i += 90) {
-      const chunk = jobs.slice(i, i + 90).map((j) => j.key);
-      for (const r of (await env.DB.prepare(`SELECT key FROM sent WHERE key IN (${chunk.map(() => '?').join(',')})`).bind(...chunk).all<{ key: string }>()).results) sent.add(r.key);
-    }
-    const out = jobs.filter((j) => !sent.has(j.key)).slice(0, MAX_PUSH);
-    if (out.length) {
-      await env.DB.batch(out.map((j) => env.DB.prepare('INSERT OR IGNORE INTO sent (key, at) VALUES (?, ?)').bind(j.key, now)));
-      await deliver(env, out.map(({ sub, alert }) => ({ sub, msg: { title: alert.title, body: alert.body, url: alert.url, tag: alert.key }, ttl: 12 * 3600 })));
-    }
-  }
+  await pushOnce(env, now, found.filter((x) => x.news).map(({ s, news }) => ({ key: `closed:${s.id}:${s.s.slice(0, 10)}:${news!.kind}`, kind: 'closed', at: now, title: news!.title, body: news!.body, url: `/day/${s.d}/#${s.id}` })));
   await env.DB.prepare('DELETE FROM gchecks WHERE at < ?').bind(now - 7 * 864e5).run();
   return found.map((x) => ({ stop: x.s.id, news: x.news?.kind ?? (x.d ? null : 'lookup failed') }));
+}
+
+// ── Open now near us: Google Places for the search box ──
+/** Google searches a day for everyone together (the link is public), and per phone address a minute. */
+const NEARBY_PER_DAY = 250;
+const NEARBY_PER_MINUTE = 8;
+/** The same search from the same block (~100 m) within five minutes is answered from the cache. */
+const NEARBY_TTL = 300;
+
+async function nearby(req: Request, env: Env, ctx: Ctx, ip: string, limited: boolean): Promise<Response> {
+  if (!env.GOOGLE_MAPS_API_KEY) return json({ error: 'live Google search is off on this server' }, 503);
+  const u = new URL(req.url);
+  const want = nearbyQuery(u.searchParams.get('q'), Number(u.searchParams.get('lat')), Number(u.searchParams.get('lng')));
+  if (!want) return json({ error: 'send q, and a lat and lng in Japan' }, 400);
+  const group = u.searchParams.get('group') !== '0';
+  const cacheKey = new Request(`https://nearby.local/?q=${encodeURIComponent(want.q.toLowerCase())}&lat=${want.lat}&lng=${want.lng}&g=${group ? 1 : 0}`);
+  const cache = (globalThis as unknown as { caches?: { default: { match(r: Request): Promise<Response | undefined>; put(r: Request, res: Response): Promise<void> } } }).caches?.default;
+  const hit = await cache?.match(cacheKey);
+  if (hit) return hit;
+  if (limited && !allow(`n:${ip}`, NEARBY_PER_MINUTE)) return slowDown();
+  const day = new Date(Date.now() + 9 * 3600e3).toISOString().slice(0, 10);
+  const used = await env.DB.prepare('INSERT INTO gquota (day, n) VALUES (?, 1) ON CONFLICT(day) DO UPDATE SET n = n + 1 RETURNING n').bind(day).first<{ n: number }>();
+  if ((used?.n ?? 0) > NEARBY_PER_DAY) return json({ error: `the group has used today's ${NEARBY_PER_DAY} Google searches: the offline search still works` }, 429);
+  const at = { lat: want.lat, lng: want.lng };
+  const r = await fetch('https://places.googleapis.com/v1/places:searchText', {
+    method: 'POST',
+    headers: { 'X-Goog-Api-Key': env.GOOGLE_MAPS_API_KEY, 'Content-Type': 'application/json', 'X-Goog-FieldMask': NEARBY_FIELDS },
+    body: JSON.stringify({ textQuery: want.q, openNow: true, pageSize: 15, languageCode: 'en', regionCode: 'JP', locationBias: { circle: { center: { latitude: at.lat, longitude: at.lng }, radius: NEARBY_M / 2 } } }),
+  });
+  if (!r.ok) return json({ error: 'Google Maps did not answer: try again' }, 502);
+  const rows = nearbyRows(((await r.json()) as { places?: GPlace[] }).places, at, group);
+  const res = json({ q: want.q, rows }, 200, { 'cache-control': `public, max-age=${NEARBY_TTL}` });
+  if (cache) ctx.waitUntil(cache.put(cacheKey, res.clone()));
+  return res;
+}
+
+/** Sends each alert once to every phone that wants its kind (the morning checks' news), up to MAX_PUSH. */
+async function pushOnce(env: Env, now: number, alerts: Alert[]) {
+  // The same alert from two checks in one run goes out once.
+  alerts = [...new Map<string, Alert>(alerts.map((a): [string, Alert] => [a.key, a]).reverse()).values()];
+  if (!alerts.length) return;
+  const subs = (await env.DB.prepare('SELECT * FROM subs').all<SubRow>()).results;
+  const jobs = subs.flatMap((sub) => alerts.filter((a) => prefsOf(sub)[a.kind]).map((alert) => ({ sub, alert, key: `${alert.key}|${sub.id}` })));
+  const sent = new Set<string>();
+  for (let i = 0; i < jobs.length; i += 90) {
+    const chunk = jobs.slice(i, i + 90).map((j) => j.key);
+    for (const r of (await env.DB.prepare(`SELECT key FROM sent WHERE key IN (${chunk.map(() => '?').join(',')})`).bind(...chunk).all<{ key: string }>()).results) sent.add(r.key);
+  }
+  const out = jobs.filter((j) => !sent.has(j.key)).slice(0, MAX_PUSH);
+  if (!out.length) return;
+  await env.DB.batch(out.map((j) => env.DB.prepare('INSERT OR IGNORE INTO sent (key, at) VALUES (?, ?)').bind(j.key, now)));
+  await deliver(env, out.map(({ sub, alert }) => ({ sub, msg: { title: alert.title, body: alert.body, url: alert.url, tag: alert.key }, ttl: 12 * 3600 })));
+}
+
+// ── Weather warnings: Japan Meteorological Agency warnings, through Google's Weather API ──
+// At 07:00 Japan time, once a day: where the group is today and tomorrow (each day's place), warnings only.
+export type AlertsAt = (lat: number, lng: number) => Promise<JmaAlert[] | null>;
+const googleAlerts = (key: string): AlertsAt => async (lat, lng) => {
+  const r = await fetch(`https://weather.googleapis.com/v1/publicAlerts:lookup?key=${encodeURIComponent(key)}&location.latitude=${lat}&location.longitude=${lng}&languageCode=en`);
+  return r.ok ? (((await r.json()) as { weatherAlerts?: JmaAlert[] }).weatherAlerts ?? []) : null;
+};
+async function runWeather(env: Env, now: number, lookup?: AlertsAt): Promise<{ place: string; warnings: number }[]> {
+  const ask = lookup ?? (env.GOOGLE_MAPS_API_KEY ? googleAlerts(env.GOOGLE_MAPS_API_KEY) : null);
+  const jst = new Date(now + 9 * 3600e3);
+  if (!ask || jst.getUTCHours() !== CHECK_HOUR) return [];
+  const today = jst.toISOString().slice(0, 10), tomorrow = new Date(now + 33 * 3600e3).toISOString().slice(0, 10);
+  const days = (await plan(env)).days.filter((d) => d.at && (d.date === today || d.date === tomorrow));
+  // One check per city a day (today's wins over tomorrow's in the same city); recorded like the stop checks.
+  const places = [...new Map(days.map((d): [string, (typeof days)[number]] => [`wx:${d.city ?? `${d.at![0].toFixed(2)},${d.at![1].toFixed(2)}`}`, d]).reverse()).entries()];
+  if (!places.length) return [];
+  const done = new Set((await env.DB.prepare('SELECT stop FROM gchecks WHERE day = ?').bind(today).all<{ stop: string }>()).results.map((r) => r.stop));
+  const todo = places.filter(([k]) => !done.has(k));
+  if (!todo.length) return [];
+  const found = await Promise.all(todo.map(async ([k, d]) => ({ k, d, alerts: await ask(d.at![0], d.at![1]).catch(() => null) })));
+  const asked = found.filter((x) => x.alerts);
+  if (asked.length) await env.DB.batch(asked.map((x) => env.DB.prepare('INSERT OR IGNORE INTO gchecks (day, stop, news, at) VALUES (?, ?, ?, ?)').bind(today, x.k, String(weatherNews(x.alerts!, '', '').length), now)));
+  const label = (d: (typeof days)[number]) => `${d.city ?? 'your area'}${d.date === today ? ' today' : ' tomorrow'}`;
+  await pushOnce(env, now, asked.flatMap((x) => weatherNews(x.alerts!, label(x.d), `/day/${x.d.n}/`).map((w) => ({ ...w, kind: 'weather' as const, at: now }))));
+  return asked.map((x) => ({ place: label(x.d), warnings: weatherNews(x.alerts!, '', '').length }));
 }
 
 /** A JSON body of at most 8 KB (a body without a declared length is refused, not read). */
@@ -249,6 +318,14 @@ async function api(req: Request, env: Env, ctx: Ctx, path: string): Promise<Resp
 
   if (path === '/api/push-key' && method === 'GET') return json({ key: env.VAPID_PUBLIC_KEY ?? null });
 
+  if (path === '/api/nearby' && method === 'GET') return nearby(req, env, ctx, ip, limited);
+
+  // The trip as a calendar to subscribe to (Google Calendar: "From URL"), with the group's changes on it.
+  if (path === '/api/calendar.ics' && method === 'GET') {
+    const live = applyPlan(await plan(env), await current(env));
+    return new Response(calendar(live.stops, new URL(req.url).origin, Date.now()), { headers: { 'content-type': 'text/calendar; charset=utf-8', 'cache-control': 'public, max-age=600' } });
+  }
+
   if (path === '/api/subscribe' && method === 'POST') {
     const b = await body(req);
     const sub = b?.subscription as { endpoint?: string; keys?: { p256dh?: string; auth?: string } } | undefined;
@@ -298,6 +375,11 @@ async function api(req: Request, env: Env, ctx: Ctx, path: string): Promise<Resp
     const fake = (b?.google ?? {}) as Record<string, LiveDetails>;
     return json({ checked: await runGoogle(env, Number(b?.now ?? Date.now()), async (id) => fake[id] ?? null) });
   }
+  // Local testing only: the morning weather check as if it were `now`, with the agency's alerts given.
+  if (path === '/api/debug/weather' && method === 'POST' && env.DEV === '1') {
+    const b = await body(req);
+    return json({ checked: await runWeather(env, Number(b?.now ?? Date.now()), async () => (b?.alerts ?? []) as JmaAlert[]) });
+  }
 
   return json({ error: 'not found' }, 404);
 }
@@ -317,5 +399,6 @@ export default {
   async scheduled(event: { scheduledTime: number }, env: Env, ctx: Ctx) {
     ctx.waitUntil(runAlerts(env, event.scheduledTime).then((s) => { if (s.length) console.log(`sent ${s.length} alerts`); }));
     ctx.waitUntil(runGoogle(env, event.scheduledTime).then((c) => { if (c.length) console.log(`checked ${c.length} stops on Google`, c.filter((x) => x.news)); }));
+    ctx.waitUntil(runWeather(env, event.scheduledTime).then((c) => { if (c.length) console.log('weather warnings', c); }));
   },
 };

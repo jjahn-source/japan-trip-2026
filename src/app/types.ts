@@ -17,7 +17,12 @@ export interface AppGoogle {
   hours: boolean;
   clash: { kind: 'closed' | 'opens' | 'closes'; text: string } | null;
   checked: string;
+  /** Finding the door: the building's name as on its sign, the floor, and a landmark ("beside Kinokuniya"). */
+  door: { building: string | null; floor: string | null; near: string | null } | null;
+  /** Plan B: well-rated places of the same kind a short walk away, open during this visit (best first). */
+  swaps: AppSwap[];
 }
+export interface AppSwap { id: string; name: string; kind: string | null; rating: number; ratings: number; walk: number; maps: string | null; lat: number; lng: number; book: boolean | null }
 export interface AppStop {
   id: string; i: number; start: string; end: string; startISO: string; endISO: string;
   name: string; ja: string | null; cat: string; catLabel: string; price: string | null;
@@ -37,7 +42,7 @@ export interface AppStop {
 }
 /** The last train home for a night (data/last-trains.json from Yahoo!乗換案内's last-train search, or
  *  the group's correction): leave the stop by, the train, in bed by; `url` is the search to check it. */
-export interface AppLastTrain { leave: string; dep: string; arr: string; from: string; line: string; url?: string }
+export interface AppLastTrain { leave: string; dep: string; arr: string; from: string; line: string; url?: string; bus?: boolean }
 export type SegMode = 'walk' | 'rail' | 'bus' | 'car' | 'ropeway' | 'funicular' | 'boat';
 export interface AppSeg { m: SegMode; line?: string; colour?: string; on?: string; off?: string; coords: [number, number][] }
 export interface AppLeg { from: string; to: string; mode: string; minutes: number; km: number; text: string; segs: AppSeg[] }
@@ -54,6 +59,9 @@ export interface AppDay {
   lastTrainWhy: string | null;
   /** The night's ride home (last stop out → the bed), when it's more than a walk. */
   home: { from: { name: string; lat: number; lng: number }; to: { name: string; lat: number; lng: number } } | null;
+  /** If the last train is missed: the taxi home at that hour (scripts/taxis.mjs: Google's traffic-aware
+   *  drive, the meter estimate per car with the late-night surcharge, and the cars the group needs). */
+  taxi: { at: string; minutes: number; km: number; fare: [number, number]; cars: number } | null;
 }
 export interface AppTodo { id: string; due: string | null; dueLabel: string | null; text: string; detail: string | null; kind: string; stops: string[] }
 export interface AppData {

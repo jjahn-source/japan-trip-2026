@@ -14,6 +14,7 @@
     { k: 'due', label: 'Booking deadlines', sub: '3 days before and on the day, 9am' },
     { k: 'changes', label: 'Plan changes', sub: 'when someone changes a stop' },
     { k: 'closed', label: 'Closed on the day', sub: 'Google Maps holiday hours, checked each morning' },
+    { k: 'weather', label: 'Weather warnings', sub: 'snow, storms, typhoons where you are, 7am' },
   ];
   let on = $state(false), busy = $state(false), msg = $state(''), err = $state('');
   let prefs = $state<Prefs>({ ...DEFAULT_PREFS });

@@ -44,7 +44,7 @@ const phone = async (name, device) => {
 const settle = () => new Promise((r) => setTimeout(r, 600));
 after(() => {
   server.close();
-  execFileSync('npx', ['wrangler', 'd1', 'execute', 'japan-plan-c', '--local', '--command', `DELETE FROM changes; DELETE FROM subs; DELETE FROM sent; DELETE FROM gchecks; UPDATE snapshot SET v = 0, state = '{"v":0,"items":{},"log":[]}' WHERE id = 1;`], { stdio: 'ignore' });
+  execFileSync('npx', ['wrangler', 'd1', 'execute', 'japan-plan-c', '--local', '--command', `DELETE FROM changes; DELETE FROM subs; DELETE FROM sent; DELETE FROM gchecks; DELETE FROM gquota; UPDATE snapshot SET v = 0, state = '{"v":0,"items":{},"log":[]}' WHERE id = 1;`], { stdio: 'ignore' });
 });
 
 const plan = await fetch(`${LIVE}/live-plan.json`).then((r) => r.json());
@@ -117,6 +117,37 @@ test('the morning hours check pushes a closure Google shows for the day, once, a
   assert.deepEqual((await api('/debug/google', { now: now + 3 * 3600e3, google })).j.checked, []);
   await settle();
   assert.equal(inbox.ann.filter((x) => x.msg.title.startsWith(target.name)).length, 1);
+});
+
+test('the calendar feed has the group\'s change: the moved stop at its new time', async () => {
+  const r = await fetch(`${LIVE}/api/calendar.ics`);
+  assert.equal(r.status, 200);
+  assert.match(r.headers.get('content-type'), /text\/calendar/);
+  const ics = (await r.text()).replace(/\r\n /g, '');
+  const ev = ics.split('BEGIN:VEVENT').find((e) => e.includes(`UID:${stop.id}@`));
+  const moved = new Date(Date.parse(`${stop.s.slice(0, 10)}T20:30:00+09:00`)).toISOString().replace(/[-:]/g, '').replace('.000', '');
+  assert.match(ev, new RegExp(`DTSTART:${moved}`));
+  assert.match(ev, /Note: Table at 20:30 now/);
+});
+
+test('weather warnings for where the group is go out once, at 7am; routine notices never', async () => {
+  const day = plan.days.find((d) => d.at);
+  const now = Date.parse(`${day.date}T07:10:00+09:00`);
+  const alerts = [{ alertId: 'e2e-snow', alertTitle: { text: 'Heavy snow warning' }, areaName: '箱根町' }, { alertId: 'e2e-info', alertTitle: { text: 'General typhoon information' } }];
+  inbox.ann = []; inbox.ben = [];
+  const first = (await api('/debug/weather', { now, alerts })).j.checked;
+  assert.ok(first.length >= 1 && first[0].warnings === 1);
+  await settle();
+  for (const who of ['ann', 'ben']) assert.deepEqual(inbox[who].map((m) => m.msg.title), [`Heavy snow warning for ${day.city} today`]);
+  assert.deepEqual((await api('/debug/weather', { now: now + 60e3, alerts })).j.checked, []);
+  assert.deepEqual((await api('/debug/weather', { now: now + 5 * 3600e3, alerts })).j.checked, []);
+});
+
+test('open-now search refuses bad input and says when Google is off', async () => {
+  const r = await api('/nearby?q=ramen&lat=40.7&lng=-74');
+  assert.ok([400, 503].includes(r.status));
+  const ok = await api('/nearby?q=ramen&lat=35.694&lng=139.705');
+  assert.ok(ok.status === 200 ? Array.isArray(ok.j.rows) : ok.status === 503, JSON.stringify(ok.j));
 });
 
 test('a ticked booking is shared, and a phone that has gone is forgotten', async () => {

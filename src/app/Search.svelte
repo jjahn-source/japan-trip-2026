@@ -1,11 +1,14 @@
 <script lang="ts">
   // One search for everything: the trip's own stops first, then places around the day in view
   // ("ramen", "izakaya open now", "Don Quijote"). Keyboard: / or ⌘K opens it, arrows move, Enter opens.
+  // With signal and the live layer, one tap more asks Google Maps what's open right now near the phone.
   import { icon } from '../lib/icons';
   import { CATS } from '../lib/categories';
   import { hoursAt, parseHours, type Hours } from '../lib/hours';
   import { keys, scorer, type Keys } from '../lib/textmatch';
   import { app, BASE, go, now, openSheet, todayN } from './state.svelte';
+  import { live } from './live.svelte';
+  import type { NearbyRow } from '../lib/nearby';
 
   let dlg = $state<HTMLDialogElement>();
   let q = $state('');
@@ -87,6 +90,33 @@
   });
   const total = $derived(stops.length + places.length);
 
+  // Open now on Google Maps (the Worker's /api/nearby): only when asked, since each search is a paid call.
+  let gRows = $state<NearbyRow[] | null>(null), gBusy = $state(false), gErr = $state(''), gFor = $state('');
+  $effect(() => { void q; gRows = null; gErr = ''; });
+  const inJapan = (lat: number, lng: number) => lat > 24 && lat < 46 && lng > 122 && lng < 146;
+  /** The phone's position when it's in Japan; otherwise the stop picked on the map, or the day's first. */
+  const where = () => new Promise<{ lat: number; lng: number; from: string } | null>((done) => {
+    const sel = dayStops.find((x) => x.id === app.selected) ?? dayStops[0];
+    const fallback = () => done(sel ? { lat: sel.lat!, lng: sel.lng!, from: `near ${sel.name}` } : null);
+    if (!navigator.geolocation) return fallback();
+    navigator.geolocation.getCurrentPosition((p) => (inJapan(p.coords.latitude, p.coords.longitude) ? done({ lat: p.coords.latitude, lng: p.coords.longitude, from: 'near you' }) : fallback()), fallback, { timeout: 6000, maximumAge: 120e3 });
+  });
+  async function askGoogle() {
+    gBusy = true; gErr = '';
+    try {
+      const at = await where();
+      if (!at) { gErr = 'No place to search around.'; return; }
+      const r = await fetch(`${BASE}/api/nearby?q=${encodeURIComponent(q)}&lat=${at.lat}&lng=${at.lng}`, { signal: AbortSignal.timeout(12e3) });
+      const j = await r.json();
+      if (!r.ok) { gErr = j.error ?? 'Google Maps did not answer.'; return; }
+      gRows = j.rows; gFor = at.from;
+    } catch { gErr = 'No signal for Google Maps right now: the places above work offline.'; } finally { gBusy = false; }
+  }
+  function pickGoogle(g: NearbyRow) {
+    app.search = false;
+    app.pin = { lat: g.lat, lng: g.lng, name: g.name, sub: [g.kind, g.rating ? `${g.rating.toFixed(1)}★` : null, `${g.walk} min walk`, g.closes ? `open until ${g.closes}` : 'open now', g.cash ? 'cash only' : null].filter(Boolean).join(' · '), web: g.maps ?? undefined };
+  }
+
   function pickStop(i: number) { const x = stops[i]; app.search = false; go({ kind: 'day', n: x.d.n }); openSheet(x.st.id); }
   function pickPlace(i: number) {
     const x = places[i];
@@ -131,6 +161,21 @@
         {/each}
         {#if total && !places.length && cats.length}<p class="note">No {cats.map(({ c }) => c.label.toLowerCase()).join(' or ')} within 3 km of day {dayN}'s stops{wantsOpen ? ' open now' : ''}.</p>{/if}
         {#if !total}<p class="empty">Nothing matches “{q}” in the trip or near day {dayN}. Try a kind of place, like ramen, karaoke or konbini.</p>{/if}
+        {#if live.on}
+          {#if gRows}
+            <p class="grp">Open now on Google Maps · {gFor}</p>
+            {#each gRows as g (g.id)}
+              <button type="button" class="res" onclick={() => pickGoogle(g)}>
+                <span class="badge g">{@html icon('clock')}</span>
+                <span class="nm">{g.name}<small>{[g.kind, g.rating ? `${g.rating.toFixed(1)}★ ${(g.ratings ?? 0).toLocaleString('en-US')}` : null, `${g.walk} min walk`, g.closes ? `until ${g.closes}` : null, g.cash ? 'cash only' : null, g.book ? 'takes bookings' : null].filter(Boolean).join(' · ')}</small></span>
+              </button>
+            {/each}
+            {#if !gRows.length}<p class="note">Nothing open on Google Maps for that within a 15-minute walk.</p>{/if}
+          {:else}
+            <button type="button" class="ask" onclick={askGoogle} disabled={gBusy}>{@html icon('globe')}<span>{gBusy ? 'Asking Google Maps…' : `What's open now near you: ask Google Maps`}</span></button>
+          {/if}
+          {#if gErr}<p class="note" role="status">{gErr}</p>{/if}
+        {/if}
       </div>
     {:else}
       <p class="hint">Search every stop of the trip, or what's around day {dayN}: <b>ramen</b>, <b>konbini</b>, <b>izakaya open now</b>.</p>
@@ -159,6 +204,10 @@
   .badge :global(svg) { width: 15px; height: 15px; }
   .nm { display: grid; gap: 1px; min-width: 0; font-weight: 600; font-size: 0.94rem; }
   .nm small { color: var(--washi-3); font-weight: 400; font-size: 0.78rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .ask { display: flex; align-items: center; gap: 10px; width: 100%; margin-top: 6px; padding: 11px 12px; border: 1px dashed oklch(83% 0.145 76 / 0.45); border-radius: var(--r-m); background: none; color: var(--lantern); font: 600 0.88rem var(--f-body); text-align: left; cursor: pointer; }
+  .ask:disabled { opacity: 0.7; cursor: progress; }
+  .ask :global(svg) { width: 16px; height: 16px; flex: none; }
+  .badge.g { background: oklch(79% 0.13 155 / 0.16); color: var(--ok); }
   .note { padding: 8px 10px 6px; color: var(--washi-3); font-size: 0.8rem; }
   .empty, .hint { padding: 16px; color: var(--washi-2); font-size: 0.88rem; line-height: 1.5; }
   .hint b { color: var(--lantern); font-weight: 600; }

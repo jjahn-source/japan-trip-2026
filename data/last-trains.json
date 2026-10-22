@@ -84,12 +84,12 @@
   },
   "skipped": {
     "5": "Villa private onsen and piano night is a walk from Hot Spring Hakone Villa",
-    "6": "no station within 1.5 km of Snack Takachan & Maron (スナック たかちゃん&まろん): a taxi night",
+    "6": "the last bus from Sengoku (仙石) leaves 20:07 (Hakone Tozan Bus, to 東京放送入口 by 20:12), before Snack Takachan & Maron (スナック たかちゃん&まろん) ends at 23:00: a taxi night",
     "10": "KFC (Kujō) – Christmas Party Barrel pickup is a walk from Kujō House",
     "12": "Karaokekan Kabukicho Honten (カラオケ館 歌舞伎町本店) is a walk from Garfield House",
     "13": "Shinjuku Golden Gai (新宿ゴールデン街) is a walk from Garfield House",
     "15": "no night in a bed (travel day)"
   },
-  "generated": "2026-10-21T04:46:30.323Z",
+  "generated": "2026-10-22T19:22:27.107Z",
   "source": "Yahoo!乗換案内 last-train (終電) search, transit.yahoo.co.jp"
 }

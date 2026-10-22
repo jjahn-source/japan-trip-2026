@@ -31,6 +31,7 @@
     "streetview": "astro build && node scripts/streetview.mjs && astro build",
     "place-photos": "astro build && node scripts/place-photos.mjs && astro build",
     "google": "astro build && node scripts/google-places.mjs && astro build",
+    "taxis": "astro build && node scripts/taxis.mjs && astro build",
     "perf": "node scripts/perf.mjs",
     "sweep": "node scripts/sweep.mjs",
     "frames": "node scripts/frames.mjs",

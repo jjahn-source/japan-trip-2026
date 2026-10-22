@@ -165,11 +165,11 @@
       "stop_names": []
     },
     {
-      "due": "2026-12-10",
-      "text": "Phone Aihara Meat Shop (Sengokuhara) to reserve wagyu for the cook-off, pick up Sat 19 Dec before 17:00",
-      "detail": "Open Sat 09:00–17:00, closed Wednesdays. Also buy the villa drinks at A-Coop.",
+      "due": "2026-11-28",
+      "text": "Book Albergo Bamboo's upstairs private room for 8: dinner Sat 19 Dec, 17:45",
+      "detail": "Phone 0460-84-3311 or use the booking form on bamboo.co.jp/albergo; ask for the 2F private room (8名・個室) and the dinner course price. Fallback: Dining Yamaboushi in Sengokuhara (0460-83-8366), which takes banquets for 8. A-Coop is still the villa drinks run (closes 18:00).",
       "stop_names": [
-        "Aihara Meat Shop"
+        "Albergo Bamboo"
       ]
     },
     {
@@ -332,7 +332,7 @@
     },
     {
       "wish_id": "w3",
-      "how": "Kyoto nightlife on Dec 22 (Pontochō duck hot-pot, Gion lanterns, Kiyamachi bars) and Hakone nights (snack-bar karaoke, villa cook-off)."
+      "how": "Kyoto nightlife on Dec 22 (Pontochō duck hot-pot, Gion lanterns, Kiyamachi bars) and Hakone nights (snack-bar karaoke, dinner in the castle-style villa Albergo Bamboo)."
     },
     {
       "wish_id": "w4",
@@ -392,7 +392,7 @@
     },
     {
       "wish_id": "w18",
-      "how": "Yunessun's wine, sake and coffee baths on Sun Dec 20 (the sake-pouring show only starts Dec 26); the villa wagyu cook-off on Dec 19 with Aihara Meat Shop wagyu."
+      "how": "Yunessun's wine, sake and coffee baths on Sun Dec 20 (the sake-pouring show only starts Dec 26). The Hakone night (Sat Dec 19) is dinner in Albergo Bamboo's private room instead of a villa cook-off (the group's call), then the villa's own onsen."
     },
     {
       "wish_id": "w19",

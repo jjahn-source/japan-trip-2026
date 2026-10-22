@@ -5,7 +5,7 @@ import { resolve } from 'node:path';
 import { trip } from '../lib/trip';
 import { trending } from '../lib/client';
 import { hoursClash, type GoogleHours } from '../lib/google-hours';
-import type { AppData, AppDay, AppGoogle, AppLastTrain, AppLeg, AppMedia, AppStop } from './types';
+import type { AppData, AppDay, AppGoogle, AppLastTrain, AppLeg, AppMedia, AppStop, AppSwap } from './types';
 import { splitJa } from './types';
 
 const read = <T>(p: string, fallback: T): T => { const f = resolve(process.cwd(), p); return existsSync(f) ? (JSON.parse(readFileSync(f, 'utf8')) as T) : fallback; };
@@ -27,7 +27,9 @@ const withPlacePhoto = (media: AppMedia[], lat: number | null, lng: number | nul
   return p ? [p, ...media] : media;
 };
 // Google Maps' facts on each place (scripts/google-places.mjs), keyed by the pin; hidden or unmatched pins have no id.
-const GOOGLE = read<Record<string, (GoogleHours & { id?: string; maps?: string | null; rating?: number | null; ratings?: number | null; status?: string | null; pay?: AppGoogle['pay']; groups?: boolean | null; book?: boolean | null; summary?: AppGoogle['summary']; noHours?: string; fetched?: string })>>('data/google-places.json', {});
+const GOOGLE = read<Record<string, (GoogleHours & { id?: string; maps?: string | null; rating?: number | null; ratings?: number | null; status?: string | null; pay?: AppGoogle['pay']; groups?: boolean | null; book?: boolean | null; summary?: AppGoogle['summary']; noHours?: string; fetched?: string; door?: AppGoogle['door']; swaps?: (Omit<AppSwap, 'walk'> & { m: number; weekly: GoogleHours['weekly'] })[] | null })>>('data/google-places.json', {});
+/** Minutes on foot for `m` metres as the crow flies (streets wind: ×1.3, at 80 m a minute). */
+const walkMin = (m: number) => Math.max(1, Math.round((m * 1.3) / 80));
 const googleOf = (lat: number | null, lng: number | null, startISO: string, endISO: string): AppGoogle | null => {
   const v = lat != null && lng != null ? GOOGLE[`${lat.toFixed(5)},${lng.toFixed(5)}`] : undefined;
   if (!v?.id) return null;
@@ -36,8 +38,14 @@ const googleOf = (lat: number | null, lng: number | null, startISO: string, endI
     pay: v.pay ?? null, groups: v.groups ?? null, book: v.book ?? null,
     closed: v.status === 'CLOSED_PERMANENTLY' ? 'for good' : v.status === 'CLOSED_TEMPORARILY' ? 'for now' : null,
     hours: !v.noHours, clash: v.noHours ? null : hoursClash(v, startISO, endISO), checked: v.fetched ?? '',
+    door: v.door ?? null,
+    // Open for the whole visit by Google's weekly hours (or hours unknown), three at most.
+    swaps: (v.swaps ?? []).filter((x) => !hoursClash({ weekly: x.weekly, dated: null }, startISO, endISO)).slice(0, 3)
+      .map(({ m, weekly: _, ...x }) => ({ ...x, walk: walkMin(m) })),
   };
 };
+// The taxi home if the last train is missed (scripts/taxis.mjs), by day number.
+const TAXIS = read<Record<string, AppDay['taxi']>>('data/taxis.json', {});
 const withCopies = (m: AppMedia): AppMedia => (m.kind === 'image' && THUMBS[m.url] ? { ...m, small: THUMBS[m.url].s, large: THUMBS[m.url].l } : m);
 /** Pictures of the place only: not a map or diagram (SVG), and not a Facebook link (it expires). */
 const isPhoto = (url: string) => !/\.svg(\?|$)|\/Map_|fbcdn\.net/i.test(url);
@@ -89,9 +97,10 @@ export function appData(): AppData {
       stops, legs, picks,
       lastTrain: (() => {
         const x = lastTrains.days?.[String(d.n)];
-        return x && stops.some((s) => s.id === x.origin) ? { leave: x.leave, dep: x.dep, arr: x.arr, from: x.from, line: x.line, url: x.url } : null;
+        return x && stops.some((s) => s.id === x.origin) ? { leave: x.leave, dep: x.dep, arr: x.arr, from: x.from, line: x.line, url: x.url, ...(x.bus ? { bus: true } : {}) } : null;
       })(),
       lastTrainWhy: lastTrains.skipped?.[String(d.n)] ?? null,
+      taxi: TAXIS[String(d.n)] ?? null,
       home: (() => {
         // The night's ride home: from where the plan has the group at 23:30 (as scripts/last-trains.mjs
         // picks it) to the bed; none when the bed is a walk away.

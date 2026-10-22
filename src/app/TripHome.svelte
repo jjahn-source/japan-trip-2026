@@ -2,7 +2,8 @@
   // The whole trip in one view: what's now (or how long until wheels-down), what to book next, every
   // day as one line, the money, and the logistics that hold the days together.
   import { icon } from '../lib/icons';
-  import { app, go, now, openSheet, ticks, todayN } from './state.svelte';
+  import { app, BASE, go, now, openSheet, ticks, todayN } from './state.svelte';
+  import { live } from './live.svelte';
   import { budgetOf } from './types';
   import PhoneAlerts from './PhoneAlerts.svelte';
 
@@ -22,6 +23,9 @@
   const until = (iso: string) => { const m = Math.round((Date.parse(iso) - t) / 60000); return m < 60 ? `in ${m} min` : m < 1440 ? `in ${Math.floor(m / 60)} h ${m % 60} min` : `in ${Math.round(m / 1440)} days`; };
   let allLog = $state(false);
   const openStop = (n: number, id: string) => { go({ kind: 'day', n }); openSheet(id); };
+  // The trip in Google Calendar: a feed with the group's changes on it (the live layer), so subscribing
+  // once keeps every phone's calendar current. Built from this page's own address, in the browser.
+  const feed = $derived(live.on && typeof location !== 'undefined' ? `${location.host}${BASE}/api/calendar.ics` : null);
 </script>
 
 <section class="home" aria-labelledby="home-title">
@@ -81,6 +85,17 @@
     </section>
   </div>
 
+  <section class="panel" aria-labelledby="take-h">
+    <h2 id="take-h">Take it into Google</h2>
+    <ul class="take">
+      {#if feed}
+        <li><a href={`https://calendar.google.com/calendar/render?cid=${encodeURIComponent(`webcal://${feed}`)}`} target="_blank" rel="noopener">{@html icon('clock')}<span><b>Add to Google Calendar</b><small>Every stop as an event; moves and cancellations follow within a few hours.</small></span></a></li>
+        <li><a href={`webcal://${feed}`}>{@html icon('clock')}<span><b>Apple or another calendar</b><small>The same feed, subscribed on this phone.</small></span></a></li>
+      {/if}
+      <li><a href={`${BASE}/trip.kml`} download="japan-trip.kml">{@html icon('map')}<span><b>All stops in Google Maps</b><small>Download, import at mymaps.google.com, then it's in the Google Maps app under Saved → Maps.</small></span></a></li>
+    </ul>
+  </section>
+
   {#if data.logistics.length}
     <section class="panel" aria-labelledby="log-h">
       <h2 id="log-h">How the trip works</h2>
@@ -119,6 +134,12 @@
   .todaylink { display: inline-flex; align-items: center; gap: 6px; font-weight: 700; text-decoration: none; }
   .todaylink :global(svg) { width: 16px; height: 16px; }
   .panel { border-radius: var(--r-m); background: var(--night-2); padding: 14px 16px; display: grid; gap: 10px; border-top: 1px solid oklch(83% 0.145 76 / 0.3); }
+  .take { list-style: none; padding: 0; display: grid; gap: 6px; }
+  .take a { display: flex; gap: 12px; align-items: flex-start; padding: 10px 12px; border-radius: var(--r-m); background: var(--night-3); color: var(--washi); text-decoration: none; }
+  .take a > :global(svg) { flex: none; width: 18px; height: 18px; margin-top: 2px; color: var(--lantern); }
+  .take span { display: grid; gap: 2px; }
+  .take b { font-weight: 700; font-size: 0.92rem; }
+  .take small { color: var(--washi-3); font-size: 0.78rem; line-height: 1.4; }
   .ph { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; }
   h2 { font-size: 1rem; font-weight: 700; }
   .ph a { display: inline-flex; align-items: center; gap: 4px; font-size: 0.82rem; font-weight: 600; text-decoration: none; }

@@ -37,7 +37,7 @@ fallback beside it so a sold-out ticket does not wreck the day.
 - A B.LEAGUE basketball game, Tokyo Sunrockers at Toyota Arena Tokyo (Plan C had Sun 27 Dec).
 - A yakatabune dinner cruise with unlimited drinks on Sat 26 Dec, the night of the Odaiba fireworks.
 - Hiroshima and Miyajima (floating torii, grilled oysters, okonomiyaki) if a day can be spared; otherwise Kyoto and Nara carry the Kansai days.
-- Yunessun wine, sake and coffee baths in Hakone, and a villa wagyu cook-off on the Hakone night.
+- Yunessun wine, sake and coffee baths in Hakone, and a special group dinner out on the Hakone night (no cooking at the villa).
 - A KFC Christmas party barrel on Christmas Eve.
 - Fugu in Osaka.
 - Morning sumo practice at a stable (Plan C: Arashio-beya in Ryōgoku) and a private omakase counter.
