@@ -82,7 +82,7 @@ ul, ol { margin: 0; }
   border: 1px solid oklch(83% 0.145 76 / 0.55); background: oklch(19% 0.05 276 / 0.88); color: var(--lantern);
   box-shadow: 0 0 22px -4px oklch(83% 0.145 76 / 0.55); transition: translate var(--t-fast) var(--ease), box-shadow var(--t-fast);
 }
-@media (hover: hover) { .mk-place:hover { translate: 0 -2px; box-shadow: 0 0 28px -2px oklch(83% 0.145 76 / 0.7); } }
+@media (hover: hover) { .mk-place:hover { box-shadow: 0 0 28px -2px oklch(83% 0.145 76 / 0.7); } }
 .mk-city { font-weight: 700; font-size: 0.82rem; line-height: 1.1; color: var(--washi); }
 .mk-days { font-size: 0.66rem; font-weight: 700; color: var(--washi-2); }
 .mk-place.is-today { border-color: var(--noren); box-shadow: 0 0 0 3px var(--noren-wash), 0 0 24px -4px var(--noren); }
