@@ -35,7 +35,6 @@
     "perf": "node scripts/perf.mjs",
     "sweep": "node scripts/sweep.mjs",
     "frames": "node scripts/frames.mjs",
-    "map-theme": "node scripts/map-theme.mjs",
     "last-trains": "astro build && node scripts/last-trains.mjs && astro build",
     "live:setup": "node scripts/live-setup.mjs",
     "live:dev": "astro build && wrangler d1 migrations apply japan-plan-c --local && wrangler dev",
