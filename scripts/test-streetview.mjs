@@ -60,3 +60,22 @@ test('keys and links', () => {
   assert.equal(u.searchParams.get('pano'), 'ab-c_1');
   assert.equal(u.searchParams.get('heading'), '125');
 });
+
+test('romanised names fold together; one distinctive word is enough right at the pin', async () => {
+  const { fold, sharesWord } = await import('./streetview.mjs');
+  assert.equal(fold('Nakatanidō'), fold('Nakatanidou'));
+  assert.equal(fold('Tsūtenkaku'), 'tsutenkaku');
+  assert.ok(sharesWord('Tsūtenkaku & Shinsekai neon walk', 'Tsutenkaku'));
+  assert.ok(sharesWord('ROUND1 Stadium DiverCity', 'Round 1 Stadium'));
+  assert.ok(!sharesWord('Kinryu Ramen Dotonbori', 'Ichiran Ramen'));
+});
+
+test('the Google Maps photo: the first wide one of the place\'s own top pictures, else the first', async () => {
+  const { pickPhoto } = await import('./place-photos.mjs');
+  const tall = { name: 'a', widthPx: 900, heightPx: 1200 }, wide = { name: 'b', widthPx: 1600, heightPx: 900 };
+  assert.equal(pickPhoto([tall, wide]), wide);
+  assert.equal(pickPhoto([tall]), tall);
+  assert.equal(pickPhoto([]), null);
+  assert.equal(pickPhoto(undefined), null);
+  assert.equal(pickPhoto([tall, tall, tall, tall, tall, tall, wide]), tall);
+});

@@ -69,15 +69,27 @@ export function nearest(panos, lat, lng) {
 
 /** Google Places' location for a stop, when Places finds the same place (its own name words) near the
  *  pin; stays are private homes Places doesn't know, so they keep the pin. */
-async function placeOf(s, city, S) {
+export async function placeOf(s, city, S) {
   if (s.cat === 'stay' || !S.has.places()) return null;
   const name = s.name.replace(/\s*\([^)]*\)\s*/g, ' ').trim();
   for (const q of [s.ja, name].filter(Boolean)) {
     const g = await S.placesLookup(`${q} ${city}`, { lat: s.lat, lng: s.lng });
-    if (g && (S.nameMatch(name, g.name) || (s.ja && S.nameMatch(s.ja, g.name))) && metres([s.lat, s.lng], [g.lat, g.lng]) < PLACE_M) return g;
+    if (!g) continue;
+    const d = metres([s.lat, s.lng], [g.lat, g.lng]);
+    if (d < PLACE_M && (S.nameMatch(fold(name), fold(g.name)) || (s.ja && S.nameMatch(s.ja, g.name)) || (d < NEAR_M && sharesWord(name, g.name)))) return g;
   }
   return null;
 }
+/** Romanised names spelled the same: "Nakatanidō" and "Nakatanidou", "Gyōza Rō" and "Gyozarou". */
+export const fold = (x) => x.normalize('NFD').replace(/\p{M}/gu, '').toLowerCase().replace(/ou/g, 'o').replace(/uu/g, 'u').replace(/oo/g, 'o');
+const COMMON = new Set(['ramen', 'sushi', 'izakaya', 'restaurant', 'market', 'street', 'store', 'station', 'shrine', 'temple', 'park', 'tokyo', 'osaka', 'kyoto', 'hakone', 'harajuku', 'shibuya', 'shinjuku', 'night', 'walk', 'crawl', 'christmas', 'illumination']);
+/** Right at the pin, one distinctive name word is enough: "Tsūtenkaku & Shinsekai neon walk" is Tsutenkaku. */
+export function sharesWord(want, got) {
+  const g = fold(got).replace(/[^a-z0-9]/g, '');
+  return fold(want).split(/[^a-z0-9]+/).some((w) => w.length >= 4 && !COMMON.has(w) && g.includes(w));
+}
+/** Within this of the pin, sharing one distinctive word counts as the same place. */
+const NEAR_M = 100;
 /** A Places hit farther than this from the pin is some other branch, not this stop. */
 const PLACE_M = 400;
 

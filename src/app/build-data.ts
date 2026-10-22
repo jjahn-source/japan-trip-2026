@@ -15,7 +15,17 @@ const streetOf = (lat: number | null, lng: number | null): AppStop['street'] => 
   const v = lat != null && lng != null ? STREET[`${lat.toFixed(5)},${lng.toFixed(5)}`] : undefined;
   return v?.src && v.url ? { src: v.src, date: v.date ?? null, url: v.url } : null;
 };
-const withCopies =(m: AppMedia): AppMedia => (m.kind === 'image' && THUMBS[m.url] ? { ...m, small: THUMBS[m.url].s, large: THUMBS[m.url].l } : m);
+// A Google Maps photo for a stop the plan has none for (scripts/place-photos.mjs), keyed by the pin like STREET.
+const PLACE_PHOTOS = read<Record<string, { s?: string; l?: string; credit?: string | null }>>('data/place-photos.json', {});
+const placePhoto = (lat: number | null, lng: number | null): AppMedia | null => {
+  const v = lat != null && lng != null ? PLACE_PHOTOS[`${lat.toFixed(5)},${lng.toFixed(5)}`] : undefined;
+  return v?.s && v.l ? { kind: 'image', url: v.l, small: v.s, large: v.l, credit: v.credit ? `${v.credit} · Google Maps` : 'Google Maps' } : null;
+};
+const withPlacePhoto = (media: AppMedia[], lat: number | null, lng: number | null) => {
+  const p = media.some((m) => m.kind === 'image') ? null : placePhoto(lat, lng);
+  return p ? [p, ...media] : media;
+};
+const withCopies = (m: AppMedia): AppMedia => (m.kind === 'image' && THUMBS[m.url] ? { ...m, small: THUMBS[m.url].s, large: THUMBS[m.url].l } : m);
 /** Pictures of the place only: not a map or diagram (SVG), and not a Facebook link (it expires). */
 const isPhoto = (url: string) => !/\.svg(\?|$)|\/Map_|fbcdn\.net/i.test(url);
 
@@ -45,7 +55,7 @@ export function appData(): AppData {
         id: s.id, i: i + 1, start: s.start, end: s.end, startISO: s.startISO, endISO: s.endISO, name, ja, cat: s.category, catLabel: s.categoryLabel, price: s.price,
         hook: s.summary ?? null, plan: s.plan, lat: s.lat, lng: s.lng, address: s.address, website: s.website, phone: s.phone, map: s.map,
         mark: s.mark, todoId: s.todoId, transport: s.transport ?? null,
-        guide: g ? { story: g.story, how: g.how, tips: g.tips, cost: g.cost, booking: g.booking, hours: g.hours, facts: g.facts ?? [], sources: g.sources, media: (g.media as AppMedia[]).filter((m) => m.kind !== 'image' || isPhoto(m.url)).map(withCopies), wishes: g.wishes } : null,
+        guide: g ? { story: g.story, how: g.how, tips: g.tips, cost: g.cost, booking: g.booking, hours: g.hours, facts: g.facts ?? [], sources: g.sources, media: withPlacePhoto((g.media as AppMedia[]).filter((m) => m.kind !== 'image' || isPhoto(m.url)).map(withCopies), s.lat, s.lng), wishes: g.wishes } : null,
         details: s.details, extra: s.extra, confirmation: stay?.confirmation ?? null, street: streetOf(s.lat, s.lng),
       };
     });
