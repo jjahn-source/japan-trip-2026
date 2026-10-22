@@ -198,14 +198,14 @@
           {/if}
           {#if aErr}<p class="note" role="status">{aErr}</p>{/if}
           {#if gRows}
-            <p class="grp">Open now on Google Maps · {gFor}</p>
+            {#if gRows.length || !gemini}<p class="grp">Open now on Google Maps · {gFor}</p>{/if}
             {#each gRows as g (g.id)}
               <button type="button" class="res" onclick={() => pickGoogle(g)}>
                 <span class="badge g">{@html icon('clock')}</span>
                 <span class="nm">{g.name}<small>{[g.kind, g.rating ? `${g.rating.toFixed(1)}★ ${(g.ratings ?? 0).toLocaleString('en-US')}` : null, `${g.walk} min walk`, g.closes ? `until ${g.closes}` : null, g.cash ? 'cash only' : null, g.book ? 'takes bookings' : null].filter(Boolean).join(' · ')}</small></span>
               </button>
             {/each}
-            {#if !gRows.length}<p class="note">Nothing open on Google Maps for that within a 15-minute walk.</p>{/if}
+            {#if !gRows.length && !gemini}<p class="note">Nothing open on Google Maps for that within a 15-minute walk.</p>{/if}
           {:else}
             <button type="button" class="ask" onclick={searchLive} disabled={gBusy}>{@html icon('globe')}<span>{gBusy ? 'Searching Google Maps…' : `Search live near you: “${q.trim()}”`}</span></button>
           {/if}
