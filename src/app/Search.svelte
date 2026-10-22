@@ -98,9 +98,16 @@
   /** The phone's position when it's in Japan; otherwise the stop picked on the map, or the day's first. */
   const where = () => new Promise<{ lat: number; lng: number; from: string } | null>((done) => {
     const sel = dayStops.find((x) => x.id === app.selected) ?? dayStops[0];
-    const fallback = () => done(sel ? { lat: sel.lat!, lng: sel.lng!, from: `near ${sel.name}` } : null);
+    let settled = false;
+    const fallback = () => { if (!settled) { settled = true; done(sel ? { lat: sel.lat!, lng: sel.lng!, from: `near ${sel.name}` } : null); } };
     if (!navigator.geolocation) return fallback();
-    navigator.geolocation.getCurrentPosition((p) => (inJapan(p.coords.latitude, p.coords.longitude) ? done({ lat: p.coords.latitude, lng: p.coords.longitude, from: 'near you' }) : fallback()), fallback, { timeout: 6000, maximumAge: 120e3 });
+    // A location prompt nobody answers never calls back: after 8 s, search around the stop instead.
+    setTimeout(fallback, 8000);
+    navigator.geolocation.getCurrentPosition((p) => {
+      if (settled) return;
+      if (!inJapan(p.coords.latitude, p.coords.longitude)) return fallback();
+      settled = true; done({ lat: p.coords.latitude, lng: p.coords.longitude, from: 'near you' });
+    }, fallback, { timeout: 6000, maximumAge: 120e3 });
   });
   async function askGoogle() {
     gBusy = true; gErr = '';
@@ -174,7 +181,7 @@
           </button>
         {/each}
         {#if total && !places.length && cats.length}<p class="note">No {cats.map(({ c }) => c.label.toLowerCase()).join(' or ')} within 3 km of day {dayN}'s stops{wantsOpen ? ' open now' : ''}.</p>{/if}
-        {#if !total}<p class="empty">Nothing matches “{q}” in the trip or near day {dayN}. Try a kind of place, like ramen, karaoke or konbini.</p>{/if}
+        {#if !total && q.trim().split(/\s+/).length < 4}<p class="empty">Nothing matches “{q}” in the trip or near day {dayN}. Try a kind of place, like ramen, karaoke or konbini.</p>{/if}
         {#if live.on}
           {#if gRows}
             <p class="grp">Open now on Google Maps · {gFor}</p>
